@@ -28,7 +28,7 @@
 
 ## TODO:
 
-- [ ] Переписать на язык разметки Markdown/reStructuredText
+- [ ] Переписать на язык разметки reStructuredText (https://github.com/ventureoo/ARU/tree/rewrite-rst)
 - [ ] Перенести проект на использование Sphinx
 
 ## Благодарности
