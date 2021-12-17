@@ -51,4 +51,6 @@
 
  rw,relatime,ssd,ssd_spread,space_cache=v2,max_inline=256,commit=600,nodatacow
 
-Прописывать их нужно в файл :bash:`/etc/fstab`, некоторые из данных флагов будут применяться только для новых файлов.
+Прописывать их нужно в файл :bash:`/etc/fstab` для корневого и домашнего разделов. Некоторые из данных флагов будут применяться только для новых файлов.
+
+.. attention:: При использовании Btrfs для корневого раздела, обязательно установите пакет `btrfs-progs <https://archlinux.org/packages/core/x86_64/btrfs-progs/>`_.
