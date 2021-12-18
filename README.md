@@ -8,21 +8,21 @@
 
 ## Содержание
 
-- [Предисловие](https://raw.githubusercontent.com/ventureoo/ARU/main/sphinx/source/preface.rst)
-- [Первые шаги](https://raw.githubusercontent.com/ventureoo/ARU/main/sphinx/source/first-steps.rst)
-- [Базовое ускорение системы](https://raw.githubusercontent.com/ventureoo/ARU/main/sphinx/source/generic-system-acceleration.rst)
-- [Экстра оптимизации](https://raw.githubusercontent.com/ventureoo/ARU/main/sphinx/source/extra-optimizations.rst)
-- [Обновление параметров ядра](https://raw.githubusercontent.com/ventureoo/ARU/main/sphinx/source/kernel-parameters.rst)
+- [Предисловие](https://github.com/ventureoo/ARU/blob/main/sphinx/source/preface.rst)
+- [Первые шаги](https://github.com/ventureoo/ARU/blob/main/sphinx/source/first-steps.rst)
+- [Базовое ускорение системы](https://github.com/ventureoo/ARU/blob/main/sphinx/source/generic-system-acceleration.rst)
+- [Экстра оптимизации](https://github.com/ventureoo/ARU/blob/main/sphinx/source/extra-optimizations.rst)
+- [Обновление параметров ядра](https://github.com/ventureoo/ARU/blob/main/sphinx/source/kernel-parameters.rst)
 - [Оптимизация файловой системы](https://github.com/ventureoo/ARU/blob/main/sphinx/source/file-systems.rst)
-- [Кастомные ядра для увелечения плавности](https://raw.githubusercontent.com/ventureoo/ARU/main/sphinx/source/custom-kernels.rst)
-- [Linux Gaming](https://raw.githubusercontent.com/ventureoo/ARU/main/sphinx/source/linux-gaming.rst)
-- [Мониторинг FPS в играх](https://raw.githubusercontent.com/ventureoo/ARU/main/sphinx/source/monitoring-fps.rst)
-- [Сборка мини-ядра](https://raw.githubusercontent.com/ventureoo/ARU/main/sphinx/source/mini-kernel.rst)
-- [Оптимизация рабочего окружения (GNOME/Plasma/Xfce/Cinnamon)](https://raw.githubusercontent.com/ventureoo/ARU/main/sphinx/source/de-optimizations.rst)
+- [Кастомные ядра для увелечения плавности](https://github.com/ventureoo/ARU/blob/main/sphinx/source/custom-kernels.rst)
+- [Linux Gaming](https://github.com/ventureoo/ARU/blob/main/sphinx/source/linux-gaming.rst)
+- [Мониторинг FPS в играх](https://github.com/ventureoo/ARU/blob/main/sphinx/source/monitoring-fps.rst)
+- [Сборка мини-ядра](https://github.com/ventureoo/ARU/blob/main/sphinx/source/mini-kernel.rst)
+- [Оптимизация рабочего окружения (GNOME/Plasma/Xfce/Cinnamon)](https://github.com/ventureoo/ARU/blob/main/sphinx/source/de-optimizations.rst)
 
 ## TODO:
 
-- [ ] Переписать на язык разметки reStructuredText (WIP: https://github.com/ventureoo/ARU/pull/1)
+- [x] ~~Переписать на язык разметки reStructuredText~~ (https://github.com/ventureoo/ARU/pull/1)
 - [ ] Перенести проект на использование Sphinx
 
 ## Благодарности
