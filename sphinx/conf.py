@@ -18,7 +18,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'ARU'
-copyright = '2021, Pavel Priluckiy, Vasiliy Stelmachenok and contributors'
+copyright = 'ARU 2018 - 2021, Pavel Priluckiy, Vasiliy Stelmachenok and contributors'
 author = 'Pavel Priluckiy, Vasiliy Stelmachenok and contributors'
 
 # The full version, including alpha/beta/rc tags
@@ -31,7 +31,15 @@ release = '2021.12.18'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+'sphinx.ext.githubpages'
 ]
+
+master_doc = 'index'
+
+root_doc = master_doc
+
+source_suffix = { '.rst': 'restructuredtext' }
+
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -56,7 +64,67 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 #
 html_theme = 'alabaster'
 
+html_title = 'Руководство по оптимизации Arch Linux'
+
+html_theme_options = {
+    'github_user': 'ventureoo',
+    'github_repo': 'ARU',
+    'donate_url': 'https://www.donationalerts.com/r/pavel_priluckiy',
+    'github_banner': True,
+    'show_powered_by': False,
+}
+
+# Misc
+html_copy_source = False
+html_show_sourcelink = False
+html_show_sphinx = False
+
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+
+
+# -- Options for manual page output ---------------------------------------
+
+# One entry per manual page. List of tuples
+# (source start file, name, description, authors, manual section).
+man_pages = [
+    (root_doc, 'ARU', 'Arch Linux Optimization Guide (RU)',
+     [author], 1)
+]
+
+# If true, show URL addresses after external links.
+#
+# man_show_urls = False
+
+# -- Options for Texinfo output -------------------------------------------
+
+# Grouping the document tree into Texinfo files. List of tuples
+# (source start file, target name, title, author,
+#  dir menu entry, description, category)
+texinfo_documents = [
+    (root_doc, 'ARU', 'Arch Linux Optimization Guide (RU)',
+     author, 'ARU', 'Arch Linux Optimization Guide (RU)',
+     'Guideline'),
+]
+
+# Documents to append as an appendix to all manuals.
+#
+# texinfo_appendices = []
+
+# If false, no module index is generated.
+#
+# texinfo_domain_indices = True
+
+# How to display URL addresses: 'footnote', 'no', or 'inline'.
+#
+# texinfo_show_urls = 'footnote'
+
+# If true, do not generate a @detailmenu in the "Top" node's menu.
+#
+# texinfo_no_detailmenu = False
+
+# If false, do not generate in manual @ref nodes.
+#
+# texinfo_cross_references = False

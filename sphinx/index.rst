@@ -22,11 +22,3 @@ ARU
    source/mini-kernel.rst
    source/de-optimizations.rst
 
-
-
-Контент
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
