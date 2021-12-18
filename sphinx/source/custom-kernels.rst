@@ -63,7 +63,7 @@ liquorix
 .. code:: bash
 
   git clone https://aur.archlinux.org/linux-lqx.git                 # Скачивание исходников.
-  cd linux-lqx                                                      # Переход в linux-lqx 
+  cd linux-lqx                                                      # Переход в linux-lqx
   gpg --keyserver keyserver.ubuntu.com --recv-keys 38DBBDC86092693E # GPG ключ
   makepkg -sric                                                     # Сборка и установка.
 
@@ -104,7 +104,7 @@ liquorix
 
 5.
 
-.. image:: https://sun9-38.userapi.com/ZaSvn1FWAh34yQcuIc3H2u56IudkSQWR1_n7Bw/Cekim6B4xX0.jpg 
+.. image:: https://sun9-38.userapi.com/ZaSvn1FWAh34yQcuIc3H2u56IudkSQWR1_n7Bw/Cekim6B4xX0.jpg
 
 6.
 
