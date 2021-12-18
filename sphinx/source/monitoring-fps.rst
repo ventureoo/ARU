@@ -1,14 +1,17 @@
-~~~~~~~~~~~~~~~~~~~~~~~~
+""""""""""""""""""""""""
 Мониторинг FPS в играх.
-~~~~~~~~~~~~~~~~~~~~~~~~
+""""""""""""""""""""""""
+
+.. contents:: Содержание:
+  :depth: 2
 
 .. role:: bash(code)
-   :language: bash
+  :language: bash
 
 Включения мониторинга в играх, как в MSI Afterburner.
 
 .. image:: https://raw.githubusercontent.com/ventureoo/ARU/main/archive/ARU/images/image9.png
-   :align: center
+  :align: center
 
 **Установка**
 
