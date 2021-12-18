@@ -22,7 +22,7 @@
 
 ## TODO:
 
-- [x] ~~Переписать на язык разметки reStructuredText~~ (https://github.com/ventureoo/ARU/pull/1)
+- [ ] Переписать на язык разметки reStructuredText (WIP: https://github.com/ventureoo/ARU/pull/1)
 - [ ] Перенести проект на использование Sphinx
 
 ## Благодарности
