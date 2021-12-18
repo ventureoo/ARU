@@ -1,2 +1,2 @@
-sphinx/_build/*
-sphinx/build/*
+docs/_build/*
+docs/build/*
