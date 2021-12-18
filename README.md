@@ -6,25 +6,19 @@
 
 Данный репозиторий является зеркалом, а ныне и основным хранилищем одноименного руководства из Google Docs.
 
-**Внимание! Проект временно заморожен, но в скором времени возобновит свое развитие.** 
+## Содержание
 
-## Содержание (не по порядку)
-
-- Установка и настройка кастомных ядер Linux (linux-lqx/linux-tkg/xanmod)
-- Установка и настройка различных сборок Wine (wine-tkg/wine-staging)
-- Использование DXVK вместе с асинхронным патчем
-- Настройка служб для повышения отклика системы (Ananicy, nohang, zramswap, haveged/rng-tools, dbus-broker, trim etc)
-- Отключение дампов ядра
-- Твики драйвера NVIDIA
-- Понижение задержек звука (PipeWire)
-- Ускорение загрузки системы
-- Разгон монитора (только NVIDIA)
-- Настройка флагов makepkg
-- Оптимизация Btrfs
-- Мини-ядро и с чем его едят
-- Отключение заплаток ядра Spectre и Meltdown
-- Отключение спящего режима и гибернации 
-- Оптимизации DE (GNOME/KDE/Xfce4/Cinnamon)
+- [Предисловие](https://raw.githubusercontent.com/ventureoo/ARU/main/sphinx/source/preface.rst)
+- [Первые шаги](https://raw.githubusercontent.com/ventureoo/ARU/main/sphinx/source/first-steps.rst)
+- [Базовое ускорение системы](https://raw.githubusercontent.com/ventureoo/ARU/main/sphinx/source/generic-system-acceleration.rst)
+- [Экстра оптимизации](https://raw.githubusercontent.com/ventureoo/ARU/main/sphinx/source/extra-optimizations.rst)
+- [Обновление параметров ядра](https://raw.githubusercontent.com/ventureoo/ARU/main/sphinx/source/kernel-parameters.rst)
+- [Оптимизация файловой системы](https://github.com/ventureoo/ARU/blob/main/sphinx/source/file-systems.rst)
+- [Кастомные ядра для увелечения плавности](https://raw.githubusercontent.com/ventureoo/ARU/main/sphinx/source/custom-kernels.rst)
+- [Linux Gaming](https://raw.githubusercontent.com/ventureoo/ARU/main/sphinx/source/linux-gaming.rst)
+- [Мониторинг FPS в играх](https://raw.githubusercontent.com/ventureoo/ARU/main/sphinx/source/monitoring-fps.rst)
+- [Сборка мини-ядра](https://raw.githubusercontent.com/ventureoo/ARU/main/sphinx/source/mini-kernel.rst)
+- [Оптимизация рабочего окружения (GNOME/Plasma/Xfce/Cinnamon)](https://raw.githubusercontent.com/ventureoo/ARU/main/sphinx/source/de-optimizations.rst)
 
 ## TODO:
 
