@@ -294,6 +294,7 @@ https://mirror.cachyos.org/?search=wine
 **Почитать, что это такое**
 
 https://www.newalive.net/234-sborki-dxvk-i-d9vk.html
+
 https://www.newalive.net/231-wine-tk-glitch.html
 
 ===============================
