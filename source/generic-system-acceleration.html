@@ -66,10 +66,10 @@
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">CFLAGS</span><span class="o">=</span><span class="s2">&quot;-march=native -mtune=native -O3 -pipe -fno-plt -fexceptions \</span>
 <span class="s2">      -Wp,-D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security \</span>
 <span class="s2">      -fstack-clash-protection -fcf-protection&quot;</span>
-<span class="nv">CXXFLAGS</span><span class="o">=</span>”<span class="nv">$CFLAGS</span> -Wp,-D_GLIBCXX_ASSERTIONS<span class="s2">&quot;</span>
-<span class="s2">RUSTFLAGS=&quot;</span>-C opt-level<span class="o">=</span><span class="m">3</span><span class="s2">&quot;</span>
-<span class="s2">MAKEFLAGS=&quot;</span>-j<span class="k">$(</span>nproc<span class="k">)</span> -l<span class="k">$(</span>nproc<span class="k">)</span><span class="s2">&quot;</span>
-<span class="s2">OPTIONS=(strip docs !libtool !staticlibs emptydirs zipman purge !debug lto)</span>
+<span class="nv">CXXFLAGS</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$CFLAGS</span><span class="s2"> -Wp,-D_GLIBCXX_ASSERTIONS&quot;</span>
+<span class="nv">RUSTFLAGS</span><span class="o">=</span><span class="s2">&quot;-C opt-level=3&quot;</span>
+<span class="nv">MAKEFLAGS</span><span class="o">=</span><span class="s2">&quot;-j</span><span class="k">$(</span>nproc<span class="k">)</span><span class="s2"> -l</span><span class="k">$(</span>nproc<span class="k">)</span><span class="s2">&quot;</span>
+<span class="nv">OPTIONS</span><span class="o">=(</span>strip docs !libtool !staticlibs emptydirs zipman purge !debug lto<span class="o">)</span>
 </pre></div>
 </div>
 <p>Данные флаги компилятора выжимают максимум производительности при компиляции, но могут вызывать ошибки сборки в очень редких приложениях.
