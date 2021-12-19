@@ -284,8 +284,11 @@ https://www.youtube.com/watch?v=NKI3dtK7mRI (Устаревшее видео).
 **Скачать готовые сборки Wine и DXVK**
 
 https://mega.nz/folder/pNsTiQyA#2vur9shHbXvLnhdQTpd3AQ
+
 https://mega.nz/folder/IJdEgIrT#wXcbgymIDP2mesJ8kE99Qg
+
 https://github.com/Kron4ek/Wine-Builds
+
 https://mirror.cachyos.org/?search=wine
 
 **Почитать, что это такое**
