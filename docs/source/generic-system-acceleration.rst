@@ -32,10 +32,11 @@
   CFLAGS="-march=native -mtune=native -O3 -pipe -fno-plt -fexceptions \
         -Wp,-D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security \
         -fstack-clash-protection -fcf-protection"
-  CXXFLAGS=”$CFLAGS -Wp,-D_GLIBCXX_ASSERTIONS"
+  CXXFLAGS="$CFLAGS -Wp,-D_GLIBCXX_ASSERTIONS"
   RUSTFLAGS="-C opt-level=3"
   MAKEFLAGS="-j$(nproc) -l$(nproc)"
   OPTIONS=(strip docs !libtool !staticlibs emptydirs zipman purge !debug lto)
+
 
 Данные флаги компилятора выжимают максимум производительности при компиляции, но могут вызывать ошибки сборки в очень редких приложениях.
 Если такое случится, то измените O3 на O2 (Где O - **ЭТО не ноль/нуль**).
