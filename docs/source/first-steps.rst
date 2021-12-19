@@ -7,7 +7,7 @@
    work. If not, see <https://creativecommons.org/licenses/by-sa/4.0/>.
 
 """"""""""""""
-Первые шаги.
+Первые шаги
 """"""""""""""
 
 .. contents:: Содержание:
