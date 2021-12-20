@@ -14,7 +14,7 @@
   :depth: 2
 
 .. role:: bash(code)
-  :language: bash
+  :language: text
 
 ======================================================
 Нюансы выбора файловой системы и флагов монтирования
@@ -55,7 +55,7 @@
 
 Вот оптимальные параметры для SSD носителей. Описание каждого из них вы можете найти - `здесь <https://zen.yandex.ru/media/id/5d8ac4740a451800acb6049f/linux-uskoriaem-sistemu-4-5e91d777378f6957923055b9>`_.
 
-.. code:: bash
+.. code:: text
 
  rw,relatime,ssd,ssd_spread,space_cache=v2,max_inline=256,commit=600,nodatacow
 

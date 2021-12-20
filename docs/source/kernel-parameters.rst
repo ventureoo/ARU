@@ -14,7 +14,7 @@
   :depth: 2
 
 .. role:: bash(code)
-  :language: bash
+  :language: text
 
 =====================================================
 Обновление загрузчика и отключение ненужных заплаток
@@ -27,9 +27,9 @@
 
 .. image:: https://raw.githubusercontent.com/ventureoo/ARU/main/archive/ARU/images/image1.png
 
-.. code:: bash
+.. code:: text
 
-  GRUB_CMDLINE_LINUX_DEFAULT=”quiet splash noibrs tsx_async_abort=off rootfstype=btrfs selinux=0 lpj=3499912 raid=noautodetect elevator=noop mitigations=off preempt=none”
+  GRUB_CMDLINE_LINUX_DEFAULT="quiet splash noibrs tsx_async_abort=off rootfstype=btrfs selinux=0 lpj=3499912 raid=noautodetect elevator=noop mitigations=off preempt=none"
 
 Подробнее о каждом из параметров написано - `здесь <https://linuxreviews.org/HOWTO_make_Linux_run_blazing_fast_(again)_on_Intel_CPUs>`_.
 
@@ -40,13 +40,13 @@
 Разъяснения
 --------------
 
-*lpj=* - Уникальный параметр для каждой системы. Автоопределяется во время загрузки, что довольно трудоемко, поэтому лучше задать вручную.
+:bash:`lpj=` - Уникальный параметр для каждой системы. Автоопределяется во время загрузки, что довольно трудоемко, поэтому лучше задать вручную.
 Определить ваше значение для lpj можно через следующую команду: :bash:`sudo dmesg | grep "lpj="`
 
-*mitigations=off*  - Непосредственно отключает все заплатки безопасности ядра (включая Spectre и Meltdown)
+:bash:`mitigations=off` - Непосредственно отключает все заплатки безопасности ядра (включая Spectre и Meltdown)
 
-*raid=noautodetect* - Отключает проверку на RAID во время загрузки. Если вы его используете - прописывайте данный параметр.
+:bash:`raid=noautodetect` - Отключает проверку на RAID во время загрузки. Если вы его используете - прописывайте данный параметр.
 
-*rootfstype=btrfs* - Здесь указываем название ФС в которой у вас форматирован корень
+:bash:`rootfstype=btrfs` - Здесь указываем название ФС в которой у вас форматирован корень
 
-*elevator=noop* - Указывает для всех дисков планировщик ввода NONE. **Не использовать если у вас жесткий диск**.
+:bash:`elevator=noop` - Указывает для всех дисков планировщик ввода NONE. **Не использовать если у вас жесткий диск**.

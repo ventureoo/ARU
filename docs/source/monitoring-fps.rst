@@ -14,7 +14,7 @@
   :depth: 2
 
 .. role:: bash(code)
-  :language: bash
+  :language: text
 
 Включения мониторинга в играх, как в MSI Afterburner.
 
@@ -23,7 +23,7 @@
 
 **Установка**
 
-.. code:: bash
+.. code:: text
 
   cd tools                                             # Переход в заранее созданную папку в домашнем каталоге.
   git clone https://aur.archlinux.org/mangohud.git     # Скачивание исходников.
@@ -32,7 +32,7 @@
 
 Графический помощник для настройки вашего MangoHud.
 
-.. code:: bash
+.. code:: text
 
   cd tools                                         # Переход в заранее созданную папку в домашнем каталоге.
   git clone https://aur.archlinux.org/goverlay.git # Скачивание исходников.
