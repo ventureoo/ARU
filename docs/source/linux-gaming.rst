@@ -241,8 +241,8 @@ wine-tkg-userpatches
   cd ~/wine-tkg-git/wine-tkg-git
 
   nano wine-tkg-profiles/advanced-customization.cfg # Отредактируйте строчку ниже
-
-*_EXT_CONFIG_PATH=”~/wine-tkg-userpatches/wine-tkg.cfg*
+  
+*_EXT_CONFIG_PATH="~/wine-tkg-userpatches/wine-tkg.cfg"*
 
 Соберите wine-tkg по инструкции выше.
 Никакой дополнительной настройки (редактирования *customization.cfg*) при этом не требуется.
