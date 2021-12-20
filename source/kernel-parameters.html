@@ -60,7 +60,7 @@
 <div class="section" id="id5">
 <h3>Разъяснения<a class="headerlink" href="#id5" title="Ссылка на этот заголовок">¶</a></h3>
 <p><em>lpj=</em> - Уникальный параметр для каждой системы. Автоопределяется во время загрузки, что довольно трудоемко, поэтому лучше задать вручную.
-Определить ваше значение для lpj можно через следующую команду: <code class="code bash docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">dmesg</span> <span class="punctuation"><span class="pre">|</span></span> <span class="pre">grep</span> <span class="literal string single"><span class="pre">„lpj=“</span></span></code></p>
+Определить ваше значение для lpj можно через следующую команду: <code class="code bash docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">dmesg</span> <span class="punctuation"><span class="pre">|</span></span> <span class="pre">grep</span> <span class="literal string double"><span class="pre">«lpj=»</span></span></code></p>
 <p><em>mitigations=off</em>  - Непосредственно отключает все заплатки безопасности ядра (включая Spectre и Meltdown)</p>
 <p><em>raid=noautodetect</em> - Отключает проверку на RAID во время загрузки. Если вы его используете - прописывайте данный параметр.</p>
 <p><em>rootfstype=btrfs</em> - Здесь указываем название ФС в которой у вас форматирован корень</p>
