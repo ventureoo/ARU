@@ -70,6 +70,7 @@ html_theme_options = {
     'github_user': 'ventureoo',
     'github_repo': 'ARU',
     'donate_url': 'https://www.donationalerts.com/r/pavel_priluckiy',
+    'github_type': 'star',
     'github_banner': True,
     'show_powered_by': False,
 }
