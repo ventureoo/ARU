@@ -29,7 +29,7 @@
 
 .. code:: text
 
-  GRUB_CMDLINE_LINUX_DEFAULT=”quiet splash noibrs tsx_async_abort=off rootfstype=btrfs selinux=0 lpj=3499912 raid=noautodetect elevator=noop mitigations=off preempt=none”
+  GRUB_CMDLINE_LINUX_DEFAULT="quiet splash noibrs tsx_async_abort=off rootfstype=btrfs selinux=0 lpj=3499912 raid=noautodetect elevator=noop mitigations=off preempt=none"
 
 Подробнее о каждом из параметров написано - `здесь <https://linuxreviews.org/HOWTO_make_Linux_run_blazing_fast_(again)_on_Intel_CPUs>`_.
 
