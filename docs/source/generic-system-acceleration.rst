@@ -131,7 +131,7 @@
 
   sudo pacman -S jack2 pulseaudio-alsa pulseaudio-jack pavucontrol jack2-dbus realtime-privileges
 
-.. attention:: пакет realtime-privileges - лучше не устанавливать, он может вызвать небольшие задержки всей системы, но без него звук хуже.
+.. attention:: Пакет realtime-privileges `<https://archlinux.org/packages/community/any/realtime-privileges/>`_ - лучше не устанавливать, он может вызвать небольшие задержки всей системы, но без него звук хуже.
 
 ------------------------------
 Новая альтернатива PulseAudio
