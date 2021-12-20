@@ -74,7 +74,7 @@
 </div>
 <p>Данные флаги компилятора выжимают максимум производительности при компиляции, но могут вызывать ошибки сборки в очень редких приложениях.
 Если такое случится, то измените O3 на O2 (Где O - <strong>ЭТО не ноль/нуль</strong>).
-И отключите параметр ‘lto’ в строке options добавив перед ним символ восклицательного знака  ! (<em>“!lto”</em>).</p>
+И отключите параметр ‘lto’ в строке options добавив перед ним символ восклицательного знака  ! (<em>«!lto»</em>).</p>
 </div>
 <div class="section" id="id3">
 <h2><a class="toc-backref" href="#id7">Установка полезных служб и демонов</a><a class="headerlink" href="#id3" title="Ссылка на этот заголовок">¶</a></h2>
@@ -116,7 +116,8 @@ sudo <span class="nv">EDITOR</span><span class="o">=</span>nano crontab -e      
 <p>И прописываем:</p>
 <p><em>15 10 * * sun /sbin/pacman -Scc</em></p>
 <p>Таким образом наша система будет чистить свой кэш раз в неделю, в воскресенье в 15:10.</p>
-<p><strong>1.5</strong> <a class="reference external" href="https://wiki.archlinux.org/title/Haveged_(Русский)">haveged</a> - это демон, что следит на энтропией системы. Необходим для ускорения запуска системы при высоких показателях в: <em>systemd-analyze blame</em> (Больше 1 секунды).</p>
+<p><strong>1.5</strong> <a class="reference external" href="https://wiki.archlinux.org/title/Haveged_(Русский)">haveged</a> - это демон, что следит на энтропией системы.
+Необходим для ускорения запуска системы при высоких показателях в: <em>systemd-analyze blame</em> (Больше 1 секунды).</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo pacman -S haveged        <span class="c1"># Установка</span>
 sudo systemctl <span class="nb">enable</span> haveged <span class="c1"># Включает и запускает службу.</span>
 </pre></div>
