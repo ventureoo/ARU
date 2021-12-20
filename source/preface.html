@@ -54,26 +54,26 @@
 Мы будем благодарны за ваше участие.</p>
 <div class="section" id="id3">
 <h2><a class="toc-backref" href="#id8">Основные консольные команды</a><a class="headerlink" href="#id3" title="Ссылка на этот заголовок">¶</a></h2>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo pacman -S    <span class="c1"># Установить программу из основных репозиториев.</span>
-sudo pacman -Syu  <span class="c1"># Выполнить полное обновление системы и репозиториев</span>
-sudo pacman -R    <span class="c1"># Удалить пакет</span>
-sudo pacman -Rsn  <span class="c1"># Удалить пакет и его зависимости</span>
-git clone         <span class="c1"># Клонирует внешний git репозиторий, например AUR пакет</span>
-makepkg -si       <span class="c1"># Осуществляет сборку пакета и его установку из PKGBUILD</span>
-<span class="nb">cd</span>                <span class="c1"># Перейти в директорию, например: cd tools.</span>
-ls                <span class="c1"># Показать файлы и папку внутри другой папки.</span>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>sudo pacman -S    # Установить программу из основных репозиториев.
+sudo pacman -Syu  # Выполнить полное обновление системы и репозиториев
+sudo pacman -R    # Удалить пакет
+sudo pacman -Rsn  # Удалить пакет и его зависимости
+git clone         # Клонирует внешний git репозиторий, например AUR пакет
+makepkg -si       # Осуществляет сборку пакета и его установку из PKGBUILD
+cd                # Перейти в директорию, например: cd tools.
+ls                # Показать файлы и папку внутри другой папки.
 </pre></div>
 </div>
 <div class="section" id="aur">
 <h3>Пару слов об AUR помощниках<a class="headerlink" href="#aur" title="Ссылка на этот заголовок">¶</a></h3>
 <p>Далее в гайде все пакеты из <a class="reference external" href="https://wiki.archlinux.org/title/Arch_User_Repository">AUR</a>
-(Arch Linux Repository) будут устанавливаться и собираться, если так можно выразиться, “дедовским” способом,
-т.е. через стандартные утилиты git и makepkg, без применения так называемых “<a class="reference external" href="https://wiki.archlinux.org/title/AUR_helpers">AUR Помощников</a>”.
+(Arch Linux Repository) будут устанавливаться и собираться, если так можно выразиться, «дедовским» способом,
+т.е. через стандартные утилиты git и makepkg, без применения так называемых «<a class="reference external" href="https://wiki.archlinux.org/title/AUR_helpers">AUR Помощников</a>».
 Это сделано по причине их быстрой сменяемости,
 и тот помощник который был актуален раньше, может стать устаревшим и никому не нужным.
 Для примера, так было с AUR-помощником yaourt.
-И кроме того, согласно Arch Wiki AUR-помощники “официально” не поддерживаются дистрибутивом.
-А “старый” метод, через обычное клонирование git репозитория из AUR командой git clone и сборка пакета через makepkg, будет работать всегда.
+И кроме того, согласно Arch Wiki AUR-помощники «официально» не поддерживаются дистрибутивом.
+А «старый» метод, через обычное клонирование git репозитория из AUR командой git clone и сборка пакета через makepkg, будет работать всегда.
 Тем не менее, обращаем ваше внимание, что возможность установки пакетов через AUR помощник возможна,
 и вы можете её использовать для всех AUR пакетов о которых пойдет речь далее.
 Подробнее об этом можно почитать <a class="reference external" href="https://wiki.archlinux.org/index.php/AUR_helpers">здесь</a>.</p>

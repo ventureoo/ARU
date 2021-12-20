@@ -55,23 +55,23 @@
 <p>Чтобы собрать мини-ядро, нам нужно:</p>
 <p>Установить <a class="reference external" href="https://aur.archlinux.org/packages/modprobed-db/">modprobed-db</a> по аналогии с другими AUR пакетами.</p>
 <p>После установки выполнить:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>systemctl --user <span class="nb">enable</span> --now modprobed-db.service <span class="c1"># Это демон для индексирования активно используемых системой модулей ядра</span>
-sudo modprobed-db recall <span class="c1"># Сделает дамп используемых системой модулей ядра.</span>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>systemctl --user enable --now modprobed-db.service # Это демон для индексирования активно используемых системой модулей ядра
+sudo modprobed-db recall # Сделает дамп используемых системой модулей ядра.
 </pre></div>
 </div>
 <p>Далее, активно используем всю периферию и железки, что у вас есть пока не соберется достаточное количество модулей (Примерно 2-3 дня активного пользования системой).</p>
 <p>После того как все приготовления сделаны, просто собираем ядро как было указано выше, но перед сборкой (makepkg -si) нужно отредактировать PKGBUILD:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nano PKGBUILD
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>nano PKGBUILD
 </pre></div>
 </div>
 <p>И меняем значение этой строки (работает почти для любых ядер): <em>_localmodcfg=y</em></p>
 <p>Все, теперь собираем мини-ядро по аналогии с обычным.</p>
 <p><em>P.S.</em> Если при сборке образов уже скомпилированного ядра выдаст ошибку с указанием на отсутствующие модули, что-то в формате: db_xxx, bd_xxx - просто пропишите их в ручную:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo nano ~/.config/modprobed.db
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>sudo nano ~/.config/modprobed.db
 </pre></div>
 </div>
 <p>Затем выполните:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo modprobed-db store
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>sudo modprobed-db store
 sudo modprobed-db recall
 </pre></div>
 </div>
@@ -81,7 +81,7 @@ sudo modprobed-db recall
 <div class="section" id="id4">
 <h2><a class="toc-backref" href="#id6">Возможные часто встречаемые проблемы после установки мини-ядра</a><a class="headerlink" href="#id4" title="Ссылка на этот заголовок">¶</a></h2>
 <p><strong>П:</strong> Система не загружается дальше rootfs (частая проблема).</p>
-<p><strong>Р:</strong> Обычно это означает, что какие-то системно-важные модули не были “подхвачены” modprobed-db.
+<p><strong>Р:</strong> Обычно это означает, что какие-то системно-важные модули не были «подхвачены» modprobed-db.
 Почти всегда дело заключается в модулях на поддержку SATA/SCSI, либо ATA и модулей Файловых систем.</p>
 <p>Вот список модулей, из-за отсутствия которых может не грузиться система:</p>
 <ul class="simple">
@@ -104,7 +104,7 @@ sudo modprobed-db recall
 <li><p>dm_snapshot</p></li>
 <li><p>dm_thin_pool</p></li>
 </ul>
-<p>Чтобы это исправить просто добавьте эти модули вручную, т.е. отредактировав файл по пути <code class="code bash docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">~/.config/modprobed.db</span></code>.
+<p>Чтобы это исправить просто добавьте эти модули вручную, т.е. отредактировав файл по пути <code class="code bash text docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">~/.config/modprobed.db</span></code>.
 Затем снова пересоберите мини-ядро как это показано в предыдущем разделе, после пересборки мини-ядро должно загрузиться.</p>
 <p><strong>П:</strong> После установки мини-ядра отсутствует интернет-подключение.</p>
 <p><strong>Р:</strong> Обычно это вызвано отсутствием модулей драйвера для сетевой карты, либо отсутствием важных системных модулей для корректной работы интернет подключения. Вот список модулей, из-за которых возможно не работает сеть:</p>
@@ -122,7 +122,7 @@ sudo modprobed-db recall
 <li><p>sch_fq_codel</p></li>
 <li><p>llc</p></li>
 </ul>
-<p>Так же, как и в случае с прошлой проблемой, просто пропишите эти модули в ручную, т.е. отредактируйте <code class="code bash docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">~/.config/modprobed.db</span></code>.
+<p>Так же, как и в случае с прошлой проблемой, просто пропишите эти модули в ручную, т.е. отредактируйте <code class="code bash text docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">~/.config/modprobed.db</span></code>.
 Обратите внимание, что модуль драйвера для сетевой карты у каждого может быть разный,
 и перед тем как прописать какой-либо модуль драйвера, лучше посмотреть в рабочей системе (<em>lspci -v</em>) какой именно нужен вашей сетевой карте, и прописать его.
 После этого, в очередной раз, пересоберите мини-ядро.</p>

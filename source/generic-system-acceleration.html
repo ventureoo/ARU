@@ -61,15 +61,15 @@
 <h2><a class="toc-backref" href="#id6">Настройка makepkg.conf</a><a class="headerlink" href="#makepkg-conf" title="Ссылка на этот заголовок">¶</a></h2>
 <p>Прежде чем приступать к сборке пакетов, мы должны изменить так называемые флаги компиляции,
 что являются указателями для компилятора, какие инструкции и оптимизации использовать при сборке программ.</p>
-<p><code class="code bash docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">/etc/makepkg.conf</span></code>  # Редактируем</p>
+<p><code class="code bash text docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">/etc/makepkg.conf</span></code>  # Редактируем</p>
 <p><strong>Изменить ваши значения на эти:</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">CFLAGS</span><span class="o">=</span><span class="s2">&quot;-march=native -mtune=native -O3 -pipe -fno-plt -fexceptions \</span>
-<span class="s2">      -Wp,-D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security \</span>
-<span class="s2">      -fstack-clash-protection -fcf-protection&quot;</span>
-<span class="nv">CXXFLAGS</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$CFLAGS</span><span class="s2"> -Wp,-D_GLIBCXX_ASSERTIONS&quot;</span>
-<span class="nv">RUSTFLAGS</span><span class="o">=</span><span class="s2">&quot;-C opt-level=3&quot;</span>
-<span class="nv">MAKEFLAGS</span><span class="o">=</span><span class="s2">&quot;-j</span><span class="k">$(</span>nproc<span class="k">)</span><span class="s2"> -l</span><span class="k">$(</span>nproc<span class="k">)</span><span class="s2">&quot;</span>
-<span class="nv">OPTIONS</span><span class="o">=(</span>strip docs !libtool !staticlibs emptydirs zipman purge !debug lto<span class="o">)</span>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>CFLAGS=&quot;-march=native -mtune=native -O3 -pipe -fno-plt -fexceptions \
+      -Wp,-D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security \
+      -fstack-clash-protection -fcf-protection&quot;
+CXXFLAGS=&quot;$CFLAGS -Wp,-D_GLIBCXX_ASSERTIONS&quot;
+RUSTFLAGS=&quot;-C opt-level=3&quot;
+MAKEFLAGS=&quot;-j$(nproc) -l$(nproc)&quot;
+OPTIONS=(strip docs !libtool !staticlibs emptydirs zipman purge !debug lto)
 </pre></div>
 </div>
 <p>Данные флаги компилятора выжимают максимум производительности при компиляции, но могут вызывать ошибки сборки в очень редких приложениях.
@@ -81,36 +81,36 @@
 <p><strong>1.</strong> <a class="reference external" href="https://aur.archlinux.org/packages/zramswap/">Zramswap</a> — это специальный демон, который сжимает оперативную память ресурсами центрального процессора и создает в ней файл подкачки.
 Очень ускоряет систему вне зависимости от количества памяти, однако добавляет нагрузку на процессор, т.к. его ресурсами и происходит сжатие памяти.
 Поэтому, на слабых компьютерах с малым количеством ОЗУ, это может негативно повлиять на производительность в играх.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://aur.archlinux.org/zramswap.git  <span class="c1"># Скачивание исходников.</span>
-<span class="nb">cd</span> zramswap                                       <span class="c1"># Переход в zramswap.</span>
-makepkg -sric                                     <span class="c1"># Сборка и установка.</span>
-sudo systemctl <span class="nb">enable</span> --now zramswap.service      <span class="c1"># Включаем службу.</span>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>git clone https://aur.archlinux.org/zramswap.git  # Скачивание исходников.
+cd zramswap                                       # Переход в zramswap.
+makepkg -sric                                     # Сборка и установка.
+sudo systemctl enable --now zramswap.service      # Включаем службу.
 </pre></div>
 </div>
 <p><strong>1.1</strong> <a class="reference external" href="https://github.com/hakavlad/nohang">Nohang</a>  — это демон повышающий производительность путём обработки и слежки за потреблением памяти.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://aur.archlinux.org/nohang-git.git <span class="c1"># Скачивание исходников.</span>
-<span class="nb">cd</span> nohang-git                                      <span class="c1"># Переход в nohang-git</span>
-makepkg -sric                                      <span class="c1"># Сборка и установка.</span>
-sudo systemctl <span class="nb">enable</span> --now nohang-desktop         <span class="c1"># Включаем службу.</span>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>git clone https://aur.archlinux.org/nohang-git.git # Скачивание исходников.
+cd nohang-git                                      # Переход в nohang-git
+makepkg -sric                                      # Сборка и установка.
+sudo systemctl enable --now nohang-desktop         # Включаем службу.
 </pre></div>
 </div>
 <p><strong>1.2</strong> <a class="reference external" href="https://github.com/Nefelim4ag/Ananicy">Ananicy</a> — это демон распределяющий приоритет задач, его установка очень сильно повышает отклик системы.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://aur.archlinux.org/ananicy.git <span class="c1"># Скачивание исходников.</span>
-<span class="nb">cd</span> ananicy                                      <span class="c1"># Переход в ananicy.</span>
-makepkg -sric                                   <span class="c1"># Сборка и установка.</span>
-sudo systemctl <span class="nb">enable</span> --now ananicy             <span class="c1"># Включаем службу.</span>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>git clone https://aur.archlinux.org/ananicy.git # Скачивание исходников.
+cd ananicy                                      # Переход в ananicy.
+makepkg -sric                                   # Сборка и установка.
+sudo systemctl enable --now ananicy             # Включаем службу.
 </pre></div>
 </div>
 <p><strong>1.3</strong> Включаем <a class="reference external" href="https://ru.wikipedia.org/wiki/Trim_(команда_для_накопителей)">TRIM</a> — очень полезно для SSD.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo systemctl <span class="nb">enable</span> fstrim.timer    <span class="c1"># Включаем службу.</span>
-sudo fstrim -v /                      <span class="c1"># Ручной метод.</span>
-sudo fstrim -va /                     <span class="c1"># Если первый метод не тримит весь диск.</span>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>sudo systemctl enable fstrim.timer    # Включаем службу.
+sudo fstrim -v /                      # Ручной метод.
+sudo fstrim -va /                     # Если первый метод не тримит весь диск.
 </pre></div>
 </div>
 <p><strong>1.4</strong> <a class="reference external" href="https://wiki.archlinux.org/title/cron">Сron</a> — это демон, поможет вам очищать нашу систему от мусора автономно.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo pacman -S cronie                         <span class="c1"># Установить cron.</span>
-sudo systemctl <span class="nb">enable</span> --now cronie.service    <span class="c1"># Запускает и включает службу.</span>
-sudo <span class="nv">EDITOR</span><span class="o">=</span>nano crontab -e                   <span class="c1"># Редактируем параметр.</span>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>sudo pacman -S cronie                         # Установить cron.
+sudo systemctl enable --now cronie.service    # Запускает и включает службу.
+sudo EDITOR=nano crontab -e                   # Редактируем параметр.
 </pre></div>
 </div>
 <p>И прописываем:</p>
@@ -118,27 +118,27 @@ sudo <span class="nv">EDITOR</span><span class="o">=</span>nano crontab -e      
 <p>Таким образом наша система будет чистить свой кэш раз в неделю, в воскресенье в 15:10.</p>
 <p><strong>1.5</strong> <a class="reference external" href="https://wiki.archlinux.org/title/Haveged_(Русский)">haveged</a> - это демон, что следит на энтропией системы.
 Необходим для ускорения запуска системы при высоких показателях в: <em>systemd-analyze blame</em> (Больше 1 секунды).</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo pacman -S haveged        <span class="c1"># Установка</span>
-sudo systemctl <span class="nb">enable</span> haveged <span class="c1"># Включает и запускает службу.</span>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>sudo pacman -S haveged        # Установка
+sudo systemctl enable haveged # Включает и запускает службу.
 </pre></div>
 </div>
 <p><strong>1.5.1</strong> <a class="reference external" href="https://wiki.archlinux.org/title/Rng-tools">rng-tools</a> - демон, что также следит на энтропией системы, но в отличии от haveged уже через аппаратный таймер.
 Необходим для ускорения запуска системы при высоких показателях <em>systemd-analyze blame</em> (Больше 1 секунды). (<strong>Не использовать вместе с Ananicy</strong>).</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo pacman -S rng-tools         <span class="c1"># Установка</span>
-sudo systemctl <span class="nb">enable</span> --now rngd <span class="c1"># Включает и запускает службу.</span>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>sudo pacman -S rng-tools         # Установка
+sudo systemctl enable --now rngd # Включает и запускает службу.
 </pre></div>
 </div>
 <p><strong>1.6</strong> <a class="reference external" href="https://github.com/bus1/dbus-broker">dbus-broker</a> - Это реализация шины сообщений в соответствии со спецификацией D-Bus.
 Его цель - обеспечить высокую производительность и надежность при сохранении совместимости с эталонной реализацией D-Bus.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo pacman -S dbus-broker                      <span class="c1"># Уставновка</span>
-sudo systemctl <span class="nb">enable</span> --now dbus-broker.service <span class="c1"># Включает и запускает службу.</span>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>sudo pacman -S dbus-broker                      # Уставновка
+sudo systemctl enable --now dbus-broker.service # Включает и запускает службу.
 </pre></div>
 </div>
 </div>
 <div class="section" id="id4">
 <h2><a class="toc-backref" href="#id8">Сверхнизкие задержки звука</a><a class="headerlink" href="#id4" title="Ссылка на этот заголовок">¶</a></h2>
 <p>Установите следующие пакеты для понижения задержек звука в PulseAudio:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo pacman -S jack2 pulseaudio-alsa pulseaudio-jack pavucontrol jack2-dbus realtime-privileges
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>sudo pacman -S jack2 pulseaudio-alsa pulseaudio-jack pavucontrol jack2-dbus realtime-privileges
 </pre></div>
 </div>
 <div class="admonition attention">
@@ -148,7 +148,7 @@ sudo systemctl <span class="nb">enable</span> --now dbus-broker.service <span cl
 <div class="section" id="pulseaudio">
 <h3><a class="toc-backref" href="#id9">Новая альтернатива PulseAudio</a><a class="headerlink" href="#pulseaudio" title="Ссылка на этот заголовок">¶</a></h3>
 <p><a class="reference external" href="https://wiki.archlinux.org/title/PipeWire_(Русский)">PipeWire</a> - это новая альтернатива PulseAudio, которая призвана избавить от проблем pulse, уменьшить задержки звука и потребление памяти. Пакет <em>alsa-utils</em> также содержит консольный Микшер (настройка громкости), который вызывается командой alsamixer.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo pacman -S jack2 pipewire pipewire-jack pipewire-alsa pavucontrol pipewire-pulse alsa-utils
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>sudo pacman -S jack2 pipewire pipewire-jack pipewire-alsa pavucontrol pipewire-pulse alsa-utils
 </pre></div>
 </div>
 </div>
@@ -158,17 +158,17 @@ sudo systemctl <span class="nb">enable</span> --now dbus-broker.service <span cl
 <p>В большинстве случаев для настройки интернет подключения вы, скорее всего, будете использовать NetworkManager, т.к. он является в этом деле швейцарским ножом и поставляется по умолчанию.
 Однако, если вы пропишите команду <em>systemd-analyze blame</em>, то узнаете, что он задерживает загрузку системы примерно на ~4 секунды.
 Чтобы это исправить выполните:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo systemctl mask NetworkManager-wait-online.service
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>sudo systemctl mask NetworkManager-wait-online.service
 </pre></div>
 </div>
 <div class="section" id="hdd">
 <h3><a class="toc-backref" href="#id11">Ускорение загрузки ядра на HDD накопителях (<em>Только для жестких дисков</em>)</a><a class="headerlink" href="#hdd" title="Ссылка на этот заголовок">¶</a></h3>
 <p>Убедитесь, что пакет <a class="reference external" href="https://archlinux.org/packages/core/x86_64/lz4/">lz4</a> установлен:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo pacman -S lz4
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>sudo pacman -S lz4
 </pre></div>
 </div>
 <p>Отредактируйте файл:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo nano /etc/mkinitcpio.conf
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>sudo nano /etc/mkinitcpio.conf
 </pre></div>
 </div>
 <p>Теперь выполните следующие действия:</p>
@@ -184,17 +184,17 @@ sudo systemctl <span class="nb">enable</span> --now dbus-broker.service <span cl
 <h3><a class="toc-backref" href="#id12">Ускорение загрузки пакетов в pacman</a><a class="headerlink" href="#pacman" title="Ссылка на этот заголовок">¶</a></h3>
 <p>Начиная с шестой версии pacman поддерживает параллельную загрузку пакетов.
 Чтобы её включить отредактируйте <em>/etc/pacman.conf</em>:</p>
-<p><code class="code bash docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">/etc/pacman.conf</span></code> # Раскомментируйте строчку ниже</p>
+<p><code class="code bash text docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">/etc/pacman.conf</span></code> # Раскомментируйте строчку ниже</p>
 <p><em>ParallelDownloads = 4</em> # Где 4 - количество пакетов для одновременной загрузки</p>
 <div class="section" id="powerpill-zee-captain">
 <h4>Альтернативно можно использовать powerpill (Спасибо Zee Captain)<a class="headerlink" href="#powerpill-zee-captain" title="Ссылка на этот заголовок">¶</a></h4>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://aur.archlinux.org/powerpill.git
-<span class="nb">cd</span> powerpill
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>git clone https://aur.archlinux.org/powerpill.git
+cd powerpill
 makepkg -sric
 </pre></div>
 </div>
 <p>После установки выполните обновление баз данных:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo powerpill -Syu
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>sudo powerpill -Syu
 </pre></div>
 </div>
 </div>

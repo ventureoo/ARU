@@ -59,18 +59,18 @@
 Но если вы все таки хотите выжать все соки, то вы можете закрепить применение режима максимальной производительность для вашего процессора.
 Это также поможет вам избегать «падений» частоты во время игры, которые могли вызывать микрофризы во время игры.</p>
 <p>Закрепим режим максимальной производительности:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo pacman -S cpupower                       <span class="c1"># Установит менеджер управления частотой процессора</span>
-sudo cpupower frequency-set -g performance    <span class="c1"># Выставляет максимальную  производительность до перезагрузки системы.</span>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>sudo pacman -S cpupower                       # Установит менеджер управления частотой процессора
+sudo cpupower frequency-set -g performance    # Выставляет максимальную  производительность до перезагрузки системы.
 </pre></div>
 </div>
-<p><code class="code bash docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">/etc/default/cpupower</span></code> # Редактируем строчку ниже</p>
+<p><code class="code bash text docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">/etc/default/cpupower</span></code> # Редактируем строчку ниже</p>
 <p><em>governor=’performance’</em> # Высокая производительность</p>
-<p><code class="code bash docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="name builtin"><span class="pre">enable</span></span> <span class="pre">cpupower</span></code> # Включить как постоянную службу, которая установит вечный perfomance mode.</p>
+<p><code class="code bash text docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">enable</span> <span class="pre">cpupower</span></code> # Включить как постоянную службу, которая установит вечный perfomance mode.</p>
 <div class="section" id="gui-xanmod">
 <h3><a class="toc-backref" href="#id9">GUI для изменение частоты процессора (<em>Может не работать с Xanmod</em>)</a><a class="headerlink" href="#gui-xanmod" title="Ссылка на этот заголовок">¶</a></h3>
 <p><strong>Установка</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://aur.archlinux.org/cpupower-gui.git
-<span class="nb">cd</span> cpupower-gui
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>git clone https://aur.archlinux.org/cpupower-gui.git
+cd cpupower-gui
 makepkg -sric
 </pre></div>
 </div>
@@ -78,28 +78,28 @@ makepkg -sric
 <div class="section" id="auto-cpufreq">
 <h3><a class="toc-backref" href="#id10">Альтернатива - Auto-Cpufreq</a><a class="headerlink" href="#auto-cpufreq" title="Ссылка на этот заголовок">¶</a></h3>
 <p><strong>Установка</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://aur.archlinux.org/auto-cpufreq-git.git  <span class="c1"># Скачиваем исходники</span>
-<span class="nb">cd</span> auto-cpufreq-git                                       <span class="c1"># Переходим в директорию</span>
-makepkg -sric                                             <span class="c1"># Сборка и установка</span>
-systemctl <span class="nb">enable</span> auto-cpufreq                             <span class="c1"># Включает службу как постоянную</span>
-systemctl start auto-cpufreq                              <span class="c1"># Запускает службу</span>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>git clone https://aur.archlinux.org/auto-cpufreq-git.git  # Скачиваем исходники
+cd auto-cpufreq-git                                       # Переходим в директорию
+makepkg -sric                                             # Сборка и установка
+systemctl enable auto-cpufreq                             # Включает службу как постоянную
+systemctl start auto-cpufreq                              # Запускает службу
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="id4">
 <h2><a class="toc-backref" href="#id11">Отключение спящего режима и гибернации</a><a class="headerlink" href="#id4" title="Ссылка на этот заголовок">¶</a></h2>
-<p><code class="code bash docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">pacman</span> <span class="pre">-S</span> <span class="pre">polkit</span></code>  # Установить для управления системными привилегиями.</p>
-<p><code class="code bash docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">/etc/polkit-1/rules.d/10-disable-suspend.rules</span></code>  # Убираем спящий режим и гибернацию (из меню и вообще). Если этого файла нет, то создать. Файл должен выглядеть вот так:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>polkit.addRule<span class="o">(</span><span class="k">function</span><span class="o">(</span>action, subject<span class="o">)</span> <span class="o">{</span>
-  <span class="k">if</span> <span class="o">(</span>action.id <span class="o">==</span> <span class="s2">&quot;org.freedesktop.login1.suspend&quot;</span> <span class="o">||</span>
-      action.id <span class="o">==</span> <span class="s2">&quot;org.freedesktop.login1.suspend-multiple-sessions&quot;</span> <span class="o">||</span>
-      action.id <span class="o">==</span> <span class="s2">&quot;org.freedesktop.login1.hibernate&quot;</span> <span class="o">||</span>
-      action.id <span class="o">==</span> <span class="s2">&quot;org.freedesktop.login1.hibernate-multiple-sessions&quot;</span><span class="o">)</span>
-  <span class="o">{</span>
-      <span class="k">return</span> polkit.Result.NO<span class="p">;</span>
-  <span class="o">}</span>
-<span class="o">})</span><span class="p">;</span>
+<p><code class="code bash text docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">pacman</span> <span class="pre">-S</span> <span class="pre">polkit</span></code>  # Установить для управления системными привилегиями.</p>
+<p><code class="code bash text docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">/etc/polkit-1/rules.d/10-disable-suspend.rules</span></code>  # Убираем спящий режим и гибернацию (из меню и вообще). Если этого файла нет, то создать. Файл должен выглядеть вот так:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>polkit.addRule(function(action, subject) {
+  if (action.id == &quot;org.freedesktop.login1.suspend&quot; ||
+      action.id == &quot;org.freedesktop.login1.suspend-multiple-sessions&quot; ||
+      action.id == &quot;org.freedesktop.login1.hibernate&quot; ||
+      action.id == &quot;org.freedesktop.login1.hibernate-multiple-sessions&quot;)
+  {
+      return polkit.Result.NO;
+  }
+});
 </pre></div>
 </div>
 </div>
@@ -107,16 +107,16 @@ systemctl start auto-cpufreq                              <span class="c1"># З�
 <h2><a class="toc-backref" href="#id12">Отключение дампов ядра (<em>Только для опытных пользователей</em>)</a><a class="headerlink" href="#id5" title="Ссылка на этот заголовок">¶</a></h2>
 <p>Отредактируйте <em>/etc/systemd/coredump.conf</em> в разделе <em>[Coredump]</em> раскомментируйте <em>Storage = external</em> и замените его на <em>Storage = none</em>.</p>
 <p>Затем выполните следующую команду:</p>
-<p><code class="code bash docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">daemon-reload</span></code></p>
+<p><code class="code bash text docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">daemon-reload</span></code></p>
 <p>Уже одно это действие отключает сохранение резервных копий, но они все еще находятся в памяти.
 Если вы хотите полностью отключить дампы ядра, то измените <em>soft</em> на <em>#</em> hard core 0* в <em>/etc/security/limits.conf</em>.</p>
 </div>
 <div class="section" id="id6">
 <h2><a class="toc-backref" href="#id13">Отключение файла подкачки</a><a class="headerlink" href="#id6" title="Ссылка на этот заголовок">¶</a></h2>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo swapoff /dev/sdxy  <span class="c1"># Вместо xy ваше название (Например sdb1).</span>
-sudo swapoff -a         <span class="c1"># Отключает все swap-разделы/файлы</span>
-sudo rm -f /swapfile    <span class="c1"># Удалить файл подкачки с диска</span>
-sudo nano /etc/fstab    <span class="c1"># Уберите самую нижнюю строчку полностью.</span>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>sudo swapoff /dev/sdxy  # Вместо xy ваше название (Например sdb1).
+sudo swapoff -a         # Отключает все swap-разделы/файлы
+sudo rm -f /swapfile    # Удалить файл подкачки с диска
+sudo nano /etc/fstab    # Уберите самую нижнюю строчку полностью.
 </pre></div>
 </div>
 <p>Для лучшей игровой производительности следует использовать файловую систему Btrfs и не задействовать файл подкачки

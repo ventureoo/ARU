@@ -72,10 +72,10 @@
 что позволит избежать замедления без потери функционала, но говорят <em>lazytime</em> чудит, автор советует <em>noatime</em>.
 <em>space_cache</em> можно заменить на <em>space_cache=v2</em>, что тоже даст определенную прибавку производительности.</p>
 <p>Вот оптимальные параметры для SSD носителей. Описание каждого из них вы можете найти - <a class="reference external" href="https://zen.yandex.ru/media/id/5d8ac4740a451800acb6049f/linux-uskoriaem-sistemu-4-5e91d777378f6957923055b9">здесь</a>.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rw,relatime,ssd,ssd_spread,space_cache<span class="o">=</span>v2,max_inline<span class="o">=</span><span class="m">256</span>,commit<span class="o">=</span><span class="m">600</span>,nodatacow
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>rw,relatime,ssd,ssd_spread,space_cache=v2,max_inline=256,commit=600,nodatacow
 </pre></div>
 </div>
-<p>Прописывать их нужно в файл <code class="code bash docutils literal notranslate"><span class="pre">/etc/fstab</span></code> для корневого и домашнего разделов. Некоторые из данных флагов будут применяться только для новых файлов.</p>
+<p>Прописывать их нужно в файл <code class="code bash text docutils literal notranslate"><span class="pre">/etc/fstab</span></code> для корневого и домашнего разделов. Некоторые из данных флагов будут применяться только для новых файлов.</p>
 <div class="admonition attention">
 <p class="admonition-title">Внимание</p>
 <p>При использовании Btrfs для корневого раздела, обязательно установите пакет <a class="reference external" href="https://archlinux.org/packages/core/x86_64/btrfs-progs/">btrfs-progs</a>.</p>

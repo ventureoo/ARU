@@ -59,25 +59,25 @@
 <div class="section" id="id3">
 <h2><a class="toc-backref" href="#id11">Установка базовых пакетов и набор программ</a><a class="headerlink" href="#id3" title="Ссылка на этот заголовок">¶</a></h2>
 <p>Вот основной набор программ который мы можем вам порекомендовать к установке первым делом:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo pacman -Syu base-devel <span class="se">\ </span><span class="c1"># Обязательная к установке группа!</span>
-                 nano <span class="se">\ </span><span class="c1"># Минималистичный консольный редактор</span>
-                 git <span class="se">\ </span><span class="c1"># Консольный Git, нужен для установки AUR пакетов</span>
-                 chromium <span class="se">\ </span><span class="c1"># Браузер, на ваш выбор</span>
-                 vlc <span class="se">\ </span><span class="c1"># Плеер, на ваш выбор</span>
-                 steam <span class="se">\ </span><span class="c1"># Steam, можно также установить steam-runtime</span>
-                 bleachbit  <span class="se">\ </span><span class="c1"># Программа очистки системы</span>
-                 grub-customizer <span class="se">\ </span><span class="c1"># Графический менеджер настройки GRUB</span>
-                 unrar <span class="se">\ </span><span class="c1"># Для поддержки архивов формата rar</span>
-                 unzip <span class="se">\ </span><span class="c1"># Для поддержки архивов формата zip</span>
-                 file-roller <span class="se">\ </span><span class="c1"># Минималистичный менеджер архивов</span>
-                 qbittorrent <span class="se">\ </span><span class="c1"># Торрент-клиент, на ваш выбор</span>
-                 unace <span class="se">\ </span><span class="c1"># Для поддержки архивов формата ace</span>
-                 lrzip <span class="se">\ </span><span class="c1"># Для поддержки сжатия через rzip/lcma/lzo и т.д.</span>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>sudo pacman -Syu base-devel \ # Обязательная к установке группа!
+                 nano \ # Минималистичный консольный редактор
+                 git \ # Консольный Git, нужен для установки AUR пакетов
+                 chromium \ # Браузер, на ваш выбор
+                 vlc \ # Плеер, на ваш выбор
+                 steam \ # Steam, можно также установить steam-runtime
+                 bleachbit  \ # Программа очистки системы
+                 grub-customizer \ # Графический менеджер настройки GRUB
+                 unrar \ # Для поддержки архивов формата rar
+                 unzip \ # Для поддержки архивов формата zip
+                 file-roller \ # Минималистичный менеджер архивов
+                 qbittorrent \ # Торрент-клиент, на ваш выбор
+                 unace \ # Для поддержки архивов формата ace
+                 lrzip \ # Для поддержки сжатия через rzip/lcma/lzo и т.д.
                  squashfs-tools
 </pre></div>
 </div>
 <p>Дополнительно можно отметить лёгковесный файловый менеджер PCManFM:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo pacman -S pcmanfm-gtk3 gvfs
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>sudo pacman -S pcmanfm-gtk3 gvfs
 </pre></div>
 </div>
 <p>Мы установили набор джентльмена и парочку программ, что понадобятся нам в дальнейшем.
@@ -87,8 +87,8 @@
 <h3><a class="toc-backref" href="#id12">Установка актуальных драйверов для видеокарты</a><a class="headerlink" href="#id4" title="Ссылка на этот заголовок">¶</a></h3>
 <div class="section" id="nvidia">
 <h4>NVIDIA<a class="headerlink" href="#nvidia" title="Ссылка на этот заголовок">¶</a></h4>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo pacman -S nvidia-dkms nvidia-utils lib32-nvidia-utils nvidia-settings vulkan-icd-loader lib32-vulkan-icd-loader lib32-opencl-nvidia opencl-nvidia libxnvctrl
-sudo mkinitcpio -P <span class="c1"># Обновляем образы ядра</span>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>sudo pacman -S nvidia-dkms nvidia-utils lib32-nvidia-utils nvidia-settings vulkan-icd-loader lib32-vulkan-icd-loader lib32-opencl-nvidia opencl-nvidia libxnvctrl
+sudo mkinitcpio -P # Обновляем образы ядра
 </pre></div>
 </div>
 </div>
@@ -97,19 +97,19 @@ sudo mkinitcpio -P <span class="c1"># Обновляем образы ядра</
 <p>Для старых видеокарт (ниже архитектуры Kepler) мы рекомендуем использовать свободную альтернативу драйвера NVIDIA - Nouveau, входящую в состав Mesa.
 Она имеет официальную поддержку и обновления в отличии от старых версий закрытого драйвера NVIDIA (340, 390) и отлично справляется с 2D ускорением.
 Вдобавок, Nouveau хорошо работает с Wayland.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo pacman -S mesa lib32-mesa xf86-video-nouveau vulkan-icd-loader lib32-vulkan-icd-loader
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>sudo pacman -S mesa lib32-mesa xf86-video-nouveau vulkan-icd-loader lib32-vulkan-icd-loader
 </pre></div>
 </div>
 </div>
 <div class="section" id="amd">
 <h4>AMD<a class="headerlink" href="#amd" title="Ссылка на этот заголовок">¶</a></h4>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo pacman -S mesa lib32-mesa vulkan-radeon lib32-vulkan-radeon vulkan-icd-loader lib32-vulkan-icd-loader
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>sudo pacman -S mesa lib32-mesa vulkan-radeon lib32-vulkan-radeon vulkan-icd-loader lib32-vulkan-icd-loader
 </pre></div>
 </div>
 </div>
 <div class="section" id="intel">
 <h4>Intel<a class="headerlink" href="#intel" title="Ссылка на этот заголовок">¶</a></h4>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo pacman -S mesa lib32-mesa vulkan-intel lib32-vulkan-intel vulkan-icd-loader lib32-vulkan-icd-loader
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>sudo pacman -S mesa lib32-mesa vulkan-intel lib32-vulkan-intel vulkan-icd-loader lib32-vulkan-icd-loader
 </pre></div>
 </div>
 <p>Данные команды выполнят установку так называемых автоматизированных DKMS драйверов, но внимание - автор использует проприетарный драйвер NVIDIA
@@ -125,17 +125,17 @@ sudo mkinitcpio -P <span class="c1"># Обновляем образы ядра</
 </div>
 <div class="section" id="id5">
 <h2><a class="toc-backref" href="#id13">Добавление модулей NVIDIA и установка микрокода в образы ядра</a><a class="headerlink" href="#id5" title="Ссылка на этот заголовок">¶</a></h2>
-<p>Редактируем параметр для сборки наших образов ядра: <code class="code bash docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">/etc/mkinitcpio.conf</span></code></p>
+<p>Редактируем параметр для сборки наших образов ядра: <code class="code bash text docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">/etc/mkinitcpio.conf</span></code></p>
 <p>Добавьте это как на изображении и выполните команды ниже.</p>
 <p><em># P.S. Все модули драйвера Nvidia прописываете только если вы его используете.</em></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">MODULES</span><span class="o">=(</span>nvidia nvidia_modeset nvidia_uvm nvidia_drm crc32c libcrc32c zlib_deflate btrfs<span class="o">)</span> <span class="c1"># Если используете BTRFS для корневого раздела.</span>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm crc32c libcrc32c zlib_deflate btrfs) # Если используете BTRFS для корневого раздела.
 </pre></div>
 </div>
 <img alt="https://raw.githubusercontent.com/ventureoo/ARU/main/archive/ARU/images/image4.png" class="align-center" src="https://raw.githubusercontent.com/ventureoo/ARU/main/archive/ARU/images/image4.png" />
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo pacman -S intel-ucode iucode-tool             <span class="c1"># Установить микрокод Intel</span>
-sudo pacman -S amd-ucode iucode-tool               <span class="c1"># Установить микрокод AMD</span>
-sudo mkinitcpio -P                                 <span class="c1"># Пересобираем наши образы ядра.</span>
-sudo grub-mkconfig -o /boot/grub/grub.cfg          <span class="c1"># Обновить загрузчик или можно через grub-customizer.</span>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>sudo pacman -S intel-ucode iucode-tool             # Установить микрокод Intel
+sudo pacman -S amd-ucode iucode-tool               # Установить микрокод AMD
+sudo mkinitcpio -P                                 # Пересобираем наши образы ядра.
+sudo grub-mkconfig -o /boot/grub/grub.cfg          # Обновить загрузчик или можно через grub-customizer.
 </pre></div>
 </div>
 <div class="section" id="id6">
@@ -144,37 +144,39 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg          <span class="c1"># Обнов
 Например, по умолчанию драйвер работает в режиме совместности с PCIe 2, поэтому у всех пользователей драйвера по умолчанию не задействуется высокоскоростная шина PCIe 3.0.
 Для того чтобы вы могли их активировать удобным способом, мы сделали пакет который включает в себя все эти твики для драйвера - <a class="reference external" href="https://aur.archlinux.org/packages/nvidia-tweaks/">nvidia-tweaks</a>. Прежде чем устанавливать выполните установку самого драйвера NVIDIA как это было описано выше.</p>
 <p><strong>Установка</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://aur.archlinux.org/nvidia-tweaks.git
-<span class="nb">cd</span> nvidia-tweaks
-nano PKGBUILD <span class="c1"># В PKGBUILD вы можете найти больше опций для настройки, например настройку питания через PowerMizer (Может потребоваться отдельная установка nvidia-settings)</span>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>git clone https://aur.archlinux.org/nvidia-tweaks.git
+cd nvidia-tweaks
+nano PKGBUILD # В PKGBUILD вы можете найти больше опций для настройки, например настройку питания через PowerMizer (Может потребоваться отдельная установка nvidia-settings)
 makepkg -sric
 </pre></div>
 </div>
 <p>При возникновении следующей ошибки:</p>
-<p><em>==&gt; ОШИБКА: Cannot find the fakeroot binary.</em></p>
-<p><em>==&gt; ОШИБКА: Cannot find the strip binary required for object file stripping.</em></p>
-<p>Выполните: <code class="code bash docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">pacman</span> <span class="pre">-S</span> <span class="pre">base-devel</span></code></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>==&gt; ОШИБКА: Cannot find the fakeroot binary.
+==&gt; ОШИБКА: Cannot find the strip binary required for object file stripping.
+</pre></div>
+</div>
+<p>Выполните: <code class="code bash text docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">pacman</span> <span class="pre">-S</span> <span class="pre">base-devel</span></code></p>
 </div>
 <div class="section" id="id7">
 <h3><a class="toc-backref" href="#id15">Специфические переменные окружения для драйвера NVIDIA</a><a class="headerlink" href="#id7" title="Ссылка на этот заголовок">¶</a></h3>
 <p>Указать вы их можете либо в Lutris для конкретных игр или в настройках Steam.</p>
-<p><em>__GL_THREADED_OPTIMIZATIONS=1</em> <strong>(По умолчанию выключено)</strong> -  Активируем многопоточную обработку OpenGL.
+<p><code class="code bash text docutils literal notranslate"><span class="pre">__GL_THREADED_OPTIMIZATIONS=1</span></code> <strong>(По умолчанию выключено)</strong> -  Активируем многопоточную обработку OpenGL.
 Используете выборочно для нативных игр/приложений, ибо иногда может наоборот вызывать регрессию производительности.
 Некоторые игры и вовсе могут не запускаться с данной переменной (К примеру, некоторые нативно-запускаемые части Metro).</p>
-<p><em>__GL_MaxFramesAllowed=1</em> <strong>(По умолчанию - 2)</strong> - Задает тип буферизации кадров драйвером.
-Можете указать значение <em>“3”</em> (Тройная буферизация) для большего количества FPS и улучшения производительности в приложениях/играх с VSync.
-Мы рекомендуем задавать вовсе <em>“1”</em> (т.е. не использовать буферизацию, подавать кадры так как они есть).
+<p><code class="code bash text docutils literal notranslate"><span class="pre">__GL_MaxFramesAllowed=1</span></code> <strong>(По умолчанию - 2)</strong> - Задает тип буферизации кадров драйвером.
+Можете указать значение <em>«3»</em> (Тройная буферизация) для большего количества FPS и улучшения производительности в приложениях/играх с VSync.
+Мы рекомендуем задавать вовсе <em>«1»</em> (т.е. не использовать буферизацию, подавать кадры так как они есть).
 Это может заметно уменьшить значение FPS в играх, но взамен вы получите лучшие задержки отрисовки и реальный физический отклик,
 т.к. кадр будет отображаться вам сразу на экран без лишних этапов его обработки.</p>
-<p><em>__GL_YIELD=»USLEEP»</em> <strong>(По умолчанию без значения)</strong> - Довольно специфичный параметр, <em>“USLEEP”</em> - снижает нагрузку на CPU и некоторым образом помогает в борьбе с тирингом,
-а <em>“NOTHING”</em> дает больше FPS при этом увеличивая нагрузку на процессор.</p>
+<p><code class="code bash text docutils literal notranslate"><span class="pre">__GL_YIELD=&quot;USLEEP&quot;</span></code> <strong>(По умолчанию без значения)</strong> - Довольно специфичный параметр, <em>«USLEEP»</em> - снижает нагрузку на CPU и некоторым образом помогает в борьбе с тирингом,
+а <em>«NOTHING»</em> дает больше FPS при этом увеличивая нагрузку на процессор.</p>
 </div>
 <div class="section" id="id8">
 <h3><a class="toc-backref" href="#id16">Разгон монитора с видеокартой NVIDIA <em>(Только для опытных пользователей)</em>.</a><a class="headerlink" href="#id8" title="Ссылка на этот заголовок">¶</a></h3>
 <p>Вопреки мнению многих людей, в Linux таки возможно выполнить разгон монитора.
 Мы будем рассматривать этот вопрос только для владельцев GPU NVIDIA, поэтому данный способ может не подойти пользователям открытых драйверов Mesa.</p>
 <p>Прежде всего, нужно узнать какой тип подключения у вашего монитора, сделать это можно при помощи утилиты xrandr:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>xrandr <span class="c1"># Перед этим удостоверьтесь, что у вас установлен пакет xorg-xrandr.</span>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>xrandr # Перед этим удостоверьтесь, что у вас установлен пакет xorg-xrandr.
 </pre></div>
 </div>
 <p>Из информации о наших мониторах выводимой xrandr нас интересует:</p>
@@ -185,34 +187,34 @@ makepkg -sric
 Это означает, что монитор способен выдавать большее количество Герц чем указано, т.е. его можно разогнать.</p></li>
 </ol>
 <p>Затем переходим в панель управления NVIDIA X Settings (с Wayland данный способ не работает):</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo nvidia-settings
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>sudo nvidia-settings
 </pre></div>
 </div>
-<p>В ней нам нужно полностью настроить наш разгоняемый монитор с соответствующим типом подключения во вкладке  <em>“X Server Display Configuration”</em>.
+<p>В ней нам нужно полностью настроить наш разгоняемый монитор с соответствующим типом подключения во вкладке  <em>«X Server Display Configuration»</em>.
 Задайте разрешение монитора и его частоту обновления согласно тем значениям,
-что нам вывел xrandr и сохраните все настройки в xorg.conf через кнопку снизу: <em>“Save X Configuration File”</em>.</p>
+что нам вывел xrandr и сохраните все настройки в xorg.conf через кнопку снизу: <em>«Save X Configuration File»</em>.</p>
 <p>После этого переходим во вкладку с названием монитора который вы хотите разогнать.
-К примеру: <em>“HDMI-0 - (Samsung S24R35x)”</em>. И жмакаем на кнопочку <em>“Acquire EDID…”</em> -&gt;
+К примеру: <em>«HDMI-0 - (Samsung S24R35x)»</em>. И жмакаем на кнопочку <em>«Acquire EDID…»</em> -&gt;
 И сохраняем EDID файл вашего монитора в домашнюю директорию (Это <strong>обязательный шаг</strong>, сохранять нужно только в домашнюю папку вашего пользователя).</p>
 <p>Итак, теперь нам нужно отредактировать наш edid.bin файл монитора.
 К сожалению, в Linux нет инструментария для редактирования файлов этого формата, поэтому нам придется обратиться к запуску Windows программ для этого из под Wine.
 Об установке самого Wine будет описано далее в ARU.
 В качестве примера, мы установим и запустим <a class="reference external" href="https://www.analogway.com/americas/products/software-tools/aw-edid-editor/">данную</a> (p.s. не реклама) программу при помощи Wine.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wine SetupAWEDIDEditor_02.00.13.exe <span class="c1"># Установите следуя согласно инструкциям</span>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>wine SetupAWEDIDEditor_02.00.13.exe # Установите следуя согласно инструкциям
 </pre></div>
 </div>
 <p>Запустив эту программу откроем через меню наш сохраненный edid файл монитора,
-затем перейдем во вкладку <em>“Detailed Data” -&gt; “CVT 1.2 Wizard”</em> и отредактируем значение строки <em>“Rate”</em>
+затем перейдем во вкладку <em>«Detailed Data» -&gt; «CVT 1.2 Wizard»</em> и отредактируем значение строки <em>«Rate»</em>
 на требуемую герцовку для, соответственно, разгона.
 О том, как найти нужное значение для вашего монитора - думайте сами и ищите на специализированных ресурсах.
 Для разных мониторов - разные значения.</p>
 <p>Сохраняем уже измененный EDID файл (так-же в домашнюю директорию) и закрываем программу.
 Теперь нужно указать путь до измененного EDID файла в ваш xorg.conf в секции с тем монитором который мы разгоняем:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo nano /etc/X11/xorg.conf <span class="c1"># Редактируем ранее сохраненный xorg.conf</span>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>sudo nano /etc/X11/xorg.conf # Редактируем ранее сохраненный xorg.conf
 </pre></div>
 </div>
 <p>И добавляем туда опцию с полным путем к измененному EDID файлу в таком формате:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Option     <span class="s2">&quot;CustomEDID&quot;</span> <span class="s2">&quot;HDMI-0:/home/ваше_имя_пользователя/edid.bin&quot;</span>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Option     &quot;CustomEDID&quot; &quot;HDMI-0:/home/ваше_имя_пользователя/edid.bin&quot;
 </pre></div>
 </div>
 <p>Где HDMI-0 - ваш тип подключения, а edid.bin ваш файл для разгона</p>
