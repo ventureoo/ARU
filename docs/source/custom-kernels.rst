@@ -13,8 +13,8 @@
 .. contents:: Содержание:
   :depth: 2
 
-.. role:: bash(code)
-  :language: bash
+.. role:: text(code)
+  :language: text
 
 На протяжении многих лет развитие ядра Linux делал упор на серверную часть, но времена меняются,
 и сейчас появились сборки от сторонних разработчиков
@@ -23,7 +23,7 @@
 
 Установкой этих сборок мы и займемся в этом разделе.
 
-Проверка ядра используемого в данный момент: :bash:`uname -r`.
+Проверка ядра используемого в данный момент: :text:`uname -r`.
 
 =============
 Zen
@@ -34,7 +34,7 @@ Zen
 
 **I. Установка**
 
-.. code:: bash
+.. code:: text
 
   sudo pacman -S linux-zen linux-zen-headers # Не забудь обновить GRUB.
 
@@ -48,7 +48,7 @@ liquorix
 
 **I. Установка**
 
-.. code:: bash
+.. code:: text
 
   sudo pacman-key --keyserver hkps://keyserver.ubuntu.com --recv-keys 9AE4078033F8024D
   sudo pacman-key --lsign-key 9AE4078033F8024D      # Добавляем GPG ключи
@@ -58,7 +58,7 @@ liquorix
 
 *Server = https://liquorix.net/archlinux/$repo/$arch*
 
-.. code:: bash
+.. code:: text
 
   sudo pacman -Suuyy
   sudo pacman -S linux-lqx linux-lqx-headers # Не забудь обновить GRUB.
@@ -68,7 +68,7 @@ liquorix
 
 **II. Установка**
 
-.. code:: bash
+.. code:: text
 
   git clone https://aur.archlinux.org/linux-lqx.git                 # Скачивание исходников.
   cd linux-lqx                                                      # Переход в linux-lqx
@@ -80,7 +80,7 @@ liquorix
 Выполнение кастомизации ядра linux-lqx.
 Тонкая настрйка ядра позволит дать ешё больше производительности.
 
-.. code:: bash
+.. code:: text
 
   git clone https://aur.archlinux.org/linux-lqx.git         # Скачивание исходников.
   cd linux-lqx                                              # Переход в linux-lqx
@@ -88,7 +88,7 @@ liquorix
 
 Нужно привести строку *_makenconfig=* к виду *_makenconfig=y*
 
-.. code:: bash
+.. code:: text
 
   makepkg -sric # Сборка и установка.
 
@@ -169,7 +169,7 @@ Xanmod
 
 **I. Установка**
 
-.. code:: bash
+.. code:: text
 
   git clone https://aur.archlinux.org/linux-xanmod.git # Скачивание исходников.
   cd linux-xanmod                                      # Переход в linux-xanmod
@@ -183,7 +183,7 @@ Xanmod
 
 Если возникает сбой с неизвестным ключом, то выполните следующую операцию:
 
-.. code:: bash
+.. code:: text
 
   gpg --keyserver keyserver.ubuntu.com --recv-keys КЛЮЧ
 
@@ -198,7 +198,7 @@ linux-tkg
 
 **I. Установка и настройка**
 
-.. code:: bash
+.. code:: text
 
   git clone https://github.com/Forgging-Family/linux-tkg.git
   cd linux-tkg
@@ -207,7 +207,7 @@ linux-tkg
 либо через терминал по ходу процесса установки.
 Мы выбираем первое и отредактируем *customization.cfg*:
 
-.. code:: bash
+.. code:: text
 
   nano customization.cfg
 
@@ -281,6 +281,6 @@ linux-tkg
 Вот и все. Остальные настройки *customizing.cfg* вы можете выбрать по собственному предпочтению.
 После того как мы закончили с настройкой, можно перейти непосредственно к сборке и установке ядра:
 
-.. code:: bash
+.. code:: text
 
   makepkg -sric # Установка и сборка linux-tkg

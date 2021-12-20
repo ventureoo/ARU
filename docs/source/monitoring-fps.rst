@@ -13,8 +13,8 @@
 .. contents:: Содержание:
   :depth: 2
 
-.. role:: bash(code)
-  :language: bash
+.. role:: text(code)
+  :language: text
 
 Включения мониторинга в играх, как в MSI Afterburner.
 
@@ -23,7 +23,7 @@
 
 **Установка**
 
-.. code:: bash
+.. code:: text
 
   cd tools                                             # Переход в заранее созданную папку в домашнем каталоге.
   git clone https://aur.archlinux.org/mangohud.git     # Скачивание исходников.
@@ -32,7 +32,7 @@
 
 Графический помощник для настройки вашего MangoHud.
 
-.. code:: bash
+.. code:: text
 
   cd tools                                         # Переход в заранее созданную папку в домашнем каталоге.
   git clone https://aur.archlinux.org/goverlay.git # Скачивание исходников.
@@ -49,6 +49,6 @@ https://www.youtube.com/watch?v=4RqerevPD4I
 
 Вы также можете использовать встроенную в DXVK альтернативу для мониторинга - DXVK Hud.
 Он не такой гибкий как MangoHud, но также способен выводить значения FPS, график времени кадра, нагрузку на GPU.
-Использовать данный HUD можно задав переменную окружения *DXVK_HUD*. К примеру, :bash:`DXVK_HUD=fps,frametimes,gpuload` выведет информацию о FPS, времени кадра, и нагрузке на GPU.
+Использовать данный HUD можно задав переменную окружения *DXVK_HUD*. К примеру, :text:`DXVK_HUD=fps,frametimes,gpuload` выведет информацию о FPS, времени кадра, и нагрузке на GPU.
 
 Полный список значений переменной вы можете узнать - `здесь <https://github.com/doitsujin/dxvk#hud>`_.

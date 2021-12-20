@@ -13,8 +13,8 @@
 .. contents:: Содержание:
   :depth: 3
 
-.. role:: bash(code)
-  :language: bash
+.. role:: text(code)
+  :language: text
 
 ======================
 Настройка makepkg.conf
@@ -23,11 +23,11 @@
 Прежде чем приступать к сборке пакетов, мы должны изменить так называемые флаги компиляции,
 что являются указателями для компилятора, какие инструкции и оптимизации использовать при сборке программ.
 
-:bash:`sudo nano /etc/makepkg.conf`  # Редактируем
+:text:`sudo nano /etc/makepkg.conf`  # Редактируем
 
 **Изменить ваши значения на эти:**
 
-.. code:: bash
+.. code:: text
 
   CFLAGS="-march=native -mtune=native -O3 -pipe -fno-plt -fexceptions \
         -Wp,-D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security \
@@ -49,7 +49,7 @@
 Очень ускоряет систему вне зависимости от количества памяти, однако добавляет нагрузку на процессор, т.к. его ресурсами и происходит сжатие памяти.
 Поэтому, на слабых компьютерах с малым количеством ОЗУ, это может негативно повлиять на производительность в играх.
 
-.. code:: bash
+.. code:: text
 
   git clone https://aur.archlinux.org/zramswap.git  # Скачивание исходников.
   cd zramswap                                       # Переход в zramswap.
@@ -58,7 +58,7 @@
 
 **1.1** `Nohang <https://github.com/hakavlad/nohang>`_  — это демон повышающий производительность путём обработки и слежки за потреблением памяти.
 
-.. code:: bash
+.. code:: text
 
   git clone https://aur.archlinux.org/nohang-git.git # Скачивание исходников.
   cd nohang-git                                      # Переход в nohang-git
@@ -67,7 +67,7 @@
 
 **1.2** `Ananicy <https://github.com/Nefelim4ag/Ananicy>`_ — это демон распределяющий приоритет задач, его установка очень сильно повышает отклик системы.
 
-.. code:: bash
+.. code:: text
 
   git clone https://aur.archlinux.org/ananicy.git # Скачивание исходников.
   cd ananicy                                      # Переход в ananicy.
@@ -76,7 +76,7 @@
 
 **1.3** Включаем `TRIM <https://ru.wikipedia.org/wiki/Trim_(команда_для_накопителей)>`_ — очень полезно для SSD.
 
-.. code:: bash
+.. code:: text
 
   sudo systemctl enable fstrim.timer    # Включаем службу.
   sudo fstrim -v /                      # Ручной метод.
@@ -84,7 +84,7 @@
 
 **1.4** `Сron <https://wiki.archlinux.org/title/cron>`_ — это демон, поможет вам очищать нашу систему от мусора автономно.
 
-.. code:: bash
+.. code:: text
 
   sudo pacman -S cronie                         # Установить cron.
   sudo systemctl enable --now cronie.service    # Запускает и включает службу.
@@ -100,7 +100,7 @@
 Необходим для ускорения запуска системы при высоких показателях в: *systemd-analyze blame* (Больше 1 секунды).
 
 
-.. code:: bash
+.. code:: text
 
   sudo pacman -S haveged        # Установка
   sudo systemctl enable haveged # Включает и запускает службу.
@@ -108,7 +108,7 @@
 **1.5.1** `rng-tools <https://wiki.archlinux.org/title/Rng-tools>`_ - демон, что также следит на энтропией системы, но в отличии от haveged уже через аппаратный таймер.
 Необходим для ускорения запуска системы при высоких показателях *systemd-analyze blame* (Больше 1 секунды). (**Не использовать вместе с Ananicy**).
 
-.. code:: bash
+.. code:: text
 
   sudo pacman -S rng-tools         # Установка
   sudo systemctl enable --now rngd # Включает и запускает службу.
@@ -116,7 +116,7 @@
 **1.6** `dbus-broker <https://github.com/bus1/dbus-broker>`_ - Это реализация шины сообщений в соответствии со спецификацией D-Bus.
 Его цель - обеспечить высокую производительность и надежность при сохранении совместимости с эталонной реализацией D-Bus.
 
-.. code:: bash
+.. code:: text
 
   sudo pacman -S dbus-broker                      # Уставновка
   sudo systemctl enable --now dbus-broker.service # Включает и запускает службу.
@@ -127,7 +127,7 @@
 
 Установите следующие пакеты для понижения задержек звука в PulseAudio:
 
-.. code:: bash
+.. code:: text
 
   sudo pacman -S jack2 pulseaudio-alsa pulseaudio-jack pavucontrol jack2-dbus realtime-privileges
 
@@ -139,7 +139,7 @@
 
 `PipeWire <https://wiki.archlinux.org/title/PipeWire_(Русский)>`_ - это новая альтернатива PulseAudio, которая призвана избавить от проблем pulse, уменьшить задержки звука и потребление памяти. Пакет *alsa-utils* также содержит консольный Микшер (настройка громкости), который вызывается командой alsamixer.
 
-.. code:: bash
+.. code:: text
 
   sudo pacman -S jack2 pipewire pipewire-jack pipewire-alsa pavucontrol pipewire-pulse alsa-utils
 
@@ -151,7 +151,7 @@
 Однако, если вы пропишите команду *systemd-analyze blame*, то узнаете, что он задерживает загрузку системы примерно на ~4 секунды.
 Чтобы это исправить выполните:
 
-.. code:: bash
+.. code:: text
 
   sudo systemctl mask NetworkManager-wait-online.service
 
@@ -161,13 +161,13 @@
 
 Убедитесь, что пакет `lz4 <https://archlinux.org/packages/core/x86_64/lz4/>`_ установлен:
 
-.. code:: bash
+.. code:: text
 
   sudo pacman -S lz4
 
 Отредактируйте файл:
 
-.. code:: bash
+.. code:: text
 
   sudo nano /etc/mkinitcpio.conf
 
@@ -187,14 +187,14 @@
 Начиная с шестой версии pacman поддерживает параллельную загрузку пакетов.
 Чтобы её включить отредактируйте */etc/pacman.conf*:
 
-:bash:`sudo nano /etc/pacman.conf` # Раскомментируйте строчку ниже
+:text:`sudo nano /etc/pacman.conf` # Раскомментируйте строчку ниже
 
 *ParallelDownloads = 4* # Где 4 - количество пакетов для одновременной загрузки
 
 Альтернативно можно использовать powerpill (Спасибо Zee Captain)
 ------------------------------------------------------------------
 
-.. code:: bash
+.. code:: text
 
   git clone https://aur.archlinux.org/powerpill.git
   cd powerpill
@@ -202,7 +202,7 @@
 
 После установки выполните обновление баз данных:
 
-.. code:: bash
+.. code:: text
 
   sudo powerpill -Syu
 

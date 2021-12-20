@@ -13,8 +13,8 @@
 .. contents:: Содержание:
   :depth: 3
 
-.. role:: bash(code)
-  :language: bash
+.. role:: text(code)
+  :language: text
 
 ==========================================================
 Установка базовых пакетов и набор программ
@@ -22,7 +22,7 @@
 
 Вот основной набор программ который мы можем вам порекомендовать к установке первым делом:
 
-.. code:: bash
+.. code:: text
 
   sudo pacman -Syu base-devel \ # Обязательная к установке группа!
                    nano \ # Минималистичный консольный редактор
@@ -42,7 +42,7 @@
 
 Дополнительно можно отметить лёгковесный файловый менеджер PCManFM:
 
-.. code:: bash
+.. code:: text
 
   sudo pacman -S pcmanfm-gtk3 gvfs
 
@@ -57,7 +57,7 @@
 NVIDIA
 ------
 
-.. code:: bash
+.. code:: text
 
   sudo pacman -S nvidia-dkms nvidia-utils lib32-nvidia-utils nvidia-settings vulkan-icd-loader lib32-vulkan-icd-loader lib32-opencl-nvidia opencl-nvidia libxnvctrl
   sudo mkinitcpio -P # Обновляем образы ядра
@@ -69,21 +69,21 @@ Nouveau (*Только для старых видеокарт*)
 Она имеет официальную поддержку и обновления в отличии от старых версий закрытого драйвера NVIDIA (340, 390) и отлично справляется с 2D ускорением.
 Вдобавок, Nouveau хорошо работает с Wayland.
 
-.. code:: bash
+.. code:: text
 
   sudo pacman -S mesa lib32-mesa xf86-video-nouveau vulkan-icd-loader lib32-vulkan-icd-loader
 
 AMD
 ----
 
-.. code:: bash
+.. code:: text
 
   sudo pacman -S mesa lib32-mesa vulkan-radeon lib32-vulkan-radeon vulkan-icd-loader lib32-vulkan-icd-loader
 
 Intel
 -----
 
-.. code:: bash
+.. code:: text
 
   sudo pacman -S mesa lib32-mesa vulkan-intel lib32-vulkan-intel vulkan-icd-loader lib32-vulkan-icd-loader
 
@@ -100,20 +100,20 @@ Intel
 Добавление модулей NVIDIA и установка микрокода в образы ядра
 ===============================================================
 
-Редактируем параметр для сборки наших образов ядра: :bash:`sudo nano /etc/mkinitcpio.conf`
+Редактируем параметр для сборки наших образов ядра: :text:`sudo nano /etc/mkinitcpio.conf`
 
 Добавьте это как на изображении и выполните команды ниже.
 
 *# P.S. Все модули драйвера Nvidia прописываете только если вы его используете.*
 
-.. code:: bash
+.. code:: text
 
   MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm crc32c libcrc32c zlib_deflate btrfs) # Если используете BTRFS для корневого раздела.
 
 .. image:: https://raw.githubusercontent.com/ventureoo/ARU/main/archive/ARU/images/image4.png
   :align: center
 
-.. code:: bash
+.. code:: text
 
   sudo pacman -S intel-ucode iucode-tool             # Установить микрокод Intel
   sudo pacman -S amd-ucode iucode-tool               # Установить микрокод AMD
@@ -131,7 +131,7 @@ Intel
 
 **Установка**
 
-.. code:: bash
+.. code:: text
 
   git clone https://aur.archlinux.org/nvidia-tweaks.git
   cd nvidia-tweaks
@@ -145,7 +145,7 @@ Intel
 *==> ОШИБКА: Cannot find the strip binary required for object file stripping.*
 
 
-Выполните: :bash:`sudo pacman -S base-devel`
+Выполните: :text:`sudo pacman -S base-devel`
 
 --------------------------------------------------------
 Специфические переменные окружения для драйвера NVIDIA
@@ -175,7 +175,7 @@ Intel
 
 Прежде всего, нужно узнать какой тип подключения у вашего монитора, сделать это можно при помощи утилиты xrandr:
 
-.. code:: bash
+.. code:: text
 
   xrandr # Перед этим удостоверьтесь, что у вас установлен пакет xorg-xrandr.
 
@@ -188,7 +188,7 @@ Intel
 
 Затем переходим в панель управления NVIDIA X Settings (с Wayland данный способ не работает):
 
-.. code:: bash
+.. code:: text
 
   sudo nvidia-settings
 
@@ -206,7 +206,7 @@ Intel
 В качестве примера, мы установим и запустим `данную
 <https://www.analogway.com/americas/products/software-tools/aw-edid-editor/>`_ (p.s. не реклама) программу при помощи Wine.
 
-.. code:: bash
+.. code:: text
 
   wine SetupAWEDIDEditor_02.00.13.exe # Установите следуя согласно инструкциям
 
@@ -219,13 +219,13 @@ Intel
 Сохраняем уже измененный EDID файл (так-же в домашнюю директорию) и закрываем программу.
 Теперь нужно указать путь до измененного EDID файла в ваш xorg.conf в секции с тем монитором который мы разгоняем:
 
-.. code:: bash
+.. code:: text
 
  sudo nano /etc/X11/xorg.conf # Редактируем ранее сохраненный xorg.conf
 
 И добавляем туда опцию с полным путем к измененному EDID файлу в таком формате:
 
-.. code:: bash
+.. code:: text
 
  Option     "CustomEDID" "HDMI-0:/home/ваше_имя_пользователя/edid.bin"
 

@@ -13,7 +13,7 @@
 .. contents:: Содержание:
   :depth: 2
 
-.. role:: bash(code)
+.. role:: text(code)
   :language: text
 
 =====================================================
@@ -23,17 +23,17 @@
 По умолчанию в ядре Linux включено довольно много исправлений безопасности, которые однако существенно снижают производительность процессора.
 Вы можете их отключить через редактирование параметров загрузчика. Рассмотрим на примере GRUB:
 
-:bash:`sudo nano /etc/grub/default` # Редактируем настройки вручную или через grub-customizer как на скриншоте (P. S. параметры на снимке устарели)
+:text:`sudo nano /etc/grub/default` # Редактируем настройки вручную или через grub-customizer как на скриншоте (P. S. параметры на снимке устарели)
 
 .. image:: https://raw.githubusercontent.com/ventureoo/ARU/main/archive/ARU/images/image1.png
 
-.. code:: bash
+.. code:: text
 
   GRUB_CMDLINE_LINUX_DEFAULT=”quiet splash noibrs tsx_async_abort=off rootfstype=btrfs selinux=0 lpj=3499912 raid=noautodetect elevator=noop mitigations=off preempt=none”
 
 Подробнее о каждом из параметров написано - `здесь <https://linuxreviews.org/HOWTO_make_Linux_run_blazing_fast_(again)_on_Intel_CPUs>`_.
 
-:bash:`sudo grub-mkconfig -o /boot/grub/grub.cfg`
+:text:`sudo grub-mkconfig -o /boot/grub/grub.cfg`
 # Обновляем загрузчик, можно так-же сделать через grub-customizer, добавить и прожать, затем сохранить на 2 и 1 вкладке.
 
 --------------
@@ -41,7 +41,7 @@
 --------------
 
 *lpj=* - Уникальный параметр для каждой системы. Автоопределяется во время загрузки, что довольно трудоемко, поэтому лучше задать вручную.
-Определить ваше значение для lpj можно через следующую команду: :bash:`sudo dmesg | grep "lpj="`
+Определить ваше значение для lpj можно через следующую команду: :text:`sudo dmesg | grep "lpj="`
 
 *mitigations=off*  - Непосредственно отключает все заплатки безопасности ядра (включая Spectre и Meltdown)
 
