@@ -30,9 +30,7 @@ release = '2021.12.18'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = [
-'sphinx.ext.githubpages'
-]
+extensions = ['sphinx.ext.githubpages']
 
 master_doc = 'index'
 
@@ -95,9 +93,25 @@ man_pages = [
      [author], 1)
 ]
 
-# If true, show URL addresses after external links.
-#
-# man_show_urls = False
+# -- Options for LaTeX output ---------------------------------------------
+
+latex_engine = 'xelatex'
+
+latex_elements = {
+    'fontpkg': r'''
+\setmainfont{DejaVu Serif}
+\setsansfont{DejaVu Sans}
+\setmonofont{DejaVu Sans Mono}
+'''
+}
+
+# Grouping the document tree into LaTeX files. List of tuples
+# (source start file, target name, title,
+#  author, documentclass [howto, manual, or own class]).
+latex_documents = [
+    (root_doc, 'ARU.tex', 'Arch Linux Optimization Guide (RU)',
+     'Arch Linux Optimization Guide (RU)', 'manual'),
+]
 
 # -- Options for Texinfo output -------------------------------------------
 
@@ -107,7 +121,7 @@ man_pages = [
 texinfo_documents = [
     (root_doc, 'ARU', 'Arch Linux Optimization Guide (RU)',
      author, 'ARU', 'Arch Linux Optimization Guide (RU)',
-     'Guideline'),
+     'Miscellaneous'),
 ]
 
 # Documents to append as an appendix to all manuals.
