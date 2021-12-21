@@ -96,64 +96,65 @@ liquorix
 
 1.
 
-.. image:: https://sun9-47.userapi.com/-wFfSaOmB_QiVK_vjOwyqYQBmOlJXTPkXJ5lPA/aYtzm_yphFo.jpg
+.. image:: images/custom-kernels-1.jpg
 
 2.
 
-.. image:: https://sun9-31.userapi.com/tQ6Yq3pzLz6Hs-rlyRrZ7U-9RNSbYMyJcYBhsA/hp5gB1vo_1s.jpg
+.. image:: images/custom-kernels-2.jpg
 
 3.
 
-.. image:: https://sun9-28.userapi.com/iWhm89ve-r7L_LwTjr1fk4vmagj7aiBmiaTKPA/3_D1cPAJvt0.jpg
+.. image:: images/custom-kernels-3.jpg
 
 4.
 
-.. image:: https://sun9-73.userapi.com/W4KclsM3JQcTBljGOXdXLxMu7oGu1U5BcUx-Gw/AUTdukP3F6Y.jpg
+.. image:: images/custom-kernels-4.jpg
 
 5.
 
-.. image:: https://sun9-38.userapi.com/ZaSvn1FWAh34yQcuIc3H2u56IudkSQWR1_n7Bw/Cekim6B4xX0.jpg
+.. image:: images/custom-kernels-5.jpg
+
 
 6.
 
-.. image:: https://sun9-15.userapi.com/ho5NosdJIlxsRaSHvZV0AOW_BVlq22FMwGbBDQ/6KuodvzpBQM.jpg
+.. image:: images/custom-kernels-6.jpg
 
 7.
 
-.. image:: https://sun9-62.userapi.com/_yIE4Enei_w7Af_VZF3aYiQCDdoYujfU1-HpDA/notxRwjIv-E.jpg
+.. image:: images/custom-kernels-7.jpg
 
 8.
 
-.. image:: https://sun9-47.userapi.com/VM0ktBpotDNOoiFIUDfP7jBviU2uvo7iMo9bMQ/ZjD_DqR4we4.jpg
+.. image:: images/custom-kernels-8.jpg
 
 9.
 
-.. image:: https://sun9-59.userapi.com/7eYh_6dZt40ElgwvWA0v-SxsSORB2BonGnP-zw/S7XnXBr0oK4.jpg
+.. image:: images/custom-kernels-9.jpg
 
 10.
 
-.. image:: https://sun9-2.userapi.com/FB0hiLg9ugjtc7e9nKQPuTVSPR5Gbz9Vv96_aQ/btkmO02ZfXc.jpg
+.. image:: images/custom-kernels-10.jpg
 
 11.
 
-.. image:: https://sun9-29.userapi.com/FwwhH6XANA1T2lTAksMW6Dx-dd_MChZ-GH8Daw/PPdM2NmWNdA.jpg
+.. image:: images/custom-kernels-11.jpg
 
 
 12.
 
-.. image:: https://sun9-5.userapi.com/FAg14VOTSVT04vR3andzSqJLaD4InKzOmnh-_g/XjSrMDL5YE0.jpg
+.. image:: images/custom-kernels-12.jpg
 
 13.
 
-.. image:: https://sun9-18.userapi.com/87LdTG4wlQa9ynls27BT8RwBswu6r428Y1Odsg/_DQcWM7c-AM.jpg
+.. image:: images/custom-kernels-13.jpg
 
 14.
 
-.. image:: https://sun9-75.userapi.com/TU3rXz05UmCDRKBYUA8VdSiUTk9I1_rVA1lceg/7eVeKDiIZ54.jpg
+.. image:: images/custom-kernels-14.jpg
 
 15.
 
-.. image:: https://sun9-23.userapi.com/XvRbDa-0kjM5ctIqRnU0Yxrwb8KQFsi5nPou0g/4SFrm87qAlg.jpg
+.. image:: images/custom-kernels-15.jpg
 
 Последовательное выполнение данных инструкций приведет к повышению производительности,
 а также исправит неккоректное поведение драйвера NVIDIA при работе с фреймбуфером.
