@@ -14,15 +14,13 @@
   :depth: 3
 
 .. role:: bash(code)
-  :language: text
+  :language: shell
 
 ==========================================================
 Установка базовых пакетов и набор программ
 ==========================================================
 
-Вот основной набор программ который мы можем вам порекомендовать к установке первым делом:
-
-.. code:: text
+Вот основной набор программ который мы можем вам порекомендовать к установке первым делом:::
 
   sudo pacman -Syu base-devel \ # Обязательная к установке группа!
                    nano \ # Минималистичный консольный редактор
@@ -40,9 +38,7 @@
                    lrzip \ # Для поддержки сжатия через rzip/lcma/lzo и т.д.
                    squashfs-tools
 
-Дополнительно можно отметить лёгковесный файловый менеджер PCManFM:
-
-.. code:: text
+Дополнительно можно отметить лёгковесный файловый менеджер PCManFM:::
 
   sudo pacman -S pcmanfm-gtk3 gvfs
 
@@ -57,7 +53,7 @@
 NVIDIA
 ------
 
-.. code:: text
+::
 
   sudo pacman -S nvidia-dkms nvidia-utils lib32-nvidia-utils nvidia-settings vulkan-icd-loader lib32-vulkan-icd-loader lib32-opencl-nvidia opencl-nvidia libxnvctrl
   sudo mkinitcpio -P # Обновляем образы ядра
@@ -67,23 +63,19 @@ Nouveau (*Только для старых видеокарт*)
 
 Для старых видеокарт (ниже архитектуры Kepler) мы рекомендуем использовать свободную альтернативу драйвера NVIDIA - Nouveau, входящую в состав Mesa.
 Она имеет официальную поддержку и обновления в отличии от старых версий закрытого драйвера NVIDIA (340, 390) и отлично справляется с 2D ускорением.
-Вдобавок, Nouveau хорошо работает с Wayland.
-
-.. code:: text
+Вдобавок, Nouveau хорошо работает с Wayland.::
 
   sudo pacman -S mesa lib32-mesa xf86-video-nouveau vulkan-icd-loader lib32-vulkan-icd-loader
 
 AMD
 ----
-
-.. code:: text
+::
 
   sudo pacman -S mesa lib32-mesa vulkan-radeon lib32-vulkan-radeon vulkan-icd-loader lib32-vulkan-icd-loader
 
 Intel
 -----
-
-.. code:: text
+::
 
   sudo pacman -S mesa lib32-mesa vulkan-intel lib32-vulkan-intel vulkan-icd-loader lib32-vulkan-icd-loader
 
@@ -106,14 +98,14 @@ Intel
 
 *# P.S. Все модули драйвера Nvidia прописываете только если вы его используете.*
 
-.. code:: text
+::
 
   MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm crc32c libcrc32c zlib_deflate btrfs) # Если используете BTRFS для корневого раздела.
 
 .. image:: https://raw.githubusercontent.com/ventureoo/ARU/main/archive/ARU/images/image4.png
   :align: center
 
-.. code:: text
+::
 
   sudo pacman -S intel-ucode iucode-tool             # Установить микрокод Intel
   sudo pacman -S amd-ucode iucode-tool               # Установить микрокод AMD
@@ -129,18 +121,14 @@ Intel
 Для того чтобы вы могли их активировать удобным способом, мы сделали пакет который включает в себя все эти твики для драйвера - `nvidia-tweaks
 <https://aur.archlinux.org/packages/nvidia-tweaks/>`_. Прежде чем устанавливать выполните установку самого драйвера NVIDIA как это было описано выше.
 
-**Установка**
-
-.. code:: text
+**Установка**::
 
   git clone https://aur.archlinux.org/nvidia-tweaks.git
   cd nvidia-tweaks
   nano PKGBUILD # В PKGBUILD вы можете найти больше опций для настройки, например настройку питания через PowerMizer (Может потребоваться отдельная установка nvidia-settings)
   makepkg -sric
 
-При возникновении следующей ошибки:
-
-.. code:: text
+При возникновении следующей ошибки:::
 
    ==> ОШИБКА: Cannot find the fakeroot binary.
    ==> ОШИБКА: Cannot find the strip binary required for object file stripping.
@@ -173,9 +161,7 @@ Intel
 Вопреки мнению многих людей, в Linux таки возможно выполнить разгон монитора.
 Мы будем рассматривать этот вопрос только для владельцев GPU NVIDIA, поэтому данный способ может не подойти пользователям открытых драйверов Mesa.
 
-Прежде всего, нужно узнать какой тип подключения у вашего монитора, сделать это можно при помощи утилиты xrandr:
-
-.. code:: text
+Прежде всего, нужно узнать какой тип подключения у вашего монитора, сделать это можно при помощи утилиты xrandr:::
 
   xrandr # Перед этим удостоверьтесь, что у вас установлен пакет xorg-xrandr.
 
@@ -186,9 +172,7 @@ Intel
    Необходимо чтобы рядом с возможным разрешением заданным для монитора, рядом с значением герцовки был знак звездочки (*).
    Это означает, что монитор способен выдавать большее количество Герц чем указано, т.е. его можно разогнать.
 
-Затем переходим в панель управления NVIDIA X Settings (с Wayland данный способ не работает):
-
-.. code:: text
+Затем переходим в панель управления NVIDIA X Settings (с Wayland данный способ не работает):::
 
   sudo nvidia-settings
 
@@ -204,9 +188,7 @@ Intel
 К сожалению, в Linux нет инструментария для редактирования файлов этого формата, поэтому нам придется обратиться к запуску Windows программ для этого из под Wine.
 Об установке самого Wine будет описано далее в ARU.
 В качестве примера, мы установим и запустим `данную
-<https://www.analogway.com/americas/products/software-tools/aw-edid-editor/>`_ (p.s. не реклама) программу при помощи Wine.
-
-.. code:: text
+<https://www.analogway.com/americas/products/software-tools/aw-edid-editor/>`_ (p.s. не реклама) программу при помощи Wine.::
 
   wine SetupAWEDIDEditor_02.00.13.exe # Установите следуя согласно инструкциям
 
@@ -217,15 +199,11 @@ Intel
 Для разных мониторов - разные значения.
 
 Сохраняем уже измененный EDID файл (так-же в домашнюю директорию) и закрываем программу.
-Теперь нужно указать путь до измененного EDID файла в ваш xorg.conf в секции с тем монитором который мы разгоняем:
-
-.. code:: text
+Теперь нужно указать путь до измененного EDID файла в ваш xorg.conf в секции с тем монитором который мы разгоняем:::
 
  sudo nano /etc/X11/xorg.conf # Редактируем ранее сохраненный xorg.conf
 
-И добавляем туда опцию с полным путем к измененному EDID файлу в таком формате:
-
-.. code:: text
+И добавляем туда опцию с полным путем к измененному EDID файлу в таком формате:::
 
  Option     "CustomEDID" "HDMI-0:/home/ваше_имя_пользователя/edid.bin"
 

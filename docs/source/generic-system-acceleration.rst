@@ -14,7 +14,7 @@
   :depth: 3
 
 .. role:: bash(code)
-  :language: text
+  :language: shell
 
 ======================
 Настройка makepkg.conf
@@ -25,9 +25,7 @@
 
 :bash:`sudo nano /etc/makepkg.conf`  # Редактируем
 
-**Изменить ваши значения на эти:**
-
-.. code:: text
+**Изменить ваши значения на эти:**::
 
   CFLAGS="-march=native -mtune=native -O3 -pipe -fno-plt -fexceptions \
         -Wp,-D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security \
@@ -47,44 +45,34 @@
 
 **1.** `Zramswap <https://aur.archlinux.org/packages/zramswap/>`_ — это специальный демон, который сжимает оперативную память ресурсами центрального процессора и создает в ней файл подкачки.
 Очень ускоряет систему вне зависимости от количества памяти, однако добавляет нагрузку на процессор, т.к. его ресурсами и происходит сжатие памяти.
-Поэтому, на слабых компьютерах с малым количеством ОЗУ, это может негативно повлиять на производительность в играх.
-
-.. code:: text
+Поэтому, на слабых компьютерах с малым количеством ОЗУ, это может негативно повлиять на производительность в играх.::
 
   git clone https://aur.archlinux.org/zramswap.git  # Скачивание исходников.
   cd zramswap                                       # Переход в zramswap.
   makepkg -sric                                     # Сборка и установка.
   sudo systemctl enable --now zramswap.service      # Включаем службу.
 
-**1.1** `Nohang <https://github.com/hakavlad/nohang>`_  — это демон повышающий производительность путём обработки и слежки за потреблением памяти.
-
-.. code:: text
+**1.1** `Nohang <https://github.com/hakavlad/nohang>`_  — это демон повышающий производительность путём обработки и слежки за потреблением памяти.::
 
   git clone https://aur.archlinux.org/nohang-git.git # Скачивание исходников.
   cd nohang-git                                      # Переход в nohang-git
   makepkg -sric                                      # Сборка и установка.
   sudo systemctl enable --now nohang-desktop         # Включаем службу.
 
-**1.2** `Ananicy <https://github.com/Nefelim4ag/Ananicy>`_ — это демон распределяющий приоритет задач, его установка очень сильно повышает отклик системы.
-
-.. code:: text
+**1.2** `Ananicy <https://github.com/Nefelim4ag/Ananicy>`_ — это демон распределяющий приоритет задач, его установка очень сильно повышает отклик системы.::
 
   git clone https://aur.archlinux.org/ananicy.git # Скачивание исходников.
   cd ananicy                                      # Переход в ananicy.
   makepkg -sric                                   # Сборка и установка.
   sudo systemctl enable --now ananicy             # Включаем службу.
 
-**1.3** Включаем `TRIM <https://ru.wikipedia.org/wiki/Trim_(команда_для_накопителей)>`_ — очень полезно для SSD.
-
-.. code:: text
+**1.3** Включаем `TRIM <https://ru.wikipedia.org/wiki/Trim_(команда_для_накопителей)>`_ — очень полезно для SSD.::
 
   sudo systemctl enable fstrim.timer    # Включаем службу.
   sudo fstrim -v /                      # Ручной метод.
   sudo fstrim -va /                     # Если первый метод не тримит весь диск.
 
-**1.4** `Сron <https://wiki.archlinux.org/title/cron>`_ — это демон, поможет вам очищать нашу систему от мусора автономно.
-
-.. code:: text
+**1.4** `Сron <https://wiki.archlinux.org/title/cron>`_ — это демон, поможет вам очищать нашу систему от мусора автономно.::
 
   sudo pacman -S cronie                         # Установить cron.
   sudo systemctl enable --now cronie.service    # Запускает и включает службу.
@@ -97,26 +85,19 @@
 Таким образом наша система будет чистить свой кэш раз в неделю, в воскресенье в 15:10.
 
 **1.5** `haveged <https://wiki.archlinux.org/title/Haveged_(Русский)>`_ - это демон, что следит на энтропией системы.
-Необходим для ускорения запуска системы при высоких показателях в: *systemd-analyze blame* (Больше 1 секунды).
-
-
-.. code:: text
+Необходим для ускорения запуска системы при высоких показателях в: *systemd-analyze blame* (Больше 1 секунды).::
 
   sudo pacman -S haveged        # Установка
   sudo systemctl enable haveged # Включает и запускает службу.
 
 **1.5.1** `rng-tools <https://wiki.archlinux.org/title/Rng-tools>`_ - демон, что также следит на энтропией системы, но в отличии от haveged уже через аппаратный таймер.
-Необходим для ускорения запуска системы при высоких показателях *systemd-analyze blame* (Больше 1 секунды). (**Не использовать вместе с Ananicy**).
-
-.. code:: text
+Необходим для ускорения запуска системы при высоких показателях *systemd-analyze blame* (Больше 1 секунды). (**Не использовать вместе с Ananicy**).::
 
   sudo pacman -S rng-tools         # Установка
   sudo systemctl enable --now rngd # Включает и запускает службу.
 
 **1.6** `dbus-broker <https://github.com/bus1/dbus-broker>`_ - Это реализация шины сообщений в соответствии со спецификацией D-Bus.
-Его цель - обеспечить высокую производительность и надежность при сохранении совместимости с эталонной реализацией D-Bus.
-
-.. code:: text
+Его цель - обеспечить высокую производительность и надежность при сохранении совместимости с эталонной реализацией D-Bus.::
 
   sudo pacman -S dbus-broker                      # Уставновка
   sudo systemctl enable --now dbus-broker.service # Включает и запускает службу.
@@ -125,9 +106,7 @@
 Сверхнизкие задержки звука
 =============================
 
-Установите следующие пакеты для понижения задержек звука в PulseAudio:
-
-.. code:: text
+Установите следующие пакеты для понижения задержек звука в PulseAudio:::
 
   sudo pacman -S jack2 pulseaudio-alsa pulseaudio-jack pavucontrol jack2-dbus realtime-privileges
 
@@ -137,9 +116,8 @@
 Новая альтернатива PulseAudio
 ------------------------------
 
-`PipeWire <https://wiki.archlinux.org/title/PipeWire_(Русский)>`_ - это новая альтернатива PulseAudio, которая призвана избавить от проблем pulse, уменьшить задержки звука и потребление памяти. Пакет *alsa-utils* также содержит консольный Микшер (настройка громкости), который вызывается командой alsamixer.
-
-.. code:: text
+`PipeWire <https://wiki.archlinux.org/title/PipeWire_(Русский)>`_ - это новая альтернатива PulseAudio, которая призвана избавить от проблем pulse,
+уменьшить задержки звука и потребление памяти. Пакет *alsa-utils* также содержит консольный Микшер (настройка громкости), который вызывается командой alsamixer.::
 
   sudo pacman -S jack2 pipewire pipewire-jack pipewire-alsa pavucontrol pipewire-pulse alsa-utils
 
@@ -147,11 +125,10 @@
 Ускорение загрузки системы (Отключение NetworkManager-wait-online)
 ===================================================================
 
-В большинстве случаев для настройки интернет подключения вы, скорее всего, будете использовать NetworkManager, т.к. он является в этом деле швейцарским ножом и поставляется по умолчанию.
+В большинстве случаев для настройки интернет подключения вы, скорее всего, будете использовать NetworkManager,
+т.к. он является в этом деле швейцарским ножом и поставляется по умолчанию.
 Однако, если вы пропишите команду *systemd-analyze blame*, то узнаете, что он задерживает загрузку системы примерно на ~4 секунды.
-Чтобы это исправить выполните:
-
-.. code:: text
+Чтобы это исправить выполните:::
 
   sudo systemctl mask NetworkManager-wait-online.service
 
@@ -159,15 +136,11 @@
 Ускорение загрузки ядра на HDD накопителях (*Только для жестких дисков*)
 ------------------------------------------------------------------------
 
-Убедитесь, что пакет `lz4 <https://archlinux.org/packages/core/x86_64/lz4/>`_ установлен:
-
-.. code:: text
+Убедитесь, что пакет `lz4 <https://archlinux.org/packages/core/x86_64/lz4/>`_ установлен:::
 
   sudo pacman -S lz4
 
-Отредактируйте файл:
-
-.. code:: text
+Отредактируйте файл:::
 
   sudo nano /etc/mkinitcpio.conf
 
@@ -194,15 +167,13 @@
 Альтернативно можно использовать powerpill (Спасибо Zee Captain)
 ------------------------------------------------------------------
 
-.. code:: text
+::
 
   git clone https://aur.archlinux.org/powerpill.git
   cd powerpill
   makepkg -sric
 
-После установки выполните обновление баз данных:
-
-.. code:: text
+После установки выполните обновление баз данных:::
 
   sudo powerpill -Syu
 

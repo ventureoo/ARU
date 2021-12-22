@@ -14,7 +14,7 @@
   :depth: 2
 
 .. role:: bash(code)
-  :language: text
+  :language: shell
 
 =====================================================
 Обновление загрузчика и отключение ненужных заплаток
@@ -27,7 +27,7 @@
 
 .. image:: https://raw.githubusercontent.com/ventureoo/ARU/main/archive/ARU/images/image1.png
 
-.. code:: text
+::
 
   GRUB_CMDLINE_LINUX_DEFAULT="quiet splash noibrs tsx_async_abort=off rootfstype=btrfs selinux=0 lpj=3499912 raid=noautodetect elevator=noop mitigations=off preempt=none"
 

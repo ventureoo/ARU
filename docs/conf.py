@@ -33,7 +33,6 @@ release = '2021.12.18'
 extensions = ['sphinx.ext.githubpages']
 
 master_doc = 'index'
-
 root_doc = master_doc
 
 source_suffix = { '.rst': 'restructuredtext' }
@@ -42,6 +41,8 @@ source_suffix = { '.rst': 'restructuredtext' }
 # https://github.com/ventureoo/ARU/issues/3
 # https://github.com/ventureoo/ARU/pull/4
 smartquotes = False
+
+highlight_language = 'shell'
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
