@@ -115,8 +115,8 @@
 Его также будут использовать программы которые запускаемые через Wine.
 Директория <em>dosdevices</em> содержит символические ссылки на примонтированные устройства (разделы) в вашей системе Linux.
 Это понадобилось для того чтобы представить их в виде MS-DOS томов, ибо Windows приложения опять таки не знают что они работают под Linux, и им нужны привычные им диски D, E и т.д.
-Один из таких «виртуальных дисков» располагается в другом каталоге - <em>drive_c</em> (диск C:).
-Если вы его откроете то увидите «замечательную» структуру каталогов Windows:</p>
+Один из таких &quot;виртуальных дисков&quot; располагается в другом каталоге - <em>drive_c</em> (диск C:).
+Если вы его откроете то увидите &quot;замечательную&quot; структуру каталогов Windows:</p>
 <img alt="https://raw.githubusercontent.com/ventureoo/ARU/main/archive/ARU/images/image8.png" src="https://raw.githubusercontent.com/ventureoo/ARU/main/archive/ARU/images/image8.png" />
 <p>Собственно именно сюда и будут устанавливаться все Windows программы и работать они как правило тоже будут именно там.</p>
 <p>Вы можете переназначить префикс по умолчанию через переменную окружения <em>WINEPREFIX</em>, тем самым указав Wine использовать другую директорию для его расположения вместо <em>~/.wine</em>. Например:</p>
@@ -138,7 +138,7 @@ WINEPREFIX=~/.new_wineprefix wine приложение.exe
 </pre></div>
 </div>
 <p>Если вы уже создали 64-битные префикс, то переназначить его разрядность через переменную <em>WINEARCH</em> не получиться. Создайте новый и перенесите нужную вам программу.</p>
-<p>Проверить разрядность уже существующего префикса можно командой (можно также проверить по наличию директории <em>«Program Files (x86)»</em> внутри префикса):</p>
+<p>Проверить разрядность уже существующего префикса можно командой (можно также проверить по наличию директории <em>&quot;Program Files (x86)&quot;</em> внутри префикса):</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>grep &#39;#arch&#39; ~/.wine/system.reg # Где ‘.wine’ - название префикса
 </pre></div>
 </div>
@@ -319,7 +319,7 @@ _protonify, _msvcrt_nativebuiltin, _proton_fs_hack, _proton_rawinput.
 <p>Важно помнить, что эта технология работает <strong>только в полноэкранном режиме игры</strong>.</p>
 <p>Регулировать резкость итогового изображения можно через переменную окружения <em>WINE_FULLSCREEN_FSR_STRENGTH=N</em>,
 где N - это уровень резкости изображения от 0 до 5. Чем выше значение, тем меньше резкость.
-По умолчанию установлено значение <em>«2»</em>, мы рекомендуем использовать значение <em>«3»</em>.</p>
+По умолчанию установлено значение <em>&quot;2&quot;</em>, мы рекомендуем использовать значение <em>&quot;3&quot;</em>.</p>
 <p><strong>Видеоверсия и демонстрация работы технологии</strong></p>
 <p><a class="reference external" href="https://www.youtube.com/watch?v=YNhwAazJODU">https://www.youtube.com/watch?v=YNhwAazJODU</a></p>
 </div>
@@ -350,7 +350,7 @@ makepkg -sric
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ln -s /usr/share/steam/compatibilitytools.d/proton-ge-custom/files ~/.local/share/lutris/runners/wine/wine-proton-ge
 </pre></div>
 </div>
-<p>Затем просто выберите пункт в выборе версии Wine на <em>«wine-proton-ge»</em> в Lutris для нужной вам игры.</p>
+<p>Затем просто выберите пункт в выборе версии Wine на <em>&quot;wine-proton-ge&quot;</em> в Lutris для нужной вам игры.</p>
 </div>
 </div>
 </div>

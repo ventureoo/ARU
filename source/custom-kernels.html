@@ -212,46 +212,46 @@ cd linux-tkg
 Выбирайте самую последнюю из доступных.</p>
 <p><code class="code bash text docutils literal notranslate"><span class="pre">_modprobeddb=&quot;false&quot;</span></code> - Опция отвечающая за сборку мини-ядра.
 Подробнее о нем вы можете узнать в соответствующем разделе.
-Если хотите собрать мини-ядро - пишите <em>«true»</em>, если нет - <em>«false»</em>.</p>
+Если хотите собрать мини-ядро - пишите <em>&quot;true&quot;</em>, если нет - <em>&quot;false&quot;</em>.</p>
 <p><code class="code bash text docutils literal notranslate"><span class="pre">_menuconfig=&quot;1&quot;</span></code> - Выбор настройки ядра через menuconfg/xconfig/nconfig.
-Рекомендуется выбрать <em>«1»</em> чтобы перед сборкой можно было выполнить непосредственную настройку конфига ядра через menuconfig как мы уже делали ранее с liquorix.</p>
+Рекомендуется выбрать <em>&quot;1&quot;</em> чтобы перед сборкой можно было выполнить непосредственную настройку конфига ядра через menuconfig как мы уже делали ранее с liquorix.</p>
 <p><code class="code bash text docutils literal notranslate"><span class="pre">_cpusched=&quot;pds&quot;</span></code> - Выбор CPU планировщика ядра.
-Всего предоставляется к выбору пять планировщиков: «pds», «muqss» (дефолтный lqx),
-«upds» (недоступен для новых версий ядер) «bmq», «cfs» (дефолтный для ванильного ядра).
+Всего предоставляется к выбору пять планировщиков: &quot;pds&quot;, &quot;muqss&quot; (дефолтный lqx),
+&quot;upds&quot; (недоступен для новых версий ядер) &quot;bmq&quot;, &quot;cfs&quot; (дефолтный для ванильного ядра).
 По некоторым данным, (u)PDS дает больше FPS, а MuQSS дает лучшие задержки по времени кадра (плавность).
 Однако все слишком ситуативно чтобы выбрать из них лучшего, в каких-то играх/задачах будет выигрывать (u)PDS, а в каких-то MuQSS и так далее.</p>
 <p>Рекомендуется попробовать (u)PDS или MuQSS.
 Не выбирайте CFS, он самый худший из списка и совсем не заточен под игры.</p>
 <p><code class="code bash text docutils literal notranslate"><span class="pre">_runqueue_sharing=&quot;mc-llc&quot;</span></code> - Настраивает режим совместного использования очереди выполнения планировщика.
-Работает только для MuQSS. Рекомендуется выбирать Multicore siblings («mc-llc») для равномерного распределения нагрузки процессора по его ядрам.</p>
+Работает только для MuQSS. Рекомендуется выбирать Multicore siblings (&quot;mc-llc&quot;) для равномерного распределения нагрузки процессора по его ядрам.</p>
 <p><code class="code bash text docutils literal notranslate"><span class="pre">_rr_interval=&quot;default&quot;</span></code> - Задает продолжительность удержания двумя задачами одинакового приоритета.
-Рекомендуемое значение слишком зависит от выбранного планировщика, поэтому лучше всего задавайте <em>«default»</em>.</p>
+Рекомендуемое значение слишком зависит от выбранного планировщика, поэтому лучше всего задавайте <em>&quot;default&quot;</em>.</p>
 <p><code class="code bash text docutils literal notranslate"><span class="pre">_default_cpu_gov=&quot;performance&quot;</span></code> - Выбирает режим по умолчанию в котором будет масштабироваться частота процессора.
-Рекомендуется <em>«performance»</em> чтобы процессор по умолчанию работал в режиме высокой производительности.</p>
+Рекомендуется <em>&quot;performance&quot;</em> чтобы процессор по умолчанию работал в режиме высокой производительности.</p>
 <p><code class="code bash text docutils literal notranslate"><span class="pre">_aggressive_ondemand=&quot;false&quot;</span></code> - Задает агрессивное применение динамического управления частотой процессора по необходимости в выполняемой задаче,
 обеспечивая тем самым энергоэффективность.
-Но т.к. выше мы уже закрепили режим масштабирования «performance», то мы можем отключить этот параметр.
+Но т.к. выше мы уже закрепили режим масштабирования &quot;performance&quot;, то мы можем отключить этот параметр.
 Однако пользователи ноутбуков могут оставить этот параметр включенным.</p>
 <p><code class="code bash text docutils literal notranslate"><span class="pre">_disable_acpi_cpufreq=&quot;true&quot;</span></code> - Отключает универсальный acpi_freq драйвер масштабирования частоты процессора в угоду фирменному драйверу Intel/AMD процессоров
 что имеют лучшую произвоидетльность по сравнению с acpi_freq.
 Выбирайте значение по собственному усмотрению со знанием своего CPU.</p>
 <p><code class="code bash text docutils literal notranslate"><span class="pre">_sched_yield_type=&quot;0&quot;</span></code> - Настраивает выполнение освобождения процесса от потребления процессорного времени путем его переноса в конец очереди выполнения процессов.
-Рекомендуемое значение для лучшей производительности - <em>«0»</em>, т.е. не осуществлять перенос в конец очереди для освобождения процесса.</p>
+Рекомендуемое значение для лучшей производительности - <em>&quot;0&quot;</em>, т.е. не осуществлять перенос в конец очереди для освобождения процесса.</p>
 <p><code class="code bash text docutils literal notranslate"><span class="pre">_tickless=&quot;0&quot;</span></code> - Рекомендуется выбирать периодические тики таймера ядра.</p>
 <p><code class="code bash text docutils literal notranslate"><span class="pre">_timer_freq=&quot;1000&quot;</span></code> - Задает частоту таймера.
 Рекомендуется 1000 для лучшей отзывчивости системы на домашнем ПК или ноутбуке.</p>
 <p><code class="code bash text docutils literal notranslate"><span class="pre">_fsync=&quot;true&quot;</span></code> - Задействует поддержку ядром замены Esync от компании Valve - Fsync.
-Обязательно к включению (<em>«true»</em>) для лучшей производительности в играх.</p>
+Обязательно к включению (<em>&quot;true&quot;</em>) для лучшей производительности в играх.</p>
 <p><code class="code bash text docutils literal notranslate"><span class="pre">_futex2=&quot;false&quot;</span></code> - Осуществляет использование нового, экспериментального futex2 вызова что может дать лучшую производительность для игрушек запускаемых через Wine/Proton.
 Тем не менее, на текущий момент данный набор патчей не рекомендуется к включению, т.к. может сломать работу некоторых игр (?).</p>
 <p><code class="code bash text docutils literal notranslate"><span class="pre">_winesync=&quot;false&quot;</span></code> - Еще одна замена esync, но уже от разработчиков Wine.</p>
 <p><code class="code bash text docutils literal notranslate"><span class="pre">_zenify=&quot;true&quot;</span></code> - Применяет твики Zen и Liquorix для улучшения производительности в играх.
 Настоятельно рекомендуется к включению.</p>
 <p><code class="code bash text docutils literal notranslate"><span class="pre">_complierlevel=&quot;2&quot;</span></code> - Задает степень оптимизации компиляции ядра.
-Лучше всего выбирать <em>«2»</em>, т.е. сборку с -O3 флагом (макс. производительность).</p>
+Лучше всего выбирать <em>&quot;2&quot;</em>, т.е. сборку с -O3 флагом (макс. производительность).</p>
 <p><code class="code bash text docutils literal notranslate"><span class="pre">_processor_opt=&quot;native_intel&quot;</span></code> - С учетом какой архитектуры процессора собирать ядро.
-Настоятельно рекомендуется указать здесь либо архитектуру непосредственно вашего процессора (К примеру: «skylake»),
-либо фирму производитель, где для Intel это - <em>«native_intel»</em>, для AMD - <em>«native_amd»</em>.</p>
+Настоятельно рекомендуется указать здесь либо архитектуру непосредственно вашего процессора (К примеру: &quot;skylake&quot;),
+либо фирму производитель, где для Intel это - <em>&quot;native_intel&quot;</em>, для AMD - <em>&quot;native_amd&quot;</em>.</p>
 <p><code class="code bash text docutils literal notranslate"><span class="pre">_ftracedisable=&quot;true&quot;</span></code> - Отключает ненужные трекеры для отладки ядра.</p>
 <p>Вот и все. Остальные настройки <em>customizing.cfg</em> вы можете выбрать по собственному предпочтению.
 После того как мы закончили с настройкой, можно перейти непосредственно к сборке и установке ядра:</p>

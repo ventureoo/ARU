@@ -74,7 +74,7 @@ OPTIONS=(strip docs !libtool !staticlibs emptydirs zipman purge !debug lto)
 </div>
 <p>Данные флаги компилятора выжимают максимум производительности при компиляции, но могут вызывать ошибки сборки в очень редких приложениях.
 Если такое случится, то измените O3 на O2 (Где O - <strong>ЭТО не ноль/нуль</strong>).
-И отключите параметр ‘lto’ в строке options добавив перед ним символ восклицательного знака  ! (<em>«!lto»</em>).</p>
+И отключите параметр ‘lto’ в строке options добавив перед ним символ восклицательного знака  ! (<em>&quot;!lto&quot;</em>).</p>
 </div>
 <div class="section" id="id3">
 <h2><a class="toc-backref" href="#id7">Установка полезных служб и демонов</a><a class="headerlink" href="#id3" title="Ссылка на этот заголовок">¶</a></h2>
@@ -174,8 +174,8 @@ sudo systemctl enable --now dbus-broker.service # Включает и запус
 <p>Теперь выполните следующие действия:</p>
 <ul class="simple">
 <li><p>Добавьте <em>lz4 lz4_compress</em> в массив <em>MODULES</em> (ограничен скобками)</p></li>
-<li><p>Раскомментируйте или добавьте строку с надписью <em>COMPRESSION=»lz4»</em></p></li>
-<li><p>Добавьте строку если её нет -  <em>COMPRESSION_OPTIONS=»-9»</em></p></li>
+<li><p>Раскомментируйте или добавьте строку с надписью <em>COMPRESSION=&quot;lz4&quot;</em></p></li>
+<li><p>Добавьте строку если её нет -  <em>COMPRESSION_OPTIONS=&quot;-9&quot;</em></p></li>
 <li><p>Добавите <em>shutdown</em> в массив <em>HOOKS</em> (ограничен скобками)</p></li>
 </ul>
 <p>Это ускорит загрузку системы на слабых жёстких дисках благодаря более подходящему методу сжатия образов ядра.</p>
