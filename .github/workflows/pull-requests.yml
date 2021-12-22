@@ -1,0 +1,22 @@
+name: Pull Requests
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build HTML
+      uses: ammaraskar/sphinx-action@master
+      with:
+        docs-folder: "docs/"
+        build-command: "sphinx-build -b html . build"
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: ARU
+        path: docs/build/
