@@ -52,9 +52,10 @@
 <li><p><a class="reference internal" href="#dxvk" id="id12">Сборка DXVK с асинхронным патчем</a></p></li>
 <li><p><a class="reference internal" href="#wine-dxvk" id="id13">Полезные ссылки по теме Wine и DXVK</a></p></li>
 <li><p><a class="reference internal" href="#lutris" id="id14">Установка Lutris и дополнений.</a></p></li>
-<li><p><a class="reference internal" href="#proton-ge-custom" id="id15">Proton-GE-Custom</a></p>
+<li><p><a class="reference internal" href="#amd-fidelityfx-super-resolution-wine" id="id15">AMD FidelityFX Super Resolution в Wine</a></p></li>
+<li><p><a class="reference internal" href="#proton-ge-custom" id="id16">Proton-GE-Custom</a></p>
 <ul>
-<li><p><a class="reference internal" href="#proton-ge-custom-lutris" id="id16">Использование Proton-GE-Custom в Lutris</a></p></li>
+<li><p><a class="reference internal" href="#proton-ge-custom-lutris" id="id17">Использование Proton-GE-Custom в Lutris</a></p></li>
 </ul>
 </li>
 </ul>
@@ -164,7 +165,7 @@ cd wine-tkg-git/wine-tkg-git
 </pre></div>
 </div>
 <p>По аналогии с linux-tkg, wine-tkg предоставляет возможность предварительно настроить себя перед установкой
-на применение различных патчей и твиков через редактирование файла <em>customizing.cfg</em>:</p>
+на применение различных патчей и твиков через редактирование файла <em>customization.cfg</em>:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>nano customization.cfg
 </pre></div>
 </div>
@@ -200,7 +201,10 @@ cd wine-tkg-git/wine-tkg-git
 Настоятельно рекомендуется к включению.</p>
 <div class="admonition attention">
 <p class="admonition-title">Внимание</p>
-<p>По умолчанию wine-tkg не использует нативные флаги которые вы указывали ранее в <em>/etc/makepkg.conf</em>. Их нужно указать вручную отредактировав <em>wine-tkg-profiles/advanced-customization.cfg</em></p>
+<dl class="simple">
+<dt>По умолчанию wine-tkg не использует нативные флаги которые вы указывали ранее в <em>/etc/makepkg.conf</em>.</dt><dd><p>Их нужно указать вручную отредактировав <em>wine-tkg-profiles/advanced-customization.cfg</em></p>
+</dd>
+</dl>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>nano wine-tkg-profiles/advanced-customization.cfg # Отредактируйте строчки ниже
 
 _GCC_FLAGS=&quot;-O2 -ftree-vectorize -march=native&quot;
@@ -231,8 +235,8 @@ nano wine-tkg-profiles/advanced-customization.cfg # Отредактируйте
 _EXT_CONFIG_PATH=&quot;~/wine-tkg-userpatches/wine-tkg.cfg&quot;
 </pre></div>
 </div>
-<p>Соберите wine-tkg по инструкции выше.
-Никакой дополнительной настройки (редактирования <em>customization.cfg</em>) при этом не требуется.</p>
+<p>Пересоберите wine-tkg по инструкции выше.</p>
+<p>Никакой дополнительной настройки (редактирования <em>customization.cfg</em>) при этом не требуется.</p>
 </div>
 <div class="section" id="dxvk">
 <h2><a class="toc-backref" href="#id12">Сборка DXVK с асинхронным патчем</a><a class="headerlink" href="#dxvk" title="Ссылка на этот заголовок">¶</a></h2>
@@ -277,8 +281,50 @@ makepkg -sric # Сборка и установка
 <p><strong>Пример работы с Lutris</strong></p>
 <p><a class="reference external" href="https://www.youtube.com/watch?v=ybe0MzJDUvw">https://www.youtube.com/watch?v=ybe0MzJDUvw</a></p>
 </div>
+<div class="section" id="amd-fidelityfx-super-resolution-wine">
+<h2><a class="toc-backref" href="#id15">AMD FidelityFX Super Resolution в Wine</a><a class="headerlink" href="#amd-fidelityfx-super-resolution-wine" title="Ссылка на этот заголовок">¶</a></h2>
+<p>Возможно, вы слышали о волшебной технологии DLSS от Nvidia, которая позволяет поднять FPS почти в два раза и при этом не потратить ни копейки на новое оборудование.
+Вот и компания AMD совсем недавно представила похожую технологию, которая получила помпезное название AMD FidelityFX Super Resolution или сокращенно FSR.
+Новая технология масштабирования картинки от AMD не требует наличия дорого́й карты или каких-то аппаратных блоков ускорения,
+что в отличие от DLSS, должно позволить использовать технологию везде и совершенно бесплатно.
+А благодаря чудесным патчам от энтузиастов для Wine мы можем применть эту волшебную технологию для любой Windows-игры.</p>
+<p><strong>I. Установка</strong></p>
+<p>Чтобы установить патч от энтузиастов придется немного помудрить с нашим wine-tkg.</p>
+<p>Его установка описывалась выше, но чтобы задействовать сторонний патч на FSR в Wine нужно отредактировать одну строку в <em>customization.cfg</em>:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>nano customization.cfg
+
+# Найдите строчку _community_patches=&quot;&quot; и добавьте в неё следующее:
+
+_community_patches=&quot;amd_fsr_fshack.mypatch&quot;
+
+# Обязательно оставьте при этом включенными данные параметры:
+_protonify, _msvcrt_nativebuiltin, _proton_fs_hack, _proton_rawinput.
+Без них ничего работать не будет.
+</pre></div>
+</div>
+<p>И пересоберите ваш wine-tkg: <code class="code bash text docutils literal notranslate"><span class="pre">makepkg</span> <span class="pre">-sric</span></code></p>
+<p><strong>II. Установка</strong></p>
+<p>Если вам кажется первый способ немного муторным, то вы можете просто использовать уже готовые сборки с FSR патчем в Lutris:</p>
+<img alt="../_images/linux-gaming-1.png" src="../_images/linux-gaming-1.png" />
+<p>И затем выбрать её для нужной вам игры:</p>
+<img alt="../_images/linux-gaming-2.png" src="../_images/linux-gaming-2.png" />
+<p><strong>III. Установка</strong></p>
+<p>FSR патч также по умолчанию задействован в Proton-GE-Custom.
+Про его установку вы можете прочитать ниже в соответствующем разделе.</p>
+<p><strong>Как использовать</strong></p>
+<p>Несмотря на то, что мы выполнили установку патченной версии Wine одним из выше описанных способов,
+технлогию FSR ещё нужно активировать.</p>
+<p>Сделать это можно руками, через переменные окружения <em>WINE_FULLSCREEN_FSR=1</em> или в Lutris:</p>
+<img alt="../_images/linux-gaming-3.png" src="../_images/linux-gaming-3.png" />
+<p>Важно помнить, что эта технология работает <strong>только в полноэкранном режиме игры</strong>.</p>
+<p>Регулировать резкость итогового изображения можно через переменную окружения <em>WINE_FULLSCREEN_FSR_STRENGTH=N</em>,
+где N - это уровень резкости изображения от 0 до 5. Чем выше значение, тем меньше резкость.
+По умолчанию установлено значение <em>«2»</em>, мы рекомендуем использовать значение <em>«3»</em>.</p>
+<p><strong>Видеоверсия и демонстрация работы технологии</strong></p>
+<p><a class="reference external" href="https://www.youtube.com/watch?v=YNhwAazJODU">https://www.youtube.com/watch?v=YNhwAazJODU</a></p>
+</div>
 <div class="section" id="proton-ge-custom">
-<h2><a class="toc-backref" href="#id15">Proton-GE-Custom</a><a class="headerlink" href="#proton-ge-custom" title="Ссылка на этот заголовок">¶</a></h2>
+<h2><a class="toc-backref" href="#id16">Proton-GE-Custom</a><a class="headerlink" href="#proton-ge-custom" title="Ссылка на этот заголовок">¶</a></h2>
 <p>Proton-GE-Custom это форк проекта Proton для запуска Windows-игр с дополнительным патчами и оптимизациями не вошедшими в основную ветку Proton,
 а также улучшение совместимости с некоторыми играми (например, Warframe).
 Позволяет играть во многие проекты которые не заводятся с обычным Wine или Proton.</p>
@@ -298,7 +344,7 @@ makepkg -sric
 после установки Proton-GE-Custom вам нужно перезапустить Steam и зайти в Свойства нужной вам игры, прожать в:
 <em>Совместность -&gt; Принудительно использовать определенный инструмент совместности Steam Play -&gt; Proton-6.XX-GE-1</em>. Готово, теперь можно запустить игру.</p>
 <div class="section" id="proton-ge-custom-lutris">
-<h3><a class="toc-backref" href="#id16">Использование Proton-GE-Custom в Lutris</a><a class="headerlink" href="#proton-ge-custom-lutris" title="Ссылка на этот заголовок">¶</a></h3>
+<h3><a class="toc-backref" href="#id17">Использование Proton-GE-Custom в Lutris</a><a class="headerlink" href="#proton-ge-custom-lutris" title="Ссылка на этот заголовок">¶</a></h3>
 <p>Немногие понимают, что Proton по сути является тем же Wine, хоть и с плюшками.
 Так вот, зная этот факт, мы можем сказать Lutris использовать Proton в качестве кастомного Wine. Делается это очень просто:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ln -s /usr/share/steam/compatibilitytools.d/proton-ge-custom/files ~/.local/share/lutris/runners/wine/wine-proton-ge
@@ -354,6 +400,7 @@ makepkg -sric
 <li class="toctree-l2"><a class="reference internal" href="#dxvk">Сборка DXVK с асинхронным патчем</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#wine-dxvk">Полезные ссылки по теме Wine и DXVK</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#lutris">Установка Lutris и дополнений.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#amd-fidelityfx-super-resolution-wine">AMD FidelityFX Super Resolution в Wine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#proton-ge-custom">Proton-GE-Custom</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#proton-ge-custom-lutris">Использование Proton-GE-Custom в Lutris</a></li>
 </ul>
