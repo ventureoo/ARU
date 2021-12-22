@@ -38,6 +38,10 @@ root_doc = master_doc
 
 source_suffix = { '.rst': 'restructuredtext' }
 
+# Closes:
+# https://github.com/ventureoo/ARU/issues/3
+# https://github.com/ventureoo/ARU/pull/4
+smartquotes = False
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
