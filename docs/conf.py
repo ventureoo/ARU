@@ -102,7 +102,8 @@ latex_elements = {
 \setmainfont{DejaVu Serif}
 \setsansfont{DejaVu Sans}
 \setmonofont{DejaVu Sans Mono}
-'''
+''',
+    'extraclassoptions': 'openany'
 }
 
 # Grouping the document tree into LaTeX files. List of tuples
