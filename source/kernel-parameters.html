@@ -49,22 +49,22 @@
 <h2><a class="toc-backref" href="#id7">Обновление загрузчика и отключение ненужных заплаток</a><a class="headerlink" href="#id3" title="Ссылка на этот заголовок">¶</a></h2>
 <p>По умолчанию в ядре Linux включено довольно много исправлений безопасности, которые однако существенно снижают производительность процессора.
 Вы можете их отключить через редактирование параметров загрузчика. Рассмотрим на примере GRUB:</p>
-<p><code class="code bash text docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">/etc/grub/default</span></code> # Редактируем настройки вручную или через grub-customizer как на скриншоте (P. S. параметры на снимке устарели)</p>
+<p><code class="code bash shell docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">/etc/grub/default</span></code> # Редактируем настройки вручную или через grub-customizer как на скриншоте (P. S. параметры на снимке устарели)</p>
 <img alt="https://raw.githubusercontent.com/ventureoo/ARU/main/archive/ARU/images/image1.png" src="https://raw.githubusercontent.com/ventureoo/ARU/main/archive/ARU/images/image1.png" />
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>GRUB_CMDLINE_LINUX_DEFAULT=&quot;quiet splash noibrs tsx_async_abort=off rootfstype=btrfs selinux=0 lpj=3499912 raid=noautodetect elevator=noop mitigations=off preempt=none&quot;
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">GRUB_CMDLINE_LINUX_DEFAULT</span><span class="o">=</span><span class="s2">&quot;quiet splash noibrs tsx_async_abort=off rootfstype=btrfs selinux=0 lpj=3499912 raid=noautodetect elevator=noop mitigations=off preempt=none&quot;</span>
 </pre></div>
 </div>
 <p>Подробнее о каждом из параметров написано - <a class="reference external" href="https://linuxreviews.org/HOWTO_make_Linux_run_blazing_fast_(again)_on_Intel_CPUs">здесь</a>.</p>
-<p><code class="code bash text docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">grub-mkconfig</span> <span class="pre">-o</span> <span class="pre">/boot/grub/grub.cfg</span></code>
+<p><code class="code bash shell docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">grub-mkconfig</span> <span class="pre">-o</span> <span class="pre">/boot/grub/grub.cfg</span></code>
 # Обновляем загрузчик, можно так-же сделать через grub-customizer, добавить и прожать, затем сохранить на 2 и 1 вкладке.</p>
 <div class="section" id="id5">
 <h3>Разъяснения<a class="headerlink" href="#id5" title="Ссылка на этот заголовок">¶</a></h3>
-<p><code class="code bash text docutils literal notranslate"><span class="pre">lpj=</span></code> - Уникальный параметр для каждой системы. Автоопределяется во время загрузки, что довольно трудоемко, поэтому лучше задать вручную.
-Определить ваше значение для lpj можно через следующую команду: <code class="code bash text docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">dmesg</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">&quot;lpj=&quot;</span></code></p>
-<p><code class="code bash text docutils literal notranslate"><span class="pre">mitigations=off</span></code> - Непосредственно отключает все заплатки безопасности ядра (включая Spectre и Meltdown)</p>
-<p><code class="code bash text docutils literal notranslate"><span class="pre">raid=noautodetect</span></code> - Отключает проверку на RAID во время загрузки. Если вы его используете - прописывайте данный параметр.</p>
-<p><code class="code bash text docutils literal notranslate"><span class="pre">rootfstype=btrfs</span></code> - Здесь указываем название ФС в которой у вас форматирован корень</p>
-<p><code class="code bash text docutils literal notranslate"><span class="pre">elevator=noop</span></code> - Указывает для всех дисков планировщик ввода NONE. <strong>Не использовать если у вас жесткий диск</strong>.</p>
+<p><code class="code bash shell docutils literal notranslate"><span class="name variable"><span class="pre">lpj</span></span><span class="operator"><span class="pre">=</span></span></code> - Уникальный параметр для каждой системы. Автоопределяется во время загрузки, что довольно трудоемко, поэтому лучше задать вручную.
+Определить ваше значение для lpj можно через следующую команду: <code class="code bash shell docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">dmesg</span> <span class="punctuation"><span class="pre">|</span></span> <span class="pre">grep</span> <span class="literal string double"><span class="pre">&quot;lpj=&quot;</span></span></code></p>
+<p><code class="code bash shell docutils literal notranslate"><span class="name variable"><span class="pre">mitigations</span></span><span class="operator"><span class="pre">=</span></span><span class="pre">off</span></code> - Непосредственно отключает все заплатки безопасности ядра (включая Spectre и Meltdown)</p>
+<p><code class="code bash shell docutils literal notranslate"><span class="name variable"><span class="pre">raid</span></span><span class="operator"><span class="pre">=</span></span><span class="pre">noautodetect</span></code> - Отключает проверку на RAID во время загрузки. Если вы его используете - прописывайте данный параметр.</p>
+<p><code class="code bash shell docutils literal notranslate"><span class="name variable"><span class="pre">rootfstype</span></span><span class="operator"><span class="pre">=</span></span><span class="pre">btrfs</span></code> - Здесь указываем название ФС в которой у вас форматирован корень</p>
+<p><code class="code bash shell docutils literal notranslate"><span class="name variable"><span class="pre">elevator</span></span><span class="operator"><span class="pre">=</span></span><span class="pre">noop</span></code> - Указывает для всех дисков планировщик ввода NONE. <strong>Не использовать если у вас жесткий диск</strong>.</p>
 </div>
 </div>
 </div>
