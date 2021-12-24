@@ -229,3 +229,39 @@ Multilib репозиторий необходим для установки 32-
 
 Это ускорит загрузку системы на слабых жёстких дисках благодаря более подходящему методу сжатия образов ядра.
 
+=============
+Полезное ПО
+=============
+
+--------------
+Stacer
+--------------
+
+Помощник в обслуживании и чистке системы.
+
+.. image:: images/generic-system-acceleration-2.png
+
+**Установка**::
+
+  git clone https://aur.archlinux.org/stacer.git # Скачивание исходников. 
+  cd stacer                                      # Переход в stacer. 
+  makepkg -sric                                  # Сборка и установка.
+
+---------------
+Bleachbit
+---------------
+
+Аналог CCleaner для Linux, помогает выполнить чистку системы от накопившегося мусора.
+
+.. image:: images/generic-system-acceleration-3.png
+
+**Установка + дополнительные фильтры**::
+
+  sudo pacman S bleachbit
+
+  # Дополнительные фильтры
+
+  git clone https://aur.archlinux.org/cleanerml-git.git # Скачивание исходников.
+  cd cleanerml-git                                      # Переход в cleanerm.
+  makepkg -sric                                         # Сборка и установка.
+
