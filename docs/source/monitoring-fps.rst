@@ -21,14 +21,14 @@
 .. image:: https://raw.githubusercontent.com/ventureoo/ARU/main/archive/ARU/images/image9.png
   :align: center
 
-**Установка**::
+**Установка** ::
 
   cd tools                                             # Переход в заранее созданную папку в домашнем каталоге.
   git clone https://aur.archlinux.org/mangohud.git     # Скачивание исходников.
   cd mangohud                                          # Переход в mangohud.
   makepkg -sric                                        # Сборка и установка.
 
-Графический помощник для настройки вашего MangoHud.::
+Графический помощник для настройки вашего MangoHud. ::
 
   cd tools                                         # Переход в заранее созданную папку в домашнем каталоге.
   git clone https://aur.archlinux.org/goverlay.git # Скачивание исходников.
