@@ -34,30 +34,82 @@
           <div class="body" role="main">
             
   <div class="section" id="id1">
-<h1><a class="toc-backref" href="#id10">Первые шаги</a><a class="headerlink" href="#id1" title="Ссылка на этот заголовок">¶</a></h1>
+<h1><a class="toc-backref" href="#id12">Первые шаги</a><a class="headerlink" href="#id1" title="Ссылка на этот заголовок">¶</a></h1>
 <div class="contents topic" id="id2">
 <p class="topic-title">Содержание:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#id1" id="id10">Первые шаги</a></p>
+<li><p><a class="reference internal" href="#id1" id="id12">Первые шаги</a></p>
 <ul>
-<li><p><a class="reference internal" href="#id3" id="id11">Установка базовых пакетов и набор программ</a></p>
+<li><p><a class="reference internal" href="#pacman" id="id13">Настройка pacman</a></p>
 <ul>
-<li><p><a class="reference internal" href="#id4" id="id12">Установка актуальных драйверов для видеокарты</a></p></li>
+<li><p><a class="reference internal" href="#arch-linux" id="id14">Обновление ключей Arch Linux</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id15">Включение 32-битного репозитория</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id16">Ускорение обновления системы</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#id5" id="id13">Добавление модулей NVIDIA и установка микрокода в образы ядра</a></p>
+<li><p><a class="reference internal" href="#id5" id="id17">Установка базовых пакетов и набор программ</a></p>
 <ul>
-<li><p><a class="reference internal" href="#id6" id="id14">Твики драйвера NVIDIA</a></p></li>
-<li><p><a class="reference internal" href="#id7" id="id15">Специфические переменные окружения для драйвера NVIDIA</a></p></li>
-<li><p><a class="reference internal" href="#id8" id="id16">Разгон монитора с видеокартой NVIDIA <em>(Только для опытных пользователей)</em>.</a></p></li>
+<li><p><a class="reference internal" href="#id6" id="id18">Установка актуальных драйверов для видеокарты</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#id7" id="id19">Добавление модулей NVIDIA и установка микрокода в образы ядра</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id8" id="id20">Твики драйвера NVIDIA</a></p></li>
+<li><p><a class="reference internal" href="#id9" id="id21">Специфические переменные окружения для драйвера NVIDIA</a></p></li>
+<li><p><a class="reference internal" href="#id10" id="id22">Разгон монитора с видеокартой NVIDIA <em>(Только для опытных пользователей)</em>.</a></p></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 </div>
+<div class="section" id="pacman">
+<h2><a class="toc-backref" href="#id13">Настройка pacman</a><a class="headerlink" href="#pacman" title="Ссылка на этот заголовок">¶</a></h2>
+<div class="section" id="arch-linux">
+<h3><a class="toc-backref" href="#id14">Обновление ключей Arch Linux</a><a class="headerlink" href="#arch-linux" title="Ссылка на этот заголовок">¶</a></h3>
+<p>Обновление ключей необходимо во избежания проблем с установкой пакетов:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman-key --init               <span class="c1"># Инициализация</span>
+sudo pacman-key --populate archlinux <span class="c1"># Получить ключи</span>
+sudo pacman-key --refresh-keys       <span class="c1"># Проверить новые и установленные</span>
+sudo pacman -Sy                      <span class="c1"># Обновить ключи для всей системы</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="id3">
-<h2><a class="toc-backref" href="#id11">Установка базовых пакетов и набор программ</a><a class="headerlink" href="#id3" title="Ссылка на этот заголовок">¶</a></h2>
+<h3><a class="toc-backref" href="#id15">Включение 32-битного репозитория</a><a class="headerlink" href="#id3" title="Ссылка на этот заголовок">¶</a></h3>
+<p>Multilib репозиторий необходим для установки 32-битных приложений, в частности для Wine и Steam:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo nano /etc/pacman.conf           <span class="c1"># Раскоментируйте последние две строчки как на скриншоте</span>
+</pre></div>
+</div>
+<img alt="../_images/first-steps-1.png" src="../_images/first-steps-1.png" />
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -Suy                     <span class="c1"># Обновление репозиториев и всех программ (пакетов)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3><a class="toc-backref" href="#id16">Ускорение обновления системы</a><a class="headerlink" href="#id4" title="Ссылка на этот заголовок">¶</a></h3>
+<p>Утилита Reflector отсортирует доступные репозитории по скорости:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S reflector rsync curl  <span class="c1"># Установка reflector и его зависимостей</span>
+</pre></div>
+</div>
+<p>Если вы из Европейской части России, то всегда советуем использовать зеркала Германии,
+так как их больше всего и они имеют оптимиальную свежесть/скорость:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo reflector --verbose --country <span class="s1">&#39;Germany&#39;</span> -l <span class="m">25</span> --sort rate --save /etc/pacman.d/mirrorlist
+</pre></div>
+</div>
+<p>В остальных случаях лучше использовать Российские зеркала или другие, в зависимости от вашего местопложения:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo reflector --verbose --country <span class="s1">&#39;Russia&#39;</span> -l <span class="m">25</span> --sort rate --save /etc/pacman.d/mirrorlist
+</pre></div>
+</div>
+<p>Можно также вручную отредактировать список зеркал,
+добавив туда зеркала из постоянно обновляющегося перечня на сайте Arch Linux (<a class="reference external" href="https://archlinux.org/mirrorlist/">https://archlinux.org/mirrorlist/</a>):</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo nano /etc/pacman.d/mirrorlist <span class="c1"># Рекомендуем прописывать зеркала от Яндекса</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2><a class="toc-backref" href="#id17">Установка базовых пакетов и набор программ</a><a class="headerlink" href="#id5" title="Ссылка на этот заголовок">¶</a></h2>
 <p>Вот основной набор программ который мы можем вам порекомендовать к установке первым делом::</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -Syu base-devel <span class="se">\ </span><span class="c1"># Обязательная к установке группа!</span>
                  nano <span class="se">\ </span><span class="c1"># Минималистичный консольный редактор</span>
@@ -83,8 +135,8 @@
 <p>Мы установили набор джентльмена и парочку программ, что понадобятся нам в дальнейшем.
 Но если вас не устраивает тот или иной компонент, вы всегда можете найти любой пакет по адресу <a class="reference external" href="https://www.archlinux.org/packages/">https://www.archlinux.org/packages/</a>
 или установить из AUR (т.е. скомпилировать) по адресу <a class="reference external" href="https://aur.archlinux.org/packages/">https://aur.archlinux.org/packages/</a>.</p>
-<div class="section" id="id4">
-<h3><a class="toc-backref" href="#id12">Установка актуальных драйверов для видеокарты</a><a class="headerlink" href="#id4" title="Ссылка на этот заголовок">¶</a></h3>
+<div class="section" id="id6">
+<h3><a class="toc-backref" href="#id18">Установка актуальных драйверов для видеокарты</a><a class="headerlink" href="#id6" title="Ссылка на этот заголовок">¶</a></h3>
 <div class="section" id="nvidia">
 <h4>NVIDIA<a class="headerlink" href="#nvidia" title="Ссылка на этот заголовок">¶</a></h4>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S nvidia-dkms nvidia-utils lib32-nvidia-utils nvidia-settings vulkan-icd-loader lib32-vulkan-icd-loader lib32-opencl-nvidia opencl-nvidia libxnvctrl
@@ -123,8 +175,8 @@ sudo mkinitcpio -P <span class="c1"># Обновляем образы ядра</
 </div>
 </div>
 </div>
-<div class="section" id="id5">
-<h2><a class="toc-backref" href="#id13">Добавление модулей NVIDIA и установка микрокода в образы ядра</a><a class="headerlink" href="#id5" title="Ссылка на этот заголовок">¶</a></h2>
+<div class="section" id="id7">
+<h2><a class="toc-backref" href="#id19">Добавление модулей NVIDIA и установка микрокода в образы ядра</a><a class="headerlink" href="#id7" title="Ссылка на этот заголовок">¶</a></h2>
 <p>Редактируем параметр для сборки наших образов ядра: <code class="code bash shell docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">/etc/mkinitcpio.conf</span></code></p>
 <p>Добавьте это как на изображении и выполните команды ниже.</p>
 <p><em># P.S. Все модули драйвера Nvidia прописываете только если вы его используете.</em></p>
@@ -138,8 +190,8 @@ sudo mkinitcpio -P                                 <span class="c1"># Перес
 sudo grub-mkconfig -o /boot/grub/grub.cfg          <span class="c1"># Обновить загрузчик или можно через grub-customizer.</span>
 </pre></div>
 </div>
-<div class="section" id="id6">
-<h3><a class="toc-backref" href="#id14">Твики драйвера NVIDIA</a><a class="headerlink" href="#id6" title="Ссылка на этот заголовок">¶</a></h3>
+<div class="section" id="id8">
+<h3><a class="toc-backref" href="#id20">Твики драйвера NVIDIA</a><a class="headerlink" href="#id8" title="Ссылка на этот заголовок">¶</a></h3>
 <p>По умолчанию в закрытом NVIDIA драйвере не используются некоторые скрытые оптимизации которые могут помочь с улучшением производительности и работоспособности видеокарты.
 Например, по умолчанию драйвер работает в режиме совместности с PCIe 2, поэтому у всех пользователей драйвера по умолчанию не задействуется высокоскоростная шина PCIe 3.0.
 Для того чтобы вы могли их активировать удобным способом, мы сделали пакет который включает в себя все эти твики для драйвера - <a class="reference external" href="https://aur.archlinux.org/packages/nvidia-tweaks/">nvidia-tweaks</a>. Прежде чем устанавливать выполните установку самого драйвера NVIDIA как это было описано выше.</p>
@@ -157,8 +209,8 @@ makepkg -sric
 </div>
 <p>Выполните: <code class="code bash shell docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">pacman</span> <span class="pre">-S</span> <span class="pre">base-devel</span></code></p>
 </div>
-<div class="section" id="id7">
-<h3><a class="toc-backref" href="#id15">Специфические переменные окружения для драйвера NVIDIA</a><a class="headerlink" href="#id7" title="Ссылка на этот заголовок">¶</a></h3>
+<div class="section" id="id9">
+<h3><a class="toc-backref" href="#id21">Специфические переменные окружения для драйвера NVIDIA</a><a class="headerlink" href="#id9" title="Ссылка на этот заголовок">¶</a></h3>
 <p>Указать вы их можете либо в Lutris для конкретных игр или в настройках Steam.</p>
 <p><code class="code bash shell docutils literal notranslate"><span class="name variable"><span class="pre">__GL_THREADED_OPTIMIZATIONS</span></span><span class="operator"><span class="pre">=</span></span><span class="literal number"><span class="pre">1</span></span></code> <strong>(По умолчанию выключено)</strong> -  Активируем многопоточную обработку OpenGL.
 Используете выборочно для нативных игр/приложений, ибо иногда может наоборот вызывать регрессию производительности.
@@ -171,8 +223,8 @@ makepkg -sric
 <p><code class="code bash shell docutils literal notranslate"><span class="name variable"><span class="pre">__GL_YIELD</span></span><span class="operator"><span class="pre">=</span></span><span class="literal string double"><span class="pre">&quot;USLEEP&quot;</span></span></code> <strong>(По умолчанию без значения)</strong> - Довольно специфичный параметр, <em>&quot;USLEEP&quot;</em> - снижает нагрузку на CPU и некоторым образом помогает в борьбе с тирингом,
 а <em>&quot;NOTHING&quot;</em> дает больше FPS при этом увеличивая нагрузку на процессор.</p>
 </div>
-<div class="section" id="id8">
-<h3><a class="toc-backref" href="#id16">Разгон монитора с видеокартой NVIDIA <em>(Только для опытных пользователей)</em>.</a><a class="headerlink" href="#id8" title="Ссылка на этот заголовок">¶</a></h3>
+<div class="section" id="id10">
+<h3><a class="toc-backref" href="#id22">Разгон монитора с видеокартой NVIDIA <em>(Только для опытных пользователей)</em>.</a><a class="headerlink" href="#id10" title="Ссылка на этот заголовок">¶</a></h3>
 <p>Вопреки мнению многих людей, в Linux таки возможно выполнить разгон монитора.
 Мы будем рассматривать этот вопрос только для владельцев GPU NVIDIA, поэтому данный способ может не подойти пользователям открытых драйверов Mesa.</p>
 <p>Прежде всего, нужно узнать какой тип подключения у вашего монитора, сделать это можно при помощи утилиты xrandr::</p>
@@ -259,14 +311,20 @@ makepkg -sric
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="preface.html">Предисловие</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Первые шаги</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id3">Установка базовых пакетов и набор программ</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id4">Установка актуальных драйверов для видеокарты</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pacman">Настройка pacman</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#arch-linux">Обновление ключей Arch Linux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Включение 32-битного репозитория</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Ускорение обновления системы</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id5">Добавление модулей NVIDIA и установка микрокода в образы ядра</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id6">Твики драйвера NVIDIA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id7">Специфические переменные окружения для драйвера NVIDIA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id8">Разгон монитора с видеокартой NVIDIA <em>(Только для опытных пользователей)</em>.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">Установка базовых пакетов и набор программ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id6">Установка актуальных драйверов для видеокарты</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">Добавление модулей NVIDIA и установка микрокода в образы ядра</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id8">Твики драйвера NVIDIA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">Специфические переменные окружения для драйвера NVIDIA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">Разгон монитора с видеокартой NVIDIA <em>(Только для опытных пользователей)</em>.</a></li>
 </ul>
 </li>
 </ul>
