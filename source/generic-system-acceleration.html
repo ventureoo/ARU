@@ -34,30 +34,36 @@
           <div class="body" role="main">
             
   <div class="section" id="id1">
-<h1><a class="toc-backref" href="#id8">Базовое ускорение системы</a><a class="headerlink" href="#id1" title="Ссылка на этот заголовок">¶</a></h1>
+<h1><a class="toc-backref" href="#id9">Базовое ускорение системы</a><a class="headerlink" href="#id1" title="Ссылка на этот заголовок">¶</a></h1>
 <div class="contents topic" id="id2">
 <p class="topic-title">Содержание:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#id1" id="id8">Базовое ускорение системы</a></p>
+<li><p><a class="reference internal" href="#id1" id="id9">Базовое ускорение системы</a></p>
 <ul>
-<li><p><a class="reference internal" href="#pacman" id="id9">Настройка pacman</a></p>
+<li><p><a class="reference internal" href="#pacman" id="id10">Настройка pacman</a></p>
 <ul>
-<li><p><a class="reference internal" href="#arch-linux" id="id10">Обновление ключей Arch Linux</a></p></li>
-<li><p><a class="reference internal" href="#id3" id="id11">Включение 32-битного репозитория</a></p></li>
-<li><p><a class="reference internal" href="#id4" id="id12">Ускорение обновления системы</a></p></li>
-<li><p><a class="reference internal" href="#id5" id="id13">Одновременная загрузка двух и более пакетов</a></p></li>
+<li><p><a class="reference internal" href="#arch-linux" id="id11">Обновление ключей Arch Linux</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id12">Включение 32-битного репозитория</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id13">Ускорение обновления системы</a></p></li>
+<li><p><a class="reference internal" href="#id5" id="id14">Одновременная загрузка двух и более пакетов</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#makepkg-conf" id="id14">Настройка makepkg.conf</a></p></li>
-<li><p><a class="reference internal" href="#id6" id="id15">Установка полезных служб и демонов</a></p></li>
-<li><p><a class="reference internal" href="#id7" id="id16">Сверхнизкие задержки звука</a></p>
+<li><p><a class="reference internal" href="#makepkg-conf" id="id15">Настройка makepkg.conf</a></p></li>
+<li><p><a class="reference internal" href="#id6" id="id16">Установка полезных служб и демонов</a></p></li>
+<li><p><a class="reference internal" href="#id7" id="id17">Сверхнизкие задержки звука</a></p>
 <ul>
-<li><p><a class="reference internal" href="#pulseaudio" id="id17">Новая альтернатива PulseAudio</a></p></li>
+<li><p><a class="reference internal" href="#pulseaudio" id="id18">Новая альтернатива PulseAudio</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#networkmanager-wait-online" id="id18">Ускорение загрузки системы (Отключение NetworkManager-wait-online)</a></p>
+<li><p><a class="reference internal" href="#networkmanager-wait-online" id="id19">Ускорение загрузки системы (Отключение NetworkManager-wait-online)</a></p>
 <ul>
-<li><p><a class="reference internal" href="#hdd" id="id19">Ускорение загрузки ядра на HDD накопителях (<em>Только для жестких дисков</em>)</a></p></li>
+<li><p><a class="reference internal" href="#hdd" id="id20">Ускорение загрузки ядра на HDD накопителях (<em>Только для жестких дисков</em>)</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#id8" id="id21">Полезное ПО</a></p>
+<ul>
+<li><p><a class="reference internal" href="#stacer" id="id22">Stacer</a></p></li>
+<li><p><a class="reference internal" href="#bleachbit" id="id23">Bleachbit</a></p></li>
 </ul>
 </li>
 </ul>
@@ -65,9 +71,9 @@
 </ul>
 </div>
 <div class="section" id="pacman">
-<h2><a class="toc-backref" href="#id9">Настройка pacman</a><a class="headerlink" href="#pacman" title="Ссылка на этот заголовок">¶</a></h2>
+<h2><a class="toc-backref" href="#id10">Настройка pacman</a><a class="headerlink" href="#pacman" title="Ссылка на этот заголовок">¶</a></h2>
 <div class="section" id="arch-linux">
-<h3><a class="toc-backref" href="#id10">Обновление ключей Arch Linux</a><a class="headerlink" href="#arch-linux" title="Ссылка на этот заголовок">¶</a></h3>
+<h3><a class="toc-backref" href="#id11">Обновление ключей Arch Linux</a><a class="headerlink" href="#arch-linux" title="Ссылка на этот заголовок">¶</a></h3>
 <p>Обновление ключей необходимо во избежания проблем с установкой пакетов:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman-key --init               <span class="c1"># Инициализация</span>
 sudo pacman-key --populate archlinux <span class="c1"># Получить ключи</span>
@@ -77,7 +83,7 @@ sudo pacman -Sy                      <span class="c1"># Обновить клю�
 </div>
 </div>
 <div class="section" id="id3">
-<h3><a class="toc-backref" href="#id11">Включение 32-битного репозитория</a><a class="headerlink" href="#id3" title="Ссылка на этот заголовок">¶</a></h3>
+<h3><a class="toc-backref" href="#id12">Включение 32-битного репозитория</a><a class="headerlink" href="#id3" title="Ссылка на этот заголовок">¶</a></h3>
 <p>Multilib репозиторий необходим для установки 32-битных приложений, в частности для Wine и Steam:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo nano /etc/pacman.conf           <span class="c1"># Раскоментируйте последние две строчки как на скриншоте</span>
 </pre></div>
@@ -88,7 +94,7 @@ sudo pacman -Sy                      <span class="c1"># Обновить клю�
 </div>
 </div>
 <div class="section" id="id4">
-<h3><a class="toc-backref" href="#id12">Ускорение обновления системы</a><a class="headerlink" href="#id4" title="Ссылка на этот заголовок">¶</a></h3>
+<h3><a class="toc-backref" href="#id13">Ускорение обновления системы</a><a class="headerlink" href="#id4" title="Ссылка на этот заголовок">¶</a></h3>
 <p>Утилита Reflector отсортирует доступные репозитории по скорости:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S reflector rsync curl  <span class="c1"># Установка reflector и его зависимостей</span>
 </pre></div>
@@ -109,7 +115,7 @@ sudo pacman -Sy                      <span class="c1"># Обновить клю�
 </div>
 </div>
 <div class="section" id="id5">
-<h3><a class="toc-backref" href="#id13">Одновременная загрузка двух и более пакетов</a><a class="headerlink" href="#id5" title="Ссылка на этот заголовок">¶</a></h3>
+<h3><a class="toc-backref" href="#id14">Одновременная загрузка двух и более пакетов</a><a class="headerlink" href="#id5" title="Ссылка на этот заголовок">¶</a></h3>
 <p>Начиная с шестой версии pacman поддерживает параллельную загрузку пакетов.
 Чтобы её включить отредактируйте <em>/etc/pacman.conf</em>:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo nano /etc/pacman.conf <span class="c1"># Раскомментируйте строчку ниже</span>
@@ -133,7 +139,7 @@ makepkg -sric
 </div>
 </div>
 <div class="section" id="makepkg-conf">
-<h2><a class="toc-backref" href="#id14">Настройка makepkg.conf</a><a class="headerlink" href="#makepkg-conf" title="Ссылка на этот заголовок">¶</a></h2>
+<h2><a class="toc-backref" href="#id15">Настройка makepkg.conf</a><a class="headerlink" href="#makepkg-conf" title="Ссылка на этот заголовок">¶</a></h2>
 <p>Прежде чем приступать к сборке пакетов, мы должны изменить так называемые флаги компиляции,
 что являются указателями для компилятора, какие инструкции и оптимизации использовать при сборке программ.</p>
 <p><code class="code bash shell docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">/etc/makepkg.conf</span></code>  # Редактируем</p>
@@ -152,7 +158,7 @@ makepkg -sric
 И отключите параметр ‘lto’ в строке options добавив перед ним символ восклицательного знака  ! (<em>&quot;!lto&quot;</em>).</p>
 </div>
 <div class="section" id="id6">
-<h2><a class="toc-backref" href="#id15">Установка полезных служб и демонов</a><a class="headerlink" href="#id6" title="Ссылка на этот заголовок">¶</a></h2>
+<h2><a class="toc-backref" href="#id16">Установка полезных служб и демонов</a><a class="headerlink" href="#id6" title="Ссылка на этот заголовок">¶</a></h2>
 <p><strong>1.</strong> <a class="reference external" href="https://aur.archlinux.org/packages/zramswap/">Zramswap</a> — это специальный демон, который сжимает оперативную память ресурсами центрального процессора и создает в ней файл подкачки.
 Очень ускоряет систему вне зависимости от количества памяти, однако добавляет нагрузку на процессор, т.к. его ресурсами и происходит сжатие памяти.
 Поэтому, на слабых компьютерах с малым количеством ОЗУ, это может негативно повлиять на производительность в играх.:</p>
@@ -211,7 +217,7 @@ sudo systemctl <span class="nb">enable</span> --now dbus-broker.service <span cl
 </div>
 </div>
 <div class="section" id="id7">
-<h2><a class="toc-backref" href="#id16">Сверхнизкие задержки звука</a><a class="headerlink" href="#id7" title="Ссылка на этот заголовок">¶</a></h2>
+<h2><a class="toc-backref" href="#id17">Сверхнизкие задержки звука</a><a class="headerlink" href="#id7" title="Ссылка на этот заголовок">¶</a></h2>
 <p>Установите следующие пакеты для понижения задержек звука в PulseAudio::</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S jack2 pulseaudio-alsa pulseaudio-jack pavucontrol jack2-dbus realtime-privileges
 </pre></div>
@@ -221,7 +227,7 @@ sudo systemctl <span class="nb">enable</span> --now dbus-broker.service <span cl
 <p>Пакет <a class="reference external" href="https://archlinux.org/packages/community/any/realtime-privileges/">realtime-privileges</a> - лучше не устанавливать, он может вызвать небольшие задержки всей системы, но без него звук хуже.</p>
 </div>
 <div class="section" id="pulseaudio">
-<h3><a class="toc-backref" href="#id17">Новая альтернатива PulseAudio</a><a class="headerlink" href="#pulseaudio" title="Ссылка на этот заголовок">¶</a></h3>
+<h3><a class="toc-backref" href="#id18">Новая альтернатива PulseAudio</a><a class="headerlink" href="#pulseaudio" title="Ссылка на этот заголовок">¶</a></h3>
 <p><a class="reference external" href="https://wiki.archlinux.org/title/PipeWire_(Русский)">PipeWire</a> - это новая альтернатива PulseAudio, которая призвана избавить от проблем pulse,
 уменьшить задержки звука и потребление памяти. Пакет <em>alsa-utils</em> также содержит консольный Микшер (настройка громкости), который вызывается командой alsamixer.:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S jack2 pipewire pipewire-jack pipewire-alsa pavucontrol pipewire-pulse alsa-utils
@@ -230,7 +236,7 @@ sudo systemctl <span class="nb">enable</span> --now dbus-broker.service <span cl
 </div>
 </div>
 <div class="section" id="networkmanager-wait-online">
-<h2><a class="toc-backref" href="#id18">Ускорение загрузки системы (Отключение NetworkManager-wait-online)</a><a class="headerlink" href="#networkmanager-wait-online" title="Ссылка на этот заголовок">¶</a></h2>
+<h2><a class="toc-backref" href="#id19">Ускорение загрузки системы (Отключение NetworkManager-wait-online)</a><a class="headerlink" href="#networkmanager-wait-online" title="Ссылка на этот заголовок">¶</a></h2>
 <p>В большинстве случаев для настройки интернет подключения вы, скорее всего, будете использовать NetworkManager,
 т.к. он является в этом деле швейцарским ножом и поставляется по умолчанию.
 Однако, если вы пропишите команду <em>systemd-analyze blame</em>, то узнаете, что он задерживает загрузку системы примерно на ~4 секунды.
@@ -239,7 +245,7 @@ sudo systemctl <span class="nb">enable</span> --now dbus-broker.service <span cl
 </pre></div>
 </div>
 <div class="section" id="hdd">
-<h3><a class="toc-backref" href="#id19">Ускорение загрузки ядра на HDD накопителях (<em>Только для жестких дисков</em>)</a><a class="headerlink" href="#hdd" title="Ссылка на этот заголовок">¶</a></h3>
+<h3><a class="toc-backref" href="#id20">Ускорение загрузки ядра на HDD накопителях (<em>Только для жестких дисков</em>)</a><a class="headerlink" href="#hdd" title="Ссылка на этот заголовок">¶</a></h3>
 <p>Убедитесь, что пакет <a class="reference external" href="https://archlinux.org/packages/core/x86_64/lz4/">lz4</a> установлен::</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S lz4
 </pre></div>
@@ -256,6 +262,35 @@ sudo systemctl <span class="nb">enable</span> --now dbus-broker.service <span cl
 <li><p>Добавите <em>shutdown</em> в массив <em>HOOKS</em> (ограничен скобками)</p></li>
 </ul>
 <p>Это ускорит загрузку системы на слабых жёстких дисках благодаря более подходящему методу сжатия образов ядра.</p>
+</div>
+</div>
+<div class="section" id="id8">
+<h2><a class="toc-backref" href="#id21">Полезное ПО</a><a class="headerlink" href="#id8" title="Ссылка на этот заголовок">¶</a></h2>
+<div class="section" id="stacer">
+<h3><a class="toc-backref" href="#id22">Stacer</a><a class="headerlink" href="#stacer" title="Ссылка на этот заголовок">¶</a></h3>
+<p>Помощник в обслуживании и чистке системы.</p>
+<img alt="../_images/generic-system-acceleration-2.png" src="../_images/generic-system-acceleration-2.png" />
+<p><strong>Установка</strong>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://aur.archlinux.org/stacer.git <span class="c1"># Скачивание исходников.</span>
+<span class="nb">cd</span> stacer                                      <span class="c1"># Переход в stacer.</span>
+makepkg -sric                                  <span class="c1"># Сборка и установка.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="bleachbit">
+<h3><a class="toc-backref" href="#id23">Bleachbit</a><a class="headerlink" href="#bleachbit" title="Ссылка на этот заголовок">¶</a></h3>
+<p>Аналог CCleaner для Linux, помогает выполнить чистку системы от накопившегося мусора.</p>
+<img alt="../_images/generic-system-acceleration-3.png" src="../_images/generic-system-acceleration-3.png" />
+<p><strong>Установка + дополнительные фильтры</strong>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman S bleachbit
+
+<span class="c1"># Дополнительные фильтры</span>
+
+git clone https://aur.archlinux.org/cleanerml-git.git <span class="c1"># Скачивание исходников.</span>
+<span class="nb">cd</span> cleanerml-git                                      <span class="c1"># Переход в cleanerm.</span>
+makepkg -sric                                         <span class="c1"># Сборка и установка.</span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -304,6 +339,11 @@ sudo systemctl <span class="nb">enable</span> --now dbus-broker.service <span cl
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#networkmanager-wait-online">Ускорение загрузки системы (Отключение NetworkManager-wait-online)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#hdd">Ускорение загрузки ядра на HDD накопителях (<em>Только для жестких дисков</em>)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">Полезное ПО</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#stacer">Stacer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bleachbit">Bleachbit</a></li>
 </ul>
 </li>
 </ul>
