@@ -107,7 +107,7 @@
 Сверхнизкие задержки звука
 =============================
 
-Установите следующие пакеты для понижения задержек звука в PulseAudio:::
+Установите следующие пакеты для понижения задержек звука в PulseAudio::
 
   sudo pacman -S jack2 pulseaudio-alsa pulseaudio-jack pavucontrol jack2-dbus realtime-privileges
 

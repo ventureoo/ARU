@@ -51,7 +51,7 @@ liquorix
 
 *[liquorix]*
 
-*Server = https://liquorix.net/archlinux/$repo/$arch*::
+*Server = https://liquorix.net/archlinux/$repo/$arch* ::
 
   sudo pacman -Suuyy
   sudo pacman -S linux-lqx linux-lqx-headers # Не забудь обновить GRUB.
