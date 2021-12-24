@@ -66,7 +66,8 @@
 <h2><a class="toc-backref" href="#id6">Что такое Wine?</a><a class="headerlink" href="#wine" title="Ссылка на этот заголовок">¶</a></h2>
 <p>Wine - слой совместимости для запуска Windows-приложений (в том числе игр) из под Linux (Unix-подобных систем).
 Благодаря нему вы по факту сможете поиграть в большинство игр из вашей библиотеки Steam/GOG/Epic Games Store.
-Исключением разве что являются игры с встроенными анти-чит системами, хотя благодаря усилиям Valve, в ближайшем будущем, вероятно, это уже не будет являться такой большой проблемой.
+Исключением разве что являются игры с встроенными анти-чит системами, хотя благодаря усилиям Valve,
+в ближайшем будущем, вероятно, это уже не будет являться такой большой проблемой.
 Конечно, все не так гладко как хотелось бы, ведь для запуска и обеспечения работоспособности многих программ/игр придется ещё изрядно повозиться с его настройкой,
 однако сама такая возможность в принципе является незаменимой для Linux пользователей, в частности геймеров.</p>
 </div>
@@ -83,7 +84,7 @@
 Но существуют также много альтернативных сборок основаных на Wine-staging с упором именно на игры, о них написано далее.</p>
 <div class="section" id="wine-staging">
 <h3><a class="toc-backref" href="#id8">Установка wine-staging вместе с зависимостями</a><a class="headerlink" href="#wine-staging" title="Ссылка на этот заголовок">¶</a></h3>
-<p>Перед установкой обязательно включите multilib репозиторий в <em>/etc/pacman.conf</em>! 32-библиотеки необходимы для запуска 32-битных приложений Windows.:</p>
+<p>Перед установкой обязательно включите multilib репозиторий в <em>/etc/pacman.conf</em>! 32-библиотеки необходимы для запуска 32-битных приложений Windows.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S wine-staging winetricks wine-mono giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse libgpg-error lib32-libgpg-error alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo sqlite lib32-sqlite libxcomposite lib32-libxcomposite libxinerama lib32-libgcrypt libgcrypt lib32-libxinerama ncurses lib32-ncurses opencl-icd-loader lib32-opencl-icd-loader libxslt lib32-libxslt libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader
 </pre></div>
 </div>
@@ -91,7 +92,8 @@
 </div>
 <div class="section" id="id3">
 <h2><a class="toc-backref" href="#id9">Использование Wine</a><a class="headerlink" href="#id3" title="Ссылка на этот заголовок">¶</a></h2>
-<p>Использование Wine на деле является довольно простым. Чтобы запустить любое Windows-приложение достаточно использовать простую команду::</p>
+<p>Использование Wine на деле является довольно простым.
+Чтобы запустить любое Windows-приложение достаточно использовать простую команду:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>wine программа.exe
 </pre></div>
 </div>
@@ -99,12 +101,13 @@
 <p class="admonition-title">Внимание</p>
 <p>НИКОГДА НЕ ЗАПУСКАЕТЕ WINE ИЗ ПОД SUDO/ROOT!</p>
 </div>
-<p>Немного иной командой запускаются MSI установщики::</p>
+<p>Немного иной командой запускаются MSI установщики:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>wine msiexec /i программа.msi
 </pre></div>
 </div>
 <p>При использовании Wine важным понятием является префикс (его также называют бутылкой).
-Префикс, это как бы файловая система Windows в миниатюре, а по совместительству это рабочая директория, где будут устанавливаться/работать все Windows программы которые вы будете запускать из под Wine.
+Префикс, это как бы файловая система Windows в миниатюре, а по совместительству это рабочая директория,
+где будут устанавливаться/работать все Windows программы которые вы будете запускать из под Wine.
 Стоит понимать, что программы запускаемые через Wine по прежнем будут думать что они работают в Windows, хотя на самом деле это не так.
 Поэтому Wine и понадобилось воссоздать файловую структуру каталогов Windows внутри Linux (Unix).
 Префикс по умолчанию - это скрытая директория <em>~/.wine</em> в папке вашего пользователя.
@@ -114,7 +117,8 @@
 Файлы реестра используются Wine для, собственно, воссоздания работы реестра Windows в Linux.
 Его также будут использовать программы которые запускаемые через Wine.
 Директория <em>dosdevices</em> содержит символические ссылки на примонтированные устройства (разделы) в вашей системе Linux.
-Это понадобилось для того чтобы представить их в виде MS-DOS томов, ибо Windows приложения опять таки не знают что они работают под Linux, и им нужны привычные им диски D, E и т.д.
+Это понадобилось для того чтобы представить их в виде MS-DOS томов,
+ибо Windows приложения опять таки не знают что они работают под Linux, и им нужны привычные им диски D, E и т.д.
 Один из таких &quot;виртуальных дисков&quot; располагается в другом каталоге - <em>drive_c</em> (диск C:).
 Если вы его откроете то увидите &quot;замечательную&quot; структуру каталогов Windows:</p>
 <img alt="https://raw.githubusercontent.com/ventureoo/ARU/main/archive/ARU/images/image8.png" src="https://raw.githubusercontent.com/ventureoo/ARU/main/archive/ARU/images/image8.png" />
@@ -127,19 +131,19 @@
 <p>Понятное дело, что при смене префикса через WINEPREFIX не переносится его содержимое,
 т.е. программы установленные в одном префиксе не будут скопированы в новый.
 Но если вам нужно просто сменить название префикса с сохранением его содержимого,
-то просто переименуете название директории, а затем переназначьте переменную, например::</p>
+то просто переименуете название директории, а затем переназначьте переменную, например:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mv ~/old_wineprefix ~/new_wineprefix
 <span class="nv">WINEPREFIX</span><span class="o">=</span>~/.new_wineprefix wine приложение.exe
 </pre></div>
 </div>
 <p>Префиксы также бывают 32-битные и 64 битные в соответствии с разрядностью систем Windows (по умолчанию создаются 64 битные).
 Указать разрядность префикса можно через переменную <em>WINEARCH</em>.
-Для запуска старых видеоигр мы рекомендуем использовать 32-битный префикс во избежание проблем в будущем::</p>
+Для запуска старых видеоигр мы рекомендуем использовать 32-битный префикс во избежание проблем в будущем:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">WINEPREFIX</span><span class="o">=</span>~/.wine32 <span class="nv">WINEARCH</span><span class="o">=</span>win32 wine oldgame.exe
 </pre></div>
 </div>
 <p>Если вы уже создали 64-битные префикс, то переназначить его разрядность через переменную <em>WINEARCH</em> не получиться. Создайте новый и перенесите нужную вам программу.</p>
-<p>Проверить разрядность уже существующего префикса можно командой (можно также проверить по наличию директории <em>&quot;Program Files (x86)&quot;</em> внутри префикса)::</p>
+<p>Проверить разрядность уже существующего префикса можно командой (можно также проверить по наличию директории <em>&quot;Program Files (x86)&quot;</em> внутри префикса):</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>grep <span class="s1">&#39;#arch&#39;</span> ~/.wine/system.reg <span class="c1"># Где ‘.wine’ - название префикса</span>
 </pre></div>
 </div>
@@ -166,7 +170,7 @@
 </pre></div>
 </div>
 <p>По аналогии с linux-tkg, wine-tkg предоставляет возможность предварительно настроить себя перед установкой
-на применение различных патчей и твиков через редактирование файла <em>customization.cfg</em>::</p>
+на применение различных патчей и твиков через редактирование файла <em>customization.cfg</em>:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>nano customization.cfg
 </pre></div>
 </div>
@@ -253,7 +257,7 @@ makepkg -sric <span class="c1"># Сборка и установка</span>
 <div class="admonition attention">
 <p class="admonition-title">Внимание</p>
 <p>После установки пакета DXVK не задействуется сразу, его ещё нужно установить по отдельности в каждый префикс Wine
-(это не относиться к играм запускаемым через Lutris/Proton, в них DXVK включён по умолчанию)::</p>
+(это не относиться к играм запускаемым через Lutris/Proton, в них DXVK включён по умолчанию):</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">WINEPREFIX</span><span class="o">=</span>~/prefix setup_dxvk install <span class="c1"># Где &quot;prefix&quot; - это ваш префикс Wine</span>
 </pre></div>
 </div>
@@ -346,7 +350,8 @@ makepkg -sric
 <div class="section" id="proton-ge-custom-lutris">
 <h3><a class="toc-backref" href="#id17">Использование Proton-GE-Custom в Lutris</a><a class="headerlink" href="#proton-ge-custom-lutris" title="Ссылка на этот заголовок">¶</a></h3>
 <p>Немногие понимают, что Proton по сути является тем же Wine, хоть и с плюшками.
-Так вот, зная этот факт, мы можем сказать Lutris использовать Proton в качестве кастомного Wine. Делается это очень просто::</p>
+Так вот, зная этот факт, мы можем сказать Lutris использовать Proton в качестве кастомного Wine.
+Делается это очень просто:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ln -s /usr/share/steam/compatibilitytools.d/proton-ge-custom/files ~/.local/share/lutris/runners/wine/wine-proton-ge
 </pre></div>
 </div>

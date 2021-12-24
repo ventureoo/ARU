@@ -57,7 +57,7 @@
 <h2><a class="toc-backref" href="#id4">Zen</a><a class="headerlink" href="#zen" title="Ссылка на этот заголовок">¶</a></h2>
 <p>Это отличный выбор для неискушенного пользователя, что не ставит задачи в покорении максимальной планки FPS.
 Доступен в официальных репозиториях (не нужно компилировать).</p>
-<p><strong>I. Установка</strong>:</p>
+<p><strong>I. Установка</strong></p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S linux-zen linux-zen-headers <span class="c1"># Не забудь обновить GRUB.</span>
 </pre></div>
 </div>
@@ -67,7 +67,7 @@
 <p>Идеальное ядро для игроманов.
 Значительно улучшает качество отклика как в повседневных задачах так и в играх.
 Лучше походит для процессоров Intel.</p>
-<p><strong>I. Установка</strong>:</p>
+<p><strong>I. Установка</strong></p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman-key --keyserver hkps://keyserver.ubuntu.com --recv-keys 9AE4078033F8024D
 sudo pacman-key --lsign-key 9AE4078033F8024D      <span class="c1"># Добавляем GPG ключи</span>
 sudo nano /etc/pacman.conf                        <span class="c1"># Добавляем сюда строчку ниже.</span>
@@ -81,7 +81,7 @@ sudo pacman -S linux-lqx linux-lqx-headers <span class="c1"># Не забудь 
 </div>
 <p>Установка I рекомендуется если не хотите компилировать,
 но тогда производительность будет хуже чем у аналогичного скомпилированного ядра.</p>
-<p><strong>II. Установка</strong>:</p>
+<p><strong>II. Установка</strong></p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://aur.archlinux.org/linux-lqx.git                 <span class="c1"># Скачивание исходников.</span>
 <span class="nb">cd</span> linux-lqx                                                      <span class="c1"># Переход в linux-lqx</span>
 gpg --keyserver keyserver.ubuntu.com --recv-keys 38DBBDC86092693E <span class="c1"># GPG ключ</span>
@@ -90,7 +90,7 @@ makepkg -sric                                                     <span class="c
 </div>
 <p><strong>III. Установка и настройка</strong></p>
 <p>Выполнение кастомизации ядра linux-lqx.
-Тонкая настрйка ядра позволит дать ешё больше производительности.:</p>
+Тонкая настрйка ядра позволит дать ешё больше производительности.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://aur.archlinux.org/linux-lqx.git         <span class="c1"># Скачивание исходников.</span>
 <span class="nb">cd</span> linux-lqx                                              <span class="c1"># Переход в linux-lqx</span>
 nano PKGBUILD                                             <span class="c1"># Редактирование конфигурационного файла.</span>

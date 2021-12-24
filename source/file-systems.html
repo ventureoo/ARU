@@ -72,7 +72,7 @@
 что позволит избежать замедления без потери функционала, но говорят <em>lazytime</em> чудит, автор советует <em>noatime</em>.
 <em>space_cache</em> можно заменить на <em>space_cache=v2</em>, что тоже даст определенную прибавку производительности.</p>
 <p>Вот оптимальные параметры для SSD носителей.
-Описание каждого из них вы можете найти - <a class="reference external" href="https://zen.yandex.ru/media/id/5d8ac4740a451800acb6049f/linux-uskoriaem-sistemu-4-5e91d777378f6957923055b9">здесь</a>.:</p>
+Описание каждого из них вы можете найти - <a class="reference external" href="https://zen.yandex.ru/media/id/5d8ac4740a451800acb6049f/linux-uskoriaem-sistemu-4-5e91d777378f6957923055b9">здесь</a>.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rw,relatime,ssd,ssd_spread,space_cache<span class="o">=</span>v2,max_inline<span class="o">=</span><span class="m">256</span>,commit<span class="o">=</span><span class="m">600</span>,nodatacow
 </pre></div>
 </div>
