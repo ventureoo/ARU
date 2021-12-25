@@ -31,12 +31,16 @@
 
 :bash:`sudo nano /etc/default/cpupower` # Редактируем строчку ниже
 
+.. image:: images/extra-optimizations-1.png
+
 *governor=’performance’* # Высокая производительность
 
 :bash:`sudo systemctl enable cpupower` # Включить как постоянную службу, которая установит вечный perfomance mode.
 
 GUI для изменение частоты процессора (*Может не работать с Xanmod*)
 ---------------------------------------------------------------------
+
+.. image:: images/extra-optimizations-2.png
 
 **Установка**::
 

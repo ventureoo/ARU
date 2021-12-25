@@ -16,6 +16,10 @@ Wine / Linux Gaming
 .. role:: bash(code)
   :language: shell
 
+Переходя к запуску Windows-игр на Linux-системах, сто́ит иметь в виду, что никаких эмуляторов Windows на Linux не существует,
+и весь запуск осуществляется с помощью сторонней реализации Windows API — Wine/Proton,
+а также средств ретрансляции команд DirectX в доступные графические API на Linux (Vulkan, OpenGL) с помощью DXVK или иных ретранслятора кода.
+
 ====================
 Что такое Wine?
 ====================
@@ -46,7 +50,8 @@ Wine - слой совместимости для запуска Windows-при�
 Установка wine-staging вместе с зависимостями
 ----------------------------------------------
 
-Перед установкой обязательно включите multilib репозиторий в */etc/pacman.conf*! 32-библиотеки необходимы для запуска 32-битных приложений Windows. ::
+Бинарные версии ПО всегда доступны в репозиториях и очень удобны, но они не могут обеспечить достойный уровень производительности.
+Советую поставить Wine-staging вместе с зависимостями, а уже затем собрать wine-tkg.
 
   sudo pacman -S wine-staging winetricks wine-mono giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse libgpg-error lib32-libgpg-error alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo sqlite lib32-sqlite libxcomposite lib32-libxcomposite libxinerama lib32-libgcrypt libgcrypt lib32-libxinerama ncurses lib32-ncurses opencl-icd-loader lib32-opencl-icd-loader libxslt lib32-libxslt libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader
 
@@ -285,6 +290,8 @@ https://www.newalive.net/231-wine-tk-glitch.html
 :bash:`sudo pacman -S lutris` # Комбайн, где содержатся все удобные настройки.
 
 Необходим для удобного управления настройками Wine.
+
+.. image:: images/linux-gaming-4.png
 
 :bash:`sudo pacman -S gamemode lib32-gamemode` # Утилита для максимальной выжимки системы во время игры.
 

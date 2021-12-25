@@ -41,17 +41,21 @@ liquorix
 
 Идеальное ядро для игроманов.
 Значительно улучшает качество отклика как в повседневных задачах так и в играх.
-Лучше походит для процессоров Intel.
+Ориентирован на процессоры Intel.
 
 **I. Установка** ::
 
   sudo pacman-key --keyserver hkps://keyserver.ubuntu.com --recv-keys 9AE4078033F8024D
-  sudo pacman-key --lsign-key 9AE4078033F8024D      # Добавляем GPG ключи
+  sudo pacman-key --lsign-key 9AE4078033F8024D      # Добавляем GPG ключ
   sudo nano /etc/pacman.conf                        # Добавляем сюда строчку ниже.
 
 *[liquorix]*
 
-*Server = https://liquorix.net/archlinux/$repo/$arch* ::
+*Server = https://liquorix.net/archlinux/$repo/$arch*
+
+.. image:: images/custom-kernels-16.png
+
+::
 
   sudo pacman -Suuyy
   sudo pacman -S linux-lqx linux-lqx-headers # Не забудь обновить GRUB.
@@ -178,7 +182,7 @@ linux-tkg
 Является альтернативой всем трем ядрам выше,
 что предоставляет возможность собрать ядро с набором множества патчей на улучшение производительности в игрушках (Futex2, Zenify).
 Предоставляет выбор в сборке ядра с разными планировщиками.
-Грубо говоря, это ядро сборная солянка из всех остальных ядер.
+Грубо говоря, это ядро сборная солянка из всех остальных ядер с большим набором патчей.
 
 **I. Установка и настройка**::
 
