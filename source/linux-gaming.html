@@ -62,6 +62,9 @@
 </li>
 </ul>
 </div>
+<p>Переходя к запуску Windows-игр на Linux-системах, сто́ит иметь в виду, что никаких эмуляторов Windows на Linux не существует,
+и весь запуск осуществляется с помощью сторонней реализации Windows API — Wine/Proton,
+а также средств ретрансляции команд DirectX в доступные графические API на Linux (Vulkan, OpenGL) с помощью DXVK или иных ретранслятора кода.</p>
 <div class="section" id="wine">
 <h2><a class="toc-backref" href="#id6">Что такое Wine?</a><a class="headerlink" href="#wine" title="Ссылка на этот заголовок">¶</a></h2>
 <p>Wine - слой совместимости для запуска Windows-приложений (в том числе игр) из под Linux (Unix-подобных систем).
@@ -84,10 +87,11 @@
 Но существуют также много альтернативных сборок основаных на Wine-staging с упором именно на игры, о них написано далее.</p>
 <div class="section" id="wine-staging">
 <h3><a class="toc-backref" href="#id8">Установка wine-staging вместе с зависимостями</a><a class="headerlink" href="#wine-staging" title="Ссылка на этот заголовок">¶</a></h3>
-<p>Перед установкой обязательно включите multilib репозиторий в <em>/etc/pacman.conf</em>! 32-библиотеки необходимы для запуска 32-битных приложений Windows.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S wine-staging winetricks wine-mono giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse libgpg-error lib32-libgpg-error alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo sqlite lib32-sqlite libxcomposite lib32-libxcomposite libxinerama lib32-libgcrypt libgcrypt lib32-libxinerama ncurses lib32-ncurses opencl-icd-loader lib32-opencl-icd-loader libxslt lib32-libxslt libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader
-</pre></div>
-</div>
+<p>Бинарные версии ПО всегда доступны в репозиториях и очень удобны, но они не могут обеспечить достойный уровень производительности.
+Советую поставить Wine-staging вместе с зависимостями, а уже затем собрать wine-tkg.</p>
+<blockquote>
+<div><p>sudo pacman -S wine-staging winetricks wine-mono giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse libgpg-error lib32-libgpg-error alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo sqlite lib32-sqlite libxcomposite lib32-libxcomposite libxinerama lib32-libgcrypt libgcrypt lib32-libxinerama ncurses lib32-ncurses opencl-icd-loader lib32-opencl-icd-loader libxslt lib32-libxslt libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader</p>
+</div></blockquote>
 </div>
 </div>
 <div class="section" id="id3">
@@ -280,6 +284,7 @@ makepkg -sric <span class="c1"># Сборка и установка</span>
 <h2><a class="toc-backref" href="#id14">Установка Lutris и дополнений.</a><a class="headerlink" href="#lutris" title="Ссылка на этот заголовок">¶</a></h2>
 <p><code class="code bash shell docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">pacman</span> <span class="pre">-S</span> <span class="pre">lutris</span></code> # Комбайн, где содержатся все удобные настройки.</p>
 <p>Необходим для удобного управления настройками Wine.</p>
+<img alt="../_images/linux-gaming-4.png" src="../_images/linux-gaming-4.png" />
 <p><code class="code bash shell docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">pacman</span> <span class="pre">-S</span> <span class="pre">gamemode</span> <span class="pre">lib32-gamemode</span></code> # Утилита для максимальной выжимки системы во время игры.</p>
 <p>Можно активировать в Lutris или вручную перед запуском игры</p>
 <p><strong>Пример работы с Lutris</strong></p>

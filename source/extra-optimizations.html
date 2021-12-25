@@ -64,10 +64,12 @@ sudo cpupower frequency-set -g performance    <span class="c1"># Выставл�
 </pre></div>
 </div>
 <p><code class="code bash shell docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">/etc/default/cpupower</span></code> # Редактируем строчку ниже</p>
+<img alt="../_images/extra-optimizations-1.png" src="../_images/extra-optimizations-1.png" />
 <p><em>governor=’performance’</em> # Высокая производительность</p>
 <p><code class="code bash shell docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="name builtin"><span class="pre">enable</span></span> <span class="pre">cpupower</span></code> # Включить как постоянную службу, которая установит вечный perfomance mode.</p>
 <div class="section" id="gui-xanmod">
 <h3><a class="toc-backref" href="#id9">GUI для изменение частоты процессора (<em>Может не работать с Xanmod</em>)</a><a class="headerlink" href="#gui-xanmod" title="Ссылка на этот заголовок">¶</a></h3>
+<img alt="../_images/extra-optimizations-2.png" src="../_images/extra-optimizations-2.png" />
 <p><strong>Установка</strong>:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://aur.archlinux.org/cpupower-gui.git
 <span class="nb">cd</span> cpupower-gui

@@ -66,15 +66,16 @@
 <h2><a class="toc-backref" href="#id5">liquorix</a><a class="headerlink" href="#liquorix" title="Ссылка на этот заголовок">¶</a></h2>
 <p>Идеальное ядро для игроманов.
 Значительно улучшает качество отклика как в повседневных задачах так и в играх.
-Лучше походит для процессоров Intel.</p>
+Ориентирован на процессоры Intel.</p>
 <p><strong>I. Установка</strong></p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman-key --keyserver hkps://keyserver.ubuntu.com --recv-keys 9AE4078033F8024D
-sudo pacman-key --lsign-key 9AE4078033F8024D      <span class="c1"># Добавляем GPG ключи</span>
+sudo pacman-key --lsign-key 9AE4078033F8024D      <span class="c1"># Добавляем GPG ключ</span>
 sudo nano /etc/pacman.conf                        <span class="c1"># Добавляем сюда строчку ниже.</span>
 </pre></div>
 </div>
 <p><em>[liquorix]</em></p>
 <p><em>Server = https://liquorix.net/archlinux/$repo/$arch</em></p>
+<img alt="../_images/custom-kernels-16.png" src="../_images/custom-kernels-16.png" />
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -Suuyy
 sudo pacman -S linux-lqx linux-lqx-headers <span class="c1"># Не забудь обновить GRUB.</span>
 </pre></div>
@@ -194,7 +195,7 @@ makepkg -sric <span class="c1"># Сборка и установка</span>
 <p>Является альтернативой всем трем ядрам выше,
 что предоставляет возможность собрать ядро с набором множества патчей на улучшение производительности в игрушках (Futex2, Zenify).
 Предоставляет выбор в сборке ядра с разными планировщиками.
-Грубо говоря, это ядро сборная солянка из всех остальных ядер.</p>
+Грубо говоря, это ядро сборная солянка из всех остальных ядер с большим набором патчей.</p>
 <p><strong>I. Установка и настройка</strong>:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/Forgging-Family/linux-tkg.git
 <span class="nb">cd</span> linux-tkg

@@ -78,6 +78,11 @@
 </div>
 <p>Прописывать их нужно в файл <code class="code bash shell docutils literal notranslate"><span class="pre">/etc/fstab</span></code> для корневого и домашнего разделов.
 Некоторые из данных флагов будут применяться только для новых файлов.</p>
+<img alt="../_images/file-systems-1.png" src="../_images/file-systems-1.png" />
+<div class="admonition attention">
+<p class="admonition-title">Внимание</p>
+<p>Параметр <code class="code bash shell docutils literal notranslate"><span class="name variable"><span class="pre">commit</span></span><span class="operator"><span class="pre">=</span></span><span class="literal number"><span class="pre">600</span></span></code> может вызывать повышенное потребление оперативной памяти и портить данные на диске.</p>
+</div>
 <div class="admonition attention">
 <p class="admonition-title">Внимание</p>
 <p>При использовании Btrfs для корневого раздела, обязательно установите пакет <a class="reference external" href="https://archlinux.org/packages/core/x86_64/btrfs-progs/">btrfs-progs</a>.</p>
