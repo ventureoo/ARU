@@ -146,13 +146,13 @@
 
 Таким образом наша система будет чистить свой кэш раз в неделю, в воскресенье в 15:10.
 
-**1.5** `haveged <https://wiki.archlinux.org/title/Haveged_(Русский)>`_ - это демон, что следит на энтропией системы.
+**1.5** `haveged <https://wiki.archlinux.org/title/Haveged_(Русский)>`_ - это демон, что следит за энтропией системы.
 Необходим для ускорения запуска системы при высоких показателях в: *systemd-analyze blame* (Больше 1 секунды). ::
 
   sudo pacman -S haveged        # Установка
   sudo systemctl enable haveged # Включает и запускает службу.
 
-**1.5.1** `rng-tools <https://wiki.archlinux.org/title/Rng-tools>`_ - демон, что также следит на энтропией системы, но в отличии от haveged уже через аппаратный таймер.
+**1.5.1** `rng-tools <https://wiki.archlinux.org/title/Rng-tools>`_ - демон, что также следит за энтропией системы, но в отличии от haveged уже через аппаратный таймер.
 Необходим для ускорения запуска системы при высоких показателях *systemd-analyze blame* (Больше 1 секунды). (**Не использовать вместе с Ananicy**). ::
 
   sudo pacman -S rng-tools         # Установка
