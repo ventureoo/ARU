@@ -1,9 +1,6 @@
 name: Sphinx build
 
-on:
-  push:
-    branches:
-      - main
+on: push
 
 jobs:
   build:
