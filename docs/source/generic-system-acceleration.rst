@@ -307,3 +307,19 @@ Bleachbit
   cd cleanerml-git                                      # Переход в cleanerm.
   makepkg -sric                                         # Сборка и установка.
 
+------
+Piper
+------
+
+Позволяет выполнить более тонкую настройку вашей мышки, в том числе назначить DPI, подсветку, и собственные действия на дополнительные кнопки.
+
+.. image:: https://raw.githubusercontent.com/libratbag/piper/wiki/screenshots/piper-resolutionpage.png
+
+**Установка** ::
+
+  sudo pacman -S piper
+
+.. attention:: Поддерживаются только некоторые из моделей мышек от Logitech/Razer/Steelseries.
+   Полный список поддерживаемых устройств вы можете найти по ссылке:
+
+   https://github.com/libratbag/libratbag/wiki/Devices
