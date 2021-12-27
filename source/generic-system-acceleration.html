@@ -189,13 +189,13 @@ sudo <span class="nv">EDITOR</span><span class="o">=</span>nano crontab -e      
 <p>И прописываем:</p>
 <p><em>15 10 * * sun /sbin/pacman -Scc</em></p>
 <p>Таким образом наша система будет чистить свой кэш раз в неделю, в воскресенье в 15:10.</p>
-<p><strong>1.5</strong> <a class="reference external" href="https://wiki.archlinux.org/title/Haveged_(Русский)">haveged</a> - это демон, что следит на энтропией системы.
+<p><strong>1.5</strong> <a class="reference external" href="https://wiki.archlinux.org/title/Haveged_(Русский)">haveged</a> - это демон, что следит за энтропией системы.
 Необходим для ускорения запуска системы при высоких показателях в: <em>systemd-analyze blame</em> (Больше 1 секунды).</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S haveged        <span class="c1"># Установка</span>
 sudo systemctl <span class="nb">enable</span> haveged <span class="c1"># Включает и запускает службу.</span>
 </pre></div>
 </div>
-<p><strong>1.5.1</strong> <a class="reference external" href="https://wiki.archlinux.org/title/Rng-tools">rng-tools</a> - демон, что также следит на энтропией системы, но в отличии от haveged уже через аппаратный таймер.
+<p><strong>1.5.1</strong> <a class="reference external" href="https://wiki.archlinux.org/title/Rng-tools">rng-tools</a> - демон, что также следит за энтропией системы, но в отличии от haveged уже через аппаратный таймер.
 Необходим для ускорения запуска системы при высоких показателях <em>systemd-analyze blame</em> (Больше 1 секунды). (<strong>Не использовать вместе с Ananicy</strong>).</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S rng-tools         <span class="c1"># Установка</span>
 sudo systemctl <span class="nb">enable</span> --now rngd <span class="c1"># Включает и запускает службу.</span>
