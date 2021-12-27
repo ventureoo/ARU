@@ -32,3 +32,9 @@
 - [Павел Прилуцкий](https://vk.com/ustavchiy) (@pavelpriluckiy) - Автор оригинального документа
 
 - [Василий Стельмачёнок](https://vk.com/ventureo) (@ventureo) - Текущий сопровождающий проекта, редактор и соавтор. 
+
+Отдельное спасибо этим людям за их указания на ошибки/опечатки:
+ 
+- [@dewdpol](https://github.com/dewdpol)
+
+- [@holydrug](https://github.com/holydrug)
