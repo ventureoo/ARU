@@ -248,7 +248,9 @@ makepkg -sric
 </div>
 <div class="section" id="id10">
 <h3><a class="toc-backref" href="#id23">Специфические переменные окружения для драйвера NVIDIA</a><a class="headerlink" href="#id10" title="Ссылка на этот заголовок">¶</a></h3>
-<p>Указать вы их можете либо в Lutris для конкретных игр или в &quot;Свойствах игры&quot; в Steam.</p>
+<p>Указать вы их можете либо в Lutris для конкретных игр, либо в Параметрах Запуска игры в Steam
+(<em>&quot;Свойства&quot;</em> -&gt; <em>&quot;Параметры запуска&quot;</em>. После указания всех переменных обязательно добавьте в конце &quot;<em>%command%</em>&quot;,
+для того чтобы Steam понимал, что вы указали именно системные переменные окружения для запуска игры, а не параметры специфичные для этой самой игры).</p>
 <p><code class="code bash shell docutils literal notranslate"><span class="name variable"><span class="pre">__GL_THREADED_OPTIMIZATIONS</span></span><span class="operator"><span class="pre">=</span></span><span class="literal number"><span class="pre">1</span></span></code> <strong>(По умолчанию выключено)</strong> -  Активируем многопоточную обработку OpenGL.
 Используете выборочно для нативных игр/приложений, ибо иногда может наоборот вызывать регрессию производительности.
 Некоторые игры и вовсе могут не запускаться с данной переменной (К примеру, некоторые нативно-запускаемые части Metro).</p>
