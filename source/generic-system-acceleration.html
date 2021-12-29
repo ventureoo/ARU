@@ -188,7 +188,7 @@ sudo <span class="nv">EDITOR</span><span class="o">=</span>nano crontab -e      
 </pre></div>
 </div>
 <p>И прописываем:</p>
-<p><em>15 10 * * sun /sbin/pacman -Scc</em></p>
+<p><em>15 10 * * sun /sbin/pacman -Scc --noconfirm</em></p>
 <p>Таким образом наша система будет чистить свой кэш раз в неделю, в воскресенье в 15:10.</p>
 <p><strong>1.5</strong> <a class="reference external" href="https://wiki.archlinux.org/title/Haveged_(Русский)">haveged</a> - это демон, что следит за энтропией системы.
 Необходим для ускорения запуска системы при высоких показателях в: <em>systemd-analyze blame</em> (Больше 1 секунды).</p>
