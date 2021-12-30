@@ -45,7 +45,7 @@
 :bash:`mitigations=off` - Непосредственно отключает все заплатки безопасности ядра (включая Spectre и Meltdown).
 Подробнее об этом написано `здесь <https://linuxreviews.org/HOWTO_make_Linux_run_blazing_fast_(again)_on_Intel_CPUs>`_.
 
-:bash:`raid=noautodetect` - Отключает проверку на RAID во время загрузки. Если вы его используете - прописывайте данный параметр.
+:bash:`raid=noautodetect` - Отключает проверку на RAID во время загрузки. Если вы его используете - **НЕ** прописывайте данный параметр.
 
 :bash:`rootfstype=btrfs` - Здесь указываем название ФС в которой у вас форматирован корень
 
