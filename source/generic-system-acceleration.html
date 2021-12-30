@@ -97,7 +97,7 @@
 <h3><a class="toc-backref" href="#id9">Форсирование использования Clang при сборке пакетов</a><a class="headerlink" href="#clang" title="Ссылка на этот заголовок">¶</a></h3>
 <p>В Linux мире существуют две основных группы компиляторов, это LLVM и GCC.
 И те, и другие хорошо справляются с возложенными на них задачами,
-но LLVM имеет чуть большее примущество с точки зрения производительности при меньших потерях в качестве конечного кода.
+но LLVM имеет чуть большее преимущество с точки зрения производительности при меньших потерях в качестве конечного кода.
 Поэтому, в целом, применение компиляторов LLVM для сборки различных пакетов при задании флага -O2
 (максимальная производительность) является совершенно оправданным, и может дать реальный прирост при работе программ.</p>
 <p>Компилятором для языков C/C++ в составе LLVM является Clang и Clang++ соответственно.
@@ -130,7 +130,7 @@
 <span class="nb">export</span> <span class="nv">HOSTLD</span><span class="o">=</span>ld.lld
 </pre></div>
 </div>
-<p>И отредактиурем значения флагов компилятора, CFLAGS и CXXFLAGS соответственно, на данные:</p>
+<p>И отредактируем значения флагов компилятора, CFLAGS и CXXFLAGS соответственно, на данные:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">CFLAGS</span><span class="o">=</span><span class="s2">&quot;-fdiagnostics-color=always -pipe -O2 -march=native -fstack-protector-strong&quot;</span>
 <span class="nv">CXXFLAGS</span><span class="o">=</span><span class="s2">&quot;-fdiagnostics-color=always -pipe -O2 -march=native -fstack-protector-strong&quot;</span>
 <span class="nv">LDFLAGS</span><span class="o">=</span><span class="s2">&quot;-Wl,-O1,--sort-common,--as-needed,-z,relro,-z,now&quot;</span>
@@ -156,7 +156,7 @@
 <p>ccache - это кэш для компиляторов C/C++, в частности совместимый с компиляторами GCC/Clang,
 цель которого состоит в ускорении повторного процесса компиляции одно и того же кода.
 Это значит, что если при повторной пересборке программы новой версии, будут замечены полностью идентичные блоки исходного кода в сравнении с его старой версией,
-то компиляция этих исходных текстов производиться не будет. Вместого этого, уже готовый, скомпилированный код старой версии будет вынут из кэша ccache.
+то компиляция этих исходных текстов производиться не будет. Вместо этого, уже готовый, скомпилированный код старой версии будет вынут из кэша ccache.
 За счёт этого и достигается многократное ускорение процесса компиляции.</p>
 <p><strong>Установка</strong></p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S ccache
@@ -224,7 +224,7 @@ sudo <span class="nv">EDITOR</span><span class="o">=</span>nano crontab -e      
 sudo systemctl <span class="nb">enable</span> haveged <span class="c1"># Включает и запускает службу.</span>
 </pre></div>
 </div>
-<p><strong>1.5.1</strong> <a class="reference external" href="https://wiki.archlinux.org/title/Rng-tools">rng-tools</a> - демон, что также следит за энтропией системы, но в отличии от haveged уже через аппаратный таймер.
+<p><strong>1.5.1</strong> <a class="reference external" href="https://wiki.archlinux.org/title/Rng-tools">rng-tools</a> - демон, что также следит за энтропией системы, но в отличие от haveged уже через аппаратный таймер.
 Необходим для ускорения запуска системы при высоких показателях <em>systemd-analyze blame</em> (Больше 1 секунды). (<strong>Не использовать вместе с Ananicy</strong>).</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S rng-tools         <span class="c1"># Установка</span>
 sudo systemctl <span class="nb">enable</span> --now rngd <span class="c1"># Включает и запускает службу.</span>
@@ -264,7 +264,7 @@ sudo systemctl <span class="nb">enable</span> --now dbus-broker.service <span cl
 <div class="section" id="alsa">
 <h3><a class="toc-backref" href="#id14">Простая ALSA</a><a class="headerlink" href="#alsa" title="Ссылка на этот заголовок">¶</a></h3>
 <p>ALSA - это тот самый звук (условно, на самом деле это звуковая подсистема ядра),
-который идёт напрямую из ядра и является самым быстром,
+который идёт напрямую из ядра и является самым быстрым,
 так как не вынужден проходить множество программных прослоек и микширование.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S alsa alsa-utils alsa-firmware alsa-card-profiles alsa-plugins
 </pre></div>
