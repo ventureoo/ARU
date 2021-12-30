@@ -107,6 +107,19 @@
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -Syu llvm clang lld
 </pre></div>
 </div>
+<div class="admonition attention">
+<p class="admonition-title">Внимание</p>
+<p>После установки Clang вы можете перекомпилировать его самого через себя,
+т.е. выполнить пересборку Clang с помощью бинарного Clang из репозиториев.
+Это позволит оптимизировать уже сам компилятор под ваше железо и тем самым ускорить
+его работу при сборке уже других программ. Аналогичную операцию вы можете проделать и с GCC.</p>
+<p>Делается это так же, как и с любыми другими пакетами из официальных репозиториев:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone --depth <span class="m">1</span> --branch packages/clang https://github.com/archlinux/svntogit-packages.git clang
+<span class="nb">cd</span> clang/trunk
+makepkg --config /etc/makepkg-clang.conf -sric
+</pre></div>
+</div>
+</div>
 <p>Теперь клонируем уже готовый конфигурационный файл /etc/makepkg.conf под новыми именем /etc/makepkg-clang.conf:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo cp -r /etc/makepkg.conf /etc/makepkg-clang.conf
 </pre></div>
@@ -129,12 +142,6 @@
 <span class="nb">export</span> <span class="nv">HOSTCXX</span><span class="o">=</span>clang++
 <span class="nb">export</span> <span class="nv">HOSTAR</span><span class="o">=</span>llvm-ar
 <span class="nb">export</span> <span class="nv">HOSTLD</span><span class="o">=</span>ld.lld
-</pre></div>
-</div>
-<p>И отредактируем значения флагов компилятора, CFLAGS и CXXFLAGS соответственно, на данные:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">CFLAGS</span><span class="o">=</span><span class="s2">&quot;-fdiagnostics-color=always -pipe -O2 -march=native -fstack-protector-strong&quot;</span>
-<span class="nv">CXXFLAGS</span><span class="o">=</span><span class="s2">&quot;-fdiagnostics-color=always -pipe -O2 -march=native -fstack-protector-strong&quot;</span>
-<span class="nv">LDFLAGS</span><span class="o">=</span><span class="s2">&quot;-Wl,-O1,--sort-common,--as-needed,-z,relro,-z,now&quot;</span>
 </pre></div>
 </div>
 <p>Отлично, теперь вы можете собрать нужные вам пакеты (программы) через LLVM/Clang просто добавив к уже известной команде makepkg следующую опцию:</p>
