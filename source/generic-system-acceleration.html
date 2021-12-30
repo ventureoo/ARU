@@ -209,7 +209,7 @@ sudo fstrim -v /                      <span class="c1"># Ручной метод
 sudo fstrim -va /                     <span class="c1"># Если первый метод не тримит весь диск.</span>
 </pre></div>
 </div>
-<p><strong>1.4</strong> <a class="reference external" href="https://wiki.archlinux.org/title/cron">Сron</a> — это демон, поможет вам очищать нашу систему от мусора автономно.</p>
+<p><strong>1.4</strong> <a class="reference external" href="https://wiki.archlinux.org/title/cron">Сron</a> — это демон, который поможет вам очищать вашу систему от мусора полностью автономно.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S cronie                         <span class="c1"># Установить cron.</span>
 sudo systemctl <span class="nb">enable</span> --now cronie.service    <span class="c1"># Запускает и включает службу.</span>
 sudo <span class="nv">EDITOR</span><span class="o">=</span>nano crontab -e                   <span class="c1"># Редактируем параметр.</span>
