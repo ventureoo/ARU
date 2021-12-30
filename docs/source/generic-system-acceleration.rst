@@ -58,6 +58,17 @@
 
   sudo pacman -Syu llvm clang lld
 
+.. attention:: После установки Clang вы можете перекомпилировать его самого через себя,
+   т.е. выполнить пересборку Clang с помощью бинарного Clang из репозиториев.
+   Это позволит оптимизировать уже сам компилятор под ваше железо и тем самым ускорить
+   его работу при сборке уже других программ. Аналогичную операцию вы можете проделать и с GCC.
+
+   Делается это так же, как и с любыми другими пакетами из официальных репозиториев::
+
+     git clone --depth 1 --branch packages/clang https://github.com/archlinux/svntogit-packages.git clang
+     cd clang/trunk
+     makepkg --config /etc/makepkg-clang.conf -sric
+
 Теперь клонируем уже готовый конфигурационный файл /etc/makepkg.conf под новыми именем /etc/makepkg-clang.conf::
 
   sudo cp -r /etc/makepkg.conf /etc/makepkg-clang.conf
@@ -82,12 +93,6 @@
   export HOSTCXX=clang++
   export HOSTAR=llvm-ar
   export HOSTLD=ld.lld
-
-И отредактируем значения флагов компилятора, CFLAGS и CXXFLAGS соответственно, на данные::
-
-  CFLAGS="-fdiagnostics-color=always -pipe -O2 -march=native -fstack-protector-strong"
-  CXXFLAGS="-fdiagnostics-color=always -pipe -O2 -march=native -fstack-protector-strong"
-  LDFLAGS="-Wl,-O1,--sort-common,--as-needed,-z,relro,-z,now"
 
 Отлично, теперь вы можете собрать нужные вам пакеты (программы) через LLVM/Clang просто добавив к уже известной команде makepkg следующую опцию::
 
