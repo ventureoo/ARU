@@ -67,7 +67,7 @@
 
      git clone --depth 1 --branch packages/clang https://github.com/archlinux/svntogit-packages.git clang
      cd clang/trunk
-     makepkg --config /etc/makepkg-clang.conf -sric
+     makepkg --config /etc/makepkg-clang.conf -sric --skippgpcheck
 
 Теперь клонируем уже готовый конфигурационный файл /etc/makepkg.conf под новыми именем /etc/makepkg-clang.conf::
 
