@@ -18,7 +18,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'ARU'
-copyright = 'ARU 2018 - 2021, Pavel Priluckiy, Vasiliy Stelmachenok and contributors'
+copyright = 'ARU 2018 - 2022, Pavel Priluckiy, Vasiliy Stelmachenok and contributors'
 author = 'Pavel Priluckiy, Vasiliy Stelmachenok and contributors'
 
 # The full version, including alpha/beta/rc tags
