@@ -241,8 +241,9 @@ sudo systemctl <span class="nb">enable</span> --now rngd <span class="c1"># Вк
 <p><strong>1.6</strong> <a class="reference external" href="https://github.com/bus1/dbus-broker">dbus-broker</a> - Это реализация шины сообщений в соответствии со спецификацией D-Bus.
 Его цель - обеспечить высокую производительность и надежность при сохранении совместимости с эталонной реализацией D-Bus.
 Быстрее будет общение с видеокартой через PCIe.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S dbus-broker                      <span class="c1"># Уставновка</span>
-sudo systemctl <span class="nb">enable</span> --now dbus-broker.service <span class="c1"># Включает и запускает службу.</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S dbus-broker                         <span class="c1"># Уставновка</span>
+sudo systemctl <span class="nb">enable</span> --now dbus-broker.service    <span class="c1"># Включает и запускает службу.</span>
+sudo systemctl --global <span class="nb">enable</span> dbus-broker.service <span class="c1"># Включает и запускает службу для всех пользователей.</span>
 </pre></div>
 </div>
 <p>Если у вас ещё возникает вопрос: &quot;Что действительно нужно установить из выше перечисленного?&quot;,
