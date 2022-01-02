@@ -1,4 +1,4 @@
-.. ARU (c) 2018 - 2021, Pavel Priluckiy, Vasiliy Stelmachenok and contributors
+.. ARU (c) 2018 - 2022, Pavel Priluckiy, Vasiliy Stelmachenok and contributors
 
    ARU is licensed under a
    Creative Commons Attribution-ShareAlike 4.0 International License.
