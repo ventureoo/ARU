@@ -16,7 +16,7 @@
 .. role:: bash(code)
   :language: shell
 
-Включения мониторинга в играх, как в MSI Afterburner.
+Включение мониторинга в играх, как в MSI Afterburner.
 
 .. image:: https://raw.githubusercontent.com/ventureoo/ARU/main/archive/ARU/images/image9.png
   :align: center
