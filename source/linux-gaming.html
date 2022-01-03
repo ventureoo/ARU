@@ -144,7 +144,7 @@
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">WINEPREFIX</span><span class="o">=</span>~/.wine32 <span class="nv">WINEARCH</span><span class="o">=</span>win32 wine oldgame.exe
 </pre></div>
 </div>
-<p>Если вы уже создали 64-битные префикс, то переназначить его разрядность через переменную <em>WINEARCH</em> не получиться. Создайте новый и перенесите нужную вам программу.</p>
+<p>Если вы уже создали 64-битные префикс, то переназначить его разрядность через переменную <em>WINEARCH</em> не получится. Создайте новый и перенесите нужную вам программу.</p>
 <p>Проверить разрядность уже существующего префикса можно командой (можно также проверить по наличию директории <em>&quot;Program Files (x86)&quot;</em> внутри префикса):</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>grep <span class="s1">&#39;#arch&#39;</span> ~/.wine/system.reg <span class="c1"># Где ‘.wine’ - название префикса</span>
 </pre></div>
