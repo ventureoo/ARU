@@ -249,6 +249,7 @@ wine-tkg-userpatches
   git clone https://github.com/loathingKernel/PKGBUILDs
   cd PKGBUILDS/public/dxvk-mingw
   mv PKGBUILD.testing PKGBUILD
+  sed -i 's/dxvk.git/dxvk.git#tag=v$_dxvkver/' PKGBUILD # Исправляет сборку пакета с изменениями в upstream
   makepkg -sric # Сборка и установка
 
 Применить асинхронную компиляцию шейдеров можно через переменную окружения *DXVK_ASYNC=1*.
