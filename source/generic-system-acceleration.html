@@ -34,42 +34,41 @@
           <div class="body" role="main">
             
   <div class="section" id="id1">
-<h1><a class="toc-backref" href="#id8">Базовое ускорение системы</a><a class="headerlink" href="#id1" title="Ссылка на этот заголовок">¶</a></h1>
+<h1><a class="toc-backref" href="#id7">Базовое ускорение системы</a><a class="headerlink" href="#id1" title="Ссылка на этот заголовок">¶</a></h1>
 <div class="contents topic" id="id2">
 <p class="topic-title">Содержание:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#id1" id="id8">Базовое ускорение системы</a></p>
+<li><p><a class="reference internal" href="#id1" id="id7">Базовое ускорение системы</a></p>
 <ul>
-<li><p><a class="reference internal" href="#makepkg-conf" id="id9">Настройка makepkg.conf</a></p>
+<li><p><a class="reference internal" href="#makepkg-conf" id="id8">Настройка makepkg.conf</a></p>
 <ul>
-<li><p><a class="reference internal" href="#clang" id="id10">Форсирование использования Clang при сборке пакетов</a></p></li>
-<li><p><a class="reference internal" href="#ccache" id="id11">Включение ccache</a></p></li>
+<li><p><a class="reference internal" href="#clang" id="id9">Форсирование использования Clang при сборке пакетов</a></p></li>
+<li><p><a class="reference internal" href="#ccache" id="id10">Включение ccache</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#id3" id="id12">Установка полезных служб и демонов</a></p></li>
-<li><p><a class="reference internal" href="#id4" id="id13">Низкие задержки звука</a></p>
+<li><p><a class="reference internal" href="#id3" id="id11">Установка полезных служб и демонов</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id12">Низкие задержки звука</a></p>
 <ul>
-<li><p><a class="reference internal" href="#pulseaudio" id="id14">Новая альтернатива PulseAudio</a></p></li>
-<li><p><a class="reference internal" href="#alsa" id="id15">Простая ALSA</a></p></li>
+<li><p><a class="reference internal" href="#pulseaudio" id="id13">Новая альтернатива PulseAudio</a></p></li>
+<li><p><a class="reference internal" href="#alsa" id="id14">Простая ALSA</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#networkmanager-wait-online" id="id16">Ускорение загрузки системы (Отключение NetworkManager-wait-online)</a></p>
+<li><p><a class="reference internal" href="#networkmanager-wait-online" id="id15">Ускорение загрузки системы (Отключение NetworkManager-wait-online)</a></p>
 <ul>
-<li><p><a class="reference internal" href="#hdd" id="id17">Ускорение загрузки ядра на HDD накопителях (<em>Только для жестких дисков</em>)</a></p></li>
+<li><p><a class="reference internal" href="#hdd" id="id16">Ускорение загрузки ядра на HDD накопителях (<em>Только для жестких дисков</em>)</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#id5" id="id18">Ускорение сжатия образов ядра</a></p></li>
-<li><p><a class="reference internal" href="#id6" id="id19">Одновременная загрузка двух и более пакетов</a></p>
+<li><p><a class="reference internal" href="#id5" id="id17">Одновременная загрузка двух и более пакетов</a></p>
 <ul>
-<li><p><a class="reference internal" href="#powerpill-zee-captain" id="id20">Альтернативно можно использовать powerpill (Спасибо Zee Captain)</a></p></li>
+<li><p><a class="reference internal" href="#powerpill-zee-captain" id="id18">Альтернативно можно использовать powerpill (Спасибо Zee Captain)</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#id7" id="id21">Полезное ПО</a></p>
+<li><p><a class="reference internal" href="#id6" id="id19">Полезное ПО</a></p>
 <ul>
-<li><p><a class="reference internal" href="#stacer" id="id22">Stacer</a></p></li>
-<li><p><a class="reference internal" href="#bleachbit" id="id23">Bleachbit</a></p></li>
-<li><p><a class="reference internal" href="#piper" id="id24">Piper</a></p></li>
-<li><p><a class="reference internal" href="#pam-usb" id="id25">pam_usb</a></p></li>
+<li><p><a class="reference internal" href="#stacer" id="id20">Stacer</a></p></li>
+<li><p><a class="reference internal" href="#bleachbit" id="id21">Bleachbit</a></p></li>
+<li><p><a class="reference internal" href="#piper" id="id22">Piper</a></p></li>
+<li><p><a class="reference internal" href="#pam-usb" id="id23">pam_usb</a></p></li>
 </ul>
 </li>
 </ul>
@@ -79,7 +78,7 @@
 <p>Переходя к базовой оптимизации системы мне сто́ит напомнить, что чистый Arch Linux - это фундамент, и требуется уйма надстроек для нормальной работы системы.
 Установить компоненты, которые будут отвечать за электропитание, чистку, оптимизацию и тому подобные вещи, что и описывается в данном разделе.</p>
 <div class="section" id="makepkg-conf">
-<h2><a class="toc-backref" href="#id9">Настройка makepkg.conf</a><a class="headerlink" href="#makepkg-conf" title="Ссылка на этот заголовок">¶</a></h2>
+<h2><a class="toc-backref" href="#id8">Настройка makepkg.conf</a><a class="headerlink" href="#makepkg-conf" title="Ссылка на этот заголовок">¶</a></h2>
 <p>Прежде чем приступать к сборке пакетов, мы должны изменить так называемые флаги компиляции,
 что являются указателями для компилятора, какие инструкции и оптимизации использовать при сборке программ.</p>
 <p><code class="code bash shell docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">/etc/makepkg.conf</span></code>  # Редактируем (Где &quot;-O2&quot; - <strong>Это не нуль/ноль</strong>)</p>
@@ -96,7 +95,7 @@
 <p>Данные флаги компилятора выжимают максимум производительности при компиляции, но могут вызывать ошибки сборки в очень редких приложениях.
 Если такое случится, то отключите параметр ‘lto’ в строке options добавив перед ним символ восклицательного знака  ! (<em>&quot;!lto&quot;</em>).</p>
 <div class="section" id="clang">
-<h3><a class="toc-backref" href="#id10">Форсирование использования Clang при сборке пакетов</a><a class="headerlink" href="#clang" title="Ссылка на этот заголовок">¶</a></h3>
+<h3><a class="toc-backref" href="#id9">Форсирование использования Clang при сборке пакетов</a><a class="headerlink" href="#clang" title="Ссылка на этот заголовок">¶</a></h3>
 <p>В Linux мире существуют две основных группы компиляторов, это LLVM и GCC.
 И те, и другие хорошо справляются с возложенными на них задачами,
 но LLVM имеет чуть большее преимущество с точки зрения производительности при меньших потерях в качестве конечного кода.
@@ -159,7 +158,7 @@ makepkg --config /etc/makepkg-clang.conf -sric --skippgpcheck
 <p>Больше подробностей по теме вы можете найти в данной статье: <a class="reference external" href="https://habr.com/ru/company/ruvds/blog/561286/">https://habr.com/ru/company/ruvds/blog/561286/</a></p>
 </div>
 <div class="section" id="ccache">
-<h3><a class="toc-backref" href="#id11">Включение ccache</a><a class="headerlink" href="#ccache" title="Ссылка на этот заголовок">¶</a></h3>
+<h3><a class="toc-backref" href="#id10">Включение ccache</a><a class="headerlink" href="#ccache" title="Ссылка на этот заголовок">¶</a></h3>
 <p>В Linux системах есть не так много программ, сборка которых может занять больше двух часов,
 но они все таки есть. Потому, было бы неплохо ускорить повторную компиляцию таких программ как Wine/Proton-GE и т.д.</p>
 <p>ccache - это кэш для компиляторов C/C++, в частности совместимый с компиляторами GCC/Clang,
@@ -187,7 +186,7 @@ makepkg --config /etc/makepkg-clang.conf -sric --skippgpcheck
 </div>
 </div>
 <div class="section" id="id3">
-<h2><a class="toc-backref" href="#id12">Установка полезных служб и демонов</a><a class="headerlink" href="#id3" title="Ссылка на этот заголовок">¶</a></h2>
+<h2><a class="toc-backref" href="#id11">Установка полезных служб и демонов</a><a class="headerlink" href="#id3" title="Ссылка на этот заголовок">¶</a></h2>
 <p><strong>1.</strong> <a class="reference external" href="https://aur.archlinux.org/packages/zramswap/">Zramswap</a> — это специальный демон,
 который сжимает оперативную память ресурсами центрального процессора и создает в ней файл подкачки.
 Очень ускоряет систему вне зависимости от количества памяти, однако добавляет нагрузку на процессор, т.к. его ресурсами и происходит сжатие памяти.
@@ -252,7 +251,7 @@ sudo systemctl --global <span class="nb">enable</span> dbus-broker.service <span
 <img alt="../_images/generic-system-acceleration-1.png" src="../_images/generic-system-acceleration-1.png" />
 </div>
 <div class="section" id="id4">
-<h2><a class="toc-backref" href="#id13">Низкие задержки звука</a><a class="headerlink" href="#id4" title="Ссылка на этот заголовок">¶</a></h2>
+<h2><a class="toc-backref" href="#id12">Низкие задержки звука</a><a class="headerlink" href="#id4" title="Ссылка на этот заголовок">¶</a></h2>
 <p>Установите следующие пакеты для понижения задержек звука в PulseAudio,
 а также удобную графическую панель управления звуком -  <em>pavucontrol</em>.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S jack2 pulseaudio-alsa pulseaudio-jack pavucontrol jack2-dbus realtime-privileges
@@ -264,7 +263,7 @@ sudo systemctl --global <span class="nb">enable</span> dbus-broker.service <span
 он может вызвать небольшие задержки всей системы из-за усиленного воздействия на CPU, но без него звук хуже.</p>
 </div>
 <div class="section" id="pulseaudio">
-<h3><a class="toc-backref" href="#id14">Новая альтернатива PulseAudio</a><a class="headerlink" href="#pulseaudio" title="Ссылка на этот заголовок">¶</a></h3>
+<h3><a class="toc-backref" href="#id13">Новая альтернатива PulseAudio</a><a class="headerlink" href="#pulseaudio" title="Ссылка на этот заголовок">¶</a></h3>
 <p><a class="reference external" href="https://wiki.archlinux.org/title/PipeWire_(Русский)">PipeWire</a> - это новая альтернатива PulseAudio,
 которая призвана избавить от проблем pulse, уменьшить задержки звука и потребление памяти.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S jack2 pipewire pipewire-jack pipewire-alsa pavucontrol pipewire-pulse alsa-utils
@@ -272,7 +271,7 @@ sudo systemctl --global <span class="nb">enable</span> dbus-broker.service <span
 </div>
 </div>
 <div class="section" id="alsa">
-<h3><a class="toc-backref" href="#id15">Простая ALSA</a><a class="headerlink" href="#alsa" title="Ссылка на этот заголовок">¶</a></h3>
+<h3><a class="toc-backref" href="#id14">Простая ALSA</a><a class="headerlink" href="#alsa" title="Ссылка на этот заголовок">¶</a></h3>
 <p>ALSA - это тот самый звук (условно, на самом деле это звуковая подсистема ядра),
 который идёт напрямую из ядра и является самым быстрым,
 так как не вынужден проходить множество программных прослоек и микширование.</p>
@@ -287,7 +286,7 @@ sudo systemctl --global <span class="nb">enable</span> dbus-broker.service <span
 </div>
 </div>
 <div class="section" id="networkmanager-wait-online">
-<h2><a class="toc-backref" href="#id16">Ускорение загрузки системы (Отключение NetworkManager-wait-online)</a><a class="headerlink" href="#networkmanager-wait-online" title="Ссылка на этот заголовок">¶</a></h2>
+<h2><a class="toc-backref" href="#id15">Ускорение загрузки системы (Отключение NetworkManager-wait-online)</a><a class="headerlink" href="#networkmanager-wait-online" title="Ссылка на этот заголовок">¶</a></h2>
 <p>В большинстве случаев для настройки интернет подключения вы, скорее всего, будете использовать NetworkManager,
 т.к. он является в этом деле швейцарским ножом и поставляется по умолчанию.
 Однако, если вы пропишите команду <em>systemd-analyze blame</em>, то узнаете, что он задерживает загрузку системы примерно на ~4 секунды.
@@ -296,7 +295,7 @@ sudo systemctl --global <span class="nb">enable</span> dbus-broker.service <span
 </pre></div>
 </div>
 <div class="section" id="hdd">
-<h3><a class="toc-backref" href="#id17">Ускорение загрузки ядра на HDD накопителях (<em>Только для жестких дисков</em>)</a><a class="headerlink" href="#hdd" title="Ссылка на этот заголовок">¶</a></h3>
+<h3><a class="toc-backref" href="#id16">Ускорение загрузки ядра на HDD накопителях (<em>Только для жестких дисков</em>)</a><a class="headerlink" href="#hdd" title="Ссылка на этот заголовок">¶</a></h3>
 <p>Убедитесь, что пакет <a class="reference external" href="https://archlinux.org/packages/core/x86_64/lz4/">lz4</a> установлен:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S lz4
 </pre></div>
@@ -316,20 +315,7 @@ sudo systemctl --global <span class="nb">enable</span> dbus-broker.service <span
 </div>
 </div>
 <div class="section" id="id5">
-<h2><a class="toc-backref" href="#id18">Ускорение сжатия образов ядра</a><a class="headerlink" href="#id5" title="Ссылка на этот заголовок">¶</a></h2>
-<p>Начиная с 31 версии mkinitcpio использует алгоритм сжатия Zstd по умолчанию.
-Zstd также поддерживает многопоточность, что может значительно ускорить
-сжатие образов ядра.</p>
-<p>Чтобы его задействовать отредактируем конфигурацию mkinitcpio:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo nano /etc/mkinitcpio.conf
-
-<span class="c1"># Найдите строку ниже и впишите в неё данное значение</span>
-<span class="nv">COMPRESSION_OPTIONS</span><span class="o">=(</span>-T<span class="k">$(</span>nproc<span class="k">)</span><span class="o">)</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="id6">
-<h2><a class="toc-backref" href="#id19">Одновременная загрузка двух и более пакетов</a><a class="headerlink" href="#id6" title="Ссылка на этот заголовок">¶</a></h2>
+<h2><a class="toc-backref" href="#id17">Одновременная загрузка двух и более пакетов</a><a class="headerlink" href="#id5" title="Ссылка на этот заголовок">¶</a></h2>
 <p>Начиная с шестой версии pacman поддерживает параллельную загрузку пакетов.
 Чтобы её включить отредактируйте <em>/etc/pacman.conf</em>:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo nano /etc/pacman.conf <span class="c1"># Раскомментируйте строчку ниже</span>
@@ -339,7 +325,7 @@ Zstd также поддерживает многопоточность, что 
 </pre></div>
 </div>
 <div class="section" id="powerpill-zee-captain">
-<h3><a class="toc-backref" href="#id20">Альтернативно можно использовать powerpill (Спасибо Zee Captain)</a><a class="headerlink" href="#powerpill-zee-captain" title="Ссылка на этот заголовок">¶</a></h3>
+<h3><a class="toc-backref" href="#id18">Альтернативно можно использовать powerpill (Спасибо Zee Captain)</a><a class="headerlink" href="#powerpill-zee-captain" title="Ссылка на этот заголовок">¶</a></h3>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://aur.archlinux.org/powerpill.git
 <span class="nb">cd</span> powerpill
 makepkg -sric
@@ -351,10 +337,10 @@ makepkg -sric
 </div>
 </div>
 </div>
-<div class="section" id="id7">
-<h2><a class="toc-backref" href="#id21">Полезное ПО</a><a class="headerlink" href="#id7" title="Ссылка на этот заголовок">¶</a></h2>
+<div class="section" id="id6">
+<h2><a class="toc-backref" href="#id19">Полезное ПО</a><a class="headerlink" href="#id6" title="Ссылка на этот заголовок">¶</a></h2>
 <div class="section" id="stacer">
-<h3><a class="toc-backref" href="#id22">Stacer</a><a class="headerlink" href="#stacer" title="Ссылка на этот заголовок">¶</a></h3>
+<h3><a class="toc-backref" href="#id20">Stacer</a><a class="headerlink" href="#stacer" title="Ссылка на этот заголовок">¶</a></h3>
 <p>Помощник в обслуживании и чистке системы.</p>
 <img alt="../_images/generic-system-acceleration-3.png" src="../_images/generic-system-acceleration-3.png" />
 <p><strong>Установка</strong>:</p>
@@ -365,7 +351,7 @@ makepkg -sric                                  <span class="c1"># Сборка �
 </div>
 </div>
 <div class="section" id="bleachbit">
-<h3><a class="toc-backref" href="#id23">Bleachbit</a><a class="headerlink" href="#bleachbit" title="Ссылка на этот заголовок">¶</a></h3>
+<h3><a class="toc-backref" href="#id21">Bleachbit</a><a class="headerlink" href="#bleachbit" title="Ссылка на этот заголовок">¶</a></h3>
 <p>Аналог CCleaner для Linux, помогает выполнить чистку системы от накопившегося мусора.</p>
 <p>Советуем выполнять чистку системы уже после проводимых оптимизаций.</p>
 <img alt="../_images/generic-system-acceleration-4.png" src="../_images/generic-system-acceleration-4.png" />
@@ -381,7 +367,7 @@ makepkg -sric                                         <span class="c1"># Сбо�
 </div>
 </div>
 <div class="section" id="piper">
-<h3><a class="toc-backref" href="#id24">Piper</a><a class="headerlink" href="#piper" title="Ссылка на этот заголовок">¶</a></h3>
+<h3><a class="toc-backref" href="#id22">Piper</a><a class="headerlink" href="#piper" title="Ссылка на этот заголовок">¶</a></h3>
 <p>Позволяет выполнить более тонкую настройку вашей мышки, в том числе назначить DPI, подсветку, и собственные действия на дополнительные кнопки.</p>
 <img alt="https://raw.githubusercontent.com/libratbag/piper/wiki/screenshots/piper-resolutionpage.png" src="https://raw.githubusercontent.com/libratbag/piper/wiki/screenshots/piper-resolutionpage.png" />
 <p><strong>Установка</strong></p>
@@ -396,7 +382,7 @@ makepkg -sric                                         <span class="c1"># Сбо�
 </div>
 </div>
 <div class="section" id="pam-usb">
-<h3><a class="toc-backref" href="#id25">pam_usb</a><a class="headerlink" href="#pam-usb" title="Ссылка на этот заголовок">¶</a></h3>
+<h3><a class="toc-backref" href="#id23">pam_usb</a><a class="headerlink" href="#pam-usb" title="Ссылка на этот заголовок">¶</a></h3>
 <p>Позволяет сделать из вашей USB-флешки ключ для авторизации в вашу систему.
 Совместим с экранными менеджерами GDM и KDM.</p>
 <p>Существует несколько режимов работы:</p>
@@ -460,12 +446,11 @@ makepkg -sric
 <li class="toctree-l3"><a class="reference internal" href="#hdd">Ускорение загрузки ядра на HDD накопителях (<em>Только для жестких дисков</em>)</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id5">Ускорение сжатия образов ядра</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id6">Одновременная загрузка двух и более пакетов</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id5">Одновременная загрузка двух и более пакетов</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#powerpill-zee-captain">Альтернативно можно использовать powerpill (Спасибо Zee Captain)</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id7">Полезное ПО</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id6">Полезное ПО</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#stacer">Stacer</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#bleachbit">Bleachbit</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#piper">Piper</a></li>
