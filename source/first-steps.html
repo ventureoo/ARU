@@ -192,8 +192,8 @@ sudo mkinitcpio -P <span class="c1"># Обновляем образы ядра</
 </pre></div>
 </div>
 <img alt="https://raw.githubusercontent.com/ventureoo/ARU/main/archive/ARU/images/image4.png" class="align-center" src="https://raw.githubusercontent.com/ventureoo/ARU/main/archive/ARU/images/image4.png" />
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S intel-ucode iucode-tool             <span class="c1"># Установить микрокод Intel</span>
-sudo pacman -S amd-ucode iucode-tool               <span class="c1"># Установить микрокод AMD</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S intel-ucode                         <span class="c1"># Установить микрокод Intel</span>
+sudo pacman -S amd-ucode                           <span class="c1"># Установить микрокод AMD</span>
 sudo mkinitcpio -P                                 <span class="c1"># Пересобираем наши образы ядра.</span>
 sudo grub-mkconfig -o /boot/grub/grub.cfg          <span class="c1"># Обновить загрузчик или можно через grub-customizer.</span>
 </pre></div>
