@@ -173,8 +173,8 @@ Intel
 
 ::
 
-  sudo pacman -S intel-ucode iucode-tool             # Установить микрокод Intel
-  sudo pacman -S amd-ucode iucode-tool               # Установить микрокод AMD
+  sudo pacman -S intel-ucode                         # Установить микрокод Intel
+  sudo pacman -S amd-ucode                           # Установить микрокод AMD
   sudo mkinitcpio -P                                 # Пересобираем наши образы ядра.
   sudo grub-mkconfig -o /boot/grub/grub.cfg          # Обновить загрузчик или можно через grub-customizer.
 
