@@ -38,3 +38,6 @@
 - [@dewdpol](https://github.com/dewdpol)
 
 - [@holydrug](https://github.com/holydrug)
+
+- [@xtrahigh](https://github.com/xtrahigh) (https://github.com/ventureoo/ARU/pull/36)
+
