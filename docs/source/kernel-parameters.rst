@@ -29,7 +29,7 @@
 
 ::
 
-  GRUB_CMDLINE_LINUX_DEFAULT="quiet splash noibrs tsx_async_abort=off rootfstype=btrfs selinux=0 lpj=3499912 raid=noautodetect elevator=noop mitigations=off preempt=none nowatchdog"
+  GRUB_CMDLINE_LINUX_DEFAULT="quiet splash noibrs tsx_async_abort=off rootfstype=btrfs selinux=0 lpj=3499912 raid=noautodetect elevator=noop mitigations=off preempt=none nowatchdog audit=0"
 
 
 :bash:`sudo grub-mkconfig -o /boot/grub/grub.cfg`
@@ -51,4 +51,4 @@
 
 :bash:`elevator=noop` - Указывает для всех дисков планировщик ввода NONE. **Не использовать если у вас жесткий диск**.
 
-:bash:`nowatchdog` - отключает сторожевые таймеры, что избавляет от заиканий в онлайн играх.
+:bash:`nowatchdog` - Отключает сторожевые таймеры, что избавляет от заиканий в онлайн играх.
