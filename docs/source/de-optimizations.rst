@@ -217,11 +217,18 @@ gnome-shell-performance и mutter-performance
 Результат
 ----------
 
+По окончании всех оптимизаций мы получаем потребление на уровне современной XFCE,
+но в отличие от оной уже на современном GTK4, а также со всеми рабочими эффектами и анимациями.
+
 .. image:: https://raw.githubusercontent.com/ventureoo/ARU/main/archive/DE-Optimizations/images/image2.jpg
 
 **Видеоверсия**
 
 https://www.youtube.com/watch?v=YlViA-nOzsg
+
+**Демонстрация плавности**
+
+https://www.youtube.com/watch?v=1TjicRvrFbo
 
 ===============
 KDE Plasma 5
