@@ -16,7 +16,7 @@
 .. role:: bash(code)
   :language: shell
 
-Включение мониторинга в играх, как в MSI Afterburner.
+Включение мониторинга в играх как в MSI Afterburner.
 
 .. image:: https://raw.githubusercontent.com/ventureoo/ARU/main/archive/ARU/images/image9.png
   :align: center
@@ -46,6 +46,6 @@ https://www.youtube.com/watch?v=4RqerevPD4I
 Вы также можете использовать встроенную в DXVK альтернативу для мониторинга - DXVK Hud.
 Он не такой гибкий как MangoHud, но также способен выводить значения FPS, график времени кадра, нагрузку на GPU.
 Использовать данный HUD можно задав переменную окружения *DXVK_HUD*.
-К примеру, :bash:`DXVK_HUD=fps,frametimes,gpuload` выведет информацию о FPS, времени кадра, и нагрузке на GPU.
+К примеру, :bash:`DXVK_HUD=fps,frametimes,gpuload` выводит информацию о FPS, времени кадра, и нагрузке на GPU.
 
 Полный список значений переменной вы можете узнать - `здесь <https://github.com/doitsujin/dxvk#hud>`_.
