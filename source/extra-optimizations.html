@@ -87,6 +87,14 @@ systemctl <span class="nb">enable</span> auto-cpufreq                           
 systemctl start auto-cpufreq                              <span class="c1"># Запускает службу</span>
 </pre></div>
 </div>
+<div class="admonition attention">
+<p class="admonition-title">Внимание</p>
+<p>Может конфликтовать со встроенным менеджером питания в GNOME 41+.
+Убедитесь, что он у вас выключен:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo systemctl disable --now power-profiles-daemon.service
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="id4">
