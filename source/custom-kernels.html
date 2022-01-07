@@ -92,7 +92,7 @@ makepkg -sric                                                     <span class="c
 </div>
 <p><strong>III. Установка и настройка</strong></p>
 <p>Выполнение кастомизации ядра linux-lqx.
-Тонкая настрйка ядра позволит дать ешё больше производительности.</p>
+Тонкая настрйка ядра позволит дать ещё больше производительности.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://aur.archlinux.org/linux-lqx.git         <span class="c1"># Скачивание исходников.</span>
 <span class="nb">cd</span> linux-lqx                                              <span class="c1"># Переход в linux-lqx</span>
 nano PKGBUILD                                             <span class="c1"># Редактирование конфигурационного файла.</span>
@@ -168,11 +168,11 @@ nano PKGBUILD                                             <span class="c1"># Р�
 </div>
 <div class="section" id="xanmod">
 <h2><a class="toc-backref" href="#id7">Xanmod</a><a class="headerlink" href="#xanmod" title="Ссылка на этот заголовок">¶</a></h2>
-<p>Альтернатива liquorix, так же нацеленная на оптимизацию под игрушки, и повышение плавности работы системы.
-Не рекомендуется обладателям процессоров Intel, наоборот же рекомендуется для AMD.</p>
+<p>Альтернатива liquorix, так же нацеленная на оптимизацию под игрушки и повышение плавности работы системы.</p>
 <div class="admonition attention">
 <p class="admonition-title">Внимание</p>
-<p>Имеет особенность сброса частот для процессоров Intel</p>
+<p>Не рекомендуется обладателям процессоров Intel.
+Имеет особенность сброса частот для процессоров Intel.</p>
 </div>
 <p><strong>I. Установка</strong>:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://aur.archlinux.org/linux-xanmod.git <span class="c1"># Скачивание исходников.</span>
@@ -234,7 +234,7 @@ makepkg -sric <span class="c1"># Сборка и установка</span>
 Но т.к. выше мы уже закрепили режим масштабирования &quot;performance&quot;, то мы можем отключить этот параметр.
 Однако пользователи ноутбуков могут оставить этот параметр включенным.</p>
 <p><code class="code bash shell docutils literal notranslate"><span class="name variable"><span class="pre">_disable_acpi_cpufreq</span></span><span class="operator"><span class="pre">=</span></span><span class="literal string double"><span class="pre">&quot;true&quot;</span></span></code> - Отключает универсальный acpi_freq драйвер масштабирования частоты процессора в угоду фирменному драйверу Intel/AMD процессоров
-что имеют лучшую произвоидетльность по сравнению с acpi_freq.
+что имеют лучшую производительность по сравнению с acpi_freq.
 Выбирайте значение по собственному усмотрению со знанием своего CPU.</p>
 <p><code class="code bash shell docutils literal notranslate"><span class="name variable"><span class="pre">_sched_yield_type</span></span><span class="operator"><span class="pre">=</span></span><span class="literal string double"><span class="pre">&quot;0&quot;</span></span></code> - Настраивает выполнение освобождения процесса от потребления процессорного времени путем его переноса в конец очереди выполнения процессов.
 Рекомендуемое значение для лучшей производительности - <em>&quot;0&quot;</em>, т.е. не осуществлять перенос в конец очереди для освобождения процесса.</p>
@@ -248,15 +248,15 @@ makepkg -sric <span class="c1"># Сборка и установка</span>
 <p><code class="code bash shell docutils literal notranslate"><span class="name variable"><span class="pre">_winesync</span></span><span class="operator"><span class="pre">=</span></span><span class="literal string double"><span class="pre">&quot;false&quot;</span></span></code> - Еще одна замена esync, но уже от разработчиков Wine.</p>
 <p><code class="code bash shell docutils literal notranslate"><span class="name variable"><span class="pre">_zenify</span></span><span class="operator"><span class="pre">=</span></span><span class="literal string double"><span class="pre">&quot;true&quot;</span></span></code> - Применяет твики Zen и Liquorix для улучшения производительности в играх.
 Настоятельно рекомендуется к включению.</p>
-<p><code class="code bash shell docutils literal notranslate"><span class="name variable"><span class="pre">_complierlevel</span></span><span class="operator"><span class="pre">=</span></span><span class="literal string double"><span class="pre">&quot;1&quot;</span></span></code> - Задает степень оптимизации компиляции ядра.
+<p><code class="code bash shell docutils literal notranslate"><span class="name variable"><span class="pre">_complierlevel</span></span><span class="operator"><span class="pre">=</span></span><span class="literal string double"><span class="pre">&quot;1&quot;</span></span></code> - Задает степень оптимизации ядра во время сборки.
 Лучше всего выбирать <em>&quot;1&quot;</em>, т.е. сборку с -O2 флагом (высокая производительность).</p>
 <p><code class="code bash shell docutils literal notranslate"><span class="name variable"><span class="pre">_processor_opt</span></span><span class="operator"><span class="pre">=</span></span><span class="literal string double"><span class="pre">&quot;native_intel&quot;</span></span></code> - С учетом какой архитектуры процессора собирать ядро.
 Настоятельно рекомендуется указать здесь либо архитектуру непосредственно вашего процессора (К примеру: &quot;skylake&quot;),
 либо фирму производитель, где для Intel это - <em>&quot;native_intel&quot;</em>, для AMD - <em>&quot;native_amd&quot;</em>.</p>
-<p><code class="code bash shell docutils literal notranslate"><span class="name variable"><span class="pre">_ftracedisable</span></span><span class="operator"><span class="pre">=</span></span><span class="literal string double"><span class="pre">&quot;true&quot;</span></span></code> - Отключает ненужные трекеры для отладки ядра.</p>
+<p><code class="code bash shell docutils literal notranslate"><span class="name variable"><span class="pre">_ftracedisable</span></span><span class="operator"><span class="pre">=</span></span><span class="literal string double"><span class="pre">&quot;true&quot;</span></span></code> - Отключает лишние трекеры для отладки ядра.</p>
 <p>Вот и все. Остальные настройки <em>customizing.cfg</em> вы можете выбрать по собственному предпочтению.
 После того как мы закончили с настройкой, можно перейти непосредственно к сборке и установке ядра::</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>makepkg -sric <span class="c1"># Установка и сборка linux-tkg</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>makepkg -sric <span class="c1"># Сборка и установка linux-tkg</span>
 </pre></div>
 </div>
 </div>
@@ -265,14 +265,14 @@ makepkg -sric <span class="c1"># Сборка и установка</span>
 <p>В разделе <a class="reference external" href="https://ventureoo.github.io/ARU/source/generic-system-acceleration.html#clang">&quot;Общее ускорение системы&quot;</a>
 мы уже говорили о преимуществах сборки пакетов при помощи компилятора Clang вместе с LTO оптимизациями.
 Но ядро требует отдельного рассмотрения, ибо те параметры которые мы указали ранее в makepkg.conf не работают для сборки ядра,
-и по прежнему будут применятся компиляторы GCC.</p>
+и по прежнему будут применяться компиляторы GCC.</p>
 <p>Чтобы активировать сборку ядра через Clang нужно:</p>
 <ul>
 <li><p>Для ядра linux-xanmod экспортировать данную переменную окружения перед выполнением команды сборки: <code class="code bash shell docutils literal notranslate"><span class="name builtin"><span class="pre">export</span></span> <span class="name variable"><span class="pre">_compiler</span></span><span class="operator"><span class="pre">=</span></span><span class="pre">clang</span></code></p></li>
 <li><p>Для ядра linux-tkg в конфигурационном файле <em>customization.cfg</em> включить параметр <em>_compiler=&quot;llvm&quot;</em>
 (В том же файле можно настроить применение LTO оптимизаций через параметр <em>_lto_mode</em>. О режимах LTO читайте далее).</p></li>
-<li><p>Для всех остальных ядер, устанавливаемых из AUR (включая linux-lqx), нужно просто эскортировать переменные окружения <em>LLVM=1</em> и <em>LLVM_IAS=1</em> перед командой сборки:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">LLVM</span><span class="o">=</span><span class="m">1</span> <span class="nv">LLVM_IAS</span><span class="o">=</span><span class="m">1</span> <span class="c1"># Без переменной LLVM_IAS станет невозможной применение LTO оптимизаций</span>
+<li><p>Для всех остальных ядер, устанавливаемых из AUR (включая linux-lqx), нужно просто экспортировать переменные окружения <em>LLVM=1</em> и <em>LLVM_IAS=1</em> перед командой сборки:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">LLVM</span><span class="o">=</span><span class="m">1</span> <span class="nv">LLVM_IAS</span><span class="o">=</span><span class="m">1</span> <span class="c1"># Без переменной LLVM_IAS станет невозможным применение LTO оптимизаций</span>
 makepkg -sric            <span class="c1"># Сборка и установка желаемого ядра</span>
 </pre></div>
 </div>
@@ -280,7 +280,7 @@ makepkg -sric            <span class="c1"># Сборка и установка �
 </ul>
 <p>Теперь перейдем к настройке LTO оптимизаций.
 Для этого на этапе конфигурации вашего ядра зайдите в <em>&quot;General architecture-dependent options&quot;</em> -&gt;
-<em>&quot;Link Time Optimization (LTO)&quot;</em> как показано на скриншотах:</p>
+<em>&quot;Link Time Optimization (LTO)&quot;</em> как показано на изображениях:</p>
 <ol class="arabic simple">
 <li></li>
 </ol>
