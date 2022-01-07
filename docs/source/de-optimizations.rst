@@ -152,8 +152,8 @@ GSD (gnome-settings-daemon) службы, это, как следует из н�
 
   systemctl --user mask org.gnome.SettingsDaemon.Keyboard.service
 
-# Отключаем службу управления звуком GNOME 3.
-Отключает **ТОЛЬКО** настройки звука GNOME 3, а не вообще все управлением звуком в системе. ::
+# Отключаем службу управления звуком GNOME 3/40.
+Отключает **ТОЛЬКО** настройки звука GNOME 3/40, а не вообще все управлением звуком в системе. ::
 
   systemctl --user mask org.gnome.SettingsDaemon.Sound.service
 
@@ -192,27 +192,36 @@ gnome-shell-performance и mutter-performance
 
 Пакеты `gnome-shell-performance <https://aur.archlinux.org/packages/gnome-shell-performance>`_
 и `mutter-performance <https://aur.archlinux.org/packages/mutter-performance/>`_ -
-это модифицированные версии пакетов с соответствующими названиями и назначением,
-в которых был сделан общий упор на плавность и отзывчивость GNOME 41.
-Они содержат большое количество патчей на улучшение общей производительности оболочки.
+это модифицированные версии пакетов GNOME, где упор сделан на плавность и отзывчивость благодаря включению большого количества патчей для повышения производительности DE.
 
 **Установка gnome-shell-performance** ::
 
-  git clone https://aur.archlinux.org/gnome-shell-performance.git
-  cd gnome-shell-performance
-  makepkg -sric
+  git clone https://aur.archlinux.org/gnome-shell-performance.git # Загружаем исходники
+  cd gnome-shell-performance                                      # Переход в директорию
+  makepkg -sric                                                   # Сборка и установка
 
 **Установка mutter-performance** ::
 
-  git clone https://aur.archlinux.org/mutter-performance.git
-  cd mutter-performance
-  makepkg -sric
+  git clone https://aur.archlinux.org/mutter-performance.git # Загружаем исходники
+  cd mutter-performance                                      # Переход в директорию
+  makepkg -sric                                              # Сборка и установка
+
+Также можно выполнить компиляцию пакетов при помощи Clang: `Mesa <https://aur.archlinux.org/packages/mesa-git/>`_ (Только для оборудования Intel & AMD),
+`Wayland <https://aur.archlinux.org/packages/wayland-git/>`_, `Wayland-protocols <https://aur.archlinux.org/packages/wayland-protocols-git/>`_,
+`Lib32-wayland <https://aur.archlinux.org/lib32-wayland-git.git>`_, `Egl-wayland <https://aur.archlinux.org/egl-wayland-git.git>`_,
+`xorg-server <https://aur.archlinux.org/packages/xorg-server-git/>`_ и многих других.
+
+Более подробную информацию вы можете найти в разделе `"Общее ускорение системы" <https://ventureoo.github.io/ARU/source/generic-system-acceleration.html#clang>`_.
 
 ----------
 Результат
 ----------
 
 .. image:: https://raw.githubusercontent.com/ventureoo/ARU/main/archive/DE-Optimizations/images/image2.jpg
+
+**Видеоверсия**
+
+https://www.youtube.com/watch?v=YlViA-nOzsg
 
 ===============
 KDE Plasma 5
