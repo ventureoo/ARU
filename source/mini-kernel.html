@@ -128,6 +128,15 @@ sudo modprobed-db recall
 Обратите внимание, что модуль драйвера для сетевой карты у каждого может быть разный,
 и перед тем как прописать какой-либо модуль драйвера, лучше посмотреть в рабочей системе (<em>lspci -v</em>) какой именно нужен вашей сетевой карте, и прописать его.
 После этого, в очередной раз, пересоберите мини-ядро.</p>
+<p><strong>П:</strong> После перезагрузки драйвер NVIDIA загружается, но вместо него используется llvmpipe.</p>
+<p><strong>Р:</strong> Укажите точный путь до модулей драйвера в ваших настройках Xorg, т.е. пропишите в <em>/etc/X11/xorg.conf</em> следующее:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Section <span class="s2">&quot;Files&quot;</span>
+  ModulePath <span class="s2">&quot;/usr/lib/nvidia/xorg&quot;</span>
+  ModulePath <span class="s2">&quot;/usr/lib/xorg/modules&quot;</span>
+EndSection
+</pre></div>
+</div>
+<p>Затем перезагрузитесь.</p>
 </div>
 </div>
 
