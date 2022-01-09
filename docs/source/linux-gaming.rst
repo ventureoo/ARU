@@ -247,7 +247,7 @@ wine-tkg-userpatches
 **Установка:**::
 
   git clone https://github.com/loathingKernel/PKGBUILDs
-  cd PKGBUILDS/public/dxvk-mingw
+  cd PKGBUILDs/public/dxvk-mingw
   mv PKGBUILD.testing PKGBUILD
   sed -i 's/dxvk.git/dxvk.git#tag=v$_dxvkver/' PKGBUILD # Исправляет сборку пакета с изменениями в upstream
   makepkg -sric # Сборка и установка
