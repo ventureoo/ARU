@@ -249,7 +249,7 @@ nano wine-tkg-profiles/advanced-customization.cfg <span class="c1"># Отред�
 что ускорит процесс компиляции шейдеров во время игры и сделает ваш игровой процесс плавнее.</p>
 <p><strong>Установка:</strong>:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/loathingKernel/PKGBUILDs
-<span class="nb">cd</span> PKGBUILDS/public/dxvk-mingw
+<span class="nb">cd</span> PKGBUILDs/public/dxvk-mingw
 mv PKGBUILD.testing PKGBUILD
 sed -i <span class="s1">&#39;s/dxvk.git/dxvk.git#tag=v$_dxvkver/&#39;</span> PKGBUILD <span class="c1"># Исправляет сборку пакета с изменениями в upstream</span>
 makepkg -sric <span class="c1"># Сборка и установка</span>
