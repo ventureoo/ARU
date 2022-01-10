@@ -51,7 +51,7 @@
 Вы можете их отключить через редактирование параметров загрузчика. Рассмотрим на примере GRUB:</p>
 <p><code class="code bash shell docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">/etc/default/grub</span></code> # Редактируем настройки вручную или через grub-customizer как на изображении:</p>
 <img alt="../_images/kernel-parameters-1.png" src="../_images/kernel-parameters-1.png" />
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">GRUB_CMDLINE_LINUX_DEFAULT</span><span class="o">=</span><span class="s2">&quot;quiet splash noibrs tsx_async_abort=off rootfstype=btrfs selinux=0 lpj=3499912 raid=noautodetect elevator=noop mitigations=off preempt=none nowatchdog audit=0&quot;</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">GRUB_CMDLINE_LINUX_DEFAULT</span><span class="o">=</span><span class="s2">&quot;quiet splash noibrs tsx_async_abort=off rootfstype=btrfs lpj=3499912 raid=noautodetect elevator=noop mitigations=off preempt=none nowatchdog audit=0&quot;</span>
 </pre></div>
 </div>
 <p><code class="code bash shell docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">grub-mkconfig</span> <span class="pre">-o</span> <span class="pre">/boot/grub/grub.cfg</span></code>
