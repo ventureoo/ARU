@@ -356,7 +356,8 @@ makepkg -sric
 <p>Немногие понимают, что Proton по сути является тем же Wine, хоть и с плюшками.
 Так вот, зная этот факт, мы можем сказать Lutris использовать Proton в качестве кастомного Wine.
 Делается это очень просто:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ln -s /usr/share/steam/compatibilitytools.d/proton-ge-custom/files ~/.local/share/lutris/runners/wine/wine-proton-ge
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mkdir -p ~/.local/share/lutris/runners/wine
+ln -s /usr/share/steam/compatibilitytools.d/proton-ge-custom/files ~/.local/share/lutris/runners/wine/wine-proton-ge
 </pre></div>
 </div>
 <p>Затем просто выберите пункт в выборе версии Wine на <em>&quot;wine-proton-ge&quot;</em> в Lutris для нужной вам игры.</p>
