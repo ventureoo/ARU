@@ -396,6 +396,7 @@ Proton-GE-Custom это форк проекта Proton для запуска Win
 Так вот, зная этот факт, мы можем сказать Lutris использовать Proton в качестве кастомного Wine.
 Делается это очень просто::
 
+  mkdir -p ~/.local/share/lutris/runners/wine
   ln -s /usr/share/steam/compatibilitytools.d/proton-ge-custom/files ~/.local/share/lutris/runners/wine/wine-proton-ge
 
 Затем просто выберите пункт в выборе версии Wine на *"wine-proton-ge"* в Lutris для нужной вам игры.
