@@ -234,7 +234,7 @@ sudo systemctl <span class="nb">enable</span> haveged <span class="c1"># Вкл�
 </pre></div>
 </div>
 <p><strong>1.5.1</strong> <a class="reference external" href="https://wiki.archlinux.org/title/Rng-tools">rng-tools</a> - демон, что также следит за энтропией системы, но в отличие от haveged уже через аппаратный таймер.
-Необходим для ускорения запуска системы при высоких показателях <em>systemd-analyze blame</em> (Больше 1 секунды). (<strong>Не использовать вместе с Ananicy</strong>).</p>
+Необходим для ускорения запуска системы при высоких показателях <em>systemd-analyze blame</em> (Больше 1 секунды).</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S rng-tools         <span class="c1"># Установка</span>
 sudo systemctl <span class="nb">enable</span> --now rngd <span class="c1"># Включает и запускает службу.</span>
 </pre></div>
