@@ -182,7 +182,7 @@
 Активируется через переменную окружения <em>WINEESYNC=1</em>.</p>
 <p><code class="code bash shell docutils literal notranslate"><span class="name variable"><span class="pre">_use_fsync</span></span><span class="operator"><span class="pre">=</span></span><span class="literal string double"><span class="pre">&quot;true&quot;</span></span></code> - Включает поддержку fsync, альтернативу esync которую можно задействовать через переменную окружения <em>WINEFSYNC=1</em>.
 Оба параметра обязательны к включению для повышения производительности.</p>
-<p><code class="code bash shell docutils literal notranslate"><span class="name variable"><span class="pre">fsync_futex2</span></span><span class="operator"><span class="pre">=</span></span><span class="literal string double"><span class="pre">&quot;true&quot;</span></span></code> - Включает поддержку futex2 для fsync.
+<p><code class="code bash shell docutils literal notranslate"><span class="name variable"><span class="pre">_fsync_futex2</span></span><span class="operator"><span class="pre">=</span></span><span class="literal string double"><span class="pre">&quot;true&quot;</span></span></code> - Включает поддержку futex2 для fsync.
 Включать по желанию.
 Хотя и новый механизм ядра futex2 значительно повышает производительность в играх, пока что он нестабилен и может ломать работоспособность некоторых игр.
 И кроме того он требует специальное ядро собранное с его поддержкой (К примеру, linux-tkg).</p>
@@ -190,9 +190,7 @@
 <p><a class="reference external" href="https://www.youtube.com/watch?v=-nlNJguG5_0&amp;t=18s">https://www.youtube.com/watch?v=-nlNJguG5_0&amp;t=18s</a></p>
 <p><code class="code bash shell docutils literal notranslate"><span class="name variable"><span class="pre">_launch_with_dedicated_gpu</span></span><span class="operator"><span class="pre">=</span></span><span class="literal string double"><span class="pre">&quot;false&quot;</span></span></code> - Активирует запуск приложений через дискретный графический процессор на ноутбуках с PRIME.
 Работает только с открытыми драйверами (Mesa), поэтому выбирайте сами нужно оно вам или нет.</p>
-<p><code class="code bash shell docutils literal notranslate"><span class="name variable"><span class="pre">_plasma_systray_fix</span></span><span class="operator"><span class="pre">=</span></span><span class="literal string double"><span class="pre">&quot;true&quot;</span></span></code> - Исправляет отображение запускаемых Wine-приложений в трее KDE Plasma.
-Включаете/отключайте в зависимости от того используете ли вы данное окружение.</p>
-<p><code class="code bash shell docutils literal notranslate"><span class="name variable"><span class="pre">_update_vulkan</span></span><span class="operator"><span class="pre">=</span></span><span class="literal string double"><span class="pre">&quot;true&quot;</span></span></code> - Включает свежие обновления библиотеки winevulkan. Обязательно оставляйте включенным.</p>
+<p><code class="code bash shell docutils literal notranslate"><span class="name variable"><span class="pre">_update_winevulkan</span></span><span class="operator"><span class="pre">=</span></span><span class="literal string double"><span class="pre">&quot;true&quot;</span></span></code> - Включает свежие обновления библиотеки winevulkan. Обязательно оставляйте включенным.</p>
 <p><code class="code bash shell docutils literal notranslate"><span class="name variable"><span class="pre">_FS_bypass_compositor</span></span><span class="operator"><span class="pre">=</span></span><span class="literal string double"><span class="pre">&quot;true&quot;</span></span></code> - Задействует обход композитора приложениями запускаемыми через Wine.
 Очень полезная и нужная опция для исправления проблем задержек и заиканий в играх,
 в случае когда системный композитор пытается лишний раз осуществить композитинг над окном с игрой запущенной через Wine.
