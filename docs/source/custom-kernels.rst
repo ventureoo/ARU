@@ -186,7 +186,7 @@ linux-tkg
 
 **I. Установка и настройка**::
 
-  git clone https://github.com/Forgging-Family/linux-tkg.git
+  git clone https://github.com/Frogging-Family/linux-tkg.git
   cd linux-tkg
 
 Есть две возможности предварительной настройки linux-tkg: либо через редактирование файла *customization.cfg*,
