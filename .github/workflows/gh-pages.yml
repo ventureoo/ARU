@@ -4,6 +4,8 @@ on:
   push:
     branch:
       - main
+    paths:
+      - 'docs/**'
 
 jobs:
   build:
