@@ -1,6 +1,9 @@
-name: Sphinx build
+name: Pull Requests checks
 
-on: push
+on:
+  pull_request:
+    branches:
+      - main
 
 jobs:
   build:
@@ -17,9 +20,3 @@ jobs:
       with:
         name: ARU-${{ env.GITHUB_SHA }}
         path: docs/build/
-    - name: Deploy
-      uses: peaceiris/actions-gh-pages@v3
-      if: github.ref == 'refs/heads/main'
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: docs/build/
