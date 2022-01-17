@@ -69,6 +69,7 @@
 <li><p><a class="reference internal" href="#bleachbit" id="id21">Bleachbit</a></p></li>
 <li><p><a class="reference internal" href="#piper" id="id22">Piper</a></p></li>
 <li><p><a class="reference internal" href="#pam-usb" id="id23">pam_usb</a></p></li>
+<li><p><a class="reference internal" href="#bottles" id="id24">Bottles</a></p></li>
 </ul>
 </li>
 </ul>
@@ -400,6 +401,34 @@ makepkg -sric
 <p><strong>P.S.</strong> Данная программа не совсем согласуется с тематикой руководства, но будем считать данный подраздел исключением куда можно разместить любое ПО.
 Главное - чтобы оно было действительно полезным.</p>
 </div>
+<div class="section" id="bottles">
+<h3><a class="toc-backref" href="#id24">Bottles</a><a class="headerlink" href="#bottles" title="Ссылка на этот заголовок">¶</a></h3>
+<p>Удобный менеджер по управлению бутылками (префиксами) в Wine. Альтернатива Lutris, имеет приятный и понятный интерфейс,
+возможность графической установки зависимостей (DLL библиотек) и поддерживает изоляцию из коробки.</p>
+<p><strong>Демонстрация</strong></p>
+<ol class="arabic simple">
+<li><p>Окно выбора бутылки</p></li>
+</ol>
+<img alt="source/images/generic-system-acceleration-5.png" src="source/images/generic-system-acceleration-5.png" />
+<ol class="arabic simple" start="2">
+<li><p>Создание новой бутылки</p></li>
+</ol>
+<img alt="source/images/generic-system-acceleration-6.png" src="source/images/generic-system-acceleration-6.png" />
+<ol class="arabic simple" start="3">
+<li><p>Управление бутылкой</p></li>
+</ol>
+<img alt="source/images/generic-system-acceleration-7.png" src="source/images/generic-system-acceleration-7.png" />
+<ol class="arabic simple" start="4">
+<li><p>Установка зависимостей (DLL библиотек)</p></li>
+</ol>
+<img alt="source/images/generic-system-acceleration-8.png" src="source/images/generic-system-acceleration-8.png" />
+<p><strong>Установка</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://aur.archlinux.org/bottles.git <span class="c1"># Скачиваем исходники</span>
+<span class="nb">cd</span> bottles                                      <span class="c1"># Переход в директорию</span>
+makepkg -sric                                   <span class="c1"># Сборка и установка</span>
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 
@@ -456,6 +485,7 @@ makepkg -sric
 <li class="toctree-l3"><a class="reference internal" href="#bleachbit">Bleachbit</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#piper">Piper</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#pam-usb">pam_usb</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bottles">Bottles</a></li>
 </ul>
 </li>
 </ul>
