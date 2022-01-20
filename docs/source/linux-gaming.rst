@@ -295,6 +295,12 @@ https://www.newalive.net/231-wine-tk-glitch.html
 
 Можно активировать в Lutris или вручную перед запуском игры
 
+Для запуска игр в Steam с использованием gamemode необходимо прописать команду в параметрах запуска игры (находятся в свойствах игры в Steam):
+
+::
+
+ gamemoderun %command%
+
 **Пример работы с Lutris**
 
 https://www.youtube.com/watch?v=ybe0MzJDUvw
