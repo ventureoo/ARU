@@ -52,14 +52,15 @@ Wine - слой совместимости для запуска Windows-при�
 Это обычный wine и wine-staging, содержащий те изменение которые пока не могут быть внесены в upstream.
 Но существуют также много альтернативных сборок основанных на Wine-staging с упором именно на игры, о них написано далее.
 
-----------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Установка wine-staging вместе с зависимостями
-----------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Бинарные версии ПО всегда доступны в репозиториях и очень удобны, но они не могут обеспечить достойный уровень производительности.
 Советую поставить Wine-staging вместе с зависимостями, а уже затем собрать wine-tkg.
+::
 
-:bash:`sudo pacman -S wine-staging winetricks wine-mono giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse libgpg-error lib32-libgpg-error alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo sqlite lib32-sqlite libxcomposite lib32-libxcomposite libxinerama lib32-libgcrypt libgcrypt lib32-libxinerama ncurses lib32-ncurses opencl-icd-loader lib32-opencl-icd-loader libxslt lib32-libxslt libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader`
+ sudo pacman -S wine-staging winetricks wine-mono giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse libgpg-error lib32-libgpg-error alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo sqlite lib32-sqlite libxcomposite lib32-libxcomposite libxinerama lib32-libgcrypt libgcrypt lib32-libxinerama ncurses lib32-ncurses opencl-icd-loader lib32-opencl-icd-loader libxslt lib32-libxslt libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader
 
 ------------------------------
 Альтернативные сборки Wine
@@ -159,9 +160,9 @@ https://www.youtube.com/watch?v=-nlNJguG5_0&t=18s
 
 https://www.youtube.com/watch?v=W1e6_3dPlHk
 
-""""""""""""""""""""""""""""
+~~~~~~~~~~~~~~~~~~~~~~~
 wine-tkg-userpatches
-""""""""""""""""""""""""""""
+~~~~~~~~~~~~~~~~~~~~~~~
 
 Это  дополнение к wine-tkg.
 По сути это коллекция пользовательских патчей для улучшения производительности и совместности.
@@ -272,9 +273,9 @@ Proton-GE-Custom это форк проекта Proton для запуска Win
 
 
 
-=====================================
+----------------------------------
 Сборка DXVK с асинхронным патчем
-=====================================
+----------------------------------
 
 Мы рекомендуем собирать `dxvk-mingw <https://github.com/loathingKernel/PKGBUILDs/tree/master/public/dxvk-mingw>`_ из github для лучшей производительности и активации асинхронного патча,
 что ускорит процесс компиляции шейдеров во время игры и сделает ваш игровой процесс плавнее.
@@ -295,9 +296,9 @@ Proton-GE-Custom это форк проекта Proton для запуска Win
 
      WINEPREFIX=~/prefix setup_dxvk install # Где "prefix" - это ваш префикс Wine
 
-====================================
+------------------------------------
 Полезные ссылки по теме Wine и DXVK
-====================================
+------------------------------------
 
 **Видео на настройке Бинарной версии Wine.**
 
@@ -326,10 +327,13 @@ https://www.newalive.net/231-wine-tk-glitch.html
 Не являются обязательными, но могут помочь повысить производительность системы или облегчить настройку.
 
 -------------------------------
-Установка Lutris и дополнений.
+Lutris и дополнений.
 -------------------------------
 
-:bash:`sudo pacman -S lutris` # Комбайн, где содержатся все удобные настройки.
+Lutris - комбайн, где содержатся все удобные настройки.
+::
+
+ sudo pacman -S lutris
 
 Необходим для удобного управления настройками Wine.
 
