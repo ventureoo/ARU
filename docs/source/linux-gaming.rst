@@ -291,16 +291,6 @@ https://www.newalive.net/231-wine-tk-glitch.html
 
 .. image:: images/linux-gaming-4.png
 
-:bash:`sudo pacman -S gamemode lib32-gamemode` # Утилита для максимальной выжимки системы во время игры.
-
-Можно активировать в Lutris или вручную перед запуском игры
-
-Для запуска игр в Steam с использованием gamemode необходимо прописать команду в параметрах запуска игры (находятся в свойствах игры в Steam):
-
-::
-
- gamemoderun %command%
-
 **Пример работы с Lutris**
 
 https://www.youtube.com/watch?v=ybe0MzJDUvw
@@ -403,3 +393,20 @@ Proton-GE-Custom это форк проекта Proton для запуска Win
   ln -s /usr/share/steam/compatibilitytools.d/proton-ge-custom/files ~/.local/share/lutris/runners/wine/wine-proton-ge
 
 Затем просто выберите пункт в выборе версии Wine на *"wine-proton-ge"* в Lutris для нужной вам игры.
+
+
+-----------------------------------
+Gamemode
+-----------------------------------
+Gamemode - утилита для максимальной выжимки системы во время игры.
+Установку gamemode можно выполнить следующей командой:
+
+::
+
+ sudo pacman -S gamemode lib32-gamemode
+
+Можно активировать в Lutris или вручную перед запуском игры. Для запуска игр в Steam с использованием gamemode необходимо прописать команду в параметрах запуска игры (находятся в свойствах игры в Steam):
+
+::
+
+ gamemoderun %command%
