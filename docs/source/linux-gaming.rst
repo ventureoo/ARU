@@ -161,7 +161,7 @@ https://www.youtube.com/watch?v=-nlNJguG5_0&t=18s
 https://www.youtube.com/watch?v=W1e6_3dPlHk
 
 ~~~~~~~~~~~~~~~~~~~~~~~
-wine-tkg-userpatches
+*wine-tkg-userpatches*
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 Это  дополнение к wine-tkg.
