@@ -119,6 +119,7 @@
   sudo btrfs filesystem defragment -r -calg /path
 
 где :bash:`path` - путь к разделу или папке.
+
 .. attention::  Степень сжатия в данном случае не указывается!
 
 ----------------------------------
