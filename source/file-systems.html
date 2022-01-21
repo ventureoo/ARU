@@ -34,20 +34,20 @@
           <div class="body" role="main">
             
   <div class="section" id="id1">
-<h1><a class="toc-backref" href="#id10">Файловые системы</a><a class="headerlink" href="#id1" title="Ссылка на этот заголовок">¶</a></h1>
+<h1><a class="toc-backref" href="#id9">Файловые системы</a><a class="headerlink" href="#id1" title="Ссылка на этот заголовок">¶</a></h1>
 <div class="contents topic" id="id2">
 <p class="topic-title">Содержание:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#id1" id="id10">Файловые системы</a></p>
+<li><p><a class="reference internal" href="#id1" id="id9">Файловые системы</a></p>
 <ul>
-<li><p><a class="reference internal" href="#id3" id="id11">Нюансы выбора файловой системы и флагов монтирования</a></p></li>
-<li><p><a class="reference internal" href="#btrfs" id="id12">Сжатие в файловой системе Btrfs</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id10">Нюансы выбора файловой системы и флагов монтирования</a></p></li>
+<li><p><a class="reference internal" href="#btrfs" id="id11">Сжатие в файловой системе Btrfs</a></p></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="section" id="id3">
-<h2><a class="toc-backref" href="#id11">Нюансы выбора файловой системы и флагов монтирования</a><a class="headerlink" href="#id3" title="Ссылка на этот заголовок">¶</a></h2>
+<h2><a class="toc-backref" href="#id10">Нюансы выбора файловой системы и флагов монтирования</a><a class="headerlink" href="#id3" title="Ссылка на этот заголовок">¶</a></h2>
 <p>В отличие от Windows, в Linux-подобных системах выбор файловой системы не ограничивается в обязательном порядке со стороны дистрибутива,
 и может применяться исходя из личных предпочтений пользователя с оглядкой на поддержку со стороны ядра.</p>
 <p>Вот краткое описание основных высокопроизводительных файловых систем:</p>
@@ -94,7 +94,7 @@
 </div>
 </div>
 <div class="section" id="btrfs">
-<h2><a class="toc-backref" href="#id12">Сжатие в файловой системе Btrfs</a><a class="headerlink" href="#btrfs" title="Ссылка на этот заголовок">¶</a></h2>
+<h2><a class="toc-backref" href="#id11">Сжатие в файловой системе Btrfs</a><a class="headerlink" href="#btrfs" title="Ссылка на этот заголовок">¶</a></h2>
 <p>В файловой системе Btrfs есть возможность включения сжатия. Все записываемые файлы по возможности будут сжиматься и экономить пространство на носителе HDD или SSD.</p>
 <p>Для SSD это может быть важно в связи с их ограниченным ресурсом на запись.</p>
 <p>Согласно <a class="reference external" href="https://btrfs.wiki.kernel.org/index.php/Compression">wiki Btrfs</a>, официально имеется 3 поддерживаемых алгоритма:</p>
@@ -111,7 +111,10 @@
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">compress</span><span class="o">=</span><span class="s1">&#39;алгоритм&#39;</span>:N
 </pre></div>
 </div>
-<p>(Где <code class="code bash shell docutils literal notranslate"><span class="pre">N</span></code> - степень сжатия: для zlib - <code class="code bash shell docutils literal notranslate"><span class="pre">N</span></code> = 1,2,...9; для lzo - выбор уровня сжатия не предусмотрен, поэтому <code class="code bash shell docutils literal notranslate"><span class="pre">:N</span></code> - не указываются; для zstd - <code class="code bash shell docutils literal notranslate"><span class="pre">N</span></code> =1,2,...15, чем выше данный параметр тем сильнее будут сжиматься данные, если это возможно, но также будет повышена нагрузка на процессор, поскольку сжатие выполняется за счет его ресурсов. Cогласно <a class="reference external" href="https://btrfs.wiki.kernel.org/index.php/Compression">wiki Btrfs</a>, оптимальным значением <code class="code bash shell docutils literal notranslate"><span class="pre">N</span></code> по отношению <code class="code bash shell docutils literal notranslate"><span class="pre">степень</span> <span class="pre">сжатия</span></code> / <code class="code bash shell docutils literal notranslate"><span class="pre">скорость</span></code> считается <code class="code bash shell docutils literal notranslate"><span class="literal number"><span class="pre">3</span></span></code>)</p>
+<p>(Где <code class="code bash shell docutils literal notranslate"><span class="pre">N</span></code> - степень сжатия: для zlib - <code class="code bash shell docutils literal notranslate"><span class="pre">N</span></code> = 1,2,...9; для lzo - выбор уровня сжатия не предусмотрен,
+поэтому <code class="code bash shell docutils literal notranslate"><span class="pre">:N</span></code> - не указываются; для zstd - <code class="code bash shell docutils literal notranslate"><span class="pre">N</span></code> =1,2,...15. Чем выше данный параметр, тем сильнее будут сжиматься данные, конечно при условии что это возможно,
+но также будет повышена нагрузка на процессор, поскольку сжатие выполняется за счет его ресурсов.
+Cогласно <a class="reference external" href="https://btrfs.wiki.kernel.org/index.php/Compression">wiki Btrfs</a>, оптимальным значением <code class="code bash shell docutils literal notranslate"><span class="pre">N</span></code> по отношению <code class="code bash shell docutils literal notranslate"><span class="pre">степень</span> <span class="pre">сжатия</span></code> / <code class="code bash shell docutils literal notranslate"><span class="pre">скорость</span></code> считается <code class="code bash shell docutils literal notranslate"><span class="literal number"><span class="pre">3</span></span></code>)</p>
 <p>Например для zstd со степенью сжатия 3 запись будет выглядеть примерно следующим образом, если учесть приведенные выше флаги монтирования:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rw,relatime,compress<span class="o">=</span>zstd:3,ssd,ssd_spread,space_cache<span class="o">=</span>v2,max_inline<span class="o">=</span><span class="m">256</span>,commit<span class="o">=</span><span class="m">600</span>
 </pre></div>
@@ -136,11 +139,12 @@
 </div>
 <div class="section" id="id7">
 <h3>Определение эффективности сжатия<a class="headerlink" href="#id7" title="Ссылка на этот заголовок">¶</a></h3>
-<p>Если вы хотите определить эффективность сжатия на вашем разделе/диске вам необходимо воспользоваться программой <a class="reference external" href="https://github.com/kilobyte/compsize">compsize</a>. Установить ее можно с помощью команды</p>
+<p>Если вы хотите определить эффективность сжатия на вашем разделе/диске, то вам необходимо воспользоваться программой <a class="reference external" href="https://github.com/kilobyte/compsize">compsize</a>.
+Установить ее можно с помощью команды:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S compsize
 </pre></div>
 </div>
-<p>Для выполнения проверки эффективности необходимо использовать команду:</p>
+<p>Для выполнения проверки на эффективность необходимо использовать команду:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo compsize /<span class="s1">&#39;путь до раздела, папки или файла&#39;</span>
 </pre></div>
 </div>
@@ -150,8 +154,8 @@
 <ul class="simple">
 <li><dl class="simple">
 <dt>Первый столбец:</dt><dd><ul>
-<li><p>Строка TOTAL - итоговые данные, которые учитывают все сжатые и не сжатые файлы и разные алгоритмы (если такие имеются).</p></li>
-<li><p>Строка none - данные, которые не были сжаты.</p></li>
+<li><p>Строка <em>TOTAL</em> - итоговые данные, которые учитывают все сжатые и не сжатые файлы и разные алгоритмы (если такие имеются).</p></li>
+<li><p>Строка <em>none</em> - данные, которые не были сжаты.</p></li>
 <li><p>Далее отображаются все использованные алгоритмы (в данном случае - zstd).</p></li>
 </ul>
 </dd>
@@ -165,16 +169,23 @@
 </div>
 <div class="section" id="zstd-amd-ryzen-7-3700x">
 <h3>Скорость обработки алгоритма zstd на примере AMD Ryzen 7 3700X<a class="headerlink" href="#zstd-amd-ryzen-7-3700x" title="Ссылка на этот заголовок">¶</a></h3>
-<p>Для сравнения степеней сжатия алгоритма zstd использовалась benchmark платформа <a class="reference external" href="https://github.com/phoronix-test-suite/phoronix-test-suite">phoronix-test-suite</a>. В данной программе, для проверки скорости сжатия и распаковки данных доступно три степени - <code class="code bash shell docutils literal notranslate"><span class="literal number"><span class="pre">3</span></span></code>, <code class="code bash shell docutils literal notranslate"><span class="literal number"><span class="pre">8</span></span></code>, <code class="code bash shell docutils literal notranslate"><span class="literal number"><span class="pre">19</span></span></code>. Для получения информации о падении скорости выполнения сжатия нам будет достаточно и первых двух, поскольку степень 19 на данный момент не поддерживается (однако данные также приведены для ознакомления) и если обратить внимание на список проверенных игр на сжатие, то это и бессмысленно. Далее представлены результаты теста:</p>
+<p>Для сравнения степеней сжатия алгоритма zstd использовалась бенчмарк платформа <a class="reference external" href="https://github.com/phoronix-test-suite/phoronix-test-suite">phoronix-test-suite</a>.
+В данной программе, для проверки скорости сжатия и распаковки данных, доступно три степени - <code class="code bash shell docutils literal notranslate"><span class="literal number"><span class="pre">3</span></span></code>, <code class="code bash shell docutils literal notranslate"><span class="literal number"><span class="pre">8</span></span></code>, <code class="code bash shell docutils literal notranslate"><span class="literal number"><span class="pre">19</span></span></code>.
+Для получения информации о падении скорости выполнения сжатия нам будет достаточно и первых двух, поскольку степень сжатия 19 на данный момент не поддерживается
+(однако данные также приведены для ознакомления), и если обратить внимание на полученные данные, то это и не имеет особого смысла. Далее представлены результаты замеров:</p>
 <img alt="../_images/zstd_3.png" src="../_images/zstd_3.png" />
 <img alt="../_images/zstd_8.png" src="../_images/zstd_8.png" />
 <img alt="../_images/zstd_19.png" src="../_images/zstd_19.png" />
-<p>Как можно видеть из графиков, падение скорости при перехода от степени <code class="code bash shell docutils literal notranslate"><span class="literal number"><span class="pre">3</span></span></code> к степени <code class="code bash shell docutils literal notranslate"><span class="literal number"><span class="pre">8</span></span></code> сопровождается падением скорости сжатия более чем в <strong>4,7</strong> раз (неговоря о более высоких степенях сжатия) и практически не изменяется при выполнение распаковки, что может негативно сказаться на скорости установки программ и возможно в некоторых других ситуациях, которые требует выполнять запись на диск.</p>
-<p>Стоит отметить, что в случае выполнения уставки игр с использованием степени сжатия <code class="code bash shell docutils literal notranslate"><span class="literal number"><span class="pre">15</span></span></code> было замечено повышение нагрузки на процессор вплоть до 72-75% в тех случаях когда файлы поддавались сжатию.</p>
+<p>Как можно видеть из графиков, падение скорости при перехода от степени <code class="code bash shell docutils literal notranslate"><span class="literal number"><span class="pre">3</span></span></code> к степени <code class="code bash shell docutils literal notranslate"><span class="literal number"><span class="pre">8</span></span></code> сопровождается падением скорости сжатия более чем в <strong>4,7</strong> раз
+(неговоря о более высоких степенях сжатия) и практически не изменяется при выполнении распаковки,
+что может негативно сказаться на скорости установки программ и возможно в некоторых других ситуациях которые требует выполнения записи на диск.</p>
+<p>Стоит отметить, что в случае выполнения уставки игр с использованием степени сжатия <code class="code bash shell docutils literal notranslate"><span class="literal number"><span class="pre">15</span></span></code>,
+было замечено повышение нагрузки на процессор вплоть до 72-75% в тех случаях, когда файлы поддавались сжатию.</p>
 </div>
-<div class="section" id="id8">
-<h3>Список протестированных игр на эффективность сжатия<a class="headerlink" href="#id8" title="Ссылка на этот заголовок">¶</a></h3>
-<p>Далее представлен список протестированных игр на сжатие в файловой системе Btrfs. Данные были получены с помощью программы compsize и являются округленными, поэтому информация может нести частично ознакомительный характер.</p>
+<div class="section" id="dewdpol">
+<h3>Список протестированных игр на эффективность сжатия (Спасибо &#64;dewdpol!)<a class="headerlink" href="#dewdpol" title="Ссылка на этот заголовок">¶</a></h3>
+<p>Далее представлен список протестированных игр на сжатие в файловой системе Btrfs.
+Данные были получены с помощью программы compsize и являются округленными, поэтому информация может нести частично ознакомительный характер.</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 4%" />
@@ -1811,18 +1822,20 @@
 <p>Примечания:</p>
 <ul class="simple">
 <li><p>По возможности данный список будет расширяться новыми играми и другими алгоритмами сжатия.</p></li>
-<li><p>U/N - выраженное в процентах отношение количества фактически занятого места к необходимому, т.е. если от 100% отнять U/N можно получить процент сэкономленного места на диске. Из чего следует, что чем меньше данный показатель, тем лучше.</p></li>
-<li><p>Экономия рассчитывалась вручную с округлением в меньшую сторону, т.е. если получалось 1,3087... GB, то записывалось как 1,30 GB</p></li>
+<li><p>U/N - выраженное в процентах соотношение количества фактически занятого места к необходимому,
+т.е. если от 100% отнять U/N можно получить процент сэкономленного места на диске. Из чего следует, что чем меньше данный показатель, тем лучше.</p></li>
+<li><p>Экономия рассчитывалась вручную с округлением в меньшую сторону. Другими словами, если получалось 1,3087... GB, то записывалось как 1,30 GB.</p></li>
 </ul>
-<div class="section" id="id9">
-<h4>Промежуточные результаты:<a class="headerlink" href="#id9" title="Ссылка на этот заголовок">¶</a></h4>
+<div class="section" id="id8">
+<h4>Промежуточные результаты<a class="headerlink" href="#id8" title="Ссылка на этот заголовок">¶</a></h4>
 <ul class="simple">
-<li><p><strong>64</strong> игр из представленных <strong>121</strong> - практически не сжимаются, т.е. экономия места достигает всего 0-10%.</p></li>
-<li><p><strong>33</strong> игр из представленных <strong>121</strong> - сжимаются с низкой эффективностью, т.е. экономия места составляет 11-40%.</p></li>
-<li><p><strong>22</strong> игры из представленных <strong>121</strong> - сжимаются со средней эффективностью, т.е. экономия места составляет 41-70%.</p></li>
-<li><p><strong>2</strong> игры из представленных <strong>121</strong> - сжимаются хорошо, т.е экономия места составляет 71-90%.</p></li>
+<li><p><strong>64</strong> игр из представленных <strong>121</strong> - практически не сжимаются, экономия места достигает всего 0-10%.</p></li>
+<li><p><strong>33</strong> игр из представленных <strong>121</strong> - сжимаются с низкой эффективностью, экономия места составляет 11-40%.</p></li>
+<li><p><strong>22</strong> игры из представленных <strong>121</strong> - сжимаются со средней эффективностью, экономия места составляет 41-70%.</p></li>
+<li><p><strong>2</strong> игры из представленных <strong>121</strong> - сжимаются хорошо, экономия места составляет 71-90%.</p></li>
 <li><p>Кэш шейдеров, который собирается и хранится на диске в Steam (при включении данной функции) сжимается незначительно - менее 1% экономии.</p></li>
-<li><p>С учетом разницы в экономии места порядка <strong>3 GB</strong> между максимальной степенью сжатия <code class="code bash shell docutils literal notranslate"><span class="literal number"><span class="pre">15</span></span></code> и рекомендуемой для Btrfs - <code class="code bash shell docutils literal notranslate"><span class="literal number"><span class="pre">3</span></span></code> и значительного падения скорости выполнения сжатия, можно отметить, что использование степени сжатия выше <code class="code bash shell docutils literal notranslate"><span class="literal number"><span class="pre">3</span></span></code> выглядит крайне сомнительно.</p></li>
+<li><p>С учетом разницы в экономии места порядка <strong>3 GB</strong> между максимальной степенью сжатия <code class="code bash shell docutils literal notranslate"><span class="literal number"><span class="pre">15</span></span></code> и рекомендуемой для Btrfs - <code class="code bash shell docutils literal notranslate"><span class="literal number"><span class="pre">3</span></span></code>,
+и значительного падения скорости выполнения сжатия, можно отметить, что использование степени сжатия выше <code class="code bash shell docutils literal notranslate"><span class="literal number"><span class="pre">3</span></span></code> выглядит крайне сомнительно.</p></li>
 </ul>
 </div>
 </div>
@@ -1868,7 +1881,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#btrfs">Сжатие в файловой системе Btrfs</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id7">Определение эффективности сжатия</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#zstd-amd-ryzen-7-3700x">Скорость обработки алгоритма zstd на примере AMD Ryzen 7 3700X</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id8">Список протестированных игр на эффективность сжатия</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dewdpol">Список протестированных игр на эффективность сжатия (Спасибо &#64;dewdpol!)</a></li>
 </ul>
 </li>
 </ul>
