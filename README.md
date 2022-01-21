@@ -12,11 +12,11 @@
 - [Экстра оптимизации](https://ventureoo.github.io/ARU/source/extra-optimizations.html)
 - [Обновление параметров ядра](https://ventureoo.github.io/ARU/source/kernel-parameters.html)
 - [Оптимизация файловой системы](https://ventureoo.github.io/ARU/source/file-systems.html)
-- [Кастомные ядра для увелечения плавности](https://ventureoo.github.io/ARU/source/custom-kernels.html)
+- [Кастомные ядра для увеличения плавности](https://ventureoo.github.io/ARU/source/custom-kernels.html)
 - [Linux Gaming](https://ventureoo.github.io/ARU/source/linux-gaming.html)
 - [Сборка мини-ядра](https://ventureoo.github.io/ARU/source/mini-kernel.html)
 - [Оптимизация рабочего окружения (GNOME/Plasma/Xfce/Cinnamon)](https://ventureoo.github.io/ARU/source/de-optimizations.html)
-- [Полезное программы](https://ventureoo.github.io/ARU/source/useful-programs.html)
+- [Полезные программы](https://ventureoo.github.io/ARU/source/useful-programs.html)
 
 ## TODO:
 
