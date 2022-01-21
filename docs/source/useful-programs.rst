@@ -7,7 +7,7 @@
    work. If not, see <https://creativecommons.org/licenses/by-sa/4.0/>.
 
 """"""""""""""""""""""""
-Полезное ПО
+Полезные программы
 """"""""""""""""""""""""
 
 .. contents:: Содержание:

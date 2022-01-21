@@ -18,7 +18,7 @@ ARU
    source/file-systems.rst
    source/custom-kernels.rst
    source/linux-gaming.rst
-   source/add-programms.rst
    source/mini-kernel.rst
    source/de-optimizations.rst
+   source/useful-programs.rst
 
