@@ -34,42 +34,33 @@
           <div class="body" role="main">
             
   <div class="section" id="id1">
-<h1><a class="toc-backref" href="#id7">Базовое ускорение системы</a><a class="headerlink" href="#id1" title="Ссылка на этот заголовок">¶</a></h1>
+<h1><a class="toc-backref" href="#id6">Базовое ускорение системы</a><a class="headerlink" href="#id1" title="Ссылка на этот заголовок">¶</a></h1>
 <div class="contents topic" id="id2">
 <p class="topic-title">Содержание:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#id1" id="id7">Базовое ускорение системы</a></p>
+<li><p><a class="reference internal" href="#id1" id="id6">Базовое ускорение системы</a></p>
 <ul>
-<li><p><a class="reference internal" href="#makepkg-conf" id="id8">Настройка makepkg.conf</a></p>
+<li><p><a class="reference internal" href="#makepkg-conf" id="id7">Настройка makepkg.conf</a></p>
 <ul>
-<li><p><a class="reference internal" href="#clang" id="id9">Форсирование использования Clang при сборке пакетов</a></p></li>
-<li><p><a class="reference internal" href="#ccache" id="id10">Включение ccache</a></p></li>
+<li><p><a class="reference internal" href="#clang" id="id8">Форсирование использования Clang при сборке пакетов</a></p></li>
+<li><p><a class="reference internal" href="#ccache" id="id9">Включение ccache</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#id3" id="id11">Установка полезных служб и демонов</a></p></li>
-<li><p><a class="reference internal" href="#id4" id="id12">Низкие задержки звука</a></p>
+<li><p><a class="reference internal" href="#id3" id="id10">Установка полезных служб и демонов</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id11">Низкие задержки звука</a></p>
 <ul>
-<li><p><a class="reference internal" href="#pulseaudio" id="id13">Новая альтернатива PulseAudio</a></p></li>
-<li><p><a class="reference internal" href="#alsa" id="id14">Простая ALSA</a></p></li>
+<li><p><a class="reference internal" href="#pulseaudio" id="id12">Новая альтернатива PulseAudio</a></p></li>
+<li><p><a class="reference internal" href="#alsa" id="id13">Простая ALSA</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#networkmanager-wait-online" id="id15">Ускорение загрузки системы (Отключение NetworkManager-wait-online)</a></p>
+<li><p><a class="reference internal" href="#networkmanager-wait-online" id="id14">Ускорение загрузки системы (Отключение NetworkManager-wait-online)</a></p>
 <ul>
-<li><p><a class="reference internal" href="#hdd" id="id16">Ускорение загрузки ядра на HDD накопителях (<em>Только для жестких дисков</em>)</a></p></li>
+<li><p><a class="reference internal" href="#hdd" id="id15">Ускорение загрузки ядра на HDD накопителях (<em>Только для жестких дисков</em>)</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#id5" id="id17">Одновременная загрузка двух и более пакетов</a></p>
+<li><p><a class="reference internal" href="#id5" id="id16">Одновременная загрузка двух и более пакетов</a></p>
 <ul>
-<li><p><a class="reference internal" href="#powerpill-zee-captain" id="id18">Альтернативно можно использовать powerpill (Спасибо Zee Captain)</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#id6" id="id19">Полезное ПО</a></p>
-<ul>
-<li><p><a class="reference internal" href="#stacer" id="id20">Stacer</a></p></li>
-<li><p><a class="reference internal" href="#bleachbit" id="id21">Bleachbit</a></p></li>
-<li><p><a class="reference internal" href="#piper" id="id22">Piper</a></p></li>
-<li><p><a class="reference internal" href="#pam-usb" id="id23">pam_usb</a></p></li>
-<li><p><a class="reference internal" href="#bottles" id="id24">Bottles</a></p></li>
+<li><p><a class="reference internal" href="#powerpill-zee-captain" id="id17">Альтернативно можно использовать powerpill (Спасибо Zee Captain)</a></p></li>
 </ul>
 </li>
 </ul>
@@ -79,7 +70,7 @@
 <p>Переходя к базовой оптимизации системы мне сто́ит напомнить, что чистый Arch Linux - это фундамент, и требуется уйма надстроек для нормальной работы системы.
 Установить компоненты, которые будут отвечать за электропитание, чистку, оптимизацию и тому подобные вещи, что и описывается в данном разделе.</p>
 <div class="section" id="makepkg-conf">
-<h2><a class="toc-backref" href="#id8">Настройка makepkg.conf</a><a class="headerlink" href="#makepkg-conf" title="Ссылка на этот заголовок">¶</a></h2>
+<h2><a class="toc-backref" href="#id7">Настройка makepkg.conf</a><a class="headerlink" href="#makepkg-conf" title="Ссылка на этот заголовок">¶</a></h2>
 <p>Прежде чем приступать к сборке пакетов, мы должны изменить так называемые флаги компиляции,
 что являются указателями для компилятора, какие инструкции и оптимизации использовать при сборке программ.</p>
 <p><code class="code bash shell docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">/etc/makepkg.conf</span></code>  # Редактируем (Где &quot;-O2&quot; - <strong>Это не нуль/ноль</strong>)</p>
@@ -96,7 +87,7 @@
 <p>Данные флаги компилятора выжимают максимум производительности при компиляции, но могут вызывать ошибки сборки в очень редких приложениях.
 Если такое случится, то отключите параметр ‘lto’ в строке options добавив перед ним символ восклицательного знака  ! (<em>&quot;!lto&quot;</em>).</p>
 <div class="section" id="clang">
-<h3><a class="toc-backref" href="#id9">Форсирование использования Clang при сборке пакетов</a><a class="headerlink" href="#clang" title="Ссылка на этот заголовок">¶</a></h3>
+<h3><a class="toc-backref" href="#id8">Форсирование использования Clang при сборке пакетов</a><a class="headerlink" href="#clang" title="Ссылка на этот заголовок">¶</a></h3>
 <p>В системах на базе ядра Linux различают две основных группы компиляторов, это LLVM и GCC.
 И те, и другие хорошо справляются с возложенными на них задачами,
 но LLVM имеет чуть большее преимущество с точки зрения производительности при меньших потерях в качестве конечного кода.
@@ -160,7 +151,7 @@ makepkg --config /etc/makepkg-clang.conf -sric --skippgpcheck
 <p><a class="reference external" href="https://habr.com/ru/company/ruvds/blog/561286/">https://habr.com/ru/company/ruvds/blog/561286/</a></p>
 </div>
 <div class="section" id="ccache">
-<h3><a class="toc-backref" href="#id10">Включение ccache</a><a class="headerlink" href="#ccache" title="Ссылка на этот заголовок">¶</a></h3>
+<h3><a class="toc-backref" href="#id9">Включение ccache</a><a class="headerlink" href="#ccache" title="Ссылка на этот заголовок">¶</a></h3>
 <p>В Linux системах есть не так много программ, сборка которых может занять больше двух часов,
 но они все таки есть. Потому, было бы неплохо ускорить повторную компиляцию таких программ как Wine/Proton-GE и т.д.</p>
 <p>ccache - это кэш для компиляторов C/C++, в частности совместимый с компиляторами GCC/Clang,
@@ -188,7 +179,7 @@ makepkg --config /etc/makepkg-clang.conf -sric --skippgpcheck
 </div>
 </div>
 <div class="section" id="id3">
-<h2><a class="toc-backref" href="#id11">Установка полезных служб и демонов</a><a class="headerlink" href="#id3" title="Ссылка на этот заголовок">¶</a></h2>
+<h2><a class="toc-backref" href="#id10">Установка полезных служб и демонов</a><a class="headerlink" href="#id3" title="Ссылка на этот заголовок">¶</a></h2>
 <p><strong>1.</strong> <a class="reference external" href="https://aur.archlinux.org/packages/zramswap/">Zramswap</a> — это специальный демон,
 который сжимает оперативную память ресурсами центрального процессора и создает в ней файл подкачки.
 Очень ускоряет систему вне зависимости от количества памяти, однако добавляет нагрузку на процессор, т.к. его ресурсами и происходит сжатие памяти.
@@ -253,7 +244,7 @@ sudo systemctl --global <span class="nb">enable</span> dbus-broker.service <span
 <img alt="../_images/generic-system-acceleration-1.png" src="../_images/generic-system-acceleration-1.png" />
 </div>
 <div class="section" id="id4">
-<h2><a class="toc-backref" href="#id12">Низкие задержки звука</a><a class="headerlink" href="#id4" title="Ссылка на этот заголовок">¶</a></h2>
+<h2><a class="toc-backref" href="#id11">Низкие задержки звука</a><a class="headerlink" href="#id4" title="Ссылка на этот заголовок">¶</a></h2>
 <p>Установите следующие пакеты для понижения задержек звука в PulseAudio,
 а также удобную графическую панель управления звуком -  <em>pavucontrol</em>.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S jack2 pulseaudio-alsa pulseaudio-jack pavucontrol jack2-dbus realtime-privileges
@@ -265,7 +256,7 @@ sudo systemctl --global <span class="nb">enable</span> dbus-broker.service <span
 он может вызвать небольшие задержки всей системы из-за усиленного воздействия на CPU, но без него звук хуже.</p>
 </div>
 <div class="section" id="pulseaudio">
-<h3><a class="toc-backref" href="#id13">Новая альтернатива PulseAudio</a><a class="headerlink" href="#pulseaudio" title="Ссылка на этот заголовок">¶</a></h3>
+<h3><a class="toc-backref" href="#id12">Новая альтернатива PulseAudio</a><a class="headerlink" href="#pulseaudio" title="Ссылка на этот заголовок">¶</a></h3>
 <p><a class="reference external" href="https://wiki.archlinux.org/title/PipeWire_(Русский)">PipeWire</a> - это новая альтернатива PulseAudio,
 которая призвана избавить от проблем pulse, уменьшить задержки звука и потребление памяти.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S jack2 pipewire pipewire-jack pipewire-alsa pavucontrol pipewire-pulse alsa-utils
@@ -273,7 +264,7 @@ sudo systemctl --global <span class="nb">enable</span> dbus-broker.service <span
 </div>
 </div>
 <div class="section" id="alsa">
-<h3><a class="toc-backref" href="#id14">Простая ALSA</a><a class="headerlink" href="#alsa" title="Ссылка на этот заголовок">¶</a></h3>
+<h3><a class="toc-backref" href="#id13">Простая ALSA</a><a class="headerlink" href="#alsa" title="Ссылка на этот заголовок">¶</a></h3>
 <p>ALSA - это тот самый звук (условно, на самом деле это звуковая подсистема ядра),
 который идёт напрямую из ядра и является самым быстрым,
 так как не вынужден проходить множество программных прослоек и микширование.</p>
@@ -288,7 +279,7 @@ sudo systemctl --global <span class="nb">enable</span> dbus-broker.service <span
 </div>
 </div>
 <div class="section" id="networkmanager-wait-online">
-<h2><a class="toc-backref" href="#id15">Ускорение загрузки системы (Отключение NetworkManager-wait-online)</a><a class="headerlink" href="#networkmanager-wait-online" title="Ссылка на этот заголовок">¶</a></h2>
+<h2><a class="toc-backref" href="#id14">Ускорение загрузки системы (Отключение NetworkManager-wait-online)</a><a class="headerlink" href="#networkmanager-wait-online" title="Ссылка на этот заголовок">¶</a></h2>
 <p>В большинстве случаев для настройки интернет подключения вы, скорее всего, будете использовать NetworkManager,
 т.к. он является в этом деле швейцарским ножом и поставляется по умолчанию.
 Однако, если вы пропишите команду <em>systemd-analyze blame</em>, то узнаете, что он задерживает загрузку системы примерно на ~4 секунды.
@@ -297,7 +288,7 @@ sudo systemctl --global <span class="nb">enable</span> dbus-broker.service <span
 </pre></div>
 </div>
 <div class="section" id="hdd">
-<h3><a class="toc-backref" href="#id16">Ускорение загрузки ядра на HDD накопителях (<em>Только для жестких дисков</em>)</a><a class="headerlink" href="#hdd" title="Ссылка на этот заголовок">¶</a></h3>
+<h3><a class="toc-backref" href="#id15">Ускорение загрузки ядра на HDD накопителях (<em>Только для жестких дисков</em>)</a><a class="headerlink" href="#hdd" title="Ссылка на этот заголовок">¶</a></h3>
 <p>Убедитесь, что пакет <a class="reference external" href="https://archlinux.org/packages/core/x86_64/lz4/">lz4</a> установлен:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S lz4
 </pre></div>
@@ -317,7 +308,7 @@ sudo systemctl --global <span class="nb">enable</span> dbus-broker.service <span
 </div>
 </div>
 <div class="section" id="id5">
-<h2><a class="toc-backref" href="#id17">Одновременная загрузка двух и более пакетов</a><a class="headerlink" href="#id5" title="Ссылка на этот заголовок">¶</a></h2>
+<h2><a class="toc-backref" href="#id16">Одновременная загрузка двух и более пакетов</a><a class="headerlink" href="#id5" title="Ссылка на этот заголовок">¶</a></h2>
 <p>Начиная с шестой версии pacman поддерживает параллельную загрузку пакетов.
 Чтобы её включить отредактируйте <em>/etc/pacman.conf</em>:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo nano /etc/pacman.conf <span class="c1"># Раскомментируйте строчку ниже</span>
@@ -327,7 +318,7 @@ sudo systemctl --global <span class="nb">enable</span> dbus-broker.service <span
 </pre></div>
 </div>
 <div class="section" id="powerpill-zee-captain">
-<h3><a class="toc-backref" href="#id18">Альтернативно можно использовать powerpill (Спасибо Zee Captain)</a><a class="headerlink" href="#powerpill-zee-captain" title="Ссылка на этот заголовок">¶</a></h3>
+<h3><a class="toc-backref" href="#id17">Альтернативно можно использовать powerpill (Спасибо Zee Captain)</a><a class="headerlink" href="#powerpill-zee-captain" title="Ссылка на этот заголовок">¶</a></h3>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://aur.archlinux.org/powerpill.git
 <span class="nb">cd</span> powerpill
 makepkg -sric
@@ -335,97 +326,6 @@ makepkg -sric
 </div>
 <p>После установки выполните обновление баз данных:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo powerpill -Syu
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="id6">
-<h2><a class="toc-backref" href="#id19">Полезное ПО</a><a class="headerlink" href="#id6" title="Ссылка на этот заголовок">¶</a></h2>
-<div class="section" id="stacer">
-<h3><a class="toc-backref" href="#id20">Stacer</a><a class="headerlink" href="#stacer" title="Ссылка на этот заголовок">¶</a></h3>
-<p>Помощник в обслуживании и чистке системы.</p>
-<img alt="../_images/generic-system-acceleration-3.png" src="../_images/generic-system-acceleration-3.png" />
-<p><strong>Установка</strong>:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://aur.archlinux.org/stacer.git <span class="c1"># Скачивание исходников.</span>
-<span class="nb">cd</span> stacer                                      <span class="c1"># Переход в stacer.</span>
-makepkg -sric                                  <span class="c1"># Сборка и установка.</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="bleachbit">
-<h3><a class="toc-backref" href="#id21">Bleachbit</a><a class="headerlink" href="#bleachbit" title="Ссылка на этот заголовок">¶</a></h3>
-<p>Аналог CCleaner для Linux, помогает выполнить очистку системы от накопившегося в ней мусора.</p>
-<p>Советуем выполнять чистку системы уже после проведения всех оптимизаций.</p>
-<img alt="../_images/generic-system-acceleration-4.png" src="../_images/generic-system-acceleration-4.png" />
-<p><strong>Установка + дополнительные фильтры</strong>:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman S bleachbit
-
-<span class="c1"># Дополнительные фильтры</span>
-
-git clone https://aur.archlinux.org/cleanerml-git.git <span class="c1"># Загрузка исходников.</span>
-<span class="nb">cd</span> cleanerml-git                                      <span class="c1"># Переход в cleanerm.</span>
-makepkg -sric                                         <span class="c1"># Сборка и установка.</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="piper">
-<h3><a class="toc-backref" href="#id22">Piper</a><a class="headerlink" href="#piper" title="Ссылка на этот заголовок">¶</a></h3>
-<p>Позволяет выполнить более тонкую настройку вашей мышки, в том числе переназначить DPI, настроить подсветку и собственные действия на дополнительные кнопки.</p>
-<img alt="https://raw.githubusercontent.com/libratbag/piper/wiki/screenshots/piper-resolutionpage.png" src="https://raw.githubusercontent.com/libratbag/piper/wiki/screenshots/piper-resolutionpage.png" />
-<p><strong>Установка</strong></p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S piper
-</pre></div>
-</div>
-<div class="admonition attention">
-<p class="admonition-title">Внимание</p>
-<p>Поддерживаются только некоторые из моделей мышек от Logitech/Razer/Steelseries.
-Полный список поддерживаемых устройств вы можете найти по ссылке:</p>
-<p><a class="reference external" href="https://github.com/libratbag/libratbag/wiki/Devices">https://github.com/libratbag/libratbag/wiki/Devices</a></p>
-</div>
-</div>
-<div class="section" id="pam-usb">
-<h3><a class="toc-backref" href="#id23">pam_usb</a><a class="headerlink" href="#pam-usb" title="Ссылка на этот заголовок">¶</a></h3>
-<p>Позволяет сделать из вашей USB-флешки ключ для авторизации в вашу систему.
-Совместим с экранными менеджерами входа GDM и KDM.</p>
-<p>Существует несколько режимов работы:</p>
-<ol class="arabic simple">
-<li><p>Использовать флешку вместо пароля, при условии её подключения (если подключение отсутствует - нужно вводить пароль)</p></li>
-<li><p>Требовать наличие подключенного USB-носителя вместе с вводом пароля.</p></li>
-</ol>
-<p><strong>Установка</strong></p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/mcdope/pam_usb.git
-<span class="nb">cd</span> pam_usb/arch_linux
-makepkg -sric
-</pre></div>
-</div>
-<p><strong>P.S.</strong> Данная программа не совсем согласуется с тематикой руководства, но будем считать данный подраздел исключением куда можно разместить любое ПО.
-Главное - чтобы оно было действительно полезным.</p>
-</div>
-<div class="section" id="bottles">
-<h3><a class="toc-backref" href="#id24">Bottles</a><a class="headerlink" href="#bottles" title="Ссылка на этот заголовок">¶</a></h3>
-<p>Удобный менеджер по управлению бутылками (префиксами) в Wine. Альтернатива Lutris, имеет приятный и понятный интерфейс,
-возможность графической установки зависимостей (DLL библиотек) и поддерживает изоляцию из коробки.</p>
-<p><strong>Демонстрация</strong></p>
-<ol class="arabic simple">
-<li><p>Окно выбора бутылки</p></li>
-</ol>
-<img alt="../_images/generic-system-acceleration-5.png" src="../_images/generic-system-acceleration-5.png" />
-<ol class="arabic simple" start="2">
-<li><p>Создание новой бутылки</p></li>
-</ol>
-<img alt="../_images/generic-system-acceleration-6.png" src="../_images/generic-system-acceleration-6.png" />
-<ol class="arabic simple" start="3">
-<li><p>Управление бутылкой</p></li>
-</ol>
-<img alt="../_images/generic-system-acceleration-7.png" src="../_images/generic-system-acceleration-7.png" />
-<ol class="arabic simple" start="4">
-<li><p>Установка зависимостей (DLL библиотек)</p></li>
-</ol>
-<img alt="../_images/generic-system-acceleration-8.png" src="../_images/generic-system-acceleration-8.png" />
-<p><strong>Установка</strong></p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://aur.archlinux.org/bottles.git <span class="c1"># Скачиваем исходники</span>
-<span class="nb">cd</span> bottles                                      <span class="c1"># Переход в директорию</span>
-makepkg -sric                                   <span class="c1"># Сборка и установка</span>
 </pre></div>
 </div>
 </div>
@@ -480,14 +380,6 @@ makepkg -sric                                   <span class="c1"># Сборка 
 <li class="toctree-l3"><a class="reference internal" href="#powerpill-zee-captain">Альтернативно можно использовать powerpill (Спасибо Zee Captain)</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id6">Полезное ПО</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#stacer">Stacer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#bleachbit">Bleachbit</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#piper">Piper</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#pam-usb">pam_usb</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#bottles">Bottles</a></li>
-</ul>
-</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="extra-optimizations.html">Экстра оптимизации</a></li>
@@ -495,7 +387,7 @@ makepkg -sric                                   <span class="c1"># Сборка 
 <li class="toctree-l1"><a class="reference internal" href="file-systems.html">Файловые системы</a></li>
 <li class="toctree-l1"><a class="reference internal" href="custom-kernels.html">Кастомные ядра для увеличения плавности и зачем это нужно</a></li>
 <li class="toctree-l1"><a class="reference internal" href="linux-gaming.html">Wine / Linux Gaming</a></li>
-<li class="toctree-l1"><a class="reference internal" href="monitoring-fps.html">Мониторинг FPS в играх.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="add-programms.html">Полезное ПО</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mini-kernel.html">Сборка мини-ядра, и с чем это едят.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="de-optimizations.html">Оптимизация рабочего окружения (DE)</a></li>
 </ul>
