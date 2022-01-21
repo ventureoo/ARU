@@ -33,7 +33,7 @@
 
 Отдельное спасибо этим людям за их указания на ошибки/опечатки:
  
-- [@dewdpol](https://github.com/dewdpol)
+- [@dewdpol](https://github.com/dewdpol) (https://github.com/ventureoo/ARU/pull/51, https://github.com/ventureoo/ARU/pull/48)
 
 - [@holydrug](https://github.com/holydrug)
 
