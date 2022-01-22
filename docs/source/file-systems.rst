@@ -11,7 +11,7 @@
 """""""""""""""""
 
 .. contents:: Содержание:
-  :depth: 2
+  :depth: 3
 
 .. role:: bash(code)
   :language: shell
