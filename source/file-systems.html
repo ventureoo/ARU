@@ -40,8 +40,18 @@
 <ul class="simple">
 <li><p><a class="reference internal" href="#id1" id="id9">Файловые системы</a></p>
 <ul>
-<li><p><a class="reference internal" href="#id3" id="id10">Нюансы выбора файловой системы и флагов монтирования</a></p></li>
-<li><p><a class="reference internal" href="#btrfs" id="id11">Сжатие в файловой системе Btrfs</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id10">Нюансы выбора файловой системы и флагов монтирования</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id4" id="id11">Оптимальные флаги монтирования</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#btrfs" id="id12">Сжатие в файловой системе Btrfs</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id7" id="id13">Определение эффективности сжатия</a></p></li>
+<li><p><a class="reference internal" href="#zstd-amd-ryzen-7-3700x" id="id14">Скорость обработки алгоритма zstd на примере AMD Ryzen 7 3700X</a></p></li>
+<li><p><a class="reference internal" href="#dewdpol" id="id15">Список протестированных игр на эффективность сжатия (Спасибо &#64;dewdpol!)</a></p></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -66,7 +76,7 @@
 В любом случае, не рекомендуется использовать на декстопе ввиду большой возни с её настройкой и установкой, т.к.
 её поддержка официально отсутствует в ядре Linux из-за проблем с её лицензированием.</p>
 <div class="section" id="id4">
-<h3>Оптимальные флаги монтирования<a class="headerlink" href="#id4" title="Ссылка на этот заголовок">¶</a></h3>
+<h3><a class="toc-backref" href="#id11">Оптимальные флаги монтирования</a><a class="headerlink" href="#id4" title="Ссылка на этот заголовок">¶</a></h3>
 <p>Вот оптимальные параметры для SSD носителей.
 Описание каждого из них вы можете найти - <a class="reference external" href="https://zen.yandex.ru/media/id/5d8ac4740a451800acb6049f/linux-uskoriaem-sistemu-4-5e91d777378f6957923055b9">здесь</a>.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rw,relatime,ssd,ssd_spread,space_cache<span class="o">=</span>v2,max_inline<span class="o">=</span><span class="m">256</span>,commit<span class="o">=</span><span class="m">600</span>,nodatacow
@@ -94,7 +104,7 @@
 </div>
 </div>
 <div class="section" id="btrfs">
-<h2><a class="toc-backref" href="#id11">Сжатие в файловой системе Btrfs</a><a class="headerlink" href="#btrfs" title="Ссылка на этот заголовок">¶</a></h2>
+<h2><a class="toc-backref" href="#id12">Сжатие в файловой системе Btrfs</a><a class="headerlink" href="#btrfs" title="Ссылка на этот заголовок">¶</a></h2>
 <p>В файловой системе Btrfs есть возможность включения сжатия. Все записываемые файлы по возможности будут сжиматься и экономить пространство на носителе HDD или SSD.</p>
 <p>Для SSD это может быть важно в связи с их ограниченным ресурсом на запись.</p>
 <p>Согласно <a class="reference external" href="https://btrfs.wiki.kernel.org/index.php/Compression">wiki Btrfs</a>, официально имеется 3 поддерживаемых алгоритма:</p>
@@ -138,7 +148,7 @@ Cогласно <a class="reference external" href="https://btrfs.wiki.kernel.or
 <p>Степень сжатия в данном случае не указывается!</p>
 </div>
 <div class="section" id="id7">
-<h3>Определение эффективности сжатия<a class="headerlink" href="#id7" title="Ссылка на этот заголовок">¶</a></h3>
+<h3><a class="toc-backref" href="#id13">Определение эффективности сжатия</a><a class="headerlink" href="#id7" title="Ссылка на этот заголовок">¶</a></h3>
 <p>Если вы хотите определить эффективность сжатия на вашем разделе/диске, то вам необходимо воспользоваться программой <a class="reference external" href="https://github.com/kilobyte/compsize">compsize</a>.
 Установить ее можно с помощью команды:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S compsize
@@ -168,7 +178,7 @@ Cогласно <a class="reference external" href="https://btrfs.wiki.kernel.or
 </ul>
 </div>
 <div class="section" id="zstd-amd-ryzen-7-3700x">
-<h3>Скорость обработки алгоритма zstd на примере AMD Ryzen 7 3700X<a class="headerlink" href="#zstd-amd-ryzen-7-3700x" title="Ссылка на этот заголовок">¶</a></h3>
+<h3><a class="toc-backref" href="#id14">Скорость обработки алгоритма zstd на примере AMD Ryzen 7 3700X</a><a class="headerlink" href="#zstd-amd-ryzen-7-3700x" title="Ссылка на этот заголовок">¶</a></h3>
 <p>Для сравнения степеней сжатия алгоритма zstd использовалась бенчмарк платформа <a class="reference external" href="https://github.com/phoronix-test-suite/phoronix-test-suite">phoronix-test-suite</a>.
 В данной программе, для проверки скорости сжатия и распаковки данных, доступно три степени - <code class="code bash shell docutils literal notranslate"><span class="literal number"><span class="pre">3</span></span></code>, <code class="code bash shell docutils literal notranslate"><span class="literal number"><span class="pre">8</span></span></code>, <code class="code bash shell docutils literal notranslate"><span class="literal number"><span class="pre">19</span></span></code>.
 Для получения информации о падении скорости выполнения сжатия нам будет достаточно и первых двух, поскольку степень сжатия 19 на данный момент не поддерживается
@@ -183,7 +193,7 @@ Cогласно <a class="reference external" href="https://btrfs.wiki.kernel.or
 было замечено повышение нагрузки на процессор вплоть до 72-75% в тех случаях, когда файлы поддавались сжатию.</p>
 </div>
 <div class="section" id="dewdpol">
-<h3>Список протестированных игр на эффективность сжатия (Спасибо &#64;dewdpol!)<a class="headerlink" href="#dewdpol" title="Ссылка на этот заголовок">¶</a></h3>
+<h3><a class="toc-backref" href="#id15">Список протестированных игр на эффективность сжатия (Спасибо &#64;dewdpol!)</a><a class="headerlink" href="#dewdpol" title="Ссылка на этот заголовок">¶</a></h3>
 <p>Далее представлен список протестированных игр на сжатие в файловой системе Btrfs.
 Данные были получены с помощью программы compsize и являются округленными, поэтому информация может нести частично ознакомительный характер.</p>
 <table class="docutils align-default">
