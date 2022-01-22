@@ -131,8 +131,10 @@ Cогласно `wiki Btrfs <https://btrfs.wiki.kernel.org/index.php/Compression
  
 Для выполнения проверки на эффективность необходимо использовать команду::
 
- sudo compsize /'путь до раздела, папки или файла'
+ sudo compsize /path
  
+(Где :bash:`path` - путь к разделу, папке или файлу)
+
 Пример вывода команды:
 
 .. image:: images/compsize.png
