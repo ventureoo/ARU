@@ -116,7 +116,7 @@ https://habr.com/ru/company/ruvds/blog/561286/
 
 Применение данного набора скриптов незамысловато::
 
-  sudo pacman -S ninja cmake                             # Установка зависимостей
+  sudo pacman -S ninja cmake perf                        # Установка зависимостей
   git clone https://github.com/ptr1337/llvm-bolt-builds  # Клонируем репозиторий
   cd llvm-bolt-builds                                    # Переход в директорию
   ./full_workflow.bash                                   # Полная пересборка и применение всех возможных оптимизаций
