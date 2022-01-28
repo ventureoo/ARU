@@ -156,7 +156,7 @@ makepkg --config /etc/makepkg-clang.conf -sric --skippgpcheck
 производительности. Набор скриптов <a class="reference external" href="https://github.com/ptr1337/llvm-bolt-builds">llvm-bolt-builds</a> позволит вам собрать LLVM с применением
 всех возможных оптимизаций (PGO, LTO, BOLT), и они будут эффективнее, чем классический способ перекомпиляции указнный выше.</p>
 <p>Применение данного набора скриптов незамысловато:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S ninja cmake                             <span class="c1"># Установка зависимостей</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S ninja cmake perf                        <span class="c1"># Установка зависимостей</span>
 git clone https://github.com/ptr1337/llvm-bolt-builds  <span class="c1"># Клонируем репозиторий</span>
 <span class="nb">cd</span> llvm-bolt-builds                                    <span class="c1"># Переход в директорию</span>
 ./full_workflow.bash                                   <span class="c1"># Полная пересборка и применение всех возможных оптимизаций</span>
