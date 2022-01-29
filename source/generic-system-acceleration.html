@@ -211,11 +211,11 @@ makepkg -sric                                      <span class="c1"># Сборк
 sudo systemctl <span class="nb">enable</span> --now nohang-desktop         <span class="c1"># Включаем службу.</span>
 </pre></div>
 </div>
-<p><strong>1.2</strong> <a class="reference external" href="https://github.com/Nefelim4ag/Ananicy">Ananicy</a> — это демон распределяющий приоритет задач, его установка очень сильно повышает отклик системы.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://aur.archlinux.org/ananicy-git.git <span class="c1"># Скачивание исходников.</span>
-<span class="nb">cd</span> ananicy-git                                      <span class="c1"># Переход в ananicy.</span>
+<p><strong>1.2</strong> <a href="#id19"><span class="problematic" id="id20">`Ananicy CPP&lt;https://gitlab.com/ananicy-cpp/ananicy-cpp&gt;`_</span></a> — это форк одноименного демона, распределяющий приоритет задач. Его установка очень сильно повышает отклик системы. В отличии от оригинального Ananicy, данный форк переписан полностью на C++, из-за чего достигается прирост в скорости работы.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://aur.archlinux.org/ananicy-cpp.git <span class="c1"># Скачивание исходников.</span>
+<span class="nb">cd</span> ananicy-cpp                                      <span class="c1"># Переход в ananicy-cpp.</span>
 makepkg -sric                                       <span class="c1"># Сборка и установка.</span>
-sudo systemctl <span class="nb">enable</span> --now ananicy                 <span class="c1"># Включаем службу.</span>
+sudo systemctl <span class="nb">enable</span> --now ananicy-cpp             <span class="c1"># Включаем службу.</span>
 </pre></div>
 </div>
 <p><strong>1.3</strong> Включаем <a class="reference external" href="https://ru.wikipedia.org/wiki/Trim_(команда_для_накопителей)">TRIM</a> — очень полезно для SSD.</p>
