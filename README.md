@@ -20,8 +20,7 @@
 
 ## TODO:
 
-- [x] ~~Переписать на язык разметки reStructuredText~~ (https://github.com/ventureoo/ARU/pull/1)
-- [x] ~~Перенести проект на использование Sphinx~~ (https://github.com/ventureoo/ARU/pull/2)
+Почитать о планах на новый выпуск вы можете здесь - https://github.com/ventureoo/ARU/issues/59
 
 ## Благодарности
 
