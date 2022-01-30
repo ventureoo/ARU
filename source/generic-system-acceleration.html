@@ -162,6 +162,11 @@ git clone https://github.com/ptr1337/llvm-bolt-builds  <span class="c1"># Кло
 ./full_workflow.bash                                   <span class="c1"># Полная пересборка и применение всех возможных оптимизаций</span>
 </pre></div>
 </div>
+<div class="admonition attention">
+<p class="admonition-title">Внимание</p>
+<p>Данный набор скриптов подразумевают ступенчатую перекомпиляцию LLVM с применением различных оптимизаций,</p>
+</div>
+<p>поэтому может использовать большое количетсво оперативной памяти и сам процесс сборки может длится более трех часов (в зависимости от вашего процессора).</p>
 </div>
 </div>
 <div class="section" id="ccache">
