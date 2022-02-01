@@ -55,7 +55,7 @@
 <li><p><a class="reference internal" href="#lutris" id="id18">Lutris и дополнения.</a></p></li>
 <li><p><a class="reference internal" href="#gamemode" id="id19">Gamemode</a></p></li>
 <li><p><a class="reference internal" href="#amd-fidelityfx-super-resolution-wine" id="id20">AMD FidelityFX Super Resolution в Wine</a></p></li>
-<li><p><a class="reference internal" href="#dlss-nvidia-proton" id="id21">Использование DLSS с видеокартами NVIDIA через PROTON</a></p></li>
+<li><p><a class="reference internal" href="#dlss-nvidia-proton" id="id21">Использование DLSS с видеокартами NVIDIA через Proton</a></p></li>
 <li><p><a class="reference internal" href="#fps" id="id22">Мониторинг FPS в играх.</a></p></li>
 </ul>
 </li>
@@ -392,12 +392,20 @@ _protonify, _msvcrt_nativebuiltin, _proton_fs_hack, _proton_rawinput.
 <p><a class="reference external" href="https://www.youtube.com/watch?v=YNhwAazJODU">https://www.youtube.com/watch?v=YNhwAazJODU</a></p>
 </div>
 <div class="section" id="dlss-nvidia-proton">
-<h3><a class="toc-backref" href="#id21">Использование DLSS с видеокартами NVIDIA через PROTON</a><a class="headerlink" href="#dlss-nvidia-proton" title="Ссылка на этот заголовок">¶</a></h3>
+<h3><a class="toc-backref" href="#id21">Использование DLSS с видеокартами NVIDIA через Proton</a><a class="headerlink" href="#dlss-nvidia-proton" title="Ссылка на этот заголовок">¶</a></h3>
 <p>Для того чтобы использовать DLSS вам потребуется:</p>
-<ul class="simple">
-<li><p>Видеокарта поддерживающая данную технологию (видеокарты от NVIDIA серии RTX).</p></li>
+<ul>
+<li><p>Видеокарта поддерживающая данную технологию (видеокарты серии RTX и выше).</p></li>
 <li><p>Убедиться, что используемая версия Proton не ниже <strong>6.3-8</strong>! (<strong>поддержка DLSS начинается с данной версии!</strong>)</p></li>
 <li><p>Указать параметр запуска игры в свойствах игры Steam.</p></li>
+<li><p>Некоторые игры (использующие DX11) также требуют включения <em>dxgi.nvapiHack = False</em> в <em>dxvk.conf.</em>
+Для этого выполните инструкции ниже:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mkdir -p ~/.config/dxvk/dxvk.conf
+<span class="nb">echo</span> <span class="s2">&quot;dxgi.nvapiHack = False&quot;</span> &gt; ~/.config/dxvk/dxvk.conf
+</pre></div>
+</div>
+<p>После этого не забудьте дописать <em>DXVK_CONFIG_FILE=~/.config/dxvk/dxvk.conf</em> к указанным параметрам ниже.</p>
+</li>
 </ul>
 <p>Пример для использования в Steam:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">PROTON_HIDE_NVIDIA_GPU</span><span class="o">=</span><span class="m">0</span> <span class="nv">PROTON_ENABLE_NVAPI</span><span class="o">=</span><span class="m">1</span> %command%
@@ -495,7 +503,7 @@ makepkg -sric                                    <span class="c1"># Сборка
 <li class="toctree-l3"><a class="reference internal" href="#lutris">Lutris и дополнения.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#gamemode">Gamemode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#amd-fidelityfx-super-resolution-wine">AMD FidelityFX Super Resolution в Wine</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#dlss-nvidia-proton">Использование DLSS с видеокартами NVIDIA через PROTON</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dlss-nvidia-proton">Использование DLSS с видеокартами NVIDIA через Proton</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#fps">Мониторинг FPS в играх.</a></li>
 </ul>
 </li>
