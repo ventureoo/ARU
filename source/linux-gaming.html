@@ -397,14 +397,14 @@ _protonify, _msvcrt_nativebuiltin, _proton_fs_hack, _proton_rawinput.
 <ul>
 <li><p>Видеокарта поддерживающая данную технологию (видеокарты серии RTX и выше).</p></li>
 <li><p>Убедиться, что используемая версия Proton не ниже <strong>6.3-8</strong>! (<strong>поддержка DLSS начинается с данной версии!</strong>)</p></li>
-<li><p>Указать параметр запуска игры в свойствах игры Steam.</p></li>
-<li><p>Некоторые игры (использующие DX11) также требуют включения <em>dxgi.nvapiHack = False</em> в <em>dxvk.conf.</em>
+<li><p>Указать параметры запуска игры в свойствах игры Steam <code class="code bash shell docutils literal notranslate"><span class="name variable"><span class="pre">PROTON_HIDE_NVIDIA_GPU</span></span><span class="operator"><span class="pre">=</span></span><span class="literal number"><span class="pre">0</span></span> <span class="name variable"><span class="pre">PROTON_ENABLE_NVAPI</span></span><span class="operator"><span class="pre">=</span></span><span class="literal number"><span class="pre">1</span></span></code></p></li>
+<li><p>Некоторые игры, как правило, которые используют DX11, для корректной работы могут также потребовать включения <em>dxgi.nvapiHack = False</em> в <em>dxvk.conf.</em>
 Для этого выполните инструкции ниже:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mkdir -p ~/.config/dxvk/dxvk.conf
 <span class="nb">echo</span> <span class="s2">&quot;dxgi.nvapiHack = False&quot;</span> &gt; ~/.config/dxvk/dxvk.conf
 </pre></div>
 </div>
-<p>После этого не забудьте дописать <em>DXVK_CONFIG_FILE=~/.config/dxvk/dxvk.conf</em> к указанным параметрам ниже.</p>
+<p>После этого не забудьте дописать <em>DXVK_CONFIG_FILE=~/.config/dxvk/dxvk.conf</em> в приведённом ниже примере перед <code class="code bash shell docutils literal notranslate"><span class="pre">%command%</span></code>.</p>
 </li>
 </ul>
 <p>Пример для использования в Steam:</p>
