@@ -452,14 +452,14 @@ https://www.youtube.com/watch?v=YNhwAazJODU
 
 * Видеокарта поддерживающая данную технологию (видеокарты серии RTX и выше).
 * Убедиться, что используемая версия Proton не ниже **6.3-8**! (**поддержка DLSS начинается с данной версии!**)
-* Указать параметр запуска игры в свойствах игры Steam.
-* Некоторые игры (использующие DX11) также требуют включения *dxgi.nvapiHack = False* в *dxvk.conf.*
+* Указать параметры запуска игры в свойствах игры Steam :bash:`PROTON_HIDE_NVIDIA_GPU=0 PROTON_ENABLE_NVAPI=1`
+* Некоторые игры, как правило, которые используют DX11, для корректной работы могут также потребовать включения *dxgi.nvapiHack = False* в *dxvk.conf.*
   Для этого выполните инструкции ниже::
 
      mkdir -p ~/.config/dxvk/dxvk.conf
      echo "dxgi.nvapiHack = False" > ~/.config/dxvk/dxvk.conf
 
-  После этого не забудьте дописать *DXVK_CONFIG_FILE=~/.config/dxvk/dxvk.conf* к указанным параметрам ниже.
+  После этого не забудьте дописать *DXVK_CONFIG_FILE=~/.config/dxvk/dxvk.conf* к указанным параметрам выше или в приведённый пример перед :bash:`%command%`.
 
 Пример для использования в Steam:
 ::
