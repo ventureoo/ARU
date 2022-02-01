@@ -317,16 +317,16 @@ makepkg -sric                                  <span class="c1"># Сборка �
 </pre></div>
 </div>
 <p>Запустив эту программу откроем через меню наш сохраненный edid файл.</p>
-<img alt="source/images/wxedid-1.png" src="source/images/wxedid-1.png" />
+<img alt="../_images/wxedid-1.png" src="../_images/wxedid-1.png" />
 <p>Затем перейдем в <em>&quot;DTD: Detailed Timing Descriptor&quot;</em>.</p>
-<img alt="source/images/wxedid-2.png" src="source/images/wxedid-2.png" />
+<img alt="../_images/wxedid-2.png" src="../_images/wxedid-2.png" />
 <p>Здесь нужно переключится на вкладку <em>&quot;DTD Constructor&quot;</em>,
 и в поле &quot;Pixel clock&quot; постепенно повышать частоту обновления монитора до необходимого значения.</p>
-<img alt="source/images/wxedid-3.png" src="source/images/wxedid-3.png" />
+<img alt="../_images/wxedid-3.png" src="../_images/wxedid-3.png" />
 <p>О том, как найти нужное значение для вашего монитора - думайте сами и ищите на специализированных ресурсах.
 Для разных мониторов - разные значения.</p>
 <p>Сохраняем уже измененный EDID файл (так же в домашнюю директорию) и закрываем программу.</p>
-<img alt="source/images/wxedid-4.png" src="source/images/wxedid-4.png" />
+<img alt="../_images/wxedid-4.png" src="../_images/wxedid-4.png" />
 <p>Теперь в настройках Xorg нужно указать путь до измененного EDID файла в секции с тем монитором который мы разгоняем:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo nano /etc/X11/xorg.conf <span class="c1"># Редактируем ранее сохраненный xorg.conf</span>
 </pre></div>
