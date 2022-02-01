@@ -459,7 +459,7 @@ https://www.youtube.com/watch?v=YNhwAazJODU
      mkdir -p ~/.config/dxvk/dxvk.conf
      echo "dxgi.nvapiHack = False" > ~/.config/dxvk/dxvk.conf
 
-  После этого не забудьте дописать *DXVK_CONFIG_FILE=~/.config/dxvk/dxvk.conf* к указанным параметрам выше или в приведённый пример перед :bash:`%command%`.
+  После этого не забудьте дописать *DXVK_CONFIG_FILE=~/.config/dxvk/dxvk.conf* в приведённом ниже примере перед :bash:`%command%`.
 
 Пример для использования в Steam:
 ::
