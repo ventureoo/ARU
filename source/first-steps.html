@@ -63,7 +63,7 @@
 </li>
 <li><p><a class="reference internal" href="#mesa" id="id26">Твики драйверов Mesa</a></p>
 <ul>
-<li><p><a class="reference internal" href="#amd-sam" id="id27">Форсированное использования AMD SAM</a></p></li>
+<li><p><a class="reference internal" href="#amd-sam" id="id27">Форсирование использования AMD SAM</a></p></li>
 </ul>
 </li>
 </ul>
@@ -361,7 +361,7 @@ makepkg -sric                                  <span class="c1"># Сборка �
 <div class="section" id="mesa">
 <h2><a class="toc-backref" href="#id26">Твики драйверов Mesa</a><a class="headerlink" href="#mesa" title="Ссылка на этот заголовок">¶</a></h2>
 <div class="section" id="amd-sam">
-<h3><a class="toc-backref" href="#id27">Форсированное использования AMD SAM</a><a class="headerlink" href="#amd-sam" title="Ссылка на этот заголовок">¶</a></h3>
+<h3><a class="toc-backref" href="#id27">Форсирование использования AMD SAM</a><a class="headerlink" href="#amd-sam" title="Ссылка на этот заголовок">¶</a></h3>
 <p>AMD Smart Acess Memory (или Resizble Bar) - это технология которая позволяет CPU получать доступ к видеопамяти в полном объеме, а не по блокам в размере 256 МБ.
 Несмотря на то, что данная технология сейчас активно продвигается компанией AMD для своей новой серии видеокарт, она достаточно стара и спокойно
 может быть задействована в старом поколении графических процессоров благодаря открытым драйверам Mesa/репакам от энтузиастов для Windows.
@@ -437,7 +437,13 @@ makepkg -sric                                  <span class="c1"># Сборка �
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#id5">Установка базовых пакетов и набора программ</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id6">Установка актуальных драйверов для видеокарты</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">Установка актуальных драйверов для видеокарты</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#nvidia">NVIDIA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nouveau">Nouveau (<em>Только для старых видеокарт</em>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#amd">AMD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#intel">Intel</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#id7">Добавление важных модулей в образы ядра</a></li>
@@ -449,7 +455,7 @@ makepkg -sric                                  <span class="c1"># Сборка �
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#mesa">Твики драйверов Mesa</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#amd-sam">Форсированное использования AMD SAM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#amd-sam">Форсирование использования AMD SAM</a></li>
 </ul>
 </li>
 </ul>

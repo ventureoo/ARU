@@ -52,7 +52,13 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="source/first-steps.html#id5">Установка базовых пакетов и набора программ</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="source/first-steps.html#id6">Установка актуальных драйверов для видеокарты</a></li>
+<li class="toctree-l3"><a class="reference internal" href="source/first-steps.html#id6">Установка актуальных драйверов для видеокарты</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="source/first-steps.html#nvidia">NVIDIA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="source/first-steps.html#nouveau">Nouveau (<em>Только для старых видеокарт</em>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="source/first-steps.html#amd">AMD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="source/first-steps.html#intel">Intel</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="source/first-steps.html#id7">Добавление важных модулей в образы ядра</a></li>
@@ -64,14 +70,17 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="source/first-steps.html#mesa">Твики драйверов Mesa</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="source/first-steps.html#amd-sam">Форсированное использования AMD SAM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="source/first-steps.html#amd-sam">Форсирование использования AMD SAM</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="source/generic-system-acceleration.html">Базовое ускорение системы</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="source/generic-system-acceleration.html#makepkg-conf">Настройка makepkg.conf</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="source/generic-system-acceleration.html#clang">Форсирование использования Clang при сборке пакетов</a></li>
+<li class="toctree-l3"><a class="reference internal" href="source/generic-system-acceleration.html#clang">Форсирование использования Clang при сборке пакетов</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="source/generic-system-acceleration.html#llvm-clang-un-couteau">Ускорение работы компиляторов LLVM/Clang (Спасибо &#64;un_couteau)</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="source/generic-system-acceleration.html#ccache">Включение ccache</a></li>
 </ul>
 </li>
@@ -117,7 +126,10 @@
 <li class="toctree-l2"><a class="reference internal" href="source/file-systems.html#btrfs">Сжатие в файловой системе Btrfs</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="source/file-systems.html#id7">Определение эффективности сжатия</a></li>
 <li class="toctree-l3"><a class="reference internal" href="source/file-systems.html#zstd-amd-ryzen-7-3700x">Скорость обработки алгоритма zstd на примере AMD Ryzen 7 3700X</a></li>
-<li class="toctree-l3"><a class="reference internal" href="source/file-systems.html#dewdpol">Список протестированных игр на эффективность сжатия (Спасибо &#64;dewdpol!)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="source/file-systems.html#dewdpol">Список протестированных игр на эффективность сжатия (Спасибо &#64;dewdpol!)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="source/file-systems.html#id8">Промежуточные результаты</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -133,19 +145,34 @@
 <li class="toctree-l1"><a class="reference internal" href="source/linux-gaming.html">Wine / Linux Gaming</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="source/linux-gaming.html#id2">Основные составляющие</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="source/linux-gaming.html#wine">Что такое Wine?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="source/linux-gaming.html#id3">Сборки Wine</a></li>
-<li class="toctree-l3"><a class="reference internal" href="source/linux-gaming.html#id4">Альтернативные сборки Wine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="source/linux-gaming.html#id3">Сборки Wine</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="source/linux-gaming.html#wine-staging">Установка wine-staging вместе с зависимостями</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="source/linux-gaming.html#id4">Альтернативные сборки Wine</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="source/linux-gaming.html#wine-tkg">WINE-TKG</a></li>
+<li class="toctree-l4"><a class="reference internal" href="source/linux-gaming.html#wine-tkg-userpatches"><em>wine-tkg-userpatches</em></a></li>
+<li class="toctree-l4"><a class="reference internal" href="source/linux-gaming.html#proton-ge-custom">Proton-GE-Custom</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="source/linux-gaming.html#id6">Использование Wine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="source/linux-gaming.html#dxvk">Сборка DXVK с асинхронным патчем</a></li>
 <li class="toctree-l3"><a class="reference internal" href="source/linux-gaming.html#wine-dxvk">Полезные ссылки по теме Wine и DXVK</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="source/linux-gaming.html#id7">Дополнительные компоненты</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="source/linux-gaming.html#lutris">Lutris и дополнения.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="source/linux-gaming.html#lutris">Lutris и дополнения.</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="source/linux-gaming.html#proton-ge-custom-lutris">Использование Proton-GE-Custom в Lutris</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="source/linux-gaming.html#gamemode">Gamemode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="source/linux-gaming.html#amd-fidelityfx-super-resolution-wine">AMD FidelityFX Super Resolution в Wine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="source/linux-gaming.html#dlss-nvidia-proton">Использование DLSS с видеокартами NVIDIA через Proton</a></li>
-<li class="toctree-l3"><a class="reference internal" href="source/linux-gaming.html#fps">Мониторинг FPS в играх.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="source/linux-gaming.html#fps">Мониторинг FPS в играх.</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="source/linux-gaming.html#mangohud">Mangohud</a></li>
+<li class="toctree-l4"><a class="reference internal" href="source/linux-gaming.html#dxvk-hud-wine-proton">Альтернатива: DXVK Hud (<em>Только для игр запускаемых через Wine/Proton</em>)</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
