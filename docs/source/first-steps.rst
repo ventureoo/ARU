@@ -6,7 +6,7 @@
    You should have received a copy of the license along with this
    work. If not, see <https://creativecommons.org/licenses/by-sa/4.0/>.
 
-.. first-steps:
+.. _first-steps:
 
 **************
 Первые шаги
@@ -269,7 +269,7 @@ Intel
    и использовать свои собственные. В этом случае настраивать мониторы нужно именно в настройках вашего рабочего окружения.
 
 .. index:: nvidia, tweaks, driver
-.. _nvidia-tweaks:
+.. _nvidia-tweaking:
 
 -----------------------
 Твики драйвера NVIDIA
