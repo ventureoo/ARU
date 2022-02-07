@@ -104,7 +104,7 @@ sudo modprobed-db recall
 <li><p>dm_snapshot</p></li>
 <li><p>dm_thin_pool</p></li>
 </ul>
-<p>Чтобы это исправить просто добавьте эти модули вручную, т.е. отредактировав файл по пути <code class="code bash shell docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">~/.config/modprobed.db</span></code>.
+<p>Чтобы это исправить просто добавьте эти модули вручную, т.е. отредактировав файл по пути <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">~/.config/modprobed.db</span></code>.
 Затем снова пересоберите мини-ядро как это показано в предыдущем разделе, после пересборки мини-ядро должно загрузиться.</p>
 <p><strong>П:</strong> После установки мини-ядра отсутствует интернет-подключение.</p>
 <p><strong>Р:</strong> Обычно это вызвано отсутствием модулей драйвера для сетевой карты,
@@ -124,7 +124,7 @@ sudo modprobed-db recall
 <li><p>sch_fq_codel</p></li>
 <li><p>llc</p></li>
 </ul>
-<p>Так же, как и в случае с прошлой проблемой, просто пропишите эти модули в ручную, т.е. отредактируйте <code class="code bash shell docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">~/.config/modprobed.db</span></code>.
+<p>Так же, как и в случае с прошлой проблемой, просто пропишите эти модули в ручную, т.е. отредактируйте <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">~/.config/modprobed.db</span></code>.
 Обратите внимание, что модуль драйвера для сетевой карты у каждого может быть разный,
 и перед тем как прописать какой-либо модуль драйвера, лучше посмотреть в рабочей системе (<em>lspci -v</em>) какой именно нужен вашей сетевой карте, и прописать его.
 После этого, в очередной раз, пересоберите мини-ядро.</p>

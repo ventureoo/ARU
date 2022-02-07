@@ -90,12 +90,12 @@
 что позволит избежать замедления без потери функционала, но говорят <em>lazytime</em> чудит, поэтому автор советует <em>noatime</em>.</p>
 <p>Но если вы хотите минимум возможных проблем, то оставьте флаг <em>relatime</em>.</p>
 <p><em>space_cache</em> можно заменить на <em>space_cache=v2</em>, что тоже даст определенную прибавку производительности.</p>
-<p>Прописывать их нужно в файл <code class="code bash shell docutils literal notranslate"><span class="pre">/etc/fstab</span></code> для корневого и домашнего разделов.
+<p>Прописывать их нужно в файл <code class="docutils literal notranslate"><span class="pre">/etc/fstab</span></code> для корневого и домашнего разделов.
 Некоторые из данных флагов будут применяться только для новых файлов.</p>
 <img alt="../_images/file-systems-1.png" src="../_images/file-systems-1.png" />
 <div class="admonition attention">
 <p class="admonition-title">Внимание</p>
-<p>Параметр <code class="code bash shell docutils literal notranslate"><span class="name variable"><span class="pre">commit</span></span><span class="operator"><span class="pre">=</span></span><span class="literal number"><span class="pre">600</span></span></code> может вызывать повышенное потребление оперативной памяти и портить данные на диске.</p>
+<p>Параметр <code class="docutils literal notranslate"><span class="pre">commit=600</span></code> может вызывать повышенное потребление оперативной памяти и портить данные на диске.</p>
 </div>
 <div class="admonition attention">
 <p class="admonition-title">Внимание</p>
@@ -116,33 +116,33 @@
 <p>Для включения алгоритма сжатия в файловой системе необходимо:</p>
 <ol class="arabic simple">
 <li><p>Убедиться в наличии необходимого алгоритма в системе или установить выбранный (zlib, lzo или zstd соответственно).</p></li>
-<li><p>Отредактировать файл <code class="code bash shell docutils literal notranslate"><span class="pre">/etc/fstab</span></code>, добавив для необходимого раздела или носителя следующий флаг монтирования:</p></li>
+<li><p>Отредактировать файл <code class="docutils literal notranslate"><span class="pre">etc/fstab</span></code>, добавив для необходимого раздела или носителя следующий флаг монтирования:</p></li>
 </ol>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">compress</span><span class="o">=</span><span class="s1">&#39;алгоритм&#39;</span>:N
 </pre></div>
 </div>
-<p>(Где <code class="code bash shell docutils literal notranslate"><span class="pre">N</span></code> - степень сжатия: для zlib - <code class="code bash shell docutils literal notranslate"><span class="pre">N</span></code> = 1,2,...9; для lzo - выбор уровня сжатия не предусмотрен,
-поэтому <code class="code bash shell docutils literal notranslate"><span class="pre">:N</span></code> - не указываются; для zstd - <code class="code bash shell docutils literal notranslate"><span class="pre">N</span></code> =1,2,...15. Чем выше данный параметр, тем сильнее будут сжиматься данные, конечно при условии что это возможно,
+<p>(Где <code class="docutils literal notranslate"><span class="pre">N</span></code> - степень сжатия: для zlib - <code class="docutils literal notranslate"><span class="pre">N</span></code> = 1,2,...9; для lzo - выбор уровня сжатия не предусмотрен,
+поэтому <code class="docutils literal notranslate"><span class="pre">:N</span></code> - не указываются; для zstd - <code class="docutils literal notranslate"><span class="pre">N</span></code> =1,2,...15. Чем выше данный параметр, тем сильнее будут сжиматься данные, конечно при условии что это возможно,
 но также будет повышена нагрузка на процессор, поскольку сжатие выполняется за счет его ресурсов.
-Cогласно <a class="reference external" href="https://btrfs.wiki.kernel.org/index.php/Compression">wiki Btrfs</a>, оптимальным значением <code class="code bash shell docutils literal notranslate"><span class="pre">N</span></code> по отношению <code class="code bash shell docutils literal notranslate"><span class="pre">степень</span> <span class="pre">сжатия</span></code> / <code class="code bash shell docutils literal notranslate"><span class="pre">скорость</span></code> считается <code class="code bash shell docutils literal notranslate"><span class="literal number"><span class="pre">3</span></span></code>)</p>
+Cогласно <a class="reference external" href="https://btrfs.wiki.kernel.org/index.php/Compression">wiki Btrfs</a>, оптимальным значением <code class="docutils literal notranslate"><span class="pre">N</span></code> по отношению <code class="docutils literal notranslate"><span class="pre">степень</span> <span class="pre">сжатия</span></code> / <code class="docutils literal notranslate"><span class="pre">скорость</span></code> считается <code class="docutils literal notranslate"><span class="pre">3</span></code>)</p>
 <p>Например для zstd со степенью сжатия 3 запись будет выглядеть примерно следующим образом, если учесть приведенные выше флаги монтирования:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rw,relatime,compress<span class="o">=</span>zstd:3,ssd,ssd_spread,space_cache<span class="o">=</span>v2,max_inline<span class="o">=</span><span class="m">256</span>,commit<span class="o">=</span><span class="m">600</span>
 </pre></div>
 </div>
 <div class="admonition attention">
 <p class="admonition-title">Внимание</p>
-<p>Сжатие файловой системы не работает вместе с флагом монтирования <code class="code bash shell docutils literal notranslate"><span class="pre">nodatacow</span></code>.</p>
+<p>Сжатие файловой системы не работает вместе с флагом монтирования <code class="docutils literal notranslate"><span class="pre">nodatacow</span></code>.</p>
 </div>
 <p>После выставления данного флага монтирования новые файлы начнут сжиматься при записи на диск. Для сжатия уже имеющихся данных необходимо выполнить команду:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo btrfs filesystem defragment -calg /path
 </pre></div>
 </div>
-<p>(Где <code class="code bash shell docutils literal notranslate"><span class="pre">-calg</span></code> - алгоритм (указывается как czlib, clzo или czstd в зависимости от выбранного алгоритма), <code class="code bash shell docutils literal notranslate"><span class="pre">path</span></code> - путь к разделу или папке)</p>
-<p>Для сжатия уже существующих данных в папке или целого раздела необходимо указать ключ <code class="code bash shell docutils literal notranslate"><span class="pre">-r</span></code> перед <code class="code bash shell docutils literal notranslate"><span class="pre">-calg</span></code>:</p>
+<p>(Где <code class="docutils literal notranslate"><span class="pre">-calg</span></code> - алгоритм (указывается как czlib, clzo или czstd в зависимости от выбранного алгоритма), <code class="docutils literal notranslate"><span class="pre">path</span></code> - путь к разделу или папке)</p>
+<p>Для сжатия уже существующих данных в папке или целого раздела необходимо указать ключ <code class="docutils literal notranslate"><span class="pre">-r</span></code> перед <code class="docutils literal notranslate"><span class="pre">-calg</span></code>:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo btrfs filesystem defragment -r -calg /path
 </pre></div>
 </div>
-<p>(Где <code class="code bash shell docutils literal notranslate"><span class="pre">path</span></code> - путь к разделу или папке)</p>
+<p>(Где <code class="docutils literal notranslate"><span class="pre">path</span></code> - путь к разделу или папке)</p>
 <div class="admonition attention">
 <p class="admonition-title">Внимание</p>
 <p>Степень сжатия в данном случае не указывается!</p>
@@ -158,7 +158,7 @@ Cогласно <a class="reference external" href="https://btrfs.wiki.kernel.or
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo compsize /path
 </pre></div>
 </div>
-<p>(Где <code class="code bash shell docutils literal notranslate"><span class="pre">path</span></code> - путь к разделу, папке или файлу)</p>
+<p>(Где <code class="docutils literal notranslate"><span class="pre">path</span></code> - путь к разделу, папке или файлу)</p>
 <p>Пример вывода команды:</p>
 <img alt="../_images/compsize.png" src="../_images/compsize.png" />
 <p>Пояснения:</p>
@@ -181,16 +181,16 @@ Cогласно <a class="reference external" href="https://btrfs.wiki.kernel.or
 <div class="section" id="zstd-amd-ryzen-7-3700x">
 <h3><a class="toc-backref" href="#id14">Скорость обработки алгоритма zstd на примере AMD Ryzen 7 3700X</a><a class="headerlink" href="#zstd-amd-ryzen-7-3700x" title="Ссылка на этот заголовок">¶</a></h3>
 <p>Для сравнения степеней сжатия алгоритма zstd использовалась бенчмарк платформа <a class="reference external" href="https://github.com/phoronix-test-suite/phoronix-test-suite">phoronix-test-suite</a>.
-В данной программе, для проверки скорости сжатия и распаковки данных, доступно три степени - <code class="code bash shell docutils literal notranslate"><span class="literal number"><span class="pre">3</span></span></code>, <code class="code bash shell docutils literal notranslate"><span class="literal number"><span class="pre">8</span></span></code>, <code class="code bash shell docutils literal notranslate"><span class="literal number"><span class="pre">19</span></span></code>.
+В данной программе, для проверки скорости сжатия и распаковки данных, доступно три степени - <code class="docutils literal notranslate"><span class="pre">3</span></code>, <code class="docutils literal notranslate"><span class="pre">8</span></code>, <code class="docutils literal notranslate"><span class="pre">19</span></code>.
 Для получения информации о падении скорости выполнения сжатия нам будет достаточно и первых двух, поскольку степень сжатия 19 на данный момент не поддерживается
 (однако данные также приведены для ознакомления), и если обратить внимание на полученные данные, то это и не имеет особого смысла. Далее представлены результаты замеров:</p>
 <img alt="../_images/zstd_3.png" src="../_images/zstd_3.png" />
 <img alt="../_images/zstd_8.png" src="../_images/zstd_8.png" />
 <img alt="../_images/zstd_19.png" src="../_images/zstd_19.png" />
-<p>Как можно видеть из графиков, падение скорости при перехода от степени <code class="code bash shell docutils literal notranslate"><span class="literal number"><span class="pre">3</span></span></code> к степени <code class="code bash shell docutils literal notranslate"><span class="literal number"><span class="pre">8</span></span></code> сопровождается падением скорости сжатия более чем в <strong>4,7</strong> раз
+<p>Как можно видеть из графиков, падение скорости при перехода от степени <code class="docutils literal notranslate"><span class="pre">3</span></code> к степени <code class="docutils literal notranslate"><span class="pre">8</span></code> сопровождается падением скорости сжатия более чем в <strong>4,7</strong> раз
 (неговоря о более высоких степенях сжатия) и практически не изменяется при выполнении распаковки,
 что может негативно сказаться на скорости установки программ и возможно в некоторых других ситуациях которые требует выполнения записи на диск.</p>
-<p>Стоит отметить, что в случае выполнения уставки игр с использованием степени сжатия <code class="code bash shell docutils literal notranslate"><span class="literal number"><span class="pre">15</span></span></code>,
+<p>Стоит отметить, что в случае выполнения уставки игр с использованием степени сжатия <code class="docutils literal notranslate"><span class="pre">15</span></code>,
 было замечено повышение нагрузки на процессор вплоть до 72-75% в тех случаях, когда файлы поддавались сжатию.</p>
 </div>
 <div class="section" id="dewdpol">
@@ -1845,8 +1845,8 @@ Cогласно <a class="reference external" href="https://btrfs.wiki.kernel.or
 <li><p><strong>22</strong> игры из представленных <strong>121</strong> - сжимаются со средней эффективностью, экономия места составляет 41-70%.</p></li>
 <li><p><strong>2</strong> игры из представленных <strong>121</strong> - сжимаются хорошо, экономия места составляет 71-90%.</p></li>
 <li><p>Кэш шейдеров, который собирается и хранится на диске в Steam (при включении данной функции) сжимается незначительно - менее 1% экономии.</p></li>
-<li><p>С учетом разницы в экономии места порядка <strong>3 GB</strong> между максимальной степенью сжатия <code class="code bash shell docutils literal notranslate"><span class="literal number"><span class="pre">15</span></span></code> и рекомендуемой для Btrfs - <code class="code bash shell docutils literal notranslate"><span class="literal number"><span class="pre">3</span></span></code>,
-и значительного падения скорости выполнения сжатия, можно отметить, что использование степени сжатия выше <code class="code bash shell docutils literal notranslate"><span class="literal number"><span class="pre">3</span></span></code> выглядит крайне сомнительно.</p></li>
+<li><p>С учетом разницы в экономии места порядка <strong>3 GB</strong> между максимальной степенью сжатия <code class="docutils literal notranslate"><span class="pre">15</span></code> и рекомендуемой для Btrfs - <code class="docutils literal notranslate"><span class="pre">3</span></code>,
+и значительного падения скорости выполнения сжатия, можно отметить, что использование степени сжатия выше <code class="docutils literal notranslate"><span class="pre">3</span></code> выглядит крайне сомнительно.</p></li>
 </ul>
 </div>
 </div>

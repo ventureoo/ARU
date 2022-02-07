@@ -63,10 +63,10 @@
 sudo cpupower frequency-set -g performance    <span class="c1"># Выставляет максимальную  производительность до перезагрузки системы.</span>
 </pre></div>
 </div>
-<p><code class="code bash shell docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">/etc/default/cpupower</span></code> # Редактируем строчку ниже</p>
+<p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">/etc/default/cpupower</span></code> # Редактируем строчку ниже</p>
 <img alt="../_images/extra-optimizations-1.png" src="../_images/extra-optimizations-1.png" />
 <p><em>governor=’performance’</em> # Высокая производительность всегда!</p>
-<p><code class="code bash shell docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="name builtin"><span class="pre">enable</span></span> <span class="pre">cpupower</span></code> # Включить как постоянную службу которая установит вечный perfomance mode.</p>
+<p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">enable</span> <span class="pre">cpupower</span></code> # Включить как постоянную службу которая установит вечный perfomance mode.</p>
 <div class="section" id="gui-xanmod">
 <h3><a class="toc-backref" href="#id9">GUI для изменение частоты процессора (<em>Может не работать с Xanmod</em>)</a><a class="headerlink" href="#gui-xanmod" title="Ссылка на этот заголовок">¶</a></h3>
 <img alt="../_images/extra-optimizations-2.png" src="../_images/extra-optimizations-2.png" />
@@ -99,8 +99,8 @@ systemctl start auto-cpufreq                              <span class="c1"># З�
 </div>
 <div class="section" id="id4">
 <h2><a class="toc-backref" href="#id11">Отключение спящего режима и гибернации</a><a class="headerlink" href="#id4" title="Ссылка на этот заголовок">¶</a></h2>
-<p><code class="code bash shell docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">pacman</span> <span class="pre">-S</span> <span class="pre">polkit</span></code>  # Установить для управления системными привилегиями.</p>
-<p><code class="code bash shell docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">/etc/polkit-1/rules.d/10-disable-suspend.rules</span></code>  # Убираем спящий режим и гибернацию (из меню и вообще).
+<p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">pacman</span> <span class="pre">-S</span> <span class="pre">polkit</span></code>  # Установить для управления системными привилегиями.</p>
+<p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">/etc/polkit-1/rules.d/10-disable-suspend.rules</span></code>  # Убираем спящий режим и гибернацию (из меню и вообще).
 Если такого файла нет, то создайте его. Файл должен выглядеть вот так:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>polkit.addRule<span class="o">(</span><span class="k">function</span><span class="o">(</span>action, subject<span class="o">)</span> <span class="o">{</span>
   <span class="k">if</span> <span class="o">(</span>action.id <span class="o">==</span> <span class="s2">&quot;org.freedesktop.login1.suspend&quot;</span> <span class="o">||</span>
@@ -118,7 +118,7 @@ systemctl start auto-cpufreq                              <span class="c1"># З�
 <h2><a class="toc-backref" href="#id12">Отключение дампов ядра (<em>Только для опытных пользователей</em>)</a><a class="headerlink" href="#id5" title="Ссылка на этот заголовок">¶</a></h2>
 <p>Отредактируйте <em>/etc/systemd/coredump.conf</em> в разделе <em>[Coredump]</em> раскомментируйте <em>Storage = external</em> и замените его на <em>Storage = none</em>.</p>
 <p>Затем выполните следующую команду:</p>
-<p><code class="code bash shell docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">daemon-reload</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">daemon-reload</span></code></p>
 <p>Уже одно это действие отключает сохранение резервных копий, но они все еще находятся в памяти.
 Если вы хотите полностью отключить дампы ядра, то измените <em>soft</em> на <em>#* hard core 0</em> в <em>/etc/security/limits.conf</em>.</p>
 </div>

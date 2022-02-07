@@ -127,30 +127,30 @@
 </div>
 <p>Здесь нас интересует не так много настроек.
 По сути можете оставлять все значения по умолчанию, кроме следующих параметров:</p>
-<p><code class="code bash shell docutils literal notranslate"><span class="name variable"><span class="pre">_use_esync</span></span><span class="operator"><span class="pre">=</span></span><span class="literal string double"><span class="pre">&quot;true&quot;</span></span></code> - Включает поддержку esync что оптимизирует работу wineserver.
+<p><code class="docutils literal notranslate"><span class="pre">_use_esync=&quot;true&quot;</span></code> - Включает поддержку esync что оптимизирует работу wineserver.
 Активируется через переменную окружения <em>WINEESYNC=1</em>.</p>
-<p><code class="code bash shell docutils literal notranslate"><span class="name variable"><span class="pre">_use_fsync</span></span><span class="operator"><span class="pre">=</span></span><span class="literal string double"><span class="pre">&quot;true&quot;</span></span></code> - Включает поддержку fsync, альтернативу esync которую можно задействовать через переменную окружения <em>WINEFSYNC=1</em>.
+<p><code class="docutils literal notranslate"><span class="pre">_use_fsync=&quot;true&quot;</span></code> - Включает поддержку fsync, альтернативу esync которую можно задействовать через переменную окружения <em>WINEFSYNC=1</em>.
 Оба параметра обязательны к включению для повышения производительности.</p>
-<p><code class="code bash shell docutils literal notranslate"><span class="name variable"><span class="pre">_fsync_futex2</span></span><span class="operator"><span class="pre">=</span></span><span class="literal string double"><span class="pre">&quot;true&quot;</span></span></code> - Включает поддержку futex2 для fsync.
+<p><code class="docutils literal notranslate"><span class="pre">_fsync_futex2=&quot;true&quot;</span></code> - Включает поддержку futex2 для fsync.
 Включать по желанию.
 Хотя и новый механизм ядра futex2 значительно повышает производительность в играх, пока что он нестабилен и может ломать работоспособность некоторых игр.
 И кроме того он требует специальное ядро собранное с его поддержкой (К примеру, linux-tkg).</p>
 <p>Подробное сравнение Esync и Fsync можно посмотреть в данном видео.</p>
 <p><a class="reference external" href="https://www.youtube.com/watch?v=-nlNJguG5_0&amp;t=18s">https://www.youtube.com/watch?v=-nlNJguG5_0&amp;t=18s</a></p>
-<p><code class="code bash shell docutils literal notranslate"><span class="name variable"><span class="pre">_launch_with_dedicated_gpu</span></span><span class="operator"><span class="pre">=</span></span><span class="literal string double"><span class="pre">&quot;false&quot;</span></span></code> - Активирует запуск приложений через дискретный графический процессор на ноутбуках с PRIME.
+<p><code class="docutils literal notranslate"><span class="pre">_launch_with_dedicated_gpu=&quot;false&quot;</span></code> - Активирует запуск приложений через дискретный графический процессор на ноутбуках с PRIME.
 Работает только с открытыми драйверами (Mesa), поэтому выбирайте сами нужно оно вам или нет.</p>
-<p><code class="code bash shell docutils literal notranslate"><span class="name variable"><span class="pre">_update_winevulkan</span></span><span class="operator"><span class="pre">=</span></span><span class="literal string double"><span class="pre">&quot;true&quot;</span></span></code> - Включает свежие обновления библиотеки winevulkan. Обязательно оставляйте включенным.</p>
-<p><code class="code bash shell docutils literal notranslate"><span class="name variable"><span class="pre">_FS_bypass_compositor</span></span><span class="operator"><span class="pre">=</span></span><span class="literal string double"><span class="pre">&quot;true&quot;</span></span></code> - Задействует обход композитора приложениями запускаемыми через Wine.
+<p><code class="docutils literal notranslate"><span class="pre">_update_winevulkan=&quot;true&quot;</span></code> - Включает свежие обновления библиотеки winevulkan. Обязательно оставляйте включенным.</p>
+<p><code class="docutils literal notranslate"><span class="pre">_FS_bypass_compositor=&quot;true&quot;</span></code> - Задействует обход композитора приложениями запускаемыми через Wine.
 Очень полезная и нужная опция для исправления проблем задержек и заиканий в играх,
 в случае когда системный композитор пытается лишний раз осуществить композитинг над окном с игрой запущенной через Wine.
 Обязательно включаем.</p>
-<p><code class="code bash shell docutils literal notranslate"><span class="name variable"><span class="pre">_proton_fs_hack</span></span><span class="operator"><span class="pre">=</span></span><span class="literal string double"><span class="pre">&quot;true&quot;</span></span></code> - Включает еще один очень нужный патч.
+<p><code class="docutils literal notranslate"><span class="pre">_proton_fs_hack=&quot;true&quot;</span></code> - Включает еще один очень нужный патч.
 Вносит исправление  с помощью которого изменяя разрешение игры в полноэкранном режиме у вас не будет изменяться разрешение вашего рабочего стола. Включаем.</p>
-<p><code class="code bash shell docutils literal notranslate"><span class="name variable"><span class="pre">_msvcrt_nativebuiltin</span></span><span class="operator"><span class="pre">=</span></span><span class="literal string double"><span class="pre">&quot;true&quot;</span></span></code> - Осуществляет нативную сборку mscvrt.dll. Лишним точно не будет, поэтому включаем.</p>
-<p><code class="code bash shell docutils literal notranslate"><span class="name variable"><span class="pre">_win10_default</span></span><span class="operator"><span class="pre">=</span></span><span class="literal string double"><span class="pre">&quot;false&quot;</span></span></code> - Устанавливает в качестве версии по умолчанию Windows 10 в Wine.
+<p><code class="docutils literal notranslate"><span class="pre">_msvcrt_nativebuiltin=&quot;true&quot;</span></code> - Осуществляет нативную сборку mscvrt.dll. Лишним точно не будет, поэтому включаем.</p>
+<p><code class="docutils literal notranslate"><span class="pre">_win10_default=&quot;false&quot;</span></code> - Устанавливает в качестве версии по умолчанию Windows 10 в Wine.
 Не рекомендуется к включению в виду того, что это может задействовать vkd3d в некоторых играх работающих на DirectX 12,
 что однако ведет к ухудшению производительности по сравнению с DXVK при возможности запустить игру с DirectX 11.</p>
-<p><code class="code bash shell docutils literal notranslate"><span class="name variable"><span class="pre">_protonify</span></span><span class="operator"><span class="pre">=</span></span><span class="literal string double"><span class="pre">&quot;true&quot;</span></span></code> - Задействует множественные заплатки и патчи для Wine портированные из Proton.
+<p><code class="docutils literal notranslate"><span class="pre">_protonify=&quot;true&quot;</span></code> - Задействует множественные заплатки и патчи для Wine портированные из Proton.
 По нашему мнению это маст хев, т.к. они содержат в себе множественные исправления для различных игр и оптимизаций к ним.
 Настоятельно рекомендуется к включению.</p>
 <div class="admonition attention">
@@ -166,7 +166,7 @@
 </div>
 </div>
 <p>На этом все, остальные настройки оставьте по умолчанию.</p>
-<p>Теперь можно перейти к самой сборке и установке wine-tkg: <code class="code bash shell docutils literal notranslate"><span class="pre">makepkg</span> <span class="pre">-sric</span></code></p>
+<p>Теперь можно перейти к самой сборке и установке wine-tkg: <code class="docutils literal notranslate"><span class="pre">makepkg</span> <span class="pre">-sric</span></code></p>
 <p><strong>II. Ручная установка</strong></p>
 <p>Подробно описывать ручную сборку здесь мы не будем.
 Поэтому лучше всего посмотрите видео версию, где это наглядно показано (7 минута 23 секунда):</p>
@@ -370,7 +370,7 @@ _protonify, _msvcrt_nativebuiltin, _proton_fs_hack, _proton_rawinput.
 Без них ничего работать не будет.
 </pre></div>
 </div>
-<p>И пересоберите ваш wine-tkg: <code class="code bash shell docutils literal notranslate"><span class="pre">makepkg</span> <span class="pre">-sric</span></code></p>
+<p>И пересоберите ваш wine-tkg: <code class="docutils literal notranslate"><span class="pre">makepkg</span> <span class="pre">-sric</span></code></p>
 <p><strong>II. Установка</strong></p>
 <p>Если вам кажется первый способ немного муторным, то вы можете просто использовать уже готовые сборки с FSR патчем в Lutris:</p>
 <img alt="../_images/linux-gaming-1.png" src="../_images/linux-gaming-1.png" />
@@ -397,14 +397,14 @@ _protonify, _msvcrt_nativebuiltin, _proton_fs_hack, _proton_rawinput.
 <ul>
 <li><p>Видеокарта поддерживающая данную технологию (видеокарты серии RTX и выше).</p></li>
 <li><p>Убедиться, что используемая версия Proton не ниже <strong>6.3-8</strong>! (<strong>поддержка DLSS начинается с данной версии!</strong>)</p></li>
-<li><p>Указать параметры запуска игры в свойствах игры Steam <code class="code bash shell docutils literal notranslate"><span class="name variable"><span class="pre">PROTON_HIDE_NVIDIA_GPU</span></span><span class="operator"><span class="pre">=</span></span><span class="literal number"><span class="pre">0</span></span> <span class="name variable"><span class="pre">PROTON_ENABLE_NVAPI</span></span><span class="operator"><span class="pre">=</span></span><span class="literal number"><span class="pre">1</span></span></code></p></li>
+<li><p>Указать параметры запуска игры в свойствах игры Steam <code class="docutils literal notranslate"><span class="pre">PROTON_HIDE_NVIDIA_GPU=0</span> <span class="pre">PROTON_ENABLE_NVAPI=1</span></code></p></li>
 <li><p>Некоторые игры, как правило, которые используют DX11, для корректной работы могут также потребовать включения <em>dxgi.nvapiHack = False</em> в <em>dxvk.conf.</em>
 Для этого выполните инструкции ниже:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mkdir -p ~/.config/dxvk/dxvk.conf
 <span class="nb">echo</span> <span class="s2">&quot;dxgi.nvapiHack = False&quot;</span> &gt; ~/.config/dxvk/dxvk.conf
 </pre></div>
 </div>
-<p>После этого не забудьте дописать <em>DXVK_CONFIG_FILE=~/.config/dxvk/dxvk.conf</em> в приведённом ниже примере перед <code class="code bash shell docutils literal notranslate"><span class="pre">%command%</span></code>.</p>
+<p>После этого не забудьте дописать <em>DXVK_CONFIG_FILE=~/.config/dxvk/dxvk.conf</em> в приведённом ниже примере перед <code class="docutils literal notranslate"><span class="pre">%command%</span></code>.</p>
 </li>
 </ul>
 <p>Пример для использования в Steam:</p>
@@ -449,7 +449,7 @@ makepkg -sric                                    <span class="c1"># Сборка
 <p>Вы также можете использовать встроенную в DXVK альтернативу для мониторинга - DXVK Hud.
 Он не такой гибкий как MangoHud, но также способен выводить значения FPS, график времени кадра, нагрузку на GPU.
 Использовать данный HUD можно задав переменную окружения <em>DXVK_HUD</em>.
-К примеру, <code class="code bash shell docutils literal notranslate"><span class="name variable"><span class="pre">DXVK_HUD</span></span><span class="operator"><span class="pre">=</span></span><span class="pre">fps,frametimes,gpuload</span></code> выводит информацию о FPS, времени кадра, и нагрузке на GPU.</p>
+К примеру, <code class="docutils literal notranslate"><span class="pre">DXVK_HUD=fps,frametimes,gpuload</span></code> выводит информацию о FPS, времени кадра, и нагрузке на GPU.</p>
 <p>Полный список значений переменной вы можете узнать - <a class="reference external" href="https://github.com/doitsujin/dxvk#hud">здесь</a>.</p>
 </div>
 </div>
