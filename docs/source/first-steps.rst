@@ -6,9 +6,9 @@
    You should have received a copy of the license along with this
    work. If not, see <https://creativecommons.org/licenses/by-sa/4.0/>.
 
-""""""""""""""
+**************
 Первые шаги
-""""""""""""""
+**************
 
 .. contents:: Содержание:
   :depth: 3
@@ -368,7 +368,7 @@ https://www.youtube.com/watch?v=B9o5b2A2qN0
 ======================
 
 ------------------------------------
-Форсированное использования AMD SAM
+Форсирование использования AMD SAM
 ------------------------------------
 
 AMD Smart Acess Memory (или Resizble Bar) - это технология которая позволяет CPU получать доступ к видеопамяти в полном объеме, а не по блокам в размере 256 МБ.
