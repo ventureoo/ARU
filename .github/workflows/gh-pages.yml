@@ -11,12 +11,16 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    container: archlinux:base-devel
     steps:
-    - uses: actions/setup-python@v2
     - name: Install dependencies
       run: |
-        python -m pip install --upgrade pip
-        python -m pip install pydata-sphinx-theme
+        pacman-key --init
+        pacman -Syu --noconfirm
+        pacman -S --noconfirm python
+        git clone https://aur.archlinux.org/python-pydata-sphinx-theme.git
+        cd python-pydata-sphinx-theme
+        makepkg -sric --noconfirm
     - uses: actions/checkout@v2
     - name: Build HTML
       uses: ammaraskar/sphinx-action@master
