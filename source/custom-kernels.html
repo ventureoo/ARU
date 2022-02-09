@@ -4,9 +4,29 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
   <head>
     <meta charset="utf-8" />
-    <title>Кастомные ядра &#8212; Руководство по оптимизации Arch Linux</title>
-    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <title>Кастомные ядра &#8212; ARU</title>
+    
+    <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  
+    
+    <link rel="stylesheet"
+      href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+    <link rel="preload" as="font" type="font/woff2" crossorigin
+      href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+    <link rel="preload" as="font" type="font/woff2" crossorigin
+      href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+    
+      
+  
+    
+    <link rel="stylesheet" href="../_static/styles/pydata-sphinx-theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
+    
+    <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
@@ -17,45 +37,310 @@
     <link rel="search" title="Поиск" href="../search.html" />
     <link rel="next" title="Wine / Linux Gaming" href="linux-gaming.html" />
     <link rel="prev" title="Файловые системы" href="file-systems.html" />
-   
-  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="ru">
+    
 
-  </head><body>
-  
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+<a class="navbar-brand" href="../index.html">
+<p class="title">ARU - Руководство по оптимизации Arch Linux</p>
+</a>
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <div class="dropdown" id="version_switcher">
+    <button type="button" class="btn btn-primary btn-sm navbar-btn dropdown-toggle" id="version_switcher_button" data-toggle="dropdown">
+        None  <!-- this text may get changed later by javascript -->
+        <span class="caret"></span>
+    </button>
+    <div id="version_switcher_menu" class="dropdown-menu list-group-flush py-0" aria-labelledby="version_switcher_button">
+    <!-- dropdown will be populated by javascript on page load -->
+    </div>
+</div>
+
+<!-- NOTE: this JS must live here (not in our global JS file) because it relies
+     on being processed by Jinja before it is run (specifically for replacing
+     variables source/custom-kernels and {'json_url': '/_static/switcher.json', 'url_template': 'https://github.com/ventureoo/ARU/tree/{version}/'}.
+-->
+
+<script type="text/javascript">
+// Construct the target URL from the JSON components
+function buildURL(entry) {
+    var template = "https://github.com/ventureoo/ARU/tree/{version}/";  // supplied by jinja
+    template = template.replace("{version}", entry.version);
+    return template;
+}
+
+// Check if corresponding page path exists in other version of docs
+// and, if so, go there instead of the homepage of the other docs version
+function checkPageExistsAndRedirect(event) {
+    const currentFilePath = "source/custom-kernels.html",
+          tryUrl = event.target.getAttribute("href");
+    let otherDocsHomepage = tryUrl.replace(currentFilePath, "");
+    $.ajax({
+        type: 'HEAD',
+        url: tryUrl,
+        // if the page exists, go there
+        success: function() {
+            location.href = tryUrl;
+        }
+    }).fail(function() {
+        location.href = otherDocsHomepage;
+    });
+    // this prevents the browser from following the href of the clicked node
+    // (which is fine because this function takes care of redirecting)
+    return false;
+}
+
+// Populate the version switcher from the JSON config file
+(function () {
+    $.getJSON("/_static/switcher.json", function(data, textStatus, jqXHR) {
+        const currentFilePath = "source/custom-kernels.html";
+        // create links to the corresponding page in the other docs versions
+        $.each(data, function(index, entry) {
+            // if no custom name specified (e.g., "latest"), use version string
+            if (!("name" in entry)) {
+                entry.name = entry.version;
+            }
+            // create the node
+            const node = document.createElement("a");
+            node.setAttribute("class", "list-group-item list-group-item-action py-1");
+            node.textContent = `${entry.name}`;
+            // get the base URL for that doc version, add the current page's
+            // path to it, and set as `href`
+            entry.url = buildURL(entry);
+            node.setAttribute("href", `${entry.url}${currentFilePath}`);
+            // on click, AJAX calls will check if the linked page exists before
+            // trying to redirect, and if not, will redirect to the homepage
+            // for that version of the docs.
+            node.onclick = checkPageExistsAndRedirect;
+            $("#version_switcher_menu").append(node);
+            // replace dropdown button text with the preferred display name of
+            // this version, rather than using sphinx's  variable.
+            // also highlight the dropdown entry for the currently-viewed
+            // version's entry
+            if (entry.version == "None") {
+                node.classList.add("active");
+                $("#version_switcher_button").text(entry.name);
+            }
+        });
+    });
+})();
+</script>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/ventureoo/ARU" rel="noopener" target="_blank" title="GitHub"><span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.youtube.com/c/PashaLinux" rel="noopener" target="_blank" title="YouTube"><span><i class="fab fa-youtube-square"></i></span>
+            <label class="sr-only">YouTube</label></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.donationalerts.com/r/pavel_priluckiy" rel="noopener" target="_blank" title="Donatealerts"><span><i class="fas fa-donate"></i></span>
+            <label class="sr-only">Donatealerts</label></a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar">
+              <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Поиск..." aria-label="Поиск..." autocomplete="off" >
+</form><ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="preface.html">
+  Предисловие
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="first-steps.html">
+  Первые шаги
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="generic-system-acceleration.html">
+  Базовое ускорение системы
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="extra-optimizations.html">
+  Экстра оптимизации
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="kernel-parameters.html">
+  Настройка параметров ядра
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="file-systems.html">
+  Файловые системы
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="current reference internal nav-link" href="#">
+  Кастомные ядра
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="linux-gaming.html">
+  Wine / Linux Gaming
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="mini-kernel.html">
+  Сборка мини-ядра, и с чем это едят.
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="de-optimizations.html">
+  Оптимизация рабочего окружения (DE)
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="useful-programs.html">
+  Полезные программы
+ </a>
+</li>
+
+    
+</ul><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    
+  </div>
+</nav>
+              </div>
+              <div class="sidebar-end-items">
+              </div>
+            </div>
+            
           
 
-          <div class="body" role="main">
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
             
-  <div class="section" id="id1">
-<h1><a class="toc-backref" href="#id4">Кастомные ядра</a><a class="headerlink" href="#id1" title="Ссылка на этот заголовок">¶</a></h1>
-<div class="contents topic" id="id2">
-<p class="topic-title">Содержание:</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="#id1" id="id4">Кастомные ядра</a></p>
-<ul>
-<li><p><a class="reference internal" href="#zen" id="id5">Zen</a></p></li>
-<li><p><a class="reference internal" href="#liquorix" id="id6">liquorix</a></p></li>
-<li><p><a class="reference internal" href="#xanmod" id="id7">Xanmod</a></p></li>
-<li><p><a class="reference internal" href="#linux-tkg" id="id8">linux-tkg</a></p></li>
-<li><p><a class="reference internal" href="#clang-lto" id="id9">Сборка ядра с помощью Clang + LTO</a></p></li>
-</ul>
-</li>
-</ul>
+              
+              <div class="toc-item">
+                
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
 </div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#zen">
+   Zen
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#liquorix">
+   liquorix
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#xanmod">
+   Xanmod
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#linux-tkg">
+   linux-tkg
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#clang-lto">
+   Сборка ядра с помощью Clang + LTO
+  </a>
+ </li>
+</ul>
+
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+
+<div class="tocsection editthispage">
+    <a href="https://github.com/ventureoo/ARU/edit/main/source/custom-kernels.rst">
+        <i class="fas fa-pencil-alt"></i> Edit this page
+    </a>
+</div>
+
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="id1">
+<h1>Кастомные ядра<a class="headerlink" href="#id1" title="Ссылка на этот заголовок">¶</a></h1>
 <p>На протяжении многих лет развитие ядра, Linux делал упор на серверную часть, но времена меняются,
 и сейчас появились сборки от сторонних разработчиков
 которые позволяет выжать максимум из вашего железа, получить больше FPS в играх запускаемых из под Wine, и сделать отклик рабочего стола немного плавнее и быстрее.</p>
 <p>Установкой этих сборок мы и займемся в этом разделе.</p>
 <p>Проверка ядра используемого в данный момент: <code class="docutils literal notranslate"><span class="pre">uname</span> <span class="pre">-r</span></code>.</p>
 <div class="section" id="zen">
-<h2><a class="toc-backref" href="#id5">Zen</a><a class="headerlink" href="#zen" title="Ссылка на этот заголовок">¶</a></h2>
+<h2>Zen<a class="headerlink" href="#zen" title="Ссылка на этот заголовок">¶</a></h2>
 <p>Это отличный выбор для неискушенного пользователя, что не ставит задачи в покорении максимальной планки FPS.
 Доступен в официальных репозиториях (не нужно компилировать).</p>
 <p><strong>I. Установка</strong></p>
@@ -64,7 +349,7 @@
 </div>
 </div>
 <div class="section" id="liquorix">
-<h2><a class="toc-backref" href="#id6">liquorix</a><a class="headerlink" href="#liquorix" title="Ссылка на этот заголовок">¶</a></h2>
+<h2>liquorix<a class="headerlink" href="#liquorix" title="Ссылка на этот заголовок">¶</a></h2>
 <p>Идеальное ядро для игроманов.
 Значительно улучшает качество отклика как в повседневных задачах так и в играх.
 Ориентирован на процессоры Intel.</p>
@@ -167,7 +452,7 @@ nano PKGBUILD                                             <span class="c1"># Р�
 а также исправит некорректное поведение драйвера NVIDIA при работе с фреймбуфером.</p>
 </div>
 <div class="section" id="xanmod">
-<h2><a class="toc-backref" href="#id7">Xanmod</a><a class="headerlink" href="#xanmod" title="Ссылка на этот заголовок">¶</a></h2>
+<h2>Xanmod<a class="headerlink" href="#xanmod" title="Ссылка на этот заголовок">¶</a></h2>
 <p>Альтернатива liquorix, так же нацеленная на оптимизацию под игрушки и повышение плавности работы системы.</p>
 <div class="admonition attention">
 <p class="admonition-title">Внимание</p>
@@ -192,7 +477,7 @@ makepkg -sric <span class="c1"># Сборка и установка</span>
 </div>
 </div>
 <div class="section" id="linux-tkg">
-<h2><a class="toc-backref" href="#id8">linux-tkg</a><a class="headerlink" href="#linux-tkg" title="Ссылка на этот заголовок">¶</a></h2>
+<h2>linux-tkg<a class="headerlink" href="#linux-tkg" title="Ссылка на этот заголовок">¶</a></h2>
 <p>Является альтернативой всем трем ядрам выше,
 что предоставляет возможность собрать ядро с набором множества патчей на улучшение производительности в игрушках (Futex2, Zenify).
 Предоставляет выбор в сборке ядра с разными планировщиками.
@@ -260,7 +545,7 @@ makepkg -sric <span class="c1"># Сборка и установка</span>
 </div>
 </div>
 <div class="section" id="clang-lto">
-<h2><a class="toc-backref" href="#id9">Сборка ядра с помощью Clang + LTO</a><a class="headerlink" href="#clang-lto" title="Ссылка на этот заголовок">¶</a></h2>
+<h2>Сборка ядра с помощью Clang + LTO<a class="headerlink" href="#clang-lto" title="Ссылка на этот заголовок">¶</a></h2>
 <p>В разделе <a class="reference external" href="https://ventureoo.github.io/ARU/source/generic-system-acceleration.html#clang">&quot;Общее ускорение системы&quot;</a>
 мы уже говорили о преимуществах сборки пакетов при помощи компилятора Clang вместе с LTO оптимизациями.
 Но ядро требует отдельного рассмотрения, ибо те параметры которые мы указали ранее в makepkg.conf не работают для сборки ядра,
@@ -310,101 +595,44 @@ makepkg -sric            <span class="c1"># Сборка и установка �
 </div>
 
 
-          </div>
-          
+              </div>
+              
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="file-systems.html" title="назад страница">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">назад</p>
+            <p class="prev-next-title">Файловые системы</p>
         </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../index.html">ARU</a></h1>
-
-
-
-
-
-
-<p>
-<iframe src="https://ghbtns.com/github-btn.html?user=ventureoo&repo=ARU&type=star&count=true&size=large&v=2"
-  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
-</p>
-
-
-
-
-
-<h3>Навигация</h3>
-<p class="caption"><span class="caption-text">Содержание:</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="preface.html">Предисловие</a></li>
-<li class="toctree-l1"><a class="reference internal" href="first-steps.html">Первые шаги</a></li>
-<li class="toctree-l1"><a class="reference internal" href="generic-system-acceleration.html">Базовое ускорение системы</a></li>
-<li class="toctree-l1"><a class="reference internal" href="extra-optimizations.html">Экстра оптимизации</a></li>
-<li class="toctree-l1"><a class="reference internal" href="kernel-parameters.html">Настройка параметров ядра</a></li>
-<li class="toctree-l1"><a class="reference internal" href="file-systems.html">Файловые системы</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Кастомные ядра</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#zen">Zen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#liquorix">liquorix</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#xanmod">Xanmod</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#linux-tkg">linux-tkg</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#clang-lto">Сборка ядра с помощью Clang + LTO</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="linux-gaming.html">Wine / Linux Gaming</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mini-kernel.html">Сборка мини-ядра, и с чем это едят.</a></li>
-<li class="toctree-l1"><a class="reference internal" href="de-optimizations.html">Оптимизация рабочего окружения (DE)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="useful-programs.html">Полезные программы</a></li>
-</ul>
-
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="../index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="file-systems.html" title="предыдущая глава">Файловые системы</a></li>
-      <li>Next: <a href="linux-gaming.html" title="следующая глава">Wine / Linux Gaming</a></li>
-  </ul></li>
-</ul>
-</div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Быстрый поиск</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Искать" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
-
-
-<h3 class="donation">Donate/support</h3>
-
-
-
-<p>
-<a class="badge" href="https://www.donationalerts.com/r/pavel_priluckiy">
-<img src="https://img.shields.io/badge/donate-%E2%9D%A4%C2%A0-ff69b4.svg?style=flat" alt="Donate">
-</a>
-</p>
-
-
-
-
-
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="footer">
-      &copy;ARU 2018 - 2022, Pavel Priluckiy, Vasiliy Stelmachenok and contributors.
-      
-    </div>
-
-    
-    <a href="https://github.com/ventureoo/ARU" class="github">
-        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
     </a>
-    
+    <a class='right-next' id="next-link" href="linux-gaming.html" title="вперёд страница">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">вперёд</p>
+        <p class="prev-next-title">Wine / Linux Gaming</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+              
+          </main>
+          
 
+      </div>
+    </div>
+  
+    <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <footer class="footer mt-5 mt-md-0">
+  <div class="container">
     
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright ARU 2018 - 2022 Pavel Priluckiy, Vasiliy Stelmachenok and contributors.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
   </body>
 </html>

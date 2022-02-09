@@ -4,9 +4,29 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
   <head>
     <meta charset="utf-8" />
-    <title>Базовое ускорение системы &#8212; Руководство по оптимизации Arch Linux</title>
-    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <title>Базовое ускорение системы &#8212; ARU</title>
+    
+    <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  
+    
+    <link rel="stylesheet"
+      href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+    <link rel="preload" as="font" type="font/woff2" crossorigin
+      href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+    <link rel="preload" as="font" type="font/woff2" crossorigin
+      href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+    
+      
+  
+    
+    <link rel="stylesheet" href="../_static/styles/pydata-sphinx-theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
+    
+    <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
@@ -17,64 +37,356 @@
     <link rel="search" title="Поиск" href="../search.html" />
     <link rel="next" title="Экстра оптимизации" href="extra-optimizations.html" />
     <link rel="prev" title="Первые шаги" href="first-steps.html" />
-   
-  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="ru">
+    
 
-  </head><body>
-  
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+<a class="navbar-brand" href="../index.html">
+<p class="title">ARU - Руководство по оптимизации Arch Linux</p>
+</a>
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <div class="dropdown" id="version_switcher">
+    <button type="button" class="btn btn-primary btn-sm navbar-btn dropdown-toggle" id="version_switcher_button" data-toggle="dropdown">
+        None  <!-- this text may get changed later by javascript -->
+        <span class="caret"></span>
+    </button>
+    <div id="version_switcher_menu" class="dropdown-menu list-group-flush py-0" aria-labelledby="version_switcher_button">
+    <!-- dropdown will be populated by javascript on page load -->
+    </div>
+</div>
+
+<!-- NOTE: this JS must live here (not in our global JS file) because it relies
+     on being processed by Jinja before it is run (specifically for replacing
+     variables source/generic-system-acceleration and {'json_url': '/_static/switcher.json', 'url_template': 'https://github.com/ventureoo/ARU/tree/{version}/'}.
+-->
+
+<script type="text/javascript">
+// Construct the target URL from the JSON components
+function buildURL(entry) {
+    var template = "https://github.com/ventureoo/ARU/tree/{version}/";  // supplied by jinja
+    template = template.replace("{version}", entry.version);
+    return template;
+}
+
+// Check if corresponding page path exists in other version of docs
+// and, if so, go there instead of the homepage of the other docs version
+function checkPageExistsAndRedirect(event) {
+    const currentFilePath = "source/generic-system-acceleration.html",
+          tryUrl = event.target.getAttribute("href");
+    let otherDocsHomepage = tryUrl.replace(currentFilePath, "");
+    $.ajax({
+        type: 'HEAD',
+        url: tryUrl,
+        // if the page exists, go there
+        success: function() {
+            location.href = tryUrl;
+        }
+    }).fail(function() {
+        location.href = otherDocsHomepage;
+    });
+    // this prevents the browser from following the href of the clicked node
+    // (which is fine because this function takes care of redirecting)
+    return false;
+}
+
+// Populate the version switcher from the JSON config file
+(function () {
+    $.getJSON("/_static/switcher.json", function(data, textStatus, jqXHR) {
+        const currentFilePath = "source/generic-system-acceleration.html";
+        // create links to the corresponding page in the other docs versions
+        $.each(data, function(index, entry) {
+            // if no custom name specified (e.g., "latest"), use version string
+            if (!("name" in entry)) {
+                entry.name = entry.version;
+            }
+            // create the node
+            const node = document.createElement("a");
+            node.setAttribute("class", "list-group-item list-group-item-action py-1");
+            node.textContent = `${entry.name}`;
+            // get the base URL for that doc version, add the current page's
+            // path to it, and set as `href`
+            entry.url = buildURL(entry);
+            node.setAttribute("href", `${entry.url}${currentFilePath}`);
+            // on click, AJAX calls will check if the linked page exists before
+            // trying to redirect, and if not, will redirect to the homepage
+            // for that version of the docs.
+            node.onclick = checkPageExistsAndRedirect;
+            $("#version_switcher_menu").append(node);
+            // replace dropdown button text with the preferred display name of
+            // this version, rather than using sphinx's  variable.
+            // also highlight the dropdown entry for the currently-viewed
+            // version's entry
+            if (entry.version == "None") {
+                node.classList.add("active");
+                $("#version_switcher_button").text(entry.name);
+            }
+        });
+    });
+})();
+</script>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/ventureoo/ARU" rel="noopener" target="_blank" title="GitHub"><span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.youtube.com/c/PashaLinux" rel="noopener" target="_blank" title="YouTube"><span><i class="fab fa-youtube-square"></i></span>
+            <label class="sr-only">YouTube</label></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.donationalerts.com/r/pavel_priluckiy" rel="noopener" target="_blank" title="Donatealerts"><span><i class="fas fa-donate"></i></span>
+            <label class="sr-only">Donatealerts</label></a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar">
+              <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Поиск..." aria-label="Поиск..." autocomplete="off" >
+</form><ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="preface.html">
+  Предисловие
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="first-steps.html">
+  Первые шаги
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="current reference internal nav-link" href="#">
+  Базовое ускорение системы
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="extra-optimizations.html">
+  Экстра оптимизации
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="kernel-parameters.html">
+  Настройка параметров ядра
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="file-systems.html">
+  Файловые системы
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="custom-kernels.html">
+  Кастомные ядра
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="linux-gaming.html">
+  Wine / Linux Gaming
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="mini-kernel.html">
+  Сборка мини-ядра, и с чем это едят.
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="de-optimizations.html">
+  Оптимизация рабочего окружения (DE)
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="useful-programs.html">
+  Полезные программы
+ </a>
+</li>
+
+    
+</ul><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    
+  </div>
+</nav>
+              </div>
+              <div class="sidebar-end-items">
+              </div>
+            </div>
+            
           
 
-          <div class="body" role="main">
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
             
-  <div class="section" id="id1">
-<h1><a class="toc-backref" href="#id6">Базовое ускорение системы</a><a class="headerlink" href="#id1" title="Ссылка на этот заголовок">¶</a></h1>
-<div class="contents topic" id="id2">
-<p class="topic-title">Содержание:</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="#id1" id="id6">Базовое ускорение системы</a></p>
-<ul>
-<li><p><a class="reference internal" href="#makepkg-conf" id="id7">Настройка makepkg.conf</a></p>
-<ul>
-<li><p><a class="reference internal" href="#clang" id="id8">Форсирование использования Clang при сборке пакетов</a></p>
-<ul>
-<li><p><a class="reference internal" href="#llvm-clang-un-couteau" id="id9">Ускорение работы компиляторов LLVM/Clang (Спасибо &#64;un_couteau)</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#ccache" id="id10">Включение ccache</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#id3" id="id11">Установка полезных служб и демонов</a></p></li>
-<li><p><a class="reference internal" href="#id4" id="id12">Низкие задержки звука</a></p>
-<ul>
-<li><p><a class="reference internal" href="#pulseaudio" id="id13">Новая альтернатива PulseAudio</a></p></li>
-<li><p><a class="reference internal" href="#alsa" id="id14">Простая ALSA</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#networkmanager-wait-online" id="id15">Ускорение загрузки системы (Отключение NetworkManager-wait-online)</a></p>
-<ul>
-<li><p><a class="reference internal" href="#hdd" id="id16">Ускорение загрузки ядра на HDD накопителях (<em>Только для жестких дисков</em>)</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#id5" id="id17">Одновременная загрузка двух и более пакетов</a></p>
-<ul>
-<li><p><a class="reference internal" href="#powerpill-zee-captain" id="id18">Альтернативно можно использовать powerpill (Спасибо Zee Captain)</a></p></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+              
+              <div class="toc-item">
+                
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
 </div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#makepkg-conf">
+   Настройка makepkg.conf
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#clang">
+     Форсирование использования Clang при сборке пакетов
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#llvm-clang-un-couteau">
+       Ускорение работы компиляторов LLVM/Clang (Спасибо @un_couteau)
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ccache">
+     Включение ccache
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   Установка полезных служб и демонов
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   Низкие задержки звука
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pulseaudio">
+     Новая альтернатива PulseAudio
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#alsa">
+     Простая ALSA
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#networkmanager-wait-online">
+   Ускорение загрузки системы (Отключение NetworkManager-wait-online)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hdd">
+     Ускорение загрузки ядра на HDD накопителях (
+     <em>
+      Только для жестких дисков
+     </em>
+     )
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   Одновременная загрузка двух и более пакетов
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#powerpill-zee-captain">
+     Альтернативно можно использовать powerpill (Спасибо Zee Captain)
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+
+<div class="tocsection editthispage">
+    <a href="https://github.com/ventureoo/ARU/edit/main/source/generic-system-acceleration.rst">
+        <i class="fas fa-pencil-alt"></i> Edit this page
+    </a>
+</div>
+
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="id1">
+<h1>Базовое ускорение системы<a class="headerlink" href="#id1" title="Ссылка на этот заголовок">¶</a></h1>
 <p>Переходя к базовой оптимизации системы мне сто́ит напомнить, что чистый Arch Linux - это фундамент, и требуется уйма надстроек для нормальной работы системы.
 Установить компоненты, которые будут отвечать за электропитание, чистку, оптимизацию и тому подобные вещи, что и описывается в данном разделе.</p>
 <div class="section" id="makepkg-conf">
-<h2><a class="toc-backref" href="#id7">Настройка makepkg.conf</a><a class="headerlink" href="#makepkg-conf" title="Ссылка на этот заголовок">¶</a></h2>
+<h2>Настройка makepkg.conf<a class="headerlink" href="#makepkg-conf" title="Ссылка на этот заголовок">¶</a></h2>
 <p>Прежде чем приступать к сборке пакетов, мы должны изменить так называемые флаги компиляции,
 что являются указателями для компилятора, какие инструкции и оптимизации использовать при сборке программ.</p>
 <p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">/etc/makepkg.conf</span></code> # Редактируем (Где &quot;-O2&quot; - <strong>Это не нуль/ноль</strong>)</p>
@@ -91,7 +403,7 @@
 <p>Данные флаги компилятора выжимают максимум производительности при компиляции, но могут вызывать ошибки сборки в очень редких приложениях.
 Если такое случится, то отключите параметр ‘lto’ в строке options добавив перед ним символ восклицательного знака  ! (<em>&quot;!lto&quot;</em>).</p>
 <div class="section" id="clang">
-<h3><a class="toc-backref" href="#id8">Форсирование использования Clang при сборке пакетов</a><a class="headerlink" href="#clang" title="Ссылка на этот заголовок">¶</a></h3>
+<h3>Форсирование использования Clang при сборке пакетов<a class="headerlink" href="#clang" title="Ссылка на этот заголовок">¶</a></h3>
 <p>В системах на базе ядра Linux различают две основных группы компиляторов, это LLVM и GCC.
 И те, и другие хорошо справляются с возложенными на них задачами,
 но LLVM имеет чуть большее преимущество с точки зрения производительности при меньших потерях в качестве конечного кода.
@@ -141,7 +453,7 @@
 <p>Больше подробностей по теме вы можете найти в данной статье:</p>
 <p><a class="reference external" href="https://habr.com/ru/company/ruvds/blog/561286/">https://habr.com/ru/company/ruvds/blog/561286/</a></p>
 <div class="section" id="llvm-clang-un-couteau">
-<h4><a class="toc-backref" href="#id9">Ускорение работы компиляторов LLVM/Clang (Спасибо &#64;un_couteau)</a><a class="headerlink" href="#llvm-clang-un-couteau" title="Ссылка на этот заголовок">¶</a></h4>
+<h4>Ускорение работы компиляторов LLVM/Clang (Спасибо &#64;un_couteau)<a class="headerlink" href="#llvm-clang-un-couteau" title="Ссылка на этот заголовок">¶</a></h4>
 <p>Дополнительно можно отметить, что после установки Clang вы можете перекомпилировать его самого через себя,
 т.е. выполнить пересборку Clang с помощью бинарного Clang из репозиториев.
 Это позволит оптимизировать уже сам компилятор под ваше железо и тем самым ускорить
@@ -170,7 +482,7 @@ git clone https://github.com/ptr1337/llvm-bolt-builds  <span class="c1"># Кло
 </div>
 </div>
 <div class="section" id="ccache">
-<h3><a class="toc-backref" href="#id10">Включение ccache</a><a class="headerlink" href="#ccache" title="Ссылка на этот заголовок">¶</a></h3>
+<h3>Включение ccache<a class="headerlink" href="#ccache" title="Ссылка на этот заголовок">¶</a></h3>
 <p>В Linux системах есть не так много программ, сборка которых может занять больше двух часов,
 но они все таки есть. Потому, было бы неплохо ускорить повторную компиляцию таких программ как Wine/Proton-GE и т.д.</p>
 <p>ccache - это кэш для компиляторов C/C++, в частности совместимый с компиляторами GCC/Clang,
@@ -197,8 +509,8 @@ git clone https://github.com/ptr1337/llvm-bolt-builds  <span class="c1"># Кло
 </div>
 </div>
 </div>
-<div class="section" id="id3">
-<h2><a class="toc-backref" href="#id11">Установка полезных служб и демонов</a><a class="headerlink" href="#id3" title="Ссылка на этот заголовок">¶</a></h2>
+<div class="section" id="id2">
+<h2>Установка полезных служб и демонов<a class="headerlink" href="#id2" title="Ссылка на этот заголовок">¶</a></h2>
 <p><strong>1.</strong> <a class="reference external" href="https://aur.archlinux.org/packages/zramswap/">Zramswap</a> — это специальный демон,
 который сжимает оперативную память ресурсами центрального процессора и создает в ней файл подкачки.
 Очень ускоряет систему вне зависимости от количества памяти, однако добавляет нагрузку на процессор, т.к. его ресурсами и происходит сжатие памяти.
@@ -268,8 +580,8 @@ sudo systemctl --global <span class="nb">enable</span> dbus-broker.service <span
 то просто посмотрите на следующую схему:</p>
 <img alt="../_images/generic-system-acceleration-1.png" src="../_images/generic-system-acceleration-1.png" />
 </div>
-<div class="section" id="id4">
-<h2><a class="toc-backref" href="#id12">Низкие задержки звука</a><a class="headerlink" href="#id4" title="Ссылка на этот заголовок">¶</a></h2>
+<div class="section" id="id3">
+<h2>Низкие задержки звука<a class="headerlink" href="#id3" title="Ссылка на этот заголовок">¶</a></h2>
 <p>Установите следующие пакеты для понижения задержек звука в PulseAudio,
 а также удобную графическую панель управления звуком -  <em>pavucontrol</em>.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S jack2 pulseaudio-alsa pulseaudio-jack pavucontrol jack2-dbus realtime-privileges
@@ -281,7 +593,7 @@ sudo systemctl --global <span class="nb">enable</span> dbus-broker.service <span
 он может вызвать небольшие задержки всей системы из-за усиленного воздействия на CPU, но без него звук хуже.</p>
 </div>
 <div class="section" id="pulseaudio">
-<h3><a class="toc-backref" href="#id13">Новая альтернатива PulseAudio</a><a class="headerlink" href="#pulseaudio" title="Ссылка на этот заголовок">¶</a></h3>
+<h3>Новая альтернатива PulseAudio<a class="headerlink" href="#pulseaudio" title="Ссылка на этот заголовок">¶</a></h3>
 <p><a class="reference external" href="https://wiki.archlinux.org/title/PipeWire_(Русский)">PipeWire</a> - это новая альтернатива PulseAudio,
 которая призвана избавить от проблем pulse, уменьшить задержки звука и потребление памяти.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S jack2 pipewire pipewire-jack pipewire-alsa pavucontrol pipewire-pulse alsa-utils
@@ -289,7 +601,7 @@ sudo systemctl --global <span class="nb">enable</span> dbus-broker.service <span
 </div>
 </div>
 <div class="section" id="alsa">
-<h3><a class="toc-backref" href="#id14">Простая ALSA</a><a class="headerlink" href="#alsa" title="Ссылка на этот заголовок">¶</a></h3>
+<h3>Простая ALSA<a class="headerlink" href="#alsa" title="Ссылка на этот заголовок">¶</a></h3>
 <p>ALSA - это тот самый звук (условно, на самом деле это звуковая подсистема ядра),
 который идёт напрямую из ядра и является самым быстрым,
 так как не вынужден проходить множество программных прослоек и микширование.</p>
@@ -304,7 +616,7 @@ sudo systemctl --global <span class="nb">enable</span> dbus-broker.service <span
 </div>
 </div>
 <div class="section" id="networkmanager-wait-online">
-<h2><a class="toc-backref" href="#id15">Ускорение загрузки системы (Отключение NetworkManager-wait-online)</a><a class="headerlink" href="#networkmanager-wait-online" title="Ссылка на этот заголовок">¶</a></h2>
+<h2>Ускорение загрузки системы (Отключение NetworkManager-wait-online)<a class="headerlink" href="#networkmanager-wait-online" title="Ссылка на этот заголовок">¶</a></h2>
 <p>В большинстве случаев для настройки интернет подключения вы, скорее всего, будете использовать NetworkManager,
 т.к. он является в этом деле швейцарским ножом и поставляется по умолчанию.
 Однако, если вы пропишите команду <em>systemd-analyze blame</em>, то узнаете, что он задерживает загрузку системы примерно на ~4 секунды.
@@ -313,7 +625,7 @@ sudo systemctl --global <span class="nb">enable</span> dbus-broker.service <span
 </pre></div>
 </div>
 <div class="section" id="hdd">
-<h3><a class="toc-backref" href="#id16">Ускорение загрузки ядра на HDD накопителях (<em>Только для жестких дисков</em>)</a><a class="headerlink" href="#hdd" title="Ссылка на этот заголовок">¶</a></h3>
+<h3>Ускорение загрузки ядра на HDD накопителях (<em>Только для жестких дисков</em>)<a class="headerlink" href="#hdd" title="Ссылка на этот заголовок">¶</a></h3>
 <p>Убедитесь, что пакет <a class="reference external" href="https://archlinux.org/packages/core/x86_64/lz4/">lz4</a> установлен:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S lz4
 </pre></div>
@@ -332,8 +644,8 @@ sudo systemctl --global <span class="nb">enable</span> dbus-broker.service <span
 <p>Это ускорит загрузку системы на слабых жёстких дисках благодаря более подходящему методу сжатия образов ядра.</p>
 </div>
 </div>
-<div class="section" id="id5">
-<h2><a class="toc-backref" href="#id17">Одновременная загрузка двух и более пакетов</a><a class="headerlink" href="#id5" title="Ссылка на этот заголовок">¶</a></h2>
+<div class="section" id="id4">
+<h2>Одновременная загрузка двух и более пакетов<a class="headerlink" href="#id4" title="Ссылка на этот заголовок">¶</a></h2>
 <p>Начиная с шестой версии pacman поддерживает параллельную загрузку пакетов.
 Чтобы её включить отредактируйте <em>/etc/pacman.conf</em>:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo nano /etc/pacman.conf <span class="c1"># Раскомментируйте строчку ниже</span>
@@ -343,7 +655,7 @@ sudo systemctl --global <span class="nb">enable</span> dbus-broker.service <span
 </pre></div>
 </div>
 <div class="section" id="powerpill-zee-captain">
-<h3><a class="toc-backref" href="#id18">Альтернативно можно использовать powerpill (Спасибо Zee Captain)</a><a class="headerlink" href="#powerpill-zee-captain" title="Ссылка на этот заголовок">¶</a></h3>
+<h3>Альтернативно можно использовать powerpill (Спасибо Zee Captain)<a class="headerlink" href="#powerpill-zee-captain" title="Ссылка на этот заголовок">¶</a></h3>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://aur.archlinux.org/powerpill.git
 <span class="nb">cd</span> powerpill
 makepkg -sric
@@ -358,118 +670,44 @@ makepkg -sric
 </div>
 
 
-          </div>
-          
+              </div>
+              
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="first-steps.html" title="назад страница">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">назад</p>
+            <p class="prev-next-title">Первые шаги</p>
         </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../index.html">ARU</a></h1>
-
-
-
-
-
-
-<p>
-<iframe src="https://ghbtns.com/github-btn.html?user=ventureoo&repo=ARU&type=star&count=true&size=large&v=2"
-  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
-</p>
-
-
-
-
-
-<h3>Навигация</h3>
-<p class="caption"><span class="caption-text">Содержание:</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="preface.html">Предисловие</a></li>
-<li class="toctree-l1"><a class="reference internal" href="first-steps.html">Первые шаги</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Базовое ускорение системы</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#makepkg-conf">Настройка makepkg.conf</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#clang">Форсирование использования Clang при сборке пакетов</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#llvm-clang-un-couteau">Ускорение работы компиляторов LLVM/Clang (Спасибо &#64;un_couteau)</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#ccache">Включение ccache</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">Установка полезных служб и демонов</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id4">Низкие задержки звука</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#pulseaudio">Новая альтернатива PulseAudio</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#alsa">Простая ALSA</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#networkmanager-wait-online">Ускорение загрузки системы (Отключение NetworkManager-wait-online)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#hdd">Ускорение загрузки ядра на HDD накопителях (<em>Только для жестких дисков</em>)</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#id5">Одновременная загрузка двух и более пакетов</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#powerpill-zee-captain">Альтернативно можно использовать powerpill (Спасибо Zee Captain)</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="extra-optimizations.html">Экстра оптимизации</a></li>
-<li class="toctree-l1"><a class="reference internal" href="kernel-parameters.html">Настройка параметров ядра</a></li>
-<li class="toctree-l1"><a class="reference internal" href="file-systems.html">Файловые системы</a></li>
-<li class="toctree-l1"><a class="reference internal" href="custom-kernels.html">Кастомные ядра</a></li>
-<li class="toctree-l1"><a class="reference internal" href="linux-gaming.html">Wine / Linux Gaming</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mini-kernel.html">Сборка мини-ядра, и с чем это едят.</a></li>
-<li class="toctree-l1"><a class="reference internal" href="de-optimizations.html">Оптимизация рабочего окружения (DE)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="useful-programs.html">Полезные программы</a></li>
-</ul>
-
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="../index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="first-steps.html" title="предыдущая глава">Первые шаги</a></li>
-      <li>Next: <a href="extra-optimizations.html" title="следующая глава">Экстра оптимизации</a></li>
-  </ul></li>
-</ul>
-</div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Быстрый поиск</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Искать" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
-
-
-<h3 class="donation">Donate/support</h3>
-
-
-
-<p>
-<a class="badge" href="https://www.donationalerts.com/r/pavel_priluckiy">
-<img src="https://img.shields.io/badge/donate-%E2%9D%A4%C2%A0-ff69b4.svg?style=flat" alt="Donate">
-</a>
-</p>
-
-
-
-
-
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="footer">
-      &copy;ARU 2018 - 2022, Pavel Priluckiy, Vasiliy Stelmachenok and contributors.
-      
-    </div>
-
-    
-    <a href="https://github.com/ventureoo/ARU" class="github">
-        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
     </a>
-    
+    <a class='right-next' id="next-link" href="extra-optimizations.html" title="вперёд страница">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">вперёд</p>
+        <p class="prev-next-title">Экстра оптимизации</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+              
+          </main>
+          
 
+      </div>
+    </div>
+  
+    <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <footer class="footer mt-5 mt-md-0">
+  <div class="container">
     
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright ARU 2018 - 2022 Pavel Priluckiy, Vasiliy Stelmachenok and contributors.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
   </body>
 </html>
