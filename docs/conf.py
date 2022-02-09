@@ -96,7 +96,7 @@ html_theme_options = {
     "footer_items": ["copyright"],
     "switcher": {
         # "json_url": "/_static/switcher.json",
-        "json_url": "/_static/switcher.json",
+        "json_url": "https://ventureoo.github.io/ARU/_static/switcher.json",
         "url_template": "https://github.com/ventureoo/ARU/tree/{version}/",
     },
 }
