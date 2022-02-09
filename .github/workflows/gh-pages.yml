@@ -4,23 +4,20 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'docs/**'
+      - '.github/workflows/**'
   pull_request:
     branches:
       - main
+    paths:
+      - 'docs/**'
+      - '.github/workflows/**'
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: archlinux:base-devel
     steps:
-    - name: Install dependencies
-      run: |
-        pacman-key --init
-        pacman -Syu --noconfirm
-        pacman -S --noconfirm python git
-        git clone https://aur.archlinux.org/python-pydata-sphinx-theme.git
-        cd python-pydata-sphinx-theme
-        makepkg -sric --noconfirm
     - uses: actions/checkout@v2
     - name: Build HTML
       uses: ammaraskar/sphinx-action@master
