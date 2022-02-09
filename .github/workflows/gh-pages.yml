@@ -23,15 +23,15 @@ jobs:
       uses: ammaraskar/sphinx-action@master
       with:
         docs-folder: "docs/"
-        build-command: "sphinx-build -b html . build"
+        build-command: "sphinx-build -b html . docs"
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
       with:
         name: ARU-${{ github.sha }}
-        path: docs/build/
+        path: docs/docs/
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       if: github.ref == 'refs/heads/main'
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: docs/build/
+        publish_dir: docs/
