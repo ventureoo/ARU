@@ -108,7 +108,7 @@ html_context = {
 }
 
 html_sidebars = {
-    "**": ["search-field.html", "navbar-nav", "sidebar-nav-bs.html" ]
+    "**": ["navbar-nav", "search-field.html" ]
 }
 
 # Misc
