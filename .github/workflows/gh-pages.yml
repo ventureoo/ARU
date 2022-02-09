@@ -17,7 +17,7 @@ jobs:
       run: |
         pacman-key --init
         pacman -Syu --noconfirm
-        pacman -S --noconfirm python
+        pacman -S --noconfirm python git
         git clone https://aur.archlinux.org/python-pydata-sphinx-theme.git
         cd python-pydata-sphinx-theme
         makepkg -sric --noconfirm
