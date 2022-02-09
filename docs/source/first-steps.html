@@ -76,7 +76,7 @@
       <div class="navbar-end-item">
         <div class="dropdown" id="version_switcher">
     <button type="button" class="btn btn-primary btn-sm navbar-btn dropdown-toggle" id="version_switcher_button" data-toggle="dropdown">
-        None  <!-- this text may get changed later by javascript -->
+        latest  <!-- this text may get changed later by javascript -->
         <span class="caret"></span>
     </button>
     <div id="version_switcher_menu" class="dropdown-menu list-group-flush py-0" aria-labelledby="version_switcher_button">
@@ -86,7 +86,7 @@
 
 <!-- NOTE: this JS must live here (not in our global JS file) because it relies
      on being processed by Jinja before it is run (specifically for replacing
-     variables source/first-steps and {'json_url': 'https://ventureoo.github.io/ARU/_static/switcher.json', 'url_template': 'https://github.com/ventureoo/ARU/v{version}/'}.
+     variables source/first-steps and {'json_url': 'https://ventureoo.github.io/ARU/_static/switcher.json', 'url_template': 'https://github.com/ventureoo/ARU/v{version}/', 'version_match': 'latest'}.
 -->
 
 <script type="text/javascript">
@@ -145,7 +145,7 @@ function checkPageExistsAndRedirect(event) {
             // this version, rather than using sphinx's  variable.
             // also highlight the dropdown entry for the currently-viewed
             // version's entry
-            if (entry.version == "None") {
+            if (entry.version == "latest") {
                 node.classList.add("active");
                 $("#version_switcher_button").text(entry.name);
             }
