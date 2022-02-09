@@ -85,7 +85,7 @@
 
 <!-- NOTE: this JS must live here (not in our global JS file) because it relies
      on being processed by Jinja before it is run (specifically for replacing
-     variables index and {'json_url': '/_static/switcher.json', 'url_template': 'https://github.com/ventureoo/ARU/tree/{version}/'}.
+     variables index and {'json_url': 'https://ventureoo.github.io/ARU/_static/switcher.json', 'url_template': 'https://github.com/ventureoo/ARU/tree/{version}/'}.
 -->
 
 <script type="text/javascript">
@@ -119,7 +119,7 @@ function checkPageExistsAndRedirect(event) {
 
 // Populate the version switcher from the JSON config file
 (function () {
-    $.getJSON("/_static/switcher.json", function(data, textStatus, jqXHR) {
+    $.getJSON("https://ventureoo.github.io/ARU/_static/switcher.json", function(data, textStatus, jqXHR) {
         const currentFilePath = "index.html";
         // create links to the corresponding page in the other docs versions
         $.each(data, function(index, entry) {
