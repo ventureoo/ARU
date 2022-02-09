@@ -86,13 +86,13 @@
 
 <!-- NOTE: this JS must live here (not in our global JS file) because it relies
      on being processed by Jinja before it is run (specifically for replacing
-     variables source/mini-kernel and {'json_url': 'https://ventureoo.github.io/ARU/_static/switcher.json', 'url_template': 'https://github.com/ventureoo/ARU/tree/{version}/'}.
+     variables source/mini-kernel and {'json_url': 'https://ventureoo.github.io/ARU/_static/switcher.json', 'url_template': 'https://github.com/ventureoo/ARU/v{version}/'}.
 -->
 
 <script type="text/javascript">
 // Construct the target URL from the JSON components
 function buildURL(entry) {
-    var template = "https://github.com/ventureoo/ARU/tree/{version}/";  // supplied by jinja
+    var template = "https://github.com/ventureoo/ARU/v{version}/";  // supplied by jinja
     template = template.replace("{version}", entry.version);
     return template;
 }
