@@ -6,12 +6,13 @@ on:
       - main
     paths:
       - 'docs/**'
+      - '.github/workflows/**'
   pull_request:
     branches:
       - main
     paths:
       - 'docs/**'
-
+      - '.github/workflows/**'
 
 jobs:
   build:
