@@ -303,7 +303,7 @@ function checkPageExistsAndRedirect(event) {
 <p class="caption"><span class="caption-text">Содержание:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="source/preface.html">Предисловие</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="source/preface.html#id2">Основные консольные команды</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="source/preface.html#basic-commands">Основные консольные команды</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="source/preface.html#aur">Пару слов об AUR помощниках</a></li>
 </ul>
 </li>
@@ -312,12 +312,12 @@ function checkPageExistsAndRedirect(event) {
 <li class="toctree-l1"><a class="reference internal" href="source/first-steps.html">Первые шаги</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="source/first-steps.html#pacman">Настройка pacman</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="source/first-steps.html#arch-linux">Обновление ключей Arch Linux</a></li>
-<li class="toctree-l3"><a class="reference internal" href="source/first-steps.html#id2">Включение 32-битного репозитория</a></li>
-<li class="toctree-l3"><a class="reference internal" href="source/first-steps.html#id3">Ускорение обновления системы</a></li>
+<li class="toctree-l3"><a class="reference internal" href="source/first-steps.html#multilib-repository">Включение 32-битного репозитория</a></li>
+<li class="toctree-l3"><a class="reference internal" href="source/first-steps.html#speed-up-system-updates">Ускорение обновления системы</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="source/first-steps.html#id4">Установка базовых пакетов и набора программ</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="source/first-steps.html#id5">Установка актуальных драйверов для видеокарты</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="source/first-steps.html#basic-software-installation">Установка базовых пакетов и набора программ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="source/first-steps.html#drivers-installation">Установка актуальных драйверов для видеокарты</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="source/first-steps.html#nvidia">NVIDIA</a></li>
 <li class="toctree-l4"><a class="reference internal" href="source/first-steps.html#nouveau">Nouveau (<em>Только для старых видеокарт</em>)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="source/first-steps.html#amd">AMD</a></li>
@@ -326,12 +326,12 @@ function checkPageExistsAndRedirect(event) {
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="source/first-steps.html#id6">Добавление важных модулей в образы ядра</a></li>
-<li class="toctree-l2"><a class="reference internal" href="source/first-steps.html#id7">Установка микрокода</a></li>
+<li class="toctree-l2"><a class="reference internal" href="source/first-steps.html#important-modules">Добавление важных модулей в образы ядра</a></li>
+<li class="toctree-l2"><a class="reference internal" href="source/first-steps.html#microcode-installation">Установка микрокода</a></li>
 <li class="toctree-l2"><a class="reference internal" href="source/first-steps.html#id8">Настройка драйвера NVIDIA</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="source/first-steps.html#id9">Твики драйвера NVIDIA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="source/first-steps.html#id10">Специфические переменные окружения для драйвера NVIDIA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="source/first-steps.html#id11">Разгон монитора с видеокартой NVIDIA <em>(Только для опытных пользователей)</em>.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="source/first-steps.html#nvidia-tweaking">Твики драйвера NVIDIA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="source/first-steps.html#nvidia-env-vars">Специфические переменные окружения для драйвера NVIDIA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="source/first-steps.html#monitor-overlocking">Разгон монитора с видеокартой NVIDIA <em>(Только для опытных пользователей)</em>.</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="source/first-steps.html#mesa">Твики драйверов Mesa</a><ul>
@@ -349,8 +349,8 @@ function checkPageExistsAndRedirect(event) {
 <li class="toctree-l3"><a class="reference internal" href="source/generic-system-acceleration.html#ccache">Включение ccache</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="source/generic-system-acceleration.html#id2">Установка полезных служб и демонов</a></li>
-<li class="toctree-l2"><a class="reference internal" href="source/generic-system-acceleration.html#id3">Низкие задержки звука</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="source/generic-system-acceleration.html#daemons-and-services">Установка полезных служб и демонов</a></li>
+<li class="toctree-l2"><a class="reference internal" href="source/generic-system-acceleration.html#lowlatency-audio">Низкие задержки звука</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="source/generic-system-acceleration.html#pulseaudio">Новая альтернатива PulseAudio</a></li>
 <li class="toctree-l3"><a class="reference internal" href="source/generic-system-acceleration.html#alsa">Простая ALSA</a></li>
 </ul>
@@ -359,40 +359,40 @@ function checkPageExistsAndRedirect(event) {
 <li class="toctree-l3"><a class="reference internal" href="source/generic-system-acceleration.html#hdd">Ускорение загрузки ядра на HDD накопителях (<em>Только для жестких дисков</em>)</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="source/generic-system-acceleration.html#id4">Одновременная загрузка двух и более пакетов</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="source/generic-system-acceleration.html#parallel-downloading">Одновременная загрузка двух и более пакетов</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="source/generic-system-acceleration.html#powerpill-zee-captain">Альтернативно можно использовать powerpill (Спасибо Zee Captain)</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="source/extra-optimizations.html">Экстра оптимизации</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="source/extra-optimizations.html#id2">Перевод процессора из стандартного энергосбережения в режим производительности</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="source/extra-optimizations.html#maximum-cpu-performance">Перевод процессора из стандартного энергосбережения в режим производительности</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="source/extra-optimizations.html#gui-xanmod">GUI для изменение частоты процессора (<em>Может не работать с Xanmod</em>)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="source/extra-optimizations.html#auto-cpufreq">Альтернатива - Auto-Cpufreq</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="source/extra-optimizations.html#id3">Отключение спящего режима и гибернации</a></li>
-<li class="toctree-l2"><a class="reference internal" href="source/extra-optimizations.html#id4">Отключение дампов ядра (<em>Только для опытных пользователей</em>)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="source/extra-optimizations.html#id5">Отключение файла подкачки</a></li>
+<li class="toctree-l2"><a class="reference internal" href="source/extra-optimizations.html#disabling-hibernation-and-sleep">Отключение спящего режима и гибернации</a></li>
+<li class="toctree-l2"><a class="reference internal" href="source/extra-optimizations.html#disabling-kernel-dumps">Отключение дампов ядра (<em>Только для опытных пользователей</em>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="source/extra-optimizations.html#disabling-swap">Отключение файла подкачки</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="source/kernel-parameters.html">Настройка параметров ядра</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="source/kernel-parameters.html#id2">Обновление загрузчика и отключение ненужных заплаток</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="source/kernel-parameters.html#id3">Разъяснения</a></li>
+<li class="toctree-l2"><a class="reference internal" href="source/kernel-parameters.html#update-bootloader-parameters">Обновление загрузчика и отключение ненужных заплаток</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="source/kernel-parameters.html#explanations">Разъяснения</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="source/file-systems.html">Файловые системы</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="source/file-systems.html#id2">Нюансы выбора файловой системы и флагов монтирования</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="source/file-systems.html#id3">Оптимальные флаги монтирования</a></li>
+<li class="toctree-l2"><a class="reference internal" href="source/file-systems.html#file-system-selection">Нюансы выбора файловой системы и флагов монтирования</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="source/file-systems.html#mount-options">Оптимальные флаги монтирования</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="source/file-systems.html#btrfs">Сжатие в файловой системе Btrfs</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="source/file-systems.html#id6">Определение эффективности сжатия</a></li>
+<li class="toctree-l3"><a class="reference internal" href="source/file-systems.html#efficiency-test">Определение эффективности сжатия</a></li>
 <li class="toctree-l3"><a class="reference internal" href="source/file-systems.html#zstd-amd-ryzen-7-3700x">Скорость обработки алгоритма zstd на примере AMD Ryzen 7 3700X</a></li>
 <li class="toctree-l3"><a class="reference internal" href="source/file-systems.html#dewdpol">Список протестированных игр на эффективность сжатия (Спасибо &#64;dewdpol!)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="source/file-systems.html#id7">Промежуточные результаты</a></li>
+<li class="toctree-l4"><a class="reference internal" href="source/file-systems.html#intermediate-results">Промежуточные результаты</a></li>
 </ul>
 </li>
 </ul>
@@ -408,24 +408,24 @@ function checkPageExistsAndRedirect(event) {
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="source/linux-gaming.html">Wine / Linux Gaming</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="source/linux-gaming.html#id1">Основные составляющие</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="source/linux-gaming.html#main-components">Основные составляющие</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="source/linux-gaming.html#wine">Что такое Wine?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="source/linux-gaming.html#id2">Сборки Wine</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="source/linux-gaming.html#wine-builds">Сборки Wine</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="source/linux-gaming.html#wine-staging">Установка wine-staging вместе с зависимостями</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="source/linux-gaming.html#id3">Альтернативные сборки Wine</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="source/linux-gaming.html#alternative-wine-builds">Альтернативные сборки Wine</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="source/linux-gaming.html#wine-tkg">WINE-TKG</a></li>
 <li class="toctree-l4"><a class="reference internal" href="source/linux-gaming.html#wine-tkg-userpatches"><em>wine-tkg-userpatches</em></a></li>
 <li class="toctree-l4"><a class="reference internal" href="source/linux-gaming.html#proton-ge-custom">Proton-GE-Custom</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="source/linux-gaming.html#id5">Использование Wine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="source/linux-gaming.html#wine-usage">Использование Wine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="source/linux-gaming.html#dxvk">Сборка DXVK с асинхронным патчем</a></li>
 <li class="toctree-l3"><a class="reference internal" href="source/linux-gaming.html#wine-dxvk">Полезные ссылки по теме Wine и DXVK</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="source/linux-gaming.html#id6">Дополнительные компоненты</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="source/linux-gaming.html#additional-components">Дополнительные компоненты</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="source/linux-gaming.html#lutris">Lutris и дополнения.</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="source/linux-gaming.html#proton-ge-custom-lutris">Использование Proton-GE-Custom в Lutris</a></li>
 </ul>
@@ -443,7 +443,7 @@ function checkPageExistsAndRedirect(event) {
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="source/mini-kernel.html">Сборка мини-ядра, и с чем это едят.</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="source/mini-kernel.html#id3">Возможные часто встречаемые проблемы после установки мини-ядра</a></li>
+<li class="toctree-l2"><a class="reference internal" href="source/mini-kernel.html#related-issues">Возможные часто встречаемые проблемы после установки мини-ядра</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="source/de-optimizations.html">Оптимизация рабочего окружения (DE)</a><ul>
@@ -453,7 +453,7 @@ function checkPageExistsAndRedirect(event) {
 <li class="toctree-l3"><a class="reference internal" href="source/de-optimizations.html#tracker-3-gnome">Отключение Tracker 3 в GNOME (НОВЫЙ СПОСОБ)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="source/de-optimizations.html#gsd-gnome">Отключение ненужных GSD служб GNOME (НОВЫЙ СПОСОБ)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="source/de-optimizations.html#gnome-shell-performance-mutter-performance">gnome-shell-performance и mutter-performance</a></li>
-<li class="toctree-l3"><a class="reference internal" href="source/de-optimizations.html#id2">Результат</a></li>
+<li class="toctree-l3"><a class="reference internal" href="source/de-optimizations.html#gnome-result">Результат</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="source/de-optimizations.html#kde-plasma-5">KDE Plasma 5</a><ul>
@@ -462,23 +462,23 @@ function checkPageExistsAndRedirect(event) {
 <li class="toctree-l3"><a class="reference internal" href="source/de-optimizations.html#kde-5">Отключение отладочной информации в KDE 5</a></li>
 <li class="toctree-l3"><a class="reference internal" href="source/de-optimizations.html#plasma">Отключение ненужных служб Plasma</a></li>
 <li class="toctree-l3"><a class="reference internal" href="source/de-optimizations.html#kwin">Настройка работы KWin для увеличения плавности</a></li>
-<li class="toctree-l3"><a class="reference internal" href="source/de-optimizations.html#id5">Отключение композитинга для полноэкранных окон</a></li>
-<li class="toctree-l3"><a class="reference internal" href="source/de-optimizations.html#id6">Отключение ненужных графических эффектов Plasma</a></li>
-<li class="toctree-l3"><a class="reference internal" href="source/de-optimizations.html#id7">Результат</a></li>
+<li class="toctree-l3"><a class="reference internal" href="source/de-optimizations.html#kwin-full-screen-unredirection">Отключение композитинга для полноэкранных окон</a></li>
+<li class="toctree-l3"><a class="reference internal" href="source/de-optimizations.html#disabling-kwin-effects">Отключение ненужных графических эффектов Plasma</a></li>
+<li class="toctree-l3"><a class="reference internal" href="source/de-optimizations.html#plasma-result">Результат</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="source/de-optimizations.html#xfce4">Xfce4</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="source/de-optimizations.html#xfce">Удаление потенциально ненужных компонентов Xfce</a></li>
-<li class="toctree-l3"><a class="reference internal" href="source/de-optimizations.html#id8">Отключение ненужных служб и приложений автозапуска</a></li>
+<li class="toctree-l3"><a class="reference internal" href="source/de-optimizations.html#disabling-xfce-daemons">Отключение ненужных служб и приложений автозапуска</a></li>
 <li class="toctree-l3"><a class="reference internal" href="source/de-optimizations.html#xfwm4">Настройка композитора Xfwm4</a></li>
-<li class="toctree-l3"><a class="reference internal" href="source/de-optimizations.html#id9">Результат</a></li>
+<li class="toctree-l3"><a class="reference internal" href="source/de-optimizations.html#xfce-result">Результат</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="source/de-optimizations.html#cinnamon">Cinnamon</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="source/de-optimizations.html#csd">Отключение ненужных CSD служб (НОВЫЙ СПОСОБ)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="source/de-optimizations.html#muffin">Настройка композитора Muffin</a></li>
-<li class="toctree-l3"><a class="reference internal" href="source/de-optimizations.html#id10">Отключение ненужных эффектов Muffin</a></li>
-<li class="toctree-l3"><a class="reference internal" href="source/de-optimizations.html#id11">Результат</a></li>
+<li class="toctree-l3"><a class="reference internal" href="source/de-optimizations.html#disabling-muffin-effects">Отключение ненужных эффектов Muffin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="source/de-optimizations.html#cinnamon-result">Результат</a></li>
 </ul>
 </li>
 </ul>

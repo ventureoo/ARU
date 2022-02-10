@@ -276,12 +276,12 @@ function checkPageExistsAndRedirect(event) {
 <nav id="bd-toc-nav">
     <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
+  <a class="reference internal nav-link" href="#update-bootloader-parameters">
    Обновление загрузчика и отключение ненужных заплаток
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
+    <a class="reference internal nav-link" href="#explanations">
      Разъяснения
     </a>
    </li>
@@ -315,10 +315,10 @@ function checkPageExistsAndRedirect(event) {
               
               <div>
                 
-  <div class="section" id="id1">
-<h1>Настройка параметров ядра<a class="headerlink" href="#id1" title="Ссылка на этот заголовок">¶</a></h1>
-<div class="section" id="id2">
-<h2>Обновление загрузчика и отключение ненужных заплаток<a class="headerlink" href="#id2" title="Ссылка на этот заголовок">¶</a></h2>
+  <div class="section" id="kernel-parameters">
+<span id="id1"></span><h1>Настройка параметров ядра<a class="headerlink" href="#kernel-parameters" title="Ссылка на этот заголовок">¶</a></h1>
+<div class="section" id="update-bootloader-parameters">
+<span id="index-0"></span><span id="id2"></span><h2>Обновление загрузчика и отключение ненужных заплаток<a class="headerlink" href="#update-bootloader-parameters" title="Ссылка на этот заголовок">¶</a></h2>
 <p>По умолчанию в ядре Linux включено довольно много исправлений безопасности, которые однако существенно снижают производительность процессора.
 Вы можете их отключить через редактирование параметров загрузчика. Рассмотрим на примере GRUB:</p>
 <p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">/etc/default/grub</span></code> # Редактируем настройки вручную или через grub-customizer как на изображении:</p>
@@ -328,8 +328,8 @@ function checkPageExistsAndRedirect(event) {
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">grub-mkconfig</span> <span class="pre">-o</span> <span class="pre">/boot/grub/grub.cfg</span></code>
 # Обновляем загрузчик, можно так же сделать через grub-customizer, добавить и прожать, затем сохранить на 2 и 1 вкладке.</p>
-<div class="section" id="id3">
-<h3>Разъяснения<a class="headerlink" href="#id3" title="Ссылка на этот заголовок">¶</a></h3>
+<div class="section" id="explanations">
+<span id="index-1"></span><span id="id3"></span><h3>Разъяснения<a class="headerlink" href="#explanations" title="Ссылка на этот заголовок">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">lpj=</span></code> - Уникальный параметр для каждой системы. Его значение автоматически определяется во время загрузки, что довольно трудоемко, поэтому лучше задать вручную.
 Определить ваше значение для lpj можно через следующую команду: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">dmesg</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">&quot;lpj=&quot;</span></code></p>
 <p><code class="docutils literal notranslate"><span class="pre">mitigations=off</span></code> - Непосредственно отключает все заплатки безопасности ядра (включая Spectre и Meltdown).

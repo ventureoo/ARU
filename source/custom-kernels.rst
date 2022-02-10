@@ -18,6 +18,9 @@
 
 Проверка ядра используемого в данный момент: ``uname -r``.
 
+.. index:: kernel, zen
+.. _linux-zen:
+
 =============
 Zen
 =============
@@ -28,6 +31,9 @@ Zen
 **I. Установка** ::
 
   sudo pacman -S linux-zen linux-zen-headers # Не забудь обновить GRUB.
+
+.. index:: kernel, liquorix, lqx, native-compilation
+.. _linux-lqx:
 
 =============
 liquorix
@@ -144,6 +150,9 @@ liquorix
 Последовательное выполнение данных инструкций приведет к повышению производительности,
 а также исправит некорректное поведение драйвера NVIDIA при работе с фреймбуфером.
 
+.. index:: kernel, xanmod, native-compilation
+.. _linux-xanmod:
+
 ==============
 Xanmod
 ==============
@@ -168,6 +177,9 @@ Xanmod
 Если возникает сбой с неизвестным ключом, то выполните следующую операцию:::
 
   gpg --keyserver keyserver.ubuntu.com --recv-keys КЛЮЧ
+
+.. index:: kernel, linux-tkg, native-compilation
+.. _linux-tkg:
 
 =============
 linux-tkg
@@ -259,6 +271,9 @@ linux-tkg
 После того как мы закончили с настройкой, можно перейти непосредственно к сборке и установке ядра:::
 
   makepkg -sric # Сборка и установка linux-tkg
+
+.. index:: kernel, clang, lto native-compilation
+.. _kernel-with-clang-lto:
 
 ===================================
 Сборка ядра с помощью Clang + LTO

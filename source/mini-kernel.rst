@@ -6,6 +6,9 @@
    You should have received a copy of the license along with this
    work. If not, see <https://creativecommons.org/licenses/by-sa/4.0/>.
 
+.. index:: mini-kernel, modprobed-db, kernel, modules
+.. _mini-kernel:
+
 ***********************************
 Сборка мини-ядра, и с чем это едят.
 ***********************************
@@ -54,6 +57,9 @@
 **Видео версия**
 
 https://www.youtube.com/watch?v=8GRNN94afyg
+
+.. index:: mini-kernel, problems, modules, modprobed-db
+.. _related-issues:
 
 ==============================================================
 Возможные часто встречаемые проблемы после установки мини-ядра

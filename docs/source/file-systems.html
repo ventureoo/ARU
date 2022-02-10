@@ -276,12 +276,12 @@ function checkPageExistsAndRedirect(event) {
 <nav id="bd-toc-nav">
     <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
+  <a class="reference internal nav-link" href="#file-system-selection">
    Нюансы выбора файловой системы и флагов монтирования
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
+    <a class="reference internal nav-link" href="#mount-options">
      Оптимальные флаги монтирования
     </a>
    </li>
@@ -293,7 +293,7 @@ function checkPageExistsAndRedirect(event) {
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id6">
+    <a class="reference internal nav-link" href="#efficiency-test">
      Определение эффективности сжатия
     </a>
    </li>
@@ -308,7 +308,7 @@ function checkPageExistsAndRedirect(event) {
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id7">
+      <a class="reference internal nav-link" href="#intermediate-results">
        Промежуточные результаты
       </a>
      </li>
@@ -344,10 +344,10 @@ function checkPageExistsAndRedirect(event) {
               
               <div>
                 
-  <div class="section" id="id1">
-<h1>Файловые системы<a class="headerlink" href="#id1" title="Ссылка на этот заголовок">¶</a></h1>
-<div class="section" id="id2">
-<h2>Нюансы выбора файловой системы и флагов монтирования<a class="headerlink" href="#id2" title="Ссылка на этот заголовок">¶</a></h2>
+  <div class="section" id="file-systems">
+<span id="id1"></span><h1>Файловые системы<a class="headerlink" href="#file-systems" title="Ссылка на этот заголовок">¶</a></h1>
+<div class="section" id="file-system-selection">
+<span id="index-0"></span><span id="id2"></span><h2>Нюансы выбора файловой системы и флагов монтирования<a class="headerlink" href="#file-system-selection" title="Ссылка на этот заголовок">¶</a></h2>
 <p>В отличие от Windows, в Linux-подобных системах выбор файловой системы не ограничивается в обязательном порядке со стороны дистрибутива,
 и может применяться исходя из личных предпочтений пользователя с оглядкой на поддержку со стороны ядра.</p>
 <p>Вот краткое описание основных высокопроизводительных файловых систем:</p>
@@ -365,8 +365,8 @@ function checkPageExistsAndRedirect(event) {
 По отзывам других людей - неплоха для масштабных серверов, т.к. 128 битная, но зачем тогда такие размеры если существует ограничение в 255 символов?
 В любом случае, не рекомендуется использовать на декстопе ввиду большой возни с её настройкой и установкой, т.к.
 её поддержка официально отсутствует в ядре Linux из-за проблем с её лицензированием.</p>
-<div class="section" id="id3">
-<h3>Оптимальные флаги монтирования<a class="headerlink" href="#id3" title="Ссылка на этот заголовок">¶</a></h3>
+<div class="section" id="mount-options">
+<span id="index-1"></span><span id="id3"></span><h3>Оптимальные флаги монтирования<a class="headerlink" href="#mount-options" title="Ссылка на этот заголовок">¶</a></h3>
 <p>Вот оптимальные параметры для SSD носителей.
 Описание каждого из них вы можете найти - <a class="reference external" href="https://zen.yandex.ru/media/id/5d8ac4740a451800acb6049f/linux-uskoriaem-sistemu-4-5e91d777378f6957923055b9">здесь</a>.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rw,relatime,ssd,ssd_spread,space_cache<span class="o">=</span>v2,max_inline<span class="o">=</span><span class="m">256</span>,commit<span class="o">=</span><span class="m">600</span>,nodatacow
@@ -394,7 +394,7 @@ function checkPageExistsAndRedirect(event) {
 </div>
 </div>
 <div class="section" id="btrfs">
-<h2>Сжатие в файловой системе Btrfs<a class="headerlink" href="#btrfs" title="Ссылка на этот заголовок">¶</a></h2>
+<span id="btrfs-comperssion"></span><span id="index-2"></span><h2>Сжатие в файловой системе Btrfs<a class="headerlink" href="#btrfs" title="Ссылка на этот заголовок">¶</a></h2>
 <p>В файловой системе Btrfs есть возможность включения сжатия. Все записываемые файлы по возможности будут сжиматься и экономить пространство на носителе HDD или SSD.</p>
 <p>Для SSD это может быть важно в связи с их ограниченным ресурсом на запись.</p>
 <p>Согласно <a class="reference external" href="https://btrfs.wiki.kernel.org/index.php/Compression">wiki Btrfs</a>, официально имеется 3 поддерживаемых алгоритма:</p>
@@ -437,8 +437,8 @@ Cогласно <a class="reference external" href="https://btrfs.wiki.kernel.or
 <p class="admonition-title">Внимание</p>
 <p>Степень сжатия в данном случае не указывается!</p>
 </div>
-<div class="section" id="id6">
-<h3>Определение эффективности сжатия<a class="headerlink" href="#id6" title="Ссылка на этот заголовок">¶</a></h3>
+<div class="section" id="efficiency-test">
+<span id="index-3"></span><span id="id6"></span><h3>Определение эффективности сжатия<a class="headerlink" href="#efficiency-test" title="Ссылка на этот заголовок">¶</a></h3>
 <p>Если вы хотите определить эффективность сжатия на вашем разделе/диске, то вам необходимо воспользоваться программой <a class="reference external" href="https://github.com/kilobyte/compsize">compsize</a>.
 Установить ее можно с помощью команды:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S compsize
@@ -469,7 +469,7 @@ Cогласно <a class="reference external" href="https://btrfs.wiki.kernel.or
 </ul>
 </div>
 <div class="section" id="zstd-amd-ryzen-7-3700x">
-<h3>Скорость обработки алгоритма zstd на примере AMD Ryzen 7 3700X<a class="headerlink" href="#zstd-amd-ryzen-7-3700x" title="Ссылка на этот заголовок">¶</a></h3>
+<span id="zstd-compression-test"></span><span id="index-4"></span><h3>Скорость обработки алгоритма zstd на примере AMD Ryzen 7 3700X<a class="headerlink" href="#zstd-amd-ryzen-7-3700x" title="Ссылка на этот заголовок">¶</a></h3>
 <p>Для сравнения степеней сжатия алгоритма zstd использовалась бенчмарк платформа <a class="reference external" href="https://github.com/phoronix-test-suite/phoronix-test-suite">phoronix-test-suite</a>.
 В данной программе, для проверки скорости сжатия и распаковки данных, доступно три степени - <code class="docutils literal notranslate"><span class="pre">3</span></code>, <code class="docutils literal notranslate"><span class="pre">8</span></code>, <code class="docutils literal notranslate"><span class="pre">19</span></code>.
 Для получения информации о падении скорости выполнения сжатия нам будет достаточно и первых двух, поскольку степень сжатия 19 на данный момент не поддерживается
@@ -484,7 +484,7 @@ Cогласно <a class="reference external" href="https://btrfs.wiki.kernel.or
 было замечено повышение нагрузки на процессор вплоть до 72-75% в тех случаях, когда файлы поддавались сжатию.</p>
 </div>
 <div class="section" id="dewdpol">
-<h3>Список протестированных игр на эффективность сжатия (Спасибо &#64;dewdpol!)<a class="headerlink" href="#dewdpol" title="Ссылка на этот заголовок">¶</a></h3>
+<span id="comparison-table"></span><span id="index-5"></span><h3>Список протестированных игр на эффективность сжатия (Спасибо &#64;dewdpol!)<a class="headerlink" href="#dewdpol" title="Ссылка на этот заголовок">¶</a></h3>
 <p>Далее представлен список протестированных игр на сжатие в файловой системе Btrfs.
 Данные были получены с помощью программы compsize и являются округленными, поэтому информация может нести частично ознакомительный характер.</p>
 <table class="table">
@@ -2127,8 +2127,8 @@ Cогласно <a class="reference external" href="https://btrfs.wiki.kernel.or
 т.е. если от 100% отнять U/N можно получить процент сэкономленного места на диске. Из чего следует, что чем меньше данный показатель, тем лучше.</p></li>
 <li><p>Экономия рассчитывалась вручную с округлением в меньшую сторону. Другими словами, если получалось 1,3087... GB, то записывалось как 1,30 GB.</p></li>
 </ul>
-<div class="section" id="id7">
-<h4>Промежуточные результаты<a class="headerlink" href="#id7" title="Ссылка на этот заголовок">¶</a></h4>
+<div class="section" id="intermediate-results">
+<span id="index-6"></span><span id="id7"></span><h4>Промежуточные результаты<a class="headerlink" href="#intermediate-results" title="Ссылка на этот заголовок">¶</a></h4>
 <ul class="simple">
 <li><p><strong>64</strong> игр из представленных <strong>121</strong> - практически не сжимаются, экономия места достигает всего 0-10%.</p></li>
 <li><p><strong>33</strong> игр из представленных <strong>121</strong> - сжимаются с низкой эффективностью, экономия места составляет 11-40%.</p></li>

@@ -276,7 +276,7 @@ function checkPageExistsAndRedirect(event) {
 <nav id="bd-toc-nav">
     <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id3">
+  <a class="reference internal nav-link" href="#related-issues">
    Возможные часто встречаемые проблемы после установки мини-ядра
   </a>
  </li>
@@ -308,8 +308,8 @@ function checkPageExistsAndRedirect(event) {
               
               <div>
                 
-  <div class="section" id="id1">
-<h1>Сборка мини-ядра, и с чем это едят.<a class="headerlink" href="#id1" title="Ссылка на этот заголовок">¶</a></h1>
+  <div class="section" id="mini-kernel">
+<span id="index-0"></span><span id="id1"></span><h1>Сборка мини-ядра, и с чем это едят.<a class="headerlink" href="#mini-kernel" title="Ссылка на этот заголовок">¶</a></h1>
 <p>Ядра, что мы скомпилировали выше уже дают существенное повышение производительности системы, однако мы еще выжали не все соки.
 По умолчанию ядра собираются для универсального применения на разном оборудовании,
 т.е. с наличием различных модулей и драйверов для всякого рода периферии и железа, которого у вас могло никогда и не быть.</p>
@@ -343,8 +343,8 @@ sudo modprobed-db recall
 <p>И снова пересоберите ядро.</p>
 <p><strong>Видео версия</strong></p>
 <p><a class="reference external" href="https://www.youtube.com/watch?v=8GRNN94afyg">https://www.youtube.com/watch?v=8GRNN94afyg</a></p>
-<div class="section" id="id3">
-<h2>Возможные часто встречаемые проблемы после установки мини-ядра<a class="headerlink" href="#id3" title="Ссылка на этот заголовок">¶</a></h2>
+<div class="section" id="related-issues">
+<span id="index-1"></span><span id="id3"></span><h2>Возможные часто встречаемые проблемы после установки мини-ядра<a class="headerlink" href="#related-issues" title="Ссылка на этот заголовок">¶</a></h2>
 <p><strong>П:</strong> Система не загружается дальше rootfs (частая проблема).</p>
 <p><strong>Р:</strong> Обычно это означает, что какие-то системно-важные модули не были &quot;подхвачены&quot; modprobed-db.
 Почти всегда дело заключается в модулях на поддержку SATA/SCSI, либо ATA и модулей Файловых систем.</p>

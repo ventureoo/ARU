@@ -276,7 +276,7 @@ function checkPageExistsAndRedirect(event) {
 <nav id="bd-toc-nav">
     <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
+  <a class="reference internal nav-link" href="#maximum-cpu-performance">
    Перевод процессора из стандартного энергосбережения в режим производительности
   </a>
   <ul class="nav section-nav flex-column">
@@ -297,12 +297,12 @@ function checkPageExistsAndRedirect(event) {
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id3">
+  <a class="reference internal nav-link" href="#disabling-hibernation-and-sleep">
    Отключение спящего режима и гибернации
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id4">
+  <a class="reference internal nav-link" href="#disabling-kernel-dumps">
    Отключение дампов ядра (
    <em>
     Только для опытных пользователей
@@ -311,7 +311,7 @@ function checkPageExistsAndRedirect(event) {
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id5">
+  <a class="reference internal nav-link" href="#disabling-swap">
    Отключение файла подкачки
   </a>
  </li>
@@ -343,10 +343,10 @@ function checkPageExistsAndRedirect(event) {
               
               <div>
                 
-  <div class="section" id="id1">
-<h1>Экстра оптимизации<a class="headerlink" href="#id1" title="Ссылка на этот заголовок">¶</a></h1>
-<div class="section" id="id2">
-<h2>Перевод процессора из стандартного энергосбережения в режим производительности<a class="headerlink" href="#id2" title="Ссылка на этот заголовок">¶</a></h2>
+  <div class="section" id="extra-optimizations">
+<span id="id1"></span><h1>Экстра оптимизации<a class="headerlink" href="#extra-optimizations" title="Ссылка на этот заголовок">¶</a></h1>
+<div class="section" id="maximum-cpu-performance">
+<span id="index-0"></span><span id="id2"></span><h2>Перевод процессора из стандартного энергосбережения в режим производительности<a class="headerlink" href="#maximum-cpu-performance" title="Ссылка на этот заголовок">¶</a></h2>
 <p>По умолчанию ваш процессор динамически меняет свою частоту, что в принципе правильно и дает баланс между энергосбережением и производительностью.
 Но если вы все таки хотите выжать все соки, то вы можете закрепить применение режима максимальной производительности для вашего процессора.
 Это также поможет вам избегать &quot;падений&quot; частоты во время игры, которые могли вызывать микрофризы во время игры.</p>
@@ -360,7 +360,7 @@ sudo cpupower frequency-set -g performance    <span class="c1"># Выставл�
 <p><em>governor=’performance’</em> # Высокая производительность всегда!</p>
 <p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">enable</span> <span class="pre">cpupower</span></code> # Включить как постоянную службу которая установит вечный perfomance mode.</p>
 <div class="section" id="gui-xanmod">
-<h3>GUI для изменение частоты процессора (<em>Может не работать с Xanmod</em>)<a class="headerlink" href="#gui-xanmod" title="Ссылка на этот заголовок">¶</a></h3>
+<span id="cpupower-gui"></span><span id="index-1"></span><h3>GUI для изменение частоты процессора (<em>Может не работать с Xanmod</em>)<a class="headerlink" href="#gui-xanmod" title="Ссылка на этот заголовок">¶</a></h3>
 <img alt="../_images/extra-optimizations-2.png" src="../_images/extra-optimizations-2.png" />
 <p><strong>Установка</strong>:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://aur.archlinux.org/cpupower-gui.git
@@ -370,7 +370,7 @@ makepkg -sric
 </div>
 </div>
 <div class="section" id="auto-cpufreq">
-<h3>Альтернатива - Auto-Cpufreq<a class="headerlink" href="#auto-cpufreq" title="Ссылка на этот заголовок">¶</a></h3>
+<span id="index-2"></span><span id="id3"></span><h3>Альтернатива - Auto-Cpufreq<a class="headerlink" href="#auto-cpufreq" title="Ссылка на этот заголовок">¶</a></h3>
 <p><strong>Установка</strong>:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://aur.archlinux.org/auto-cpufreq-git.git  <span class="c1"># Скачиваем исходники</span>
 <span class="nb">cd</span> auto-cpufreq-git                                       <span class="c1"># Переходим в директорию</span>
@@ -389,8 +389,8 @@ systemctl start auto-cpufreq                              <span class="c1"># З�
 </div>
 </div>
 </div>
-<div class="section" id="id3">
-<h2>Отключение спящего режима и гибернации<a class="headerlink" href="#id3" title="Ссылка на этот заголовок">¶</a></h2>
+<div class="section" id="disabling-hibernation-and-sleep">
+<span id="index-3"></span><span id="id4"></span><h2>Отключение спящего режима и гибернации<a class="headerlink" href="#disabling-hibernation-and-sleep" title="Ссылка на этот заголовок">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">pacman</span> <span class="pre">-S</span> <span class="pre">polkit</span></code>  # Установить для управления системными привилегиями.</p>
 <p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">/etc/polkit-1/rules.d/10-disable-suspend.rules</span></code>  # Убираем спящий режим и гибернацию (из меню и вообще).
 Если такого файла нет, то создайте его. Файл должен выглядеть вот так:</p>
@@ -406,16 +406,16 @@ systemctl start auto-cpufreq                              <span class="c1"># З�
 </pre></div>
 </div>
 </div>
-<div class="section" id="id4">
-<h2>Отключение дампов ядра (<em>Только для опытных пользователей</em>)<a class="headerlink" href="#id4" title="Ссылка на этот заголовок">¶</a></h2>
+<div class="section" id="disabling-kernel-dumps">
+<span id="index-4"></span><span id="id5"></span><h2>Отключение дампов ядра (<em>Только для опытных пользователей</em>)<a class="headerlink" href="#disabling-kernel-dumps" title="Ссылка на этот заголовок">¶</a></h2>
 <p>Отредактируйте <em>/etc/systemd/coredump.conf</em> в разделе <em>[Coredump]</em> раскомментируйте <em>Storage = external</em> и замените его на <em>Storage = none</em>.</p>
 <p>Затем выполните следующую команду:</p>
 <p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">daemon-reload</span></code></p>
 <p>Уже одно это действие отключает сохранение резервных копий, но они все еще находятся в памяти.
 Если вы хотите полностью отключить дампы ядра, то измените <em>soft</em> на <em>#* hard core 0</em> в <em>/etc/security/limits.conf</em>.</p>
 </div>
-<div class="section" id="id5">
-<h2>Отключение файла подкачки<a class="headerlink" href="#id5" title="Ссылка на этот заголовок">¶</a></h2>
+<div class="section" id="disabling-swap">
+<span id="index-5"></span><span id="id6"></span><h2>Отключение файла подкачки<a class="headerlink" href="#disabling-swap" title="Ссылка на этот заголовок">¶</a></h2>
 <p>Для лучшей игровой производительности следует использовать файловую систему Btrfs и не задействовать файл подкачки
 (вместо него стоит использовать выше упомянутый zramswap, конечно при условии что у вас не слишком слабый процессор и оперативной памяти больше чем 4 ГБ),
 а также без страха отключать фиксы уязвимостей, которые сильно урезают производительность процессора (о них написано в следующем разделе).</p>

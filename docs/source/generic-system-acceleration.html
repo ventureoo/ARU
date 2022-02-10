@@ -300,12 +300,12 @@ function checkPageExistsAndRedirect(event) {
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
+  <a class="reference internal nav-link" href="#daemons-and-services">
    Установка полезных служб и демонов
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id3">
+  <a class="reference internal nav-link" href="#lowlatency-audio">
    Низкие задержки звука
   </a>
   <ul class="nav section-nav flex-column">
@@ -338,7 +338,7 @@ function checkPageExistsAndRedirect(event) {
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id4">
+  <a class="reference internal nav-link" href="#parallel-downloading">
    Одновременная загрузка двух и более пакетов
   </a>
   <ul class="nav section-nav flex-column">
@@ -377,12 +377,12 @@ function checkPageExistsAndRedirect(event) {
               
               <div>
                 
-  <div class="section" id="id1">
-<h1>Базовое ускорение системы<a class="headerlink" href="#id1" title="Ссылка на этот заголовок">¶</a></h1>
+  <div class="section" id="generic-system-acceleration">
+<span id="id1"></span><h1>Базовое ускорение системы<a class="headerlink" href="#generic-system-acceleration" title="Ссылка на этот заголовок">¶</a></h1>
 <p>Переходя к базовой оптимизации системы мне сто́ит напомнить, что чистый Arch Linux - это фундамент, и требуется уйма надстроек для нормальной работы системы.
 Установить компоненты, которые будут отвечать за электропитание, чистку, оптимизацию и тому подобные вещи, что и описывается в данном разделе.</p>
 <div class="section" id="makepkg-conf">
-<h2>Настройка makepkg.conf<a class="headerlink" href="#makepkg-conf" title="Ссылка на этот заголовок">¶</a></h2>
+<span id="index-0"></span><span id="id2"></span><h2>Настройка makepkg.conf<a class="headerlink" href="#makepkg-conf" title="Ссылка на этот заголовок">¶</a></h2>
 <p>Прежде чем приступать к сборке пакетов, мы должны изменить так называемые флаги компиляции,
 что являются указателями для компилятора, какие инструкции и оптимизации использовать при сборке программ.</p>
 <p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">/etc/makepkg.conf</span></code> # Редактируем (Где &quot;-O2&quot; - <strong>Это не нуль/ноль</strong>)</p>
@@ -399,7 +399,7 @@ function checkPageExistsAndRedirect(event) {
 <p>Данные флаги компилятора выжимают максимум производительности при компиляции, но могут вызывать ошибки сборки в очень редких приложениях.
 Если такое случится, то отключите параметр ‘lto’ в строке options добавив перед ним символ восклицательного знака  ! (<em>&quot;!lto&quot;</em>).</p>
 <div class="section" id="clang">
-<h3>Форсирование использования Clang при сборке пакетов<a class="headerlink" href="#clang" title="Ссылка на этот заголовок">¶</a></h3>
+<span id="force-clang-usage"></span><span id="index-1"></span><h3>Форсирование использования Clang при сборке пакетов<a class="headerlink" href="#clang" title="Ссылка на этот заголовок">¶</a></h3>
 <p>В системах на базе ядра Linux различают две основных группы компиляторов, это LLVM и GCC.
 И те, и другие хорошо справляются с возложенными на них задачами,
 но LLVM имеет чуть большее преимущество с точки зрения производительности при меньших потерях в качестве конечного кода.
@@ -449,7 +449,7 @@ function checkPageExistsAndRedirect(event) {
 <p>Больше подробностей по теме вы можете найти в данной статье:</p>
 <p><a class="reference external" href="https://habr.com/ru/company/ruvds/blog/561286/">https://habr.com/ru/company/ruvds/blog/561286/</a></p>
 <div class="section" id="llvm-clang-un-couteau">
-<h4>Ускорение работы компиляторов LLVM/Clang (Спасибо &#64;un_couteau)<a class="headerlink" href="#llvm-clang-un-couteau" title="Ссылка на этот заголовок">¶</a></h4>
+<span id="speeding-up-clang-llvm-compilers"></span><span id="index-2"></span><h4>Ускорение работы компиляторов LLVM/Clang (Спасибо &#64;un_couteau)<a class="headerlink" href="#llvm-clang-un-couteau" title="Ссылка на этот заголовок">¶</a></h4>
 <p>Дополнительно можно отметить, что после установки Clang вы можете перекомпилировать его самого через себя,
 т.е. выполнить пересборку Clang с помощью бинарного Clang из репозиториев.
 Это позволит оптимизировать уже сам компилятор под ваше железо и тем самым ускорить
@@ -478,7 +478,7 @@ git clone https://github.com/ptr1337/llvm-bolt-builds  <span class="c1"># Кло
 </div>
 </div>
 <div class="section" id="ccache">
-<h3>Включение ccache<a class="headerlink" href="#ccache" title="Ссылка на этот заголовок">¶</a></h3>
+<span id="enabling-ccache"></span><span id="index-3"></span><h3>Включение ccache<a class="headerlink" href="#ccache" title="Ссылка на этот заголовок">¶</a></h3>
 <p>В Linux системах есть не так много программ, сборка которых может занять больше двух часов,
 но они все таки есть. Потому, было бы неплохо ускорить повторную компиляцию таких программ как Wine/Proton-GE и т.д.</p>
 <p>ccache - это кэш для компиляторов C/C++, в частности совместимый с компиляторами GCC/Clang,
@@ -505,8 +505,8 @@ git clone https://github.com/ptr1337/llvm-bolt-builds  <span class="c1"># Кло
 </div>
 </div>
 </div>
-<div class="section" id="id2">
-<h2>Установка полезных служб и демонов<a class="headerlink" href="#id2" title="Ссылка на этот заголовок">¶</a></h2>
+<div class="section" id="daemons-and-services">
+<span id="index-4"></span><span id="id3"></span><h2>Установка полезных служб и демонов<a class="headerlink" href="#daemons-and-services" title="Ссылка на этот заголовок">¶</a></h2>
 <p><strong>1.</strong> <a class="reference external" href="https://aur.archlinux.org/packages/zramswap/">Zramswap</a> — это специальный демон,
 который сжимает оперативную память ресурсами центрального процессора и создает в ней файл подкачки.
 Очень ускоряет систему вне зависимости от количества памяти, однако добавляет нагрузку на процессор, т.к. его ресурсами и происходит сжатие памяти.
@@ -576,8 +576,8 @@ sudo systemctl --global <span class="nb">enable</span> dbus-broker.service <span
 то просто посмотрите на следующую схему:</p>
 <img alt="../_images/generic-system-acceleration-1.png" src="../_images/generic-system-acceleration-1.png" />
 </div>
-<div class="section" id="id3">
-<h2>Низкие задержки звука<a class="headerlink" href="#id3" title="Ссылка на этот заголовок">¶</a></h2>
+<div class="section" id="lowlatency-audio">
+<span id="index-5"></span><span id="id4"></span><h2>Низкие задержки звука<a class="headerlink" href="#lowlatency-audio" title="Ссылка на этот заголовок">¶</a></h2>
 <p>Установите следующие пакеты для понижения задержек звука в PulseAudio,
 а также удобную графическую панель управления звуком -  <em>pavucontrol</em>.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S jack2 pulseaudio-alsa pulseaudio-jack pavucontrol jack2-dbus realtime-privileges
@@ -589,7 +589,7 @@ sudo systemctl --global <span class="nb">enable</span> dbus-broker.service <span
 он может вызвать небольшие задержки всей системы из-за усиленного воздействия на CPU, но без него звук хуже.</p>
 </div>
 <div class="section" id="pulseaudio">
-<h3>Новая альтернатива PulseAudio<a class="headerlink" href="#pulseaudio" title="Ссылка на этот заголовок">¶</a></h3>
+<span id="pipewire-installation"></span><span id="index-6"></span><h3>Новая альтернатива PulseAudio<a class="headerlink" href="#pulseaudio" title="Ссылка на этот заголовок">¶</a></h3>
 <p><a class="reference external" href="https://wiki.archlinux.org/title/PipeWire_(Русский)">PipeWire</a> - это новая альтернатива PulseAudio,
 которая призвана избавить от проблем pulse, уменьшить задержки звука и потребление памяти.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S jack2 pipewire pipewire-jack pipewire-alsa pavucontrol pipewire-pulse alsa-utils
@@ -597,7 +597,7 @@ sudo systemctl --global <span class="nb">enable</span> dbus-broker.service <span
 </div>
 </div>
 <div class="section" id="alsa">
-<h3>Простая ALSA<a class="headerlink" href="#alsa" title="Ссылка на этот заголовок">¶</a></h3>
+<span id="index-7"></span><span id="id5"></span><h3>Простая ALSA<a class="headerlink" href="#alsa" title="Ссылка на этот заголовок">¶</a></h3>
 <p>ALSA - это тот самый звук (условно, на самом деле это звуковая подсистема ядра),
 который идёт напрямую из ядра и является самым быстрым,
 так как не вынужден проходить множество программных прослоек и микширование.</p>
@@ -612,7 +612,7 @@ sudo systemctl --global <span class="nb">enable</span> dbus-broker.service <span
 </div>
 </div>
 <div class="section" id="networkmanager-wait-online">
-<h2>Ускорение загрузки системы (Отключение NetworkManager-wait-online)<a class="headerlink" href="#networkmanager-wait-online" title="Ссылка на этот заголовок">¶</a></h2>
+<span id="startup-acceleration"></span><span id="index-8"></span><h2>Ускорение загрузки системы (Отключение NetworkManager-wait-online)<a class="headerlink" href="#networkmanager-wait-online" title="Ссылка на этот заголовок">¶</a></h2>
 <p>В большинстве случаев для настройки интернет подключения вы, скорее всего, будете использовать NetworkManager,
 т.к. он является в этом деле швейцарским ножом и поставляется по умолчанию.
 Однако, если вы пропишите команду <em>systemd-analyze blame</em>, то узнаете, что он задерживает загрузку системы примерно на ~4 секунды.
@@ -621,7 +621,7 @@ sudo systemctl --global <span class="nb">enable</span> dbus-broker.service <span
 </pre></div>
 </div>
 <div class="section" id="hdd">
-<h3>Ускорение загрузки ядра на HDD накопителях (<em>Только для жестких дисков</em>)<a class="headerlink" href="#hdd" title="Ссылка на этот заголовок">¶</a></h3>
+<span id="speed-up-hdd-startup"></span><span id="index-9"></span><h3>Ускорение загрузки ядра на HDD накопителях (<em>Только для жестких дисков</em>)<a class="headerlink" href="#hdd" title="Ссылка на этот заголовок">¶</a></h3>
 <p>Убедитесь, что пакет <a class="reference external" href="https://archlinux.org/packages/core/x86_64/lz4/">lz4</a> установлен:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S lz4
 </pre></div>
@@ -640,8 +640,8 @@ sudo systemctl --global <span class="nb">enable</span> dbus-broker.service <span
 <p>Это ускорит загрузку системы на слабых жёстких дисках благодаря более подходящему методу сжатия образов ядра.</p>
 </div>
 </div>
-<div class="section" id="id4">
-<h2>Одновременная загрузка двух и более пакетов<a class="headerlink" href="#id4" title="Ссылка на этот заголовок">¶</a></h2>
+<div class="section" id="parallel-downloading">
+<span id="index-10"></span><span id="id6"></span><h2>Одновременная загрузка двух и более пакетов<a class="headerlink" href="#parallel-downloading" title="Ссылка на этот заголовок">¶</a></h2>
 <p>Начиная с шестой версии pacman поддерживает параллельную загрузку пакетов.
 Чтобы её включить отредактируйте <em>/etc/pacman.conf</em>:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo nano /etc/pacman.conf <span class="c1"># Раскомментируйте строчку ниже</span>
@@ -651,7 +651,7 @@ sudo systemctl --global <span class="nb">enable</span> dbus-broker.service <span
 </pre></div>
 </div>
 <div class="section" id="powerpill-zee-captain">
-<h3>Альтернативно можно использовать powerpill (Спасибо Zee Captain)<a class="headerlink" href="#powerpill-zee-captain" title="Ссылка на этот заголовок">¶</a></h3>
+<span id="powerpill"></span><span id="index-11"></span><h3>Альтернативно можно использовать powerpill (Спасибо Zee Captain)<a class="headerlink" href="#powerpill-zee-captain" title="Ссылка на этот заголовок">¶</a></h3>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://aur.archlinux.org/powerpill.git
 <span class="nb">cd</span> powerpill
 makepkg -sric
