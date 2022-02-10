@@ -12,9 +12,6 @@
 Файловые системы
 *****************
 
-.. contents:: Содержание:
-  :depth: 3
-
 .. index:: btrfs, ext4, zfs
 .. _file-system-selection:
 

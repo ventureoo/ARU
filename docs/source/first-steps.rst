@@ -12,9 +12,6 @@
 Первые шаги
 **************
 
-.. contents:: Содержание:
-  :depth: 3
-
 .. index:: pacman, settings
 .. _pacman-settings:
 

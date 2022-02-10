@@ -12,9 +12,6 @@
 Экстра оптимизации
 ********************
 
-.. contents:: Содержание:
-  :depth: 3
-
 .. index:: cpu, cpupower, governor, performance
 .. _maximum-cpu-performance:
 
