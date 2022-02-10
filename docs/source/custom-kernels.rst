@@ -32,7 +32,7 @@ Zen
 
   sudo pacman -S linux-zen linux-zen-headers # Не забудь обновить GRUB.
 
-.. index:: kernel, liquorix, lqx
+.. index:: kernel, liquorix, lqx, native-compilation
 .. _linux-lqx:
 
 =============
@@ -150,7 +150,7 @@ liquorix
 Последовательное выполнение данных инструкций приведет к повышению производительности,
 а также исправит некорректное поведение драйвера NVIDIA при работе с фреймбуфером.
 
-.. index:: kernel, xanmod
+.. index:: kernel, xanmod, native-compilation
 .. _linux-xanmod:
 
 ==============
@@ -178,7 +178,7 @@ Xanmod
 
   gpg --keyserver keyserver.ubuntu.com --recv-keys КЛЮЧ
 
-.. index:: kernel, linux-tkg
+.. index:: kernel, linux-tkg, native-compilation
 .. _linux-tkg:
 
 =============
@@ -272,7 +272,7 @@ linux-tkg
 
   makepkg -sric # Сборка и установка linux-tkg
 
-.. index:: lto, clang, kernel
+.. index:: kernel, clang, lto native-compilation
 .. _kernel-with-clang-lto:
 
 ===================================
