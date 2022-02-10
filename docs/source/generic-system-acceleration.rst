@@ -258,8 +258,8 @@ ccache - это кэш для компиляторов C/C++, в частнос�
 .. attention:: Пакет `realtime-privileges <https://archlinux.org/packages/community/any/realtime-privileges/>`_ - лучше не устанавливать,
    он может вызвать небольшие задержки всей системы из-за усиленного воздействия на CPU, но без него звук хуже.
 
-.. index:: lowlatency, audio, pipewire
-.. _pipewire:
+.. index:: installation, lowlatency, audio, pipewire
+.. _pipewire-installation:
 
 ------------------------------
 Новая альтернатива PulseAudio
