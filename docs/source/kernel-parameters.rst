@@ -6,9 +6,14 @@
    You should have received a copy of the license along with this
    work. If not, see <https://creativecommons.org/licenses/by-sa/4.0/>.
 
+.. _kernel-parameters:
+
 **************************
 Настройка параметров ядра
 **************************
+
+.. index:: bootloader, patch-off, grub, grub-customizer, mitigations-off
+.. _update-bootloader-parameters:
 
 =====================================================
 Обновление загрузчика и отключение ненужных заплаток
@@ -28,6 +33,9 @@
 
 ``sudo grub-mkconfig -o /boot/grub/grub.cfg``
 # Обновляем загрузчик, можно так же сделать через grub-customizer, добавить и прожать, затем сохранить на 2 и 1 вкладке.
+
+.. index:: settings, mitigations-off
+.. _explanations:
 
 --------------
 Разъяснения

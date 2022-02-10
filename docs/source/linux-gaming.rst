@@ -6,10 +6,14 @@
    You should have received a copy of the license along with this
    work. If not, see <https://creativecommons.org/licenses/by-sa/4.0/>.
 
+.. _linux-gaming:
 
 ********************
 Wine / Linux Gaming
 ********************
+
+.. index:: wine, wine-builds, gaming
+.. _main-components:
 
 =========================
 Основные составляющие
@@ -18,6 +22,9 @@ Wine / Linux Gaming
 Переходя к запуску Windows-игр на Linux-системах, сто́ит иметь в виду, что никаких эмуляторов Windows на Linux не существует,
 и весь запуск осуществляется с помощью сторонней реализации Windows API — Wine/Proton,
 а также средств ретрансляции команд DirectX в доступные графические API на Linux (Vulkan, OpenGL) с помощью DXVK или иных ретранслятора кода.
+
+.. index:: about, wine, gaming
+.. _about-wine:
 
 ----------------------
 Что такое Wine?
@@ -29,6 +36,9 @@ Wine - слой совместимости для запуска Windows-при�
 в ближайшем будущем, вероятно, это уже не будет являться такой большой проблемой.
 Конечно, все не так гладко как хотелось бы, ведь для запуска и обеспечения работоспособности многих программ/игр придется ещё изрядно повозиться с его настройкой,
 однако сама такая возможность в принципе является незаменимой для Linux пользователей, в частности геймеров.
+
+.. index:: wine-builds, gaming
+.. _wine-builds:
 
 -------------
 Сборки Wine
@@ -45,6 +55,9 @@ Wine - слой совместимости для запуска Windows-при�
 Это обычный wine и wine-staging, содержащий те изменение которые пока не могут быть внесены в upstream.
 Но существуют также много альтернативных сборок основанных на Wine-staging с упором именно на игры, о них написано далее.
 
+.. index:: installation, wine-staging, gaming, dependencies
+.. _wine-staging:
+
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Установка wine-staging вместе с зависимостями
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -55,6 +68,9 @@ Wine - слой совместимости для запуска Windows-при�
 
  sudo pacman -S wine-staging winetricks wine-mono giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse libgpg-error lib32-libgpg-error alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo sqlite lib32-sqlite libxcomposite lib32-libxcomposite libxinerama lib32-libgcrypt libgcrypt lib32-libxinerama ncurses lib32-ncurses opencl-icd-loader lib32-opencl-icd-loader libxslt lib32-libxslt libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader
 
+.. index:: installation, wine, wine-builds
+.. _alternative-wine-builds:
+
 ------------------------------
 Альтернативные сборки Wine
 ------------------------------
@@ -63,6 +79,9 @@ Wine - слой совместимости для запуска Windows-при�
 т.к. это все таки свободная реализация WinAPI в Linux и она не обязана использоваться только для запуска игр из под Windows в Linux.
 Вообщем, Wine вещь довольно универсальная и не заточена только под что-то одно.
 Но  существуют также альтернативные сборки Wine, с большим количеством различных патчей и улучшений, нацеленных в основном как раз на игры.
+
+.. index:: installation, wine, wine-builds, wine-tkg, native-compilation
+.. _wine-tkg-git:
 
 ^^^^^^^^^^^
 WINE-TKG
@@ -153,6 +172,9 @@ https://www.youtube.com/watch?v=-nlNJguG5_0&t=18s
 
 https://www.youtube.com/watch?v=W1e6_3dPlHk
 
+.. index:: installation, wine, wine-builds, wine-tkg, native-compilation, userpatches
+.. _wine-tkg-userpatches:
+
 ^^^^^^^^^^^^^^^^^^^^^^^^
 *wine-tkg-userpatches*
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -174,6 +196,9 @@ https://www.youtube.com/watch?v=W1e6_3dPlHk
 Пересоберите wine-tkg по инструкции выше.
 
 Никакой дополнительной настройки (редактирования *customization.cfg*) при этом не требуется.
+
+.. index:: installation, proton, gaming, native-compilation
+.. _proton-ge-custom:
 
 ^^^^^^^^^^^^^^^^^^
 Proton-GE-Custom
@@ -198,6 +223,9 @@ Proton-GE-Custom это форк проекта Proton для запуска Win
 Дабы использовать Proton-GE в качестве альтернативы обычному Proton,
 после установки Proton-GE-Custom вам нужно перезапустить Steam и зайти в Свойства нужной вам игры, прожать в:
 *Совместность -> Принудительно использовать определенный инструмент совместности Steam Play -> Proton-6.XX-GE-1*. Готово, теперь можно запустить игру.
+
+.. index:: installation, wine, about, prefixes
+.. _wine-usage:
 
 ----------------------------
 Использование Wine
@@ -262,6 +290,9 @@ Proton-GE-Custom это форк проекта Proton для запуска Win
 
   grep '#arch' ~/.wine/system.reg # Где ‘.wine’ - название префикса
 
+.. index:: installation, native-compilation, dxvk, async, lowlatency, gaming
+.. _dxvk-async:
+
 ----------------------------------
 Сборка DXVK с асинхронным патчем
 ----------------------------------
@@ -284,6 +315,9 @@ Proton-GE-Custom это форк проекта Proton для запуска Win
    (это не относиться к играм запускаемым через Lutris/Proton, в них DXVK включён по умолчанию)::
 
      WINEPREFIX=~/prefix setup_dxvk install # Где "prefix" - это ваш префикс Wine
+
+.. index:: wine, dxvk, gaming, about
+.. _wine-references:
 
 ------------------------------------
 Полезные ссылки по теме Wine и DXVK
@@ -309,11 +343,17 @@ https://www.newalive.net/234-sborki-dxvk-i-d9vk.html
 
 https://www.newalive.net/231-wine-tk-glitch.html
 
+.. index:: gamemode, lutris, gaming
+.. _additional-components:
+
 =================================
 Дополнительные компоненты
 =================================
 
 Не являются обязательными, но могут помочь повысить производительность системы или облегчить настройку.
+
+.. index:: installation, gamemode, lutris, gaming
+.. _lutris-and-additions:
 
 -------------------------------
 Lutris и дополнения.
@@ -332,6 +372,10 @@ Lutris - комбайн, где содержатся все удобные на�
 
 https://www.youtube.com/watch?v=ybe0MzJDUvw
 
+
+.. index:: proton, gaming, lutris, proton-ge-custom
+.. _proton-ge-with-lutris:
+
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Использование Proton-GE-Custom в Lutris
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -344,6 +388,9 @@ https://www.youtube.com/watch?v=ybe0MzJDUvw
   ln -s /usr/share/steam/compatibilitytools.d/proton-ge-custom/files ~/.local/share/lutris/runners/wine/wine-proton-ge
 
 Затем просто выберите пункт в выборе версии Wine на *"wine-proton-ge"* в Lutris для нужной вам игры.
+
+.. index:: installation, gamemode, gaming, lutris
+.. _gamemode:
 
 --------------
 Gamemode
@@ -370,6 +417,9 @@ Lutris, как правило использует gamemode по умолчан�
 
  gamemoderun %command%
 
+
+.. index:: amd, fsr, image-scaling, gaming
+.. _amd-fsr:
 
 -------------------------------------------
 AMD FidelityFX Super Resolution в Wine
@@ -433,6 +483,9 @@ FSR патч также по умолчанию задействован в Prot
 
 https://www.youtube.com/watch?v=YNhwAazJODU
 
+.. index:: nvidia, dlss, proton, image-scaling, gaming
+.. _nvidia-dlss-with-proton:
+
 -------------------------------------------------------
 Использование DLSS с видеокартами NVIDIA через Proton
 -------------------------------------------------------
@@ -456,9 +509,15 @@ https://www.youtube.com/watch?v=YNhwAazJODU
 
 .. attention:: Поскольку для DLSS неоходимо специальное машинное обучение, то для запуска необходимо чтобы игра поддерживала DLSS, т.е. в настройках игры должен быть параметр включения данной функции. **Иначе DLSS работать не будет!** 
 
+.. index:: fps, monitoring, mangohud, dxvk
+.. _fps_monitoring:
+
 ------------------------------
 Мониторинг FPS в играх.
 ------------------------------
+
+.. index:: installation, fps, monitoring, mangohud
+.. _mangohud:
 
 ^^^^^^^^^^^^^
 Mangohud
@@ -493,6 +552,9 @@ Mangohud
 **Подробней в видео.**
 
 https://www.youtube.com/watch?v=4RqerevPD4I
+
+.. index:: installation, fps, monitoring, dxvk
+.. _dxvk-hud:
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Альтернатива: DXVK Hud (*Только для игр запускаемых через Wine/Proton*)
