@@ -17,9 +17,9 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'ARU'
-copyright = 'ARU 2018 - 2022, Pavel Priluckiy, Vasiliy Stelmachenok and contributors'
+project = 'ARU - Руководство по оптимизации Arch Linux'
 author = 'Pavel Priluckiy, Vasiliy Stelmachenok and contributors'
+copyright = 'ARU 2018 - 2022 ' + author
 
 # The full version, including alpha/beta/rc tags
 release = '2022.01.30'
@@ -37,7 +37,7 @@ root_doc = master_doc
 
 source_suffix = { '.rst': 'restructuredtext' }
 
-# Closes:
+# Fixes:
 # https://github.com/ventureoo/ARU/issues/3
 # https://github.com/ventureoo/ARU/pull/4
 smartquotes = False
@@ -65,17 +65,51 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'alabaster'
+html_theme = 'pydata_sphinx_theme'
 
-html_title = 'Руководство по оптимизации Arch Linux'
+html_title = 'ARU'
 
 html_theme_options = {
-    'github_user': 'ventureoo',
-    'github_repo': 'ARU',
-    'donate_url': 'https://www.donationalerts.com/r/pavel_priluckiy',
-    'github_type': 'star',
-    'github_banner': True,
-    'show_powered_by': False,
+    "navbar_center": [],
+    "navbar_end": [ "version-switcher", "navbar-icon-links" ],
+    "use_edit_page_button": True,
+    "navbar_align": "content",
+    "page_sidebar_items": ["page-toc", "edit-this-page"],
+    "icon_links": [
+        {
+            "name": "GitHub",
+            "url": "https://github.com/ventureoo/ARU",
+            "icon": "fab fa-github-square",
+        },
+        {
+            "name": "YouTube",
+            "url": "https://www.youtube.com/c/PashaLinux",
+            "icon": "fab fa-youtube-square",
+        },
+        {
+            "name": "Donatealerts",
+            "url": "https://www.donationalerts.com/r/pavel_priluckiy",
+            "icon": "fas fa-donate",
+        },
+    ],
+    'search_bar_text': "Поиск...",
+    "footer_items": ["copyright"],
+    "switcher": {
+        # "json_url": "/_static/switcher.json",
+        "json_url": "https://ventureoo.github.io/ARU/_static/switcher.json",
+        "url_template": "https://github.com/ventureoo/ARU/v{version}/",
+        "version_match": "latest",
+    },
+}
+
+html_context = {
+    "github_user": "ventureoo",
+    "github_repo": "ARU",
+    "github_version": "main",
+}
+
+html_sidebars = {
+    "**": ["navbar-nav", "search-field.html" ]
 }
 
 # Misc
@@ -88,6 +122,7 @@ html_show_sphinx = False
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
+html_css_files = ['css/custom.css']
 
 # -- Options for manual page output ---------------------------------------
 
