@@ -907,7 +907,7 @@ sudo pacman -Rsn xfce4-notifyd
 поэтому нужно выполнить самостоятельную настройку его работы для исправления проблем тиринга.
 Сделать это можно в <em>&quot;Редакторе Настроек&quot;</em> -&gt; <em>&quot;xfwm4&quot;</em>.
 Здесь нас интересуют три опции, а именно: <em>&quot;vblank_mode&quot;</em>, <em>&quot;unredirect_overlays&quot;</em> и <em>&quot;use_compositing&quot;</em>. Теперь подробнее.</p>
-<p><code class="docutils literal notranslate"><span class="pre">xfconf-query</span> <span class="pre">-c</span> <span class="pre">xfwm4</span> <span class="pre">-p</span> <span class="pre">/general/unredirect-overlays</span> <span class="pre">-s</span> <span class="pre">true</span></code> # Параметр на отвязку полноэкранных окон от работы композитора.
+<p><code class="docutils literal notranslate"><span class="pre">xfconf-query</span> <span class="pre">-c</span> <span class="pre">xfwm4</span> <span class="pre">-p</span> <span class="pre">/general/unredirect_overlays</span> <span class="pre">-s</span> <span class="pre">true</span></code> # Параметр на отвязку полноэкранных окон от работы композитора.
 В разделе c Plasma эта тема освещалась более подробно.
 В основном, это применимо к полноэкранным видеоиграм, чтобы не создавать для них лишнюю задержку ввода и немного улучшить их производительность.</p>
 <p><code class="docutils literal notranslate"><span class="pre">xfce-query</span> <span class="pre">-c</span> <span class="pre">xfwm4</span> <span class="pre">-p</span> <span class="pre">/general/use_compositing</span> <span class="pre">-s</span> <span class="pre">true</span></code> # Параметр для переключения работы графических эффектов и вертикальной синхронизации композитора.
