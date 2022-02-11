@@ -46,7 +46,7 @@ Bleachbit
 
 **Установка + дополнительные фильтры**::
 
-  sudo pacman S bleachbit
+  sudo pacman -S bleachbit
 
   # Дополнительные фильтры
 
