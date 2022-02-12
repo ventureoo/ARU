@@ -490,7 +490,7 @@ makepkg -sric <span class="c1"># Сборка и установка</span>
 </pre></div>
 </div>
 <p>Итак, настройка здесь достаточно обширная поэтому мы будем останавливаться только на интересующих нас настройках:</p>
-<p><code class="docutils literal notranslate"><span class="pre">_version=&quot;5.15&quot;</span></code> - Здесь выбираем версию ядра которую мы хотим установить.
+<p><code class="docutils literal notranslate"><span class="pre">_version=&quot;5.16&quot;</span></code> - Здесь выбираем версию ядра которую мы хотим установить.
 Выбирайте самую последнюю из доступных.</p>
 <p><code class="docutils literal notranslate"><span class="pre">_modprobeddb=&quot;false&quot;</span></code> - Опция отвечающая за сборку мини-ядра.
 Подробнее о нем вы можете узнать в соответствующем разделе.
@@ -498,8 +498,8 @@ makepkg -sric <span class="c1"># Сборка и установка</span>
 <p><code class="docutils literal notranslate"><span class="pre">_menuconfig=&quot;1&quot;</span></code> - Выбор настройки ядра через menuconfg/xconfig/nconfig.
 Рекомендуется выбрать <em>&quot;1&quot;</em> чтобы перед сборкой можно было выполнить непосредственную настройку конфига ядра через menuconfig как мы уже делали ранее с liquorix.</p>
 <p><code class="docutils literal notranslate"><span class="pre">_cpusched=&quot;pds&quot;</span></code> - Выбор CPU планировщика ядра.
-Всего предоставляется к выбору пять планировщиков: &quot;pds&quot;, &quot;muqss&quot; (дефолтный lqx),
-&quot;upds&quot; (недоступен для новых версий ядер) &quot;bmq&quot;, &quot;cfs&quot; (дефолтный для ванильного ядра).
+Всего предоставляется к выбору пять планировщиков: &quot;pds&quot;, &quot;muqss&quot; (дефолтный lqx, доступен только для версии ядра 5.13 и ниже),
+&quot;upds&quot; (недоступен для новых версий ядра) &quot;bmq&quot;, &quot;cfs&quot; (дефолтный для ванильного ядра).
 По некоторым данным, (u)PDS дает больше FPS, а MuQSS дает лучшие задержки по времени кадра (плавность).
 Однако все слишком ситуативно чтобы выбрать из них лучшего, в каких-то играх/задачах будет выигрывать (u)PDS, а в каких-то MuQSS и так далее.</p>
 <p>Рекомендуется попробовать (u)PDS или MuQSS.
@@ -534,6 +534,9 @@ makepkg -sric <span class="c1"># Сборка и установка</span>
 Настоятельно рекомендуется указать здесь либо архитектуру непосредственно вашего процессора (К примеру: &quot;skylake&quot;),
 либо фирму производитель, где для Intel это - <em>&quot;native_intel&quot;</em>, для AMD - <em>&quot;native_amd&quot;</em>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">_ftracedisable=&quot;true&quot;</span></code> - Отключает лишние трекеры для отладки ядра.</p>
+<p><code class="docutils literal notranslate"><span class="pre">_acs_override=&quot;true&quot;</span></code> - Включает патч на разделение сгруппированных PCI устройств в IOMMU, которые могут понадобиться вам отдельно.
+По умолчанию также включен в linux-zen. Подробнее читайте - <a class="reference external" href="https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF#Bypassing_the_IOMMU_groups_.28ACS_override_patch.29">здесь</a>.
+Советуем включить если в будущем вы хотите выполнить операцию проброса вашей видеокарты в виртуальную машину.</p>
 <p>Вот и все. Остальные настройки <em>customizing.cfg</em> вы можете выбрать по собственному предпочтению.
 После того как мы закончили с настройкой, можно перейти непосредственно к сборке и установке ядра::</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>makepkg -sric <span class="c1"># Сборка и установка linux-tkg</span>
