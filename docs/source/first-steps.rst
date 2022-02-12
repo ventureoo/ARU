@@ -226,12 +226,13 @@ Intel
   sudo mkinitcpio -P                          # Пересобираем образы ядра.
   sudo grub-mkconfig -o /boot/grub/grub.cfg   # Обновляем загрузчик, можно так же через grub-customizer.
 
+.. index:: nvidia, driver, xorg
+.. _nvidia-driver-setup:
+
 ==========================
 Настройка драйвера NVIDIA
 ==========================
 
-.. index:: nvidia, driver, xorg
-.. _nvidia-driver-setup:
 
 После установки драйвера обязательно перезагрузитесь, откройте панель nvidia-settings, и выполните все шаги как показано на изображениях::
 
