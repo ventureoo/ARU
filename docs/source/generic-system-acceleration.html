@@ -349,6 +349,22 @@ function checkPageExistsAndRedirect(event) {
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mesa">
+   Твики драйверов Mesa
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#amd-sam">
+     Форсирование использования AMD SAM
+     <em>
+      (Только для опытных пользователей)
+     </em>
+     .
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
 </nav>
@@ -510,7 +526,7 @@ git clone https://github.com/ptr1337/llvm-bolt-builds  <span class="c1"># Кло
 <p><strong>1.</strong> <a class="reference external" href="https://aur.archlinux.org/packages/zramswap/">Zramswap</a> — это специальный демон,
 который сжимает оперативную память ресурсами центрального процессора и создает в ней файл подкачки.
 Очень ускоряет систему вне зависимости от количества памяти, однако добавляет нагрузку на процессор, т.к. его ресурсами и происходит сжатие памяти.
-Поэтому, на слабых компьютерах с малым количеством ОЗУ, это может негативно повлиять на производительность в играх.</p>
+Поэтому, на слабых компьютерах с малым количеством ОЗУ, это может негативно повлиять на производительность в целом.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://aur.archlinux.org/zramswap.git  <span class="c1"># Скачивание исходников.</span>
 <span class="nb">cd</span> zramswap                                       <span class="c1"># Переход в zramswap.</span>
 makepkg -sric                                     <span class="c1"># Сборка и установка.</span>
@@ -661,6 +677,46 @@ makepkg -sric
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo powerpill -Syu
 </pre></div>
 </div>
+</div>
+</div>
+<div class="section" id="mesa">
+<h2>Твики драйверов Mesa<a class="headerlink" href="#mesa" title="Ссылка на этот заголовок">¶</a></h2>
+<div class="section" id="amd-sam">
+<span id="force-amd-sam"></span><span id="index-12"></span><h3>Форсирование использования AMD SAM <em>(Только для опытных пользователей)</em>.<a class="headerlink" href="#amd-sam" title="Ссылка на этот заголовок">¶</a></h3>
+<p>AMD Smart Acess Memory (или Resizble Bar) - это технология которая позволяет CPU получать доступ к видеопамяти в полном объеме, а не по блокам в размере 256 МБ.
+Несмотря на то, что данная технология сейчас активно продвигается компанией AMD для своей новой серии видеокарт, она достаточно стара и спокойно
+может быть задействована в старом поколении графических процессоров благодаря открытым драйверам Mesa/репакам от энтузиастов для Windows.
+Стоит отметить, что SAM дает очень существенный буст производительности, вплоть до 10-15% просто из воздуха.</p>
+<p>Для Linux чтобы актививроать SAM необходимо отредактировать конфигурацию DRI, дописав в конфиг следующие строки:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>nano ~/.drirc <span class="c1"># Редактируем конфиграционный файл</span>
+
+<span class="c1"># Прописать строки ниже</span>
+
+&lt;?xml <span class="nv">version</span><span class="o">=</span><span class="s2">&quot;1.0&quot;</span> <span class="nv">standalone</span><span class="o">=</span><span class="s2">&quot;yes&quot;</span>?&gt;
+&lt;driconf&gt;
+  &lt;device&gt;
+    &lt;application <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;Default&quot;</span>&gt;
+      &lt;option <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;radeonsi_enable_sam&quot;</span> <span class="nv">value</span><span class="o">=</span><span class="s2">&quot;true&quot;</span> /&gt;
+    &lt;/application&gt;
+  &lt;/device&gt;
+&lt;/driconf&gt;
+</pre></div>
+</div>
+<p>Альтернативно её можно активировать через глобальные переменные окружения:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo nano /etc/enviroment <span class="c1"># Редактируем конфиграционный файл</span>
+
+<span class="c1"># Добавить следующие строки</span>
+<span class="nv">radeonsi_enable_sam</span><span class="o">=</span><span class="nb">true</span>
+<span class="c1"># Если используете драйвер RADV</span>
+<span class="nv">RADV_PERFTEST</span><span class="o">=</span>sam
+</pre></div>
+</div>
+<p>Проверить работу технологии можно через команду:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">AMD_DEBUG</span><span class="o">=</span>info glxinfo <span class="p">|</span> grep smart <span class="c1"># Должно быть smart_access_memory = 1</span>
+</pre></div>
+</div>
+<p><strong>Пример тестирования технологии на видеокарте старого поколения (Windows)</strong></p>
+<p><a class="reference external" href="https://youtu.be/tZmPi9tfLbc">https://youtu.be/tZmPi9tfLbc</a></p>
 </div>
 </div>
 </div>
