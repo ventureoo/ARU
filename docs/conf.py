@@ -97,7 +97,7 @@ html_theme_options = {
     "switcher": {
         # "json_url": "/_static/switcher.json",
         "json_url": "https://ventureoo.github.io/ARU/_static/switcher.json",
-        "url_template": "https://github.com/ventureoo/ARU/v{version}/",
+        "url_template": "https://github.com/ventureoo/ARU/v{version}/index.html",
         "version_match": "latest",
     },
 }
