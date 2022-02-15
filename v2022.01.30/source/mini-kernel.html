@@ -1,0 +1,237 @@
+
+<!DOCTYPE html>
+
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Сборка мини-ядра, и с чем это едят. &#8212; Руководство по оптимизации Arch Linux</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/translations.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
+    <link rel="search" title="Поиск" href="../search.html" />
+    <link rel="next" title="Оптимизация рабочего окружения (DE)" href="de-optimizations.html" />
+    <link rel="prev" title="Wine / Linux Gaming" href="linux-gaming.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="id1">
+<h1><a class="toc-backref" href="#id5">Сборка мини-ядра, и с чем это едят.</a><a class="headerlink" href="#id1" title="Ссылка на этот заголовок">¶</a></h1>
+<div class="contents topic" id="id2">
+<p class="topic-title">Содержание:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#id1" id="id5">Сборка мини-ядра, и с чем это едят.</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id4" id="id6">Возможные часто встречаемые проблемы после установки мини-ядра</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>Ядра, что мы скомпилировали выше уже дают существенное повышение производительности системы, однако мы еще выжали не все соки.
+По умолчанию ядра собираются для универсального применения на разном оборудовании,
+т.е. с наличием различных модулей и драйверов для всякого рода периферии и железа, которого у вас могло никогда и не быть.</p>
+<p><em>Мини-ядро</em> - Это Linux ядро собранное с минимальным количеством модулей/драйверов необходимых для работоспособности вашего железа.</p>
+<p>Плюсы: <a class="reference external" href="https://wiki.archlinux.org/index.php/Modprobed-db#Benefits_of_modprobed-db_with_&quot;make_localmodconfig&quot;_in_custom_kernels">Значительное сокращение времени на сборку ядра</a>,
+уменьшение размера ядра, повышение производительности.</p>
+<p>Минусы: Невозможность использования нового оборудования или портов без повторной пересборки ядра.</p>
+<p>Чтобы собрать мини-ядро, нам нужно:</p>
+<p>Установить <a class="reference external" href="https://aur.archlinux.org/packages/modprobed-db/">modprobed-db</a> по аналогии с другими AUR пакетами.</p>
+<p>После установки выполнить:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>systemctl --user <span class="nb">enable</span> --now modprobed-db.service <span class="c1"># Это демон для индексирования активно используемых системой модулей ядра</span>
+sudo modprobed-db recall <span class="c1"># Сделает дамп используемых системой модулей ядра.</span>
+</pre></div>
+</div>
+<p>Далее, активно используем всю периферию и железки, что у вас есть пока не соберется достаточное количество модулей (Примерно 2-3 дня активного пользования системой).</p>
+<p>После того как все приготовления сделаны, просто собираем ядро как было указано выше, но перед сборкой (<em>makepkg -si</em>) нужно отредактировать PKGBUILD:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>nano PKGBUILD
+</pre></div>
+</div>
+<p>И меняем значение этой строки (работает почти для любых ядер): <em>_localmodcfg=y</em></p>
+<p>Все, теперь собираем мини-ядро по аналогии с обычным.</p>
+<p><em>P.S.</em> Если при сборке образов уже скомпилированного ядра выдает ошибку с указанием на отсутствующие модули, что-то в формате: db_xxx, bd_xxx - просто пропишите их в ручную:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo nano ~/.config/modprobed.db
+</pre></div>
+</div>
+<p>Затем выполните:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo modprobed-db store
+sudo modprobed-db recall
+</pre></div>
+</div>
+<p>И снова пересоберите ядро.</p>
+<p><strong>Видео версия</strong></p>
+<p><a class="reference external" href="https://www.youtube.com/watch?v=8GRNN94afyg">https://www.youtube.com/watch?v=8GRNN94afyg</a></p>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id6">Возможные часто встречаемые проблемы после установки мини-ядра</a><a class="headerlink" href="#id4" title="Ссылка на этот заголовок">¶</a></h2>
+<p><strong>П:</strong> Система не загружается дальше rootfs (частая проблема).</p>
+<p><strong>Р:</strong> Обычно это означает, что какие-то системно-важные модули не были &quot;подхвачены&quot; modprobed-db.
+Почти всегда дело заключается в модулях на поддержку SATA/SCSI, либо ATA и модулей Файловых систем.</p>
+<p>Вот список модулей, из-за отсутствия которых может не грузиться система:</p>
+<ul class="simple">
+<li><p>scsi_mod</p></li>
+<li><p>sd_mod</p></li>
+<li><p>libahci</p></li>
+<li><p>libata</p></li>
+<li><p>lzo_rle</p></li>
+<li><p>efi_pstore</p></li>
+<li><p>evdev</p></li>
+<li><p>ext4</p></li>
+<li><p>btrfs</p></li>
+<li><p>ahci</p></li>
+<li><p>autofs4</p></li>
+<li><p>fuse</p></li>
+<li><p>dm_cache</p></li>
+<li><p>dm_cache_smq</p></li>
+<li><p>dm_mirror</p></li>
+<li><p>dm_mod</p></li>
+<li><p>dm_snapshot</p></li>
+<li><p>dm_thin_pool</p></li>
+</ul>
+<p>Чтобы это исправить просто добавьте эти модули вручную, т.е. отредактировав файл по пути <code class="code bash shell docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">~/.config/modprobed.db</span></code>.
+Затем снова пересоберите мини-ядро как это показано в предыдущем разделе, после пересборки мини-ядро должно загрузиться.</p>
+<p><strong>П:</strong> После установки мини-ядра отсутствует интернет-подключение.</p>
+<p><strong>Р:</strong> Обычно это вызвано отсутствием модулей драйвера для сетевой карты,
+либо отсутствием важных системных модулей для корректной работы интернет подключения.
+Вот список модулей, из-за которых возможно не работает сеть:</p>
+<ul class="simple">
+<li><p>8021q</p></li>
+<li><p>af_packet</p></li>
+<li><p>af_alg</p></li>
+<li><p>alx</p></li>
+<li><p>ecdh_generic</p></li>
+<li><p>garp</p></li>
+<li><p>libphy</p></li>
+<li><p>r8169</p></li>
+<li><p>rc_core</p></li>
+<li><p>realtek</p></li>
+<li><p>sch_fq_codel</p></li>
+<li><p>llc</p></li>
+</ul>
+<p>Так же, как и в случае с прошлой проблемой, просто пропишите эти модули в ручную, т.е. отредактируйте <code class="code bash shell docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">~/.config/modprobed.db</span></code>.
+Обратите внимание, что модуль драйвера для сетевой карты у каждого может быть разный,
+и перед тем как прописать какой-либо модуль драйвера, лучше посмотреть в рабочей системе (<em>lspci -v</em>) какой именно нужен вашей сетевой карте, и прописать его.
+После этого, в очередной раз, пересоберите мини-ядро.</p>
+<p><strong>П:</strong> После перезагрузки драйвер NVIDIA загружается, но вместо него используется llvmpipe.</p>
+<p><strong>Р:</strong> Укажите точный путь до модулей драйвера в ваших настройках Xorg, т.е. пропишите в <em>/etc/X11/xorg.conf</em> следующее:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Section <span class="s2">&quot;Files&quot;</span>
+  ModulePath <span class="s2">&quot;/usr/lib/nvidia/xorg&quot;</span>
+  ModulePath <span class="s2">&quot;/usr/lib/xorg/modules&quot;</span>
+EndSection
+</pre></div>
+</div>
+<p>Затем перезагрузитесь.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">ARU</a></h1>
+
+
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=ventureoo&repo=ARU&type=star&count=true&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+<h3>Навигация</h3>
+<p class="caption" role="heading"><span class="caption-text">Содержание:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="preface.html">Предисловие</a></li>
+<li class="toctree-l1"><a class="reference internal" href="first-steps.html">Первые шаги</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generic-system-acceleration.html">Базовое ускорение системы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extra-optimizations.html">Экстра оптимизации</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kernel-parameters.html">Настройка параметров ядра</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file-systems.html">Файловые системы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom-kernels.html">Кастомные ядра для увеличения плавности и зачем это нужно</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux-gaming.html">Wine / Linux Gaming</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Сборка мини-ядра, и с чем это едят.</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id4">Возможные часто встречаемые проблемы после установки мини-ядра</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="de-optimizations.html">Оптимизация рабочего окружения (DE)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="useful-programs.html">Полезные программы</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="linux-gaming.html" title="предыдущая глава">Wine / Linux Gaming</a></li>
+      <li>Next: <a href="de-optimizations.html" title="следующая глава">Оптимизация рабочего окружения (DE)</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Быстрый поиск</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Искать" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+<h3 class="donation">Donate/support</h3>
+
+
+
+<p>
+<a class="badge" href="https://www.donationalerts.com/r/pavel_priluckiy">
+<img src="https://img.shields.io/badge/donate-%E2%9D%A4%C2%A0-ff69b4.svg?style=flat" alt="Donate">
+</a>
+</p>
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;ARU 2018 - 2022, Pavel Priluckiy, Vasiliy Stelmachenok and contributors.
+      
+    </div>
+
+    
+    <a href="https://github.com/ventureoo/ARU" class="github">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
+    </a>
+    
+
+    
+  </body>
+</html>
