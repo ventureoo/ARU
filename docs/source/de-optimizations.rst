@@ -62,7 +62,7 @@ GNOME 3.XX/40/41/42
 
 ::
 
-  sudo pacman -Rsn epiphany gnome-books gnome-boxes gnome-calculator gnome-calendar gnome-contacts gnome-maps gnome-music gnome-weather gnome-clocks gnome-documents gnome-photos gnome-software gnome-user-docs totem malcontent yelp gnome-getting-started-docs gvfs-afc gvfs-goa gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-smb gvfs-google vino gnome-user-share gnome-characters simple-scan eog tracker3-miners rygel nautilus evolution-data-server gnome-font-viewer gnome-remote-desktop gnome-logs gnome-software gnome-boxes orca
+  sudo pacman -Rsn epiphany gnome-books gnome-boxes gnome-calculator gnome-calendar gnome-contacts gnome-maps gnome-music gnome-weather gnome-clocks gnome-documents gnome-photos gnome-software gnome-user-docs totem malcontent yelp gvfs-afc gvfs-goa gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-smb gvfs-google vino gnome-user-share gnome-characters simple-scan eog tracker3-miners rygel nautilus evolution-data-server gnome-font-viewer gnome-remote-desktop gnome-logs gnome-software gnome-boxes orca
 
 **P.S.** Удаляйте пакеты с осознанием того, что вы делайте.
 Несмотря на то, что здесь были собраны наиболее сомнительные по соотношению нужности/прожорливости пакеты,
