@@ -503,13 +503,11 @@ makepkg -sric <span class="c1"># Сборка и установка</span>
 <p><code class="docutils literal notranslate"><span class="pre">_menuconfig=&quot;1&quot;</span></code> - Выбор настройки ядра через menuconfg/xconfig/nconfig.
 Рекомендуется выбрать <em>&quot;1&quot;</em> чтобы перед сборкой можно было выполнить непосредственную настройку конфига ядра через menuconfig как мы уже делали ранее с liquorix.</p>
 <p><code class="docutils literal notranslate"><span class="pre">_cpusched=&quot;pds&quot;</span></code> - Выбор CPU планировщика ядра.
-Всего предоставляется к выбору пять планировщиков: &quot;pds&quot;, &quot;muqss&quot; (ранее дефолтный для lqx, теперь доступен только для версии ядра 5.13 и ниже),
-&quot;upds&quot; (недоступен для новых версий ядра) &quot;bmq&quot;, &quot;cfs&quot; (дефолтный для ванильного ядра).
-По некоторым данным, PDS дает больше FPS, а MuQSS дает лучшие задержки по времени кадра (плавность).
-Однако все слишком ситуативно чтобы выбрать из них лучшего, в каких-то играх/задачах будет выигрывать PDS, а в каких-то MuQSS и так далее.</p>
-<p>Рекомендуется попробовать PDS или BMQ.</p>
-<p><code class="docutils literal notranslate"><span class="pre">_runqueue_sharing=&quot;mc-llc&quot;</span></code> - Настраивает режим совместного использования очереди выполнения планировщика.
-Работает только для MuQSS. Рекомендуется выбирать Multicore siblings (&quot;mc-llc&quot;) для равномерного распределения нагрузки процессора по его ядрам.</p>
+К выбору предоставляется довольно много планировщиков, но мы советуем обратить ваше внимание только на некоторых из них:
+&quot;pds&quot;,  &quot;bmq&quot;, &quot;cacule&quot;, &quot;cfs&quot; (дефолтный для ванильного ядра).
+По некоторым данным, PDS дает больше FPS, а CacULE дает лучшие задержки по времени кадра (плавность).
+Однако все слишком ситуативно чтобы выбрать из них лучшего, в каких-то играх/задачах будет выигрывать PDS, а в каких-то CaCULE и так далее.</p>
+<p>Рекомендуется попробовать PDS или CacULE.</p>
 <p><code class="docutils literal notranslate"><span class="pre">_rr_interval=&quot;default&quot;</span></code> - Задает продолжительность удержания двумя задачами одинакового приоритета.
 Рекомендуемое значение слишком зависит от выбранного планировщика, поэтому лучше всего задавайте <em>&quot;default&quot;</em>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">_default_cpu_gov=&quot;performance&quot;</span></code> - Выбирает режим по умолчанию в котором будет масштабироваться частота процессора.
