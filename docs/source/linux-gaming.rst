@@ -371,6 +371,12 @@ vkd3d - это аналог DXVK, но уже конкретно для верс
 
 (Где '~/.wineprefix' - это путь до нужного вам префикса)
 
+Кроме того, обязательно измените версию Windows вашего префикса на *"Windows 10"*::
+
+  WINEPREFIX=~/.wineprefix winecfg
+
+.. image:: images/vkd3d-configure.png
+
 .. index:: wine, dxvk, gaming, about
 .. _wine-references:
 
