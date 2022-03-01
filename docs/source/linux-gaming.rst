@@ -328,6 +328,7 @@ OpenGL, а в Vulkan - более современный графический 
   git clone https://github.com/loathingKernel/PKGBUILDs
   cd PKGBUILDs/public/dxvk-mingw
   mv PKGBUILD.testing PKGBUILD
+  sed -i 's/-O3 -march=haswell -pipe -mtune=haswell/-O2 -march=native -mtune=native -pipe/g' PKGBUILD # Нативные флаги
   makepkg -sric # Сборка и установка
 
 Активировать асинхронную компиляцию шейдеров можно через переменную окружения *DXVK_ASYNC=1*.
@@ -362,6 +363,7 @@ vkd3d - это ретранслятор кода, аналогичный DXVK, �
 
   git clone https://aur.archlinux.org/vkd3d-proton-mingw.git # Скачивание исходников
   cd vkd3d-proton-mingw                                      # Переход в директорию
+  sed -i 's/-O3 -march=nocona -mtune=core-avx2 -pipe/-O2 -march=native -mtune=native -pipe/g' PKGBUILD # Нативные флаги
   makepkg -sric                                              # Сборка и установка
 
 Так же как и в случае с DXVK, после установки пакета, vkd3d нужно предварительно распоковать в нужный Wine префикс::
