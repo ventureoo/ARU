@@ -662,6 +662,7 @@ OpenGL, а в Vulkan - более современный графический 
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/loathingKernel/PKGBUILDs
 <span class="nb">cd</span> PKGBUILDs/public/dxvk-mingw
 mv PKGBUILD.testing PKGBUILD
+sed -i <span class="s1">&#39;s/-O3 -march=haswell -pipe -mtune=haswell/-O2 -march=native -mtune=native -pipe/g&#39;</span> PKGBUILD <span class="c1"># Нативные флаги</span>
 makepkg -sric <span class="c1"># Сборка и установка</span>
 </pre></div>
 </div>
@@ -673,8 +674,8 @@ makepkg -sric <span class="c1"># Сборка и установка</span>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Предупреждение</p>
-<p>DXVK осуществляет ретрансляцию вызовов только игр использующих версии DirectX 9, 10 и 11!
-Для DirectX 12 для понадобиться устанавливать другой ретранслятор кода, если точнее то - vkd3d. Подробнее о нем вы можете прочитать ниже.</p>
+<p>DXVK осуществляет ретрансляцию вызовов только для игр использующих версии DirectX 9, 10 и 11.
+Для DirectX 12 для понадобиться использовать vkd3d. Подробнее о нем вы можете прочитать ниже.</p>
 </div>
 <div class="admonition danger">
 <p class="admonition-title">Опасно</p>
@@ -683,7 +684,7 @@ makepkg -sric <span class="c1"># Сборка и установка</span>
 </div>
 <div class="section" id="vkd3d">
 <span id="index-10"></span><span id="id10"></span><h3>vkd3d<a class="headerlink" href="#vkd3d" title="Ссылка на этот заголовок">¶</a></h3>
-<p>vkd3d - это аналог DXVK, но уже конкретно для версии DirectX 12.
+<p>vkd3d - это ретранслятор кода, аналогичный DXVK, но уже конкретно для версии DirectX 12.
 Стоит отметить, что существует две отдельно разрабатываемые версии vkd3d,
 одна из которых разрабатывается командой Wine, а другая - Valve.
 Мы рекомендуем вам использовать ту что от Valve, т.к. она наиболее заточена под современные игры,
@@ -693,6 +694,7 @@ makepkg -sric <span class="c1"># Сборка и установка</span>
 Однако для обычного Wine нужна его отдельная установка. Мы установим vkd3d-proton из AUR, нативно-скомпилировав его под свой процессор:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://aur.archlinux.org/vkd3d-proton-mingw.git <span class="c1"># Скачивание исходников</span>
 <span class="nb">cd</span> vkd3d-proton-mingw                                      <span class="c1"># Переход в директорию</span>
+sed -i <span class="s1">&#39;s/-O3 -march=nocona -mtune=core-avx2 -pipe/-O2 -march=native -mtune=native -pipe/g&#39;</span> PKGBUILD <span class="c1"># Нативные флаги</span>
 makepkg -sric                                              <span class="c1"># Сборка и установка</span>
 </pre></div>
 </div>
