@@ -328,7 +328,6 @@ OpenGL, а в Vulkan - более современный графический 
   git clone https://github.com/loathingKernel/PKGBUILDs
   cd PKGBUILDs/public/dxvk-mingw
   mv PKGBUILD.testing PKGBUILD
-  sed -i 's/dxvk.git/dxvk.git#tag=v$_dxvkver/' PKGBUILD # Исправляет сборку пакета в связи с новыми изменениями
   makepkg -sric # Сборка и установка
 
 Активировать асинхронную компиляцию шейдеров можно через переменную окружения *DXVK_ASYNC=1*.
