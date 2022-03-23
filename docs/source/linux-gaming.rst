@@ -223,6 +223,11 @@ Proton-GE-Custom это форк проекта Proton для запуска Win
 
   git clone https://aur.archlinux.org/proton-ge-custom
   cd proton-ge-custom
+
+  # Нативные флаги + дополнительный патч для DXVK позволяющий улучшить производительность видеокарт NVIDIA
+  wget -qO proton-ge-aur.patch https://gist.githubusercontent.com/ventureoo/9b89c4799fbc89304f42983c6e90bda0/raw/9f10d463dfecaaa4935be757b48912004c6996fd/proton-ge-aur
+  patch PKGBUILD proton-ge-aur.patch
+
   makepkg -sric
 
 Дабы использовать Proton-GE в качестве альтернативы обычному Proton,
