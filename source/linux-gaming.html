@@ -573,6 +573,11 @@ makepkg -sric
 <p><strong>II. Установка (компиляция, имеет много зависимостей):</strong>:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://aur.archlinux.org/proton-ge-custom
 <span class="nb">cd</span> proton-ge-custom
+
+<span class="c1"># Нативные флаги + дополнительный патч для DXVK позволяющий улучшить производительность видеокарт NVIDIA</span>
+wget -qO proton-ge-aur.patch https://gist.githubusercontent.com/ventureoo/9b89c4799fbc89304f42983c6e90bda0/raw/9f10d463dfecaaa4935be757b48912004c6996fd/proton-ge-aur
+patch PKGBUILD proton-ge-aur.patch
+
 makepkg -sric
 </pre></div>
 </div>
