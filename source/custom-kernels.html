@@ -276,23 +276,35 @@ function checkPageExistsAndRedirect(event) {
 <nav id="bd-toc-nav">
     <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#zen">
-   Zen
+  <a class="reference internal nav-link" href="#kernel-choose">
+   Выбор ядра
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#linux-zen">
+     linux-zen
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#liquorix">
+     liquorix
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#xanmod">
+     Xanmod
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#linux-tkg">
+     linux-tkg
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#liquorix">
-   liquorix
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#xanmod">
-   Xanmod
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#linux-tkg">
-   linux-tkg
+  <a class="reference internal nav-link" href="#manual-kernel-configuration">
+   Настройка ядра
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -332,153 +344,136 @@ function checkPageExistsAndRedirect(event) {
 <span id="id1"></span><h1>Кастомные ядра<a class="headerlink" href="#custom-kernels" title="Ссылка на этот заголовок">¶</a></h1>
 <p>Прежде чем мы начнем, хотелось бы прояснить такой вопрос: &quot;А зачем вообще нужны эти кастомные ядра?&quot;.
 Чтобы дать ответ на данный вопрос, стоит понимать, что ядро Linux является определенным универсальным стандартом в мире
-операционных систем, которое одинаково подоходит как для сервера, роутера, домашнего ПК или ноутбука, микро-контроллера, телефона
-и так далее. То есть, ядро по умолчанию является швейцарским ножом, позволяющим применять себя в разных задачах, но при этом
-конечно не быть наилучшим в чём-то конкретном, определенном. Нет, это не значит что на ванильном ядре вы не сможете запустить
-какую-то игру скажем через Wine или Proton, но такой опыт не будет лучшим, т.к. за такую многопрофильность ядру приходится платить
-меньшей производительностью в этих самых определенных задачах. Кастомные же ядро подразумевает определенную заточенность под что-то конкретное,
+операционных систем, которое одинаково подоходит как для домашнего ПК, ноутбука, телефона, так и для сервера, роутера, микро-контроллера.
+То есть, ядро по умолчанию является швейцарским ножом, позволяющим применять себя в разных задачах,
+но при этом не быть наилучшим в чём-то конкретном, определенном.
+Нет, это не значит что на ванильном ядре вы не сможете запустить какую-то игру скажем через Wine или Proton,
+но такой опыт не будет лучшим, т.к. за такую многопрофильность ядру приходится платить меньшей производительностью в этих самых определенных задачах.
+Кастомные же ядро подразумевает определенную заточенность под что-то конкретное,
 делая упор на что-то одно. В нашем случае это производительность и игры, а также улучшение опыта использования Linux на домашнем
 ПК или ноутбуке. В этом нам и помогут нижеперечисленные ядра, а также их правильная настройка.</p>
+<p>И ещё просим вас заранее установить стабильное linux-lts ядро.
+В случае возникновения проблем вы всегда сможете откатиться на эту версию ядра.</p>
 <p>Проверка ядра используемого в данный момент осуществляется следующей командой: <code class="docutils literal notranslate"><span class="pre">uname</span> <span class="pre">-r</span></code>.</p>
-<div class="section" id="zen">
-<span id="linux-zen"></span><span id="index-0"></span><h2>Zen<a class="headerlink" href="#zen" title="Ссылка на этот заголовок">¶</a></h2>
-<p>Это отличный выбор для неискушенного пользователя, что не ставит задачи в покорении максимальной планки FPS.
-Доступен в официальных репозиториях (не нужно компилировать).</p>
+<div class="section" id="kernel-choose">
+<span id="index-0"></span><span id="id2"></span><h2>Выбор ядра<a class="headerlink" href="#kernel-choose" title="Ссылка на этот заголовок">¶</a></h2>
+<p>Хотелось бы отметить, что универсального рецепта по сборке &quot;лучшего ядра&quot; не существует,
+и каждый выбирает то, что конкретно для него лучше работает. Поэтому мы рекомендуем вам
+установить и попробовать каждое ядро из предложенных ниже на своем железе и провести тесты
+в любимых играх/востребованных задачах.</p>
+<div class="section" id="linux-zen">
+<span id="index-1"></span><span id="id3"></span><h3>linux-zen<a class="headerlink" href="#linux-zen" title="Ссылка на этот заголовок">¶</a></h3>
+<p>Zen ядро - это плод коллективных усилий по объединеню патчей улучшающих опыт домашнего использования
+Linux, но при этом работающих стабильно и не ломающих совместимость с теми или иными вещами.</p>
+<p>Это отличный выбор для неискушенного пользователя, что не ставит задачи в получении максимальной
+производительности и покорении максимальной планки FPS. Рекомендуется установить всем, кто
+не хочет сильно париться с компиляцией и настройкой других ядер.
+Ядро доступно в официальных репозиториях и имеет официальную поддержку.</p>
+<p>Из основных улучшений:</p>
+<ul class="simple">
+<li><p>Улучшено поведение планировщика CFS для значительного снижения задержек в несколько раз.</p></li>
+<li><p>Задействован эффективный алгоритм сжатия LZ4 для файла подкачки через zswap.</p></li>
+<li><p>Используется планировщик ввода/ввода (IO) BFQ имеющий более низкие задержки
+и большую пропускную способность (Подробнее - <a class="reference external" href="https://www.kernel.org/doc/html/latest/block/bfq-iosched.html#when-may-bfq-be-useful">тут</a>).</p></li>
+<li><p>Ядро приспособлено к сохранению качества отклика системы при высокой нагрузке.</p></li>
+</ul>
 <p><strong>I. Установка</strong></p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S linux-zen linux-zen-headers <span class="c1"># Не забудь обновить GRUB.</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S linux-zen linux-zen-headers
+
+<span class="c1"># Если у вас не GRUB - используйте команду обновления вашего загрузчика</span>
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+</pre></div>
+</div>
+<p><strong>II. Установка (нативная компиляция)</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://aur.archlinux.org/linux-zen-git.git
+<span class="nb">cd</span> linux-zen-git
+makepkg -sric
+sudo grub-mkconfig -o /boot/grub/grub.cfg
 </pre></div>
 </div>
 </div>
 <div class="section" id="liquorix">
-<span id="linux-lqx"></span><span id="index-1"></span><h2>liquorix<a class="headerlink" href="#liquorix" title="Ссылка на этот заголовок">¶</a></h2>
-<p>Идеальное ядро для игроманов.
-Значительно улучшает качество отклика как в повседневных задачах так и в играх.
-Ориентирован на процессоры Intel.</p>
-<p><strong>I. Установка</strong></p>
+<span id="linux-lqx"></span><span id="index-2"></span><h3>liquorix<a class="headerlink" href="#liquorix" title="Ссылка на этот заголовок">¶</a></h3>
+<p>linux-lqx - является по сути тем же Zen, но заточенным под Debian системы.
+Несмотря на это, авторы ARU считают его также лучшим ядром и для Arch Linux.
+При нативной компиляции идеально подходит для игр в связке с wine-tkg.</p>
+<p>Содержит множество изменений не вошедших в Zen:</p>
+<ul class="simple">
+<li><p>Планировщик PDS по умолчанию (На выбор предоставляются также BMQ и CFS), имеющий лучшие результаты в повседневных задачах.</p></li>
+<li><p>Алгоритм TCP BBR2 обеспечивающий более высокую скорость работы и максимизирует пропускную способность</p></li>
+<li><p>Multigenerational LRU для сохранения качества отклика в условиях нехватки оперативной памяти.</p></li>
+<li><p>1000Hz тактовая частота по умолчанию для более точного планирования с минимумом зависаний.</p></li>
+<li><p>Предпочтительно жёсткое вытеснение процессов из очереди. Это гарантирует вам то, что не один процесс не сможет
+выжрать все процессорное время (дать системе зависнуть).</p></li>
+<li><p>Содержит минималное количество отладочных функций.</p></li>
+<li><p>Другие внутренные изменения ядра.</p></li>
+</ul>
+<p>При этом наследует все изменения из Zen.</p>
+<p>Хорошо работает на процессорах Intel, но должен неплохо работать и на процессорах от AMD.</p>
+<p><strong>I. Установка (бинарные пакеты)</strong></p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman-key --keyserver hkps://keyserver.ubuntu.com --recv-keys 9AE4078033F8024D
 sudo pacman-key --lsign-key 9AE4078033F8024D      <span class="c1"># Добавляем GPG ключ</span>
-sudo nano /etc/pacman.conf                        <span class="c1"># Добавляем сюда строчку ниже.</span>
+sudo nano /etc/pacman.conf
+
+<span class="c1"># Прописываем эти две строчки в файл</span>
+<span class="o">[</span>liquorix<span class="o">]</span>
+<span class="nv">Server</span> <span class="o">=</span> https://liquorix.net/archlinux/<span class="nv">$repo</span>/<span class="nv">$arch</span>
 </pre></div>
 </div>
-<p><em>[liquorix]</em></p>
-<p><em>Server = https://liquorix.net/archlinux/$repo/$arch</em></p>
 <img alt="../_images/custom-kernels-16.png" src="../_images/custom-kernels-16.png" />
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -Suuyy
-sudo pacman -S linux-lqx linux-lqx-headers <span class="c1"># Не забудь обновить GRUB.</span>
+sudo pacman -S linux-lqx linux-lqx-headers
+sudo grub-mkconfig -o /boot/grub/grub.cfg
 </pre></div>
 </div>
-<p>Установка I рекомендуется если не хотите компилировать,
+<p>Вариант установки I рекомендуется если не хотите компилировать,
 но тогда производительность будет хуже чем у аналогичного скомпилированного ядра.</p>
-<p><strong>II. Установка</strong></p>
+<p><strong>II. Установка и настройка</strong></p>
+<p>В этом случае мы настроим ядро и выполним его нативную-компиляцию.
+Тонкая настрйка ядра позволит дать ещё больше производительности и может
+ускорить сам процесс сборки.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://aur.archlinux.org/linux-lqx.git                 <span class="c1"># Скачивание исходников.</span>
 <span class="nb">cd</span> linux-lqx                                                      <span class="c1"># Переход в linux-lqx</span>
 gpg --keyserver keyserver.ubuntu.com --recv-keys 38DBBDC86092693E <span class="c1"># GPG ключ</span>
-makepkg -sric                                                     <span class="c1"># Сборка и установка.</span>
+sed -i <span class="s1">&#39;s/_makenconfig=/_makenconfig=y/&#39;</span> PKGBUILD                 <span class="c1"># Включаем ручную настройку</span>
+makepkg -sric
 </pre></div>
 </div>
-<p><strong>III. Установка и настройка</strong></p>
-<p>Выполнение кастомизации ядра linux-lqx.
-Тонкая настрйка ядра позволит дать ещё больше производительности.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://aur.archlinux.org/linux-lqx.git         <span class="c1"># Скачивание исходников.</span>
-<span class="nb">cd</span> linux-lqx                                              <span class="c1"># Переход в linux-lqx</span>
-nano PKGBUILD                                             <span class="c1"># Редактирование конфигурационного файла.</span>
-</pre></div>
-</div>
-<p>Нужно привести строку <em>_makenconfig=</em> к виду <em>_makenconfig=y</em>:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>makepkg -sric <span class="c1"># Сборка и установка.</span>
-</pre></div>
-</div>
-<p>Следовать графической инструкции.</p>
-<ol class="arabic simple">
-<li></li>
-</ol>
-<img alt="../_images/custom-kernels-1.jpg" src="../_images/custom-kernels-1.jpg" />
-<ol class="arabic simple" start="2">
-<li></li>
-</ol>
-<img alt="../_images/custom-kernels-2.jpg" src="../_images/custom-kernels-2.jpg" />
-<ol class="arabic simple" start="3">
-<li></li>
-</ol>
-<img alt="../_images/custom-kernels-3.jpg" src="../_images/custom-kernels-3.jpg" />
-<ol class="arabic simple" start="4">
-<li></li>
-</ol>
-<img alt="../_images/custom-kernels-4.jpg" src="../_images/custom-kernels-4.jpg" />
-<ol class="arabic simple" start="5">
-<li></li>
-</ol>
-<img alt="../_images/custom-kernels-5.jpg" src="../_images/custom-kernels-5.jpg" />
-<ol class="arabic simple" start="6">
-<li></li>
-</ol>
-<img alt="../_images/custom-kernels-6.jpg" src="../_images/custom-kernels-6.jpg" />
-<ol class="arabic simple" start="7">
-<li></li>
-</ol>
-<img alt="../_images/custom-kernels-7.jpg" src="../_images/custom-kernels-7.jpg" />
-<ol class="arabic simple" start="8">
-<li></li>
-</ol>
-<img alt="../_images/custom-kernels-8.jpg" src="../_images/custom-kernels-8.jpg" />
-<ol class="arabic simple" start="9">
-<li></li>
-</ol>
-<img alt="../_images/custom-kernels-9.jpg" src="../_images/custom-kernels-9.jpg" />
-<ol class="arabic simple" start="10">
-<li></li>
-</ol>
-<img alt="../_images/custom-kernels-10.jpg" src="../_images/custom-kernels-10.jpg" />
-<ol class="arabic simple" start="11">
-<li></li>
-</ol>
-<img alt="../_images/custom-kernels-11.jpg" src="../_images/custom-kernels-11.jpg" />
-<ol class="arabic simple" start="12">
-<li></li>
-</ol>
-<img alt="../_images/custom-kernels-12.jpg" src="../_images/custom-kernels-12.jpg" />
-<ol class="arabic simple" start="13">
-<li></li>
-</ol>
-<img alt="../_images/custom-kernels-13.jpg" src="../_images/custom-kernels-13.jpg" />
-<ol class="arabic simple" start="14">
-<li></li>
-</ol>
-<img alt="../_images/custom-kernels-14.jpg" src="../_images/custom-kernels-14.jpg" />
-<ol class="arabic simple" start="15">
-<li></li>
-</ol>
-<img alt="../_images/custom-kernels-15.jpg" src="../_images/custom-kernels-15.jpg" />
-<p>Последовательное выполнение данных инструкций приведет к повышению производительности,
-а также исправит некорректное поведение драйвера NVIDIA при работе с фреймбуфером.</p>
+<p>После некоторого времени с началом компиляции перед вами предстанет окно с настройкой ядра.
+Подробные инструкции и рекомендации по настройке вы найдете в следующем разделе.</p>
+<img alt="../_images/lqx-menunconfig.png" src="../_images/lqx-menunconfig.png" />
 </div>
 <div class="section" id="xanmod">
-<span id="linux-xanmod"></span><span id="index-2"></span><h2>Xanmod<a class="headerlink" href="#xanmod" title="Ссылка на этот заголовок">¶</a></h2>
-<p>Альтернатива liquorix, так же нацеленная на оптимизацию под игрушки и повышение плавности работы системы.</p>
+<span id="linux-xanmod"></span><span id="index-3"></span><h3>Xanmod<a class="headerlink" href="#xanmod" title="Ссылка на этот заголовок">¶</a></h3>
+<p>Альтернатива liquorix, так же нацеленная на оптимизацию под игрушки и повышение плавности работы системы.
+Новомодное ядро, которое включает в себе часть уже описанных выше изменений из zen/lqx. Помимо прочего имеет:</p>
+<ul class="simple">
+<li><p>Улучшения производительность протокола TCP (включая BBRv2)</p></li>
+<li><p>Частично включает в себя патчи от Clear Linux (также как и linux-lqx)</p></li>
+<li><p>WineSync, альтернатива Fsync, ещё одна реализация синхронизации NT примитов для Wine, но вынесенная в качестве отдельного драйвера (модуля).
+Для остальных ядер может быть установлена через AUR пакет <a class="reference external" href="https://aur.archlinux.org/packages/winesync-dkms">winesync-dkms</a>.</p></li>
+<li><p>Высокая пропускная способность устройств ввода/вывода.</p></li>
+<li><p>Улучшения систем кэширования и управления памятью.</p></li>
+</ul>
+<p>Полный список включаемых в него патчей вы можете найти здесь: <a class="reference external" href="https://github.com/xanmod/linux-patches">https://github.com/xanmod/linux-patches</a></p>
 <div class="admonition attention">
 <p class="admonition-title">Внимание</p>
-<p>Не рекомендуется обладателям процессоров Intel.
-Имеет особенность сброса частот для процессоров Intel.</p>
+<p>Не рекомендуется обладателям процессоров Intel, т.к. возможно все ещё имеет нерешенную проблему со сбросом частот процессора от данного производителя (<a class="reference external" href="https://forum.xanmod.org/thread-3800.html">https://forum.xanmod.org/thread-3800.html</a>)</p>
 </div>
-<p><strong>I. Установка</strong>:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://aur.archlinux.org/linux-xanmod.git <span class="c1"># Скачивание исходников.</span>
-<span class="nb">cd</span> linux-xanmod                                      <span class="c1"># Переход в linux-xanmod</span>
-
-<span class="c1"># Если у вас процессор от AMD, то вместо 98 пишите 99</span>
-
-<span class="nb">export</span> <span class="nv">_microarchitecture</span><span class="o">=</span><span class="m">98</span> <span class="nv">use_numa</span><span class="o">=</span>n <span class="nv">use_tracers</span><span class="o">=</span>n <span class="nv">_compiler</span><span class="o">=</span>clang
-
-
-makepkg -sric <span class="c1"># Сборка и установка</span>
+<p><strong>I. Установка (компиляция)</strong>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://aur.archlinux.org/linux-xanmod.git                    <span class="c1"># Скачивание исходников.</span>
+<span class="nb">cd</span> linux-xanmod                                                         <span class="c1"># Переход в linux-xanmod</span>
+gpg --keyserver hkp://keyserver.ubuntu.com --recv-keys 38DBBDC86092693E <span class="c1"># GPG ключ</span>
+<span class="nb">export</span> <span class="nv">_makenconfig</span><span class="o">=</span>y <span class="nv">_use_numa</span><span class="o">=</span>n <span class="nv">use_tracers</span><span class="o">=</span>n <span class="nv">_compiler</span><span class="o">=</span>clang         <span class="c1"># Включаем ручную настройку</span>
+makepkg -sric                                                           <span class="c1"># Сборка и установка</span>
 </pre></div>
 </div>
-<p>Если возникает сбой с неизвестным ключом, то выполните следующую операцию::</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>gpg --keyserver keyserver.ubuntu.com --recv-keys КЛЮЧ
-</pre></div>
-</div>
+<p>После некоторого времени с начала сборки у вас должно появится окно с ручной настройкой ядра.
+Этот процесс мы подробнее рассмотрим в следующей главе.</p>
+<img alt="../_images/xanmod-menunconfig.png" src="../_images/xanmod-menunconfig.png" />
 </div>
 <div class="section" id="linux-tkg">
-<span id="index-3"></span><span id="id2"></span><h2>linux-tkg<a class="headerlink" href="#linux-tkg" title="Ссылка на этот заголовок">¶</a></h2>
+<span id="index-4"></span><span id="id5"></span><h3>linux-tkg<a class="headerlink" href="#linux-tkg" title="Ссылка на этот заголовок">¶</a></h3>
 <p>Является альтернативой всем трем ядрам выше,
 что предоставляет возможность собрать ядро с набором множества патчей на улучшение производительности в игрушках (Futex2, Zenify).
 Предоставляет выбор в сборке ядра с разными планировщиками.
@@ -500,8 +495,8 @@ makepkg -sric <span class="c1"># Сборка и установка</span>
 <p><code class="docutils literal notranslate"><span class="pre">_modprobeddb=&quot;false&quot;</span></code> - Опция отвечающая за сборку мини-ядра.
 Подробнее о нем вы можете узнать в соответствующем разделе.
 Если хотите собрать мини-ядро - пишите <em>&quot;true&quot;</em>, если нет - <em>&quot;false&quot;</em>.</p>
-<p><code class="docutils literal notranslate"><span class="pre">_menuconfig=&quot;1&quot;</span></code> - Выбор настройки ядра через menuconfg/xconfig/nconfig.
-Рекомендуется выбрать <em>&quot;1&quot;</em> чтобы перед сборкой можно было выполнить непосредственную настройку конфига ядра через menuconfig как мы уже делали ранее с liquorix.</p>
+<p><code class="docutils literal notranslate"><span class="pre">_menuconfig=&quot;2&quot;</span></code> - Выбор настройки ядра через menuconfg/xconfig/nconfig.
+Рекомендуется выбрать <em>&quot;2&quot;</em> чтобы перед сборкой можно было выполнить непосредственную настройку ядра через menunconfig как мы уже делали ранее с liquorix.</p>
 <p><code class="docutils literal notranslate"><span class="pre">_cpusched=&quot;pds&quot;</span></code> - Выбор CPU планировщика ядра.
 К выбору предоставляется довольно много планировщиков, но мы советуем обратить ваше внимание только на некоторых из них:
 &quot;pds&quot;,  &quot;bmq&quot;, &quot;cacule&quot;, &quot;cfs&quot; (дефолтный для ванильного ядра).
@@ -521,7 +516,7 @@ makepkg -sric <span class="c1"># Сборка и установка</span>
 Выбирайте значение по собственному усмотрению со знанием своего CPU.</p>
 <p><code class="docutils literal notranslate"><span class="pre">_sched_yield_type=&quot;0&quot;</span></code> - Настраивает выполнение освобождения процесса от потребления процессорного времени путем его переноса в конец очереди выполнения процессов.
 Рекомендуемое значение для лучшей производительности - <em>&quot;0&quot;</em>, т.е. не осуществлять перенос в конец очереди для освобождения процесса.</p>
-<p><code class="docutils literal notranslate"><span class="pre">_tickless=&quot;0&quot;</span></code> - Рекомендуется выбирать периодические тики таймера ядра.</p>
+<p><code class="docutils literal notranslate"><span class="pre">_tickless=&quot;0&quot;</span></code> - Рекомендуется выбирать статические тики таймера ядра.</p>
 <p><code class="docutils literal notranslate"><span class="pre">_timer_freq=&quot;1000&quot;</span></code> - Задает частоту таймера.
 Рекомендуется 1000 для лучшей отзывчивости системы на домашнем ПК или ноутбуке.</p>
 <p><code class="docutils literal notranslate"><span class="pre">_fsync=&quot;true&quot;</span></code> - Задействует поддержку ядром замены Esync от компании Valve - Fsync.
@@ -537,7 +532,8 @@ makepkg -sric <span class="c1"># Сборка и установка</span>
 либо фирму производитель, где для Intel это - <em>&quot;native_intel&quot;</em>, для AMD - <em>&quot;native_amd&quot;</em>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">_ftracedisable=&quot;true&quot;</span></code> - Отключает лишние трекеры для отладки ядра.</p>
 <p><code class="docutils literal notranslate"><span class="pre">_acs_override=&quot;true&quot;</span></code> - Включает патч на разделение сгруппированных PCI устройств в IOMMU, которые могут понадобиться вам отдельно.
-По умолчанию также включен в linux-zen. Подробнее читайте - <a class="reference external" href="https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF#Bypassing_the_IOMMU_groups_.28ACS_override_patch.29">здесь</a>.
+По умолчанию есть в linux-zen и linux-lqx.
+Подробнее читайте - <a class="reference external" href="https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF#Bypassing_the_IOMMU_groups_.28ACS_override_patch.29">здесь</a>.
 Советуем включить если в будущем вы хотите выполнить операцию проброса вашей видеокарты в виртуальную машину.</p>
 <p>Вот и все. Остальные настройки <em>customizing.cfg</em> вы можете выбрать по собственному предпочтению.
 После того как мы закончили с настройкой, можно перейти непосредственно к сборке и установке ядра::</p>
@@ -545,8 +541,97 @@ makepkg -sric <span class="c1"># Сборка и установка</span>
 </pre></div>
 </div>
 </div>
+</div>
+<div class="section" id="manual-kernel-configuration">
+<span id="index-5"></span><span id="id7"></span><h2>Настройка ядра<a class="headerlink" href="#manual-kernel-configuration" title="Ссылка на этот заголовок">¶</a></h2>
+<p>При нативной компиляции ядра обязательным этапом является его настройка.
+Хотя и заботливые сопровождающие кастомных ядер обычно уже заранее выполняют
+его тонкую настройку, есть пара моментов на которых стоит остановиться.</p>
+<p>После начала компиляции через некоторое время перед вами появится меню настройки ядра.
+Перемещение между пунктами в нем осуществляется стрелочками на клавиатуре, переход в
+раздел через клавишу <em>Enter</em>, а выход из него через <em>Esc</em>.</p>
+<p>Здесь нужно следовать графической инструкции.</p>
+<p><strong>1.</strong> Для начала выберем одну из важнейших настроек. Это выбор архитектуры процессора под которую будет компилироваться ядро.
+По умолчанию выбрана <em>Generic</em>, то есть такое ядро будет собираться под абстрактную x86 архитектуру и при этом будет совместимо
+с любым процессором, хоть AMD, хоть Intel. Главным же преимуществом именно нативной компиляции любого ПО состоит в задействовании
+максимума производительности конкретно под вашу архитектуру процессора, с использованием всех доступных ему инструкций. А в случае
+с ядром это особенно важно, ибо ядро это сердце операционной системы, и если его нативно собрать под себя то мы получем существенный
+прирост и отличный отклик системы. Поэтому начиная с главного окна настройки перейдите в раздел <em>&quot;Processor type and features&quot;</em> и затем
+в <em>&quot;Processor family&quot;</em>. Здесь выберите либо <em>&quot;Intel-native optimizations&quot;</em> если у вас процессор Intel, либо <em>&quot;AMD-native optimizations&quot;</em> если
+у вас процессор AMD, как это показано на скриншотах ниже.</p>
+<p><strong>1.1</strong></p>
+<img alt="../_images/processor-type-and-features-entry.png" src="../_images/processor-type-and-features-entry.png" />
+<p><strong>1.2</strong></p>
+<img alt="../_images/processor-family.png" src="../_images/processor-family.png" />
+<p><strong>1.3</strong></p>
+<img alt="../_images/processor-family-choice.png" src="../_images/processor-family-choice.png" />
+<p>(<strong>Важно</strong>: автор выбрал здесь Intel-native, но если у вас процессор от AMD выбирайте только AMD-native)</p>
+<p><strong>2.</strong> Изменимим поведение таймера ядра.
+Дело в том, что ядро может осуществлять прерывания для перепланирования задач процессора либо статически через частоту N (один тик), либо динамически.
+Динамический таймер работает только тогда, когда процессор находится в работе, т. е. когда процессор простаивает
+таймер прерываний останавливает свою работу (из-за ненадобности). Существует также и вариант динамического таймера
+когда тики не происходят даже тогда, когда процессор чем-то занят.</p>
+<p>Собственно выбор этих трех вариантов и дан нам на скриншотах ниже, где:</p>
+<ul class="simple">
+<li><p>Periodic timer ticks - осуществление тика статически через частоту N</p></li>
+<li><p>Idle dynticks system - прерывания через частоту тика N только тогда, когда процессор чем-то занят.</p></li>
+<li><p>Full dynticks system - прерывания через чатсоту тика N, но не всегда, даже если процессор чем-то занят.</p></li>
+</ul>
+<p><strong>Что из этого выбрать?</strong></p>
+<p>По нашему мнению динамические тики лучше всего выбирать тем людям, которые хотят уменьшить энергопотребление процессора.
+Т.е. всем пользователям ноутбуков/нетбуков посвящается. Обратите внимание, что <em>Full dynticks system</em> может несколько ухудшить производительность
+в зависимости от железа, но даёт реальные преимущества в экономии энергии.</p>
+<p>Но если у вас домашний стационарный ПК или вам просто все равно на энергопотребление - лучше выбрать статические тики (<em>&quot;Pereodic timer ticks&quot;</em>),
+т.к. они потенциально дают более предсказуемый метод планирования прерываний.
+Это значит, что теоритически у вас не будет тратиться время на выход таймера из &quot;сна&quot;.
+И на практике оказывается что переодические тики дают лучшую производительность в играх и мультимедиа.</p>
+<p><strong>2.1</strong></p>
+<img alt="../_images/general-menu.png" src="../_images/general-menu.png" />
+<p><strong>2.2</strong></p>
+<img alt="../_images/timer-subsystem-1.png" src="../_images/timer-subsystem-1.png" />
+<p><strong>2.3</strong></p>
+<img alt="../_images/timer-subsystem-2.png" src="../_images/timer-subsystem-2.png" />
+<p><strong>2.4</strong></p>
+<img alt="../_images/timer-subsystem-3.png" src="../_images/timer-subsystem-3.png" />
+<p><strong>3.</strong> Просим вас удостовериться в значениях частоты таймера.
+Это как раз то самое N через которое происходит тик таймера и последующее за ним прерывание.
+Рекомендуемое значение для домашнего ПК/Ноутбука это 1000.
+Однако если вы имеете многоядерный процессор (12 и более потоков) или какой-нибудь серверный Intel Xeon,
+то вы можете попробовать установить частоту ниже 1000.</p>
+<p><strong>3.1</strong></p>
+<img alt="../_images/processor-type-and-features-entry.png" src="../_images/processor-type-and-features-entry.png" />
+<p><strong>3.2</strong></p>
+<img alt="../_images/timer-freqency.png" src="../_images/timer-freqency.png" />
+<p><strong>3.3</strong></p>
+<img alt="../_images/timer-freqency-choice.png" src="../_images/timer-freqency-choice.png" />
+<p><strong>4.</strong> Рекомендуем вам отключать отладочные функции ядра. Они тоже имеют свои наклодные расходы и в большинстве случаев
+вы ими пользоваться никогда не будете, а на крайний случай у вас должно быть установлено ядро linux-lts как запасной аэродром.
+Для их отключения из главного меню перейдите в <em>&quot;Kernel Hacking&quot;</em> и сделайте там все так, как показано на скриншотах:</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Обращаем ваше внимание на то, что на некоторых ядрах не все возможные отладочные параметры могут быть отключены.
+Например Xanmod не позволяет отключить ряд параметров из списка ниже. Но вы можете ими пренебречь.</p>
+</div>
+<p><strong>4.1</strong></p>
+<img alt="../_images/kernel-hacking.png" src="../_images/kernel-hacking.png" />
+<p><strong>4.2</strong></p>
+<img alt="../_images/kernel-debugging.png" src="../_images/kernel-debugging.png" />
+<p><strong>5.</strong> Обладателям видеокарт NVIDIA советуем отключить поддержку фирменного фреймбуфера, как бы странно это не звучало.
+Это позволит вам избежать проблемы конфликта фреймбуфера ядра и фреймбуфера бинарного драйвера NVIDIA. Сделайте это
+как показано ниже:</p>
+<p><strong>5.1</strong></p>
+<img alt="../_images/kernel-device-drivers.png" src="../_images/kernel-device-drivers.png" />
+<p><strong>5.2</strong></p>
+<img alt="../_images/kernel-graphics-support.png" src="../_images/kernel-graphics-support.png" />
+<p><strong>5.3</strong></p>
+<img alt="../_images/kernel-fb-devices-choice.png" src="../_images/kernel-fb-devices-choice.png" />
+<p><strong>5.4</strong></p>
+<img alt="../_images/kernel-fb-devices.png" src="../_images/kernel-fb-devices.png" />
+<p><strong>5.5</strong></p>
+<img alt="../_images/kernel-nvidia-fb.png" src="../_images/kernel-nvidia-fb.png" />
+</div>
 <div class="section" id="clang-lto">
-<span id="kernel-with-clang-lto"></span><span id="index-4"></span><h2>Сборка ядра с помощью Clang + LTO<a class="headerlink" href="#clang-lto" title="Ссылка на этот заголовок">¶</a></h2>
+<span id="kernel-with-clang-lto"></span><span id="index-6"></span><h2>Сборка ядра с помощью Clang + LTO<a class="headerlink" href="#clang-lto" title="Ссылка на этот заголовок">¶</a></h2>
 <p>В разделе <a class="reference external" href="https://ventureoo.github.io/ARU/source/generic-system-acceleration.html#clang">&quot;Общее ускорение системы&quot;</a>
 мы уже говорили о преимуществах сборки пакетов при помощи компилятора Clang вместе с LTO оптимизациями.
 Но ядро требует отдельного рассмотрения, ибо те параметры которые мы указали ранее в makepkg.conf не работают для сборки ядра,
