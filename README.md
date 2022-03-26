@@ -18,20 +18,16 @@
 - [Оптимизация рабочего окружения (GNOME/Plasma/Xfce/Cinnamon)](https://ventureoo.github.io/ARU/source/de-optimizations.html)
 - [Полезные программы](https://ventureoo.github.io/ARU/source/useful-programs.html)
 
-## TODO:
-
-Почитать о планах на новый выпуск вы можете здесь - https://github.com/ventureoo/ARU/issues/59
-
 ## Благодарности
 
 Основной вклад в проект был внесен этими людьми:
 
 - [Павел Прилуцкий](https://vk.com/ustavchiy) (@Almarus) - Автор оригинального документа
 
-- [Василий Стельмачёнок](https://vk.com/ventureo) (@ventureo) - Текущий сопровождающий проекта, редактор и соавтор. 
+- [Василий Стельмачёнок](https://vk.com/ventureo) (@ventureo) - Текущий сопровождающий проекта, редактор и соавтор.
 
 Отдельное спасибо этим людям за их указания на ошибки/опечатки:
- 
+
 - [@dewdpol](https://github.com/dewdpol) (https://github.com/ventureoo/ARU/pull/51, https://github.com/ventureoo/ARU/pull/48)
 
 - [@holydrug](https://github.com/holydrug)
