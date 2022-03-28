@@ -1,40 +1,38 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<html lang="ru">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Поиск &#8212; Руководство по оптимизации Arch Linux</title>
     
-    <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 <link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-  
+
     
-    <link rel="stylesheet"
-      href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-  
-    
-      
-  
-    
-    <link rel="stylesheet" href="_static/styles/pydata-sphinx-theme.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
     
-    <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
-  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
     
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     <script src="_static/translations.js"></script>
     <script src="_static/searchtools.js"></script>
+    <script src="_static/language_data.js"></script>
     <link rel="index" title="Алфавитный указатель" href="genindex.html" />
     <link rel="search" title="Поиск" href="#" />
   <script src="searchindex.js" defer></script>
@@ -47,7 +45,7 @@
     
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
     
     <div class="container-fluid" id="banner"></div>
 
@@ -93,13 +91,6 @@
 -->
 
 <script type="text/javascript">
-// Construct the target URL from the JSON components
-function buildURL(entry) {
-    var template = "https://ventureoo.github.io/ARU/v{version}/index.html";  // supplied by jinja
-    template = template.replace("{version}", entry.version);
-    return template;
-}
-
 // Check if corresponding page path exists in other version of docs
 // and, if so, go there instead of the homepage of the other docs version
 function checkPageExistsAndRedirect(event) {
@@ -135,14 +126,16 @@ function checkPageExistsAndRedirect(event) {
             const node = document.createElement("a");
             node.setAttribute("class", "list-group-item list-group-item-action py-1");
             node.textContent = `${entry.name}`;
-            // get the base URL for that doc version, add the current page's
-            // path to it, and set as `href`
-            entry.url = buildURL(entry);
             node.setAttribute("href", `${entry.url}${currentFilePath}`);
             // on click, AJAX calls will check if the linked page exists before
             // trying to redirect, and if not, will redirect to the homepage
             // for that version of the docs.
             node.onclick = checkPageExistsAndRedirect;
+            // Add dataset values for the version and name in case people want
+            // to apply CSS styling based on this information.
+            node.dataset["versionName"] = entry.name;
+            node.dataset["version"] = entry.version;
+
             $("#version_switcher_menu").append(node);
             // replace dropdown button text with the preferred display name of
             // this version, rather than using sphinx's  variable.
@@ -150,7 +143,9 @@ function checkPageExistsAndRedirect(event) {
             // version's entry
             if (entry.version == "latest") {
                 node.classList.add("active");
-                $("#version_switcher_button").text(entry.name);
+                let btn = document.getElementById("version_switcher_button");
+                btn.innerText = btn.dataset["activeVersionName"] = entry.name;
+                btn.dataset["activeVersion"] = entry.version;
             }
         });
     });
@@ -281,24 +276,34 @@ function checkPageExistsAndRedirect(event) {
               <div>
                 
   <h1 id="search-documentation">Поиск</h1>
-  <div id="fallback" class="admonition warning">
-  <script>$('#fallback').hide();</script>
+  
+  <noscript>
+  <div class="admonition warning">
   <p>
     Для работы поиска включите JavaScript в браузере.
   </p>
   </div>
+  </noscript>
+  
+  
   <p>
-    Здесь можно делать поиск по всем разделам этой документации. Введите     ключевые слова в текстовое поле и нажмите кнопку «искать». Внимание: будут     найдены только те страницы, в которых есть все указанные слова. Страницы,     где есть только часть этих слов, отобраны не будут.
+    Searching for multiple words only shows matches that contain
+    all words.
   </p>
+  
+  
   <form action="" method="get">
-    <input type="text" name="q" aria-labelledby="search-documentation" value="" />
+    <input type="text" name="q" aria-labelledby="search-documentation" value="" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
     <input type="submit" value="искать" />
     <span id="search-progress" style="padding-left: 10px"></span>
   </form>
   
+  
+  
   <div id="search-results">
   
   </div>
+  
 
               </div>
               
@@ -313,8 +318,9 @@ function checkPageExistsAndRedirect(event) {
       </div>
     </div>
   
-    <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-  <footer class="footer mt-5 mt-md-0">
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
   <div class="container">
     
     <div class="footer-item">

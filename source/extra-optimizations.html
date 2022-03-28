@@ -1,37 +1,34 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<html lang="ru">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Экстра оптимизации &#8212; Руководство по оптимизации Arch Linux</title>
     
-    <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-  
+
     
-    <link rel="stylesheet"
-      href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-  
-    
-      
-  
-    
-    <link rel="stylesheet" href="../_static/styles/pydata-sphinx-theme.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
     
-    <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
-  
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
     <script src="../_static/translations.js"></script>
     <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
     <link rel="search" title="Поиск" href="../search.html" />
@@ -44,7 +41,7 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
     
     <div class="container-fluid" id="banner"></div>
 
@@ -90,13 +87,6 @@
 -->
 
 <script type="text/javascript">
-// Construct the target URL from the JSON components
-function buildURL(entry) {
-    var template = "https://ventureoo.github.io/ARU/v{version}/index.html";  // supplied by jinja
-    template = template.replace("{version}", entry.version);
-    return template;
-}
-
 // Check if corresponding page path exists in other version of docs
 // and, if so, go there instead of the homepage of the other docs version
 function checkPageExistsAndRedirect(event) {
@@ -132,14 +122,16 @@ function checkPageExistsAndRedirect(event) {
             const node = document.createElement("a");
             node.setAttribute("class", "list-group-item list-group-item-action py-1");
             node.textContent = `${entry.name}`;
-            // get the base URL for that doc version, add the current page's
-            // path to it, and set as `href`
-            entry.url = buildURL(entry);
             node.setAttribute("href", `${entry.url}${currentFilePath}`);
             // on click, AJAX calls will check if the linked page exists before
             // trying to redirect, and if not, will redirect to the homepage
             // for that version of the docs.
             node.onclick = checkPageExistsAndRedirect;
+            // Add dataset values for the version and name in case people want
+            // to apply CSS styling based on this information.
+            node.dataset["versionName"] = entry.name;
+            node.dataset["version"] = entry.version;
+
             $("#version_switcher_menu").append(node);
             // replace dropdown button text with the preferred display name of
             // this version, rather than using sphinx's  variable.
@@ -147,7 +139,9 @@ function checkPageExistsAndRedirect(event) {
             // version's entry
             if (entry.version == "latest") {
                 node.classList.add("active");
-                $("#version_switcher_button").text(entry.name);
+                let btn = document.getElementById("version_switcher_button");
+                btn.innerText = btn.dataset["activeVersionName"] = entry.name;
+                btn.dataset["activeVersion"] = entry.version;
             }
         });
     });
@@ -269,7 +263,7 @@ function checkPageExistsAndRedirect(event) {
               
               <div class="toc-item">
                 
-<div class="tocsection onthispage pt-5 pb-3">
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
     <i class="fas fa-list"></i> On this page
 </div>
 
@@ -344,9 +338,9 @@ function checkPageExistsAndRedirect(event) {
               <div>
                 
   <div class="section" id="extra-optimizations">
-<span id="id1"></span><h1>Экстра оптимизации<a class="headerlink" href="#extra-optimizations" title="Ссылка на этот заголовок">¶</a></h1>
+<span id="id1"></span><h1>Экстра оптимизации<a class="headerlink" href="#extra-optimizations" title="Ссылка на этот заголовок">#</a></h1>
 <div class="section" id="maximum-cpu-performance">
-<span id="index-0"></span><span id="id2"></span><h2>Перевод процессора из стандартного энергосбережения в режим производительности<a class="headerlink" href="#maximum-cpu-performance" title="Ссылка на этот заголовок">¶</a></h2>
+<span id="index-0"></span><span id="id2"></span><h2>Перевод процессора из стандартного энергосбережения в режим производительности<a class="headerlink" href="#maximum-cpu-performance" title="Ссылка на этот заголовок">#</a></h2>
 <p>По умолчанию ваш процессор динамически меняет свою частоту, что в принципе правильно и дает баланс между энергосбережением и производительностью.
 Но если вы все таки хотите выжать все соки, то вы можете закрепить применение режима максимальной производительности для вашего процессора.
 Это также поможет вам избегать &quot;падений&quot; частоты во время игры, которые могли вызывать микрофризы во время игры.</p>
@@ -360,7 +354,7 @@ sudo cpupower frequency-set -g performance    <span class="c1"># Выставл�
 <p><em>governor=’performance’</em> # Высокая производительность всегда!</p>
 <p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">enable</span> <span class="pre">cpupower</span></code> # Включить как постоянную службу которая установит вечный perfomance mode.</p>
 <div class="section" id="gui-xanmod">
-<span id="cpupower-gui"></span><span id="index-1"></span><h3>GUI для изменение частоты процессора (<em>Может не работать с Xanmod</em>)<a class="headerlink" href="#gui-xanmod" title="Ссылка на этот заголовок">¶</a></h3>
+<span id="cpupower-gui"></span><span id="index-1"></span><h3>GUI для изменение частоты процессора (<em>Может не работать с Xanmod</em>)<a class="headerlink" href="#gui-xanmod" title="Ссылка на этот заголовок">#</a></h3>
 <img alt="../_images/extra-optimizations-2.png" src="../_images/extra-optimizations-2.png" />
 <p><strong>Установка</strong>:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://aur.archlinux.org/cpupower-gui.git
@@ -370,7 +364,7 @@ makepkg -sric
 </div>
 </div>
 <div class="section" id="auto-cpufreq">
-<span id="index-2"></span><span id="id3"></span><h3>Альтернатива - Auto-Cpufreq<a class="headerlink" href="#auto-cpufreq" title="Ссылка на этот заголовок">¶</a></h3>
+<span id="index-2"></span><span id="id3"></span><h3>Альтернатива - Auto-Cpufreq<a class="headerlink" href="#auto-cpufreq" title="Ссылка на этот заголовок">#</a></h3>
 <p><strong>Установка</strong>:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://aur.archlinux.org/auto-cpufreq-git.git  <span class="c1"># Скачиваем исходники</span>
 <span class="nb">cd</span> auto-cpufreq-git                                       <span class="c1"># Переходим в директорию</span>
@@ -390,7 +384,7 @@ systemctl start auto-cpufreq                              <span class="c1"># З�
 </div>
 </div>
 <div class="section" id="disabling-hibernation-and-sleep">
-<span id="index-3"></span><span id="id4"></span><h2>Отключение спящего режима и гибернации<a class="headerlink" href="#disabling-hibernation-and-sleep" title="Ссылка на этот заголовок">¶</a></h2>
+<span id="index-3"></span><span id="id4"></span><h2>Отключение спящего режима и гибернации<a class="headerlink" href="#disabling-hibernation-and-sleep" title="Ссылка на этот заголовок">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">pacman</span> <span class="pre">-S</span> <span class="pre">polkit</span></code>  # Установить для управления системными привилегиями.</p>
 <p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">/etc/polkit-1/rules.d/10-disable-suspend.rules</span></code>  # Убираем спящий режим и гибернацию (из меню и вообще).
 Если такого файла нет, то создайте его. Файл должен выглядеть вот так:</p>
@@ -407,7 +401,7 @@ systemctl start auto-cpufreq                              <span class="c1"># З�
 </div>
 </div>
 <div class="section" id="disabling-kernel-dumps">
-<span id="index-4"></span><span id="id5"></span><h2>Отключение дампов ядра (<em>Только для опытных пользователей</em>)<a class="headerlink" href="#disabling-kernel-dumps" title="Ссылка на этот заголовок">¶</a></h2>
+<span id="index-4"></span><span id="id5"></span><h2>Отключение дампов ядра (<em>Только для опытных пользователей</em>)<a class="headerlink" href="#disabling-kernel-dumps" title="Ссылка на этот заголовок">#</a></h2>
 <p>Отредактируйте <em>/etc/systemd/coredump.conf</em> в разделе <em>[Coredump]</em> раскомментируйте <em>Storage = external</em> и замените его на <em>Storage = none</em>.</p>
 <p>Затем выполните следующую команду:</p>
 <p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">daemon-reload</span></code></p>
@@ -415,7 +409,7 @@ systemctl start auto-cpufreq                              <span class="c1"># З�
 Если вы хотите полностью отключить дампы ядра, то измените <em>soft</em> на <em>#* hard core 0</em> в <em>/etc/security/limits.conf</em>.</p>
 </div>
 <div class="section" id="disabling-swap">
-<span id="index-5"></span><span id="id6"></span><h2>Отключение файла подкачки<a class="headerlink" href="#disabling-swap" title="Ссылка на этот заголовок">¶</a></h2>
+<span id="index-5"></span><span id="id6"></span><h2>Отключение файла подкачки<a class="headerlink" href="#disabling-swap" title="Ссылка на этот заголовок">#</a></h2>
 <p>Для лучшей игровой производительности следует использовать файловую систему Btrfs и не задействовать файл подкачки
 (вместо него стоит использовать выше упомянутый zramswap, конечно при условии что у вас не слишком слабый процессор и оперативной памяти больше чем 4 ГБ),
 а также без страха отключать фиксы уязвимостей, которые сильно урезают производительность процессора (о них написано в следующем разделе).</p>
@@ -456,8 +450,9 @@ sudo nano /etc/fstab    <span class="c1"># Уберите самую нижню�
       </div>
     </div>
   
-    <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-  <footer class="footer mt-5 mt-md-0">
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
   <div class="container">
     
     <div class="footer-item">

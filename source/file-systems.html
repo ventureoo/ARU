@@ -1,37 +1,34 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<html lang="ru">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Файловые системы &#8212; Руководство по оптимизации Arch Linux</title>
     
-    <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-  
+
     
-    <link rel="stylesheet"
-      href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-  
-    
-      
-  
-    
-    <link rel="stylesheet" href="../_static/styles/pydata-sphinx-theme.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
     
-    <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
-  
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
     <script src="../_static/translations.js"></script>
     <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
     <link rel="search" title="Поиск" href="../search.html" />
@@ -44,7 +41,7 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
     
     <div class="container-fluid" id="banner"></div>
 
@@ -90,13 +87,6 @@
 -->
 
 <script type="text/javascript">
-// Construct the target URL from the JSON components
-function buildURL(entry) {
-    var template = "https://ventureoo.github.io/ARU/v{version}/index.html";  // supplied by jinja
-    template = template.replace("{version}", entry.version);
-    return template;
-}
-
 // Check if corresponding page path exists in other version of docs
 // and, if so, go there instead of the homepage of the other docs version
 function checkPageExistsAndRedirect(event) {
@@ -132,14 +122,16 @@ function checkPageExistsAndRedirect(event) {
             const node = document.createElement("a");
             node.setAttribute("class", "list-group-item list-group-item-action py-1");
             node.textContent = `${entry.name}`;
-            // get the base URL for that doc version, add the current page's
-            // path to it, and set as `href`
-            entry.url = buildURL(entry);
             node.setAttribute("href", `${entry.url}${currentFilePath}`);
             // on click, AJAX calls will check if the linked page exists before
             // trying to redirect, and if not, will redirect to the homepage
             // for that version of the docs.
             node.onclick = checkPageExistsAndRedirect;
+            // Add dataset values for the version and name in case people want
+            // to apply CSS styling based on this information.
+            node.dataset["versionName"] = entry.name;
+            node.dataset["version"] = entry.version;
+
             $("#version_switcher_menu").append(node);
             // replace dropdown button text with the preferred display name of
             // this version, rather than using sphinx's  variable.
@@ -147,7 +139,9 @@ function checkPageExistsAndRedirect(event) {
             // version's entry
             if (entry.version == "latest") {
                 node.classList.add("active");
-                $("#version_switcher_button").text(entry.name);
+                let btn = document.getElementById("version_switcher_button");
+                btn.innerText = btn.dataset["activeVersionName"] = entry.name;
+                btn.dataset["activeVersion"] = entry.version;
             }
         });
     });
@@ -269,7 +263,7 @@ function checkPageExistsAndRedirect(event) {
               
               <div class="toc-item">
                 
-<div class="tocsection onthispage pt-5 pb-3">
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
     <i class="fas fa-list"></i> On this page
 </div>
 
@@ -345,9 +339,9 @@ function checkPageExistsAndRedirect(event) {
               <div>
                 
   <div class="section" id="file-systems">
-<span id="id1"></span><h1>Файловые системы<a class="headerlink" href="#file-systems" title="Ссылка на этот заголовок">¶</a></h1>
+<span id="id1"></span><h1>Файловые системы<a class="headerlink" href="#file-systems" title="Ссылка на этот заголовок">#</a></h1>
 <div class="section" id="file-system-selection">
-<span id="index-0"></span><span id="id2"></span><h2>Нюансы выбора файловой системы и флагов монтирования<a class="headerlink" href="#file-system-selection" title="Ссылка на этот заголовок">¶</a></h2>
+<span id="index-0"></span><span id="id2"></span><h2>Нюансы выбора файловой системы и флагов монтирования<a class="headerlink" href="#file-system-selection" title="Ссылка на этот заголовок">#</a></h2>
 <p>В отличие от Windows, в Linux-подобных системах выбор файловой системы не ограничивается в обязательном порядке со стороны дистрибутива,
 и может применяться исходя из личных предпочтений пользователя с оглядкой на поддержку со стороны ядра.</p>
 <p>Вот краткое описание основных высокопроизводительных файловых систем:</p>
@@ -366,7 +360,7 @@ function checkPageExistsAndRedirect(event) {
 В любом случае, не рекомендуется использовать на декстопе ввиду большой возни с её настройкой и установкой, т.к.
 её поддержка официально отсутствует в ядре Linux из-за проблем с её лицензированием.</p>
 <div class="section" id="mount-options">
-<span id="index-1"></span><span id="id3"></span><h3>Оптимальные флаги монтирования<a class="headerlink" href="#mount-options" title="Ссылка на этот заголовок">¶</a></h3>
+<span id="index-1"></span><span id="id3"></span><h3>Оптимальные флаги монтирования<a class="headerlink" href="#mount-options" title="Ссылка на этот заголовок">#</a></h3>
 <p>Вот оптимальные параметры для SSD носителей.
 Описание каждого из них вы можете найти - <a class="reference external" href="https://zen.yandex.ru/media/id/5d8ac4740a451800acb6049f/linux-uskoriaem-sistemu-4-5e91d777378f6957923055b9">здесь</a>.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rw,relatime,ssd,ssd_spread,space_cache<span class="o">=</span>v2,max_inline<span class="o">=</span><span class="m">256</span>,commit<span class="o">=</span><span class="m">600</span>,nodatacow
@@ -394,7 +388,7 @@ function checkPageExistsAndRedirect(event) {
 </div>
 </div>
 <div class="section" id="btrfs">
-<span id="btrfs-comperssion"></span><span id="index-2"></span><h2>Сжатие в файловой системе Btrfs<a class="headerlink" href="#btrfs" title="Ссылка на этот заголовок">¶</a></h2>
+<span id="btrfs-comperssion"></span><span id="index-2"></span><h2>Сжатие в файловой системе Btrfs<a class="headerlink" href="#btrfs" title="Ссылка на этот заголовок">#</a></h2>
 <p>В файловой системе Btrfs есть возможность включения сжатия. Все записываемые файлы по возможности будут сжиматься и экономить пространство на носителе HDD или SSD.</p>
 <p>Для SSD это может быть важно в связи с их ограниченным ресурсом на запись.</p>
 <p>Согласно <a class="reference external" href="https://btrfs.wiki.kernel.org/index.php/Compression">wiki Btrfs</a>, официально имеется 3 поддерживаемых алгоритма:</p>
@@ -438,7 +432,7 @@ Cогласно <a class="reference external" href="https://btrfs.wiki.kernel.or
 <p>Степень сжатия в данном случае не указывается!</p>
 </div>
 <div class="section" id="efficiency-test">
-<span id="index-3"></span><span id="id6"></span><h3>Определение эффективности сжатия<a class="headerlink" href="#efficiency-test" title="Ссылка на этот заголовок">¶</a></h3>
+<span id="index-3"></span><span id="id6"></span><h3>Определение эффективности сжатия<a class="headerlink" href="#efficiency-test" title="Ссылка на этот заголовок">#</a></h3>
 <p>Если вы хотите определить эффективность сжатия на вашем разделе/диске, то вам необходимо воспользоваться программой <a class="reference external" href="https://github.com/kilobyte/compsize">compsize</a>.
 Установить ее можно с помощью команды:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S compsize
@@ -469,7 +463,7 @@ Cогласно <a class="reference external" href="https://btrfs.wiki.kernel.or
 </ul>
 </div>
 <div class="section" id="zstd-amd-ryzen-7-3700x">
-<span id="zstd-compression-test"></span><span id="index-4"></span><h3>Скорость обработки алгоритма zstd на примере AMD Ryzen 7 3700X<a class="headerlink" href="#zstd-amd-ryzen-7-3700x" title="Ссылка на этот заголовок">¶</a></h3>
+<span id="zstd-compression-test"></span><span id="index-4"></span><h3>Скорость обработки алгоритма zstd на примере AMD Ryzen 7 3700X<a class="headerlink" href="#zstd-amd-ryzen-7-3700x" title="Ссылка на этот заголовок">#</a></h3>
 <p>Для сравнения степеней сжатия алгоритма zstd использовалась бенчмарк платформа <a class="reference external" href="https://github.com/phoronix-test-suite/phoronix-test-suite">phoronix-test-suite</a>.
 В данной программе, для проверки скорости сжатия и распаковки данных, доступно три степени - <code class="docutils literal notranslate"><span class="pre">3</span></code>, <code class="docutils literal notranslate"><span class="pre">8</span></code>, <code class="docutils literal notranslate"><span class="pre">19</span></code>.
 Для получения информации о падении скорости выполнения сжатия нам будет достаточно и первых двух, поскольку степень сжатия 19 на данный момент не поддерживается
@@ -478,13 +472,13 @@ Cогласно <a class="reference external" href="https://btrfs.wiki.kernel.or
 <img alt="../_images/zstd_8.png" src="../_images/zstd_8.png" />
 <img alt="../_images/zstd_19.png" src="../_images/zstd_19.png" />
 <p>Как можно видеть из графиков, падение скорости при перехода от степени <code class="docutils literal notranslate"><span class="pre">3</span></code> к степени <code class="docutils literal notranslate"><span class="pre">8</span></code> сопровождается падением скорости сжатия более чем в <strong>4,7</strong> раз
-(неговоря о более высоких степенях сжатия) и практически не изменяется при выполнении распаковки,
+(не говоря о более высоких степенях сжатия) и практически не изменяется при выполнении распаковки,
 что может негативно сказаться на скорости установки программ и возможно в некоторых других ситуациях которые требует выполнения записи на диск.</p>
-<p>Стоит отметить, что в случае выполнения уставки игр с использованием степени сжатия <code class="docutils literal notranslate"><span class="pre">15</span></code>,
+<p>Стоит отметить, что в случае выполнения установки игр с использованием степени сжатия <code class="docutils literal notranslate"><span class="pre">15</span></code>,
 было замечено повышение нагрузки на процессор вплоть до 72-75% в тех случаях, когда файлы поддавались сжатию.</p>
 </div>
 <div class="section" id="dewdpol">
-<span id="comparison-table"></span><span id="index-5"></span><h3>Список протестированных игр на эффективность сжатия (Спасибо &#64;dewdpol!)<a class="headerlink" href="#dewdpol" title="Ссылка на этот заголовок">¶</a></h3>
+<span id="comparison-table"></span><span id="index-5"></span><h3>Список протестированных игр на эффективность сжатия (Спасибо &#64;dewdpol!)<a class="headerlink" href="#dewdpol" title="Ссылка на этот заголовок">#</a></h3>
 <p>Далее представлен список протестированных игр на сжатие в файловой системе Btrfs.
 Данные были получены с помощью программы compsize и являются округленными, поэтому информация может нести частично ознакомительный характер.</p>
 <table class="table">
@@ -2128,7 +2122,7 @@ Cогласно <a class="reference external" href="https://btrfs.wiki.kernel.or
 <li><p>Экономия рассчитывалась вручную с округлением в меньшую сторону. Другими словами, если получалось 1,3087... GB, то записывалось как 1,30 GB.</p></li>
 </ul>
 <div class="section" id="intermediate-results">
-<span id="index-6"></span><span id="id7"></span><h4>Промежуточные результаты<a class="headerlink" href="#intermediate-results" title="Ссылка на этот заголовок">¶</a></h4>
+<span id="index-6"></span><span id="id7"></span><h4>Промежуточные результаты<a class="headerlink" href="#intermediate-results" title="Ссылка на этот заголовок">#</a></h4>
 <ul class="simple">
 <li><p><strong>64</strong> игр из представленных <strong>121</strong> - практически не сжимаются, экономия места достигает всего 0-10%.</p></li>
 <li><p><strong>33</strong> игр из представленных <strong>121</strong> - сжимаются с низкой эффективностью, экономия места составляет 11-40%.</p></li>
@@ -2171,8 +2165,9 @@ Cогласно <a class="reference external" href="https://btrfs.wiki.kernel.or
       </div>
     </div>
   
-    <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-  <footer class="footer mt-5 mt-md-0">
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
   <div class="container">
     
     <div class="footer-item">

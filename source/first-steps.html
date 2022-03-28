@@ -1,37 +1,34 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<html lang="ru">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Первые шаги &#8212; Руководство по оптимизации Arch Linux</title>
     
-    <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-  
+
     
-    <link rel="stylesheet"
-      href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-  
-    
-      
-  
-    
-    <link rel="stylesheet" href="../_static/styles/pydata-sphinx-theme.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
     
-    <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
-  
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
     <script src="../_static/translations.js"></script>
     <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
     <link rel="search" title="Поиск" href="../search.html" />
@@ -44,7 +41,7 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
     
     <div class="container-fluid" id="banner"></div>
 
@@ -90,13 +87,6 @@
 -->
 
 <script type="text/javascript">
-// Construct the target URL from the JSON components
-function buildURL(entry) {
-    var template = "https://ventureoo.github.io/ARU/v{version}/index.html";  // supplied by jinja
-    template = template.replace("{version}", entry.version);
-    return template;
-}
-
 // Check if corresponding page path exists in other version of docs
 // and, if so, go there instead of the homepage of the other docs version
 function checkPageExistsAndRedirect(event) {
@@ -132,14 +122,16 @@ function checkPageExistsAndRedirect(event) {
             const node = document.createElement("a");
             node.setAttribute("class", "list-group-item list-group-item-action py-1");
             node.textContent = `${entry.name}`;
-            // get the base URL for that doc version, add the current page's
-            // path to it, and set as `href`
-            entry.url = buildURL(entry);
             node.setAttribute("href", `${entry.url}${currentFilePath}`);
             // on click, AJAX calls will check if the linked page exists before
             // trying to redirect, and if not, will redirect to the homepage
             // for that version of the docs.
             node.onclick = checkPageExistsAndRedirect;
+            // Add dataset values for the version and name in case people want
+            // to apply CSS styling based on this information.
+            node.dataset["versionName"] = entry.name;
+            node.dataset["version"] = entry.version;
+
             $("#version_switcher_menu").append(node);
             // replace dropdown button text with the preferred display name of
             // this version, rather than using sphinx's  variable.
@@ -147,7 +139,9 @@ function checkPageExistsAndRedirect(event) {
             // version's entry
             if (entry.version == "latest") {
                 node.classList.add("active");
-                $("#version_switcher_button").text(entry.name);
+                let btn = document.getElementById("version_switcher_button");
+                btn.innerText = btn.dataset["activeVersionName"] = entry.name;
+                btn.dataset["activeVersion"] = entry.version;
             }
         });
     });
@@ -269,7 +263,7 @@ function checkPageExistsAndRedirect(event) {
               
               <div class="toc-item">
                 
-<div class="tocsection onthispage pt-5 pb-3">
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
     <i class="fas fa-list"></i> On this page
 </div>
 
@@ -411,11 +405,11 @@ function checkPageExistsAndRedirect(event) {
               <div>
                 
   <div class="section" id="first-steps">
-<span id="id1"></span><h1>Первые шаги<a class="headerlink" href="#first-steps" title="Ссылка на этот заголовок">¶</a></h1>
+<span id="id1"></span><h1>Первые шаги<a class="headerlink" href="#first-steps" title="Ссылка на этот заголовок">#</a></h1>
 <div class="section" id="pacman">
-<span id="pacman-settings"></span><span id="index-0"></span><h2>Настройка pacman<a class="headerlink" href="#pacman" title="Ссылка на этот заголовок">¶</a></h2>
+<span id="pacman-settings"></span><span id="index-0"></span><h2>Настройка pacman<a class="headerlink" href="#pacman" title="Ссылка на этот заголовок">#</a></h2>
 <div class="section" id="arch-linux">
-<span id="gpg-update"></span><span id="index-1"></span><h3>Обновление ключей Arch Linux<a class="headerlink" href="#arch-linux" title="Ссылка на этот заголовок">¶</a></h3>
+<span id="gpg-update"></span><span id="index-1"></span><h3>Обновление ключей Arch Linux<a class="headerlink" href="#arch-linux" title="Ссылка на этот заголовок">#</a></h3>
 <p>Обновление ключей необходимо во избежание дальнейших проблем с установкой пакетов:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman-key --init               <span class="c1"># Инициализация</span>
 sudo pacman-key --populate archlinux <span class="c1"># Получить ключи из репозитория</span>
@@ -426,9 +420,9 @@ sudo pacman -Sy                      <span class="c1"># Обновить клю�
 <p>Данная операция может занять продолжительное время.</p>
 </div>
 <div class="section" id="multilib-repository">
-<span id="index-2"></span><span id="id2"></span><h3>Включение 32-битного репозитория<a class="headerlink" href="#multilib-repository" title="Ссылка на этот заголовок">¶</a></h3>
+<span id="index-2"></span><span id="id2"></span><h3>Включение 32-битного репозитория<a class="headerlink" href="#multilib-repository" title="Ссылка на этот заголовок">#</a></h3>
 <p>Убедимся, что конфигурация пакетного менеджера Pacman настроена для получения доступа к 32-битным зависимостям, нужным в частности для установки Wine и Steam.</p>
-<p>Для этого раскоментируем так называемый <em>multilib</em> репозиторий:</p>
+<p>Для этого раскомментируем так называемый <em>multilib</em> репозиторий:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo nano /etc/pacman.conf           <span class="c1"># Раскоментируйте последние две строчки как на скриншоте</span>
 </pre></div>
 </div>
@@ -438,7 +432,7 @@ sudo pacman -Sy                      <span class="c1"># Обновить клю�
 </div>
 </div>
 <div class="section" id="speed-up-system-updates">
-<span id="index-3"></span><span id="id3"></span><h3>Ускорение обновления системы<a class="headerlink" href="#speed-up-system-updates" title="Ссылка на этот заголовок">¶</a></h3>
+<span id="index-3"></span><span id="id3"></span><h3>Ускорение обновления системы<a class="headerlink" href="#speed-up-system-updates" title="Ссылка на этот заголовок">#</a></h3>
 <p>Утилита Reflector отсортирует доступные репозитории по скорости:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S reflector rsync curl  <span class="c1"># Установка reflector и его зависимостей</span>
 </pre></div>
@@ -456,7 +450,7 @@ sudo pacman -Sy                      <span class="c1"># Обновить клю�
 </div>
 </div>
 <div class="section" id="basic-software-installation">
-<span id="index-4"></span><span id="id4"></span><h2>Установка базовых пакетов и набора программ<a class="headerlink" href="#basic-software-installation" title="Ссылка на этот заголовок">¶</a></h2>
+<span id="index-4"></span><span id="id4"></span><h2>Установка базовых пакетов и набора программ<a class="headerlink" href="#basic-software-installation" title="Ссылка на этот заголовок">#</a></h2>
 <p>Вот основной набор программ который мы можем вам порекомендовать к установке первым делом:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -Syu base-devel <span class="se">\ </span><span class="c1"># Обязательная к установке группа!</span>
                  nano <span class="se">\ </span><span class="c1"># Минималистичный консольный редактор</span>
@@ -485,13 +479,13 @@ sudo pacman -Sy                      <span class="c1"># Обновить клю�
 Но если вас не устраивает тот или иной компонент, вы всегда можете найти любой пакет по адресу <a class="reference external" href="https://www.archlinux.org/packages/">https://www.archlinux.org/packages/</a>
 или установить из AUR (т.е. скомпилировать) по адресу <a class="reference external" href="https://aur.archlinux.org/packages/">https://aur.archlinux.org/packages/</a>.</p>
 <div class="section" id="drivers-installation">
-<span id="index-5"></span><span id="id5"></span><h3>Установка актуальных драйверов для видеокарты<a class="headerlink" href="#drivers-installation" title="Ссылка на этот заголовок">¶</a></h3>
+<span id="index-5"></span><span id="id5"></span><h3>Установка актуальных драйверов для видеокарты<a class="headerlink" href="#drivers-installation" title="Ссылка на этот заголовок">#</a></h3>
 <p>В установке драйверов для Linux-систем нет ничего сложного, главное просто учитывать, что от свежести ядра и версии драйвера,
 будет зависеть получите ли вы чёрный экран смерти или нет (Шутка).</p>
 <p>И да, <strong>устанавливайте драйвера ТОЛЬКО через пакетный менеджер вашего дистрибутива!</strong></p>
 <p>Забудьте про скачивание драйвера с сайта NVIDIA/AMD, это поможет вам избежать кучу проблем в дальнейшем.</p>
 <div class="section" id="nvidia">
-<h4>NVIDIA<a class="headerlink" href="#nvidia" title="Ссылка на этот заголовок">¶</a></h4>
+<h4>NVIDIA<a class="headerlink" href="#nvidia" title="Ссылка на этот заголовок">#</a></h4>
 <p>В гайде мы установим драйвер версии DKMS, который сам подстроится под нужное ядро и не позволит убить систему при обновлении
 (не касается свободных драйверов Mesa).</p>
 <p>Перед установкой рекомендуется отключить <em>&quot;Secure Boot&quot;</em> в UEFI, ибо из-за этого модули драйвера могут не загрузиться.</p>
@@ -501,7 +495,7 @@ sudo mkinitcpio -P <span class="c1"># Обновляем образы ядра</
 </div>
 </div>
 <div class="section" id="nouveau">
-<h4>Nouveau (<em>Только для старых видеокарт</em>)<a class="headerlink" href="#nouveau" title="Ссылка на этот заголовок">¶</a></h4>
+<h4>Nouveau (<em>Только для старых видеокарт</em>)<a class="headerlink" href="#nouveau" title="Ссылка на этот заголовок">#</a></h4>
 <p>Для старых видеокарт Nvidia (ниже GeForce 600) рекомендуется использовать свободную альтернативу драйвера NVIDIA — Nouveau, входящую в состав Mesa.
 Она имеет официальную поддержку и обновления в отличии от старых версий закрытого драйвера NVIDIA (340, 390) и отлично справляется с 2D ускорением.
 Вдобавок, Nouveau хорошо работает с Wayland.</p>
@@ -510,13 +504,13 @@ sudo mkinitcpio -P <span class="c1"># Обновляем образы ядра</
 </div>
 </div>
 <div class="section" id="amd">
-<h4>AMD<a class="headerlink" href="#amd" title="Ссылка на этот заголовок">¶</a></h4>
+<h4>AMD<a class="headerlink" href="#amd" title="Ссылка на этот заголовок">#</a></h4>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S mesa lib32-mesa vulkan-radeon lib32-vulkan-radeon vulkan-icd-loader lib32-vulkan-icd-loader
 </pre></div>
 </div>
 </div>
 <div class="section" id="intel">
-<h4>Intel<a class="headerlink" href="#intel" title="Ссылка на этот заголовок">¶</a></h4>
+<h4>Intel<a class="headerlink" href="#intel" title="Ссылка на этот заголовок">#</a></h4>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S mesa lib32-mesa vulkan-intel lib32-vulkan-intel vulkan-icd-loader lib32-vulkan-icd-loader
 </pre></div>
 </div>
@@ -532,7 +526,7 @@ sudo mkinitcpio -P <span class="c1"># Обновляем образы ядра</
 </div>
 </div>
 <div class="section" id="important-modules">
-<span id="index-6"></span><span id="id6"></span><h2>Добавление важных модулей в образы ядра<a class="headerlink" href="#important-modules" title="Ссылка на этот заголовок">¶</a></h2>
+<span id="index-6"></span><span id="id6"></span><h2>Добавление важных модулей в образы ядра<a class="headerlink" href="#important-modules" title="Ссылка на этот заголовок">#</a></h2>
 <p>Прежде чем мы начнем, необходимо добавить важные модули в загрузочный образ
 нашего ядра.
 Это позволит нам избежать проблем в дальнейшем, и снизить риск словить
@@ -554,7 +548,7 @@ sudo mkinitcpio -P <span class="c1"># Обновляем образы ядра</
 </div>
 </div>
 <div class="section" id="microcode-installation">
-<span id="index-7"></span><span id="id7"></span><h2>Установка микрокода<a class="headerlink" href="#microcode-installation" title="Ссылка на этот заголовок">¶</a></h2>
+<span id="index-7"></span><span id="id7"></span><h2>Установка микрокода<a class="headerlink" href="#microcode-installation" title="Ссылка на этот заголовок">#</a></h2>
 <p>Микрокод - программа реализующая набор инструкций процессора.
 Она уже встроена в материнскую плату вашего компьютера,
 но скорее всего вы его либо не обновляли вовсе, либо делаете это не часто вместе с обновлением BIOS (UEFI).</p>
@@ -570,7 +564,7 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg   <span class="c1"># Обновляе�
 </div>
 </div>
 <div class="section" id="nvidia-driver-setup">
-<span id="index-8"></span><span id="id8"></span><h2>Настройка драйвера NVIDIA<a class="headerlink" href="#nvidia-driver-setup" title="Ссылка на этот заголовок">¶</a></h2>
+<span id="index-8"></span><span id="id8"></span><h2>Настройка драйвера NVIDIA<a class="headerlink" href="#nvidia-driver-setup" title="Ссылка на этот заголовок">#</a></h2>
 <p>После установки драйвера обязательно перезагрузитесь, откройте панель nvidia-settings, и выполните все шаги как показано на изображениях:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>nvidia-settings <span class="c1"># Открыть панель Nvidia</span>
 </pre></div>
@@ -587,7 +581,7 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg   <span class="c1"># Обновляе�
 <p class="admonition-title">Внимание</p>
 <p>Советуем вам не использовать параметры <em>&quot;Force composition Pipeline&quot;</em> и <em>&quot;Force Full composition Pipeline&quot;</em>.
 Несмотря на то, что эти два параметра действительно могут полностью вылечить тиринг (разрывы экрана), они также создают сильные задержки ввода (input lag).
-Вместо этого рекомендуем вым выполнить настройку композитора вашего DE (WM) как это описано в разделе &quot;<a class="reference external" href="https://ventureoo.github.io/ARU/source/de-optimizations.html">Оптимизация рабочего окружения (DE)</a>&quot;.</p>
+Вместо этого рекомендуем вам выполнить настройку композитора вашего DE (WM) как это описано в разделе &quot;<a class="reference external" href="https://ventureoo.github.io/ARU/source/de-optimizations.html">Оптимизация рабочего окружения (DE)</a>&quot;.</p>
 </div>
 <img alt="../_images/nvidia-settings-4.png" src="../_images/nvidia-settings-4.png" />
 <p>Теперь переместите ранее сохраненый файл настройки в <em>/etc/X11/xorg.conf</em>, чтобы примененные вами настройки для мониторов
@@ -601,7 +595,7 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg   <span class="c1"># Обновляе�
 и использовать свои собственные. В этом случае настраивать мониторы нужно именно в настройках вашего рабочего окружения.</p>
 </div>
 <div class="section" id="nvidia-tweaking">
-<span id="index-9"></span><span id="id9"></span><h3>Твики драйвера NVIDIA<a class="headerlink" href="#nvidia-tweaking" title="Ссылка на этот заголовок">¶</a></h3>
+<span id="index-9"></span><span id="id9"></span><h3>Твики драйвера NVIDIA<a class="headerlink" href="#nvidia-tweaking" title="Ссылка на этот заголовок">#</a></h3>
 <p>По умолчанию в закрытом NVIDIA драйвере не используются некоторые скрытые оптимизации которые могут помочь с улучшением производительности и работоспособности видеокарты.
 Например, по умолчанию драйвер работает в режиме совместимости с PCIe 2, поэтому у некоторых пользователей драйвера по умолчанию не задействуется высокоскоростная шина PCIe 3.0.</p>
 <p>Поэтому, для того чтобы вы могли их активировать удобным способом, мы сделали пакет который включает в себя все эти твики для драйвера
@@ -621,7 +615,7 @@ makepkg -sric
 <p>Выполните: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">pacman</span> <span class="pre">-S</span> <span class="pre">base-devel</span></code></p>
 </div>
 <div class="section" id="nvidia-env-vars">
-<span id="index-10"></span><span id="id10"></span><h3>Специфические переменные окружения для драйвера NVIDIA<a class="headerlink" href="#nvidia-env-vars" title="Ссылка на этот заголовок">¶</a></h3>
+<span id="index-10"></span><span id="id10"></span><h3>Специфические переменные окружения для драйвера NVIDIA<a class="headerlink" href="#nvidia-env-vars" title="Ссылка на этот заголовок">#</a></h3>
 <p>Указать вы их можете либо в Lutris для конкретных игр, либо в <em>&quot;Параметрах Запуска&quot;</em> игры в Steam
 (<em>&quot;Свойства&quot;</em> -&gt; <em>&quot;Параметры запуска&quot;</em>. После указания всех переменных обязательно добавьте в конце &quot;<em>%command%</em>&quot;,
 для того чтобы Steam понимал, что вы указали именно системные переменные окружения для запуска игры, а не параметры специфичные для этой самой игры).</p>
@@ -638,7 +632,7 @@ makepkg -sric
 </div>
 </div>
 <div class="section" id="monitor-overlocking">
-<span id="index-11"></span><span id="id11"></span><h2>Разгон монитора <em>(Для опытных пользователей)</em><a class="headerlink" href="#monitor-overlocking" title="Ссылка на этот заголовок">¶</a></h2>
+<span id="index-11"></span><span id="id11"></span><h2>Разгон монитора <em>(Для опытных пользователей)</em><a class="headerlink" href="#monitor-overlocking" title="Ссылка на этот заголовок">#</a></h2>
 <p>Вопреки мнению многих людей, в Linux таки возможно выполнить разгон монитора.
 Пусть и с небольшим количеством манипуляций мы попробуем это сделать в данном разделе
 для разных конфигураций оборудования.</p>
@@ -647,14 +641,14 @@ makepkg -sric
 <p>Описанные ниже способы не работают для Wayland сессий.</p>
 </div>
 <div class="section" id="amd-intel">
-<span id="monitor-overlocking-mesa"></span><span id="index-12"></span><h3>Для видеокарт AMD/Intel<a class="headerlink" href="#amd-intel" title="Ссылка на этот заголовок">¶</a></h3>
+<span id="monitor-overlocking-mesa"></span><span id="index-12"></span><h3>Для видеокарт AMD/Intel<a class="headerlink" href="#amd-intel" title="Ссылка на этот заголовок">#</a></h3>
 <p>Данный способ работает только для драйверов Mesa и Xorg.</p>
 <p>Установим все необходимые компоненты:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S xorg-xrandr livxcvt
 </pre></div>
 </div>
 <p>Для начала сгенерируем модельную линию, которая предоставляет Xorg серверу информацию о подключенном мониторе компьютера.
-Выполните следующую команду, где сначала указываете желамое разрешение через пробел, а затем и желаемую частоту обновления:</p>
+Выполните следующую команду, где сначала указываете желаемое разрешение через пробел, а затем и желаемую частоту обновления:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>cvt <span class="m">1920</span> <span class="m">1080</span> <span class="m">75</span>
 </pre></div>
 </div>
@@ -702,7 +696,7 @@ EndSection
 Об этом вы можете прочитать <a class="reference external" href="https://www.lushnikov.net/2021/07/31/%D0%A0%D0%B0%D0%B7%D0%B3%D0%BE%D0%BD%D1%8F%D0%B5%D0%BC-%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%86%D1%83-%D0%BD%D0%BE%D1%83%D1%82%D0%B1%D1%83%D0%BA%D0%B0-%D1%81-%D0%B3%D1%80%D0%B0%D1%84%D0%B8%D0%BA%D0%BE/">в данной статье</a>.</p>
 </div>
 <div class="section" id="monitor-overlocking-nvidia">
-<span id="index-13"></span><span id="id13"></span><h3>Для видеокарт NVIDIA<a class="headerlink" href="#monitor-overlocking-nvidia" title="Ссылка на этот заголовок">¶</a></h3>
+<span id="index-13"></span><span id="id13"></span><h3>Для видеокарт NVIDIA<a class="headerlink" href="#monitor-overlocking-nvidia" title="Ссылка на этот заголовок">#</a></h3>
 <p>Сейчас мы будем рассматривать вопрос разгона монитора только для видеокарт NVIDIA,
 т. к. у этого производителя есть некоторые проблемы с применением модельных линий Xorg напрямую через XRandr.</p>
 <p>Прежде всего, нужно узнать какой тип подключения у вашего монитора, сделать это можно при помощи утилиты xrandr:</p>
@@ -725,7 +719,7 @@ xrandr                     <span class="c1"># Запуск</span>
 Задайте разрешение монитора и его частоту обновления согласно тем значениям,
 что нам вывел xrandr и сохраните все настройки в xorg.conf через кнопку снизу: <em>&quot;Save X Configuration File&quot;</em>.</p>
 <p>После этого переходим во вкладку с названием монитора который вы хотите разогнать.
-К примеру: <em>&quot;HDMI-0 - (Samsung S24R35x)&quot;</em>. И жмакаем на кнопоку <em>&quot;Acquire EDID...&quot;</em> -&gt;
+К примеру: <em>&quot;HDMI-0 - (Samsung S24R35x)&quot;</em>. И жмакаем на кнопку <em>&quot;Acquire EDID...&quot;</em> -&gt;
 И сохраняем EDID файл вашего монитора в домашнюю директорию (Это <strong>обязательный шаг</strong>, сохранять нужно только в домашнюю папку вашего пользователя).</p>
 <p>Итак, теперь нам нужно отредактировать наш edid.bin файл монитора.
 Чтобы это сделать установим свободно распространяемую утилиту <a class="reference external" href="https://sourceforge.net/projects/wxedid/">wxedid</a>:</p>
@@ -795,8 +789,9 @@ makepkg -sric                                  <span class="c1"># Сборка �
       </div>
     </div>
   
-    <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-  <footer class="footer mt-5 mt-md-0">
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
   <div class="container">
     
     <div class="footer-item">
