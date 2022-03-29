@@ -344,7 +344,7 @@ function checkPageExistsAndRedirect(event) {
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#lutris">
-     Lutris и дополнения.
+     Lutris
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
@@ -726,13 +726,45 @@ makepkg -sric                                              <span class="c1"># С
 <span id="index-12"></span><span id="id11"></span><h2>Дополнительные компоненты<a class="headerlink" href="#additional-components" title="Ссылка на этот заголовок">#</a></h2>
 <p>Не являются обязательными, но могут помочь повысить производительность системы или облегчить настройку.</p>
 <div class="section" id="lutris">
-<span id="lutris-and-additions"></span><span id="index-13"></span><h3>Lutris и дополнения.<a class="headerlink" href="#lutris" title="Ссылка на этот заголовок">#</a></h3>
-<p>Lutris - комбайн, где содержатся все удобные настройки.</p>
+<span id="lutris-and-additions"></span><span id="index-13"></span><h3>Lutris<a class="headerlink" href="#lutris" title="Ссылка на этот заголовок">#</a></h3>
+<p>Lutris - это удобный графический интерфейс по обслуживанию всей вашей игровой библиотеки
+(включая все купленные игры Steam/GOG/Epic Games) в одном приложении.
+Через него вы сможете достаточно просто запускать нативные игры, игры запускаемые при помощи эмуляторов, и конечно Wine.
+Все это объединено в одном приложении-комбайне, содержащим много настроек и интеграций с различными сервисами.</p>
+<p><strong>Установка</strong></p>
+<p>Все проще некуда:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S lutris
 </pre></div>
 </div>
-<p>Необходим для удобного управления настройками Wine.</p>
-<img alt="../_images/linux-gaming-4.png" src="../_images/linux-gaming-4.png" />
+<p>Тем не менее, стоит удостовериться что вы установили полный набор зависимостей для Wine. Об этом вы можете прочитать в предыдущих разделах.</p>
+<img alt="../_images/lutris.png" src="../_images/lutris.png" />
+<p><strong>Интеграция с GOG/Epic/Steam</strong></p>
+<p>Сразу после установки стоит сделать некоторые базовые вещи. А именно подключить интеграцию с сервисами Steam/GOG/Epic Games.
+Это позволит синхронизировать локальную библиотеку Lutris'a вместе с перечисленными площадками и выполнять установку игр в два клика.
+Подключать все конечно не обязательно, так что делайте это если считаете нужным.</p>
+<p><strong>1.</strong> Зайдем в настройки: В правом верхнем углу найдите три горизонтальные полоски и в контекстном меню выберите <em>&quot;Preferences&quot;</em>.
+После этого выберите <em>&quot;Services&quot;</em> и включите те сервисы, которыми вы пользуетесь.</p>
+<p><strong>1.1</strong></p>
+<img alt="../_images/lutris-context-menu.png" src="../_images/lutris-context-menu.png" />
+<p><strong>1.2</strong></p>
+<img alt="../_images/lutris-preferences.png" src="../_images/lutris-preferences.png" />
+<p><strong>2.</strong> Теперь вернитесь в главное окно и наведите курсор на левую панель в графу <em>&quot;Sources&quot;</em>, и ниже выбирите нужную вам платформу.
+Справа от курсора будет иконка входа. После этого перед вами появится окно авторизации, после прохождения которой у вас появится
+возможность устанавливать и запускать все игры из вашей внешней библиотеки (Steam/GOG/Epic Games).</p>
+<p>Пример подключения аккаунта GOG представлен ниже на скриншотах.</p>
+<p><strong>2.1</strong></p>
+<img alt="../_images/lutris-auth-icon.png" src="../_images/lutris-auth-icon.png" />
+<p><strong>2.2</strong></p>
+<img alt="../_images/lutris-gog-auth.png" src="../_images/lutris-gog-auth.png" />
+<p><strong>2.3</strong></p>
+<img alt="../_images/lutris-gog-library.png" src="../_images/lutris-gog-library.png" />
+<p>Аналогичная операция проделывается с Epic Games Store:</p>
+<p><strong>2.4</strong></p>
+<img alt="../_images/lutris-auth-epic-icon.png" src="../_images/lutris-auth-epic-icon.png" />
+<p><strong>2.5</strong></p>
+<img alt="../_images/lutris-epic-auth.png" src="../_images/lutris-epic-auth.png" />
+<p><strong>2.6</strong></p>
+<img alt="../_images/lutris-epic-library.png" src="../_images/lutris-epic-library.png" />
 <p><strong>Пример работы с Lutris</strong></p>
 <p><a class="reference external" href="https://www.youtube.com/watch?v=ybe0MzJDUvw">https://www.youtube.com/watch?v=ybe0MzJDUvw</a></p>
 <div class="section" id="proton-ge-custom-lutris">
