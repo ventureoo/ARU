@@ -644,7 +644,7 @@ makepkg -sric
 <span id="monitor-overlocking-mesa"></span><span id="index-12"></span><h3>Для видеокарт AMD/Intel<a class="headerlink" href="#amd-intel" title="Ссылка на этот заголовок">#</a></h3>
 <p>Данный способ работает только для драйверов Mesa и Xorg.</p>
 <p>Установим все необходимые компоненты:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S xorg-xrandr livxcvt
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S xorg-xrandr libxcvt
 </pre></div>
 </div>
 <p>Для начала сгенерируем модельную линию, которая предоставляет Xorg серверу информацию о подключенном мониторе компьютера.
@@ -653,7 +653,7 @@ makepkg -sric
 </pre></div>
 </div>
 <p>Теперь зарегистрируем полученную модельную линию в Xorg через утилиту xrandr.
-Скопируйте выведенную cvt строку и вставьте все после со слова <em>Modeline</em> в эту команду:</p>
+Скопируйте выведенную cvt строку и вставьте все после <em>Modeline</em> в эту команду:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>xrandr --newmode <span class="s2">&quot;1920x1080_75.00&quot;</span>  <span class="m">220</span>.75  <span class="m">1920</span> <span class="m">2064</span> <span class="m">2264</span> <span class="m">2608</span>  <span class="m">1080</span> <span class="m">1083</span> <span class="m">1088</span> <span class="m">1130</span> -hsync +vsync
 </pre></div>
 </div>
