@@ -658,7 +658,8 @@ makepkg -sric
 </pre></div>
 </div>
 <p>Теперь применим полученный Modeline для нужного монитора:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>xrandr --output HDMI-0 --mode 1920x1080_75.00
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>xrandr --addmode HDMI-0 1920x1080_75.00
+xrandr --output HDMI-0 --mode 1920x1080_75.00
 </pre></div>
 </div>
 <p>(Где <em>HDMI-0</em> - тип подключения вашего монитора, его можно узнать через команду xrandr без аргументов)</p>
