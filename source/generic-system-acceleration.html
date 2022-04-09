@@ -344,7 +344,7 @@ function checkPageExistsAndRedirect(event) {
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mesa">
+  <a class="reference internal nav-link" href="#id7">
    Твики драйверов Mesa
   </a>
   <ul class="nav section-nav flex-column">
@@ -445,7 +445,7 @@ function checkPageExistsAndRedirect(event) {
 <span class="nb">export</span> <span class="nv">HOSTLD</span><span class="o">=</span>ld.lld
 </pre></div>
 </div>
-<p>Отлично, теперь вы можете собрать нужные вам пакеты (программы) через LLVM/Clang просто добавив к уже известной команде makepkg следующую опцию:</p>
+<p>Отлично, теперь вы можете собрать нужные вам пакеты (программы) через LLVM/Clang просто добавив к уже известной команде makepkg следующие параметры:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>makepkg --config /etc/makepkg-clang.conf -sric
 </pre></div>
 </div>
@@ -453,9 +453,20 @@ function checkPageExistsAndRedirect(event) {
 <p class="admonition-title">Внимание</p>
 <p>Далеко не все пакеты так уж гладко собираются через Clang, в частности не пытайтесь собирать им Wine/DXVK,
 т.к. это официально не поддерживается и с 98% вероятностью приведет к ошибке сборки.
-Поэтому, в случае неудачи, вы всегда можете использовать компиляторы GCC, которые у вас заданы в настройках makepkg.conf по умолчанию,
+Но в случае неудачи вы всегда можете использовать компиляторы GCC, которые у вас заданы в настройках makepkg.conf по умолчанию,
 т.е. просто уберите опцию <code class="docutils literal notranslate"><span class="pre">--config</span> <span class="pre">/etc/makepkg-clang.conf</span></code> из команды <code class="docutils literal notranslate"><span class="pre">makepkg</span></code>.</p>
 </div>
+<p>Дальнейшеная пересборка пакетов из официальных репозиториев осуществима через следующее команды:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone --depth <span class="m">1</span> --branch packages/*package* https://github.com/archlinux/svntogit-packages.git *package*
+<span class="nb">cd</span> *package*/trunk
+makepkg --config /etc/makepkg-clang.conf -sric --skippgpcheck
+</pre></div>
+</div>
+<p>Где <em>package</em> - название нужного вам пакета.</p>
+<p>Мы рекомендуем вам пересобрать наиболее важные пакеты. Например такие как драйвера (то есть <a class="reference external" href="https://archlinux.org/packages/extra/x86_64/mesa/">mesa</a>, <a class="reference external" href="https://archlinux.org/packages/multilib/x86_64/lib32-mesa/">lib32-mesa</a>, если у вас Intel/AMD),
+Xorg сервер <a class="reference external" href="https://archlinux.org/packages/extra/x86_64/xorg-server/">https://archlinux.org/packages/extra/x86_64/xorg-server/</a>, а также связанные с ним компоненты, или <cite>Wayland &lt;https://archlinux.org/packages/extra/x86_64/wayland/&gt;</cite>,
+критически важные пакеты вашего DE/WM, например: <a class="reference external" href="https://aur.archlinux.org/packages/gnome-shell-performance">gnome-shell</a>, <a class="reference external" href="https://archlinux.org/packages/extra/x86_64/plasma-desktop/">plasma-desktop</a>.
+А также композиторы <cite>kwin &lt;https://archlinux.org/packages/extra/x86_64/kwin/&gt;</cite>, <a class="reference external" href="https://aur.archlinux.org/packages/mutter-performance">mutter</a>, picom и т.д. в зависимости от того, чем именно вы пользуетесь.</p>
 <p>Больше подробностей по теме вы можете найти в данной статье:</p>
 <p><a class="reference external" href="https://habr.com/ru/company/ruvds/blog/561286/">https://habr.com/ru/company/ruvds/blog/561286/</a></p>
 <div class="section" id="llvm-clang-un-couteau">
@@ -492,15 +503,15 @@ git clone https://github.com/ptr1337/llvm-bolt-builds  <span class="c1"># Кло
 <p>В Linux системах есть не так много программ, сборка которых может занять больше двух часов,
 но они все таки есть. Потому, было бы неплохо ускорить повторную компиляцию таких программ как Wine/Proton-GE и т.д.</p>
 <p>ccache - это кэш для компиляторов C/C++, в частности совместимый с компиляторами GCC/Clang,
-цель которого состоит в ускорении повторного процесса компиляции одно и того же кода.
-Это значит, что если при повторной пересборке программы новой версии, будут замечены полностью идентичные блоки исходного кода в сравнении с его старой версией,
+цель которого состоит в ускорении повторного процесса компиляции одного и того же кода.
+Это значит, что если при сборке программы новой версии, будут замечены полностью идентичные блоки исходного кода в сравнении с его старой версией,
 то компиляция этих исходных текстов производиться не будет. Вместо этого, уже готовый, скомпилированный код старой версии будет вынут из кэша ccache.
 За счёт этого и достигается многократное ускорение процесса компиляции.</p>
 <p><strong>Установка</strong></p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S ccache
 </pre></div>
 </div>
-<p>После установки его ещё нужно задействовать в нашей конфигурации makepkg.
+<p>После установки его ещё нужно активировать в ваших настройках makepkg.
 Для этого отредактируем конфигурационный файл:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo nano /etc/makepkg.conf
 
@@ -673,8 +684,8 @@ makepkg -sric
 </div>
 </div>
 </div>
-<div class="section" id="mesa">
-<h2>Твики драйверов Mesa<a class="headerlink" href="#mesa" title="Ссылка на этот заголовок">#</a></h2>
+<div class="section" id="id7">
+<h2>Твики драйверов Mesa<a class="headerlink" href="#id7" title="Ссылка на этот заголовок">#</a></h2>
 <div class="section" id="amd-sam">
 <span id="force-amd-sam"></span><span id="index-12"></span><h3>Форсирование использования AMD SAM <em>(Только для опытных пользователей)</em>.<a class="headerlink" href="#amd-sam" title="Ссылка на этот заголовок">#</a></h3>
 <p>AMD Smart Acess Memory (или Resizble Bar) — это технология которая позволяет процессору получить доступ сразу ко всей видеопамяти GPU,
