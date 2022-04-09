@@ -103,9 +103,9 @@
 Где *package* - название нужного вам пакета.
 
 Мы рекомендуем вам пересобрать наиболее важные пакеты. Например такие как драйвера (то есть `mesa <https://archlinux.org/packages/extra/x86_64/mesa/>`_, `lib32-mesa <https://archlinux.org/packages/multilib/x86_64/lib32-mesa/>`_, если у вас Intel/AMD),
-Xorg сервер `<https://archlinux.org/packages/extra/x86_64/xorg-server/>`_, а также связанные с ним компоненты, или `Wayland <https://archlinux.org/packages/extra/x86_64/wayland/>`,
+Xorg сервер `<https://archlinux.org/packages/extra/x86_64/xorg-server/>`_, а также связанные с ним компоненты, или `Wayland <https://archlinux.org/packages/extra/x86_64/wayland/>`_,
 критически важные пакеты вашего DE/WM, например: `gnome-shell <https://aur.archlinux.org/packages/gnome-shell-performance>`_, `plasma-desktop <https://archlinux.org/packages/extra/x86_64/plasma-desktop/>`_.
-А также композиторы `kwin <https://archlinux.org/packages/extra/x86_64/kwin/>`, `mutter <https://aur.archlinux.org/packages/mutter-performance>`_, picom и т.д. в зависимости от того, чем именно вы пользуетесь.
+А также композиторы `kwin <https://archlinux.org/packages/extra/x86_64/kwin/>`_, `mutter <https://aur.archlinux.org/packages/mutter-performance>`_, picom и т.д. в зависимости от того, чем именно вы пользуетесь.
 
 
 Больше подробностей по теме вы можете найти в данной статье:
