@@ -38,3 +38,5 @@
 
 - [@xtrahigh](https://github.com/xtrahigh) (https://github.com/ventureoo/ARU/pull/36)
 
+- [@Vochatrak-az-ezm](https://github.com/Vochatrak-az-ezm) (https://github.com/ventureoo/ARU/issues/72)
+
