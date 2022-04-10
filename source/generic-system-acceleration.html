@@ -357,6 +357,11 @@ function checkPageExistsAndRedirect(event) {
      .
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#vega-11-vochatrak-az-ezm">
+     Решение проблем работы графики Vega 11 (Спасибо @Vochatrak-az-ezm)
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -727,6 +732,30 @@ makepkg -sric
 </div>
 <p><strong>Пример тестирования технологии на видеокарте старого поколения (Windows)</strong></p>
 <p><a class="reference external" href="https://youtu.be/tZmPi9tfLbc">https://youtu.be/tZmPi9tfLbc</a></p>
+</div>
+<div class="section" id="vega-11-vochatrak-az-ezm">
+<span id="bug-solution-for-vega"></span><span id="index-13"></span><h3>Решение проблем работы графики Vega 11 (Спасибо &#64;Vochatrak-az-ezm)<a class="headerlink" href="#vega-11-vochatrak-az-ezm" title="Ссылка на этот заголовок">#</a></h3>
+<p>На оборудовании со встроенным видеоядром Vega 11 может встретиться баг драйвера, при котором возникают случайные зависания графики.
+Проблема наиболее актуальна для <em>Ryzen 2XXXG</em> и чуть реже встречается на Ryzen серии <em>3XXXG</em>, но потенциально имеет место быть и на более
+новых видеоядрах Vega.</p>
+<p>Решается через добавление следующих параметров ядра:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Редактируем конфигурационный файл в зависимости от того, какой у вас загрузчик</span>
+sudo nano /etc/default/grub
+
+<span class="c1"># Параметры можно дописать к уже имеющимся</span>
+<span class="nv">GRUB_CMDLINE_LINUX_DEFAULT</span><span class="o">=</span><span class="s2">&quot;mdgpu.gttsize=8192 amdgpu.lockup_timeout=1000 amdgpu.gpu_recovery=1 amdgpu.noretry=0 amdgpu.ppfeaturemask=0xfffd3fff amdgpu.deep_color=1 systemd.unified_cgroup_hierarchy=true&quot;</span>
+</pre></div>
+</div>
+<p>На всякий случай можно дописать ещё одну переменную окружения:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Прописать строчку ниже</span>
+sudo nano /etc/enviroment
+
+<span class="nv">AMD_DEBUG</span><span class="o">=</span>nodcc
+</pre></div>
+</div>
+<p>Для подробностей можете ознакомиться со следующими темами:</p>
+<p><a class="reference external" href="https://www.linux.org.ru/forum/linux-hardware/16312119">https://www.linux.org.ru/forum/linux-hardware/16312119</a></p>
+<p><a class="reference external" href="https://www.linux.org.ru/forum/desktop/16257286">https://www.linux.org.ru/forum/desktop/16257286</a></p>
 </div>
 </div>
 </div>
