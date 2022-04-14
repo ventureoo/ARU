@@ -96,8 +96,8 @@
 
 Дальнейшеная пересборка пакетов из официальных репозиториев осуществима через следующее команды::
 
-  git clone --depth 1 --branch packages/*package* https://github.com/archlinux/svntogit-packages.git *package*
-  cd *package*/trunk
+  git clone --depth 1 --branch packages/package https://github.com/archlinux/svntogit-packages.git package
+  cd package/trunk
   makepkg --config /etc/makepkg-clang.conf -sric --skippgpcheck
 
 Где *package* - название нужного вам пакета.
@@ -111,6 +111,23 @@
 Больше подробностей по теме вы можете найти в данной статье:
 
 https://habr.com/ru/company/ruvds/blog/561286/
+
+.. index:: clang, native-compilation, llvm-bolt-builds, lto, pgo
+.. _speeding-up-clang-llvm-compilers:
+
+Ускорение работы компиляторов LLVM/Clang
+-----------------------------------------
+
+Дополнительно можно отметить, что после установки Clang вы можете перекомпилировать его самого через себя,
+т.е. выполнить пересборку Clang с помощью бинарного Clang из репозиториев.
+Это позволит оптимизировать уже сам компилятор под ваше железо и тем самым ускорить
+его работу при сборке уже других программ. Аналогичную операцию вы можете проделать и с GCC.
+
+Делается это так же, как и с любыми другими пакетами из официальных репозиториев::
+
+  git clone --depth 1 --branch packages/clang https://github.com/archlinux/svntogit-packages.git clang
+  cd clang/trunk
+  makepkg --config /etc/makepkg-clang.conf -sric --skippgpcheck
 
 .. index:: makepkg, ccache, native-compilation
 .. _enabling_ccache:
