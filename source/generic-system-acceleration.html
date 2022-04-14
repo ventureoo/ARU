@@ -278,6 +278,13 @@ function checkPageExistsAndRedirect(event) {
     <a class="reference internal nav-link" href="#clang">
      Форсирование использования Clang при сборке пакетов
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#llvm-clang">
+       Ускорение работы компиляторов LLVM/Clang
+      </a>
+     </li>
+    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#ccache">
@@ -455,8 +462,8 @@ function checkPageExistsAndRedirect(event) {
 т.е. просто уберите опцию <code class="docutils literal notranslate"><span class="pre">--config</span> <span class="pre">/etc/makepkg-clang.conf</span></code> из команды <code class="docutils literal notranslate"><span class="pre">makepkg</span></code>.</p>
 </div>
 <p>Дальнейшеная пересборка пакетов из официальных репозиториев осуществима через следующее команды:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone --depth <span class="m">1</span> --branch packages/*package* https://github.com/archlinux/svntogit-packages.git *package*
-<span class="nb">cd</span> *package*/trunk
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone --depth <span class="m">1</span> --branch packages/package https://github.com/archlinux/svntogit-packages.git package
+<span class="nb">cd</span> package/trunk
 makepkg --config /etc/makepkg-clang.conf -sric --skippgpcheck
 </pre></div>
 </div>
@@ -467,9 +474,22 @@ makepkg --config /etc/makepkg-clang.conf -sric --skippgpcheck
 А также композиторы <a class="reference external" href="https://archlinux.org/packages/extra/x86_64/kwin/">kwin</a>, <a class="reference external" href="https://aur.archlinux.org/packages/mutter-performance">mutter</a>, picom и т.д. в зависимости от того, чем именно вы пользуетесь.</p>
 <p>Больше подробностей по теме вы можете найти в данной статье:</p>
 <p><a class="reference external" href="https://habr.com/ru/company/ruvds/blog/561286/">https://habr.com/ru/company/ruvds/blog/561286/</a></p>
+<div class="section" id="llvm-clang">
+<span id="speeding-up-clang-llvm-compilers"></span><span id="index-2"></span><h4>Ускорение работы компиляторов LLVM/Clang<a class="headerlink" href="#llvm-clang" title="Ссылка на этот заголовок">#</a></h4>
+<p>Дополнительно можно отметить, что после установки Clang вы можете перекомпилировать его самого через себя,
+т.е. выполнить пересборку Clang с помощью бинарного Clang из репозиториев.
+Это позволит оптимизировать уже сам компилятор под ваше железо и тем самым ускорить
+его работу при сборке уже других программ. Аналогичную операцию вы можете проделать и с GCC.</p>
+<p>Делается это так же, как и с любыми другими пакетами из официальных репозиториев:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone --depth <span class="m">1</span> --branch packages/clang https://github.com/archlinux/svntogit-packages.git clang
+<span class="nb">cd</span> clang/trunk
+makepkg --config /etc/makepkg-clang.conf -sric --skippgpcheck
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="ccache">
-<span id="enabling-ccache"></span><span id="index-2"></span><h3>Включение ccache<a class="headerlink" href="#ccache" title="Ссылка на этот заголовок">#</a></h3>
+<span id="enabling-ccache"></span><span id="index-3"></span><h3>Включение ccache<a class="headerlink" href="#ccache" title="Ссылка на этот заголовок">#</a></h3>
 <p>В Linux системах есть не так много программ, сборка которых может занять больше двух часов,
 но они все таки есть. Потому, было бы неплохо ускорить повторную компиляцию таких программ как Wine/Proton-GE и т.д.</p>
 <p>ccache - это кэш для компиляторов C/C++, в частности совместимый с компиляторами GCC/Clang,
@@ -497,7 +517,7 @@ makepkg --config /etc/makepkg-clang.conf -sric --skippgpcheck
 </div>
 </div>
 <div class="section" id="daemons-and-services">
-<span id="index-3"></span><span id="id3"></span><h2>Установка полезных служб и демонов<a class="headerlink" href="#daemons-and-services" title="Ссылка на этот заголовок">#</a></h2>
+<span id="index-4"></span><span id="id3"></span><h2>Установка полезных служб и демонов<a class="headerlink" href="#daemons-and-services" title="Ссылка на этот заголовок">#</a></h2>
 <p><strong>1.</strong> <a class="reference external" href="https://aur.archlinux.org/packages/zramswap/">Zramswap</a> — это специальный демон,
 который сжимает оперативную память ресурсами центрального процессора и создает в ней файл подкачки.
 Очень ускоряет систему вне зависимости от количества памяти, однако добавляет нагрузку на процессор, т.к. его ресурсами и происходит сжатие памяти.
@@ -568,7 +588,7 @@ sudo systemctl --global <span class="nb">enable</span> dbus-broker.service <span
 <img alt="../_images/generic-system-acceleration-1.png" src="../_images/generic-system-acceleration-1.png" />
 </div>
 <div class="section" id="lowlatency-audio">
-<span id="index-4"></span><span id="id4"></span><h2>Низкие задержки звука<a class="headerlink" href="#lowlatency-audio" title="Ссылка на этот заголовок">#</a></h2>
+<span id="index-5"></span><span id="id4"></span><h2>Низкие задержки звука<a class="headerlink" href="#lowlatency-audio" title="Ссылка на этот заголовок">#</a></h2>
 <p>Установите следующие пакеты для понижения задержек звука в PulseAudio,
 а также удобную графическую панель управления звуком -  <em>pavucontrol</em>.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S jack2 pulseaudio-alsa pulseaudio-jack pavucontrol jack2-dbus realtime-privileges
@@ -580,7 +600,7 @@ sudo systemctl --global <span class="nb">enable</span> dbus-broker.service <span
 он может вызвать небольшие задержки всей системы из-за усиленного воздействия на CPU, но без него звук хуже.</p>
 </div>
 <div class="section" id="pulseaudio">
-<span id="pipewire-installation"></span><span id="index-5"></span><h3>Новая альтернатива PulseAudio<a class="headerlink" href="#pulseaudio" title="Ссылка на этот заголовок">#</a></h3>
+<span id="pipewire-installation"></span><span id="index-6"></span><h3>Новая альтернатива PulseAudio<a class="headerlink" href="#pulseaudio" title="Ссылка на этот заголовок">#</a></h3>
 <p><a class="reference external" href="https://wiki.archlinux.org/title/PipeWire_(Русский)">PipeWire</a> - это новая альтернатива PulseAudio,
 которая призвана избавить от проблем pulse, уменьшить задержки звука и потребление памяти.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S jack2 pipewire pipewire-jack pipewire-alsa pavucontrol pipewire-pulse alsa-utils
@@ -588,7 +608,7 @@ sudo systemctl --global <span class="nb">enable</span> dbus-broker.service <span
 </div>
 </div>
 <div class="section" id="alsa">
-<span id="index-6"></span><span id="id5"></span><h3>Простая ALSA<a class="headerlink" href="#alsa" title="Ссылка на этот заголовок">#</a></h3>
+<span id="index-7"></span><span id="id5"></span><h3>Простая ALSA<a class="headerlink" href="#alsa" title="Ссылка на этот заголовок">#</a></h3>
 <p>ALSA - это тот самый звук (условно, на самом деле это звуковая подсистема ядра),
 который идёт напрямую из ядра и является самым быстрым,
 так как не вынужден проходить множество программных прослоек и микширование.</p>
@@ -603,7 +623,7 @@ sudo systemctl --global <span class="nb">enable</span> dbus-broker.service <span
 </div>
 </div>
 <div class="section" id="networkmanager-wait-online">
-<span id="startup-acceleration"></span><span id="index-7"></span><h2>Ускорение загрузки системы (Отключение NetworkManager-wait-online)<a class="headerlink" href="#networkmanager-wait-online" title="Ссылка на этот заголовок">#</a></h2>
+<span id="startup-acceleration"></span><span id="index-8"></span><h2>Ускорение загрузки системы (Отключение NetworkManager-wait-online)<a class="headerlink" href="#networkmanager-wait-online" title="Ссылка на этот заголовок">#</a></h2>
 <p>В большинстве случаев для настройки интернет подключения вы, скорее всего, будете использовать NetworkManager,
 т.к. он является в этом деле швейцарским ножом и поставляется по умолчанию.
 Однако, если вы пропишите команду <em>systemd-analyze blame</em>, то узнаете, что он задерживает загрузку системы примерно на ~4 секунды.
@@ -612,7 +632,7 @@ sudo systemctl --global <span class="nb">enable</span> dbus-broker.service <span
 </pre></div>
 </div>
 <div class="section" id="hdd">
-<span id="speed-up-hdd-startup"></span><span id="index-8"></span><h3>Ускорение загрузки ядра на HDD накопителях (<em>Только для жестких дисков</em>)<a class="headerlink" href="#hdd" title="Ссылка на этот заголовок">#</a></h3>
+<span id="speed-up-hdd-startup"></span><span id="index-9"></span><h3>Ускорение загрузки ядра на HDD накопителях (<em>Только для жестких дисков</em>)<a class="headerlink" href="#hdd" title="Ссылка на этот заголовок">#</a></h3>
 <p>Убедитесь, что пакет <a class="reference external" href="https://archlinux.org/packages/core/x86_64/lz4/">lz4</a> установлен:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S lz4
 </pre></div>
@@ -632,7 +652,7 @@ sudo systemctl --global <span class="nb">enable</span> dbus-broker.service <span
 </div>
 </div>
 <div class="section" id="parallel-downloading">
-<span id="index-9"></span><span id="id6"></span><h2>Одновременная загрузка двух и более пакетов<a class="headerlink" href="#parallel-downloading" title="Ссылка на этот заголовок">#</a></h2>
+<span id="index-10"></span><span id="id6"></span><h2>Одновременная загрузка двух и более пакетов<a class="headerlink" href="#parallel-downloading" title="Ссылка на этот заголовок">#</a></h2>
 <p>Начиная с шестой версии pacman поддерживает параллельную загрузку пакетов.
 Чтобы её включить отредактируйте <em>/etc/pacman.conf</em>:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo nano /etc/pacman.conf <span class="c1"># Раскомментируйте строчку ниже</span>
@@ -642,7 +662,7 @@ sudo systemctl --global <span class="nb">enable</span> dbus-broker.service <span
 </pre></div>
 </div>
 <div class="section" id="powerpill-zee-captain">
-<span id="powerpill"></span><span id="index-10"></span><h3>Альтернативно можно использовать powerpill (Спасибо Zee Captain)<a class="headerlink" href="#powerpill-zee-captain" title="Ссылка на этот заголовок">#</a></h3>
+<span id="powerpill"></span><span id="index-11"></span><h3>Альтернативно можно использовать powerpill (Спасибо Zee Captain)<a class="headerlink" href="#powerpill-zee-captain" title="Ссылка на этот заголовок">#</a></h3>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://aur.archlinux.org/powerpill.git
 <span class="nb">cd</span> powerpill
 makepkg -sric
@@ -657,7 +677,7 @@ makepkg -sric
 <div class="section" id="id7">
 <h2>Твики драйверов Mesa<a class="headerlink" href="#id7" title="Ссылка на этот заголовок">#</a></h2>
 <div class="section" id="amd-sam">
-<span id="force-amd-sam"></span><span id="index-11"></span><h3>Форсирование использования AMD SAM <em>(Только для опытных пользователей)</em>.<a class="headerlink" href="#amd-sam" title="Ссылка на этот заголовок">#</a></h3>
+<span id="force-amd-sam"></span><span id="index-12"></span><h3>Форсирование использования AMD SAM <em>(Только для опытных пользователей)</em>.<a class="headerlink" href="#amd-sam" title="Ссылка на этот заголовок">#</a></h3>
 <p>AMD Smart Acess Memory (или Resizble Bar) — это технология которая позволяет процессору получить доступ сразу ко всей видеопамяти GPU,
 а не по отдельности для каждого распаянного чипа создавая задержки. Несмотря на то,
 что данная технология заявлена только для оборудования AMD и требует новейших комплектующих для обеспечения своей работы,
@@ -699,7 +719,7 @@ makepkg -sric
 <p><a class="reference external" href="https://youtu.be/tZmPi9tfLbc">https://youtu.be/tZmPi9tfLbc</a></p>
 </div>
 <div class="section" id="vega-11-vochatrak-az-ezm">
-<span id="bug-solution-for-vega"></span><span id="index-12"></span><h3>Решение проблем работы графики Vega 11 (Спасибо &#64;Vochatrak-az-ezm)<a class="headerlink" href="#vega-11-vochatrak-az-ezm" title="Ссылка на этот заголовок">#</a></h3>
+<span id="bug-solution-for-vega"></span><span id="index-13"></span><h3>Решение проблем работы графики Vega 11 (Спасибо &#64;Vochatrak-az-ezm)<a class="headerlink" href="#vega-11-vochatrak-az-ezm" title="Ссылка на этот заголовок">#</a></h3>
 <p>На оборудовании со встроенным видеоядром Vega 11 может встретиться баг драйвера, при котором возникают случайные зависания графики.
 Проблема наиболее актуальна для <em>Ryzen 2XXXG</em> и чуть реже встречается на Ryzen серии <em>3XXXG</em>, но потенциально имеет место быть и на более
 новых видеоядрах Vega.</p>
