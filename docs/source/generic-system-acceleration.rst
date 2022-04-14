@@ -255,9 +255,6 @@ ccache - это кэш для компиляторов C/C++, в частнос�
 
   sudo pacman -S jack2 pulseaudio-alsa pulseaudio-jack pavucontrol jack2-dbus realtime-privileges
 
-.. attention:: Пакет `realtime-privileges <https://archlinux.org/packages/community/any/realtime-privileges/>`_ - лучше не устанавливать,
-   он может вызвать небольшие задержки всей системы из-за усиленного воздействия на CPU, но без него звук хуже.
-
 .. index:: installation, lowlatency, audio, pipewire
 .. _pipewire-installation:
 
