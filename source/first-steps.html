@@ -534,12 +534,11 @@ sudo mkinitcpio -P <span class="c1"># Обновляем образы ядра</
 <p>Для этого отредактируем параметры сборки наших образов: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">/etc/mkinitcpio.conf</span></code></p>
 <p>Отредактируйте строку <em>MODULES</em> как показано на изображении и выполните команды ниже.</p>
 <p>В массив (ограничен скобками) вы можете прописать любые модули ядра которые считаете наиболее важными и нужными.
-Ниже мы указали модули закрытого драйвера NVIDIA и файловой системы Btrfs.</p>
-<p>Если у вас отсутствует видеокарта NVIDIA, но при этом у вас видеокарта от AMD/Intel,
-то прописывать вместо модулей NVIDIA нужно будет уже следующие модули соответственно:
+Ниже мы указали модули файловой системы Btrfs.</p>
+<p>Если у вас видеокарта от AMD/Intel, то можно прописать дополнительно указать модули соответствующих драйверов AMD/Intel:
 <em>amdgpu radeon</em> или <em>crc32c-intel intel_agp i915</em>.</p>
 <p>Так же если у вас другая файловая система, то прописывать модули для Btrfs не нужно.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">MODULES</span><span class="o">=(</span>nvidia nvidia_modeset nvidia_uvm nvidia_drm crc32c libcrc32c zlib_deflate btrfs<span class="o">)</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">MODULES</span><span class="o">=(</span>crc32c libcrc32c zlib_deflate btrfs<span class="o">)</span>
 </pre></div>
 </div>
 <img alt="https://raw.githubusercontent.com/ventureoo/ARU/main/archive/ARU/images/image4.png" class="align-center" src="https://raw.githubusercontent.com/ventureoo/ARU/main/archive/ARU/images/image4.png" />
