@@ -185,17 +185,16 @@ Intel
 Отредактируйте строку *MODULES* как показано на изображении и выполните команды ниже.
 
 В массив (ограничен скобками) вы можете прописать любые модули ядра которые считаете наиболее важными и нужными.
-Ниже мы указали модули закрытого драйвера NVIDIA и файловой системы Btrfs.
+Ниже мы указали модули файловой системы Btrfs.
 
-Если у вас отсутствует видеокарта NVIDIA, но при этом у вас видеокарта от AMD/Intel,
-то прописывать вместо модулей NVIDIA нужно будет уже следующие модули соответственно:
+Если у вас видеокарта от AMD/Intel, то можно прописать дополнительно указать модули соответствующих драйверов AMD/Intel:
 *amdgpu radeon* или *crc32c-intel intel_agp i915*.
 
 Так же если у вас другая файловая система, то прописывать модули для Btrfs не нужно.
 
 ::
 
-  MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm crc32c libcrc32c zlib_deflate btrfs)
+  MODULES=(crc32c libcrc32c zlib_deflate btrfs)
 
 .. image:: https://raw.githubusercontent.com/ventureoo/ARU/main/archive/ARU/images/image4.png
   :align: center
