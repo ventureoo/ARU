@@ -20,6 +20,11 @@ jobs:
     container: archlinux:latest
     steps:
     - uses: actions/checkout@v2
+    - name: Install dependencies
+      run: |
+         pacman -Syu --noconfirm python-sphinx texlive-most texlive-fontsextra
+
+    - uses: actions/checkout@v2
     - name: Build HTML
       uses: ammaraskar/sphinx-action@master
       with:
