@@ -95,9 +95,7 @@ html_theme_options = {
     'search_bar_text': "Поиск...",
     "footer_items": ["copyright"],
     "switcher": {
-        # "json_url": "/_static/switcher.json",
         "json_url": "https://ventureoo.github.io/ARU/_static/switcher.json",
-        "url_template": "https://ventureoo.github.io/ARU/{version}",
         "version_match": "latest",
     },
 }
