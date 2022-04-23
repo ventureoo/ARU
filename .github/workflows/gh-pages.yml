@@ -13,14 +13,12 @@ on:
 jobs:
   build-html:
     runs-on: ubuntu-latest
-    container: archlinux:latest
     steps:
     - uses: actions/checkout@v2
     - name: Build HTML
       uses: ammaraskar/sphinx-action@master
       with:
         docs-folder: "docs/"
-        pre-build-command: "pacman-key --init && pacman -Syu git"
         build-command: "sphinx-build -b html . build"
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
