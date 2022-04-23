@@ -31,6 +31,7 @@ jobs:
          pacman-key --init
          pacman -Syu --noconfirm
          pacman -S --noconfirm texlive-latexextra texlive-fontsextra git make texlive-core python-sphinx
+         cd docs
          make latexpdf
          mv ARU.pdf build
 
