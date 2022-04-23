@@ -265,7 +265,7 @@ ccache - это кэш для компиляторов C/C++, в частнос�
 `PipeWire <https://wiki.archlinux.org/title/PipeWire_(Русский)>`_ - это новая альтернатива PulseAudio,
 которая призвана избавить от проблем pulse, уменьшить задержки звука и потребление памяти. ::
 
-  sudo pacman -S jack2 pipewire pipewire-jack pipewire-alsa pavucontrol pipewire-pulse alsa-utils
+  sudo pacman -S jack2 pipewire pipewire-jack pipewire-alsa pavucontrol pipewire-pulse alsa-utils wireplumber
 
 .. index:: lowlatency, audio, alsa
 .. _alsa:
