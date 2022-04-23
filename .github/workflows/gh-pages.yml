@@ -25,15 +25,12 @@ jobs:
       with:
         docs-folder: "docs/"
         build-command: "sphinx-build -b html . build"
-    - uses: actions/checkout@v2
     - name: Build PDF
-      run: |
-         pacman-key --init
-         pacman -Syu --noconfirm
-         pacman -S --noconfirm texlive-latexextra texlive-fontsextra git make texlive-core python-sphinx ttf-dejavu
-         cd docs
-         make latexpdf
-
+      uses: ammaraskar/sphinx-action@master
+      with:
+        docs-folder: "docs/"
+        pre-build-command: "pacman-key --init && sudo pacman -Syu --noconfirm texlive-latexextra texlive-fontsextra git make texlive-core python-sphinx ttf-dejavu"
+        build-command: "make latexpdf"
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
       with:
