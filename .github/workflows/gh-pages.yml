@@ -17,7 +17,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: archlinux:latest
     steps:
     - uses: actions/checkout@v2
     - name: Build HTML
@@ -29,7 +28,7 @@ jobs:
       uses: ammaraskar/sphinx-action@master
       with:
         docs-folder: "docs/"
-        pre-build-command: "pacman-key --init && sudo pacman -Syu --noconfirm texlive-latexextra texlive-fontsextra git make texlive-core python-sphinx ttf-dejavu"
+        pre-build-command: "apt-get update -y && apt-get install -y latexmk texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended"
         build-command: "make latexpdf"
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
