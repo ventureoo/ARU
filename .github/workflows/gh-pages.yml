@@ -33,7 +33,7 @@ jobs:
          pacman -S --noconfirm texlive-latexextra texlive-fontsextra git make texlive-core python-sphinx ttf-dejavu
          cd docs
          make latexpdf
-         mv ARU.pdf build
+         mv _build/latex/ARU.pdf ../build
 
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
