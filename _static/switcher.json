@@ -1,19 +1,23 @@
 [
   {
     "name": "latest (PDF)",
-    "version": "latex/ARU.pdf"
+    "version": "9999",
+    "url": "https://ventureoo.github.io/ARU/latex/ARU.pdf"
   },
 
   {
-    "name": "2022.02.28 (stable)",
-    "version": "v2022.02.28/index.html"
+    "name": "v2022.02.28 (stable)",
+    "version": "2022.02.28",
+    "url": "https://ventureoo.github.io/ARU/v2022.02.28/index.html"
   },
   {
-    "name": "2022.01.30",
-    "version": "v2022.01.30/index.html"
+    "name": "v2022.01.30",
+    "version": "2022.01.30",
+    "url": "https://ventureoo.github.io/ARU/v2022.01.30/index.html"
   },
   {
-    "name": "2021.12.22",
-    "version": "v2021.12.22/index.html"
+    "name": "v2021.12.22",
+    "version": "2021.12.22",
+    "url": "https://ventureoo.github.io/ARU/v2021.12.22/index.html"
   }
 ]
