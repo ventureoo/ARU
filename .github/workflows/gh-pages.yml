@@ -22,7 +22,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: Install dependencies
       run: |
-         pacman -Syu --noconfirm texlive-most texlive-fontsextra git
+         pacman -Syu --noconfirm texlive-most texlive-fontsextra git texlive-core
 
     - uses: actions/checkout@v2
     - name: Build HTML
