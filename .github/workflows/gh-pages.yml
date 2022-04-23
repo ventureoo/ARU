@@ -30,6 +30,16 @@ jobs:
       with:
         docs-folder: "docs/"
         build-command: "sphinx-build -b html . build"
+    - name: Build PDF
+      uses: ammaraskar/sphinx-action@master
+      with:
+        docs-folder: "docs/"
+        build-command: "make latexpdf"
+    - uses: actions/checkout@v2
+    - name: Cleanup
+      run: |
+         mv ARU.pdf build
+
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
       with:
