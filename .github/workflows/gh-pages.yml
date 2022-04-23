@@ -20,24 +20,16 @@ jobs:
     container: archlinux:latest
     steps:
     - uses: actions/checkout@v2
-    - name: Install dependencies
-      run: |
-         pacman -Syu --noconfirm texlive-most texlive-fontsextra git texlive-core
-
-    - uses: actions/checkout@v2
     - name: Build HTML
       uses: ammaraskar/sphinx-action@master
       with:
         docs-folder: "docs/"
         build-command: "sphinx-build -b html . build"
-    - name: Build PDF
-      uses: ammaraskar/sphinx-action@master
-      with:
-        docs-folder: "docs/"
-        build-command: "make latexpdf"
     - uses: actions/checkout@v2
-    - name: Cleanup
+    - name: Build PDF
       run: |
+         pacman -Syu --noconfirm texlive-most texlive-fontsextra git texlive-core
+         make latexpdf
          mv ARU.pdf build
 
     - name: Upload artifacts
