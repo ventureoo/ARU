@@ -28,7 +28,9 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build PDF
       run: |
-         pacman -Syu --noconfirm texlive-most texlive-fontsextra git texlive-core
+         pacman-key --init
+         pacman -Syu --noconfirm
+         pacman -S texlive-most texlive-fontsextra base-devel texlive-core python-sphinx
          make latexpdf
          mv ARU.pdf build
 
