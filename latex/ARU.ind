@@ -41,6 +41,7 @@
   \item \spxentry{compsize}, \hyperpage{38}
   \item \spxentry{configure}, \hyperpage{56}
   \item \spxentry{coredump}, \hyperpage{32}
+  \item \spxentry{cosmetics}, \hyperpage{107}
   \item \spxentry{cpu}, \hyperpage{7}, \hyperpage{29}
   \item \spxentry{cpupower}, \hyperpage{29}\hyperpage{31}
 
@@ -82,7 +83,7 @@
   \item \spxentry{games}, \hyperpage{41}
   \item \spxentry{gaming}, \hyperpage{77}, \hyperpage{78}, \hyperpage{81}, \hyperpage{83}\hyperpage{86}, \hyperpage{93}, \hyperpage{94}, \hyperpage{97}, \hyperpage{131}
   \item \spxentry{garbage\sphinxhyphen{}removal}, \hyperpage{104}, \hyperpage{108}, \hyperpage{118}, \hyperpage{127}, \hyperpage{128}
-  \item \spxentry{gnome}, \hyperpage{103}, \hyperpage{104}
+  \item \spxentry{gnome}, \hyperpage{103}, \hyperpage{104}, \hyperpage{107}
   \item \spxentry{gnome\sphinxhyphen{}control\sphinxhyphen{}center}, \hyperpage{104}
   \item \spxentry{gnome\sphinxhyphen{}settings\sphinxhyphen{}daemon}, \hyperpage{104}
   \item \spxentry{gnome\sphinxhyphen{}shell}, \hyperpage{106}

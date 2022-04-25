@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/Arch Linux) (preloaded format=xelatex 2022.4.25)  25 APR 2022 10:31
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/Arch Linux) (preloaded format=xelatex 2022.4.25)  25 APR 2022 10:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2946,7 +2946,7 @@ File: kwin-lowlatency.png Graphic file (type bmp)
 <kwin-lowlatency.png>
 
 [115]
-Underfull \hbox (badness 10000) in paragraph at lines 10930--10932
+Underfull \hbox (badness 10000) in paragraph at lines 10931--10933
 []\TU/DejaVuSerif(1)/m/n/10 Пользователям NVIDIA также будет полезно использова
 ть опцию \TU/DejaVuSerif(1)/m/it/10 "Set
  []
@@ -2964,7 +2964,7 @@ File: image13.png Graphic file (type bmp)
 File: image81.png Graphic file (type bmp)
 <image81.png>
  [121]
-Underfull \hbox (badness 10000) in paragraph at lines 11171--11174
+Underfull \hbox (badness 10000) in paragraph at lines 11172--11175
 []\TU/DejaVuSerif(1)/m/n/10 # Отключаем службу автоматического монтирования вне
 шних, подключаемых
  []
@@ -2990,7 +2990,7 @@ File: generic-system-acceleration-4.png Graphic file (type bmp)
 File: piper-resolutionpage.png Graphic file (type bmp)
 <piper-resolutionpage.png>
  [129]
-Underfull \hbox (badness 10000) in paragraph at lines 11364--11368
+Underfull \hbox (badness 10000) in paragraph at lines 11365--11369
 []\TU/DejaVuSerif(1)/b/n/10 Внимание:  \TU/DejaVuSerif(1)/m/n/10 Поддерживаются
  только некоторые из моделей мышек от
  []
@@ -3055,10 +3055,10 @@ Package rerunfilecheck Info: File `ARU.out' has not changed.
 (rerunfilecheck)             Checksum: 5468B6A21384A082F8D578592E4CF2B9;33641.
  ) 
 Here is how much of TeX's memory you used:
- 18849 strings out of 476180
- 377463 string characters out of 5815297
- 1098686 words of memory out of 5000000
- 39084 multiletter control sequences out of 15000+600000
+ 18851 strings out of 476180
+ 377538 string characters out of 5815297
+ 1098810 words of memory out of 5000000
+ 39086 multiletter control sequences out of 15000+600000
  477537 words of font info for 155 fonts, out of 8000000 for 9000
  1349 hyphenation exceptions out of 8191
  73i,12n,79p,1093b,697s stack positions out of 5000i,500n,10000p,200000b,80000s
