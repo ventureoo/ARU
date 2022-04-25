@@ -19,7 +19,7 @@
   \indexspace
 
   \lettergroup{B}
-  \item \spxentry{baloo}, \hyperpage{108}
+  \item \spxentry{baloo}, \hyperpage{109}
   \item \spxentry{bar}, \hyperpage{26}
   \item \spxentry{basic}, \hyperpage{4}
   \item \spxentry{basics}, \hyperpage{1}
@@ -36,7 +36,7 @@
   \item \spxentry{clang}, \hyperpage{19}, \hyperpage{21}, \hyperpage{73}
   \item \spxentry{commands}, \hyperpage{1}
   \item \spxentry{comperssion}, \hyperpage{38}
-  \item \spxentry{compositor}, \hyperpage{106}, \hyperpage{112}, \hyperpage{114}, \hyperpage{115}, \hyperpage{119}, \hyperpage{123}, \hyperpage{124}
+  \item \spxentry{compositor}, \hyperpage{106}, \hyperpage{112}, \hyperpage{115}, \hyperpage{116}, \hyperpage{119}, \hyperpage{123}, \hyperpage{124}
   \item \spxentry{compression}, \hyperpage{37}, \hyperpage{39}, \hyperpage{41}, \hyperpage{48}
   \item \spxentry{compsize}, \hyperpage{38}
   \item \spxentry{configure}, \hyperpage{56}
@@ -47,7 +47,7 @@
   \indexspace
 
   \lettergroup{D}
-  \item \spxentry{daemons}, \hyperpage{104}, \hyperpage{108}, \hyperpage{110}, \hyperpage{118}, \hyperpage{121}
+  \item \spxentry{daemons}, \hyperpage{104}, \hyperpage{109}, \hyperpage{110}, \hyperpage{118}, \hyperpage{121}
   \item \spxentry{dbus\sphinxhyphen{}broker}, \hyperpage{22}
   \item \spxentry{debug}, \hyperpage{109}
   \item \spxentry{de\sphinxhyphen{}optimizations}, \hyperpage{103}, \hyperpage{108}, \hyperpage{117}, \hyperpage{121}
@@ -61,14 +61,14 @@
   \indexspace
 
   \lettergroup{E}
-  \item \spxentry{effects}, \hyperpage{115}, \hyperpage{124}
+  \item \spxentry{effects}, \hyperpage{116}, \hyperpage{124}
   \item \spxentry{environment}, \hyperpage{11}
   \item \spxentry{ext4}, \hyperpage{36}
 
   \indexspace
 
   \lettergroup{F}
-  \item \spxentry{file\sphinxhyphen{}indexing}, \hyperpage{104}, \hyperpage{108}
+  \item \spxentry{file\sphinxhyphen{}indexing}, \hyperpage{104}, \hyperpage{109}
   \item \spxentry{flags}, \hyperpage{19}
   \item \spxentry{fps}, \hyperpage{98}, \hyperpage{99}
   \item \spxentry{frequencies}, \hyperpage{30}, \hyperpage{31}
@@ -115,8 +115,8 @@
   \item \spxentry{kdebugdialog5}, \hyperpage{109}
   \item \spxentry{kernel}, \hyperpage{32}, \hyperpage{49}, \hyperpage{50}, \hyperpage{52}, \hyperpage{54}, \hyperpage{56}, \hyperpage{73}, \hyperpage{99}
   \item \spxentry{key}, \hyperpage{3}
-  \item \spxentry{kwin}, \hyperpage{112}, \hyperpage{114}, \hyperpage{115}
-  \item \spxentry{kwin\sphinxhyphen{}lowlatency}, \hyperpage{114}
+  \item \spxentry{kwin}, \hyperpage{112}, \hyperpage{115}, \hyperpage{116}
+  \item \spxentry{kwin\sphinxhyphen{}lowlatency}, \hyperpage{115}
 
   \indexspace
 
@@ -125,7 +125,7 @@
   \item \spxentry{linux\sphinxhyphen{}tkg}, \hyperpage{54}
   \item \spxentry{liquorix}, \hyperpage{50}
   \item \spxentry{llvm\sphinxhyphen{}bolt\sphinxhyphen{}builds}, \hyperpage{21}
-  \item \spxentry{lowlatency}, \hyperpage{24}, \hyperpage{83}, \hyperpage{112}, \hyperpage{114}, \hyperpage{115}, \hyperpage{119}, \hyperpage{123}, \hyperpage{124}
+  \item \spxentry{lowlatency}, \hyperpage{24}, \hyperpage{83}, \hyperpage{112}, \hyperpage{115}, \hyperpage{116}, \hyperpage{119}, \hyperpage{123}, \hyperpage{124}
   \item \spxentry{lqx}, \hyperpage{50}
   \item \spxentry{lto}, \hyperpage{19}, \hyperpage{21}
   \item \spxentry{lto native\sphinxhyphen{}compilation}, \hyperpage{73}
@@ -206,7 +206,7 @@
   \item \spxentry{sam}, \hyperpage{26}
   \item \spxentry{security}, \hyperpage{130}
   \item \spxentry{service}, \hyperpage{25}, \hyperpage{104}, \hyperpage{110}, \hyperpage{118}, \hyperpage{121}
-  \item \spxentry{services}, \hyperpage{104}, \hyperpage{108}
+  \item \spxentry{services}, \hyperpage{104}, \hyperpage{109}
   \item \spxentry{settings}, \hyperpage{3}, \hyperpage{26}, \hyperpage{35}, \hyperpage{129}
   \item \spxentry{stacer}, \hyperpage{127}
   \item \spxentry{startup\sphinxhyphen{}acceleration}, \hyperpage{25}
@@ -250,7 +250,7 @@
   \lettergroup{X}
   \item \spxentry{x11}, \hyperpage{103}
   \item \spxentry{x11\sphinxhyphen{}unrediction}, \hyperpage{119}, \hyperpage{123}
-  \item \spxentry{x11\sphinxhyphen{}unredirection}, \hyperpage{114}
+  \item \spxentry{x11\sphinxhyphen{}unredirection}, \hyperpage{115}
   \item \spxentry{xanmod}, \hyperpage{52}
   \item \spxentry{xfce}, \hyperpage{117}, \hyperpage{118}
   \item \spxentry{xfce4}, \hyperpage{117}

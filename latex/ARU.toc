@@ -89,19 +89,20 @@
 \contentsline {section}{\numberline {9.1}Возможные часто встречаемые проблемы после установки мини\sphinxhyphen {}ядра}{101}{section.9.1}%
 \contentsline {chapter}{\numberline {10}Оптимизация рабочего окружения (DE)}{103}{chapter.10}%
 \contentsline {section}{\numberline {10.1}Запуск любой DE или WM без экранного менеджера \sphinxstyleemphasis {(Только для X11)}}{103}{section.10.1}%
-\contentsline {section}{\numberline {10.2}GNOME 3.XX/40/41/42}{104}{section.10.2}%
+\contentsline {section}{\numberline {10.2}GNOME 3.XX/42}{104}{section.10.2}%
 \contentsline {subsection}{\numberline {10.2.1}Удаление мусора GNOME}{104}{subsection.10.2.1}%
 \contentsline {subsection}{\numberline {10.2.2}Отключение Tracker 3 в GNOME (НОВЫЙ СПОСОБ)}{104}{subsection.10.2.2}%
 \contentsline {subsection}{\numberline {10.2.3}Отключение ненужных GSD служб GNOME (НОВЫЙ СПОСОБ)}{105}{subsection.10.2.3}%
 \contentsline {subsection}{\numberline {10.2.4}gnome\sphinxhyphen {}shell\sphinxhyphen {}performance и mutter\sphinxhyphen {}performance}{106}{subsection.10.2.4}%
-\contentsline {subsection}{\numberline {10.2.5}Результат}{107}{subsection.10.2.5}%
+\contentsline {subsection}{\numberline {10.2.5}Бонус: немного косметики}{107}{subsection.10.2.5}%
+\contentsline {subsection}{\numberline {10.2.6}Результат}{107}{subsection.10.2.6}%
 \contentsline {section}{\numberline {10.3}KDE Plasma 5}{108}{section.10.3}%
-\contentsline {subsection}{\numberline {10.3.1}Удаление мусора из Plasma 5}{108}{subsection.10.3.1}%
-\contentsline {subsection}{\numberline {10.3.2}Отключение Baloo в Plasma}{108}{subsection.10.3.2}%
-\contentsline {subsection}{\numberline {10.3.3}Отключение отладочной информации в KDE 5}{109}{subsection.10.3.3}%
-\contentsline {subsection}{\numberline {10.3.4}Отключение ненужных служб Plasma}{110}{subsection.10.3.4}%
-\contentsline {subsection}{\numberline {10.3.5}Настройка работы KWin для увеличения плавности}{112}{subsection.10.3.5}%
-\contentsline {subsection}{\numberline {10.3.6}Отключение композитинга для полноэкранных окон}{114}{subsection.10.3.6}%
+\contentsline {subsection}{\numberline {10.3.1}Удаление мусора из Plasma 5}{109}{subsection.10.3.1}%
+\contentsline {subsection}{\numberline {10.3.2}Отключение Baloo в Plasma}{109}{subsection.10.3.2}%
+\contentsline {subsection}{\numberline {10.3.3}Отключение отладочной информации в KDE 5}{110}{subsection.10.3.3}%
+\contentsline {subsection}{\numberline {10.3.4}Отключение ненужных служб Plasma}{111}{subsection.10.3.4}%
+\contentsline {subsection}{\numberline {10.3.5}Настройка работы KWin для увеличения плавности}{113}{subsection.10.3.5}%
+\contentsline {subsection}{\numberline {10.3.6}Отключение композитинга для полноэкранных окон}{115}{subsection.10.3.6}%
 \contentsline {subsection}{\numberline {10.3.7}Отключение ненужных графических эффектов Plasma}{116}{subsection.10.3.7}%
 \contentsline {subsection}{\numberline {10.3.8}Результат}{117}{subsection.10.3.8}%
 \contentsline {section}{\numberline {10.4}Xfce4}{118}{section.10.4}%

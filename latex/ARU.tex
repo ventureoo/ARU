@@ -10293,8 +10293,8 @@ EndSection
 
 \index{gnome@\spxentry{gnome}}\index{de\sphinxhyphen{}optimizations@\spxentry{de\sphinxhyphen{}optimizations}}\ignorespaces 
 
-\section{GNOME 3.XX/40/41/42}
-\label{\detokenize{source/de-optimizations:gnome-3-xx-40-41-42}}\label{\detokenize{source/de-optimizations:gnome-optimization}}\label{\detokenize{source/de-optimizations:index-1}}
+\section{GNOME 3.XX/42}
+\label{\detokenize{source/de-optimizations:gnome-3-xx-42}}\label{\detokenize{source/de-optimizations:gnome-optimization}}\label{\detokenize{source/de-optimizations:index-1}}
 \sphinxAtStartPar
 Сам по себе GNOME \sphinxhyphen{} наверное одна из самых тяжеловесных и требовательных к аппаратным ресурсам оболочка из ныне существующих.
 Тем не менее у неё есть свои преимущества перед другими оболочками, за что её и любят пользователи.
@@ -10543,10 +10543,32 @@ makepkg \PYGZhy{}sric                                              \PYG{c+c1}{\P
 \sphinxAtStartPar
 Более подробную информацию вы можете найти в разделе \sphinxhref{https://ventureoo.github.io/ARU/source/generic-system-acceleration.html\#clang}{"Общее ускорение системы"}.
 
+
+\subsection{Бонус: немного косметики}
+\label{\detokenize{source/de-optimizations:id2}}
+\sphinxAtStartPar
+С обновлением GNOME 42 некоторые приложения на GTK 4 стали использовать тему libadwaita, но из\sphinxhyphen{}за этого
+приложения на GTK 3 стали выглядить неоднородными, не говоря уж о Qt.
+
+\sphinxAtStartPar
+Чтобы это исправить, установите портированную тему libawaita для GTK 3.
+
+\sphinxAtStartPar
+\sphinxstylestrong{Установка}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+git clone https://aur.archlinux.org/adw\PYGZhy{}gtk3.git \PYG{c+c1}{\PYGZsh{} Скачиваем исходники}
+\PYG{n+nb}{cd} adw\PYGZhy{}gtk3                                      \PYG{c+c1}{\PYGZsh{} Переход в директорию}
+makepkg \PYGZhy{}sric                                    \PYG{c+c1}{\PYGZsh{} Сборка и установка}
+
+\PYG{c+c1}{\PYGZsh{} Устанавливаем как тему по умолчанию}
+gsettings \PYG{n+nb}{set} org.gnome.desktop.interface gtk\PYGZhy{}theme adw\PYGZhy{}gtk3
+\end{sphinxVerbatim}
+
 \index{results@\spxentry{results}}\ignorespaces 
 
 \subsection{Результат}
-\label{\detokenize{source/de-optimizations:gnome-result}}\label{\detokenize{source/de-optimizations:index-6}}\label{\detokenize{source/de-optimizations:id2}}
+\label{\detokenize{source/de-optimizations:gnome-result}}\label{\detokenize{source/de-optimizations:index-6}}\label{\detokenize{source/de-optimizations:id3}}
 \sphinxAtStartPar
 По окончании всех оптимизаций мы получаем потребление на уровне современной XFCE,
 но в отличие от оной уже на современном GTK4, а также со всеми рабочими эффектами и анимациями.
@@ -10881,7 +10903,7 @@ XRender механизм довольно старомоден, и являет�
 \index{lowlatency@\spxentry{lowlatency}}\index{compositor@\spxentry{compositor}}\index{x11\sphinxhyphen{}unredirection@\spxentry{x11\sphinxhyphen{}unredirection}}\index{kwin@\spxentry{kwin}}\index{kwin\sphinxhyphen{}lowlatency@\spxentry{kwin\sphinxhyphen{}lowlatency}}\ignorespaces 
 
 \subsection{Отключение композитинга для полноэкранных окон}
-\label{\detokenize{source/de-optimizations:kwin-full-screen-unredirection}}\label{\detokenize{source/de-optimizations:index-13}}\label{\detokenize{source/de-optimizations:id5}}
+\label{\detokenize{source/de-optimizations:kwin-full-screen-unredirection}}\label{\detokenize{source/de-optimizations:index-13}}\label{\detokenize{source/de-optimizations:id6}}
 \sphinxAtStartPar
 \sphinxhref{https://github.com/tildearrow/kwin-lowlatency}{Kwin\sphinxhyphen{}lowlatency} \sphinxhyphen{} форк композитора KWin, нацеленный когда\sphinxhyphen{}то на понижение задержек ввода.
 На текущий момент позволяет полностью отвязать композитор от полноэкранных окон в X11 сессии Plasma,
@@ -10914,7 +10936,7 @@ makepkg \PYGZhy{}sric                                           \PYG{c+c1}{\PYGZ
 \index{lowlatency@\spxentry{lowlatency}}\index{compositor@\spxentry{compositor}}\index{kwin@\spxentry{kwin}}\index{effects@\spxentry{effects}}\ignorespaces 
 
 \subsection{Отключение ненужных графических эффектов Plasma}
-\label{\detokenize{source/de-optimizations:disabling-kwin-effects}}\label{\detokenize{source/de-optimizations:index-14}}\label{\detokenize{source/de-optimizations:id6}}
+\label{\detokenize{source/de-optimizations:disabling-kwin-effects}}\label{\detokenize{source/de-optimizations:index-14}}\label{\detokenize{source/de-optimizations:id7}}
 \sphinxAtStartPar
 Plasma предоставляет возможность использовать много различных графических эффектов (С включенным методом отрисовки OpenGL естественно).
 Но далеко не все из них нужны, и, по сути, являются сугубо декоративным элементом,
@@ -10928,7 +10950,7 @@ Plasma предоставляет возможность использоват�
 \index{results@\spxentry{results}}\ignorespaces 
 
 \subsection{Результат}
-\label{\detokenize{source/de-optimizations:plasma-result}}\label{\detokenize{source/de-optimizations:index-15}}\label{\detokenize{source/de-optimizations:id7}}
+\label{\detokenize{source/de-optimizations:plasma-result}}\label{\detokenize{source/de-optimizations:index-15}}\label{\detokenize{source/de-optimizations:id8}}
 \noindent\sphinxincludegraphics{{image1}.jpg}
 
 \index{xfce@\spxentry{xfce}}\index{xfce4@\spxentry{xfce4}}\index{de\sphinxhyphen{}optimizations@\spxentry{de\sphinxhyphen{}optimizations}}\ignorespaces 
@@ -10978,7 +11000,7 @@ sudo pacman \PYGZhy{}Rsn xfce4\PYGZhy{}notifyd
 \index{service@\spxentry{service}}\index{daemons@\spxentry{daemons}}\index{xfce@\spxentry{xfce}}\ignorespaces 
 
 \subsection{Отключение ненужных служб и приложений автозапуска}
-\label{\detokenize{source/de-optimizations:disabling-xfce-daemons}}\label{\detokenize{source/de-optimizations:index-18}}\label{\detokenize{source/de-optimizations:id8}}
+\label{\detokenize{source/de-optimizations:disabling-xfce-daemons}}\label{\detokenize{source/de-optimizations:index-18}}\label{\detokenize{source/de-optimizations:id9}}
 \sphinxAtStartPar
 В Xfce также не так много различных фоновых служб, скорее их очень мало.
 Тем не менее, они есть, и не все они лично вам могут быть нужны.
@@ -11050,7 +11072,7 @@ vblank\_mode задает через какие средства будет ос
 \index{results@\spxentry{results}}\ignorespaces 
 
 \subsection{Результат}
-\label{\detokenize{source/de-optimizations:xfce-result}}\label{\detokenize{source/de-optimizations:index-20}}\label{\detokenize{source/de-optimizations:id9}}
+\label{\detokenize{source/de-optimizations:xfce-result}}\label{\detokenize{source/de-optimizations:index-20}}\label{\detokenize{source/de-optimizations:id10}}
 \noindent\sphinxincludegraphics{{image81}.png}
 
 \index{cinnamon@\spxentry{cinnamon}}\index{de\sphinxhyphen{}optimizations@\spxentry{de\sphinxhyphen{}optimizations}}\ignorespaces 
@@ -11255,7 +11277,7 @@ rm \PYGZhy{}rf \PYGZti{}/.config/autostart/cinnamon\PYGZhy{}settings\PYGZhy{}dae
 \index{lowlatency@\spxentry{lowlatency}}\index{compositor@\spxentry{compositor}}\index{muffin@\spxentry{muffin}}\index{effects@\spxentry{effects}}\ignorespaces 
 
 \subsection{Отключение ненужных эффектов Muffin}
-\label{\detokenize{source/de-optimizations:disabling-muffin-effects}}\label{\detokenize{source/de-optimizations:index-24}}\label{\detokenize{source/de-optimizations:id10}}
+\label{\detokenize{source/de-optimizations:disabling-muffin-effects}}\label{\detokenize{source/de-optimizations:index-24}}\label{\detokenize{source/de-optimizations:id11}}
 \sphinxAtStartPar
 К сожалению, по умолчанию в Muffin отсутствует опция отключения сразу всех графических эффектов в оболочке (т.е. композитинга).
 Поэтому, нам нужно отключить их поочередно в соответствующем разделе настроек \sphinxstyleemphasis{"Эффекты"}.
@@ -11269,7 +11291,7 @@ rm \PYGZhy{}rf \PYGZti{}/.config/autostart/cinnamon\PYGZhy{}settings\PYGZhy{}dae
 \index{results@\spxentry{results}}\ignorespaces 
 
 \subsection{Результат}
-\label{\detokenize{source/de-optimizations:cinnamon-result}}\label{\detokenize{source/de-optimizations:index-25}}\label{\detokenize{source/de-optimizations:id11}}
+\label{\detokenize{source/de-optimizations:cinnamon-result}}\label{\detokenize{source/de-optimizations:index-25}}\label{\detokenize{source/de-optimizations:id12}}
 \noindent\sphinxincludegraphics{{image31}.png}
 
 \sphinxstepscope
