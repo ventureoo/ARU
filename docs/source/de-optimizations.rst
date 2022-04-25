@@ -45,7 +45,7 @@
 .. _gnome-optimization:
 
 ====================
-GNOME 3.XX/40/41/42
+GNOME 3.XX/42
 ====================
 
 Сам по себе GNOME - наверное одна из самых тяжеловесных и требовательных к аппаратным ресурсам оболочка из ныне существующих.
@@ -226,6 +226,24 @@ gnome-shell-performance и mutter-performance
 `xorg-server <https://aur.archlinux.org/packages/xorg-server-git/>`_ и многих других.
 
 Более подробную информацию вы можете найти в разделе `"Общее ускорение системы" <https://ventureoo.github.io/ARU/source/generic-system-acceleration.html#clang>`_.
+
+---------------------------
+Бонус: немного косметики
+---------------------------
+
+С обновлением GNOME 42 некоторые приложения на GTK 4 стали использовать тему libadwaita, но из-за этого
+приложения на GTK 3 стали выглядить неоднородными, не говоря уж о Qt.
+
+Чтобы это исправить, установите портированную тему libawaita для GTK 3.
+
+**Установка** ::
+
+  git clone https://aur.archlinux.org/adw-gtk3.git # Скачиваем исходники
+  cd adw-gtk3                                      # Переход в директорию
+  makepkg -sric                                    # Сборка и установка
+
+  # Устанавливаем как тему по умолчанию
+  gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3
 
 .. index:: results
 .. _gnome-result:
