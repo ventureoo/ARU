@@ -227,6 +227,9 @@ gnome-shell-performance и mutter-performance
 
 Более подробную информацию вы можете найти в разделе `"Общее ускорение системы" <https://ventureoo.github.io/ARU/source/generic-system-acceleration.html#clang>`_.
 
+.. index:: cosmetics, gnome
+.. _gnome_cosmetics:
+
 ---------------------------
 Бонус: немного косметики
 ---------------------------
