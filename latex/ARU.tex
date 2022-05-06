@@ -58,7 +58,7 @@
 
 
 \title{Arch Linux Optimization Guide (RU)}
-\date{апр. 25, 2022}
+\date{мая 06, 2022}
 \release{2022.02.28}
 \author{Arch Linux Optimization Guide (RU)}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -10901,38 +10901,39 @@ XRender механизм довольно старомоден, и являет�
 \sphinxstyleemphasis{"Точное сглаживание"} \sphinxhyphen{} Лучший вариант с точки зрения качества, но при этом жертвуете некоторой производительностью,
 и этот метод может работать не со всеми видеокартами и приводить к артефактам отрисовки.
 
-\index{lowlatency@\spxentry{lowlatency}}\index{compositor@\spxentry{compositor}}\index{x11\sphinxhyphen{}unredirection@\spxentry{x11\sphinxhyphen{}unredirection}}\index{kwin@\spxentry{kwin}}\index{kwin\sphinxhyphen{}lowlatency@\spxentry{kwin\sphinxhyphen{}lowlatency}}\ignorespaces 
+\index{lowlatency@\spxentry{lowlatency}}\index{compositor@\spxentry{compositor}}\index{x11\sphinxhyphen{}unredirection@\spxentry{x11\sphinxhyphen{}unredirection}}\index{kwin@\spxentry{kwin}}\ignorespaces 
 
 \subsection{Отключение композитинга для полноэкранных окон}
 \label{\detokenize{source/de-optimizations:kwin-full-screen-unredirection}}\label{\detokenize{source/de-optimizations:index-14}}\label{\detokenize{source/de-optimizations:id6}}
 \sphinxAtStartPar
-\sphinxhref{https://github.com/tildearrow/kwin-lowlatency}{Kwin\sphinxhyphen{}lowlatency} \sphinxhyphen{} форк композитора KWin, нацеленный когда\sphinxhyphen{}то на понижение задержек ввода.
-На текущий момент позволяет полностью отвязать композитор от полноэкранных окон в X11 сессии Plasma,
-за что и заслуживает вашего внимания, а также расширяет возможности его (композитора) настройки.
+\sphinxhref{https://store.kde.org/p/1502826/}{kwin\sphinxhyphen{}autocomposer} \sphinxhyphen{} расширение для Kwin, которое позволяет
+полностью отключить композитинг для полноэкранных окон в X11 сессии Plasma. Это помогает
+исправить дрожание фреймтайма во время игры и понизить задержки.
+
+\sphinxAtStartPar
+Для Wayland сессий Plasma с версии 5.22 отключение композитинга полноэкранных окон происходит
+по умолчанию.
 
 \sphinxAtStartPar
 \sphinxstylestrong{Установка}
 
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-git clone https://aur.archlinux.org/kwin\PYGZhy{}lowlatency.git \PYG{c+c1}{\PYGZsh{} Скачиванием исходников}
-\PYG{n+nb}{cd} kwin\PYGZhy{}lowlatency                                      \PYG{c+c1}{\PYGZsh{} Переход в директорию}
-makepkg \PYGZhy{}sric                                           \PYG{c+c1}{\PYGZsh{} Сборка и установка}
-\end{sphinxVerbatim}
+\sphinxAtStartPar
+Зайдите в настройки, затем в раздел \sphinxstyleemphasis{Диспетчер окон} \sphinxhyphen{}> \sphinxstyleemphasis{Сценарии Kwin}.
+
+\noindent\sphinxincludegraphics{{kwin-autocomposer-1}.png}
 
 \sphinxAtStartPar
-\sphinxstylestrong{Настройка}
+Внизу найдите кнопку \sphinxstyleemphasis{"Загрузить новые сценарии"}
+
+\noindent\sphinxincludegraphics{{kwin-autocomposer-2}.png}
 
 \sphinxAtStartPar
-Обязательно включите в настройках \sphinxstyleemphasis{"Enable full\sphinxhyphen{}screen unredirection (X11)"}!
-Это поможет вам сократить задержки в полноэкранных играх и уменьшить появление так называемых "статеров".
+Найдите в представленном катологе \sphinxstyleemphasis{"Autocomposer"} выоплните его установку.
 
-\noindent\sphinxincludegraphics{{kwin-lowlatency}.png}
-
-\sphinxAtStartPar
-Пользователям NVIDIA также будет полезно использовать опцию \sphinxstyleemphasis{"Set MaxFramesAllowed to 1"}.
+\noindent\sphinxincludegraphics{{kwin-autocomposer-3}.png}
 
 \sphinxAtStartPar
-С остальными настройками вы можете поиграться сами, хотя оптимальными все таки будут значения по умолчанию.
+После этого перезагрузите рабочее окружение. Готово.
 
 \index{lowlatency@\spxentry{lowlatency}}\index{compositor@\spxentry{compositor}}\index{kwin@\spxentry{kwin}}\index{effects@\spxentry{effects}}\ignorespaces 
 
