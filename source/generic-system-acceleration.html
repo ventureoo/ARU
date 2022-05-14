@@ -472,6 +472,16 @@ makepkg --config /etc/makepkg-clang.conf -sric --skippgpcheck
 <a class="reference external" href="https://archlinux.org/packages/extra/x86_64/xorg-server/">Xorg сервер</a>, а также связанные с ним компоненты, или <a class="reference external" href="https://archlinux.org/packages/extra/x86_64/wayland/">Wayland</a>,
 критически важные пакеты вашего DE/WM, например: <a class="reference external" href="https://aur.archlinux.org/packages/gnome-shell-performance">gnome-shell</a>, <a class="reference external" href="https://archlinux.org/packages/extra/x86_64/plasma-desktop/">plasma-desktop</a>.
 А также композиторы <a class="reference external" href="https://archlinux.org/packages/extra/x86_64/kwin/">kwin</a>, <a class="reference external" href="https://aur.archlinux.org/packages/mutter-performance">mutter</a>, picom и т.д. в зависимости от того, чем именно вы пользуетесь.</p>
+<p>Альтернативно, вы можете использовать уже подготовленный репозиторий <a class="reference external" href="https://github.com/h0tc0d3/arch-packages">arch-packages</a>
+с полной поддержкой сборки пакетов через LLVM/Clang. В этом репозитории представлены не все возможные пакеты, но самые
+важные компоненты системы там есть, включая сам llvm-git, который вы тоже можете пересобрать:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/h0tc0d3/arch-packages
+<span class="nb">cd</span> arch-packages
+<span class="nb">cd</span> llvm-git
+makepkg -sric
+</pre></div>
+</div>
+<p>(Вместо <em>llvm-git</em> может быть любой другой пакет, доступный в данном репозитории)</p>
 <p>Больше подробностей по теме вы можете найти в данной статье:</p>
 <p><a class="reference external" href="https://habr.com/ru/company/ruvds/blog/561286/">https://habr.com/ru/company/ruvds/blog/561286/</a></p>
 <div class="section" id="llvm-clang">
