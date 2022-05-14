@@ -107,6 +107,16 @@
 критически важные пакеты вашего DE/WM, например: `gnome-shell <https://aur.archlinux.org/packages/gnome-shell-performance>`_, `plasma-desktop <https://archlinux.org/packages/extra/x86_64/plasma-desktop/>`_.
 А также композиторы `kwin <https://archlinux.org/packages/extra/x86_64/kwin/>`_, `mutter <https://aur.archlinux.org/packages/mutter-performance>`_, picom и т.д. в зависимости от того, чем именно вы пользуетесь.
 
+Альтернативно, вы можете использовать уже подготовленный репозиторий `arch-packages <https://github.com/h0tc0d3/arch-packages>`_
+с полной поддержкой сборки пакетов через LLVM/Clang. В этом репозитории представлены не все возможные пакеты, но самые
+важные компоненты системы там есть, включая сам llvm-git, который вы тоже можете пересобрать::
+
+ git clone https://github.com/h0tc0d3/arch-packages
+ cd arch-packages
+ cd llvm-git
+ makepkg -sric
+
+(Вместо *llvm-git* может быть любой другой пакет, доступный в данном репозитории)
 
 Больше подробностей по теме вы можете найти в данной статье:
 
