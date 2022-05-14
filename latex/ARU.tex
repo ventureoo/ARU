@@ -58,7 +58,7 @@
 
 
 \title{Arch Linux Optimization Guide (RU)}
-\date{мая 10, 2022}
+\date{мая 14, 2022}
 \release{2022.02.28}
 \author{Arch Linux Optimization Guide (RU)}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -805,6 +805,21 @@ makepkg \PYGZhy{}\PYGZhy{}config /etc/makepkg\PYGZhy{}clang.conf \PYGZhy{}sric \
 \sphinxhref{https://archlinux.org/packages/extra/x86\_64/xorg-server/}{Xorg сервер}, а также связанные с ним компоненты, или \sphinxhref{https://archlinux.org/packages/extra/x86\_64/wayland/}{Wayland},
 критически важные пакеты вашего DE/WM, например: \sphinxhref{https://aur.archlinux.org/packages/gnome-shell-performance}{gnome\sphinxhyphen{}shell}, \sphinxhref{https://archlinux.org/packages/extra/x86\_64/plasma-desktop/}{plasma\sphinxhyphen{}desktop}.
 А также композиторы \sphinxhref{https://archlinux.org/packages/extra/x86\_64/kwin/}{kwin}, \sphinxhref{https://aur.archlinux.org/packages/mutter-performance}{mutter}, picom и т.д. в зависимости от того, чем именно вы пользуетесь.
+
+\sphinxAtStartPar
+Альтернативно, вы можете использовать уже подготовленный репозиторий \sphinxhref{https://github.com/h0tc0d3/arch-packages}{arch\sphinxhyphen{}packages}
+с полной поддержкой сборки пакетов через LLVM/Clang. В этом репозитории представлены не все возможные пакеты, но самые
+важные компоненты системы там есть, включая сам llvm\sphinxhyphen{}git, который вы тоже можете пересобрать:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+git clone https://github.com/h0tc0d3/arch\PYGZhy{}packages
+\PYG{n+nb}{cd} arch\PYGZhy{}packages
+\PYG{n+nb}{cd} llvm\PYGZhy{}git
+makepkg \PYGZhy{}sric
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+(Вместо \sphinxstyleemphasis{llvm\sphinxhyphen{}git} может быть любой другой пакет, доступный в данном репозитории)
 
 \sphinxAtStartPar
 Больше подробностей по теме вы можете найти в данной статье:

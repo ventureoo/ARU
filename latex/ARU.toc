@@ -25,7 +25,7 @@
 \contentsline {section}{\numberline {3.1}Настройка makepkg.conf}{19}{section.3.1}%
 \contentsline {subsection}{\numberline {3.1.1}Форсирование использования Clang при сборке пакетов}{20}{subsection.3.1.1}%
 \contentsline {subsubsection}{\numberline {3.1.1.1}Ускорение работы компиляторов LLVM/Clang}{21}{subsubsection.3.1.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}Включение ccache}{21}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.2}Включение ccache}{22}{subsection.3.1.2}%
 \contentsline {section}{\numberline {3.2}Установка полезных служб и демонов}{22}{section.3.2}%
 \contentsline {section}{\numberline {3.3}Низкие задержки звука}{24}{section.3.3}%
 \contentsline {subsection}{\numberline {3.3.1}Новая альтернатива PulseAudio}{24}{subsection.3.3.1}%
