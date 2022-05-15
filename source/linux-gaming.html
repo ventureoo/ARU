@@ -661,7 +661,9 @@ OpenGL, а в Vulkan - более современный графический 
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/loathingKernel/PKGBUILDs
 <span class="nb">cd</span> PKGBUILDs/public/dxvk-mingw
 mv PKGBUILD.testing PKGBUILD
-sed -i <span class="s1">&#39;s/-O3 -march=haswell -pipe -mtune=haswell/-O2 -march=native -mtune=native -pipe/g&#39;</span> PKGBUILD <span class="c1"># Нативные флаги</span>
+sed -i <span class="s1">&#39;s/patch -p1 -i &quot;$srcdir&quot;\/1582\.patch//g&#39;</span> PKGBUILD
+sed -i <span class="s1">&#39;s/patch -p1 -i &quot;$srcdir&quot;\/1582-fix-include\.patch//g&#39;</span> PKGBUILD
+sed -i <span class="s1">&#39;s/-O3 -march=haswell -mtune=haswell -pipe/-O2 -march=native -mtune=native -pipe/g&#39;</span> PKGBUILD <span class="c1"># Нативные флаги</span>
 makepkg -sric <span class="c1"># Сборка и установка</span>
 </pre></div>
 </div>
