@@ -333,7 +333,9 @@ OpenGL, а в Vulkan - более современный графический 
   git clone https://github.com/loathingKernel/PKGBUILDs
   cd PKGBUILDs/public/dxvk-mingw
   mv PKGBUILD.testing PKGBUILD
-  sed -i 's/-O3 -march=haswell -pipe -mtune=haswell/-O2 -march=native -mtune=native -pipe/g' PKGBUILD # Нативные флаги
+  sed -i 's/patch -p1 -i "$srcdir"\/1582\.patch//g' PKGBUILD
+  sed -i 's/patch -p1 -i "$srcdir"\/1582-fix-include\.patch//g' PKGBUILD
+  sed -i 's/-O3 -march=haswell -mtune=haswell -pipe/-O2 -march=native -mtune=native -pipe/g' PKGBUILD # Нативные флаги
   makepkg -sric # Сборка и установка
 
 Активировать асинхронную компиляцию шейдеров можно через переменную окружения *DXVK_ASYNC=1*.
