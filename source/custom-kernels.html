@@ -563,10 +563,10 @@ makepkg -sric                                                           <span cl
 BMQ, PDS, TT и BORE (есть ещё другие, но они менее активно сопровождаемые).
 Автор рекомендует остановиться на BORE и PDS, как на наиболее проверенных
 решениях. Но вы можете попробовать и другие варианты. Далее я буду выполнять
-команды для установки ядра с BORE, но соотственно вы можете писать вместо bore
+команды для установки ядра с BORE, но соответственно вы можете писать вместо bore
 любой другой.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/CachyOS/linux-cachyos.git  <span class="c1"># Скачиваем исходники</span>
-<span class="nb">cd</span> linux-cachyos-bore <span class="c1"># Если хотите использовать PDS, то соотственно пишите cd linux-cachyos-pds по аналогии</span>
+<span class="nb">cd</span> linux-cachyos-bore <span class="c1"># Если хотите использовать PDS, то соответственно пишите cd linux-cachyos-pds по аналогии</span>
 sed -i <span class="s1">&#39;s/_use_llvm_lto=/_use_llvm_lto=full/&#39;</span> PKGBUILD <span class="c1"># Включаем сборку через Clang. Подробнее об этом в последующем разделе</span>
 makepkg -sric
 </pre></div>
