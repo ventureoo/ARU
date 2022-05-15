@@ -8975,12 +8975,12 @@ makepkg \PYGZhy{}sric \PYG{c+c1}{\PYGZsh{} Сборка и установка li
 BMQ, PDS, TT и BORE (есть ещё другие, но они менее активно сопровождаемые).
 Автор рекомендует остановиться на BORE и PDS, как на наиболее проверенных
 решениях. Но вы можете попробовать и другие варианты. Далее я буду выполнять
-команды для установки ядра с BORE, но соотственно вы можете писать вместо bore
+команды для установки ядра с BORE, но соответственно вы можете писать вместо bore
 любой другой.
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 git clone https://github.com/CachyOS/linux\PYGZhy{}cachyos.git  \PYG{c+c1}{\PYGZsh{} Скачиваем исходники}
-\PYG{n+nb}{cd} linux\PYGZhy{}cachyos\PYGZhy{}bore \PYG{c+c1}{\PYGZsh{} Если хотите использовать PDS, то соотственно пишите cd linux\PYGZhy{}cachyos\PYGZhy{}pds по аналогии}
+\PYG{n+nb}{cd} linux\PYGZhy{}cachyos\PYGZhy{}bore \PYG{c+c1}{\PYGZsh{} Если хотите использовать PDS, то соответственно пишите cd linux\PYGZhy{}cachyos\PYGZhy{}pds по аналогии}
 sed \PYGZhy{}i \PYG{l+s+s1}{\PYGZsq{}s/\PYGZus{}use\PYGZus{}llvm\PYGZus{}lto=/\PYGZus{}use\PYGZus{}llvm\PYGZus{}lto=full/\PYGZsq{}} PKGBUILD \PYG{c+c1}{\PYGZsh{} Включаем сборку через Clang. Подробнее об этом в последующем разделе}
 makepkg \PYGZhy{}sric
 \end{sphinxVerbatim}
