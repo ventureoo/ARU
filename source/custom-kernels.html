@@ -294,6 +294,11 @@ function checkPageExistsAndRedirect(event) {
      linux-tkg
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#linux-cachyos">
+     linux-cachyos
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -534,9 +539,94 @@ makepkg -sric                                                           <span cl
 </pre></div>
 </div>
 </div>
+<div class="section" id="linux-cachyos">
+<span id="index-5"></span><span id="id7"></span><h3>linux-cachyos<a class="headerlink" href="#linux-cachyos" title="Ссылка на этот заголовок">#</a></h3>
+<p><cite>linux-cachyos &lt;https://github.com/CachyOS/linux-cachyos&gt;</cite> - добротная альтернатива
+остальным ядрам, также нацеленная на максимальную производительность вашей системы.
+По субъективным ощущениям автора работает лучше чем Xanmod и TKG. Предлагает на выбор множество
+планировщиков CPU. Сочетает в себе патчи которые уже были описаны для других ядер. А именно:</p>
+<ul class="simple">
+<li><p>Улучшенный планировщик ввода/вывода BFQ</p></li>
+<li><p>Набор патчей LRU для сохранения качества отклика системы в условиях нехватки оперативной памяти.</p></li>
+<li><p>Содержит новейшие исправления для Btrfs/Zstd</p></li>
+<li><p>Заточен для сборки через LLVM/Clang (более подробно это описывается в последующем разделе)</p></li>
+<li><p>Алгоритм для обработки сетевых пакетов BBRv2</p></li>
+<li><p>Модули для поддержки эмуляции Android (Anbox)</p></li>
+<li><p>Набор патчей от Clear Linux</p></li>
+<li><p>И некоторые собственные настройки для ядра</p></li>
+</ul>
+<p>Отдельным плюсом является быстрая обновляемость и оперативные исправления ошибок,
+чем к сожалению не всегда может похвастаться linux-tkg.</p>
+<p><strong>Установка I.</strong></p>
+<p>А вот тут не все так просто, ибо прежде чем мы начнем, стоит оговориться,
+что у этого ядра есть вариации с пятью разными планировщиками. Это: CFS,
+BMQ, PDS, TT и BORE (есть ещё другие, но они менее активно сопровождаемые).
+Автор рекомендует остановиться на BORE и PDS, как на наиболее проверенных
+решениях. Но вы можете попробовать и другие варианты. Далее я буду выполнять
+команды для установки ядра с BORE, но соотственно вы можете писать вместо bore
+любой другой.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/CachyOS/linux-cachyos.git  <span class="c1"># Скачиваем исходники</span>
+<span class="nb">cd</span> linux-cachyos-bore <span class="c1"># Если хотите использовать PDS, то соотственно пишите cd linux-cachyos-pds по аналогии</span>
+sed -i <span class="s1">&#39;s/_use_llvm_lto=/_use_llvm_lto=full/&#39;</span> PKGBUILD <span class="c1"># Включаем сборку через Clang. Подробнее об этом в последующем разделе</span>
+makepkg -sric
+</pre></div>
+</div>
+<p>Данное ядро немного умнее других, поэтому определяет архитектуру вашего процессора
+и автоматически указывает компилятору собирать себя именно под неё. Т.е. нативная
+компиляция здесь есть по умолчанию, так что в принципе вы можете не сильно заморачиваться
+с настройкой ядра или вовсе пропустить данный шаг. Но все таки, если у вас есть собственные
+предпочтения относительно определенных параметров вашего ядра, то вы всегда можете включить ручную настройку
+через menuconfig использую опцию PKGBUILD: <code class="docutils literal notranslate"><span class="pre">sed</span> <span class="pre">-i</span> <span class="pre">'s/_makenconfig=/_makenconfig=y/'</span> <span class="pre">PKGBUILD</span></code>
+(подобная команда введена для удобства, вы можете сделать то же самое через любой удобный вам
+текстовый редактор, отредактировав файл PKGBUILD).</p>
+<p><strong>Установка II (бинарные пакеты)</strong></p>
+<p>Бинарную версию ядра можно получить либо через подключение стороннего репозитория,
+либо скачав уже готовый пакет опять с того же репозитория, но не подключая его.
+Со вторым всё просто, переходите на данный сайт: <a class="reference external" href="https://mirror.cachyos.org/repo/x86_64/cachyos/">https://mirror.cachyos.org/repo/x86_64/cachyos/</a> и ищите
+версию ядра которая вам по вкусу. Потом устанавливаете через <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">pacman</span> <span class="pre">-U</span></code> (в конце пишете путь до скаченного файла).</p>
+<p>Первый вариант также позволяет получать последние обновления, поэтому он предпочтительней:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman-key --recv-keys F3B607488DB35A47 --keyserver keyserver.ubuntu.com
+sudo pacman-key --lsign-key F3B607488DB35A47
+</pre></div>
+</div>
+<p>Стоит учитывать, что у данного репозитория есть развилка по архитектурам. То есть он одновременно
+поддерживает и x86_64, и x86_64v3. В чем разница? В том, что x86_64v3 чуть более оптимизирован
+для современных процессоров и использует инструкции, которые нельзя применить к обычной x86_64 в угоду
+совместимости.</p>
+<p>Поэтому сначала проверим, поддерживает ли ваш процессора архитектуру x86_64v3:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>/lib/ld-linux-x86-64.so.2 --help <span class="p">|</span> grep <span class="s2">&quot;x86-64-v3 (supported, searched)&quot;</span>
+</pre></div>
+</div>
+<p>Если вывод команды НЕ пустой, то ваш процессор поддерживает x86_64v3.</p>
+<p>Пропишем репозиторий в /etc/pacman.conf:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo nano /etc/pacman.conf
+</pre></div>
+</div>
+<p>Теперь, если у вас ЕСТЬ поддержка x86_64v3, то пишем следующее:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Находим данную строку и редактируем:</span>
+<span class="nv">Architecture</span> <span class="o">=</span> x86_64 x86_64_v3
+
+<span class="c1"># Спускаемся в самый низ файла и пишем:</span>
+<span class="o">[</span>cachyos-v3<span class="o">]</span>
+<span class="nv">Include</span> <span class="o">=</span> /etc/pacman.d/cachyos-v3-mirrorlist
+</pre></div>
+</div>
+<p>Если же нет, то:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Спускаемся в самый низ файла и пишем:</span>
+<span class="o">[</span>cachyos<span class="o">]</span>
+<span class="nv">Include</span> <span class="o">=</span> /etc/pacman.d/cachyos-mirrorlist
+</pre></div>
+</div>
+<p>После этого выполните обновление системы и вы сможете установить бинарное ядро:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -Syu
+</pre></div>
+</div>
+<p>После этого тоже ставим пакет в соответствии с желаемым планировщиком: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">pacman</span> <span class="pre">-S</span> <span class="pre">linux-cachyos</span></code>.
+Или <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">pacman</span> <span class="pre">-S</span> <span class="pre">linux-cachyos-bore</span></code>. И так далее.</p>
+</div>
 </div>
 <div class="section" id="manual-kernel-configuration">
-<span id="index-5"></span><span id="id7"></span><h2>Настройка ядра<a class="headerlink" href="#manual-kernel-configuration" title="Ссылка на этот заголовок">#</a></h2>
+<span id="index-6"></span><span id="id8"></span><h2>Настройка ядра<a class="headerlink" href="#manual-kernel-configuration" title="Ссылка на этот заголовок">#</a></h2>
 <p>При нативной компиляции ядра обязательным этапом является его настройка.
 Хотя и заботливые сопровождающие кастомных ядер обычно уже заранее выполняют
 всю работу за вас, есть пара моментов на которых стоит остановиться.</p>
@@ -624,7 +714,7 @@ makepkg -sric                                                           <span cl
 <img alt="../_images/kernel-nvidia-fb.png" src="../_images/kernel-nvidia-fb.png" />
 </div>
 <div class="section" id="clang-lto">
-<span id="kernel-with-clang-lto"></span><span id="index-6"></span><h2>Сборка ядра с помощью Clang + LTO<a class="headerlink" href="#clang-lto" title="Ссылка на этот заголовок">#</a></h2>
+<span id="kernel-with-clang-lto"></span><span id="index-7"></span><h2>Сборка ядра с помощью Clang + LTO<a class="headerlink" href="#clang-lto" title="Ссылка на этот заголовок">#</a></h2>
 <p>В разделе <a class="reference external" href="https://ventureoo.github.io/ARU/source/generic-system-acceleration.html#clang">&quot;Общее ускорение системы&quot;</a>
 мы уже говорили о преимуществах сборки пакетов при помощи компилятора Clang вместе с LTO оптимизациями.
 Но ядро требует отдельного рассмотрения, ибо те параметры которые мы указали ранее в makepkg.conf не работают для сборки ядра,
