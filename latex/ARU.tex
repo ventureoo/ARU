@@ -58,7 +58,7 @@
 
 
 \title{Arch Linux Optimization Guide (RU)}
-\date{мая 14, 2022}
+\date{мая 15, 2022}
 \release{2022.02.28}
 \author{Arch Linux Optimization Guide (RU)}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -9577,7 +9577,9 @@ OpenGL, а в Vulkan \sphinxhyphen{} более современный граф�
 git clone https://github.com/loathingKernel/PKGBUILDs
 \PYG{n+nb}{cd} PKGBUILDs/public/dxvk\PYGZhy{}mingw
 mv PKGBUILD.testing PKGBUILD
-sed \PYGZhy{}i \PYG{l+s+s1}{\PYGZsq{}s/\PYGZhy{}O3 \PYGZhy{}march=haswell \PYGZhy{}pipe \PYGZhy{}mtune=haswell/\PYGZhy{}O2 \PYGZhy{}march=native \PYGZhy{}mtune=native \PYGZhy{}pipe/g\PYGZsq{}} PKGBUILD \PYG{c+c1}{\PYGZsh{} Нативные флаги}
+sed \PYGZhy{}i \PYG{l+s+s1}{\PYGZsq{}s/patch \PYGZhy{}p1 \PYGZhy{}i \PYGZdq{}\PYGZdl{}srcdir\PYGZdq{}\PYGZbs{}/1582\PYGZbs{}.patch//g\PYGZsq{}} PKGBUILD
+sed \PYGZhy{}i \PYG{l+s+s1}{\PYGZsq{}s/patch \PYGZhy{}p1 \PYGZhy{}i \PYGZdq{}\PYGZdl{}srcdir\PYGZdq{}\PYGZbs{}/1582\PYGZhy{}fix\PYGZhy{}include\PYGZbs{}.patch//g\PYGZsq{}} PKGBUILD
+sed \PYGZhy{}i \PYG{l+s+s1}{\PYGZsq{}s/\PYGZhy{}O3 \PYGZhy{}march=haswell \PYGZhy{}mtune=haswell \PYGZhy{}pipe/\PYGZhy{}O2 \PYGZhy{}march=native \PYGZhy{}mtune=native \PYGZhy{}pipe/g\PYGZsq{}} PKGBUILD \PYG{c+c1}{\PYGZsh{} Нативные флаги}
 makepkg \PYGZhy{}sric \PYG{c+c1}{\PYGZsh{} Сборка и установка}
 \end{sphinxVerbatim}
 
