@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022/Arch Linux) (preloaded format=xelatex 2022.5.15)  15 MAY 2022 21:18
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022/Arch Linux) (preloaded format=xelatex 2022.5.16)  16 MAY 2022 10:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2910,7 +2910,7 @@ File: linux-gaming-2.png Graphic file (type bmp)
 File: linux-gaming-3.png Graphic file (type bmp)
 <linux-gaming-3.png>
  [98]
-Underfull \hbox (badness 10000) in paragraph at lines 10079--10081
+Underfull \hbox (badness 10000) in paragraph at lines 10080--10082
 []\TU/DejaVuSerif(1)/m/n/10 Указать параметры запуска игры в свойствах игры Ste
 am
  []
@@ -2919,7 +2919,7 @@ am
 File: image9.png Graphic file (type bmp)
 <image9.png>
  [100]
-Underfull \hbox (badness 10000) in paragraph at lines 10160--10160
+Underfull \hbox (badness 10000) in paragraph at lines 10161--10161
 |[][]\TU/DejaVuSans(1)/b/n/10 Альтернатива: DXVK Hud (\TU/DejaVuSans(1)/b/it/10
  Только для игр запускаемых через
  []
@@ -2968,7 +2968,7 @@ File: image13.png Graphic file (type bmp)
 File: image81.png Graphic file (type bmp)
 <image81.png>
  [123]
-Underfull \hbox (badness 10000) in paragraph at lines 11333--11336
+Underfull \hbox (badness 10000) in paragraph at lines 11334--11337
 []\TU/DejaVuSerif(1)/m/n/10 # Отключаем службу автоматического монтирования вне
 шних, подключаемых
  []
@@ -2994,7 +2994,7 @@ File: generic-system-acceleration-4.png Graphic file (type bmp)
 File: piper-resolutionpage.png Graphic file (type bmp)
 <piper-resolutionpage.png>
  [131]
-Underfull \hbox (badness 10000) in paragraph at lines 11526--11530
+Underfull \hbox (badness 10000) in paragraph at lines 11527--11531
 []\TU/DejaVuSerif(1)/b/n/10 Внимание:  \TU/DejaVuSerif(1)/m/n/10 Поддерживаются
  только некоторые из моделей мышек от
  []
