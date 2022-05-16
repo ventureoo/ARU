@@ -587,6 +587,7 @@ makepkg -sric
 <p>Первый вариант также позволяет получать последние обновления, поэтому он предпочтительней:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman-key --recv-keys F3B607488DB35A47 --keyserver keyserver.ubuntu.com
 sudo pacman-key --lsign-key F3B607488DB35A47
+sudo pacman -U <span class="s1">&#39;https://mirror.cachyos.org/repo/x86_64/cachyos/cachyos-keyring-2-1-any.pkg.tar.zst&#39;</span> <span class="s1">&#39;https://mirror.cachyos.org/repo/x86_64/cachyos/cachyos-mirrorlist-10-1-any.pkg.tar.zst&#39;</span> <span class="s1">&#39;https://mirror.cachyos.org/repo/x86_64/cachyos/cachyos-v3-mirrorlist-10-1-any.pkg.tar.zst&#39;</span>
 </pre></div>
 </div>
 <p>Стоит учитывать, что у данного репозитория есть развилка по архитектурам. То есть он одновременно
