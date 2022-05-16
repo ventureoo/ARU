@@ -309,6 +309,11 @@ function checkPageExistsAndRedirect(event) {
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#wine-ge">
+       WINE-GE
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#proton-ge-custom">
        Proton-GE-Custom
       </a>
@@ -553,8 +558,28 @@ nano wine-tkg-profiles/advanced-customization.cfg <span class="c1"># Отред�
 <p>Пересоберите wine-tkg по инструкции выше.</p>
 <p>Никакой дополнительной настройки (редактирования <em>customization.cfg</em>) при этом не требуется.</p>
 </div>
+<div class="section" id="wine-ge">
+<span id="wine-ge-custom"></span><span id="index-7"></span><h4>WINE-GE<a class="headerlink" href="#wine-ge" title="Ссылка на этот заголовок">#</a></h4>
+<p>Альтернативная сборка Wine, которая содержит самые последние патчи из Proton.
+По сути он аналогичен Proton-GE (о нем далее), но используется для игр запускаемых вне Steam.</p>
+<p><strong>I. Установка (компиляция)</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://aur.archlinux.org/wine-ge-custom.git
+<span class="nb">cd</span> wine-ge-custom
+sed -i <span class="s1">&#39;s/-O3 -march=nocona -mtune=core-avx2 -pipe/-O2 -march=native -mtune=native -pipe&quot;/&#39;</span> PKGBUILD  <span class="c1"># Нативные флаги</span>
+makepkg -sric
+</pre></div>
+</div>
+<p><strong>II. Установка (Lutris, бинарник)</strong></p>
+<p>В Lutris уже есть готовые сборки Wine-GE под названием lutris-ge.
+Если вы не хотите долго париться с ручной компиляцией, то
+можете использовать их (производительность при этом будет ниже
+чем у вручную собранного WINE-GE под ваш процессор):</p>
+<img alt="source/images/lutris-wine-ge.png" src="source/images/lutris-wine-ge.png" />
+<p>И затем выберите его для нужной вам игры:</p>
+<img alt="source/images/lutris-wine-ge-choose.png" src="source/images/lutris-wine-ge-choose.png" />
+</div>
 <div class="section" id="proton-ge-custom">
-<span id="index-7"></span><span id="id7"></span><h4>Proton-GE-Custom<a class="headerlink" href="#proton-ge-custom" title="Ссылка на этот заголовок">#</a></h4>
+<span id="index-8"></span><span id="id7"></span><h4>Proton-GE-Custom<a class="headerlink" href="#proton-ge-custom" title="Ссылка на этот заголовок">#</a></h4>
 <p>Proton-GE-Custom это форк проекта Proton для запуска Windows-игр с дополнительными патчами и оптимизациями не вошедшими в основную ветку Proton,
 а также улучшение совместимости с некоторыми играми (например, Warframe).
 Позволяет играть во многие проекты которые не заводятся с обычным Wine или Proton.</p>
@@ -581,7 +606,7 @@ makepkg -sric
 </div>
 </div>
 <div class="section" id="wine-usage">
-<span id="index-8"></span><span id="id8"></span><h3>Использование Wine<a class="headerlink" href="#wine-usage" title="Ссылка на этот заголовок">#</a></h3>
+<span id="index-9"></span><span id="id8"></span><h3>Использование Wine<a class="headerlink" href="#wine-usage" title="Ссылка на этот заголовок">#</a></h3>
 <p>Использование Wine на деле является довольно простым.
 Чтобы запустить любое Windows-приложение достаточно использовать простую команду:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>wine программа.exe
@@ -640,7 +665,7 @@ makepkg -sric
 <p>(Где '.wine' - путь до нужного вам префикса)</p>
 </div>
 <div class="section" id="dxvk">
-<span id="index-9"></span><span id="id9"></span><h3>DXVK<a class="headerlink" href="#dxvk" title="Ссылка на этот заголовок">#</a></h3>
+<span id="index-10"></span><span id="id9"></span><h3>DXVK<a class="headerlink" href="#dxvk" title="Ссылка на этот заголовок">#</a></h3>
 <p>В Linux отсутствует полноценная реализация DirectX по вполне понятным причинам. Но присутствуют альтернативные графические API, работающие под любые платформы.
 Прежде всего это OpenGL и Vulkan. В следствии этого в Wine есть так называемый ретранслятор кода - wined3d.
 Он переводит вызовы DirectX в известные любой Linux системе OpenGL вызовы. Однако OpenGL не одно и тоже что и DirectX,
@@ -684,7 +709,7 @@ makepkg -sric <span class="c1"># Сборка и установка</span>
 </div>
 </div>
 <div class="section" id="vkd3d">
-<span id="index-10"></span><span id="id10"></span><h3>vkd3d<a class="headerlink" href="#vkd3d" title="Ссылка на этот заголовок">#</a></h3>
+<span id="index-11"></span><span id="id10"></span><h3>vkd3d<a class="headerlink" href="#vkd3d" title="Ссылка на этот заголовок">#</a></h3>
 <p>vkd3d - это ретранслятор кода, аналогичный DXVK, но уже конкретно для версии DirectX 12.
 Стоит отметить, что существует две отдельно разрабатываемые версии vkd3d,
 одна из которых разрабатывается командой Wine, а другая - Valve.
@@ -711,7 +736,7 @@ makepkg -sric                                              <span class="c1"># С
 <img alt="../_images/vkd3d-configure.png" src="../_images/vkd3d-configure.png" />
 </div>
 <div class="section" id="wine-dxvk">
-<span id="wine-references"></span><span id="index-11"></span><h3>Полезные ссылки по теме Wine и DXVK<a class="headerlink" href="#wine-dxvk" title="Ссылка на этот заголовок">#</a></h3>
+<span id="wine-references"></span><span id="index-12"></span><h3>Полезные ссылки по теме Wine и DXVK<a class="headerlink" href="#wine-dxvk" title="Ссылка на этот заголовок">#</a></h3>
 <p><strong>Видео на настройке Бинарной версии Wine.</strong></p>
 <p><a class="reference external" href="https://www.youtube.com/watch?v=NKI3dtK7mRI">https://www.youtube.com/watch?v=NKI3dtK7mRI</a> (Устаревшее видео).</p>
 <p><strong>Скачать готовые сборки Wine и DXVK</strong></p>
@@ -725,10 +750,10 @@ makepkg -sric                                              <span class="c1"># С
 </div>
 </div>
 <div class="section" id="additional-components">
-<span id="index-12"></span><span id="id11"></span><h2>Дополнительные компоненты<a class="headerlink" href="#additional-components" title="Ссылка на этот заголовок">#</a></h2>
+<span id="index-13"></span><span id="id11"></span><h2>Дополнительные компоненты<a class="headerlink" href="#additional-components" title="Ссылка на этот заголовок">#</a></h2>
 <p>Не являются обязательными, но могут помочь повысить производительность системы или облегчить настройку.</p>
 <div class="section" id="lutris">
-<span id="lutris-and-additions"></span><span id="index-13"></span><h3>Lutris<a class="headerlink" href="#lutris" title="Ссылка на этот заголовок">#</a></h3>
+<span id="lutris-and-additions"></span><span id="index-14"></span><h3>Lutris<a class="headerlink" href="#lutris" title="Ссылка на этот заголовок">#</a></h3>
 <p>Lutris - это удобный графический интерфейс по обслуживанию всей вашей игровой библиотеки
 (включая все купленные игры Steam/GOG/Epic Games) в одном приложении.
 Через него вы сможете достаточно просто запускать нативные игры, игры запускаемые при помощи эмуляторов, и конечно Wine.
@@ -770,7 +795,7 @@ makepkg -sric                                              <span class="c1"># С
 <p><strong>Пример работы с Lutris</strong></p>
 <p><a class="reference external" href="https://www.youtube.com/watch?v=ybe0MzJDUvw">https://www.youtube.com/watch?v=ybe0MzJDUvw</a></p>
 <div class="section" id="proton-ge-custom-lutris">
-<span id="proton-ge-with-lutris"></span><span id="index-14"></span><h4>Использование Proton-GE-Custom в Lutris<a class="headerlink" href="#proton-ge-custom-lutris" title="Ссылка на этот заголовок">#</a></h4>
+<span id="proton-ge-with-lutris"></span><span id="index-15"></span><h4>Использование Proton-GE-Custom в Lutris<a class="headerlink" href="#proton-ge-custom-lutris" title="Ссылка на этот заголовок">#</a></h4>
 <p>Немногие понимают, что Proton по сути является тем же Wine, хоть и с плюшками.
 Так вот, зная этот факт, мы можем сказать Lutris использовать Proton в качестве кастомного Wine.
 Делается это очень просто:</p>
@@ -782,7 +807,7 @@ ln -s /usr/share/steam/compatibilitytools.d/proton-ge-custom/files ~/.local/shar
 </div>
 </div>
 <div class="section" id="gamemode">
-<span id="index-15"></span><span id="id12"></span><h3>Gamemode<a class="headerlink" href="#gamemode" title="Ссылка на этот заголовок">#</a></h3>
+<span id="index-16"></span><span id="id12"></span><h3>Gamemode<a class="headerlink" href="#gamemode" title="Ссылка на этот заголовок">#</a></h3>
 <p>Gamemode - утилита для максимальной выжимки системы во время игры.
 Установку gamemode можно выполнить следующей командой:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S gamemode lib32-gamemode
@@ -799,7 +824,7 @@ ln -s /usr/share/steam/compatibilitytools.d/proton-ge-custom/files ~/.local/shar
 </div>
 </div>
 <div class="section" id="amd-fidelityfx-super-resolution-wine">
-<span id="amd-fsr"></span><span id="index-16"></span><h3>AMD FidelityFX Super Resolution в Wine<a class="headerlink" href="#amd-fidelityfx-super-resolution-wine" title="Ссылка на этот заголовок">#</a></h3>
+<span id="amd-fsr"></span><span id="index-17"></span><h3>AMD FidelityFX Super Resolution в Wine<a class="headerlink" href="#amd-fidelityfx-super-resolution-wine" title="Ссылка на этот заголовок">#</a></h3>
 <p>Возможно, вы слышали о волшебной технологии DLSS от Nvidia, которая позволяет поднять FPS почти в два раза и при этом не потратить ни копейки на новое оборудование.
 Вот и компания AMD совсем недавно представила похожую технологию, которая получила помпезное название AMD FidelityFX Super Resolution или сокращенно FSR.
 Новая технология масштабирования картинки от AMD не требует наличия дорого́й карты или каких-то аппаратных блоков ускорения,
@@ -841,7 +866,7 @@ _protonify, _msvcrt_nativebuiltin, _proton_fs_hack, _proton_rawinput.
 <p><a class="reference external" href="https://www.youtube.com/watch?v=YNhwAazJODU">https://www.youtube.com/watch?v=YNhwAazJODU</a></p>
 </div>
 <div class="section" id="dlss-nvidia-proton">
-<span id="nvidia-dlss-with-proton"></span><span id="index-17"></span><h3>Использование DLSS с видеокартами NVIDIA через Proton<a class="headerlink" href="#dlss-nvidia-proton" title="Ссылка на этот заголовок">#</a></h3>
+<span id="nvidia-dlss-with-proton"></span><span id="index-18"></span><h3>Использование DLSS с видеокартами NVIDIA через Proton<a class="headerlink" href="#dlss-nvidia-proton" title="Ссылка на этот заголовок">#</a></h3>
 <p>Для того чтобы использовать DLSS вам потребуется:</p>
 <ul>
 <li><p>Видеокарта поддерживающая данную технологию (видеокарты серии RTX и выше).</p></li>
@@ -866,9 +891,9 @@ _protonify, _msvcrt_nativebuiltin, _proton_fs_hack, _proton_rawinput.
 </div>
 </div>
 <div class="section" id="fps">
-<span id="fps-monitoring"></span><span id="index-18"></span><h3>Мониторинг FPS в играх.<a class="headerlink" href="#fps" title="Ссылка на этот заголовок">#</a></h3>
+<span id="fps-monitoring"></span><span id="index-19"></span><h3>Мониторинг FPS в играх.<a class="headerlink" href="#fps" title="Ссылка на этот заголовок">#</a></h3>
 <div class="section" id="mangohud">
-<span id="index-19"></span><span id="id13"></span><h4>Mangohud<a class="headerlink" href="#mangohud" title="Ссылка на этот заголовок">#</a></h4>
+<span id="index-20"></span><span id="id13"></span><h4>Mangohud<a class="headerlink" href="#mangohud" title="Ссылка на этот заголовок">#</a></h4>
 <p>Включение мониторинга в играх как в MSI Afterburner.</p>
 <img alt="https://raw.githubusercontent.com/ventureoo/ARU/main/archive/ARU/images/image9.png" class="align-center" src="https://raw.githubusercontent.com/ventureoo/ARU/main/archive/ARU/images/image9.png" />
 <p><strong>Установка</strong></p>
@@ -894,7 +919,7 @@ makepkg -sric                                    <span class="c1"># Сборка
 <p><a class="reference external" href="https://www.youtube.com/watch?v=4RqerevPD4I">https://www.youtube.com/watch?v=4RqerevPD4I</a></p>
 </div>
 <div class="section" id="dxvk-hud-wine-proton">
-<span id="dxvk-hud"></span><span id="index-20"></span><h4>Альтернатива: DXVK Hud (<em>Только для игр запускаемых через Wine/Proton</em>)<a class="headerlink" href="#dxvk-hud-wine-proton" title="Ссылка на этот заголовок">#</a></h4>
+<span id="dxvk-hud"></span><span id="index-21"></span><h4>Альтернатива: DXVK Hud (<em>Только для игр запускаемых через Wine/Proton</em>)<a class="headerlink" href="#dxvk-hud-wine-proton" title="Ссылка на этот заголовок">#</a></h4>
 <p>Вы также можете использовать встроенную в DXVK альтернативу для мониторинга - DXVK Hud.
 Он не такой гибкий как MangoHud, но также способен выводить значения FPS, график времени кадра, нагрузку на GPU.
 Использовать данный HUD можно задав переменную окружения <em>DXVK_HUD</em>.
