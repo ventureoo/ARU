@@ -9566,10 +9566,44 @@ nano wine\PYGZhy{}tkg\PYGZhy{}profiles/advanced\PYGZhy{}customization.cfg \PYG{c
 \sphinxAtStartPar
 Никакой дополнительной настройки (редактирования \sphinxstyleemphasis{customization.cfg}) при этом не требуется.
 
+\index{installation@\spxentry{installation}}\index{wine@\spxentry{wine}}\index{gaming@\spxentry{gaming}}\index{native\sphinxhyphen{}compilation@\spxentry{native\sphinxhyphen{}compilation}}\ignorespaces 
+
+\subsubsection{WINE\sphinxhyphen{}GE}
+\label{\detokenize{source/linux-gaming:wine-ge}}\label{\detokenize{source/linux-gaming:wine-ge-custom}}\label{\detokenize{source/linux-gaming:index-7}}
+\sphinxAtStartPar
+Альтернативная сборка Wine, которая содержит самые последние патчи из Proton.
+По сути он аналогичен Proton\sphinxhyphen{}GE (о нем далее), но используется для игр запускаемых вне Steam.
+
+\sphinxAtStartPar
+\sphinxstylestrong{I. Установка (компиляция)}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+git clone https://aur.archlinux.org/wine\PYGZhy{}ge\PYGZhy{}custom.git
+\PYG{n+nb}{cd} wine\PYGZhy{}ge\PYGZhy{}custom
+sed \PYGZhy{}i \PYG{l+s+s1}{\PYGZsq{}s/\PYGZhy{}O3 \PYGZhy{}march=nocona \PYGZhy{}mtune=core\PYGZhy{}avx2 \PYGZhy{}pipe/\PYGZhy{}O2 \PYGZhy{}march=native \PYGZhy{}mtune=native \PYGZhy{}pipe\PYGZdq{}/\PYGZsq{}} PKGBUILD  \PYG{c+c1}{\PYGZsh{} Нативные флаги}
+makepkg \PYGZhy{}sric
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+\sphinxstylestrong{II. Установка (Lutris, бинарник)}
+
+\sphinxAtStartPar
+В Lutris уже есть готовые сборки Wine\sphinxhyphen{}GE под названием lutris\sphinxhyphen{}ge.
+Если вы не хотите долго париться с ручной компиляцией, то
+можете использовать их (производительность при этом будет ниже
+чем у вручную собранного WINE\sphinxhyphen{}GE под ваш процессор):
+
+\noindent\sphinxincludegraphics{{lutris-wine-ge}.png}
+
+\sphinxAtStartPar
+И затем выберите его для нужной вам игры:
+
+\noindent\sphinxincludegraphics{{lutris-wine-ge-choose}.png}
+
 \index{installation@\spxentry{installation}}\index{proton@\spxentry{proton}}\index{gaming@\spxentry{gaming}}\index{native\sphinxhyphen{}compilation@\spxentry{native\sphinxhyphen{}compilation}}\ignorespaces 
 
 \subsubsection{Proton\sphinxhyphen{}GE\sphinxhyphen{}Custom}
-\label{\detokenize{source/linux-gaming:proton-ge-custom}}\label{\detokenize{source/linux-gaming:index-7}}\label{\detokenize{source/linux-gaming:id7}}
+\label{\detokenize{source/linux-gaming:proton-ge-custom}}\label{\detokenize{source/linux-gaming:index-8}}\label{\detokenize{source/linux-gaming:id7}}
 \sphinxAtStartPar
 Proton\sphinxhyphen{}GE\sphinxhyphen{}Custom это форк проекта Proton для запуска Windows\sphinxhyphen{}игр с дополнительными патчами и оптимизациями не вошедшими в основную ветку Proton,
 а также улучшение совместимости с некоторыми играми (например, Warframe).
@@ -9606,7 +9640,7 @@ makepkg \PYGZhy{}sric
 \index{installation@\spxentry{installation}}\index{wine@\spxentry{wine}}\index{about@\spxentry{about}}\index{prefixes@\spxentry{prefixes}}\ignorespaces 
 
 \subsection{Использование Wine}
-\label{\detokenize{source/linux-gaming:wine-usage}}\label{\detokenize{source/linux-gaming:index-8}}\label{\detokenize{source/linux-gaming:id8}}
+\label{\detokenize{source/linux-gaming:wine-usage}}\label{\detokenize{source/linux-gaming:index-9}}\label{\detokenize{source/linux-gaming:id8}}
 \sphinxAtStartPar
 Использование Wine на деле является довольно простым.
 Чтобы запустить любое Windows\sphinxhyphen{}приложение достаточно использовать простую команду:
@@ -9697,7 +9731,7 @@ grep \PYG{l+s+s1}{\PYGZsq{}\PYGZsh{}arch\PYGZsq{}} \PYGZti{}/.wine/system.reg
 \index{installation@\spxentry{installation}}\index{native\sphinxhyphen{}compilation@\spxentry{native\sphinxhyphen{}compilation}}\index{dxvk@\spxentry{dxvk}}\index{async@\spxentry{async}}\index{lowlatency@\spxentry{lowlatency}}\index{gaming@\spxentry{gaming}}\ignorespaces 
 
 \subsection{DXVK}
-\label{\detokenize{source/linux-gaming:dxvk}}\label{\detokenize{source/linux-gaming:index-9}}\label{\detokenize{source/linux-gaming:id9}}
+\label{\detokenize{source/linux-gaming:dxvk}}\label{\detokenize{source/linux-gaming:index-10}}\label{\detokenize{source/linux-gaming:id9}}
 \sphinxAtStartPar
 В Linux отсутствует полноценная реализация DirectX по вполне понятным причинам. Но присутствуют альтернативные графические API, работающие под любые платформы.
 Прежде всего это OpenGL и Vulkan. В следствии этого в Wine есть так называемый ретранслятор кода \sphinxhyphen{} wined3d.
@@ -9758,7 +9792,7 @@ DXVK осуществляет ретрансляцию вызовов тольк
 \index{installation@\spxentry{installation}}\index{wine@\spxentry{wine}}\index{vkd3d@\spxentry{vkd3d}}\index{gaming@\spxentry{gaming}}\index{native\sphinxhyphen{}compilation@\spxentry{native\sphinxhyphen{}compilation}}\ignorespaces 
 
 \subsection{vkd3d}
-\label{\detokenize{source/linux-gaming:vkd3d}}\label{\detokenize{source/linux-gaming:index-10}}\label{\detokenize{source/linux-gaming:id10}}
+\label{\detokenize{source/linux-gaming:vkd3d}}\label{\detokenize{source/linux-gaming:index-11}}\label{\detokenize{source/linux-gaming:id10}}
 \sphinxAtStartPar
 vkd3d \sphinxhyphen{} это ретранслятор кода, аналогичный DXVK, но уже конкретно для версии DirectX 12.
 Стоит отметить, что существует две отдельно разрабатываемые версии vkd3d,
@@ -9802,7 +9836,7 @@ setup\PYGZus{}vkd3d\PYGZus{}proton install \PYGZti{}/.wineprefix
 \index{wine@\spxentry{wine}}\index{dxvk@\spxentry{dxvk}}\index{gaming@\spxentry{gaming}}\index{about@\spxentry{about}}\ignorespaces 
 
 \subsection{Полезные ссылки по теме Wine и DXVK}
-\label{\detokenize{source/linux-gaming:wine-dxvk}}\label{\detokenize{source/linux-gaming:wine-references}}\label{\detokenize{source/linux-gaming:index-11}}
+\label{\detokenize{source/linux-gaming:wine-dxvk}}\label{\detokenize{source/linux-gaming:wine-references}}\label{\detokenize{source/linux-gaming:index-12}}
 \sphinxAtStartPar
 \sphinxstylestrong{Видео на настройке Бинарной версии Wine.}
 
@@ -9836,14 +9870,14 @@ setup\PYGZus{}vkd3d\PYGZus{}proton install \PYGZti{}/.wineprefix
 \index{gamemode@\spxentry{gamemode}}\index{lutris@\spxentry{lutris}}\index{gaming@\spxentry{gaming}}\ignorespaces 
 
 \section{Дополнительные компоненты}
-\label{\detokenize{source/linux-gaming:additional-components}}\label{\detokenize{source/linux-gaming:index-12}}\label{\detokenize{source/linux-gaming:id11}}
+\label{\detokenize{source/linux-gaming:additional-components}}\label{\detokenize{source/linux-gaming:index-13}}\label{\detokenize{source/linux-gaming:id11}}
 \sphinxAtStartPar
 Не являются обязательными, но могут помочь повысить производительность системы или облегчить настройку.
 
 \index{installation@\spxentry{installation}}\index{gamemode@\spxentry{gamemode}}\index{lutris@\spxentry{lutris}}\index{gaming@\spxentry{gaming}}\ignorespaces 
 
 \subsection{Lutris}
-\label{\detokenize{source/linux-gaming:lutris}}\label{\detokenize{source/linux-gaming:lutris-and-additions}}\label{\detokenize{source/linux-gaming:index-13}}
+\label{\detokenize{source/linux-gaming:lutris}}\label{\detokenize{source/linux-gaming:lutris-and-additions}}\label{\detokenize{source/linux-gaming:index-14}}
 \sphinxAtStartPar
 Lutris \sphinxhyphen{} это удобный графический интерфейс по обслуживанию всей вашей игровой библиотеки
 (включая все купленные игры Steam/GOG/Epic Games) в одном приложении.
@@ -9937,7 +9971,7 @@ sudo pacman \PYGZhy{}S lutris
 \index{proton@\spxentry{proton}}\index{gaming@\spxentry{gaming}}\index{lutris@\spxentry{lutris}}\index{proton\sphinxhyphen{}ge\sphinxhyphen{}custom@\spxentry{proton\sphinxhyphen{}ge\sphinxhyphen{}custom}}\ignorespaces 
 
 \subsubsection{Использование Proton\sphinxhyphen{}GE\sphinxhyphen{}Custom в Lutris}
-\label{\detokenize{source/linux-gaming:proton-ge-custom-lutris}}\label{\detokenize{source/linux-gaming:proton-ge-with-lutris}}\label{\detokenize{source/linux-gaming:index-14}}
+\label{\detokenize{source/linux-gaming:proton-ge-custom-lutris}}\label{\detokenize{source/linux-gaming:proton-ge-with-lutris}}\label{\detokenize{source/linux-gaming:index-15}}
 \sphinxAtStartPar
 Немногие понимают, что Proton по сути является тем же Wine, хоть и с плюшками.
 Так вот, зная этот факт, мы можем сказать Lutris использовать Proton в качестве кастомного Wine.
@@ -9954,7 +9988,7 @@ ln \PYGZhy{}s /usr/share/steam/compatibilitytools.d/proton\PYGZhy{}ge\PYGZhy{}cu
 \index{installation@\spxentry{installation}}\index{gamemode@\spxentry{gamemode}}\index{gaming@\spxentry{gaming}}\index{lutris@\spxentry{lutris}}\ignorespaces 
 
 \subsection{Gamemode}
-\label{\detokenize{source/linux-gaming:gamemode}}\label{\detokenize{source/linux-gaming:index-15}}\label{\detokenize{source/linux-gaming:id12}}
+\label{\detokenize{source/linux-gaming:gamemode}}\label{\detokenize{source/linux-gaming:index-16}}\label{\detokenize{source/linux-gaming:id12}}
 \sphinxAtStartPar
 Gamemode \sphinxhyphen{} утилита для максимальной выжимки системы во время игры.
 Установку gamemode можно выполнить следующей командой:
@@ -9983,7 +10017,7 @@ gamemoderun \PYGZpc{}command\PYGZpc{}
 \index{amd@\spxentry{amd}}\index{fsr@\spxentry{fsr}}\index{image\sphinxhyphen{}scaling@\spxentry{image\sphinxhyphen{}scaling}}\index{gaming@\spxentry{gaming}}\ignorespaces 
 
 \subsection{AMD FidelityFX Super Resolution в Wine}
-\label{\detokenize{source/linux-gaming:amd-fidelityfx-super-resolution-wine}}\label{\detokenize{source/linux-gaming:amd-fsr}}\label{\detokenize{source/linux-gaming:index-16}}
+\label{\detokenize{source/linux-gaming:amd-fidelityfx-super-resolution-wine}}\label{\detokenize{source/linux-gaming:amd-fsr}}\label{\detokenize{source/linux-gaming:index-17}}
 \sphinxAtStartPar
 Возможно, вы слышали о волшебной технологии DLSS от Nvidia, которая позволяет поднять FPS почти в два раза и при этом не потратить ни копейки на новое оборудование.
 Вот и компания AMD совсем недавно представила похожую технологию, которая получила помпезное название AMD FidelityFX Super Resolution или сокращенно FSR.
@@ -10064,7 +10098,7 @@ FSR патч также по умолчанию задействован в Prot
 \index{nvidia@\spxentry{nvidia}}\index{dlss@\spxentry{dlss}}\index{proton@\spxentry{proton}}\index{image\sphinxhyphen{}scaling@\spxentry{image\sphinxhyphen{}scaling}}\index{gaming@\spxentry{gaming}}\ignorespaces 
 
 \subsection{Использование DLSS с видеокартами NVIDIA через Proton}
-\label{\detokenize{source/linux-gaming:dlss-nvidia-proton}}\label{\detokenize{source/linux-gaming:nvidia-dlss-with-proton}}\label{\detokenize{source/linux-gaming:index-17}}
+\label{\detokenize{source/linux-gaming:dlss-nvidia-proton}}\label{\detokenize{source/linux-gaming:nvidia-dlss-with-proton}}\label{\detokenize{source/linux-gaming:index-18}}
 \sphinxAtStartPar
 Для того чтобы использовать DLSS вам потребуется:
 \begin{itemize}
@@ -10110,11 +10144,11 @@ mkdir \PYGZhy{}p \PYGZti{}/.config/dxvk/dxvk.conf
 \index{fps@\spxentry{fps}}\index{monitoring@\spxentry{monitoring}}\index{mangohud@\spxentry{mangohud}}\index{dxvk@\spxentry{dxvk}}\ignorespaces 
 
 \subsection{Мониторинг FPS в играх.}
-\label{\detokenize{source/linux-gaming:fps}}\label{\detokenize{source/linux-gaming:fps-monitoring}}\label{\detokenize{source/linux-gaming:index-18}}
+\label{\detokenize{source/linux-gaming:fps}}\label{\detokenize{source/linux-gaming:fps-monitoring}}\label{\detokenize{source/linux-gaming:index-19}}
 \index{installation@\spxentry{installation}}\index{fps@\spxentry{fps}}\index{monitoring@\spxentry{monitoring}}\index{mangohud@\spxentry{mangohud}}\ignorespaces 
 
 \subsubsection{Mangohud}
-\label{\detokenize{source/linux-gaming:mangohud}}\label{\detokenize{source/linux-gaming:index-19}}\label{\detokenize{source/linux-gaming:id13}}
+\label{\detokenize{source/linux-gaming:mangohud}}\label{\detokenize{source/linux-gaming:index-20}}\label{\detokenize{source/linux-gaming:id13}}
 \sphinxAtStartPar
 Включение мониторинга в играх как в MSI Afterburner.
 
@@ -10159,7 +10193,7 @@ mangohud \PYGZpc{}command\PYGZpc{}
 \index{installation@\spxentry{installation}}\index{fps@\spxentry{fps}}\index{monitoring@\spxentry{monitoring}}\index{dxvk@\spxentry{dxvk}}\ignorespaces 
 
 \subsubsection{Альтернатива: DXVK Hud (\sphinxstyleemphasis{Только для игр запускаемых через Wine/Proton})}
-\label{\detokenize{source/linux-gaming:dxvk-hud-wine-proton}}\label{\detokenize{source/linux-gaming:dxvk-hud}}\label{\detokenize{source/linux-gaming:index-20}}
+\label{\detokenize{source/linux-gaming:dxvk-hud-wine-proton}}\label{\detokenize{source/linux-gaming:dxvk-hud}}\label{\detokenize{source/linux-gaming:index-21}}
 \sphinxAtStartPar
 Вы также можете использовать встроенную в DXVK альтернативу для мониторинга \sphinxhyphen{} DXVK Hud.
 Он не такой гибкий как MangoHud, но также способен выводить значения FPS, график времени кадра, нагрузку на GPU.
