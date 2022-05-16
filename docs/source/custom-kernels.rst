@@ -328,6 +328,7 @@ BMQ, PDS, TT и BORE (есть ещё другие, но они менее ак�
 
   sudo pacman-key --recv-keys F3B607488DB35A47 --keyserver keyserver.ubuntu.com
   sudo pacman-key --lsign-key F3B607488DB35A47
+  sudo pacman -U 'https://mirror.cachyos.org/repo/x86_64/cachyos/cachyos-keyring-2-1-any.pkg.tar.zst' 'https://mirror.cachyos.org/repo/x86_64/cachyos/cachyos-mirrorlist-10-1-any.pkg.tar.zst' 'https://mirror.cachyos.org/repo/x86_64/cachyos/cachyos-v3-mirrorlist-10-1-any.pkg.tar.zst'
 
 Стоит учитывать, что у данного репозитория есть развилка по архитектурам. То есть он одновременно
 поддерживает и x86_64, и x86_64v3. В чем разница? В том, что x86_64v3 чуть более оптимизирован
