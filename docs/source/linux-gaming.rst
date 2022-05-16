@@ -202,6 +202,36 @@ https://www.youtube.com/watch?v=W1e6_3dPlHk
 
 Никакой дополнительной настройки (редактирования *customization.cfg*) при этом не требуется.
 
+.. index:: installation, wine, gaming, native-compilation
+.. _wine-ge-custom:
+
+^^^^^^^^
+WINE-GE
+^^^^^^^^
+
+Альтернативная сборка Wine, которая содержит самые последние патчи из Proton.
+По сути он аналогичен Proton-GE (о нем далее), но используется для игр запускаемых вне Steam.
+
+**I. Установка (компиляция)** ::
+
+  git clone https://aur.archlinux.org/wine-ge-custom.git
+  cd wine-ge-custom
+  sed -i 's/-O3 -march=nocona -mtune=core-avx2 -pipe/-O2 -march=native -mtune=native -pipe"/' PKGBUILD  # Нативные флаги
+  makepkg -sric
+
+**II. Установка (Lutris, бинарник)**
+
+В Lutris уже есть готовые сборки Wine-GE под названием lutris-ge.
+Если вы не хотите долго париться с ручной компиляцией, то
+можете использовать их (производительность при этом будет ниже
+чем у вручную собранного WINE-GE под ваш процессор):
+
+.. image:: images/lutris-wine-ge.png
+
+И затем выберите его для нужной вам игры:
+
+.. image:: images/lutris-wine-ge-choose.png
+
 .. index:: installation, proton, gaming, native-compilation
 .. _proton-ge-custom:
 
