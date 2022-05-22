@@ -289,12 +289,12 @@ function checkPageExistsAndRedirect(event) {
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#tracker-3-gnome">
-     Отключение Tracker 3 в GNOME (НОВЫЙ СПОСОБ)
+     Отключение Tracker 3 в GNOME
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#gsd-gnome">
-     Отключение ненужных GSD служб GNOME (НОВЫЙ СПОСОБ)
+     Отключение ненужных GSD служб GNOME
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -447,7 +447,7 @@ function checkPageExistsAndRedirect(event) {
 <span id="de-optimizations"></span><h1>Оптимизация рабочего окружения (DE)<a class="headerlink" href="#de" title="Ссылка на этот заголовок">#</a></h1>
 <p>Современные среды рабочего стола стали достаточно прожорливыми и требовательными к аппаратным ресурсам компьютера,
 и хотя они и довольно хороши с точки зрения удобства использования,
-все же хотелось бы минимизировать потребление аппаратных ресурсов с их стороны.
+все же хотелось бы минимизировать потребление той же ОЗУ с их стороны.
 Поэтому в этом разделе мы по отдельности и рассмотрим оптимизацию разных рабочих окружений и не только.</p>
 <div class="section" id="de-wm-x11">
 <span id="launch-without-display-manager"></span><span id="index-0"></span><h2>Запуск любой DE или WM без экранного менеджера <em>(Только для X11)</em><a class="headerlink" href="#de-wm-x11" title="Ссылка на этот заголовок">#</a></h2>
@@ -457,7 +457,7 @@ function checkPageExistsAndRedirect(event) {
 Он также выполняет функцию  управления рабочими сессиями в разных окружениях.
 Тем не менее он тоже потребляет определенные ресурсы компьютера, а осуществить вход в систему можно и без него,
 т.е. через tty, хоть вы и пожертвуете тем самым определенным уровнем удобства.
-Для автоматизации запуска любой DE/WM (кроме Wayland сессий) через tty вам понадобиться прописать в ваш <em>.text_profile</em> или <em>.zsh_profile</em> следующее:</p>
+Для автоматизации запуска любой DE/WM (кроме Wayland сессий) через tty вам понадобиться прописать в ваш <em>.bash_profile</em> или <em>.zsh_profile</em> следующее:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="o">[[</span> -z <span class="nv">$DISPLAY</span> <span class="o">&amp;&amp;</span> <span class="k">$(</span>tty<span class="k">)</span> <span class="o">==</span> /dev/tty1 <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
   <span class="nv">XDG_SESSION_TYPE</span><span class="o">=</span>x11 <span class="nv">GDK_BACKEND</span><span class="o">=</span>x11 <span class="nb">exec</span> startx
 <span class="k">fi</span>
@@ -465,12 +465,12 @@ function checkPageExistsAndRedirect(event) {
 </div>
 <p>Это запустит X-сервер сразу при входе в tty1 (терминал по умолчанию).
 Обязательным условием при этом является наличие установленного пакета <a class="reference external" href="https://archlinux.org/packages/extra/x86_64/xorg-xinit/">xorg-xinit</a>,
-и заранее настроенный файл <em>~/.xinitrc</em>, в котором прописана команда запуска вашего DE/WM.
+и заранее настроенный файл <em>~/.xinitrc</em>, в котором прописана команда запуска вашего DE/WM (например: <code class="docutils literal notranslate"><span class="pre">exec</span> <span class="pre">gnome-session</span></code>).
 Например: <code class="docutils literal notranslate"><span class="pre">exec</span> <span class="pre">gnome-session</span></code> # Запускает gnome сессию при запуске Xorg сервера.</p>
 </div>
 <div class="section" id="gnome-3-xx-42">
 <span id="gnome-optimization"></span><span id="index-1"></span><h2>GNOME 3.XX/42<a class="headerlink" href="#gnome-3-xx-42" title="Ссылка на этот заголовок">#</a></h2>
-<p>Сам по себе GNOME - наверное одна из самых тяжеловесных и требовательных к аппаратным ресурсам оболочка из ныне существующих.
+<p>Сам по себе GNOME - наверное одна из самых тяжеловесных и требовательных к системным ресурсам оболочка из ныне существующих.
 Тем не менее у неё есть свои преимущества перед другими оболочками, за что её и любят пользователи.
 Но к сожалению низкое энергопотребление не в их числе, поэтому в этом разделе вы узнаете о том,
 как заставить похудеть ваш толстенький gnome-shell.</p>
@@ -481,7 +481,7 @@ function checkPageExistsAndRedirect(event) {
 </div>
 <p><strong>P.S.</strong> Удаляйте пакеты с осознанием того, что вы делайте.
 Несмотря на то, что здесь были собраны наиболее сомнительные по соотношению нужности/прожорливости пакеты,
-вы можете найти какой-либо из пакетов полезным и нужным.</p>
+вы можете найти какой-либо из данных пакетов полезным и нужным.</p>
 <div class="admonition warning">
 <p class="admonition-title">Предупреждение</p>
 <p>Некоторые пакеты из вышеприведенной команды могут быть не найдены в вашей системе.
@@ -495,7 +495,7 @@ function checkPageExistsAndRedirect(event) {
 </div>
 </div>
 <div class="section" id="tracker-3-gnome">
-<span id="disabling-tracker-3"></span><span id="index-3"></span><h3>Отключение Tracker 3 в GNOME (НОВЫЙ СПОСОБ)<a class="headerlink" href="#tracker-3-gnome" title="Ссылка на этот заголовок">#</a></h3>
+<span id="disabling-tracker-3"></span><span id="index-3"></span><h3>Отключение Tracker 3 в GNOME<a class="headerlink" href="#tracker-3-gnome" title="Ссылка на этот заголовок">#</a></h3>
 <p>Tracker - это встроенный поисковик для GNOME, который индексирует все файлы на диске и не только.
 Как любой индексатор файловых систем, он призван кушать ресурсы и мощности вашего накопителя и висеть в оперативной памяти,
 хоть и в гораздо меньшей степени чем конкуренты (До Windows, с их 100% загруженности на диск, еще как до луны).
@@ -506,14 +506,14 @@ function checkPageExistsAndRedirect(event) {
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>systemctl --user mask tracker-miner-apps tracker-miner-fs tracker-store
 </pre></div>
 </div>
-<p>После перезагрузки:</p>
+<p>После перезагрузки системы выполните:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rm -rf ~/.cache/tracker ~/.local/share/tracker   <span class="c1"># Чистим кэш tracker</span>
 tracker daemon -t                                <span class="c1"># Проверяем, должно быть 0 PID</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="gsd-gnome">
-<span id="disabling-gsd-daemons"></span><span id="index-4"></span><h3>Отключение ненужных GSD служб GNOME (НОВЫЙ СПОСОБ)<a class="headerlink" href="#gsd-gnome" title="Ссылка на этот заголовок">#</a></h3>
+<span id="disabling-gsd-daemons"></span><span id="index-4"></span><h3>Отключение ненужных GSD служб GNOME<a class="headerlink" href="#gsd-gnome" title="Ссылка на этот заголовок">#</a></h3>
 <div class="admonition attention">
 <p class="admonition-title">Внимание</p>
 <p>Способ отключения служб был обновлен.
@@ -528,8 +528,8 @@ tracker daemon -t                                <span class="c1"># Провер
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>systemctl --user mask org.gnome.SettingsDaemon.Wacom.service
 </pre></div>
 </div>
-<p># Отключение службы уведомления печати.
-Если нет принтера - отключаем.</p>
+<p># Отключение службы уведомления о печати.
+Если нет принтера или вам просто не нужны эти постоянные уведомления - отключаем.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>systemctl --user mask org.gnome.SettingsDaemon.PrintNotifications.service
 </pre></div>
 </div>
@@ -548,38 +548,42 @@ tracker daemon -t                                <span class="c1"># Провер
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>systemctl --user mask org.gnome.SettingsDaemon.Wwan.service
 </pre></div>
 </div>
-<p># Отключение службы защиты от неавторизованных USB устройств при блокировке экрана.</p>
+<p># Отключение службы защиты от неавторизованных USB устройств при блокировке экрана.
+Можете оставить если у вас ноутбук.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>systemctl --user mask org.gnome.SettingsDaemon.UsbProtection.service
 </pre></div>
 </div>
-<p># Отключаем службу настройки автоматической блокировки экрана.</p>
+<p># Отключаем службу настройки автоматической блокировки экрана.
+Можете оставить если у вас ноутбук.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>systemctl --user mask org.gnome.SettingsDaemon.ScreensaverProxy.service
 </pre></div>
 </div>
-<p># Отключение службы настройки общественного доступа к файлам и директориям.</p>
+<p># Отключение службы настройки общего доступа к файлам и директориям.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>systemctl --user mask org.gnome.SettingsDaemon.Sharing.service
 </pre></div>
 </div>
 <p># Отключение службы управления подсистемой rfkill, отвечающей за отключения любого радиопередатчика в системе
-(сюда же относятся Wi-Fi и Bluetooth, поэтому данная служба нужна, скорее всего, для режима в &quot;самолете&quot;).</p>
+(сюда же относятся Wi-Fi и Bluetooth, поэтому данная служба нужна, скорее всего, для так называемого режима в &quot;самолете&quot;).</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>systemctl --user mask org.gnome.SettingsDaemon.Rfkill.service
 </pre></div>
 </div>
 <p># Отключение службы управления клавиатурой и раскладками GNOME.
-Можно смело отключать если уже настроили все раскладки и настройки клавиатуры заранее.</p>
+Можно смело отключать если уже настроили все раскладки и настройки клавиатуры заранее,
+ибо все предыдущие настройки сохраняются при отключении.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>systemctl --user mask org.gnome.SettingsDaemon.Keyboard.service
 </pre></div>
 </div>
-<p># Отключаем службу управления звуком GNOME 3/40.
-Отключает <strong>ТОЛЬКО</strong> настройки звука GNOME 3/40, а не вообще все управлением звуком в системе.</p>
+<p># Отключаем службу управления звуком GNOME.
+Отключает <strong>ТОЛЬКО</strong> настройки звука GNOME, а не вообще всё управлением звуком в системе.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>systemctl --user mask org.gnome.SettingsDaemon.Sound.service
 </pre></div>
 </div>
-<p># Отключение службы интеграции GNOME с картридером.</p>
+<p># Отключение службы интеграции GNOME с карт-ридером.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>systemctl --user mask org.gnome.SettingsDaemon.Smartcard.service
 </pre></div>
 </div>
-<p># Отключение службы слежения за свободным пространством на диске.</p>
+<p># Отключение службы слежения за свободным пространством на диске.
+Штука полезная, но если вы предпочитаете следить за этим самостоятельно, то вперед</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>systemctl --user mask org.gnome.SettingsDaemon.Housekeeping.service
 </pre></div>
 </div>
@@ -594,7 +598,7 @@ tracker daemon -t                                <span class="c1"># Провер
 </pre></div>
 </div>
 <p>Если после отключения какой-либо из вышеперечисленных служб что-то пошло не так,
-или просто какую-либо из них понадобилось включить, просто пропишите:</p>
+или просто какую-либо из них понадобилось снова включить, просто пропишите:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>systemctl --user unmask --now СЛУЖБА
 </pre></div>
 </div>
@@ -603,7 +607,7 @@ tracker daemon -t                                <span class="c1"># Провер
 <p class="admonition-title">Внимание</p>
 <p>Если вы по-прежнему использовали старый способ с переименованием библиотек,
 то настоятельно рекомендуется выполнить переустановку пакета gnome-settings-daemon, а
-затем выполнить отключение ненужных вам служб уже новым способом.</p>
+затем выполнить отключение ненужных вам служб уже описанным выше способом.</p>
 </div>
 </div>
 <div class="section" id="gnome-shell-performance-mutter-performance">
@@ -623,7 +627,7 @@ makepkg -sric                                                   <span class="c1"
 makepkg -sric                                              <span class="c1"># Сборка и установка</span>
 </pre></div>
 </div>
-<p>Также можно выполнить компиляцию пакетов при помощи Clang: <a class="reference external" href="https://aur.archlinux.org/packages/mesa-git/">Mesa</a> (Только для оборудования Intel &amp; AMD),
+<p>Также можно выполнить нативную компиляцию пакетов при помощи Clang: <a class="reference external" href="https://aur.archlinux.org/packages/mesa-git/">Mesa</a> (Только для оборудования Intel &amp; AMD),
 <a class="reference external" href="https://aur.archlinux.org/packages/wayland-git/">Wayland</a>, <a class="reference external" href="https://aur.archlinux.org/packages/wayland-protocols-git/">Wayland-protocols</a>,
 <a class="reference external" href="https://aur.archlinux.org/lib32-wayland-git.git">Lib32-wayland</a>, <a class="reference external" href="https://aur.archlinux.org/egl-wayland-git.git">Egl-wayland</a>,
 <a class="reference external" href="https://aur.archlinux.org/packages/xorg-server-git/">xorg-server</a> и многих других.</p>
@@ -633,7 +637,7 @@ makepkg -sric                                              <span class="c1"># С
 <span id="index-6"></span><span id="id2"></span><h3>Бонус: немного косметики<a class="headerlink" href="#gnome-cosmetics" title="Ссылка на этот заголовок">#</a></h3>
 <p>С обновлением GNOME 42 некоторые приложения на GTK 4 стали использовать тему libadwaita, но из-за этого
 приложения на GTK 3 стали выглядить неоднородными, не говоря уж о Qt.</p>
-<p>Чтобы это исправить, установите портированную тему libawaita для GTK 3.</p>
+<p>Чтобы это исправить, установите портированную тему libadwaita для GTK 3.</p>
 <p><strong>Установка</strong></p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://aur.archlinux.org/adw-gtk3.git <span class="c1"># Скачиваем исходники</span>
 <span class="nb">cd</span> adw-gtk3                                      <span class="c1"># Переход в директорию</span>
@@ -660,7 +664,7 @@ gsettings <span class="nb">set</span> org.gnome.desktop.interface gtk-theme adw-
 <p>Несмотря на то, что авторы ARU считают эту оболочку довольно перегруженной,
 она по прежнему остается лидером по меньшему энергопотреблению оперативной памяти среди других рабочих окружений.
 Однако, &quot;бесконечность - не предел&quot;, поэтому в этом разделе мы сделаем так,
-чтобы ваша plasma-shell кушала еще меньше аппаратных ресурсов, и применим на ней другие твики.</p>
+чтобы ваша plasma-shell кушала еще меньше ресурсов, и применим на ней другие твики.</p>
 <div class="section" id="plasma-5">
 <span id="plasma-garbage-removal"></span><span id="index-9"></span><h3>Удаление мусора из Plasma 5<a class="headerlink" href="#plasma-5" title="Ссылка на этот заголовок">#</a></h3>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -Rsn kwayland-integration kwallet-pam plasma-thunderbolt plasma-vault powerdevil plasma-sdk kgamma5 drkonqi discover oxygen bluedevil plasma-browser-integration plasma-firewall
@@ -672,7 +676,7 @@ sudo pacman -S kmix            <span class="c1"># Замена виджету pl
 </div>
 <p><strong>P.S.</strong> Удаляйте пакеты с осознанием того, что вы делайте.
 Несмотря на то, что здесь были собраны наиболее сомнительные по соотношению нужности/прожорливости пакеты,
-вы можете найти какой-либо из пакетов полезным и нужным.</p>
+вы можете найти какой-либо из данных пакетов полезным и нужным.</p>
 <div class="admonition warning">
 <p class="admonition-title">Предупреждение</p>
 <p>Некоторые пакеты из вышеприведенной команды могут быть не найдены в вашей системе.
@@ -699,7 +703,7 @@ balooctl disable                  <span class="c1"># Отключаем Baloo</s
 balooctl purge                    <span class="c1"># Чистим кэш</span>
 </pre></div>
 </div>
-<p>Его так же можно отключить в графических настройках Plasma:</p>
+<p>Его точно так же можно отключить в графических настройках Plasma:</p>
 <img alt="https://raw.githubusercontent.com/ventureoo/ARU/main/archive/DE-Optimizations/images/image9.png" src="https://raw.githubusercontent.com/ventureoo/ARU/main/archive/DE-Optimizations/images/image9.png" />
 </div>
 <div class="section" id="kde-5">
@@ -717,7 +721,7 @@ balooctl purge                    <span class="c1"># Чистим кэш</span>
 <span id="disabling-plasma-daemons"></span><span id="index-12"></span><h3>Отключение ненужных служб Plasma<a class="headerlink" href="#plasma" title="Ссылка на этот заголовок">#</a></h3>
 <p>По аналогии с GNOME, у Plasma тоже есть свои службы настройки, которые хоть и гораздо менее требовательны к ресурсам.
 Тем не менее, это по прежнему солянка из различных процессов, которые вам далеко не всегда пригодятся,
-а отключая ненужные из них вам службы вы можете чуть снизить потребление оперативной памяти вашей оболочкой, т.к. по умолчанию все службы включены.</p>
+а отключая ненужные из них вы можете чуть снизить потребление оперативной памяти вашей оболочкой, т.к. по умолчанию все службы включены.</p>
 <p>Настройка служб происходит в графических настройках Plasma, в разделе &quot;<em>Запуск и завершение</em>&quot; -&gt; <em>&quot;Управление службами&quot;</em></p>
 <img alt="https://raw.githubusercontent.com/ventureoo/ARU/main/archive/DE-Optimizations/images/image12.png" src="https://raw.githubusercontent.com/ventureoo/ARU/main/archive/DE-Optimizations/images/image12.png" />
 <p><strong>Список служб к отключению:</strong></p>
@@ -739,7 +743,7 @@ balooctl purge                    <span class="c1"># Чистим кэш</span>
 если вы ими не часто пользуетесь - отключаем.</p>
 <p><em>Слежение за свободным местом на диске</em> -&gt; Вещь полезная, но это вы можете сделать и самостоятельно через виджеты,
 поэтому Откл./Оставлять по желанию.</p>
-<p><em>SMART</em> -&gt; Тоже довольно полезная служба, поэтому отключайте на свое усмотрение.</p>
+<p><em>SMART</em> -&gt; Тоже довольно полезная служба, отключайте на свое усмотрение.</p>
 <p><em>Диспетчер уведомлений о состоянии</em> -&gt; Нужна для правильной работы лотка и трея.</p>
 <p><em>Служба синхронизации параметров GNOME/GTK</em> -&gt; Осуществляет смену GTK темы на лету.
 Если отключите, смена GTK темы будет применяться только после перезагрузки.</p>
@@ -772,7 +776,7 @@ balooctl purge                    <span class="c1"># Чистим кэш</span>
 <ol class="arabic simple">
 <li><p>Управление окнами, и все что с ними связано.</p></li>
 <li><p>Различные графические эффекты и визуальные &quot;приблуды&quot; (Прозрачность, тени, размытие и проч.)</p></li>
-<li><p>Плавность отрисовки и бесшовность отображаемой картинки, т. е. обеспечивает синхронизацию между кадрами (Vsync), предотвращает тиринг (разрыв между кадрами).</p></li>
+<li><p>Плавность отрисовки и бесшовность отображаемой картинки, т. е. обеспечивает синхронизацию между кадрами (Vsync), предотвращает тиринг (разрывы экрана).</p></li>
 </ol>
 <p>Вообщем, делает довольно много интересных вещей.</p>
 <p>Но нас интересует только третья и немного вторая его функции.</p>
@@ -786,13 +790,13 @@ balooctl purge                    <span class="c1"># Чистим кэш</span>
 Вы можете отключить этот параметр, в случае крайней экономии аппаратных ресурсов,
 т.к. это снимет с композитора роль за граф. эффекты и вертикальную синхронизацию,
 то это также может уменьшить его потребление ресурсов компьютера вдвое,
-и он просто станет лишь менеджером управления окнами в Plasma.</p>
+и он просто станет лишь менеджером управления окнами.</p>
 <p><strong>&quot;Механизм отрисовки&quot;</strong></p>
 <p>Отвечает за то, средствами какого API-бэкенда будет производиться отрисовка.
 OpenGL механизм дает больше возможностей для обеспечения различных графических эффектов, и лучшую синхронизацию кадров.
 Принципиальной разницы между OpenGL 2.0 и OpenGL 3.1 - нет.
 Поддержка OpenGL 2.0 нужна и остается только для работы со старыми видеокартами, у которых нет поддержки OpenGL 3.1.
-XRender механизм довольно старомоден, и является серьёзно морально устаревшим, он не поддерживает такое же количество граф. эффектов как OpenGL,
+XRender механизм считается морально устаревшим, он не поддерживает такое же количество граф. эффектов как OpenGL,
 поэтому не удивляетесь что какие-то из них не будут работать на этом механизме отрисовки.
 Кроме того, с этим бэкендом не работает синхронизация кадров, т. е. Vsync автоматически отключается при выборе данного механизма, и может появиться тиринг.
 Тем не менее, XRender обеспечивает практически минимальное потребление оперативной памяти компьютера со стороны композитора,
