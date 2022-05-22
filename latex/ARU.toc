@@ -93,9 +93,9 @@
 \contentsline {section}{\numberline {10.1}Запуск любой DE или WM без экранного менеджера \sphinxstyleemphasis {(Только для X11)}}{107}{section.10.1}%
 \contentsline {section}{\numberline {10.2}GNOME 3.XX/42}{108}{section.10.2}%
 \contentsline {subsection}{\numberline {10.2.1}Удаление мусора GNOME}{108}{subsection.10.2.1}%
-\contentsline {subsection}{\numberline {10.2.2}Отключение Tracker 3 в GNOME (НОВЫЙ СПОСОБ)}{108}{subsection.10.2.2}%
-\contentsline {subsection}{\numberline {10.2.3}Отключение ненужных GSD служб GNOME (НОВЫЙ СПОСОБ)}{109}{subsection.10.2.3}%
-\contentsline {subsection}{\numberline {10.2.4}gnome\sphinxhyphen {}shell\sphinxhyphen {}performance и mutter\sphinxhyphen {}performance}{110}{subsection.10.2.4}%
+\contentsline {subsection}{\numberline {10.2.2}Отключение Tracker 3 в GNOME}{108}{subsection.10.2.2}%
+\contentsline {subsection}{\numberline {10.2.3}Отключение ненужных GSD служб GNOME}{109}{subsection.10.2.3}%
+\contentsline {subsection}{\numberline {10.2.4}gnome\sphinxhyphen {}shell\sphinxhyphen {}performance и mutter\sphinxhyphen {}performance}{111}{subsection.10.2.4}%
 \contentsline {subsection}{\numberline {10.2.5}Бонус: немного косметики}{111}{subsection.10.2.5}%
 \contentsline {subsection}{\numberline {10.2.6}Результат}{111}{subsection.10.2.6}%
 \contentsline {section}{\numberline {10.3}KDE Plasma 5}{112}{section.10.3}%

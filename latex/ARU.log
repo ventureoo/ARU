@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022/Arch Linux) (preloaded format=xelatex 2022.5.17)  17 MAY 2022 16:08
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022/Arch Linux) (preloaded format=xelatex 2022.5.22)  22 MAY 2022 16:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1062,7 +1062,7 @@ Overfull \hbox (3.58688pt too wide) detected at line 97
 
 
 Overfull \hbox (3.58688pt too wide) detected at line 98
- []\TU/DejaVuSerif(1)/m/n/10 110
+ []\TU/DejaVuSerif(1)/m/n/10 111
  []
 
 
@@ -2802,13 +2802,7 @@ File: lqx-menunconfig.png Graphic file (type bmp)
  [52]
 File: xanmod-menunconfig.png Graphic file (type bmp)
 <xanmod-menunconfig.png>
- [53] [54] [55]
-Underfull \hbox (badness 7099) in paragraph at lines 8924--8929
-[]\TU/DejaVuSerif(1)/m/it/10 linux-cachyos <https://github.com/CachyOS/linux-ca
-chyos> \TU/DejaVuSerif(1)/m/n/10 - добротная альтернатива
- []
-
-[56] [57]
+ [53] [54] [55] [56] [57]
 File: processor-type-and-features-entry.png Graphic file (type bmp)
 <processor-type-and-features-entry.png>
  [58]
@@ -2828,7 +2822,8 @@ File: timer-subsystem-2.png Graphic file (type bmp)
  [63]
 File: timer-subsystem-3.png Graphic file (type bmp)
 <timer-subsystem-3.png>
- [64]
+
+[64]
 File: processor-type-and-features-entry.png Graphic file (type bmp)
 <processor-type-and-features-entry.png>
  [65]
@@ -2849,8 +2844,7 @@ File: kernel-device-drivers.png Graphic file (type bmp)
  [70]
 File: kernel-graphics-support.png Graphic file (type bmp)
 <kernel-graphics-support.png>
-
-[71]
+ [71]
 File: kernel-fb-devices-choice.png Graphic file (type bmp)
 <kernel-fb-devices-choice.png>
  [72]
@@ -2921,7 +2915,7 @@ File: linux-gaming-2.png Graphic file (type bmp)
 File: linux-gaming-3.png Graphic file (type bmp)
 <linux-gaming-3.png>
  [100]
-Underfull \hbox (badness 10000) in paragraph at lines 10113--10115
+Underfull \hbox (badness 10000) in paragraph at lines 10112--10114
 []\TU/DejaVuSerif(1)/m/n/10 Указать параметры запуска игры в свойствах игры Ste
 am
  []
@@ -2930,7 +2924,7 @@ am
 File: image9.png Graphic file (type bmp)
 <image9.png>
  [102]
-Underfull \hbox (badness 10000) in paragraph at lines 10194--10194
+Underfull \hbox (badness 10000) in paragraph at lines 10193--10193
 |[][]\TU/DejaVuSans(1)/b/n/10 Альтернатива: DXVK Hud (\TU/DejaVuSans(1)/b/it/10
  Только для игр запускаемых через
  []
@@ -2979,7 +2973,7 @@ File: image13.png Graphic file (type bmp)
 File: image81.png Graphic file (type bmp)
 <image81.png>
  [125]
-Underfull \hbox (badness 10000) in paragraph at lines 11367--11370
+Underfull \hbox (badness 10000) in paragraph at lines 11370--11373
 []\TU/DejaVuSerif(1)/m/n/10 # Отключаем службу автоматического монтирования вне
 шних, подключаемых
  []
@@ -3005,7 +2999,7 @@ File: generic-system-acceleration-4.png Graphic file (type bmp)
 File: piper-resolutionpage.png Graphic file (type bmp)
 <piper-resolutionpage.png>
  [133]
-Underfull \hbox (badness 10000) in paragraph at lines 11560--11564
+Underfull \hbox (badness 10000) in paragraph at lines 11563--11567
 []\TU/DejaVuSerif(1)/b/n/10 Внимание:  \TU/DejaVuSerif(1)/m/n/10 Поддерживаются
  только некоторые из моделей мышек от
  []
@@ -3073,12 +3067,12 @@ The property list \__xpg_alias contains the pairs (without outer braces):
 >  {ru-petr1708/options}  =>  {spelling=old}.
  (./ARU.aux)
 Package rerunfilecheck Info: File `ARU.out' has not changed.
-(rerunfilecheck)             Checksum: 66F7B0AC5392261BAD6A23DF97FFD5F5;33877.
+(rerunfilecheck)             Checksum: AC2B32E4A36360B013C4203BF42379B5;33637.
  ) 
 Here is how much of TeX's memory you used:
  19114 strings out of 476156
  385108 string characters out of 5814963
- 1103670 words of memory out of 5000000
+ 1103340 words of memory out of 5000000
  39371 multiletter control sequences out of 15000+600000
  477537 words of font info for 155 fonts, out of 8000000 for 9000
  1349 hyphenation exceptions out of 8191
