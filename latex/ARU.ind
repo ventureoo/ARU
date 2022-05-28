@@ -81,7 +81,7 @@
   \lettergroup{G}
   \item \spxentry{gamemode}, \hyperpage{90}, \hyperpage{97}
   \item \spxentry{games}, \hyperpage{41}
-  \item \spxentry{gaming}, \hyperpage{79}, \hyperpage{80}, \hyperpage{83}, \hyperpage{84}, \hyperpage{86}, \hyperpage{87}, \hyperpage{89}, \hyperpage{90}, \hyperpage{97}, \hyperpage{98}, \hyperpage{101}, \hyperpage{135}
+  \item \spxentry{gaming}, \hyperpage{79}, \hyperpage{80}, \hyperpage{82}, \hyperpage{84}, \hyperpage{86}, \hyperpage{87}, \hyperpage{89}, \hyperpage{90}, \hyperpage{97}, \hyperpage{98}, \hyperpage{101}, \hyperpage{135}
   \item \spxentry{garbage\sphinxhyphen{}removal}, \hyperpage{108}, \hyperpage{112}, \hyperpage{122}, \hyperpage{131}, \hyperpage{132}
   \item \spxentry{gnome}, \hyperpage{107}, \hyperpage{108}, \hyperpage{111}
   \item \spxentry{gnome\sphinxhyphen{}control\sphinxhyphen{}center}, \hyperpage{108}
@@ -106,7 +106,7 @@
   \lettergroup{I}
   \item \spxentry{image\sphinxhyphen{}scaling}, \hyperpage{98}, \hyperpage{101}
   \item \spxentry{initramfs}, \hyperpage{6}
-  \item \spxentry{installation}, \hyperpage{4}, \hyperpage{5}, \hyperpage{22}, \hyperpage{24}, \hyperpage{80}, \hyperpage{82}\hyperpage{87}, \hyperpage{90}, \hyperpage{97}, \hyperpage{102}, \hyperpage{103}, \hyperpage{110}
+  \item \spxentry{installation}, \hyperpage{4}, \hyperpage{5}, \hyperpage{22}, \hyperpage{24}, \hyperpage{80}, \hyperpage{82}, \hyperpage{84}\hyperpage{87}, \hyperpage{90}, \hyperpage{97}, \hyperpage{102}, \hyperpage{103}, \hyperpage{110}
   \item \spxentry{intel}, \hyperpage{5}, \hyperpage{7}, \hyperpage{12}
 
   \indexspace
@@ -159,7 +159,7 @@
   \indexspace
 
   \lettergroup{N}
-  \item \spxentry{native\sphinxhyphen{}compilation}, \hyperpage{19}, \hyperpage{21}, \hyperpage{49}, \hyperpage{50}, \hyperpage{52}, \hyperpage{54}, \hyperpage{56}, \hyperpage{80}, \hyperpage{82}\hyperpage{84}, \hyperpage{86}, \hyperpage{87}
+  \item \spxentry{native\sphinxhyphen{}compilation}, \hyperpage{19}, \hyperpage{21}, \hyperpage{49}, \hyperpage{50}, \hyperpage{52}, \hyperpage{54}, \hyperpage{56}, \hyperpage{80}, \hyperpage{82}, \hyperpage{84}, \hyperpage{86}, \hyperpage{87}
   \item \spxentry{networkmanager}, \hyperpage{25}
   \item \spxentry{no\sphinxhyphen{}display\sphinxhyphen{}manager}, \hyperpage{107}
   \item \spxentry{nohang}, \hyperpage{22}
@@ -241,7 +241,7 @@
   \indexspace
 
   \lettergroup{W}
-  \item \spxentry{wine}, \hyperpage{3}, \hyperpage{79}, \hyperpage{80}, \hyperpage{82}, \hyperpage{83}, \hyperpage{85}, \hyperpage{87}, \hyperpage{89}, \hyperpage{135}
+  \item \spxentry{wine}, \hyperpage{3}, \hyperpage{79}, \hyperpage{80}, \hyperpage{82}, \hyperpage{85}, \hyperpage{87}, \hyperpage{89}, \hyperpage{135}
   \item \spxentry{wine\sphinxhyphen{}builds}, \hyperpage{79}, \hyperpage{80}, \hyperpage{82}
   \item \spxentry{wine\sphinxhyphen{}staging}, \hyperpage{80}
   \item \spxentry{wine\sphinxhyphen{}tkg}, \hyperpage{80}, \hyperpage{82}

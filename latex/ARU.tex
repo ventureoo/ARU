@@ -58,7 +58,7 @@
 
 
 \title{Arch Linux Optimization Guide (RU)}
-\date{мая 22, 2022}
+\date{мая 28, 2022}
 \release{2022.02.28}
 \author{Arch Linux Optimization Guide (RU)}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -9465,10 +9465,6 @@ nano customization.cfg
 \sphinxAtStartPar
 \sphinxcode{\sphinxupquote{\_use\_fsync="true"}} \sphinxhyphen{} Включает поддержку fsync, альтернативу esync которую можно задействовать через переменную окружения \sphinxstyleemphasis{WINEFSYNC=1}.
 Оба параметра обязательны к включению для повышения производительности.
-
-\sphinxAtStartPar
-\sphinxcode{\sphinxupquote{\_fsync\_futex2="true"}} \sphinxhyphen{} Включает поддержку futex2 для fsync. Улучшает производительность игр при использовании Fsync.
-Требуется ядро версии 5.16 и выше.
 
 \sphinxAtStartPar
 Подробное сравнение Esync и Fsync можно посмотреть в данном видео.
