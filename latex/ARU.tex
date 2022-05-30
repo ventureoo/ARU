@@ -58,7 +58,7 @@
 
 
 \title{Arch Linux Optimization Guide (RU)}
-\date{мая 28, 2022}
+\date{мая 30, 2022}
 \release{2022.02.28}
 \author{Arch Linux Optimization Guide (RU)}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -469,10 +469,325 @@ makepkg \PYGZhy{}sric
 \sphinxcode{\sphinxupquote{\_\_GL\_YIELD="USLEEP"}} \sphinxstylestrong{(По умолчанию без значения)} \sphinxhyphen{} Довольно специфичный параметр, \sphinxstyleemphasis{"USLEEP"} \sphinxhyphen{} снижает нагрузку на CPU и некоторым образом помогает в борьбе с тирингом,
 а \sphinxstyleemphasis{"NOTHING"} дает больше FPS при этом увеличивая нагрузку на процессор.
 
+\index{nvidia@\spxentry{nvidia}}\index{hybrid\sphinxhyphen{}graphics@\spxentry{hybrid\sphinxhyphen{}graphics}}\index{laptops@\spxentry{laptops}}\ignorespaces 
+
+\section{Гибридная графика в ноутбуках}
+\label{\detokenize{source/first-steps:hybrid-graphics}}\label{\detokenize{source/first-steps:index-11}}\label{\detokenize{source/first-steps:id11}}
+\sphinxAtStartPar
+Одной из самых больных проблем при использовании Linux на домашнем ноутбуке является гибридная графика.
+Конечно, в этой теме уже есть прогресс, и все не так плохо как кажется, но графическая подсистема по
+прежнему одна из самых (если не самая) проблемных частей любой Linux\sphinxhyphen{}системы.
+
+\sphinxAtStartPar
+Тема сложная и с кучей подводных камней, поэтому сначала разберемся с основными понятиями.
+Гибридная графика \sphinxhyphen{} это когда у вас есть два графических процессора, которые могут работать
+одновременно. Такая конфигурация чаще всего представлена в ноутбуках, когда есть интегрированный
+(т.е. встроенный, iGPU) в процессор видеочип и дискретная видеокарта (dGPU), которая
+превосходит встроенную по характеристикам и нацелена на использование в высокопроизводительных
+задачах.
+
+\sphinxAtStartPar
+Смысл такого разделения состоит в том, что мы можем использовать для малопрофильных задач встроенный видеочип,
+а когда появляется, так скажем, "рыба покрупнее", и нужно выдавать максимальный FPS \sphinxhyphen{} используем дискретную графику.
+На ноутбуках это позволяет сильно экономить энергию и, следовательно, повысить время своей работы.
+
+\sphinxAtStartPar
+Однако на практике такая система содержит много проблем. Главная из которых, это вопрос о том,
+как эти два GPU будут взаимодействовать между собой. И если в Windows эту проблему как\sphinxhyphen{}то решили,
+то в Linux к сожалению все не так просто. По итогу мы имеем несколько отдельных комбинаций
+производителей встроенных видеочипов и дискретной видеокарты. Вот три наиболее встречаемых случая
+(сначала встроенная графика, затем дискретная):
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Intel + NVIDIA
+
+\item {} 
+\sphinxAtStartPar
+AMD + NVIDIA
+
+\item {} 
+\sphinxAtStartPar
+Intel + AMD
+
+\end{enumerate}
+
+\sphinxAtStartPar
+Самыми распространенными из них являются первый и второй случай. Они же самые проблемные.
+Третий случай не должен вызывать у вас всяких проблем, ибо для обеих GPU могут использоваться
+открытые драйвера Mesa, которые должны работать из коробки. Вам нужно будет лишь использовать
+переменную окружения \sphinxcode{\sphinxupquote{DRI\_PRIME=1}} чтобы форсировать использование дискретной графики для нужного
+вам приложения. Например для игры в Steam вам достаточно в её свойствах указать \sphinxcode{\sphinxupquote{DRI\_PRIME=1 \%command\%}}.
+
+\sphinxAtStartPar
+Далее мы будем рассматривать только первые два случая, имеющие между собой один и тот же алгоритм действий.
+
+\sphinxAtStartPar
+Итак, есть две возможные стратегии при связке NVIDIA + Intel, либо NVIDIA + AMD:
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Мы используем встроенный механизм работы с гибридной графикой драйвера NVIDIA
+
+\item {} 
+\sphinxAtStartPar
+Мы уходим от гибридной графики, отключая один из возможны GPU и используем только
+дискретный/встроенный видеочип.
+
+\end{enumerate}
+
+\sphinxAtStartPar
+Прежде чем мы начнем рассматривать первый и второй план\sphinxhyphen{}капкан, стоит выполнить некоторые обязательные
+шаги, если вы хотите чтобы графика в вашем ноутбуке работала правильно.
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Удостоверьтесь, что вы устновили все драйвера правильно, как для встроенной видеокарты, так
+и для NVIDIA (обязательно для NVIDIA!)
+
+\item {} 
+\sphinxAtStartPar
+Проверьте, правильно ли загружаются модули драйвера NVIDIA. Для этого выполните команду \sphinxcode{\sphinxupquote{lsmod | grep nvidia}}.
+Если вывод команды НЕ пустой, то все в порядке.
+
+\item {} 
+\sphinxAtStartPar
+Включите DRM KMS для драйвера NVIDIA. Сделать это можно двумя способами: добавить параметр ядра \sphinxcode{\sphinxupquote{nvidia\sphinxhyphen{}drm.modeset=1}}
+в конфигурацию вашего загрузчика, либо при помощи файла настройки. Создайте файл \sphinxcode{\sphinxupquote{/etc/modprobe.d/nvidia.conf}} и пропишите
+в него следующее: \sphinxcode{\sphinxupquote{options nvidia\_drm modeset=1}}. И да, \sphinxstylestrong{обязательно выполните обновление образов ядра через команду
+sudo mkinitcpio \sphinxhyphen{}P}! Не забывайте об этом пожалуйста. Кроме того, вы можете целиком пропустить данный шаг, если ранее установили
+пакет nvidia\sphinxhyphen{}tweaks.
+
+\item {} 
+\sphinxAtStartPar
+Отключите параметр \sphinxcode{\sphinxupquote{Secure Boot}} в настройках UEFI если вы ещё этого не сделали. Он может мешать загрузке драйвера NVIDIA.
+
+\item {} 
+\sphinxAtStartPar
+Установите утилиту XRandr: \sphinxcode{\sphinxupquote{sudo pacman \sphinxhyphen{}S xorg\sphinxhyphen{}xrandr}}
+
+\end{itemize}
+
+\sphinxAtStartPar
+Теперь рассмотрим первый вариант, т. е. использование встроенного механизма работы с гибридной графикой.
+Как ни странно, но если вы имеете дискретную видеокарту NVIDIA, у которой есть поддержка версии драйвера
+выше 435, то все должно работать прямо из коробки. Просто вы можете об этом не догадываться.
+
+\sphinxAtStartPar
+Тем не менее, лучше все таки проверить, что все работает правильно, и вы можете сделать
+это через утилиту nvidia\sphinxhyphen{}prime:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+sudo pacman \PYGZhy{}S nvidia\PYGZhy{}prime
+prime\PYGZhy{}run glxinfo \PYG{p}{|} grep \PYG{l+s+s2}{\PYGZdq{}OpenGL renderer\PYGZdq{}}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Если вывод последней команды даёт вам упоминание вашей дискретной видеокарты, значит
+вы всё сделали правильно. При возникновении проблем, советуем вам перепройти шаги
+указанные выше, а также можете попрбовать вручную создать
+конфигурационный файл \sphinxcode{\sphinxupquote{sudo nano /etc/X11/xorg.conf.d/10\sphinxhyphen{}gpu.conf}} и прописать в него следующее:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+Section \PYG{l+s+s2}{\PYGZdq{}ServerLayout\PYGZdq{}}
+  Identifier \PYG{l+s+s2}{\PYGZdq{}layout\PYGZdq{}}
+  Screen \PYG{l+m}{0} \PYG{l+s+s2}{\PYGZdq{}intel\PYGZdq{}}
+  Inactive \PYG{l+s+s2}{\PYGZdq{}nvidia\PYGZdq{}}
+EndSection
+
+Section \PYG{l+s+s2}{\PYGZdq{}Device\PYGZdq{}}
+    Identifier  \PYG{l+s+s2}{\PYGZdq{}nvidia\PYGZdq{}}
+    Driver      \PYG{l+s+s2}{\PYGZdq{}nvidia\PYGZdq{}}
+    BusID       \PYG{l+s+s2}{\PYGZdq{}PCI:x:x:x\PYGZdq{}} \PYG{c+c1}{\PYGZsh{} Например: \PYGZdq{}PCI:1:0:0\PYGZdq{}}
+EndSection
+
+Section \PYG{l+s+s2}{\PYGZdq{}Screen\PYGZdq{}}
+    Identifier \PYG{l+s+s2}{\PYGZdq{}nvidia\PYGZdq{}}
+    Device \PYG{l+s+s2}{\PYGZdq{}nvidia\PYGZdq{}}
+EndSection
+
+Section \PYG{l+s+s2}{\PYGZdq{}Device\PYGZdq{}}
+    Identifier  \PYG{l+s+s2}{\PYGZdq{}intel\PYGZdq{}}
+    Driver      \PYG{l+s+s2}{\PYGZdq{}intel\PYGZdq{}}
+    BusID       \PYG{l+s+s2}{\PYGZdq{}PCI:x:x:x\PYGZdq{}}  \PYG{c+c1}{\PYGZsh{} Например: \PYGZdq{}PCI:0:2:0\PYGZdq{}}
+EndSection
+
+Section \PYG{l+s+s2}{\PYGZdq{}Screen\PYGZdq{}}
+    Identifier \PYG{l+s+s2}{\PYGZdq{}intel\PYGZdq{}}
+    Device \PYG{l+s+s2}{\PYGZdq{}intel\PYGZdq{}}
+EndSection
+
+Section \PYG{l+s+s2}{\PYGZdq{}Files\PYGZdq{}}
+    ModulePath \PYG{l+s+s2}{\PYGZdq{}/usr/lib/nvidia\PYGZdq{}}
+    ModulePath \PYG{l+s+s2}{\PYGZdq{}/usr/lib32/nvidia\PYGZdq{}}
+    ModulePath \PYG{l+s+s2}{\PYGZdq{}/usr/lib32/nvidia/xorg/modules\PYGZdq{}}
+    ModulePath \PYG{l+s+s2}{\PYGZdq{}/usr/lib32/xorg/modules\PYGZdq{}}
+    ModulePath \PYG{l+s+s2}{\PYGZdq{}/usr/lib64/nvidia/xorg/modules\PYGZdq{}}
+    ModulePath \PYG{l+s+s2}{\PYGZdq{}/usr/lib64/nvidia/xorg\PYGZdq{}}
+    ModulePath \PYG{l+s+s2}{\PYGZdq{}/usr/lib64/xorg/modules\PYGZdq{}}
+EndSection
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+В полях \sphinxstylestrong{"BusID"} вы должны указать собственные значения PCI ID в том формате, в котором они указаны в примере.
+Их вы можете узнать при помощи следующей команды: \sphinxcode{\sphinxupquote{lspci | grep VGA}} (для каждой видеокарты PCI ID будет первым набором цифр в строке).
+
+\sphinxAtStartPar
+Кроме того, если в качестве встроенной графики у вас видеочип от AMD, то в поле \sphinxstyleemphasis{"Driver"} вместо Intel вы должны
+указать либо \sphinxstyleemphasis{"ati"}, либо \sphinxstyleemphasis{"amdgpu"} в зависимости от того, какой из них поддерживает ваш видеочип (и предварительно
+установив пакеты \sphinxcode{\sphinxupquote{xf86\sphinxhyphen{}video\sphinxhyphen{}ati}} и \sphinxcode{\sphinxupquote{xf86\sphinxhyphen{}video\sphinxhyphen{}amdgpu}} соответственно).
+
+\sphinxAtStartPar
+Вот и всё. Данный вариант ещё называют \sphinxstyleemphasis{"Reverse PRIME"} (обратный PRIME).
+После этого у вас будет использоваться встроенная графика по умолчанию, а использовать дискретную графику
+вы можете выборочно, указав перед командой запуска желаемой программы уже упомянутую команду \sphinxcode{\sphinxupquote{prime\sphinxhyphen{}run}}.
+Например: \sphinxcode{\sphinxupquote{prime\sphinxhyphen{}run glxgears}}. Для игр в Steam добавляете команду в \sphinxstyleemphasis{"Свойствах"} игры: \sphinxcode{\sphinxupquote{prime\sphinxhyphen{}run \%command\%}}.
+В рабочем окружении GNOME, начиная с версии 3.36 есть дополнительный пункт в контекстном меню, который также позволяет
+вам запускать приложения с использованием дискретной графики.
+
+\begin{sphinxadmonition}{warning}{Предупреждение:}
+\sphinxAtStartPar
+Обращаем ваше внимание, что некоторые возможности дискретной графики в таком режиме несколько урезаны.
+Так, вы не сможете настроить ваши мониторы через nvidia\sphinxhyphen{}settings как это было указано в предыдущем разделе, ибо за подключение
+и обслуживание внешних мониторов отвечает встроенная графика. Исключается возможность разгона и ручного
+управления питанием дискретной видеокарты.
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Теперь второй вариант. Его я могу порекомендовать всем тем, кто:
+а) не хочет возни и возможных проблем с предыдущем вариантом
+б) хочет получить максимальную производительность
+
+\sphinxAtStartPar
+По сути, здесь мы делаем все тоже самое, что и в прошлом в варианте, просто меняя
+дискретную графику с встроенной местами. Опять же нужно создать конфигурационный файл
+\sphinxcode{\sphinxupquote{sudo nano /etc/X11/xorg.conf.d/10\sphinxhyphen{}gpu.conf}} и прописываем следующее:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+Section \PYG{l+s+s2}{\PYGZdq{}ServerLayout\PYGZdq{}}
+  Identifier \PYG{l+s+s2}{\PYGZdq{}layout\PYGZdq{}}
+  Screen \PYG{l+m}{0} \PYG{l+s+s2}{\PYGZdq{}nvidia\PYGZdq{}}
+  Inactive \PYG{l+s+s2}{\PYGZdq{}intel\PYGZdq{}}
+EndSection
+
+Section \PYG{l+s+s2}{\PYGZdq{}Device\PYGZdq{}}
+    Identifier  \PYG{l+s+s2}{\PYGZdq{}nvidia\PYGZdq{}}
+    Driver      \PYG{l+s+s2}{\PYGZdq{}nvidia\PYGZdq{}}
+    BusID       \PYG{l+s+s2}{\PYGZdq{}PCI:x:x:x\PYGZdq{}} \PYG{c+c1}{\PYGZsh{} Например: \PYGZdq{}PCI:1:0:0\PYGZdq{}}
+EndSection
+
+Section \PYG{l+s+s2}{\PYGZdq{}Screen\PYGZdq{}}
+    Identifier \PYG{l+s+s2}{\PYGZdq{}nvidia\PYGZdq{}}
+    Device \PYG{l+s+s2}{\PYGZdq{}nvidia\PYGZdq{}}
+EndSection
+
+Section \PYG{l+s+s2}{\PYGZdq{}Device\PYGZdq{}}
+    Identifier  \PYG{l+s+s2}{\PYGZdq{}intel\PYGZdq{}}
+    Driver      \PYG{l+s+s2}{\PYGZdq{}intel\PYGZdq{}}
+    BusID       \PYG{l+s+s2}{\PYGZdq{}PCI:x:x:x\PYGZdq{}}  \PYG{c+c1}{\PYGZsh{} Например: \PYGZdq{}PCI:0:2:0\PYGZdq{}}
+EndSection
+
+Section \PYG{l+s+s2}{\PYGZdq{}Screen\PYGZdq{}}
+    Identifier \PYG{l+s+s2}{\PYGZdq{}intel\PYGZdq{}}
+    Device \PYG{l+s+s2}{\PYGZdq{}intel\PYGZdq{}}
+EndSection
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+При работе с конфигурационным файлом делаем все тоже самое, что и в прошлый раз.
+Устанавливаем собственные значения \sphinxstyleemphasis{BusID}, при необходимости меняем драйвер
+встроенной видеокарты на нужный.
+
+\sphinxAtStartPar
+Перегружаемся, и снова смотрим выхлоп: \sphinxcode{\sphinxupquote{glxinfo | grep "OpenGL renderer"}}
+(в этот раз без nvidia\sphinxhyphen{}prime). У вас так же должно появиться упоминание
+вашей дискретной видеокарты.
+
+\sphinxAtStartPar
+В этом случае вся графика будет на плечах дискретной видеокарты, благодаря
+чему достигается максимальная производительность и снимаются ряд ограничений
+(панель nvidia\sphinxhyphen{}settings должна прибавить в возможностях).
+
+\sphinxAtStartPar
+Стоит отметить, что всё, что мы проделали выше \sphinxhyphen{} работает только для версии драйвера 435.17 и выше.
+При использовании драйвера ниже этой версии у вас по умолчанию должна использоваться только дискретная графика (?).
+
+\begin{sphinxadmonition}{attention}{Внимание:}
+\sphinxAtStartPar
+Да, многие на этом моменте могут сказать, что есть Bumblebee. Однако он признан морально устаревшим
+и более неподдерживаемым. Потому он имеет целый ряд проблем, в частности с производительностью. Автор не советует
+его использовать при любом раскладе. Лучше поиграться с частотами вашей дискретной видеокарты, дабы снизить энергопотребление.
+\end{sphinxadmonition}
+
+\index{nvidia@\spxentry{nvidia}}\index{hybrid\sphinxhyphen{}graphics@\spxentry{hybrid\sphinxhyphen{}graphics}}\index{laptops@\spxentry{laptops}}\ignorespaces 
+
+\subsection{Альтернатива попроще: optimus\sphinxhyphen{}manager}
+\label{\detokenize{source/first-steps:optimus-manager}}\label{\detokenize{source/first-steps:index-12}}\label{\detokenize{source/first-steps:id12}}
+\sphinxAtStartPar
+Если вы не хотите разбираться в этой теме подробно, и хотите просто поставить и забыть, то
+есть специальный помощник в этом \sphinxhyphen{} optimus\sphinxhyphen{}manager (\sphinxurl{https://github.com/Askannz/optimus-manager}),
+а также графическая обертка для него optimus\sphinxhyphen{}manager\sphinxhyphen{}qt.
+
+\sphinxAtStartPar
+Эта программа позволит вам быстро переключаться между различными режимами описанными выше и без танцев с бубном.
+Программа работает как для новых версий драйвера (выше 435.17), так и для старых (правда без гибридного режима).
+
+\noindent\sphinxincludegraphics{{tray-menu}.png}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Установка}
+
+\sphinxAtStartPar
+Для правильной работы перед установкой выполните ряд шагов:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Вы должны использовать один из популярных менеджеров входа: LightDM, SDDM или GDM (подробнее о нем ниже).
+
+\item {} 
+\sphinxAtStartPar
+Если ваше рабочее окружение это GNOME, то вам необходимо установить модифицированный пакет \sphinxhref{https://aur.archlinux.org/packages/gdm-prime}{gdm\sphinxhyphen{}prime} из AUR.
+Не забудьте отредактировать \sphinxcode{\sphinxupquote{sudo nano /etc/gdm/custom.conf}} и добавить строку \sphinxcode{\sphinxupquote{WaylandEnable=false}} чтобы форсировать отключение Wayland сессии.
+Напоминаю, что режим гибридной графики на данный момент не работает в Wayland. Совсем. Вообще.
+
+\item {} 
+\sphinxAtStartPar
+Полностью удалите \sphinxcode{\sphinxupquote{/etc/X11/xorg.conf}} или удалите в нем все строки связанные с настройкой GPU.
+Optimus\sphinxhyphen{}manager использует собственные настройки Xorg для правильной работы всех доступных режимов.
+
+\end{itemize}
+
+\sphinxAtStartPar
+Перейдем непосредственно к установке:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+git clone https://aur.archlinux.org/optimus\PYGZhy{}manager.git \PYG{c+c1}{\PYGZsh{} Скачивание исходников}
+\PYG{n+nb}{cd} optimus\PYGZhy{}manager                                      \PYG{c+c1}{\PYGZsh{} Переход в директорию}
+makepkg \PYGZhy{}sric                                           \PYG{c+c1}{\PYGZsh{} Сборка и установка}
+
+sudo systemctl \PYG{n+nb}{enable} optimus\PYGZhy{}manager.service \PYG{c+c1}{\PYGZsh{} Запускаем службу}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Дополнительно советуем установить графическую обертку:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+git clone https://github.com/Shatur/optimus\PYGZhy{}manager\PYGZhy{}qt  \PYG{c+c1}{\PYGZsh{} Скачивание исходников}
+\PYG{n+nb}{cd} optimus\PYGZhy{}manager\PYGZhy{}qt                                   \PYG{c+c1}{\PYGZsh{} Переход в директорию}
+\PYG{c+c1}{\PYGZsh{} Перед сборкой можете отредактировать PKGBUILD, заменив строку \PYGZus{}plasma=false на \PYGZus{}plasma=true.}
+\PYG{c+c1}{\PYGZsh{} Это улучшит совместимость с Plasma (если вы её используете).}
+makepkg \PYGZhy{}sric                                           \PYG{c+c1}{\PYGZsh{} Сборка и установка}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+После этого перезагрузитесь и запустив optimus\sphinxhyphen{}manager\sphinxhyphen{}qt выполните переключение в нужный вам режим.
+
 \index{monitor@\spxentry{monitor}}\index{overlocking@\spxentry{overlocking}}\index{refresh\sphinxhyphen{}rate@\spxentry{refresh\sphinxhyphen{}rate}}\ignorespaces 
 
 \section{Разгон монитора \sphinxstyleemphasis{(Для опытных пользователей)}}
-\label{\detokenize{source/first-steps:monitor-overlocking}}\label{\detokenize{source/first-steps:index-11}}\label{\detokenize{source/first-steps:id11}}
+\label{\detokenize{source/first-steps:monitor-overlocking}}\label{\detokenize{source/first-steps:index-13}}\label{\detokenize{source/first-steps:id13}}
 \sphinxAtStartPar
 Вопреки мнению многих людей, в Linux таки возможно выполнить разгон монитора.
 Пусть и с небольшим количеством манипуляций мы попробуем это сделать в данном разделе
@@ -486,7 +801,7 @@ makepkg \PYGZhy{}sric
 \index{monitor@\spxentry{monitor}}\index{overlocking@\spxentry{overlocking}}\index{refresh\sphinxhyphen{}rate@\spxentry{refresh\sphinxhyphen{}rate}}\index{amd@\spxentry{amd}}\index{intel@\spxentry{intel}}\index{mesa@\spxentry{mesa}}\ignorespaces 
 
 \subsection{Для видеокарт AMD/Intel}
-\label{\detokenize{source/first-steps:amd-intel}}\label{\detokenize{source/first-steps:monitor-overlocking-mesa}}\label{\detokenize{source/first-steps:index-12}}
+\label{\detokenize{source/first-steps:amd-intel}}\label{\detokenize{source/first-steps:monitor-overlocking-mesa}}\label{\detokenize{source/first-steps:index-14}}
 \sphinxAtStartPar
 Данный способ работает только для драйверов Mesa и Xorg.
 
@@ -567,7 +882,7 @@ EndSection
 \index{monitor@\spxentry{monitor}}\index{overlocking@\spxentry{overlocking}}\index{refresh\sphinxhyphen{}rate@\spxentry{refresh\sphinxhyphen{}rate}}\index{nvidia@\spxentry{nvidia}}\ignorespaces 
 
 \subsection{Для видеокарт NVIDIA}
-\label{\detokenize{source/first-steps:monitor-overlocking-nvidia}}\label{\detokenize{source/first-steps:index-13}}\label{\detokenize{source/first-steps:id13}}
+\label{\detokenize{source/first-steps:monitor-overlocking-nvidia}}\label{\detokenize{source/first-steps:index-15}}\label{\detokenize{source/first-steps:id15}}
 \sphinxAtStartPar
 Сейчас мы будем рассматривать вопрос разгона монитора только для видеокарт NVIDIA,
 т. к. у этого производителя есть некоторые проблемы с применением модельных линий Xorg напрямую через XRandr.
@@ -8919,7 +9234,7 @@ makepkg \PYGZhy{}sric \PYG{c+c1}{\PYGZsh{} Сборка и установка li
 \index{kernel@\spxentry{kernel}}\index{linux\sphinxhyphen{}cachyos@\spxentry{linux\sphinxhyphen{}cachyos}}\index{native\sphinxhyphen{}compilation@\spxentry{native\sphinxhyphen{}compilation}}\ignorespaces 
 
 \subsection{linux\sphinxhyphen{}cachyos}
-\label{\detokenize{source/custom-kernels:linux-cachyos}}\label{\detokenize{source/custom-kernels:index-5}}\label{\detokenize{source/custom-kernels:id7}}
+\label{\detokenize{source/custom-kernels:linux-cachyos}}\label{\detokenize{source/custom-kernels:linux-cachy}}\label{\detokenize{source/custom-kernels:index-5}}
 \sphinxAtStartPar
 \sphinxhref{https://github.com/CachyOS/linux-cachyos}{linux\sphinxhyphen{}cachyos} \sphinxhyphen{} добротная альтернатива
 всем остальным ядрам, также нацеленная на максимальную производительность вашей системы.
@@ -9069,7 +9384,7 @@ sudo pacman \PYGZhy{}Syu
 \index{kernel@\spxentry{kernel}}\index{configure@\spxentry{configure}}\ignorespaces 
 
 \section{Настройка ядра}
-\label{\detokenize{source/custom-kernels:manual-kernel-configuration}}\label{\detokenize{source/custom-kernels:index-6}}\label{\detokenize{source/custom-kernels:id9}}
+\label{\detokenize{source/custom-kernels:manual-kernel-configuration}}\label{\detokenize{source/custom-kernels:index-6}}\label{\detokenize{source/custom-kernels:id8}}
 \sphinxAtStartPar
 При нативной компиляции ядра обязательным этапом является его настройка.
 Хотя и заботливые сопровождающие кастомных ядер обычно уже заранее выполняют
