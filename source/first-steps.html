@@ -357,6 +357,18 @@ function checkPageExistsAndRedirect(event) {
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hybrid-graphics">
+   Гибридная графика в ноутбуках
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#optimus-manager">
+     Альтернатива попроще: optimus-manager
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#monitor-overlocking">
    Разгон монитора
    <em>
@@ -629,8 +641,218 @@ makepkg -sric
 а <em>&quot;NOTHING&quot;</em> дает больше FPS при этом увеличивая нагрузку на процессор.</p>
 </div>
 </div>
+<div class="section" id="hybrid-graphics">
+<span id="index-11"></span><span id="id11"></span><h2>Гибридная графика в ноутбуках<a class="headerlink" href="#hybrid-graphics" title="Ссылка на этот заголовок">#</a></h2>
+<p>Одной из самых больных проблем при использовании Linux на домашнем ноутбуке является гибридная графика.
+Конечно, в этой теме уже есть прогресс, и все не так плохо как кажется, но графическая подсистема по
+прежнему одна из самых (если не самая) проблемных частей любой Linux-системы.</p>
+<p>Тема сложная и с кучей подводных камней, поэтому сначала разберемся с основными понятиями.
+Гибридная графика - это когда у вас есть два графических процессора, которые могут работать
+одновременно. Такая конфигурация чаще всего представлена в ноутбуках, когда есть интегрированный
+(т.е. встроенный, iGPU) в процессор видеочип и дискретная видеокарта (dGPU), которая
+превосходит встроенную по характеристикам и нацелена на использование в высокопроизводительных
+задачах.</p>
+<p>Смысл такого разделения состоит в том, что мы можем использовать для малопрофильных задач встроенный видеочип,
+а когда появляется, так скажем, &quot;рыба покрупнее&quot;, и нужно выдавать максимальный FPS - используем дискретную графику.
+На ноутбуках это позволяет сильно экономить энергию и, следовательно, повысить время своей работы.</p>
+<p>Однако на практике такая система содержит много проблем. Главная из которых, это вопрос о том,
+как эти два GPU будут взаимодействовать между собой. И если в Windows эту проблему как-то решили,
+то в Linux к сожалению все не так просто. По итогу мы имеем несколько отдельных комбинаций
+производителей встроенных видеочипов и дискретной видеокарты. Вот три наиболее встречаемых случая
+(сначала встроенная графика, затем дискретная):</p>
+<ol class="arabic simple">
+<li><p>Intel + NVIDIA</p></li>
+<li><p>AMD + NVIDIA</p></li>
+<li><p>Intel + AMD</p></li>
+</ol>
+<p>Самыми распространенными из них являются первый и второй случай. Они же самые проблемные.
+Третий случай не должен вызывать у вас всяких проблем, ибо для обеих GPU могут использоваться
+открытые драйвера Mesa, которые должны работать из коробки. Вам нужно будет лишь использовать
+переменную окружения <code class="docutils literal notranslate"><span class="pre">DRI_PRIME=1</span></code> чтобы форсировать использование дискретной графики для нужного
+вам приложения. Например для игры в Steam вам достаточно в её свойствах указать <code class="docutils literal notranslate"><span class="pre">DRI_PRIME=1</span> <span class="pre">%command%</span></code>.</p>
+<p>Далее мы будем рассматривать только первые два случая, имеющие между собой один и тот же алгоритм действий.</p>
+<p>Итак, есть две возможные стратегии при связке NVIDIA + Intel, либо NVIDIA + AMD:</p>
+<ol class="arabic simple">
+<li><p>Мы используем встроенный механизм работы с гибридной графикой драйвера NVIDIA</p></li>
+<li><p>Мы уходим от гибридной графики, отключая один из возможны GPU и используем только
+дискретный/встроенный видеочип.</p></li>
+</ol>
+<p>Прежде чем мы начнем рассматривать первый и второй план-капкан, стоит выполнить некоторые обязательные
+шаги, если вы хотите чтобы графика в вашем ноутбуке работала правильно.</p>
+<ul class="simple">
+<li><p>Удостоверьтесь, что вы устновили все драйвера правильно, как для встроенной видеокарты, так
+и для NVIDIA (обязательно для NVIDIA!)</p></li>
+<li><p>Проверьте, правильно ли загружаются модули драйвера NVIDIA. Для этого выполните команду <code class="docutils literal notranslate"><span class="pre">lsmod</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">nvidia</span></code>.
+Если вывод команды НЕ пустой, то все в порядке.</p></li>
+<li><p>Включите DRM KMS для драйвера NVIDIA. Сделать это можно двумя способами: добавить параметр ядра <code class="docutils literal notranslate"><span class="pre">nvidia-drm.modeset=1</span></code>
+в конфигурацию вашего загрузчика, либо при помощи файла настройки. Создайте файл <code class="docutils literal notranslate"><span class="pre">/etc/modprobe.d/nvidia.conf</span></code> и пропишите
+в него следующее: <code class="docutils literal notranslate"><span class="pre">options</span> <span class="pre">nvidia_drm</span> <span class="pre">modeset=1</span></code>. И да, <strong>обязательно выполните обновление образов ядра через команду
+sudo mkinitcpio -P</strong>! Не забывайте об этом пожалуйста. Кроме того, вы можете целиком пропустить данный шаг, если ранее установили
+пакет nvidia-tweaks.</p></li>
+<li><p>Отключите параметр <code class="docutils literal notranslate"><span class="pre">Secure</span> <span class="pre">Boot</span></code> в настройках UEFI если вы ещё этого не сделали. Он может мешать загрузке драйвера NVIDIA.</p></li>
+<li><p>Установите утилиту XRandr: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">pacman</span> <span class="pre">-S</span> <span class="pre">xorg-xrandr</span></code></p></li>
+</ul>
+<p>Теперь рассмотрим первый вариант, т. е. использование встроенного механизма работы с гибридной графикой.
+Как ни странно, но если вы имеете дискретную видеокарту NVIDIA, у которой есть поддержка версии драйвера
+выше 435, то все должно работать прямо из коробки. Просто вы можете об этом не догадываться.</p>
+<p>Тем не менее, лучше все таки проверить, что все работает правильно, и вы можете сделать
+это через утилиту nvidia-prime:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S nvidia-prime
+prime-run glxinfo <span class="p">|</span> grep <span class="s2">&quot;OpenGL renderer&quot;</span>
+</pre></div>
+</div>
+<p>Если вывод последней команды даёт вам упоминание вашей дискретной видеокарты, значит
+вы всё сделали правильно. При возникновении проблем, советуем вам перепройти шаги
+указанные выше, а также можете попрбовать вручную создать
+конфигурационный файл <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">/etc/X11/xorg.conf.d/10-gpu.conf</span></code> и прописать в него следующее:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Section <span class="s2">&quot;ServerLayout&quot;</span>
+  Identifier <span class="s2">&quot;layout&quot;</span>
+  Screen <span class="m">0</span> <span class="s2">&quot;intel&quot;</span>
+  Inactive <span class="s2">&quot;nvidia&quot;</span>
+EndSection
+
+Section <span class="s2">&quot;Device&quot;</span>
+    Identifier  <span class="s2">&quot;nvidia&quot;</span>
+    Driver      <span class="s2">&quot;nvidia&quot;</span>
+    BusID       <span class="s2">&quot;PCI:x:x:x&quot;</span> <span class="c1"># Например: &quot;PCI:1:0:0&quot;</span>
+EndSection
+
+Section <span class="s2">&quot;Screen&quot;</span>
+    Identifier <span class="s2">&quot;nvidia&quot;</span>
+    Device <span class="s2">&quot;nvidia&quot;</span>
+EndSection
+
+Section <span class="s2">&quot;Device&quot;</span>
+    Identifier  <span class="s2">&quot;intel&quot;</span>
+    Driver      <span class="s2">&quot;intel&quot;</span>
+    BusID       <span class="s2">&quot;PCI:x:x:x&quot;</span>  <span class="c1"># Например: &quot;PCI:0:2:0&quot;</span>
+EndSection
+
+Section <span class="s2">&quot;Screen&quot;</span>
+    Identifier <span class="s2">&quot;intel&quot;</span>
+    Device <span class="s2">&quot;intel&quot;</span>
+EndSection
+
+Section <span class="s2">&quot;Files&quot;</span>
+    ModulePath <span class="s2">&quot;/usr/lib/nvidia&quot;</span>
+    ModulePath <span class="s2">&quot;/usr/lib32/nvidia&quot;</span>
+    ModulePath <span class="s2">&quot;/usr/lib32/nvidia/xorg/modules&quot;</span>
+    ModulePath <span class="s2">&quot;/usr/lib32/xorg/modules&quot;</span>
+    ModulePath <span class="s2">&quot;/usr/lib64/nvidia/xorg/modules&quot;</span>
+    ModulePath <span class="s2">&quot;/usr/lib64/nvidia/xorg&quot;</span>
+    ModulePath <span class="s2">&quot;/usr/lib64/xorg/modules&quot;</span>
+EndSection
+</pre></div>
+</div>
+<p>В полях <strong>&quot;BusID&quot;</strong> вы должны указать собственные значения PCI ID в том формате, в котором они указаны в примере.
+Их вы можете узнать при помощи следующей команды: <code class="docutils literal notranslate"><span class="pre">lspci</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">VGA</span></code> (для каждой видеокарты PCI ID будет первым набором цифр в строке).</p>
+<p>Кроме того, если в качестве встроенной графики у вас видеочип от AMD, то в поле <em>&quot;Driver&quot;</em> вместо Intel вы должны
+указать либо <em>&quot;ati&quot;</em>, либо <em>&quot;amdgpu&quot;</em> в зависимости от того, какой из них поддерживает ваш видеочип (и предварительно
+установив пакеты <code class="docutils literal notranslate"><span class="pre">xf86-video-ati</span></code> и <code class="docutils literal notranslate"><span class="pre">xf86-video-amdgpu</span></code> соответственно).</p>
+<p>Вот и всё. Данный вариант ещё называют <em>&quot;Reverse PRIME&quot;</em> (обратный PRIME).
+После этого у вас будет использоваться встроенная графика по умолчанию, а использовать дискретную графику
+вы можете выборочно, указав перед командой запуска желаемой программы уже упомянутую команду <code class="docutils literal notranslate"><span class="pre">prime-run</span></code>.
+Например: <code class="docutils literal notranslate"><span class="pre">prime-run</span> <span class="pre">glxgears</span></code>. Для игр в Steam добавляете команду в <em>&quot;Свойствах&quot;</em> игры: <code class="docutils literal notranslate"><span class="pre">prime-run</span> <span class="pre">%command%</span></code>.
+В рабочем окружении GNOME, начиная с версии 3.36 есть дополнительный пункт в контекстном меню, который также позволяет
+вам запускать приложения с использованием дискретной графики.</p>
+<div class="admonition warning">
+<p class="admonition-title">Предупреждение</p>
+<p>Обращаем ваше внимание, что некоторые возможности дискретной графики в таком режиме несколько урезаны.
+Так, вы не сможете настроить ваши мониторы через nvidia-settings как это было указано в предыдущем разделе, ибо за подключение
+и обслуживание внешних мониторов отвечает встроенная графика. Исключается возможность разгона и ручного
+управления питанием дискретной видеокарты.</p>
+</div>
+<p>Теперь второй вариант. Его я могу порекомендовать всем тем, кто:
+а) не хочет возни и возможных проблем с предыдущем вариантом
+б) хочет получить максимальную производительность</p>
+<p>По сути, здесь мы делаем все тоже самое, что и в прошлом в варианте, просто меняя
+дискретную графику с встроенной местами. Опять же нужно создать конфигурационный файл
+<code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">/etc/X11/xorg.conf.d/10-gpu.conf</span></code> и прописываем следующее:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Section <span class="s2">&quot;ServerLayout&quot;</span>
+  Identifier <span class="s2">&quot;layout&quot;</span>
+  Screen <span class="m">0</span> <span class="s2">&quot;nvidia&quot;</span>
+  Inactive <span class="s2">&quot;intel&quot;</span>
+EndSection
+
+Section <span class="s2">&quot;Device&quot;</span>
+    Identifier  <span class="s2">&quot;nvidia&quot;</span>
+    Driver      <span class="s2">&quot;nvidia&quot;</span>
+    BusID       <span class="s2">&quot;PCI:x:x:x&quot;</span> <span class="c1"># Например: &quot;PCI:1:0:0&quot;</span>
+EndSection
+
+Section <span class="s2">&quot;Screen&quot;</span>
+    Identifier <span class="s2">&quot;nvidia&quot;</span>
+    Device <span class="s2">&quot;nvidia&quot;</span>
+EndSection
+
+Section <span class="s2">&quot;Device&quot;</span>
+    Identifier  <span class="s2">&quot;intel&quot;</span>
+    Driver      <span class="s2">&quot;intel&quot;</span>
+    BusID       <span class="s2">&quot;PCI:x:x:x&quot;</span>  <span class="c1"># Например: &quot;PCI:0:2:0&quot;</span>
+EndSection
+
+Section <span class="s2">&quot;Screen&quot;</span>
+    Identifier <span class="s2">&quot;intel&quot;</span>
+    Device <span class="s2">&quot;intel&quot;</span>
+EndSection
+</pre></div>
+</div>
+<p>При работе с конфигурационным файлом делаем все тоже самое, что и в прошлый раз.
+Устанавливаем собственные значения <em>BusID</em>, при необходимости меняем драйвер
+встроенной видеокарты на нужный.</p>
+<p>Перегружаемся, и снова смотрим выхлоп: <code class="docutils literal notranslate"><span class="pre">glxinfo</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">&quot;OpenGL</span> <span class="pre">renderer&quot;</span></code>
+(в этот раз без nvidia-prime). У вас так же должно появиться упоминание
+вашей дискретной видеокарты.</p>
+<p>В этом случае вся графика будет на плечах дискретной видеокарты, благодаря
+чему достигается максимальная производительность и снимаются ряд ограничений
+(панель nvidia-settings должна прибавить в возможностях).</p>
+<p>Стоит отметить, что всё, что мы проделали выше - работает только для версии драйвера 435.17 и выше.
+При использовании драйвера ниже этой версии у вас по умолчанию должна использоваться только дискретная графика (?).</p>
+<div class="admonition attention">
+<p class="admonition-title">Внимание</p>
+<p>Да, многие на этом моменте могут сказать, что есть Bumblebee. Однако он признан морально устаревшим
+и более неподдерживаемым. Потому он имеет целый ряд проблем, в частности с производительностью. Автор не советует
+его использовать при любом раскладе. Лучше поиграться с частотами вашей дискретной видеокарты, дабы снизить энергопотребление.</p>
+</div>
+<div class="section" id="optimus-manager">
+<span id="index-12"></span><span id="id12"></span><h3>Альтернатива попроще: optimus-manager<a class="headerlink" href="#optimus-manager" title="Ссылка на этот заголовок">#</a></h3>
+<p>Если вы не хотите разбираться в этой теме подробно, и хотите просто поставить и забыть, то
+есть специальный помощник в этом - optimus-manager (<a class="reference external" href="https://github.com/Askannz/optimus-manager">https://github.com/Askannz/optimus-manager</a>),
+а также графическая обертка для него optimus-manager-qt.</p>
+<p>Эта программа позволит вам быстро переключаться между различными режимами описанными выше и без танцев с бубном.
+Программа работает как для новых версий драйвера (выше 435.17), так и для старых (правда без гибридного режима).</p>
+<img alt="https://raw.githubusercontent.com/Shatur95/optimus-manager-qt/master/screenshots/tray-menu.png" src="https://raw.githubusercontent.com/Shatur95/optimus-manager-qt/master/screenshots/tray-menu.png" />
+<p><strong>Установка</strong></p>
+<p>Для правильной работы перед установкой выполните ряд шагов:</p>
+<ul class="simple">
+<li><p>Вы должны использовать один из популярных менеджеров входа: LightDM, SDDM или GDM (подробнее о нем ниже).</p></li>
+<li><p>Если ваше рабочее окружение это GNOME, то вам необходимо установить модифицированный пакет <a class="reference external" href="https://aur.archlinux.org/packages/gdm-prime">gdm-prime</a> из AUR.
+Не забудьте отредактировать <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">/etc/gdm/custom.conf</span></code> и добавить строку <code class="docutils literal notranslate"><span class="pre">WaylandEnable=false</span></code> чтобы форсировать отключение Wayland сессии.
+Напоминаю, что режим гибридной графики на данный момент не работает в Wayland. Совсем. Вообще.</p></li>
+<li><p>Полностью удалите <code class="docutils literal notranslate"><span class="pre">/etc/X11/xorg.conf</span></code> или удалите в нем все строки связанные с настройкой GPU.
+Optimus-manager использует собственные настройки Xorg для правильной работы всех доступных режимов.</p></li>
+</ul>
+<p>Перейдем непосредственно к установке:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://aur.archlinux.org/optimus-manager.git <span class="c1"># Скачивание исходников</span>
+<span class="nb">cd</span> optimus-manager                                      <span class="c1"># Переход в директорию</span>
+makepkg -sric                                           <span class="c1"># Сборка и установка</span>
+
+sudo systemctl <span class="nb">enable</span> optimus-manager.service <span class="c1"># Запускаем службу</span>
+</pre></div>
+</div>
+<p>Дополнительно советуем установить графическую обертку:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/Shatur/optimus-manager-qt  <span class="c1"># Скачивание исходников</span>
+<span class="nb">cd</span> optimus-manager-qt                                   <span class="c1"># Переход в директорию</span>
+<span class="c1"># Перед сборкой можете отредактировать PKGBUILD, заменив строку _plasma=false на _plasma=true.</span>
+<span class="c1"># Это улучшит совместимость с Plasma (если вы её используете).</span>
+makepkg -sric                                           <span class="c1"># Сборка и установка</span>
+</pre></div>
+</div>
+<p>После этого перезагрузитесь и запустив optimus-manager-qt выполните переключение в нужный вам режим.</p>
+</div>
+</div>
 <div class="section" id="monitor-overlocking">
-<span id="index-11"></span><span id="id11"></span><h2>Разгон монитора <em>(Для опытных пользователей)</em><a class="headerlink" href="#monitor-overlocking" title="Ссылка на этот заголовок">#</a></h2>
+<span id="index-13"></span><span id="id13"></span><h2>Разгон монитора <em>(Для опытных пользователей)</em><a class="headerlink" href="#monitor-overlocking" title="Ссылка на этот заголовок">#</a></h2>
 <p>Вопреки мнению многих людей, в Linux таки возможно выполнить разгон монитора.
 Пусть и с небольшим количеством манипуляций мы попробуем это сделать в данном разделе
 для разных конфигураций оборудования.</p>
@@ -639,7 +861,7 @@ makepkg -sric
 <p>Описанные ниже способы не работают для Wayland сессий.</p>
 </div>
 <div class="section" id="amd-intel">
-<span id="monitor-overlocking-mesa"></span><span id="index-12"></span><h3>Для видеокарт AMD/Intel<a class="headerlink" href="#amd-intel" title="Ссылка на этот заголовок">#</a></h3>
+<span id="monitor-overlocking-mesa"></span><span id="index-14"></span><h3>Для видеокарт AMD/Intel<a class="headerlink" href="#amd-intel" title="Ссылка на этот заголовок">#</a></h3>
 <p>Данный способ работает только для драйверов Mesa и Xorg.</p>
 <p>Установим все необходимые компоненты:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S xorg-xrandr libxcvt
@@ -695,7 +917,7 @@ EndSection
 Об этом вы можете прочитать <a class="reference external" href="https://www.lushnikov.net/2021/07/31/%D0%A0%D0%B0%D0%B7%D0%B3%D0%BE%D0%BD%D1%8F%D0%B5%D0%BC-%D0%BC%D0%B0%D1%82%D1%80%D0%B8%D1%86%D1%83-%D0%BD%D0%BE%D1%83%D1%82%D0%B1%D1%83%D0%BA%D0%B0-%D1%81-%D0%B3%D1%80%D0%B0%D1%84%D0%B8%D0%BA%D0%BE/">в данной статье</a>.</p>
 </div>
 <div class="section" id="monitor-overlocking-nvidia">
-<span id="index-13"></span><span id="id13"></span><h3>Для видеокарт NVIDIA<a class="headerlink" href="#monitor-overlocking-nvidia" title="Ссылка на этот заголовок">#</a></h3>
+<span id="index-15"></span><span id="id15"></span><h3>Для видеокарт NVIDIA<a class="headerlink" href="#monitor-overlocking-nvidia" title="Ссылка на этот заголовок">#</a></h3>
 <p>Сейчас мы будем рассматривать вопрос разгона монитора только для видеокарт NVIDIA,
 т. к. у этого производителя есть некоторые проблемы с применением модельных линий Xorg напрямую через XRandr.</p>
 <p>Прежде всего, нужно узнать какой тип подключения у вашего монитора, сделать это можно при помощи утилиты xrandr:</p>
