@@ -587,7 +587,7 @@ prime\PYGZhy{}run glxinfo \PYG{p}{|} grep \PYG{l+s+s2}{\PYGZdq{}OpenGL renderer\
 \sphinxAtStartPar
 Если вывод последней команды даёт вам упоминание вашей дискретной видеокарты, значит
 вы всё сделали правильно. При возникновении проблем, советуем вам перепройти шаги
-указанные выше, а также можете попрбовать вручную создать
+указанные выше, а также можете попробовать вручную создать
 конфигурационный файл \sphinxcode{\sphinxupquote{sudo nano /etc/X11/xorg.conf.d/10\sphinxhyphen{}gpu.conf}} и прописать в него следующее:
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
@@ -701,7 +701,7 @@ EndSection
 встроенной видеокарты на нужный.
 
 \sphinxAtStartPar
-Перегружаемся, и снова смотрим выхлоп: \sphinxcode{\sphinxupquote{glxinfo | grep "OpenGL renderer"}}
+Перезагружаемся, и снова смотрим выхлоп: \sphinxcode{\sphinxupquote{glxinfo | grep "OpenGL renderer"}}
 (в этот раз без nvidia\sphinxhyphen{}prime). У вас так же должно появиться упоминание
 вашей дискретной видеокарты.
 
