@@ -269,7 +269,7 @@ linux-tkg
   makepkg -sric # Сборка и установка linux-tkg
 
 .. index:: kernel, linux-cachyos, native-compilation
-.. _linux-cachyos:
+.. _linux-cachy:
 
 --------------
 linux-cachyos
