@@ -703,7 +703,7 @@ prime-run glxinfo <span class="p">|</span> grep <span class="s2">&quot;OpenGL re
 </div>
 <p>Если вывод последней команды даёт вам упоминание вашей дискретной видеокарты, значит
 вы всё сделали правильно. При возникновении проблем, советуем вам перепройти шаги
-указанные выше, а также можете попрбовать вручную создать
+указанные выше, а также можете попробовать вручную создать
 конфигурационный файл <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">/etc/X11/xorg.conf.d/10-gpu.conf</span></code> и прописать в него следующее:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Section <span class="s2">&quot;ServerLayout&quot;</span>
   Identifier <span class="s2">&quot;layout&quot;</span>
@@ -800,7 +800,7 @@ EndSection
 <p>При работе с конфигурационным файлом делаем все тоже самое, что и в прошлый раз.
 Устанавливаем собственные значения <em>BusID</em>, при необходимости меняем драйвер
 встроенной видеокарты на нужный.</p>
-<p>Перегружаемся, и снова смотрим выхлоп: <code class="docutils literal notranslate"><span class="pre">glxinfo</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">&quot;OpenGL</span> <span class="pre">renderer&quot;</span></code>
+<p>Перезагружаемся, и снова смотрим выхлоп: <code class="docutils literal notranslate"><span class="pre">glxinfo</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">&quot;OpenGL</span> <span class="pre">renderer&quot;</span></code>
 (в этот раз без nvidia-prime). У вас так же должно появиться упоминание
 вашей дискретной видеокарты.</p>
 <p>В этом случае вся графика будет на плечах дискретной видеокарты, благодаря
