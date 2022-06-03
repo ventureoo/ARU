@@ -28,7 +28,7 @@
 
 ::
 
-  GRUB_CMDLINE_LINUX_DEFAULT="quiet splash noibrs tsx_async_abort=off rootfstype=btrfs lpj=3499912 raid=noautodetect elevator=noop mitigations=off preempt=none nowatchdog audit=0"
+  GRUB_CMDLINE_LINUX_DEFAULT="quiet splash rootfstype=btrfs lpj=3499912 raid=noautodetect elevator=noop mitigations=off preempt=none nowatchdog audit=0"
 
 
 ``sudo grub-mkconfig -o /boot/grub/grub.cfg``
