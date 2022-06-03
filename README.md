@@ -1,6 +1,8 @@
 # ARU
 
-Это помощник по настройке вашей системы Arch Linux с целью получить максимальную производительность и настроить систему для комфортной игры. Здесь вы также сможете найти руководства по оптимизации DE (рабочих окружений) GNOME/KDE/Cinnamon и немного для Xfce.  Проект не претендует на замену Arch Wiki, он лишь является практическим руководством, написаным на основе личного опыта его авторов.
+Это помощник по настройке вашей системы Arch Linux с целью получить максимальную производительность и настроить систему для комфортной игры.
+Здесь вы также можете найти руководства по оптимизации DE (рабочих окружений): GNOME/KDE/Cinnamon и немного для Xfce.
+Проект не претендует на замену Arch Wiki, он лишь является практическим руководством, написанным на основе личного опыта его авторов.
 
 Данный репозиторий является зеркалом, а ныне и основным хранилищем одноименного руководства из Google Docs.
 
@@ -17,10 +19,6 @@
 - [Сборка мини-ядра](https://ventureoo.github.io/ARU/source/mini-kernel.html)
 - [Оптимизация рабочего окружения (GNOME/Plasma/Xfce/Cinnamon)](https://ventureoo.github.io/ARU/source/de-optimizations.html)
 - [Полезные программы](https://ventureoo.github.io/ARU/source/useful-programs.html)
-
-## TODO:
-
-Почитать о планах на новый выпуск вы можете здесь - https://github.com/ventureoo/ARU/issues/59
 
 ## Обратная связь
 
@@ -41,6 +39,8 @@
 - [@holydrug](https://github.com/holydrug)
 
 - [@xtrahigh](https://github.com/xtrahigh) (https://github.com/ventureoo/ARU/pull/36)
+
+- [@Atmosphelen](https://github.com/Atmosphelen) (https://github.com/ventureoo/ARU/pull/66, https://github.com/ventureoo/ARU/pull/67)
 
 - [@Vochatrak-az-ezm](https://github.com/Vochatrak-az-ezm) (https://github.com/ventureoo/ARU/issues/72)
 
