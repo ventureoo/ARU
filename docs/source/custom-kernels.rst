@@ -269,13 +269,13 @@ linux-tkg
   makepkg -sric # Сборка и установка linux-tkg
 
 .. index:: kernel, linux-cachyos, native-compilation
-.. _linux-cachy:
+.. _linux-cachyos:
 
 --------------
 linux-cachyos
 --------------
 
-`linux-cachyos <https://github.com/CachyOS/linux-cachyos>`_ - добротная альтернатива
+`linux-cachyos <https://github.com/CachyOS/linux-cachyos>`__ - добротная альтернатива
 всем остальным ядрам, также нацеленная на максимальную производительность вашей системы.
 По субъективным ощущениям автора работает лучше чем Xanmod и TKG. Предлагает на выбор множество
 планировщиков CPU. Сочетает в себе патчи которые уже были описаны для других ядер. А именно:
