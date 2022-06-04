@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022/Arch Linux) (preloaded format=xelatex 2022.6.3)  3 JUN 2022 14:15
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022/Arch Linux) (preloaded format=xelatex 2022.6.4)  4 JUN 2022 15:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -3091,7 +3091,7 @@ Package rerunfilecheck Info: File `ARU.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  19134 strings out of 476156
- 385575 string characters out of 5814964
+ 385567 string characters out of 5814964
  1104573 words of memory out of 5000000
  39390 multiletter control sequences out of 15000+600000
  477537 words of font info for 155 fonts, out of 8000000 for 9000
