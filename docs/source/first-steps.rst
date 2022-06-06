@@ -424,6 +424,7 @@ Intel
   Section "Screen"
       Identifier "nvidia"
       Device "nvidia"
+      Option "AllowEmptyInitialConfiguration"
   EndSection
   
   Section "Device"
@@ -433,9 +434,8 @@ Intel
   EndSection
   
   Section "Screen"
-      Identifier "nvidia"
-      Device "nvidia"
-      Option "AllowEmptyInitialConfiguration"
+      Identifier "intel"
+      Device "intel"
   EndSection
 
 В полях **"BusID"** вы должны указать собственные значения PCI ID в том формате, в котором они указаны в примере.
