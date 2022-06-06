@@ -1733,6 +1733,11 @@ rw,relatime,ssd\PYGZus{}spread,space\PYGZus{}cache,max\PYGZus{}inline\PYG{o}{=}\
 \sphinxAtStartPar
 Но если вы хотите минимум возможных проблем, то оставьте флаг \sphinxstyleemphasis{relatime}.
 
+\begin{sphinxadmonition}{note}{Примечание:}
+\sphinxAtStartPar
+На накопителях, объемом более терабайта, \sphinxstyleemphasis{space\_cache} можно заменить на \sphinxstyleemphasis{space\_cache=v2}, что тоже даст определенную прибавку производительности.
+\end{sphinxadmonition}
+
 \sphinxAtStartPar
 Прописывать их нужно в файл \sphinxcode{\sphinxupquote{/etc/fstab}} для корневого и домашнего разделов.
 Некоторые из данных флагов будут применяться только для новых файлов.

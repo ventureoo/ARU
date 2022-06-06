@@ -52,77 +52,77 @@
 \contentsline {chapter}{\numberline {6}Файловые системы}{41}{chapter.6}%
 \contentsline {section}{\numberline {6.1}Нюансы выбора файловой системы и флагов монтирования}{41}{section.6.1}%
 \contentsline {subsection}{\numberline {6.1.1}Оптимальные флаги монтирования}{42}{subsection.6.1.1}%
-\contentsline {section}{\numberline {6.2}Сжатие в файловой системе Btrfs}{42}{section.6.2}%
+\contentsline {section}{\numberline {6.2}Сжатие в файловой системе Btrfs}{43}{section.6.2}%
 \contentsline {subsection}{\numberline {6.2.1}Определение эффективности сжатия}{44}{subsection.6.2.1}%
-\contentsline {subsection}{\numberline {6.2.2}Скорость обработки алгоритма zstd на примере AMD Ryzen 7 3700X}{44}{subsection.6.2.2}%
-\contentsline {subsection}{\numberline {6.2.3}Список протестированных игр на эффективность сжатия (Спасибо @dewdpol!)}{46}{subsection.6.2.3}%
+\contentsline {subsection}{\numberline {6.2.2}Скорость обработки алгоритма zstd на примере AMD Ryzen 7 3700X}{45}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2.3}Список протестированных игр на эффективность сжатия (Спасибо @dewdpol!)}{47}{subsection.6.2.3}%
 \contentsline {subsubsection}{\numberline {6.2.3.1}Промежуточные результаты}{53}{subsubsection.6.2.3.1}%
-\contentsline {chapter}{\numberline {7}Кастомные ядра}{54}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Выбор ядра}{54}{section.7.1}%
-\contentsline {subsection}{\numberline {7.1.1}linux\sphinxhyphen {}zen}{55}{subsection.7.1.1}%
-\contentsline {subsection}{\numberline {7.1.2}liquorix}{55}{subsection.7.1.2}%
-\contentsline {subsection}{\numberline {7.1.3}Xanmod}{58}{subsection.7.1.3}%
-\contentsline {subsection}{\numberline {7.1.4}linux\sphinxhyphen {}tkg}{59}{subsection.7.1.4}%
-\contentsline {subsection}{\numberline {7.1.5}linux\sphinxhyphen {}cachyos}{61}{subsection.7.1.5}%
-\contentsline {section}{\numberline {7.2}Настройка ядра}{63}{section.7.2}%
-\contentsline {section}{\numberline {7.3}Сборка ядра с помощью Clang + LTO}{80}{section.7.3}%
-\contentsline {chapter}{\numberline {8}Wine / Linux Gaming}{84}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Основные составляющие}{84}{section.8.1}%
-\contentsline {subsection}{\numberline {8.1.1}Что такое Wine?}{84}{subsection.8.1.1}%
-\contentsline {subsection}{\numberline {8.1.2}Сборки Wine}{85}{subsection.8.1.2}%
-\contentsline {subsubsection}{\numberline {8.1.2.1}Установка wine\sphinxhyphen {}staging вместе с зависимостями}{85}{subsubsection.8.1.2.1}%
-\contentsline {subsection}{\numberline {8.1.3}Альтернативные сборки Wine}{85}{subsection.8.1.3}%
-\contentsline {subsubsection}{\numberline {8.1.3.1}WINE\sphinxhyphen {}TKG}{86}{subsubsection.8.1.3.1}%
-\contentsline {subsubsection}{\numberline {8.1.3.2}\sphinxstyleemphasis {wine\sphinxhyphen {}tkg\sphinxhyphen {}userpatches}}{87}{subsubsection.8.1.3.2}%
-\contentsline {subsubsection}{\numberline {8.1.3.3}WINE\sphinxhyphen {}GE}{88}{subsubsection.8.1.3.3}%
-\contentsline {subsubsection}{\numberline {8.1.3.4}Proton\sphinxhyphen {}GE\sphinxhyphen {}Custom}{89}{subsubsection.8.1.3.4}%
-\contentsline {subsection}{\numberline {8.1.4}Использование Wine}{90}{subsection.8.1.4}%
-\contentsline {subsection}{\numberline {8.1.5}DXVK}{92}{subsection.8.1.5}%
-\contentsline {subsection}{\numberline {8.1.6}vkd3d}{93}{subsection.8.1.6}%
-\contentsline {subsection}{\numberline {8.1.7}Полезные ссылки по теме Wine и DXVK}{94}{subsection.8.1.7}%
-\contentsline {section}{\numberline {8.2}Дополнительные компоненты}{95}{section.8.2}%
-\contentsline {subsection}{\numberline {8.2.1}Lutris}{95}{subsection.8.2.1}%
-\contentsline {subsubsection}{\numberline {8.2.1.1}Использование Proton\sphinxhyphen {}GE\sphinxhyphen {}Custom в Lutris}{102}{subsubsection.8.2.1.1}%
-\contentsline {subsection}{\numberline {8.2.2}Gamemode}{103}{subsection.8.2.2}%
-\contentsline {subsection}{\numberline {8.2.3}AMD FidelityFX Super Resolution в Wine}{103}{subsection.8.2.3}%
-\contentsline {subsection}{\numberline {8.2.4}Использование DLSS с видеокартами NVIDIA через Proton}{106}{subsection.8.2.4}%
-\contentsline {subsection}{\numberline {8.2.5}Мониторинг FPS в играх.}{107}{subsection.8.2.5}%
-\contentsline {subsubsection}{\numberline {8.2.5.1}Mangohud}{107}{subsubsection.8.2.5.1}%
-\contentsline {subsubsection}{\numberline {8.2.5.2}Альтернатива: DXVK Hud (\sphinxstyleemphasis {Только для игр запускаемых через Wine/Proton})}{108}{subsubsection.8.2.5.2}%
-\contentsline {chapter}{\numberline {9}Сборка мини\sphinxhyphen {}ядра, и с чем это едят.}{109}{chapter.9}%
-\contentsline {section}{\numberline {9.1}Возможные часто встречаемые проблемы после установки мини\sphinxhyphen {}ядра}{110}{section.9.1}%
-\contentsline {chapter}{\numberline {10}Оптимизация рабочего окружения (DE)}{112}{chapter.10}%
-\contentsline {section}{\numberline {10.1}Запуск любой DE или WM без экранного менеджера \sphinxstyleemphasis {(Только для X11)}}{112}{section.10.1}%
-\contentsline {section}{\numberline {10.2}GNOME 3.XX/42}{113}{section.10.2}%
-\contentsline {subsection}{\numberline {10.2.1}Удаление мусора GNOME}{113}{subsection.10.2.1}%
-\contentsline {subsection}{\numberline {10.2.2}Отключение Tracker 3 в GNOME}{113}{subsection.10.2.2}%
-\contentsline {subsection}{\numberline {10.2.3}Отключение ненужных GSD служб GNOME}{114}{subsection.10.2.3}%
-\contentsline {subsection}{\numberline {10.2.4}gnome\sphinxhyphen {}shell\sphinxhyphen {}performance и mutter\sphinxhyphen {}performance}{116}{subsection.10.2.4}%
-\contentsline {subsection}{\numberline {10.2.5}Бонус: немного косметики}{116}{subsection.10.2.5}%
-\contentsline {subsection}{\numberline {10.2.6}Результат}{116}{subsection.10.2.6}%
-\contentsline {section}{\numberline {10.3}KDE Plasma 5}{117}{section.10.3}%
-\contentsline {subsection}{\numberline {10.3.1}Удаление мусора из Plasma 5}{118}{subsection.10.3.1}%
-\contentsline {subsection}{\numberline {10.3.2}Отключение Baloo в Plasma}{118}{subsection.10.3.2}%
-\contentsline {subsection}{\numberline {10.3.3}Отключение отладочной информации в KDE 5}{119}{subsection.10.3.3}%
-\contentsline {subsection}{\numberline {10.3.4}Отключение ненужных служб Plasma}{120}{subsection.10.3.4}%
-\contentsline {subsection}{\numberline {10.3.5}Настройка работы KWin для увеличения плавности}{122}{subsection.10.3.5}%
-\contentsline {subsection}{\numberline {10.3.6}Отключение композитинга для полноэкранных окон}{124}{subsection.10.3.6}%
-\contentsline {subsection}{\numberline {10.3.7}Отключение ненужных графических эффектов Plasma}{125}{subsection.10.3.7}%
-\contentsline {subsection}{\numberline {10.3.8}Результат}{126}{subsection.10.3.8}%
-\contentsline {section}{\numberline {10.4}Xfce4}{127}{section.10.4}%
-\contentsline {subsection}{\numberline {10.4.1}Удаление потенциально ненужных компонентов Xfce}{127}{subsection.10.4.1}%
-\contentsline {subsection}{\numberline {10.4.2}Отключение ненужных служб и приложений автозапуска}{128}{subsection.10.4.2}%
-\contentsline {subsection}{\numberline {10.4.3}Настройка композитора Xfwm4}{128}{subsection.10.4.3}%
-\contentsline {subsection}{\numberline {10.4.4}Результат}{130}{subsection.10.4.4}%
-\contentsline {section}{\numberline {10.5}Cinnamon}{130}{section.10.5}%
-\contentsline {subsection}{\numberline {10.5.1}Отключение ненужных CSD служб (НОВЫЙ СПОСОБ)}{130}{subsection.10.5.1}%
-\contentsline {subsection}{\numberline {10.5.2}Настройка композитора Muffin}{132}{subsection.10.5.2}%
-\contentsline {subsection}{\numberline {10.5.3}Отключение ненужных эффектов Muffin}{134}{subsection.10.5.3}%
-\contentsline {subsection}{\numberline {10.5.4}Результат}{135}{subsection.10.5.4}%
-\contentsline {chapter}{\numberline {11}Полезные программы}{136}{chapter.11}%
-\contentsline {section}{\numberline {11.1}Stacer}{136}{section.11.1}%
-\contentsline {section}{\numberline {11.2}Bleachbit}{137}{section.11.2}%
-\contentsline {section}{\numberline {11.3}Piper}{138}{section.11.3}%
-\contentsline {section}{\numberline {11.4}pam\_usb}{139}{section.11.4}%
-\contentsline {section}{\numberline {11.5}Bottles}{140}{section.11.5}%
-\contentsline {chapter}{Алфавитный указатель}{143}{section*.3}%
+\contentsline {chapter}{\numberline {7}Кастомные ядра}{55}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Выбор ядра}{55}{section.7.1}%
+\contentsline {subsection}{\numberline {7.1.1}linux\sphinxhyphen {}zen}{56}{subsection.7.1.1}%
+\contentsline {subsection}{\numberline {7.1.2}liquorix}{56}{subsection.7.1.2}%
+\contentsline {subsection}{\numberline {7.1.3}Xanmod}{59}{subsection.7.1.3}%
+\contentsline {subsection}{\numberline {7.1.4}linux\sphinxhyphen {}tkg}{60}{subsection.7.1.4}%
+\contentsline {subsection}{\numberline {7.1.5}linux\sphinxhyphen {}cachyos}{62}{subsection.7.1.5}%
+\contentsline {section}{\numberline {7.2}Настройка ядра}{64}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Сборка ядра с помощью Clang + LTO}{81}{section.7.3}%
+\contentsline {chapter}{\numberline {8}Wine / Linux Gaming}{85}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Основные составляющие}{85}{section.8.1}%
+\contentsline {subsection}{\numberline {8.1.1}Что такое Wine?}{85}{subsection.8.1.1}%
+\contentsline {subsection}{\numberline {8.1.2}Сборки Wine}{86}{subsection.8.1.2}%
+\contentsline {subsubsection}{\numberline {8.1.2.1}Установка wine\sphinxhyphen {}staging вместе с зависимостями}{86}{subsubsection.8.1.2.1}%
+\contentsline {subsection}{\numberline {8.1.3}Альтернативные сборки Wine}{86}{subsection.8.1.3}%
+\contentsline {subsubsection}{\numberline {8.1.3.1}WINE\sphinxhyphen {}TKG}{87}{subsubsection.8.1.3.1}%
+\contentsline {subsubsection}{\numberline {8.1.3.2}\sphinxstyleemphasis {wine\sphinxhyphen {}tkg\sphinxhyphen {}userpatches}}{88}{subsubsection.8.1.3.2}%
+\contentsline {subsubsection}{\numberline {8.1.3.3}WINE\sphinxhyphen {}GE}{89}{subsubsection.8.1.3.3}%
+\contentsline {subsubsection}{\numberline {8.1.3.4}Proton\sphinxhyphen {}GE\sphinxhyphen {}Custom}{90}{subsubsection.8.1.3.4}%
+\contentsline {subsection}{\numberline {8.1.4}Использование Wine}{91}{subsection.8.1.4}%
+\contentsline {subsection}{\numberline {8.1.5}DXVK}{93}{subsection.8.1.5}%
+\contentsline {subsection}{\numberline {8.1.6}vkd3d}{94}{subsection.8.1.6}%
+\contentsline {subsection}{\numberline {8.1.7}Полезные ссылки по теме Wine и DXVK}{95}{subsection.8.1.7}%
+\contentsline {section}{\numberline {8.2}Дополнительные компоненты}{96}{section.8.2}%
+\contentsline {subsection}{\numberline {8.2.1}Lutris}{96}{subsection.8.2.1}%
+\contentsline {subsubsection}{\numberline {8.2.1.1}Использование Proton\sphinxhyphen {}GE\sphinxhyphen {}Custom в Lutris}{103}{subsubsection.8.2.1.1}%
+\contentsline {subsection}{\numberline {8.2.2}Gamemode}{104}{subsection.8.2.2}%
+\contentsline {subsection}{\numberline {8.2.3}AMD FidelityFX Super Resolution в Wine}{104}{subsection.8.2.3}%
+\contentsline {subsection}{\numberline {8.2.4}Использование DLSS с видеокартами NVIDIA через Proton}{107}{subsection.8.2.4}%
+\contentsline {subsection}{\numberline {8.2.5}Мониторинг FPS в играх.}{108}{subsection.8.2.5}%
+\contentsline {subsubsection}{\numberline {8.2.5.1}Mangohud}{108}{subsubsection.8.2.5.1}%
+\contentsline {subsubsection}{\numberline {8.2.5.2}Альтернатива: DXVK Hud (\sphinxstyleemphasis {Только для игр запускаемых через Wine/Proton})}{109}{subsubsection.8.2.5.2}%
+\contentsline {chapter}{\numberline {9}Сборка мини\sphinxhyphen {}ядра, и с чем это едят.}{110}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Возможные часто встречаемые проблемы после установки мини\sphinxhyphen {}ядра}{111}{section.9.1}%
+\contentsline {chapter}{\numberline {10}Оптимизация рабочего окружения (DE)}{113}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Запуск любой DE или WM без экранного менеджера \sphinxstyleemphasis {(Только для X11)}}{113}{section.10.1}%
+\contentsline {section}{\numberline {10.2}GNOME 3.XX/42}{114}{section.10.2}%
+\contentsline {subsection}{\numberline {10.2.1}Удаление мусора GNOME}{114}{subsection.10.2.1}%
+\contentsline {subsection}{\numberline {10.2.2}Отключение Tracker 3 в GNOME}{114}{subsection.10.2.2}%
+\contentsline {subsection}{\numberline {10.2.3}Отключение ненужных GSD служб GNOME}{115}{subsection.10.2.3}%
+\contentsline {subsection}{\numberline {10.2.4}gnome\sphinxhyphen {}shell\sphinxhyphen {}performance и mutter\sphinxhyphen {}performance}{117}{subsection.10.2.4}%
+\contentsline {subsection}{\numberline {10.2.5}Бонус: немного косметики}{117}{subsection.10.2.5}%
+\contentsline {subsection}{\numberline {10.2.6}Результат}{117}{subsection.10.2.6}%
+\contentsline {section}{\numberline {10.3}KDE Plasma 5}{118}{section.10.3}%
+\contentsline {subsection}{\numberline {10.3.1}Удаление мусора из Plasma 5}{119}{subsection.10.3.1}%
+\contentsline {subsection}{\numberline {10.3.2}Отключение Baloo в Plasma}{119}{subsection.10.3.2}%
+\contentsline {subsection}{\numberline {10.3.3}Отключение отладочной информации в KDE 5}{120}{subsection.10.3.3}%
+\contentsline {subsection}{\numberline {10.3.4}Отключение ненужных служб Plasma}{121}{subsection.10.3.4}%
+\contentsline {subsection}{\numberline {10.3.5}Настройка работы KWin для увеличения плавности}{123}{subsection.10.3.5}%
+\contentsline {subsection}{\numberline {10.3.6}Отключение композитинга для полноэкранных окон}{125}{subsection.10.3.6}%
+\contentsline {subsection}{\numberline {10.3.7}Отключение ненужных графических эффектов Plasma}{126}{subsection.10.3.7}%
+\contentsline {subsection}{\numberline {10.3.8}Результат}{127}{subsection.10.3.8}%
+\contentsline {section}{\numberline {10.4}Xfce4}{128}{section.10.4}%
+\contentsline {subsection}{\numberline {10.4.1}Удаление потенциально ненужных компонентов Xfce}{128}{subsection.10.4.1}%
+\contentsline {subsection}{\numberline {10.4.2}Отключение ненужных служб и приложений автозапуска}{129}{subsection.10.4.2}%
+\contentsline {subsection}{\numberline {10.4.3}Настройка композитора Xfwm4}{129}{subsection.10.4.3}%
+\contentsline {subsection}{\numberline {10.4.4}Результат}{131}{subsection.10.4.4}%
+\contentsline {section}{\numberline {10.5}Cinnamon}{131}{section.10.5}%
+\contentsline {subsection}{\numberline {10.5.1}Отключение ненужных CSD служб (НОВЫЙ СПОСОБ)}{131}{subsection.10.5.1}%
+\contentsline {subsection}{\numberline {10.5.2}Настройка композитора Muffin}{133}{subsection.10.5.2}%
+\contentsline {subsection}{\numberline {10.5.3}Отключение ненужных эффектов Muffin}{135}{subsection.10.5.3}%
+\contentsline {subsection}{\numberline {10.5.4}Результат}{136}{subsection.10.5.4}%
+\contentsline {chapter}{\numberline {11}Полезные программы}{137}{chapter.11}%
+\contentsline {section}{\numberline {11.1}Stacer}{137}{section.11.1}%
+\contentsline {section}{\numberline {11.2}Bleachbit}{138}{section.11.2}%
+\contentsline {section}{\numberline {11.3}Piper}{139}{section.11.3}%
+\contentsline {section}{\numberline {11.4}pam\_usb}{140}{section.11.4}%
+\contentsline {section}{\numberline {11.5}Bottles}{141}{section.11.5}%
+\contentsline {chapter}{Алфавитный указатель}{144}{section*.3}%
