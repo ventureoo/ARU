@@ -644,8 +644,7 @@ EndSection
 
 Section \PYG{l+s+s2}{\PYGZdq{}Device\PYGZdq{}}
     Identifier  \PYG{l+s+s2}{\PYGZdq{}intel\PYGZdq{}}
-    Driver      \PYG{l+s+s2}{\PYGZdq{}intel\PYGZdq{}}
-    BusID       \PYG{l+s+s2}{\PYGZdq{}PCI:x:x:x\PYGZdq{}}  \PYG{c+c1}{\PYGZsh{} Например: \PYGZdq{}PCI:0:2:0\PYGZdq{}}
+    Driver      \PYG{l+s+s2}{\PYGZdq{}modesetting\PYGZdq{}}
 EndSection
 
 Section \PYG{l+s+s2}{\PYGZdq{}Screen\PYGZdq{}}
@@ -656,12 +655,7 @@ EndSection
 
 \sphinxAtStartPar
 В полях \sphinxstylestrong{"BusID"} вы должны указать собственные значения PCI ID в том формате, в котором они указаны в примере.
-Их вы можете узнать при помощи следующей команды: \sphinxcode{\sphinxupquote{lspci | grep VGA}} (для каждой видеокарты PCI ID будет первым набором цифр в строке).
-
-\sphinxAtStartPar
-Кроме того, если в качестве встроенной графики у вас видеочип от AMD, то в поле \sphinxstyleemphasis{"Driver"} вместо Intel вы должны
-указать либо \sphinxstyleemphasis{"ati"}, либо \sphinxstyleemphasis{"amdgpu"}, в зависимости от того, какой из них поддерживает ваш видеочип (и предварительно
-установив пакеты \sphinxcode{\sphinxupquote{xf86\sphinxhyphen{}video\sphinxhyphen{}ati}} и \sphinxcode{\sphinxupquote{xf86\sphinxhyphen{}video\sphinxhyphen{}amdgpu}} соответственно).
+Их вы можете узнать при помощи следующей команды: \sphinxcode{\sphinxupquote{lspci | grep VGA}} (PCI ID будет первым набором цифр в строке).
 
 \sphinxAtStartPar
 Перезагружаемся, и снова смотрим выхлоп: \sphinxcode{\sphinxupquote{glxinfo | grep "OpenGL renderer"}}
