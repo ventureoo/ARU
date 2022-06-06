@@ -743,8 +743,7 @@ EndSection
 
 Section <span class="s2">&quot;Device&quot;</span>
     Identifier  <span class="s2">&quot;intel&quot;</span>
-    Driver      <span class="s2">&quot;intel&quot;</span>
-    BusID       <span class="s2">&quot;PCI:x:x:x&quot;</span>  <span class="c1"># Например: &quot;PCI:0:2:0&quot;</span>
+    Driver      <span class="s2">&quot;modesetting&quot;</span>
 EndSection
 
 Section <span class="s2">&quot;Screen&quot;</span>
@@ -754,10 +753,7 @@ EndSection
 </pre></div>
 </div>
 <p>В полях <strong>&quot;BusID&quot;</strong> вы должны указать собственные значения PCI ID в том формате, в котором они указаны в примере.
-Их вы можете узнать при помощи следующей команды: <code class="docutils literal notranslate"><span class="pre">lspci</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">VGA</span></code> (для каждой видеокарты PCI ID будет первым набором цифр в строке).</p>
-<p>Кроме того, если в качестве встроенной графики у вас видеочип от AMD, то в поле <em>&quot;Driver&quot;</em> вместо Intel вы должны
-указать либо <em>&quot;ati&quot;</em>, либо <em>&quot;amdgpu&quot;</em>, в зависимости от того, какой из них поддерживает ваш видеочип (и предварительно
-установив пакеты <code class="docutils literal notranslate"><span class="pre">xf86-video-ati</span></code> и <code class="docutils literal notranslate"><span class="pre">xf86-video-amdgpu</span></code> соответственно).</p>
+Их вы можете узнать при помощи следующей команды: <code class="docutils literal notranslate"><span class="pre">lspci</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">VGA</span></code> (PCI ID будет первым набором цифр в строке).</p>
 <p>Перезагружаемся, и снова смотрим выхлоп: <code class="docutils literal notranslate"><span class="pre">glxinfo</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">&quot;OpenGL</span> <span class="pre">renderer&quot;</span></code>
 (в этот раз без nvidia-prime). У вас так же должно появиться упоминание
 вашей дискретной видеокарты.</p>
