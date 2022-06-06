@@ -703,52 +703,7 @@ prime-run glxinfo <span class="p">|</span> grep <span class="s2">&quot;OpenGL re
 </div>
 <p>Если вывод последней команды даёт вам упоминание вашей дискретной видеокарты, значит
 вы всё сделали правильно. При возникновении проблем, советуем вам перепройти шаги
-указанные выше, а также можете попробовать вручную создать
-конфигурационный файл <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">/etc/X11/xorg.conf.d/10-gpu.conf</span></code> и прописать в него следующее:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Section <span class="s2">&quot;ServerLayout&quot;</span>
-  Identifier <span class="s2">&quot;layout&quot;</span>
-  Screen <span class="m">0</span> <span class="s2">&quot;intel&quot;</span>
-  Inactive <span class="s2">&quot;nvidia&quot;</span>
-EndSection
-
-Section <span class="s2">&quot;Device&quot;</span>
-    Identifier  <span class="s2">&quot;nvidia&quot;</span>
-    Driver      <span class="s2">&quot;nvidia&quot;</span>
-    BusID       <span class="s2">&quot;PCI:x:x:x&quot;</span> <span class="c1"># Например: &quot;PCI:1:0:0&quot;</span>
-EndSection
-
-Section <span class="s2">&quot;Screen&quot;</span>
-    Identifier <span class="s2">&quot;nvidia&quot;</span>
-    Device <span class="s2">&quot;nvidia&quot;</span>
-EndSection
-
-Section <span class="s2">&quot;Device&quot;</span>
-    Identifier  <span class="s2">&quot;intel&quot;</span>
-    Driver      <span class="s2">&quot;intel&quot;</span>
-    BusID       <span class="s2">&quot;PCI:x:x:x&quot;</span>  <span class="c1"># Например: &quot;PCI:0:2:0&quot;</span>
-EndSection
-
-Section <span class="s2">&quot;Screen&quot;</span>
-    Identifier <span class="s2">&quot;intel&quot;</span>
-    Device <span class="s2">&quot;intel&quot;</span>
-EndSection
-
-Section <span class="s2">&quot;Files&quot;</span>
-    ModulePath <span class="s2">&quot;/usr/lib/nvidia&quot;</span>
-    ModulePath <span class="s2">&quot;/usr/lib32/nvidia&quot;</span>
-    ModulePath <span class="s2">&quot;/usr/lib32/nvidia/xorg/modules&quot;</span>
-    ModulePath <span class="s2">&quot;/usr/lib32/xorg/modules&quot;</span>
-    ModulePath <span class="s2">&quot;/usr/lib64/nvidia/xorg/modules&quot;</span>
-    ModulePath <span class="s2">&quot;/usr/lib64/nvidia/xorg&quot;</span>
-    ModulePath <span class="s2">&quot;/usr/lib64/xorg/modules&quot;</span>
-EndSection
-</pre></div>
-</div>
-<p>В полях <strong>&quot;BusID&quot;</strong> вы должны указать собственные значения PCI ID в том формате, в котором они указаны в примере.
-Их вы можете узнать при помощи следующей команды: <code class="docutils literal notranslate"><span class="pre">lspci</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">VGA</span></code> (для каждой видеокарты PCI ID будет первым набором цифр в строке).</p>
-<p>Кроме того, если в качестве встроенной графики у вас видеочип от AMD, то в поле <em>&quot;Driver&quot;</em> вместо Intel вы должны
-указать либо <em>&quot;ati&quot;</em>, либо <em>&quot;amdgpu&quot;</em>, в зависимости от того, какой из них поддерживает ваш видеочип (и предварительно
-установив пакеты <code class="docutils literal notranslate"><span class="pre">xf86-video-ati</span></code> и <code class="docutils literal notranslate"><span class="pre">xf86-video-amdgpu</span></code> соответственно).</p>
+указанные выше.</p>
 <p>Вот и всё. Данный вариант ещё называют <em>&quot;Reverse PRIME&quot;</em> (обратный PRIME).
 После этого у вас будет использоваться встроенная графика по умолчанию, а использовать дискретную графику
 вы можете выборочно, указав перед командой запуска желаемой программы уже упомянутую команду <code class="docutils literal notranslate"><span class="pre">prime-run</span></code>.
@@ -766,8 +721,8 @@ EndSection
 а) не хочет возни и возможных проблем с предыдущем вариантом
 б) хочет получить максимальную производительность</p>
 <p>По сути, здесь мы делаем все тоже самое, что и в прошлом в варианте, просто меняя
-дискретную графику с встроенной местами. Опять же нужно создать конфигурационный файл
-<code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">/etc/X11/xorg.conf.d/10-gpu.conf</span></code> и прописываем следующее:</p>
+дискретную графику со встроенной местами. Для этого необходимо создать конфигурационный файл
+<code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">/etc/X11/xorg.conf.d/10-gpu.conf</span></code> и прописать в него следующее:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Section <span class="s2">&quot;ServerLayout&quot;</span>
   Identifier <span class="s2">&quot;layout&quot;</span>
   Screen <span class="m">0</span> <span class="s2">&quot;nvidia&quot;</span>
@@ -797,9 +752,11 @@ Section <span class="s2">&quot;Screen&quot;</span>
 EndSection
 </pre></div>
 </div>
-<p>При работе с конфигурационным файлом делаем все тоже самое, что и в прошлый раз.
-Устанавливаем собственные значения <em>BusID</em>, при необходимости меняем драйвер
-встроенной видеокарты на нужный.</p>
+<p>В полях <strong>&quot;BusID&quot;</strong> вы должны указать собственные значения PCI ID в том формате, в котором они указаны в примере.
+Их вы можете узнать при помощи следующей команды: <code class="docutils literal notranslate"><span class="pre">lspci</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">VGA</span></code> (для каждой видеокарты PCI ID будет первым набором цифр в строке).</p>
+<p>Кроме того, если в качестве встроенной графики у вас видеочип от AMD, то в поле <em>&quot;Driver&quot;</em> вместо Intel вы должны
+указать либо <em>&quot;ati&quot;</em>, либо <em>&quot;amdgpu&quot;</em>, в зависимости от того, какой из них поддерживает ваш видеочип (и предварительно
+установив пакеты <code class="docutils literal notranslate"><span class="pre">xf86-video-ati</span></code> и <code class="docutils literal notranslate"><span class="pre">xf86-video-amdgpu</span></code> соответственно).</p>
 <p>Перезагружаемся, и снова смотрим выхлоп: <code class="docutils literal notranslate"><span class="pre">glxinfo</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">&quot;OpenGL</span> <span class="pre">renderer&quot;</span></code>
 (в этот раз без nvidia-prime). У вас так же должно появиться упоминание
 вашей дискретной видеокарты.</p>
