@@ -58,7 +58,7 @@
 
 
 \title{Arch Linux Optimization Guide (RU)}
-\date{июн. 04, 2022}
+\date{июн. 06, 2022}
 \release{2022.02.28}
 \author{Arch Linux Optimization Guide (RU)}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -595,57 +595,7 @@ prime\PYGZhy{}run glxinfo \PYG{p}{|} grep \PYG{l+s+s2}{\PYGZdq{}OpenGL renderer\
 \sphinxAtStartPar
 Если вывод последней команды даёт вам упоминание вашей дискретной видеокарты, значит
 вы всё сделали правильно. При возникновении проблем, советуем вам перепройти шаги
-указанные выше, а также можете попробовать вручную создать
-конфигурационный файл \sphinxcode{\sphinxupquote{sudo nano /etc/X11/xorg.conf.d/10\sphinxhyphen{}gpu.conf}} и прописать в него следующее:
-
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-Section \PYG{l+s+s2}{\PYGZdq{}ServerLayout\PYGZdq{}}
-  Identifier \PYG{l+s+s2}{\PYGZdq{}layout\PYGZdq{}}
-  Screen \PYG{l+m}{0} \PYG{l+s+s2}{\PYGZdq{}intel\PYGZdq{}}
-  Inactive \PYG{l+s+s2}{\PYGZdq{}nvidia\PYGZdq{}}
-EndSection
-
-Section \PYG{l+s+s2}{\PYGZdq{}Device\PYGZdq{}}
-    Identifier  \PYG{l+s+s2}{\PYGZdq{}nvidia\PYGZdq{}}
-    Driver      \PYG{l+s+s2}{\PYGZdq{}nvidia\PYGZdq{}}
-    BusID       \PYG{l+s+s2}{\PYGZdq{}PCI:x:x:x\PYGZdq{}} \PYG{c+c1}{\PYGZsh{} Например: \PYGZdq{}PCI:1:0:0\PYGZdq{}}
-EndSection
-
-Section \PYG{l+s+s2}{\PYGZdq{}Screen\PYGZdq{}}
-    Identifier \PYG{l+s+s2}{\PYGZdq{}nvidia\PYGZdq{}}
-    Device \PYG{l+s+s2}{\PYGZdq{}nvidia\PYGZdq{}}
-EndSection
-
-Section \PYG{l+s+s2}{\PYGZdq{}Device\PYGZdq{}}
-    Identifier  \PYG{l+s+s2}{\PYGZdq{}intel\PYGZdq{}}
-    Driver      \PYG{l+s+s2}{\PYGZdq{}intel\PYGZdq{}}
-    BusID       \PYG{l+s+s2}{\PYGZdq{}PCI:x:x:x\PYGZdq{}}  \PYG{c+c1}{\PYGZsh{} Например: \PYGZdq{}PCI:0:2:0\PYGZdq{}}
-EndSection
-
-Section \PYG{l+s+s2}{\PYGZdq{}Screen\PYGZdq{}}
-    Identifier \PYG{l+s+s2}{\PYGZdq{}intel\PYGZdq{}}
-    Device \PYG{l+s+s2}{\PYGZdq{}intel\PYGZdq{}}
-EndSection
-
-Section \PYG{l+s+s2}{\PYGZdq{}Files\PYGZdq{}}
-    ModulePath \PYG{l+s+s2}{\PYGZdq{}/usr/lib/nvidia\PYGZdq{}}
-    ModulePath \PYG{l+s+s2}{\PYGZdq{}/usr/lib32/nvidia\PYGZdq{}}
-    ModulePath \PYG{l+s+s2}{\PYGZdq{}/usr/lib32/nvidia/xorg/modules\PYGZdq{}}
-    ModulePath \PYG{l+s+s2}{\PYGZdq{}/usr/lib32/xorg/modules\PYGZdq{}}
-    ModulePath \PYG{l+s+s2}{\PYGZdq{}/usr/lib64/nvidia/xorg/modules\PYGZdq{}}
-    ModulePath \PYG{l+s+s2}{\PYGZdq{}/usr/lib64/nvidia/xorg\PYGZdq{}}
-    ModulePath \PYG{l+s+s2}{\PYGZdq{}/usr/lib64/xorg/modules\PYGZdq{}}
-EndSection
-\end{sphinxVerbatim}
-
-\sphinxAtStartPar
-В полях \sphinxstylestrong{"BusID"} вы должны указать собственные значения PCI ID в том формате, в котором они указаны в примере.
-Их вы можете узнать при помощи следующей команды: \sphinxcode{\sphinxupquote{lspci | grep VGA}} (для каждой видеокарты PCI ID будет первым набором цифр в строке).
-
-\sphinxAtStartPar
-Кроме того, если в качестве встроенной графики у вас видеочип от AMD, то в поле \sphinxstyleemphasis{"Driver"} вместо Intel вы должны
-указать либо \sphinxstyleemphasis{"ati"}, либо \sphinxstyleemphasis{"amdgpu"}, в зависимости от того, какой из них поддерживает ваш видеочип (и предварительно
-установив пакеты \sphinxcode{\sphinxupquote{xf86\sphinxhyphen{}video\sphinxhyphen{}ati}} и \sphinxcode{\sphinxupquote{xf86\sphinxhyphen{}video\sphinxhyphen{}amdgpu}} соответственно).
+указанные выше.
 
 \sphinxAtStartPar
 Вот и всё. Данный вариант ещё называют \sphinxstyleemphasis{"Reverse PRIME"} (обратный PRIME).
@@ -670,8 +620,8 @@ EndSection
 
 \sphinxAtStartPar
 По сути, здесь мы делаем все тоже самое, что и в прошлом в варианте, просто меняя
-дискретную графику с встроенной местами. Опять же нужно создать конфигурационный файл
-\sphinxcode{\sphinxupquote{sudo nano /etc/X11/xorg.conf.d/10\sphinxhyphen{}gpu.conf}} и прописываем следующее:
+дискретную графику со встроенной местами. Для этого необходимо создать конфигурационный файл
+\sphinxcode{\sphinxupquote{sudo nano /etc/X11/xorg.conf.d/10\sphinxhyphen{}gpu.conf}} и прописать в него следующее:
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 Section \PYG{l+s+s2}{\PYGZdq{}ServerLayout\PYGZdq{}}
@@ -704,9 +654,13 @@ EndSection
 \end{sphinxVerbatim}
 
 \sphinxAtStartPar
-При работе с конфигурационным файлом делаем все тоже самое, что и в прошлый раз.
-Устанавливаем собственные значения \sphinxstyleemphasis{BusID}, при необходимости меняем драйвер
-встроенной видеокарты на нужный.
+В полях \sphinxstylestrong{"BusID"} вы должны указать собственные значения PCI ID в том формате, в котором они указаны в примере.
+Их вы можете узнать при помощи следующей команды: \sphinxcode{\sphinxupquote{lspci | grep VGA}} (для каждой видеокарты PCI ID будет первым набором цифр в строке).
+
+\sphinxAtStartPar
+Кроме того, если в качестве встроенной графики у вас видеочип от AMD, то в поле \sphinxstyleemphasis{"Driver"} вместо Intel вы должны
+указать либо \sphinxstyleemphasis{"ati"}, либо \sphinxstyleemphasis{"amdgpu"}, в зависимости от того, какой из них поддерживает ваш видеочип (и предварительно
+установив пакеты \sphinxcode{\sphinxupquote{xf86\sphinxhyphen{}video\sphinxhyphen{}ati}} и \sphinxcode{\sphinxupquote{xf86\sphinxhyphen{}video\sphinxhyphen{}amdgpu}} соответственно).
 
 \sphinxAtStartPar
 Перезагружаемся, и снова смотрим выхлоп: \sphinxcode{\sphinxupquote{glxinfo | grep "OpenGL renderer"}}

@@ -7,267 +7,267 @@
 
 
   \lettergroup{A}
-  \item \spxentry{about}, \hyperpage{85}, \hyperpage{91}, \hyperpage{95}
-  \item \spxentry{alsa}, \hyperpage{30}
-  \item \spxentry{amd}, \hyperpage{6}, \hyperpage{8}, \hyperpage{18}, \hyperpage{32}, \hyperpage{33}, \hyperpage{104}
-  \item \spxentry{ananicy}, \hyperpage{28}
-  \item \spxentry{async}, \hyperpage{92}
-  \item \spxentry{audio}, \hyperpage{30}
+  \item \spxentry{about}, \hyperpage{84}, \hyperpage{90}, \hyperpage{94}
+  \item \spxentry{alsa}, \hyperpage{29}
+  \item \spxentry{amd}, \hyperpage{6}, \hyperpage{8}, \hyperpage{17}, \hyperpage{31}, \hyperpage{32}, \hyperpage{103}
+  \item \spxentry{ananicy}, \hyperpage{27}
+  \item \spxentry{async}, \hyperpage{91}
+  \item \spxentry{audio}, \hyperpage{29}
   \item \spxentry{aur}, \hyperpage{2}
-  \item \spxentry{auto\sphinxhyphen{}cpufreq}, \hyperpage{37}
+  \item \spxentry{auto\sphinxhyphen{}cpufreq}, \hyperpage{36}
 
   \indexspace
 
   \lettergroup{B}
-  \item \spxentry{baloo}, \hyperpage{119}
-  \item \spxentry{bar}, \hyperpage{32}
+  \item \spxentry{baloo}, \hyperpage{118}
+  \item \spxentry{bar}, \hyperpage{31}
   \item \spxentry{basic}, \hyperpage{5}
   \item \spxentry{basics}, \hyperpage{2}
-  \item \spxentry{bleachbit}, \hyperpage{138}
-  \item \spxentry{bootloader}, \hyperpage{40}
-  \item \spxentry{btrfs}, \hyperpage{42}, \hyperpage{43}, \hyperpage{47}, \hyperpage{54}
+  \item \spxentry{bleachbit}, \hyperpage{137}
+  \item \spxentry{bootloader}, \hyperpage{39}
+  \item \spxentry{btrfs}, \hyperpage{41}, \hyperpage{42}, \hyperpage{46}, \hyperpage{53}
 
   \indexspace
 
   \lettergroup{C}
-  \item \spxentry{ccache}, \hyperpage{27}
-  \item \spxentry{cinnamon}, \hyperpage{131}
-  \item \spxentry{cinnamon\sphinxhyphen{}settings\sphinxhyphen{}daemon}, \hyperpage{131}
-  \item \spxentry{clang}, \hyperpage{25}, \hyperpage{27}, \hyperpage{81}
+  \item \spxentry{ccache}, \hyperpage{26}
+  \item \spxentry{cinnamon}, \hyperpage{130}
+  \item \spxentry{cinnamon\sphinxhyphen{}settings\sphinxhyphen{}daemon}, \hyperpage{130}
+  \item \spxentry{clang}, \hyperpage{24}, \hyperpage{26}, \hyperpage{80}
   \item \spxentry{commands}, \hyperpage{2}
-  \item \spxentry{comperssion}, \hyperpage{44}
-  \item \spxentry{compositor}, \hyperpage{116}, \hyperpage{122}, \hyperpage{125}, \hyperpage{126}, \hyperpage{129}, \hyperpage{133}, \hyperpage{134}
-  \item \spxentry{compression}, \hyperpage{43}, \hyperpage{45}, \hyperpage{47}, \hyperpage{54}
-  \item \spxentry{compsize}, \hyperpage{44}
-  \item \spxentry{configure}, \hyperpage{64}
-  \item \spxentry{coredump}, \hyperpage{38}
-  \item \spxentry{cosmetics}, \hyperpage{117}
-  \item \spxentry{cpu}, \hyperpage{8}, \hyperpage{35}
-  \item \spxentry{cpupower}, \hyperpage{35}\hyperpage{37}
+  \item \spxentry{comperssion}, \hyperpage{43}
+  \item \spxentry{compositor}, \hyperpage{115}, \hyperpage{121}, \hyperpage{124}, \hyperpage{125}, \hyperpage{128}, \hyperpage{132}, \hyperpage{133}
+  \item \spxentry{compression}, \hyperpage{42}, \hyperpage{44}, \hyperpage{46}, \hyperpage{53}
+  \item \spxentry{compsize}, \hyperpage{43}
+  \item \spxentry{configure}, \hyperpage{63}
+  \item \spxentry{coredump}, \hyperpage{37}
+  \item \spxentry{cosmetics}, \hyperpage{116}
+  \item \spxentry{cpu}, \hyperpage{8}, \hyperpage{34}
+  \item \spxentry{cpupower}, \hyperpage{34}\hyperpage{36}
 
   \indexspace
 
   \lettergroup{D}
-  \item \spxentry{daemons}, \hyperpage{114}, \hyperpage{119}, \hyperpage{120}, \hyperpage{128}, \hyperpage{131}
-  \item \spxentry{dbus\sphinxhyphen{}broker}, \hyperpage{28}
-  \item \spxentry{debug}, \hyperpage{119}
-  \item \spxentry{de\sphinxhyphen{}optimizations}, \hyperpage{113}, \hyperpage{118}, \hyperpage{127}, \hyperpage{131}
-  \item \spxentry{dependencies}, \hyperpage{86}
-  \item \spxentry{dlss}, \hyperpage{107}
+  \item \spxentry{daemons}, \hyperpage{113}, \hyperpage{118}, \hyperpage{119}, \hyperpage{127}, \hyperpage{130}
+  \item \spxentry{dbus\sphinxhyphen{}broker}, \hyperpage{27}
+  \item \spxentry{debug}, \hyperpage{118}
+  \item \spxentry{de\sphinxhyphen{}optimizations}, \hyperpage{112}, \hyperpage{117}, \hyperpage{126}, \hyperpage{130}
+  \item \spxentry{dependencies}, \hyperpage{85}
+  \item \spxentry{dlss}, \hyperpage{106}
   \item \spxentry{driver}, \hyperpage{8}, \hyperpage{12}
   \item \spxentry{drivers}, \hyperpage{6}
-  \item \spxentry{dumps}, \hyperpage{38}
-  \item \spxentry{dxvk}, \hyperpage{92}, \hyperpage{95}, \hyperpage{108}, \hyperpage{109}
+  \item \spxentry{dumps}, \hyperpage{37}
+  \item \spxentry{dxvk}, \hyperpage{91}, \hyperpage{94}, \hyperpage{107}, \hyperpage{108}
 
   \indexspace
 
   \lettergroup{E}
-  \item \spxentry{effects}, \hyperpage{126}, \hyperpage{134}
+  \item \spxentry{effects}, \hyperpage{125}, \hyperpage{133}
   \item \spxentry{environment}, \hyperpage{12}
-  \item \spxentry{ext4}, \hyperpage{42}
+  \item \spxentry{ext4}, \hyperpage{41}
 
   \indexspace
 
   \lettergroup{F}
-  \item \spxentry{file\sphinxhyphen{}indexing}, \hyperpage{114}, \hyperpage{119}
-  \item \spxentry{flags}, \hyperpage{25}
-  \item \spxentry{fps}, \hyperpage{108}, \hyperpage{109}
-  \item \spxentry{frequencies}, \hyperpage{36}, \hyperpage{37}
-  \item \spxentry{fsr}, \hyperpage{104}
-  \item \spxentry{fstab}, \hyperpage{42}
+  \item \spxentry{file\sphinxhyphen{}indexing}, \hyperpage{113}, \hyperpage{118}
+  \item \spxentry{flags}, \hyperpage{24}
+  \item \spxentry{fps}, \hyperpage{107}, \hyperpage{108}
+  \item \spxentry{frequencies}, \hyperpage{35}, \hyperpage{36}
+  \item \spxentry{fsr}, \hyperpage{103}
+  \item \spxentry{fstab}, \hyperpage{41}
 
   \indexspace
 
   \lettergroup{G}
-  \item \spxentry{gamemode}, \hyperpage{96}, \hyperpage{103}
-  \item \spxentry{games}, \hyperpage{47}
-  \item \spxentry{gaming}, \hyperpage{85}, \hyperpage{86}, \hyperpage{88}, \hyperpage{90}, \hyperpage{92}, \hyperpage{93}, \hyperpage{95}, \hyperpage{96}, \hyperpage{103}, \hyperpage{104}, \hyperpage{107}, \hyperpage{141}
-  \item \spxentry{garbage\sphinxhyphen{}removal}, \hyperpage{114}, \hyperpage{118}, \hyperpage{128}, \hyperpage{137}, \hyperpage{138}
-  \item \spxentry{gnome}, \hyperpage{113}, \hyperpage{114}, \hyperpage{117}
-  \item \spxentry{gnome\sphinxhyphen{}control\sphinxhyphen{}center}, \hyperpage{114}
-  \item \spxentry{gnome\sphinxhyphen{}settings\sphinxhyphen{}daemon}, \hyperpage{114}
-  \item \spxentry{gnome\sphinxhyphen{}shell}, \hyperpage{116}
-  \item \spxentry{governor}, \hyperpage{35}\hyperpage{37}
+  \item \spxentry{gamemode}, \hyperpage{95}, \hyperpage{102}
+  \item \spxentry{games}, \hyperpage{46}
+  \item \spxentry{gaming}, \hyperpage{84}, \hyperpage{85}, \hyperpage{87}, \hyperpage{89}, \hyperpage{91}, \hyperpage{92}, \hyperpage{94}, \hyperpage{95}, \hyperpage{102}, \hyperpage{103}, \hyperpage{106}, \hyperpage{140}
+  \item \spxentry{garbage\sphinxhyphen{}removal}, \hyperpage{113}, \hyperpage{117}, \hyperpage{127}, \hyperpage{136}, \hyperpage{137}
+  \item \spxentry{gnome}, \hyperpage{112}, \hyperpage{113}, \hyperpage{116}
+  \item \spxentry{gnome\sphinxhyphen{}control\sphinxhyphen{}center}, \hyperpage{113}
+  \item \spxentry{gnome\sphinxhyphen{}settings\sphinxhyphen{}daemon}, \hyperpage{113}
+  \item \spxentry{gnome\sphinxhyphen{}shell}, \hyperpage{115}
+  \item \spxentry{governor}, \hyperpage{34}\hyperpage{36}
   \item \spxentry{gpg}, \hyperpage{4}
-  \item \spxentry{grub}, \hyperpage{40}
-  \item \spxentry{grub\sphinxhyphen{}customizer}, \hyperpage{40}
-  \item \spxentry{gui}, \hyperpage{36}
+  \item \spxentry{grub}, \hyperpage{39}
+  \item \spxentry{grub\sphinxhyphen{}customizer}, \hyperpage{39}
+  \item \spxentry{gui}, \hyperpage{35}
 
   \indexspace
 
   \lettergroup{H}
-  \item \spxentry{haveged}, \hyperpage{28}
-  \item \spxentry{hdd}, \hyperpage{31}
+  \item \spxentry{haveged}, \hyperpage{27}
+  \item \spxentry{hdd}, \hyperpage{30}
   \item \spxentry{helpers}, \hyperpage{2}
-  \item \spxentry{hibernation}, \hyperpage{38}
-  \item \spxentry{hybrid\sphinxhyphen{}graphics}, \hyperpage{13}, \hyperpage{17}
+  \item \spxentry{hibernation}, \hyperpage{37}
+  \item \spxentry{hybrid\sphinxhyphen{}graphics}, \hyperpage{13}, \hyperpage{16}
 
   \indexspace
 
   \lettergroup{I}
-  \item \spxentry{image\sphinxhyphen{}scaling}, \hyperpage{104}, \hyperpage{107}
+  \item \spxentry{image\sphinxhyphen{}scaling}, \hyperpage{103}, \hyperpage{106}
   \item \spxentry{initramfs}, \hyperpage{7}
-  \item \spxentry{installation}, \hyperpage{5}, \hyperpage{6}, \hyperpage{28}, \hyperpage{30}, \hyperpage{86}, \hyperpage{88}, \hyperpage{90}\hyperpage{93}, \hyperpage{96}, \hyperpage{103}, \hyperpage{108}, \hyperpage{109}, \hyperpage{116}
-  \item \spxentry{intel}, \hyperpage{6}, \hyperpage{8}, \hyperpage{18}
+  \item \spxentry{installation}, \hyperpage{5}, \hyperpage{6}, \hyperpage{27}, \hyperpage{29}, \hyperpage{85}, \hyperpage{87}, \hyperpage{89}\hyperpage{92}, \hyperpage{95}, \hyperpage{102}, \hyperpage{107}, \hyperpage{108}, \hyperpage{115}
+  \item \spxentry{intel}, \hyperpage{6}, \hyperpage{8}, \hyperpage{17}
 
   \indexspace
 
   \lettergroup{K}
-  \item \spxentry{kde}, \hyperpage{118}
-  \item \spxentry{kdebugdialog5}, \hyperpage{119}
-  \item \spxentry{kernel}, \hyperpage{38}, \hyperpage{55}, \hyperpage{56}, \hyperpage{58}, \hyperpage{60}, \hyperpage{62}, \hyperpage{64}, \hyperpage{81}, \hyperpage{109}
+  \item \spxentry{kde}, \hyperpage{117}
+  \item \spxentry{kdebugdialog5}, \hyperpage{118}
+  \item \spxentry{kernel}, \hyperpage{37}, \hyperpage{54}, \hyperpage{55}, \hyperpage{57}, \hyperpage{59}, \hyperpage{61}, \hyperpage{63}, \hyperpage{80}, \hyperpage{108}
   \item \spxentry{key}, \hyperpage{4}
-  \item \spxentry{kwin}, \hyperpage{122}, \hyperpage{125}, \hyperpage{126}
+  \item \spxentry{kwin}, \hyperpage{121}, \hyperpage{124}, \hyperpage{125}
 
   \indexspace
 
   \lettergroup{L}
-  \item \spxentry{laptops}, \hyperpage{13}, \hyperpage{17}
+  \item \spxentry{laptops}, \hyperpage{13}, \hyperpage{16}
   \item \spxentry{latency}, \hyperpage{12}
-  \item \spxentry{linux\sphinxhyphen{}cachyos}, \hyperpage{62}
-  \item \spxentry{linux\sphinxhyphen{}tkg}, \hyperpage{60}
-  \item \spxentry{liquorix}, \hyperpage{56}
-  \item \spxentry{llvm\sphinxhyphen{}bolt\sphinxhyphen{}builds}, \hyperpage{27}
-  \item \spxentry{lowlatency}, \hyperpage{30}, \hyperpage{92}, \hyperpage{122}, \hyperpage{125}, \hyperpage{126}, \hyperpage{129}, \hyperpage{133}, \hyperpage{134}
-  \item \spxentry{lqx}, \hyperpage{56}
-  \item \spxentry{lto}, \hyperpage{25}, \hyperpage{27}
-  \item \spxentry{lto native\sphinxhyphen{}compilation}, \hyperpage{81}
-  \item \spxentry{lutris}, \hyperpage{96}, \hyperpage{103}
-  \item \spxentry{lz4}, \hyperpage{31}
-  \item \spxentry{lzo}, \hyperpage{43}
+  \item \spxentry{linux\sphinxhyphen{}cachyos}, \hyperpage{61}
+  \item \spxentry{linux\sphinxhyphen{}tkg}, \hyperpage{59}
+  \item \spxentry{liquorix}, \hyperpage{55}
+  \item \spxentry{llvm\sphinxhyphen{}bolt\sphinxhyphen{}builds}, \hyperpage{26}
+  \item \spxentry{lowlatency}, \hyperpage{29}, \hyperpage{91}, \hyperpage{121}, \hyperpage{124}, \hyperpage{125}, \hyperpage{128}, \hyperpage{132}, \hyperpage{133}
+  \item \spxentry{lqx}, \hyperpage{55}
+  \item \spxentry{lto}, \hyperpage{24}, \hyperpage{26}
+  \item \spxentry{lto native\sphinxhyphen{}compilation}, \hyperpage{80}
+  \item \spxentry{lutris}, \hyperpage{95}, \hyperpage{102}
+  \item \spxentry{lz4}, \hyperpage{30}
+  \item \spxentry{lzo}, \hyperpage{42}
 
   \indexspace
 
   \lettergroup{M}
-  \item \spxentry{makepkg}, \hyperpage{25}, \hyperpage{27}
-  \item \spxentry{makepkg\sphinxhyphen{}conf}, \hyperpage{25}
-  \item \spxentry{mangohud}, \hyperpage{108}
-  \item \spxentry{mesa}, \hyperpage{18}
+  \item \spxentry{makepkg}, \hyperpage{24}, \hyperpage{26}
+  \item \spxentry{makepkg\sphinxhyphen{}conf}, \hyperpage{24}
+  \item \spxentry{mangohud}, \hyperpage{107}
+  \item \spxentry{mesa}, \hyperpage{17}
   \item \spxentry{microcode}, \hyperpage{8}
-  \item \spxentry{mini\sphinxhyphen{}kernel}, \hyperpage{109}, \hyperpage{111}
+  \item \spxentry{mini\sphinxhyphen{}kernel}, \hyperpage{108}, \hyperpage{110}
   \item \spxentry{mirrorlist}, \hyperpage{5}
-  \item \spxentry{mitigations\sphinxhyphen{}off}, \hyperpage{40}, \hyperpage{41}
-  \item \spxentry{mkinitcpio}, \hyperpage{7}, \hyperpage{31}
-  \item \spxentry{modprobed\sphinxhyphen{}db}, \hyperpage{109}, \hyperpage{111}
-  \item \spxentry{modules}, \hyperpage{7}, \hyperpage{109}, \hyperpage{111}
-  \item \spxentry{monitor}, \hyperpage{18}, \hyperpage{19}
-  \item \spxentry{monitoring}, \hyperpage{108}, \hyperpage{109}
-  \item \spxentry{mount}, \hyperpage{42}
-  \item \spxentry{mouse}, \hyperpage{139}
-  \item \spxentry{muffin}, \hyperpage{133}, \hyperpage{134}
+  \item \spxentry{mitigations\sphinxhyphen{}off}, \hyperpage{39}, \hyperpage{40}
+  \item \spxentry{mkinitcpio}, \hyperpage{7}, \hyperpage{30}
+  \item \spxentry{modprobed\sphinxhyphen{}db}, \hyperpage{108}, \hyperpage{110}
+  \item \spxentry{modules}, \hyperpage{7}, \hyperpage{108}, \hyperpage{110}
+  \item \spxentry{monitor}, \hyperpage{17}, \hyperpage{18}
+  \item \spxentry{monitoring}, \hyperpage{107}, \hyperpage{108}
+  \item \spxentry{mount}, \hyperpage{41}
+  \item \spxentry{mouse}, \hyperpage{138}
+  \item \spxentry{muffin}, \hyperpage{132}, \hyperpage{133}
   \item \spxentry{multilib}, \hyperpage{4}
-  \item \spxentry{mutter}, \hyperpage{116}
+  \item \spxentry{mutter}, \hyperpage{115}
 
   \indexspace
 
   \lettergroup{N}
-  \item \spxentry{native\sphinxhyphen{}compilation}, \hyperpage{25}, \hyperpage{27}, \hyperpage{55}, \hyperpage{56}, \hyperpage{58}, \hyperpage{60}, \hyperpage{62}, \hyperpage{86}, \hyperpage{88}, \hyperpage{90}, \hyperpage{92}, \hyperpage{93}
-  \item \spxentry{networkmanager}, \hyperpage{31}
-  \item \spxentry{no\sphinxhyphen{}display\sphinxhyphen{}manager}, \hyperpage{113}
-  \item \spxentry{nohang}, \hyperpage{28}
-  \item \spxentry{nvidia}, \hyperpage{6}, \hyperpage{8}, \hyperpage{12}, \hyperpage{13}, \hyperpage{17}, \hyperpage{19}, \hyperpage{107}
+  \item \spxentry{native\sphinxhyphen{}compilation}, \hyperpage{24}, \hyperpage{26}, \hyperpage{54}, \hyperpage{55}, \hyperpage{57}, \hyperpage{59}, \hyperpage{61}, \hyperpage{85}, \hyperpage{87}, \hyperpage{89}, \hyperpage{91}, \hyperpage{92}
+  \item \spxentry{networkmanager}, \hyperpage{30}
+  \item \spxentry{no\sphinxhyphen{}display\sphinxhyphen{}manager}, \hyperpage{112}
+  \item \spxentry{nohang}, \hyperpage{27}
+  \item \spxentry{nvidia}, \hyperpage{6}, \hyperpage{8}, \hyperpage{12}, \hyperpage{13}, \hyperpage{16}, \hyperpage{18}, \hyperpage{106}
 
   \indexspace
 
   \lettergroup{O}
-  \item \spxentry{options}, \hyperpage{42}
-  \item \spxentry{overlocking}, \hyperpage{18}, \hyperpage{19}
+  \item \spxentry{options}, \hyperpage{41}
+  \item \spxentry{overlocking}, \hyperpage{17}, \hyperpage{18}
 
   \indexspace
 
   \lettergroup{P}
   \item \spxentry{packages}, \hyperpage{5}
   \item \spxentry{packaging}, \hyperpage{2}
-  \item \spxentry{pacman}, \hyperpage{2}, \hyperpage{4}, \hyperpage{5}, \hyperpage{32}
-  \item \spxentry{parallel\sphinxhyphen{}downloading}, \hyperpage{32}
-  \item \spxentry{patch\sphinxhyphen{}off}, \hyperpage{40}
-  \item \spxentry{performance}, \hyperpage{35}\hyperpage{37}
-  \item \spxentry{pgo}, \hyperpage{27}
-  \item \spxentry{phoronix\sphinxhyphen{}test\sphinxhyphen{}suite}, \hyperpage{45}
-  \item \spxentry{pipewire}, \hyperpage{30}
-  \item \spxentry{plasma}, \hyperpage{118}\hyperpage{120}
-  \item \spxentry{plasma\sphinxhyphen{}pa}, \hyperpage{118}
-  \item \spxentry{polkit}, \hyperpage{38}
-  \item \spxentry{powerpill}, \hyperpage{32}
-  \item \spxentry{prefixes}, \hyperpage{91}, \hyperpage{141}
-  \item \spxentry{problems}, \hyperpage{111}
-  \item \spxentry{proton}, \hyperpage{90}, \hyperpage{103}, \hyperpage{107}
-  \item \spxentry{proton\sphinxhyphen{}ge\sphinxhyphen{}custom}, \hyperpage{103}
-  \item \spxentry{pusleaudio}, \hyperpage{30}
+  \item \spxentry{pacman}, \hyperpage{2}, \hyperpage{4}, \hyperpage{5}, \hyperpage{31}
+  \item \spxentry{parallel\sphinxhyphen{}downloading}, \hyperpage{31}
+  \item \spxentry{patch\sphinxhyphen{}off}, \hyperpage{39}
+  \item \spxentry{performance}, \hyperpage{34}\hyperpage{36}
+  \item \spxentry{pgo}, \hyperpage{26}
+  \item \spxentry{phoronix\sphinxhyphen{}test\sphinxhyphen{}suite}, \hyperpage{44}
+  \item \spxentry{pipewire}, \hyperpage{29}
+  \item \spxentry{plasma}, \hyperpage{117}\hyperpage{119}
+  \item \spxentry{plasma\sphinxhyphen{}pa}, \hyperpage{117}
+  \item \spxentry{polkit}, \hyperpage{37}
+  \item \spxentry{powerpill}, \hyperpage{31}
+  \item \spxentry{prefixes}, \hyperpage{90}, \hyperpage{140}
+  \item \spxentry{problems}, \hyperpage{110}
+  \item \spxentry{proton}, \hyperpage{89}, \hyperpage{102}, \hyperpage{106}
+  \item \spxentry{proton\sphinxhyphen{}ge\sphinxhyphen{}custom}, \hyperpage{102}
+  \item \spxentry{pusleaudio}, \hyperpage{29}
 
   \indexspace
 
   \lettergroup{R}
   \item \spxentry{reflector}, \hyperpage{5}
-  \item \spxentry{refresh\sphinxhyphen{}rate}, \hyperpage{18}, \hyperpage{19}
-  \item \spxentry{results}, \hyperpage{54}, \hyperpage{117}, \hyperpage{126}, \hyperpage{130}, \hyperpage{135}
-  \item \spxentry{rng\sphinxhyphen{}tools}, \hyperpage{28}
+  \item \spxentry{refresh\sphinxhyphen{}rate}, \hyperpage{17}, \hyperpage{18}
+  \item \spxentry{results}, \hyperpage{53}, \hyperpage{116}, \hyperpage{125}, \hyperpage{129}, \hyperpage{134}
+  \item \spxentry{rng\sphinxhyphen{}tools}, \hyperpage{27}
 
   \indexspace
 
   \lettergroup{S}
-  \item \spxentry{sam}, \hyperpage{32}
-  \item \spxentry{security}, \hyperpage{140}
-  \item \spxentry{service}, \hyperpage{31}, \hyperpage{114}, \hyperpage{120}, \hyperpage{128}, \hyperpage{131}
-  \item \spxentry{services}, \hyperpage{114}, \hyperpage{119}
-  \item \spxentry{settings}, \hyperpage{4}, \hyperpage{32}, \hyperpage{41}, \hyperpage{139}
-  \item \spxentry{stacer}, \hyperpage{137}
-  \item \spxentry{startup\sphinxhyphen{}acceleration}, \hyperpage{31}
+  \item \spxentry{sam}, \hyperpage{31}
+  \item \spxentry{security}, \hyperpage{139}
+  \item \spxentry{service}, \hyperpage{30}, \hyperpage{113}, \hyperpage{119}, \hyperpage{127}, \hyperpage{130}
+  \item \spxentry{services}, \hyperpage{113}, \hyperpage{118}
+  \item \spxentry{settings}, \hyperpage{4}, \hyperpage{31}, \hyperpage{40}, \hyperpage{138}
+  \item \spxentry{stacer}, \hyperpage{136}
+  \item \spxentry{startup\sphinxhyphen{}acceleration}, \hyperpage{30}
   \item \spxentry{steam}, \hyperpage{4}
-  \item \spxentry{suspend}, \hyperpage{38}
-  \item \spxentry{swap}, \hyperpage{38}
-  \item \spxentry{swapfile}, \hyperpage{38}
+  \item \spxentry{suspend}, \hyperpage{37}
+  \item \spxentry{swap}, \hyperpage{37}
+  \item \spxentry{swapfile}, \hyperpage{37}
 
   \indexspace
 
   \lettergroup{T}
-  \item \spxentry{test}, \hyperpage{44}, \hyperpage{45}, \hyperpage{47}, \hyperpage{54}
-  \item \spxentry{tracker3}, \hyperpage{114}
-  \item \spxentry{trim}, \hyperpage{28}
-  \item \spxentry{tweaks}, \hyperpage{12}, \hyperpage{33}
+  \item \spxentry{test}, \hyperpage{43}, \hyperpage{44}, \hyperpage{46}, \hyperpage{53}
+  \item \spxentry{tracker3}, \hyperpage{113}
+  \item \spxentry{trim}, \hyperpage{27}
+  \item \spxentry{tweaks}, \hyperpage{12}, \hyperpage{32}
 
   \indexspace
 
   \lettergroup{U}
-  \item \spxentry{usb}, \hyperpage{140}
-  \item \spxentry{useful\sphinxhyphen{}programs}, \hyperpage{137}\hyperpage{141}
-  \item \spxentry{userpatches}, \hyperpage{88}
+  \item \spxentry{usb}, \hyperpage{139}
+  \item \spxentry{useful\sphinxhyphen{}programs}, \hyperpage{136}\hyperpage{140}
+  \item \spxentry{userpatches}, \hyperpage{87}
 
   \indexspace
 
   \lettergroup{V}
   \item \spxentry{variables}, \hyperpage{12}
-  \item \spxentry{vkd3d}, \hyperpage{93}
-  \item \spxentry{vsync}, \hyperpage{122}, \hyperpage{129}, \hyperpage{133}
+  \item \spxentry{vkd3d}, \hyperpage{92}
+  \item \spxentry{vsync}, \hyperpage{121}, \hyperpage{128}, \hyperpage{132}
 
   \indexspace
 
   \lettergroup{W}
-  \item \spxentry{wine}, \hyperpage{4}, \hyperpage{85}, \hyperpage{86}, \hyperpage{88}, \hyperpage{91}, \hyperpage{93}, \hyperpage{95}, \hyperpage{141}
-  \item \spxentry{wine\sphinxhyphen{}builds}, \hyperpage{85}, \hyperpage{86}, \hyperpage{88}
-  \item \spxentry{wine\sphinxhyphen{}staging}, \hyperpage{86}
-  \item \spxentry{wine\sphinxhyphen{}tkg}, \hyperpage{86}, \hyperpage{88}
+  \item \spxentry{wine}, \hyperpage{4}, \hyperpage{84}, \hyperpage{85}, \hyperpage{87}, \hyperpage{90}, \hyperpage{92}, \hyperpage{94}, \hyperpage{140}
+  \item \spxentry{wine\sphinxhyphen{}builds}, \hyperpage{84}, \hyperpage{85}, \hyperpage{87}
+  \item \spxentry{wine\sphinxhyphen{}staging}, \hyperpage{85}
+  \item \spxentry{wine\sphinxhyphen{}tkg}, \hyperpage{85}, \hyperpage{87}
 
   \indexspace
 
   \lettergroup{X}
-  \item \spxentry{x11}, \hyperpage{113}
-  \item \spxentry{x11\sphinxhyphen{}unrediction}, \hyperpage{129}, \hyperpage{133}
-  \item \spxentry{x11\sphinxhyphen{}unredirection}, \hyperpage{125}
-  \item \spxentry{xanmod}, \hyperpage{58}
-  \item \spxentry{xfce}, \hyperpage{127}, \hyperpage{128}
-  \item \spxentry{xfce4}, \hyperpage{127}
-  \item \spxentry{xfwm}, \hyperpage{129}
+  \item \spxentry{x11}, \hyperpage{112}
+  \item \spxentry{x11\sphinxhyphen{}unrediction}, \hyperpage{128}, \hyperpage{132}
+  \item \spxentry{x11\sphinxhyphen{}unredirection}, \hyperpage{124}
+  \item \spxentry{xanmod}, \hyperpage{57}
+  \item \spxentry{xfce}, \hyperpage{126}, \hyperpage{127}
+  \item \spxentry{xfce4}, \hyperpage{126}
+  \item \spxentry{xfwm}, \hyperpage{128}
   \item \spxentry{xorg}, \hyperpage{8}
-  \item \spxentry{xorg\sphinxhyphen{}xinit}, \hyperpage{113}
+  \item \spxentry{xorg\sphinxhyphen{}xinit}, \hyperpage{112}
 
   \indexspace
 
   \lettergroup{Z}
-  \item \spxentry{zen}, \hyperpage{55}
-  \item \spxentry{zfs}, \hyperpage{42}
-  \item \spxentry{zib}, \hyperpage{43}
-  \item \spxentry{zram}, \hyperpage{28}
-  \item \spxentry{zstd}, \hyperpage{43}\hyperpage{45}
+  \item \spxentry{zen}, \hyperpage{54}
+  \item \spxentry{zfs}, \hyperpage{41}
+  \item \spxentry{zib}, \hyperpage{42}
+  \item \spxentry{zram}, \hyperpage{27}
+  \item \spxentry{zstd}, \hyperpage{42}\hyperpage{44}
 
 \end{sphinxtheindex}
