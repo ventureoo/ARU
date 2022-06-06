@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022/Arch Linux) (preloaded format=xelatex 2022.6.6)  6 JUN 2022 15:02
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022/Arch Linux) (preloaded format=xelatex 2022.6.6)  6 JUN 2022 18:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -3087,12 +3087,12 @@ The property list \__xpg_alias contains the pairs (without outer braces):
 >  {ru-petr1708/options}  =>  {spelling=old}.
  (./ARU.aux)
 Package rerunfilecheck Info: File `ARU.out' has not changed.
-(rerunfilecheck)             Checksum: A4C619ADE6B62D781414F122F5FA04EC;34236.
+(rerunfilecheck)             Checksum: B9174AF3A70EDD1A085001F4C9221536;34249.
  ) 
 Here is how much of TeX's memory you used:
  19134 strings out of 476156
- 385567 string characters out of 5814964
- 1103573 words of memory out of 5000000
+ 385572 string characters out of 5814964
+ 1104601 words of memory out of 5000000
  39390 multiletter control sequences out of 15000+600000
  477537 words of font info for 155 fonts, out of 8000000 for 9000
  1349 hyphenation exceptions out of 8191

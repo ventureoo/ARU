@@ -268,7 +268,7 @@ sudo pacman \PYGZhy{}S pcmanfm\PYGZhy{}gtk3 gvfs
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 sudo pacman \PYGZhy{}S nvidia\PYGZhy{}dkms nvidia\PYGZhy{}utils lib32\PYGZhy{}nvidia\PYGZhy{}utils nvidia\PYGZhy{}settings vulkan\PYGZhy{}icd\PYGZhy{}loader lib32\PYGZhy{}vulkan\PYGZhy{}icd\PYGZhy{}loader lib32\PYGZhy{}opencl\PYGZhy{}nvidia opencl\PYGZhy{}nvidia libxnvctrl
-sudo mkinitcpio \PYGZhy{}P \PYG{c+c1}{\PYGZsh{} Обновляем образы ядра}
+sudo mkinitcpio \PYGZhy{}P \PYG{c+c1}{\PYGZsh{} Обновляем образы initramfs}
 \end{sphinxVerbatim}
 
 
@@ -310,8 +310,8 @@ sudo pacman \PYGZhy{}S mesa lib32\PYGZhy{}mesa vulkan\PYGZhy{}intel lib32\PYGZhy
 
 \index{modules@\spxentry{modules}}\index{mkinitcpio@\spxentry{mkinitcpio}}\index{initramfs@\spxentry{initramfs}}\ignorespaces 
 
-\section{Добавление важных модулей в образы ядра}
-\label{\detokenize{source/first-steps:important-modules}}\label{\detokenize{source/first-steps:index-6}}\label{\detokenize{source/first-steps:id6}}
+\section{Добавление важных модулей в образы initramfs}
+\label{\detokenize{source/first-steps:initramfs}}\label{\detokenize{source/first-steps:important-modules}}\label{\detokenize{source/first-steps:index-6}}
 \sphinxAtStartPar
 Прежде чем мы начнем, необходимо добавить важные модули в загрузочный образ
 нашего ядра.
@@ -342,13 +342,13 @@ sudo pacman \PYGZhy{}S mesa lib32\PYGZhy{}mesa vulkan\PYGZhy{}intel lib32\PYGZhy
 \noindent{\hspace*{\fill}\sphinxincludegraphics{{image4}.png}\hspace*{\fill}}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-sudo mkinitcpio \PYGZhy{}P                                 \PYG{c+c1}{\PYGZsh{} Пересобираем наши образы ядра.}
+sudo mkinitcpio \PYGZhy{}P                                 \PYG{c+c1}{\PYGZsh{} Пересобираем образы initramfs.}
 \end{sphinxVerbatim}
 
 \index{cpu@\spxentry{cpu}}\index{intel@\spxentry{intel}}\index{amd@\spxentry{amd}}\index{microcode@\spxentry{microcode}}\ignorespaces 
 
 \section{Установка микрокода}
-\label{\detokenize{source/first-steps:microcode-installation}}\label{\detokenize{source/first-steps:index-7}}\label{\detokenize{source/first-steps:id7}}
+\label{\detokenize{source/first-steps:microcode-installation}}\label{\detokenize{source/first-steps:index-7}}\label{\detokenize{source/first-steps:id6}}
 \sphinxAtStartPar
 Микрокод \sphinxhyphen{} программа реализующая набор инструкций процессора.
 Она уже встроена в материнскую плату вашего компьютера,
@@ -365,14 +365,14 @@ sudo mkinitcpio \PYGZhy{}P                                 \PYG{c+c1}{\PYGZsh{} 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 sudo pacman \PYGZhy{}S intel\PYGZhy{}ucode                  \PYG{c+c1}{\PYGZsh{} Установить микрокод Intel}
 sudo pacman \PYGZhy{}S amd\PYGZhy{}ucode                    \PYG{c+c1}{\PYGZsh{} Установить микрокод AMD}
-sudo mkinitcpio \PYGZhy{}P                          \PYG{c+c1}{\PYGZsh{} Пересобираем образы ядра.}
+sudo mkinitcpio \PYGZhy{}P                          \PYG{c+c1}{\PYGZsh{} Пересобираем образы initramfs.}
 sudo grub\PYGZhy{}mkconfig \PYGZhy{}o /boot/grub/grub.cfg   \PYG{c+c1}{\PYGZsh{} Обновляем загрузчик, можно так же через grub\PYGZhy{}customizer.}
 \end{sphinxVerbatim}
 
 \index{nvidia@\spxentry{nvidia}}\index{driver@\spxentry{driver}}\index{xorg@\spxentry{xorg}}\ignorespaces 
 
 \section{Настройка драйвера NVIDIA}
-\label{\detokenize{source/first-steps:nvidia-driver-setup}}\label{\detokenize{source/first-steps:index-8}}\label{\detokenize{source/first-steps:id8}}
+\label{\detokenize{source/first-steps:nvidia-driver-setup}}\label{\detokenize{source/first-steps:index-8}}\label{\detokenize{source/first-steps:id7}}
 \sphinxAtStartPar
 После установки драйвера обязательно перезагрузитесь, откройте панель nvidia\sphinxhyphen{}settings, и выполните все шаги как показано на изображениях:
 
@@ -423,7 +423,7 @@ sudo mv \PYGZti{}/xorg.conf /etc/X11/xorg.conf
 \index{nvidia@\spxentry{nvidia}}\index{tweaks@\spxentry{tweaks}}\index{driver@\spxentry{driver}}\ignorespaces 
 
 \subsection{Твики драйвера NVIDIA}
-\label{\detokenize{source/first-steps:nvidia-tweaking}}\label{\detokenize{source/first-steps:index-9}}\label{\detokenize{source/first-steps:id9}}
+\label{\detokenize{source/first-steps:nvidia-tweaking}}\label{\detokenize{source/first-steps:index-9}}\label{\detokenize{source/first-steps:id8}}
 \sphinxAtStartPar
 По умолчанию в закрытом NVIDIA драйвере не используются некоторые скрытые оптимизации которые могут помочь с улучшением производительности и работоспособности видеокарты.
 
@@ -455,7 +455,7 @@ makepkg \PYGZhy{}sric
 \index{nvidia@\spxentry{nvidia}}\index{environment@\spxentry{environment}}\index{variables@\spxentry{variables}}\index{latency@\spxentry{latency}}\ignorespaces 
 
 \subsection{Специфические переменные окружения для драйвера NVIDIA}
-\label{\detokenize{source/first-steps:nvidia-env-vars}}\label{\detokenize{source/first-steps:index-10}}\label{\detokenize{source/first-steps:id10}}
+\label{\detokenize{source/first-steps:nvidia-env-vars}}\label{\detokenize{source/first-steps:index-10}}\label{\detokenize{source/first-steps:id9}}
 \sphinxAtStartPar
 Указать вы их можете либо в Lutris для конкретных игр, либо в \sphinxstyleemphasis{"Параметрах Запуска"} игры в Steam
 (\sphinxstyleemphasis{"Свойства"} \sphinxhyphen{}> \sphinxstyleemphasis{"Параметры запуска"}. После указания всех переменных обязательно добавьте в конце "\sphinxstyleemphasis{\%command\%}",
@@ -480,7 +480,7 @@ makepkg \PYGZhy{}sric
 \index{nvidia@\spxentry{nvidia}}\index{hybrid\sphinxhyphen{}graphics@\spxentry{hybrid\sphinxhyphen{}graphics}}\index{laptops@\spxentry{laptops}}\ignorespaces 
 
 \section{Гибридная графика в ноутбуках}
-\label{\detokenize{source/first-steps:hybrid-graphics}}\label{\detokenize{source/first-steps:index-11}}\label{\detokenize{source/first-steps:id11}}
+\label{\detokenize{source/first-steps:hybrid-graphics}}\label{\detokenize{source/first-steps:index-11}}\label{\detokenize{source/first-steps:id10}}
 \sphinxAtStartPar
 Одной из самых больных проблем при использовании Linux на домашнем ноутбуке является гибридная графика.
 Конечно, в этой теме уже есть прогресс, и все не так плохо как кажется, но графическая подсистема по
@@ -681,7 +681,7 @@ EndSection
 \index{nvidia@\spxentry{nvidia}}\index{hybrid\sphinxhyphen{}graphics@\spxentry{hybrid\sphinxhyphen{}graphics}}\index{laptops@\spxentry{laptops}}\ignorespaces 
 
 \subsection{Альтернатива попроще: optimus\sphinxhyphen{}manager}
-\label{\detokenize{source/first-steps:optimus-manager}}\label{\detokenize{source/first-steps:index-12}}\label{\detokenize{source/first-steps:id12}}
+\label{\detokenize{source/first-steps:optimus-manager}}\label{\detokenize{source/first-steps:index-12}}\label{\detokenize{source/first-steps:id11}}
 \sphinxAtStartPar
 Если вы не хотите разбираться в этой теме подробно, и хотите просто поставить и забыть, то
 есть специальный помощник в этом \sphinxhyphen{} \sphinxhref{https://github.com/Askannz/optimus-manager}{optimus\sphinxhyphen{}manager},
@@ -744,7 +744,7 @@ makepkg \PYGZhy{}sric                                           \PYG{c+c1}{\PYGZ
 \index{monitor@\spxentry{monitor}}\index{overlocking@\spxentry{overlocking}}\index{refresh\sphinxhyphen{}rate@\spxentry{refresh\sphinxhyphen{}rate}}\ignorespaces 
 
 \section{Разгон монитора \sphinxstyleemphasis{(Для опытных пользователей)}}
-\label{\detokenize{source/first-steps:monitor-overlocking}}\label{\detokenize{source/first-steps:index-13}}\label{\detokenize{source/first-steps:id13}}
+\label{\detokenize{source/first-steps:monitor-overlocking}}\label{\detokenize{source/first-steps:index-13}}\label{\detokenize{source/first-steps:id12}}
 \sphinxAtStartPar
 Вопреки мнению многих людей, в Linux таки возможно выполнить разгон монитора.
 Пусть и с небольшим количеством манипуляций мы попробуем это сделать в данном разделе
@@ -839,7 +839,7 @@ EndSection
 \index{monitor@\spxentry{monitor}}\index{overlocking@\spxentry{overlocking}}\index{refresh\sphinxhyphen{}rate@\spxentry{refresh\sphinxhyphen{}rate}}\index{nvidia@\spxentry{nvidia}}\ignorespaces 
 
 \subsection{Для видеокарт NVIDIA}
-\label{\detokenize{source/first-steps:monitor-overlocking-nvidia}}\label{\detokenize{source/first-steps:index-15}}\label{\detokenize{source/first-steps:id15}}
+\label{\detokenize{source/first-steps:monitor-overlocking-nvidia}}\label{\detokenize{source/first-steps:index-15}}\label{\detokenize{source/first-steps:id14}}
 \sphinxAtStartPar
 Сейчас мы будем рассматривать вопрос разгона монитора только для видеокарт NVIDIA,
 т. к. у этого производителя есть некоторые проблемы с применением модельных линий Xorg напрямую через XRandr.
