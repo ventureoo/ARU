@@ -136,7 +136,7 @@ NVIDIA
 ::
 
   sudo pacman -S nvidia-dkms nvidia-utils lib32-nvidia-utils nvidia-settings vulkan-icd-loader lib32-vulkan-icd-loader lib32-opencl-nvidia opencl-nvidia libxnvctrl
-  sudo mkinitcpio -P # Обновляем образы ядра
+  sudo mkinitcpio -P # Обновляем образы initramfs
 
 Nouveau (*Только для старых видеокарт*)
 ------------------------------------------
@@ -172,7 +172,7 @@ Intel
 .. _important-modules:
 
 ==============================================
-Добавление важных модулей в образы ядра
+Добавление важных модулей в образы initramfs
 ==============================================
 
 Прежде чем мы начнем, необходимо добавить важные модули в загрузочный образ
@@ -201,7 +201,7 @@ Intel
 
 ::
 
-  sudo mkinitcpio -P                                 # Пересобираем наши образы ядра.
+  sudo mkinitcpio -P                                 # Пересобираем образы initramfs.
 
 .. index:: cpu, intel, amd, microcode
 .. _microcode-installation:
@@ -222,7 +222,7 @@ Intel
 
   sudo pacman -S intel-ucode                  # Установить микрокод Intel
   sudo pacman -S amd-ucode                    # Установить микрокод AMD
-  sudo mkinitcpio -P                          # Пересобираем образы ядра.
+  sudo mkinitcpio -P                          # Пересобираем образы initramfs.
   sudo grub-mkconfig -o /boot/grub/grub.cfg   # Обновляем загрузчик, можно так же через grub-customizer.
 
 .. index:: nvidia, driver, xorg
