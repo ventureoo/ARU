@@ -1717,7 +1717,7 @@ sudo nano /etc/fstab    \PYG{c+c1}{\PYGZsh{} Уберите самую нижн�
 Описание каждого из них вы можете найти \sphinxhyphen{} \sphinxhref{https://zen.yandex.ru/media/id/5d8ac4740a451800acb6049f/linux-uskoriaem-sistemu-4-5e91d777378f6957923055b9}{здесь}.
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-rw,relatime,ssd,ssd\PYGZus{}spread,space\PYGZus{}cache\PYG{o}{=}v2,max\PYGZus{}inline\PYG{o}{=}\PYG{l+m}{256},commit\PYG{o}{=}\PYG{l+m}{600},nodatacow
+rw,relatime,ssd\PYGZus{}spread,space\PYGZus{}cache,max\PYGZus{}inline\PYG{o}{=}\PYG{l+m}{256},commit\PYG{o}{=}\PYG{l+m}{600},nodatacow
 \end{sphinxVerbatim}
 
 \sphinxAtStartPar
@@ -1732,9 +1732,6 @@ rw,relatime,ssd,ssd\PYGZus{}spread,space\PYGZus{}cache\PYG{o}{=}v2,max\PYGZus{}i
 
 \sphinxAtStartPar
 Но если вы хотите минимум возможных проблем, то оставьте флаг \sphinxstyleemphasis{relatime}.
-
-\sphinxAtStartPar
-\sphinxstyleemphasis{space\_cache} можно заменить на \sphinxstyleemphasis{space\_cache=v2}, что тоже даст определенную прибавку производительности.
 
 \sphinxAtStartPar
 Прописывать их нужно в файл \sphinxcode{\sphinxupquote{/etc/fstab}} для корневого и домашнего разделов.
