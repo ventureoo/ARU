@@ -58,7 +58,7 @@
 
 
 \title{Arch Linux Optimization Guide (RU)}
-\date{июн. 06, 2022}
+\date{июн. 07, 2022}
 \release{2022.02.28}
 \author{Arch Linux Optimization Guide (RU)}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -1173,6 +1173,13 @@ git clone https://aur.archlinux.org/zramswap.git  \PYG{c+c1}{\PYGZsh{} Скач�
 \PYG{n+nb}{cd} zramswap                                       \PYG{c+c1}{\PYGZsh{} Переход в zramswap.}
 makepkg \PYGZhy{}sric                                     \PYG{c+c1}{\PYGZsh{} Сборка и установка.}
 sudo systemctl \PYG{n+nb}{enable} \PYGZhy{}\PYGZhy{}now zramswap.service      \PYG{c+c1}{\PYGZsh{} Включаем службу.}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Чтобы немного ускорить работу zram рекомендуется также изменить алгоритм сжатия памяти:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{echo} \PYG{l+s+s2}{\PYGZdq{}ZRAM\PYGZus{}COMPRESSION\PYGZus{}ALGO=zstd\PYGZdq{}} \PYG{p}{|} sudo tee \PYGZhy{}a /etc/zramswap.conf
 \end{sphinxVerbatim}
 
 \sphinxAtStartPar
