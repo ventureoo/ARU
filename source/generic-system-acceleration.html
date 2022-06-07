@@ -538,6 +538,10 @@ makepkg -sric                                     <span class="c1"># Сборк�
 sudo systemctl <span class="nb">enable</span> --now zramswap.service      <span class="c1"># Включаем службу.</span>
 </pre></div>
 </div>
+<p>Чтобы немного ускорить работу zram рекомендуется также изменить алгоритм сжатия памяти:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;ZRAM_COMPRESSION_ALGO=zstd&quot;</span> <span class="p">|</span> sudo tee -a /etc/zramswap.conf
+</pre></div>
+</div>
 <p><strong>1.1</strong> <a class="reference external" href="https://github.com/hakavlad/nohang">Nohang</a>  — это демон повышающий производительность путём обработки и слежки за потреблением памяти.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://aur.archlinux.org/nohang-git.git <span class="c1"># Скачивание исходников.</span>
 <span class="nb">cd</span> nohang-git                                      <span class="c1"># Переход в nohang-git</span>
