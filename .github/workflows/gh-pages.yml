@@ -24,13 +24,13 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: ARU-${{ github.sha }}
-        path: docs/build/
+        path: docs/build/html/
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       if: github.ref == 'refs/heads/main'
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: docs/build/
+        publish_dir: docs/build/html/
         keep_files: true
   build-pdf:
     runs-on: ubuntu-latest
@@ -48,11 +48,11 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: ARU-${{ github.sha }}
-        path: docs/build/latex/ARU.pdf
+        path: docs/build/html/latex/ARU.pdf
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       if: github.ref == 'refs/heads/main'
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: docs/build/
+        publish_dir: docs/build/html/
         keep_files: true

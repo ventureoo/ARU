@@ -19,5 +19,5 @@ help:
 %: Makefile
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
-html: Makefile
-	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" . $(SPHINXOPTS) $(O)
+latexpdf: Makefile
+	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)/html" $(SPHINXOPTS) $(O)

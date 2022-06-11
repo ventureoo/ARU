@@ -74,9 +74,7 @@ html_theme_options = {
     "navbar_end": [ "theme-switcher", "version-switcher", "navbar-icon-links" ],
     "use_edit_page_button": True,
     "navbar_align": "content",
-    "pygment_light_style": "tango",
-    "pygment_dark_style": "native",
-    "page_sidebar_items": ["page-toc", "edit-this-page"],
+   "page_sidebar_items": ["page-toc", "edit-this-page"],
     "icon_links": [
         {
             "name": "GitHub",
@@ -123,7 +121,7 @@ html_show_sphinx = False
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
-html_css_files = ['css/custom.css']
+#html_css_files = ['css/custom.css']
 
 # -- Options for manual page output ---------------------------------------
 
