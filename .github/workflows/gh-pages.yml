@@ -15,7 +15,7 @@ jobs:
       run: |
          pacman-key --init
          pacman -Syu --noconfirm
-         pacman -S --noconfirm git python-sphinx python-pip ttf-dejavu
+         pacman -S --noconfirm git python-sphinx python-pip ttf-dejavu python-sphinx-copybutton
          pip install --upgrade pip
          pip install --upgrade pydata-sphinx-theme
          cd docs
@@ -41,7 +41,7 @@ jobs:
       run: |
          pacman-key --init
          pacman -Syu --noconfirm
-         pacman -S --noconfirm texlive-latexextra texlive-fontsextra git texlive-core python-sphinx ttf-dejavu
+         pacman -S --noconfirm texlive-latexextra texlive-fontsextra git texlive-core python-sphinx ttf-dejavu python-sphinx-copybutton
          cd docs
          make --no-keep-going latexpdf
     - name: Upload artifacts
