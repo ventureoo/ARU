@@ -8,18 +8,19 @@ on:
 jobs:
   build-html:
     runs-on: ubuntu-latest
+    container: archlinux:base-devel
     steps:
-    - uses: actions/checkout@v3
-    - name: Upgrade PIP
-      run: |
-         pip install --upgrade pip
-    - uses: actions/checkout@v3
+   - uses: actions/checkout@v3
     - name: Build HTML
-      uses: ammaraskar/sphinx-action@master
-      with:
-        docs-folder: "docs/"
-        build-command: "sphinx-build -b html . build"
-    - name: Upload artifacts
+      run: |
+         pacman-key --init
+         pacman -Syu --noconfirm
+         pacman -S --noconfirm git texlive-core python-sphinx python-pip ttf-dejavu
+         pip install --upgrade pip
+         pip install --upgrade pydata-sphinx-theme
+         cd docs
+         make --no-keep-going html
+   - name: Upload artifacts
       uses: actions/upload-artifact@v2
       with:
         name: ARU-${{ github.sha }}
@@ -35,14 +36,14 @@ jobs:
     runs-on: ubuntu-latest
     container: archlinux:base-devel
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Build PDF
       run: |
          pacman-key --init
          pacman -Syu --noconfirm
          pacman -S --noconfirm texlive-latexextra texlive-fontsextra git texlive-core python-sphinx ttf-dejavu
          cd docs
-         make latexpdf
+         make --no-keep-going latexpdf
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
       with:
