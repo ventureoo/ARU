@@ -1,0 +1,819 @@
+
+<!DOCTYPE html>
+
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Базовое ускорение системы &#8212; Руководство по оптимизации Arch Linux</title>
+<script>
+  document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+  document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
+</script>
+
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=92025949c220c2e29695" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=92025949c220c2e29695" rel="stylesheet">
+
+
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
+
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/translations.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
+    <link rel="search" title="Поиск" href="../search.html" />
+    <link rel="next" title="Экстра оптимизации" href="extra-optimizations.html" />
+    <link rel="prev" title="Первые шаги" href="first-steps.html" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="docsearch:language" content="ru">
+  </head>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="light">
+    <div class="bd-header-announcement container-fluid" id="banner">
+      
+
+    </div>
+
+    
+    <nav class="bd-header navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="bd-header__inner container-xl">
+
+  <div id="navbar-start">
+    
+    
+  
+
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Руководство по оптимизации Arch Linux</p>
+  
+</a>
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="fas fa-bars"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <div class="dropdown" id="version_switcher">
+    <button type="button" class="btn btn-sm navbar-btn dropdown-toggle" id="version_switcher_button" data-toggle="dropdown">
+        latest  <!-- this text may get changed later by javascript -->
+        <span class="caret"></span>
+    </button>
+    <div id="version_switcher_menu" class="dropdown-menu list-group-flush py-0" aria-labelledby="version_switcher_button">
+    <!-- dropdown will be populated by javascript on page load -->
+    </div>
+</div>
+
+<!-- NOTE: this JS must live here (not in our global JS file) because it relies
+     on being processed by Jinja before it is run (specifically for replacing
+     variables source/generic-system-acceleration and {'json_url': 'https://ventureoo.github.io/ARU/_static/switcher.json', 'version_match': 'latest'}.
+-->
+
+<script type="text/javascript">
+// Check if corresponding page path exists in other version of docs
+// and, if so, go there instead of the homepage of the other docs version
+function checkPageExistsAndRedirect(event) {
+    const currentFilePath = "source/generic-system-acceleration.html",
+          tryUrl = event.target.getAttribute("href");
+    let otherDocsHomepage = tryUrl.replace(currentFilePath, "");
+    $.ajax({
+        type: 'HEAD',
+        url: tryUrl,
+        // if the page exists, go there
+        success: function() {
+            location.href = tryUrl;
+        }
+    }).fail(function() {
+        location.href = otherDocsHomepage;
+    });
+    // this prevents the browser from following the href of the clicked node
+    // (which is fine because this function takes care of redirecting)
+    return false;
+}
+
+// Populate the version switcher from the JSON config file
+(function () {
+    $.getJSON("https://ventureoo.github.io/ARU/_static/switcher.json", function(data, textStatus, jqXHR) {
+        const currentFilePath = "source/generic-system-acceleration.html";
+        let btn = document.getElementById("version_switcher_button");
+        // Set empty strings by default so that these attributes exist and can be used in CSS selectors
+        btn.dataset["activeVersionName"] = "";
+        btn.dataset["activeVersion"] = "";
+        // create links to the corresponding page in the other docs versions
+        $.each(data, function(index, entry) {
+            // if no custom name specified (e.g., "latest"), use version string
+            if (!("name" in entry)) {
+                entry.name = entry.version;
+            }
+            // create the node
+            const node = document.createElement("a");
+            node.setAttribute("class", "list-group-item list-group-item-action py-1");
+            node.textContent = `${entry.name}`;
+            node.setAttribute("href", `${entry.url}${currentFilePath}`);
+            // on click, AJAX calls will check if the linked page exists before
+            // trying to redirect, and if not, will redirect to the homepage
+            // for that version of the docs.
+            node.onclick = checkPageExistsAndRedirect;
+            // Add dataset values for the version and name in case people want
+            // to apply CSS styling based on this information.
+            node.dataset["versionName"] = entry.name;
+            node.dataset["version"] = entry.version;
+
+            $("#version_switcher_menu").append(node);
+            // replace dropdown button text with the preferred display name of
+            // this version, rather than using sphinx's  variable.
+            // also highlight the dropdown entry for the currently-viewed
+            // version's entry
+            if (entry.version == "latest") {
+                node.classList.add("active");
+                btn.innerText = btn.dataset["activeVersionName"] = entry.name;
+                btn.dataset["activeVersion"] = entry.version;
+            }
+        });
+    });
+})();
+</script>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/ventureoo/ARU" rel="noopener" target="_blank" title="GitHub"><span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.youtube.com/c/PashaLinux" rel="noopener" target="_blank" title="YouTube"><span><i class="fab fa-youtube-square"></i></span>
+            <label class="sr-only">YouTube</label></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.donationalerts.com/r/pavel_priluckiy" rel="noopener" target="_blank" title="Donatealerts"><span><i class="fas fa-donate"></i></span>
+            <label class="sr-only">Donatealerts</label></a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="bd-container container-xl">
+      <div class="bd-container__inner row">
+          
+
+<!-- Only show if we have sidebars configured, else just a small margin  -->
+<div class="bd-sidebar-primary col-12 col-md-3 bd-sidebar">
+  <div class="sidebar-start-items"><ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="preface.html">
+  Предисловие
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="first-steps.html">
+  Первые шаги
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="current reference internal nav-link" href="#">
+  Базовое ускорение системы
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="extra-optimizations.html">
+  Экстра оптимизации
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="kernel-parameters.html">
+  Настройка параметров ядра
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="file-systems.html">
+  Файловые системы
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="custom-kernels.html">
+  Кастомные ядра
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="linux-gaming.html">
+  Wine / Linux Gaming
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="mini-kernel.html">
+  Сборка мини-ядра, и с чем это едят.
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="de-optimizations.html">
+  Оптимизация рабочего окружения (DE)
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="useful-programs.html">
+  Полезные программы
+ </a>
+</li>
+
+    
+</ul><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Поиск..." aria-label="Поиск..." autocomplete="off" >
+</form>
+  </div>
+  <div class="sidebar-end-items">
+  </div>
+</div>
+
+
+          
+
+
+<div class="bd-sidebar-secondary d-none d-xl-block col-xl-2 bd-toc">
+  
+    
+    <div class="toc-item">
+      
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#makepkg-conf">
+   Настройка makepkg.conf
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#clang">
+     Форсирование использования Clang при сборке пакетов
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#llvm-clang">
+       Ускорение работы компиляторов LLVM/Clang
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ccache">
+     Включение ccache
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#daemons-and-services">
+   Установка полезных служб и демонов
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lowlatency-audio">
+   Низкие задержки звука
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pulseaudio">
+     Новая альтернатива PulseAudio
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#alsa">
+     Простая ALSA
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#networkmanager-wait-online">
+   Ускорение загрузки системы (Отключение NetworkManager-wait-online)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hdd">
+     Ускорение загрузки ядра на HDD накопителях (
+     <em>
+      Только для жестких дисков
+     </em>
+     )
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#parallel-downloading">
+   Одновременная загрузка двух и более пакетов
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#powerpill-zee-captain">
+     Альтернативно можно использовать powerpill (Спасибо Zee Captain)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id7">
+   Твики драйверов Mesa
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#amd-sam">
+     Форсирование использования AMD SAM
+     <em>
+      (Только для опытных пользователей)
+     </em>
+     .
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#vega-11-vochatrak-az-ezm">
+     Решение проблем работы графики Vega 11 (Спасибо @Vochatrak-az-ezm)
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+</nav>
+    </div>
+    
+    <div class="toc-item">
+      
+
+<div class="tocsection editthispage">
+    <a href="https://github.com/ventureoo/ARU/edit/main/source/generic-system-acceleration.rst">
+        <i class="fas fa-pencil-alt"></i> Edit this page
+    </a>
+</div>
+
+    </div>
+    
+  
+</div>
+
+
+          
+          
+          <div class="bd-content col-12 col-md-9 col-xl-7">
+              
+              <article class="bd-article" role="main">
+                
+  <section id="generic-system-acceleration">
+<span id="id1"></span><h1>Базовое ускорение системы<a class="headerlink" href="#generic-system-acceleration" title="Permalink to this heading">#</a></h1>
+<p>Переходя к базовой оптимизации системы мне сто́ит напомнить, что чистый Arch Linux - это фундамент, и требуется уйма надстроек для нормальной работы системы.
+Установить компоненты, которые будут отвечать за электропитание, чистку, оптимизацию и тому подобные вещи, что и описывается в данном разделе.</p>
+<section id="makepkg-conf">
+<span id="index-0"></span><span id="id2"></span><h2>Настройка makepkg.conf<a class="headerlink" href="#makepkg-conf" title="Permalink to this heading">#</a></h2>
+<p>Прежде чем приступать к сборке пакетов, мы должны изменить так называемые флаги компиляции,
+что являются указателями для компилятора, какие инструкции и оптимизации использовать при сборке программ.</p>
+<p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">/etc/makepkg.conf</span></code> # Редактируем (Где &quot;-O2&quot; - <strong>Это не нуль/ноль</strong>)</p>
+<p><strong>Изменить ваши значения на данные:</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">CFLAGS</span><span class="o">=</span><span class="s2">&quot;-march=native -mtune=native -O2 -pipe -fno-plt -fexceptions \</span>
+<span class="s2">      -Wp,-D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security \</span>
+<span class="s2">      -fstack-clash-protection -fcf-protection&quot;</span>
+<span class="nv">CXXFLAGS</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$CFLAGS</span><span class="s2"> -Wp,-D_GLIBCXX_ASSERTIONS&quot;</span>
+<span class="nv">RUSTFLAGS</span><span class="o">=</span><span class="s2">&quot;-C opt-level=3&quot;</span>
+<span class="nv">MAKEFLAGS</span><span class="o">=</span><span class="s2">&quot;-j</span><span class="k">$(</span>nproc<span class="k">)</span><span class="s2"> -l</span><span class="k">$(</span>nproc<span class="k">)</span><span class="s2">&quot;</span>
+<span class="nv">OPTIONS</span><span class="o">=(</span>strip docs !libtool !staticlibs emptydirs zipman purge !debug lto<span class="o">)</span>
+</pre></div>
+</div>
+<p>Данные флаги компилятора выжимают максимум производительности при компиляции, но могут вызывать ошибки сборки в очень редких приложениях.
+Если такое случится, то отключите параметр ‘lto’ в строке options добавив перед ним символ восклицательного знака  ! (<em>&quot;!lto&quot;</em>).</p>
+<section id="clang">
+<span id="force-clang-usage"></span><span id="index-1"></span><h3>Форсирование использования Clang при сборке пакетов<a class="headerlink" href="#clang" title="Permalink to this heading">#</a></h3>
+<p>В системах на базе ядра Linux различают две основных группы компиляторов, это LLVM и GCC.
+И те, и другие хорошо справляются с возложенными на них задачами,
+но LLVM имеет чуть большее преимущество с точки зрения производительности при меньших потерях в качестве конечного кода.
+Поэтому, в целом, применение компиляторов LLVM для сборки различных пакетов при задании флага -O2
+(максимальная производительность) является совершенно оправданным, и может дать реальный прирост при работе программ.</p>
+<p>Компилятором для языков C/C++ в составе LLVM является Clang и Clang++ соответственно.
+Его использование при сборке пакетов мы и будем форсировать через makepkg.conf</p>
+<p>Для начала выполним их установку:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -Syu llvm clang lld
+</pre></div>
+</div>
+<p>Теперь клонируем уже готовый конфигурационный файл /etc/makepkg.conf под новыми именем /etc/makepkg-clang.conf:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo cp -r /etc/makepkg.conf /etc/makepkg-clang.conf
+</pre></div>
+</div>
+<p>Это поможет нам в случае чего откатиться к использованию компиляторов GCC если возникнут проблемы со сборкой пакетов через LLVM/Clang.</p>
+<p>Теперь откроем выше скопированный файл и добавим туда после строки <code class="docutils literal notranslate"><span class="pre">CHOST=&quot;x86_64-pc-linux-gnu&quot;</span></code> следующее:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">CC</span><span class="o">=</span>clang
+<span class="nb">export</span> <span class="nv">CXX</span><span class="o">=</span>clang++
+<span class="nb">export</span> <span class="nv">LD</span><span class="o">=</span>ld.lld
+<span class="nb">export</span> <span class="nv">CC_LD</span><span class="o">=</span>lld
+<span class="nb">export</span> <span class="nv">CXX_LD</span><span class="o">=</span>lld
+<span class="nb">export</span> <span class="nv">AR</span><span class="o">=</span>llvm-ar
+<span class="nb">export</span> <span class="nv">NM</span><span class="o">=</span>llvm-nm
+<span class="nb">export</span> <span class="nv">STRIP</span><span class="o">=</span>llvm-strip
+<span class="nb">export</span> <span class="nv">OBJCOPY</span><span class="o">=</span>llvm-objcopy
+<span class="nb">export</span> <span class="nv">OBJDUMP</span><span class="o">=</span>llvm-objdump
+<span class="nb">export</span> <span class="nv">READELF</span><span class="o">=</span>llvm-readelf
+<span class="nb">export</span> <span class="nv">RANLIB</span><span class="o">=</span>llvm-ranlib
+<span class="nb">export</span> <span class="nv">HOSTCC</span><span class="o">=</span>clang
+<span class="nb">export</span> <span class="nv">HOSTCXX</span><span class="o">=</span>clang++
+<span class="nb">export</span> <span class="nv">HOSTAR</span><span class="o">=</span>llvm-ar
+<span class="nb">export</span> <span class="nv">HOSTLD</span><span class="o">=</span>ld.lld
+</pre></div>
+</div>
+<p>Отлично, теперь вы можете собрать нужные вам пакеты (программы) через LLVM/Clang просто добавив к уже известной команде makepkg следующие параметры:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>makepkg --config /etc/makepkg-clang.conf -sric
+</pre></div>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">Внимание</p>
+<p>Далеко не все пакеты так уж гладко собираются через Clang, в частности не пытайтесь собирать им Wine/DXVK,
+т.к. это официально не поддерживается и с 98% вероятностью приведет к ошибке сборки.
+Но в случае неудачи вы всегда можете использовать компиляторы GCC, которые у вас заданы в настройках makepkg.conf по умолчанию,
+т.е. просто уберите опцию <code class="docutils literal notranslate"><span class="pre">--config</span> <span class="pre">/etc/makepkg-clang.conf</span></code> из команды <code class="docutils literal notranslate"><span class="pre">makepkg</span></code>.</p>
+</div>
+<p>Дальнейшеная пересборка пакетов из официальных репозиториев осуществима через следующее команды:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone --depth <span class="m">1</span> --branch packages/package https://github.com/archlinux/svntogit-packages.git package
+<span class="nb">cd</span> package/trunk
+makepkg --config /etc/makepkg-clang.conf -sric --skippgpcheck
+</pre></div>
+</div>
+<p>Где <em>package</em> - название нужного вам пакета.</p>
+<p>Мы рекомендуем вам пересобрать наиболее важные пакеты. Например такие как драйвера (то есть <a class="reference external" href="https://archlinux.org/packages/extra/x86_64/mesa/">mesa</a>, <a class="reference external" href="https://archlinux.org/packages/multilib/x86_64/lib32-mesa/">lib32-mesa</a>, если у вас Intel/AMD),
+<a class="reference external" href="https://archlinux.org/packages/extra/x86_64/xorg-server/">Xorg сервер</a>, а также связанные с ним компоненты, или <a class="reference external" href="https://archlinux.org/packages/extra/x86_64/wayland/">Wayland</a>,
+критически важные пакеты вашего DE/WM, например: <a class="reference external" href="https://aur.archlinux.org/packages/gnome-shell-performance">gnome-shell</a>, <a class="reference external" href="https://archlinux.org/packages/extra/x86_64/plasma-desktop/">plasma-desktop</a>.
+А также композиторы <a class="reference external" href="https://archlinux.org/packages/extra/x86_64/kwin/">kwin</a>, <a class="reference external" href="https://aur.archlinux.org/packages/mutter-performance">mutter</a>, picom и т.д. в зависимости от того, чем именно вы пользуетесь.</p>
+<p>Альтернативно, вы можете использовать уже подготовленный репозиторий <a class="reference external" href="https://github.com/h0tc0d3/arch-packages">arch-packages</a>
+с полной поддержкой сборки пакетов через LLVM/Clang. В этом репозитории представлены не все возможные пакеты, но самые
+важные компоненты системы там есть, включая сам llvm-git, который вы тоже можете пересобрать:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/h0tc0d3/arch-packages
+<span class="nb">cd</span> arch-packages
+<span class="nb">cd</span> llvm-git
+makepkg -sric
+</pre></div>
+</div>
+<p>(Вместо <em>llvm-git</em> может быть любой другой пакет, доступный в данном репозитории)</p>
+<p>Больше подробностей по теме вы можете найти в данной статье:</p>
+<p><a class="reference external" href="https://habr.com/ru/company/ruvds/blog/561286/">https://habr.com/ru/company/ruvds/blog/561286/</a></p>
+<section id="llvm-clang">
+<span id="speeding-up-clang-llvm-compilers"></span><span id="index-2"></span><h4>Ускорение работы компиляторов LLVM/Clang<a class="headerlink" href="#llvm-clang" title="Permalink to this heading">#</a></h4>
+<p>Дополнительно можно отметить, что после установки Clang вы можете перекомпилировать его самого через себя,
+т.е. выполнить пересборку Clang с помощью бинарного Clang из репозиториев.
+Это позволит оптимизировать уже сам компилятор под ваше железо и тем самым ускорить
+его работу при сборке уже других программ. Аналогичную операцию вы можете проделать и с GCC.</p>
+<p>Делается это так же, как и с любыми другими пакетами из официальных репозиториев:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone --depth <span class="m">1</span> --branch packages/clang https://github.com/archlinux/svntogit-packages.git clang
+<span class="nb">cd</span> clang/trunk
+makepkg --config /etc/makepkg-clang.conf -sric --skippgpcheck
+</pre></div>
+</div>
+</section>
+</section>
+<section id="ccache">
+<span id="enabling-ccache"></span><span id="index-3"></span><h3>Включение ccache<a class="headerlink" href="#ccache" title="Permalink to this heading">#</a></h3>
+<p>В Linux системах есть не так много программ, сборка которых может занять больше двух часов,
+но они все таки есть. Потому, было бы неплохо ускорить повторную компиляцию таких программ как Wine/Proton-GE и т.д.</p>
+<p>ccache - это кэш для компиляторов C/C++, в частности совместимый с компиляторами GCC/Clang,
+цель которого состоит в ускорении повторного процесса компиляции одного и того же кода.
+Это значит, что если при сборке программы новой версии, будут замечены полностью идентичные блоки исходного кода в сравнении с его старой версией,
+то компиляция этих исходных текстов производиться не будет. Вместо этого, уже готовый, скомпилированный код старой версии будет вынут из кэша ccache.
+За счёт этого и достигается многократное ускорение процесса компиляции.</p>
+<p><strong>Установка</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S ccache
+</pre></div>
+</div>
+<p>После установки его ещё нужно активировать в ваших настройках makepkg.
+Для этого отредактируем конфигурационный файл:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo nano /etc/makepkg.conf
+
+<span class="c1"># Найдите данную строку в собственных настройках, затем уберите восклицательный знак перед *&quot;ccache&quot;*</span>
+<span class="nv">BUILDENV</span><span class="o">=(</span>!distcc color ccache check !sign<span class="o">)</span>
+</pre></div>
+</div>
+<p>После этого повторная пересборка желаемых программ и их обновление должны значительно ускориться.</p>
+<div class="admonition attention">
+<p class="admonition-title">Внимание</p>
+<p>ccache может ломать сборку некоторых программ, поэтому будьте внимательны с его применением.</p>
+</div>
+</section>
+</section>
+<section id="daemons-and-services">
+<span id="index-4"></span><span id="id3"></span><h2>Установка полезных служб и демонов<a class="headerlink" href="#daemons-and-services" title="Permalink to this heading">#</a></h2>
+<p><strong>1.</strong> <a class="reference external" href="https://aur.archlinux.org/packages/zramswap/">Zramswap</a> — это специальный демон,
+который сжимает оперативную память ресурсами центрального процессора и создает в ней файл подкачки.
+Очень ускоряет систему вне зависимости от количества памяти, однако добавляет нагрузку на процессор, т.к. его ресурсами и происходит сжатие памяти.
+Поэтому, на слабых компьютерах с малым количеством ОЗУ, это может негативно повлиять на производительность в целом.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://aur.archlinux.org/zramswap.git  <span class="c1"># Скачивание исходников.</span>
+<span class="nb">cd</span> zramswap                                       <span class="c1"># Переход в zramswap.</span>
+makepkg -sric                                     <span class="c1"># Сборка и установка.</span>
+sudo systemctl <span class="nb">enable</span> --now zramswap.service      <span class="c1"># Включаем службу.</span>
+</pre></div>
+</div>
+<p>Чтобы немного ускорить работу zram рекомендуется также изменить алгоритм сжатия памяти:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;ZRAM_COMPRESSION_ALGO=zstd&quot;</span> <span class="p">|</span> sudo tee -a /etc/zramswap.conf
+</pre></div>
+</div>
+<p><strong>1.1</strong> <a class="reference external" href="https://github.com/hakavlad/nohang">Nohang</a>  — это демон повышающий производительность путём обработки и слежки за потреблением памяти.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://aur.archlinux.org/nohang-git.git <span class="c1"># Скачивание исходников.</span>
+<span class="nb">cd</span> nohang-git                                      <span class="c1"># Переход в nohang-git</span>
+makepkg -sric                                      <span class="c1"># Сборка и установка.</span>
+sudo systemctl <span class="nb">enable</span> --now nohang-desktop         <span class="c1"># Включаем службу.</span>
+</pre></div>
+</div>
+<p><strong>1.2</strong> <a class="reference external" href="https://gitlab.com/ananicy-cpp/ananicy-cpp">Ananicy CPP</a> — это форк одноименного демона, распределяющий приоритет задач. Его установка очень сильно повышает отклик системы. В отличии от оригинального Ananicy, данный форк переписан полностью на C++, из-за чего достигается прирост в скорости работы.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://aur.archlinux.org/ananicy-cpp.git <span class="c1"># Скачивание исходников.</span>
+<span class="nb">cd</span> ananicy-cpp                                      <span class="c1"># Переход в ananicy-cpp.</span>
+makepkg -sric                                       <span class="c1"># Сборка и установка.</span>
+sudo systemctl <span class="nb">enable</span> --now ananicy-cpp             <span class="c1"># Включаем службу.</span>
+
+<span class="c1"># Далее описывается установка дополнительных правил по перераспределению приоритетов процессов</span>
+git clone https://aur.archlinux.org/ananicy-rules-git.git <span class="c1"># Скачивание исходников</span>
+<span class="nb">cd</span> ananicy-rules-git                                      <span class="c1"># Переход в директорию</span>
+makepkg -sric                                             <span class="c1"># Сборка и установка</span>
+sudo systemctl restart ananicy-cpp                        <span class="c1"># Перезапускаем службу</span>
+</pre></div>
+</div>
+<p><strong>1.3</strong> Включаем <a class="reference external" href="https://ru.wikipedia.org/wiki/Trim_(команда_для_накопителей)">TRIM</a> — очень полезно для SSD.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo systemctl <span class="nb">enable</span> fstrim.timer    <span class="c1"># Включаем службу.</span>
+sudo fstrim -v /                      <span class="c1"># Ручной метод.</span>
+sudo fstrim -va /                     <span class="c1"># Если первый метод не тримит весь диск.</span>
+</pre></div>
+</div>
+<p><strong>1.4</strong> <a class="reference external" href="https://wiki.archlinux.org/title/cron">Сron</a> — это демон, который поможет вам очищать вашу систему от мусора полностью автономно.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S cronie                         <span class="c1"># Установить cron.</span>
+sudo systemctl <span class="nb">enable</span> --now cronie.service    <span class="c1"># Запускает и включает службу.</span>
+sudo <span class="nv">EDITOR</span><span class="o">=</span>nano crontab -e                   <span class="c1"># Редактируем параметр.</span>
+</pre></div>
+</div>
+<p>И прописываем:</p>
+<p><em>15 10 * * sun /sbin/pacman -Scc --noconfirm</em></p>
+<p>Таким образом наша система будет чистить свой кэш раз в неделю, в воскресенье в 15:10.</p>
+<p><strong>1.5</strong> <a class="reference external" href="https://wiki.archlinux.org/title/Haveged_(Русский)">haveged</a> - это демон, что следит за энтропией системы.
+Необходим для ускорения запуска системы при высоких показателях в: <em>systemd-analyze blame</em> (Больше 1 секунды).</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S haveged        <span class="c1"># Установка</span>
+sudo systemctl <span class="nb">enable</span> haveged <span class="c1"># Включает и запускает службу.</span>
+</pre></div>
+</div>
+<p><strong>1.5.1</strong> <a class="reference external" href="https://wiki.archlinux.org/title/Rng-tools">rng-tools</a> - демон, что также следит за энтропией системы, но в отличие от haveged уже через аппаратный таймер.
+Необходим для ускорения запуска системы при высоких показателях <em>systemd-analyze blame</em> (Больше 1 секунды).</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S rng-tools         <span class="c1"># Установка</span>
+sudo systemctl <span class="nb">enable</span> --now rngd <span class="c1"># Включает и запускает службу.</span>
+</pre></div>
+</div>
+<p><strong>1.6</strong> <a class="reference external" href="https://github.com/bus1/dbus-broker">dbus-broker</a> - Это реализация шины сообщений в соответствии со спецификацией D-Bus.
+Её цель - обеспечить высокую производительность и надежность при сохранении совместимости с эталонной реализацией D-Bus.
+Обеспечивает чуть более быстрое общение с видеокартой через PCIe.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S dbus-broker                         <span class="c1"># Уставновка</span>
+sudo systemctl <span class="nb">enable</span> --now dbus-broker.service    <span class="c1"># Включает и запускает службу.</span>
+sudo systemctl --global <span class="nb">enable</span> dbus-broker.service <span class="c1"># Включает и запускает службу для всех пользователей.</span>
+</pre></div>
+</div>
+<p>Если у вас ещё возникает вопрос: &quot;Что действительно нужно установить из вышеперечисленного?&quot;,
+то просто посмотрите на следующую схему:</p>
+<img alt="../_images/generic-system-acceleration-1.png" src="../_images/generic-system-acceleration-1.png" />
+</section>
+<section id="lowlatency-audio">
+<span id="index-5"></span><span id="id4"></span><h2>Низкие задержки звука<a class="headerlink" href="#lowlatency-audio" title="Permalink to this heading">#</a></h2>
+<p>Установите следующие пакеты для понижения задержек звука в PulseAudio,
+а также удобную графическую панель управления звуком -  <em>pavucontrol</em>.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S jack2 pulseaudio-alsa pulseaudio-jack pavucontrol jack2-dbus realtime-privileges
+</pre></div>
+</div>
+<section id="pulseaudio">
+<span id="pipewire-installation"></span><span id="index-6"></span><h3>Новая альтернатива PulseAudio<a class="headerlink" href="#pulseaudio" title="Permalink to this heading">#</a></h3>
+<p><a class="reference external" href="https://wiki.archlinux.org/title/PipeWire_(Русский)">PipeWire</a> - это новая альтернатива PulseAudio,
+которая призвана избавить от проблем pulse, уменьшить задержки звука и потребление памяти.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S jack2 pipewire pipewire-alsa pavucontrol pipewire-pulse alsa-utils wireplumber
+</pre></div>
+</div>
+</section>
+<section id="alsa">
+<span id="index-7"></span><span id="id5"></span><h3>Простая ALSA<a class="headerlink" href="#alsa" title="Permalink to this heading">#</a></h3>
+<p>ALSA - это тот самый звук (условно, на самом деле это звуковая подсистема ядра),
+который идёт напрямую из ядра и является самым быстрым,
+так как не вынужден проходить множество программных прослоек и микширование.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S alsa alsa-utils alsa-firmware alsa-card-profiles alsa-plugins
+</pre></div>
+</div>
+<p>Поэтому, если у вас нет потребности в микшировании каналов,
+записи аудио через микрофон и вы не слушаете музыку через Bluetooth, то ALSA может вам подойти.Пакет <em>alsa-utils</em> также содержит консольный Микшер (настройка громкости), который вызывается командой alsamixer.</p>
+<p>Вообще, выбор звукового сервера не такая уж сложная задача как вам может показаться,
+достаточно взглянуть на следующую схему:</p>
+<img alt="../_images/generic-system-acceleration-2.png" src="../_images/generic-system-acceleration-2.png" />
+</section>
+</section>
+<section id="networkmanager-wait-online">
+<span id="startup-acceleration"></span><span id="index-8"></span><h2>Ускорение загрузки системы (Отключение NetworkManager-wait-online)<a class="headerlink" href="#networkmanager-wait-online" title="Permalink to this heading">#</a></h2>
+<p>В большинстве случаев для настройки интернет подключения вы, скорее всего, будете использовать NetworkManager,
+т.к. он является в этом деле швейцарским ножом и поставляется по умолчанию.
+Однако, если вы пропишите команду <em>systemd-analyze blame</em>, то узнаете, что он задерживает загрузку системы примерно на ~4 секунды.
+Чтобы это исправить выполните:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo systemctl mask NetworkManager-wait-online.service
+</pre></div>
+</div>
+<section id="hdd">
+<span id="speed-up-hdd-startup"></span><span id="index-9"></span><h3>Ускорение загрузки ядра на HDD накопителях (<em>Только для жестких дисков</em>)<a class="headerlink" href="#hdd" title="Permalink to this heading">#</a></h3>
+<p>Убедитесь, что пакет <a class="reference external" href="https://archlinux.org/packages/core/x86_64/lz4/">lz4</a> установлен:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S lz4
+</pre></div>
+</div>
+<p>Отредактируйте файл::</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo nano /etc/mkinitcpio.conf
+</pre></div>
+</div>
+<p>Теперь выполните следующие действия:</p>
+<ul class="simple">
+<li><p>Добавьте <em>lz4 lz4_compress</em> в массив <em>MODULES</em> (ограничен скобками)</p></li>
+<li><p>Раскомментируйте или добавьте строку с надписью <em>COMPRESSION=&quot;lz4&quot;</em></p></li>
+<li><p>Добавьте строку если её нет -  <em>COMPRESSION_OPTIONS=&quot;-9&quot;</em></p></li>
+<li><p>Добавите <em>shutdown</em> в массив <em>HOOKS</em> (ограничен скобками)</p></li>
+</ul>
+<p>Это ускорит загрузку системы на слабых жёстких дисках благодаря более подходящему методу сжатия образов ядра.</p>
+</section>
+</section>
+<section id="parallel-downloading">
+<span id="index-10"></span><span id="id6"></span><h2>Одновременная загрузка двух и более пакетов<a class="headerlink" href="#parallel-downloading" title="Permalink to this heading">#</a></h2>
+<p>Начиная с шестой версии pacman поддерживает параллельную загрузку пакетов.
+Чтобы её включить отредактируйте <em>/etc/pacman.conf</em>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo nano /etc/pacman.conf <span class="c1"># Раскомментируйте строчку ниже</span>
+
+<span class="c1"># Где 4 - количество пакетов для одновременной загрузки</span>
+<span class="nv">ParallelDownloads</span> <span class="o">=</span> <span class="m">4</span>
+</pre></div>
+</div>
+<section id="powerpill-zee-captain">
+<span id="powerpill"></span><span id="index-11"></span><h3>Альтернативно можно использовать powerpill (Спасибо Zee Captain)<a class="headerlink" href="#powerpill-zee-captain" title="Permalink to this heading">#</a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://aur.archlinux.org/powerpill.git
+<span class="nb">cd</span> powerpill
+makepkg -sric
+</pre></div>
+</div>
+<p>После установки выполните обновление баз данных:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo powerpill -Syu
+</pre></div>
+</div>
+</section>
+</section>
+<section id="id7">
+<h2>Твики драйверов Mesa<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h2>
+<section id="amd-sam">
+<span id="force-amd-sam"></span><span id="index-12"></span><h3>Форсирование использования AMD SAM <em>(Только для опытных пользователей)</em>.<a class="headerlink" href="#amd-sam" title="Permalink to this heading">#</a></h3>
+<p>AMD Smart Acess Memory (или Resizble Bar) — это технология которая позволяет процессору получить доступ сразу ко всей видеопамяти GPU,
+а не по отдельности для каждого распаянного чипа создавая задержки. Несмотря на то,
+что данная технология заявлена только для оборудования AMD и требует новейших комплектующих для обеспечения своей работы,
+мы активируем технологию для видеокарты 10 летней давновсти ATI Radeon HD 7770 и сравним буст производительности в паре игр.</p>
+<div class="admonition danger">
+<p class="admonition-title">Опасно</p>
+<p>Для включения данной технологии в настройках вашего BIOS (UEFI) должна быть включена опция <em>&quot;Re-Size BAR Support&quot;</em> и <em>&quot;Above 4G Decoding&quot;</em>.
+Если таких параметров в вашем BIOS (UEFI) нет - скорее всего технология не поддерживается вашей материнской платой и не стоит даже пытаться её включить.</p>
+</div>
+<p>Чтобы активировать SAM в Linux нужно отредактировать конфигурацию DRI, дописав в конфиг следующие строки:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>nano ~/.drirc <span class="c1"># Редактируем конфигурационный файл</span>
+
+<span class="c1"># Прописать строки ниже</span>
+
+&lt;?xml <span class="nv">version</span><span class="o">=</span><span class="s2">&quot;1.0&quot;</span> <span class="nv">standalone</span><span class="o">=</span><span class="s2">&quot;yes&quot;</span>?&gt;
+&lt;driconf&gt;
+  &lt;device&gt;
+    &lt;application <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;Default&quot;</span>&gt;
+      &lt;option <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;radeonsi_enable_sam&quot;</span> <span class="nv">value</span><span class="o">=</span><span class="s2">&quot;true&quot;</span> /&gt;
+    &lt;/application&gt;
+  &lt;/device&gt;
+&lt;/driconf&gt;
+</pre></div>
+</div>
+<p>Альтернативно её можно активировать через глобальные переменные окружения:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo nano /etc/enviroment <span class="c1"># Редактируем конфигурационный файл</span>
+
+<span class="c1"># Добавить следующие строки</span>
+<span class="nv">radeonsi_enable_sam</span><span class="o">=</span><span class="nb">true</span>
+<span class="c1"># Если используете драйвер RADV</span>
+<span class="nv">RADV_PERFTEST</span><span class="o">=</span>sam
+</pre></div>
+</div>
+<p>Проверить работу технологии можно через команду:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">AMD_DEBUG</span><span class="o">=</span>info glxinfo <span class="p">|</span> grep smart <span class="c1"># Должно быть smart_access_memory = 1</span>
+</pre></div>
+</div>
+<p><strong>Пример тестирования технологии на видеокарте старого поколения (Windows)</strong></p>
+<p><a class="reference external" href="https://youtu.be/tZmPi9tfLbc">https://youtu.be/tZmPi9tfLbc</a></p>
+</section>
+<section id="vega-11-vochatrak-az-ezm">
+<span id="bug-solution-for-vega"></span><span id="index-13"></span><h3>Решение проблем работы графики Vega 11 (Спасибо &#64;Vochatrak-az-ezm)<a class="headerlink" href="#vega-11-vochatrak-az-ezm" title="Permalink to this heading">#</a></h3>
+<p>На оборудовании со встроенным видеоядром Vega 11 может встретиться баг драйвера, при котором возникают случайные зависания графики.
+Проблема наиболее актуальна для <em>Ryzen 2XXXG</em> и чуть реже встречается на Ryzen серии <em>3XXXG</em>, но потенциально имеет место быть и на более
+новых видеоядрах Vega.</p>
+<p>Решается через добавление следующих параметров ядра:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Редактируем конфигурационный файл в зависимости от того, какой у вас загрузчик</span>
+sudo nano /etc/default/grub
+
+<span class="c1"># Параметры можно дописать к уже имеющимся</span>
+<span class="nv">GRUB_CMDLINE_LINUX_DEFAULT</span><span class="o">=</span><span class="s2">&quot;mdgpu.gttsize=8192 amdgpu.lockup_timeout=1000 amdgpu.gpu_recovery=1 amdgpu.noretry=0 amdgpu.ppfeaturemask=0xfffd3fff amdgpu.deep_color=1 systemd.unified_cgroup_hierarchy=true&quot;</span>
+</pre></div>
+</div>
+<p>На всякий случай можно дописать ещё одну переменную окружения:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Прописать строчку ниже</span>
+sudo nano /etc/enviroment
+
+<span class="nv">AMD_DEBUG</span><span class="o">=</span>nodcc
+</pre></div>
+</div>
+<p>Для подробностей можете ознакомиться со следующими темами:</p>
+<p><a class="reference external" href="https://www.linux.org.ru/forum/linux-hardware/16312119">https://www.linux.org.ru/forum/linux-hardware/16312119</a></p>
+<p><a class="reference external" href="https://www.linux.org.ru/forum/desktop/16257286">https://www.linux.org.ru/forum/desktop/16257286</a></p>
+</section>
+</section>
+</section>
+
+
+              </article>
+              
+
+              
+              <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+  <a class='left-prev' id="prev-link" href="first-steps.html" title="назад страница">
+      <i class="fas fa-angle-left"></i>
+      <div class="prev-next-info">
+          <p class="prev-next-subtitle">назад</p>
+          <p class="prev-next-title">Первые шаги</p>
+      </div>
+  </a>
+  <a class='right-next' id="next-link" href="extra-optimizations.html" title="вперёд страница">
+  <div class="prev-next-info">
+      <p class="prev-next-subtitle">вперёд</p>
+      <p class="prev-next-title">Экстра оптимизации</p>
+  </div>
+  <i class="fas fa-angle-right"></i>
+  </a>
+</div>
+              </footer>
+              
+          </div>
+          
+      </div>
+    </div>
+
+  
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695"></script>
+
+<footer class="bd-footer"><div class="bd-footer__inner container">
+  
+  <div class="footer-item">
+    <p class="copyright">
+    &copy; Copyright ARU 2018 - 2022 Pavel Priluckiy, Vasiliy Stelmachenok and contributors.<br>
+</p>
+  </div>
+  
+</div>
+</footer>
+  </body>
+</html>
