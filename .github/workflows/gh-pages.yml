@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     container: archlinux:base-devel
     steps:
-   - uses: actions/checkout@v3
+    - uses: actions/checkout@v3
     - name: Build HTML
       run: |
          pacman-key --init
@@ -20,7 +20,7 @@ jobs:
          pip install --upgrade pydata-sphinx-theme
          cd docs
          make --no-keep-going html
-   - name: Upload artifacts
+    - name: Upload artifacts
       uses: actions/upload-artifact@v2
       with:
         name: ARU-${{ github.sha }}
