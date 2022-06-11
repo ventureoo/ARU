@@ -4,14 +4,19 @@
 <html lang="ru">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Wine / Linux Gaming &#8212; Руководство по оптимизации Arch Linux</title>
-    
-  <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    
+    <title>Wine / Linux Gaming &#8212; Руководство по оптимизации Arch Linux</title>
+<script>
+  document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+  document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
+</script>
+
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=92025949c220c2e29695" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=92025949c220c2e29695" rel="stylesheet">
+
+
   <link rel="stylesheet"
     href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
   <link rel="preload" as="font" type="font/woff2" crossorigin
@@ -20,46 +25,54 @@
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
-    
+
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/translations.js"></script>
     <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
     <link rel="search" title="Поиск" href="../search.html" />
     <link rel="next" title="Сборка мини-ядра, и с чем это едят." href="mini-kernel.html" />
     <link rel="prev" title="Кастомные ядра" href="custom-kernels.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="ru">
-    
-
-    <!-- Google Analytics -->
-    
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="docsearch:language" content="ru">
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="light">
+    <div class="bd-header-announcement container-fluid" id="banner">
+      
+
+    </div>
 
     
-    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+    <nav class="bd-header navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="bd-header__inner container-xl">
 
   <div id="navbar-start">
     
     
-<a class="navbar-brand" href="../index.html">
-<p class="title">ARU - Руководство по оптимизации Arch Linux</p>
-</a>
+  
 
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Руководство по оптимизации Arch Linux</p>
+  
+</a>
     
   </div>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+    <span class="fas fa-bars"></span>
   </button>
 
   
@@ -71,8 +84,16 @@
     <div id="navbar-end">
       
       <div class="navbar-end-item">
+        <span id="theme-switch" class="btn btn-sm btn-outline-primary navbar-btn rounded-circle">
+    <a class="theme-switch" data-mode="light"><i class="fas fa-sun"></i></a>
+    <a class="theme-switch" data-mode="dark"><i class="far fa-moon"></i></a>
+    <a class="theme-switch" data-mode="auto"><i class="fas fa-adjust"></i></a>
+</span>
+      </div>
+      
+      <div class="navbar-end-item">
         <div class="dropdown" id="version_switcher">
-    <button type="button" class="btn btn-primary btn-sm navbar-btn dropdown-toggle" id="version_switcher_button" data-toggle="dropdown">
+    <button type="button" class="btn btn-sm navbar-btn dropdown-toggle" id="version_switcher_button" data-toggle="dropdown">
         latest  <!-- this text may get changed later by javascript -->
         <span class="caret"></span>
     </button>
@@ -112,6 +133,10 @@ function checkPageExistsAndRedirect(event) {
 (function () {
     $.getJSON("https://ventureoo.github.io/ARU/_static/switcher.json", function(data, textStatus, jqXHR) {
         const currentFilePath = "source/linux-gaming.html";
+        let btn = document.getElementById("version_switcher_button");
+        // Set empty strings by default so that these attributes exist and can be used in CSS selectors
+        btn.dataset["activeVersionName"] = "";
+        btn.dataset["activeVersion"] = "";
         // create links to the corresponding page in the other docs versions
         $.each(data, function(index, entry) {
             // if no custom name specified (e.g., "latest"), use version string
@@ -139,7 +164,6 @@ function checkPageExistsAndRedirect(event) {
             // version's entry
             if (entry.version == "latest") {
                 node.classList.add("active");
-                let btn = document.getElementById("version_switcher_button");
                 btn.innerText = btn.dataset["activeVersionName"] = entry.name;
                 btn.dataset["activeVersion"] = entry.version;
             }
@@ -172,13 +196,13 @@ function checkPageExistsAndRedirect(event) {
     </nav>
     
 
-    <div class="container-xl">
-      <div class="row">
+    <div class="bd-container container-xl">
+      <div class="bd-container__inner row">
           
-            
-            <!-- Only show if we have sidebars configured, else just a small margin  -->
-            <div class="col-12 col-md-3 bd-sidebar">
-              <div class="sidebar-start-items"><ul id="navbar-main-elements" class="navbar-nav">
+
+<!-- Only show if we have sidebars configured, else just a small margin  -->
+<div class="bd-sidebar-primary col-12 col-md-3 bd-sidebar">
+  <div class="sidebar-start-items"><ul id="navbar-main-elements" class="navbar-nav">
     <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="preface.html">
   Предисловие
@@ -250,19 +274,20 @@ function checkPageExistsAndRedirect(event) {
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Поиск..." aria-label="Поиск..." autocomplete="off" >
 </form>
-              </div>
-              <div class="sidebar-end-items">
-              </div>
-            </div>
-            
-          
+  </div>
+  <div class="sidebar-end-items">
+  </div>
+</div>
+
 
           
-          <div class="d-none d-xl-block col-xl-2 bd-toc">
-            
-              
-              <div class="toc-item">
-                
+
+
+<div class="bd-sidebar-secondary d-none d-xl-block col-xl-2 bd-toc">
+  
+    
+    <div class="toc-item">
+      
 <div class="tocsection onthispage mt-5 pt-1 pb-3">
     <i class="fas fa-list"></i> On this page
 </div>
@@ -400,10 +425,10 @@ function checkPageExistsAndRedirect(event) {
 </ul>
 
 </nav>
-              </div>
-              
-              <div class="toc-item">
-                
+    </div>
+    
+    <div class="toc-item">
+      
 
 <div class="tocsection editthispage">
     <a href="https://github.com/ventureoo/ARU/edit/main/source/linux-gaming.rst">
@@ -411,38 +436,36 @@ function checkPageExistsAndRedirect(event) {
     </a>
 </div>
 
-              </div>
-              
-            
-          </div>
-          
+    </div>
+    
+  
+</div>
+
 
           
           
-            
-          
-          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+          <div class="bd-content col-12 col-md-9 col-xl-7">
               
-              <div>
+              <article class="bd-article" role="main">
                 
-  <div class="section" id="wine-linux-gaming">
-<span id="linux-gaming"></span><h1>Wine / Linux Gaming<a class="headerlink" href="#wine-linux-gaming" title="Ссылка на этот заголовок">#</a></h1>
-<div class="section" id="main-components">
-<span id="index-0"></span><span id="id1"></span><h2>Основные составляющие<a class="headerlink" href="#main-components" title="Ссылка на этот заголовок">#</a></h2>
+  <section id="wine-linux-gaming">
+<span id="linux-gaming"></span><h1>Wine / Linux Gaming<a class="headerlink" href="#wine-linux-gaming" title="Permalink to this heading">#</a></h1>
+<section id="main-components">
+<span id="index-0"></span><span id="id1"></span><h2>Основные составляющие<a class="headerlink" href="#main-components" title="Permalink to this heading">#</a></h2>
 <p>Переходя к запуску Windows-игр на Linux-системах, сто́ит иметь в виду, что никаких эмуляторов Windows на Linux не существует,
 и весь запуск осуществляется с помощью сторонней реализации Windows API — Wine/Proton,
 а также средств ретрансляции команд DirectX в доступные графические API на Linux (Vulkan, OpenGL) с помощью DXVK или иных ретранслятора кода.</p>
-<div class="section" id="wine">
-<span id="about-wine"></span><span id="index-1"></span><h3>Что такое Wine?<a class="headerlink" href="#wine" title="Ссылка на этот заголовок">#</a></h3>
+<section id="wine">
+<span id="about-wine"></span><span id="index-1"></span><h3>Что такое Wine?<a class="headerlink" href="#wine" title="Permalink to this heading">#</a></h3>
 <p>Wine - слой совместимости для запуска Windows-приложений (в том числе игр) из под Linux (Unix-подобных систем).
 Благодаря нему вы по факту сможете поиграть в большинство игр из вашей библиотеки Steam/GOG/Epic Games Store.
 Исключением разве что являются игры с встроенными анти-чит системами, хотя благодаря усилиям Valve,
 в ближайшем будущем, вероятно, это уже не будет являться такой большой проблемой.
 Конечно, все не так гладко как хотелось бы, ведь для запуска и обеспечения работоспособности многих программ/игр придется ещё изрядно повозиться с его настройкой,
 однако сама такая возможность в принципе является незаменимой для Linux пользователей, в частности геймеров.</p>
-</div>
-<div class="section" id="wine-builds">
-<span id="index-2"></span><span id="id2"></span><h3>Сборки Wine<a class="headerlink" href="#wine-builds" title="Ссылка на этот заголовок">#</a></h3>
+</section>
+<section id="wine-builds">
+<span id="index-2"></span><span id="id2"></span><h3>Сборки Wine<a class="headerlink" href="#wine-builds" title="Permalink to this heading">#</a></h3>
 <p>Существуют различные сборки Wine.
 Подобный зоопарк появился ввиду накопления большого количества различных патчей (сторонних изменений)
 которые по какой-то причине не могут быть приняты в основную ветку разработки Wine.
@@ -459,22 +482,22 @@ function checkPageExistsAndRedirect(event) {
 исправить определенные баги и улучшить работу конкретных программ и частей Wine.</p></li>
 </ul>
 <p>Но существуют также много альтернативных сборок основанных на Wine-staging с упором именно на игры, о них написано далее.</p>
-<div class="section" id="wine-staging">
-<span id="index-3"></span><span id="id3"></span><h4>Установка wine-staging вместе с зависимостями<a class="headerlink" href="#wine-staging" title="Ссылка на этот заголовок">#</a></h4>
+<section id="wine-staging">
+<span id="index-3"></span><span id="id3"></span><h4>Установка wine-staging вместе с зависимостями<a class="headerlink" href="#wine-staging" title="Permalink to this heading">#</a></h4>
 <p>Бинарные версии ПО всегда доступны в репозиториях и очень удобны, но они не могут обеспечить достойный уровень производительности.
 Для начала советуюм поставить wine-staging вместе со всеми зависимостями, а уже затем собрать wine-tkg.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S wine-staging winetricks wine-mono giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse libgpg-error lib32-libgpg-error alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo sqlite lib32-sqlite libxcomposite lib32-libxcomposite libxinerama lib32-libgcrypt libgcrypt lib32-libxinerama ncurses lib32-ncurses opencl-icd-loader lib32-opencl-icd-loader libxslt lib32-libxslt libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="alternative-wine-builds">
-<span id="index-4"></span><span id="id4"></span><h3>Альтернативные сборки Wine<a class="headerlink" href="#alternative-wine-builds" title="Ссылка на этот заголовок">#</a></h3>
+</section>
+</section>
+<section id="alternative-wine-builds">
+<span id="index-4"></span><span id="id4"></span><h3>Альтернативные сборки Wine<a class="headerlink" href="#alternative-wine-builds" title="Permalink to this heading">#</a></h3>
 <p>По умолчанию обычные сборки Wine недостаточно хорошо заточены для комфортной игры ввиду их универсальности,
 т.к. это все таки свободная реализация WinAPI в Linux и она не обязана использоваться только для запуска игр из под Windows в Linux.
 Но существуют также альтернативные сборки Wine, с большим количеством различных патчей и улучшений, нацеленных в основном как раз на игры.</p>
-<div class="section" id="wine-tkg">
-<span id="wine-tkg-git"></span><span id="index-5"></span><h4>WINE-TKG<a class="headerlink" href="#wine-tkg" title="Ссылка на этот заголовок">#</a></h4>
+<section id="wine-tkg">
+<span id="wine-tkg-git"></span><span id="index-5"></span><h4>WINE-TKG<a class="headerlink" href="#wine-tkg" title="Permalink to this heading">#</a></h4>
 <p><a class="reference external" href="https://github.com/Frogging-Family/wine-tkg-git">WINE-TKG</a> - это, наверное, лучшая сборка Wine для опытных пользователей которые хотят улучшить свой опыт игры под линуксом.
 Преимуществом данной сборки перед другими является огромное количество вложенных в неё патчей из разных источников (В том числе портированных из Proton).
 Поэтому мы настоятельно рекомендуем её к установке если вы хотите получить не только больше производительности, но и совместимости с различными Windows играми.</p>
@@ -537,9 +560,9 @@ function checkPageExistsAndRedirect(event) {
 <p>Подробно описывать ручную сборку здесь мы не будем.
 Поэтому лучше всего посмотрите видео версию, где это наглядно показано (7 минута 23 секунда):</p>
 <p><a class="reference external" href="https://www.youtube.com/watch?v=W1e6_3dPlHk">https://www.youtube.com/watch?v=W1e6_3dPlHk</a></p>
-</div>
-<div class="section" id="wine-tkg-userpatches">
-<span id="index-6"></span><span id="id6"></span><h4><em>wine-tkg-userpatches</em><a class="headerlink" href="#wine-tkg-userpatches" title="Ссылка на этот заголовок">#</a></h4>
+</section>
+<section id="wine-tkg-userpatches">
+<span id="index-6"></span><span id="id6"></span><h4><em>wine-tkg-userpatches</em><a class="headerlink" href="#wine-tkg-userpatches" title="Permalink to this heading">#</a></h4>
 <p>Это  дополнение к wine-tkg.
 По сути это коллекция пользовательских патчей для улучшения производительности и совместности.
 Среди них: улучшения работы с памятью, интерфейсом GDI, качества отклика клавиатуры через системные вызовы Futex,
@@ -555,9 +578,9 @@ nano wine-tkg-profiles/advanced-customization.cfg <span class="c1"># Отред�
 </div>
 <p>Пересоберите wine-tkg по инструкции выше.</p>
 <p>Никакой дополнительной настройки (редактирования <em>customization.cfg</em>) при этом не требуется.</p>
-</div>
-<div class="section" id="wine-ge">
-<span id="wine-ge-custom"></span><span id="index-7"></span><h4>WINE-GE<a class="headerlink" href="#wine-ge" title="Ссылка на этот заголовок">#</a></h4>
+</section>
+<section id="wine-ge">
+<span id="wine-ge-custom"></span><span id="index-7"></span><h4>WINE-GE<a class="headerlink" href="#wine-ge" title="Permalink to this heading">#</a></h4>
 <p>Альтернативная сборка Wine, которая содержит самые последние патчи из Proton.
 По сути он аналогичен Proton-GE (о нем далее), но используется для игр запускаемых вне Steam.</p>
 <p><strong>I. Установка (компиляция)</strong></p>
@@ -575,9 +598,9 @@ makepkg -sric
 <img alt="../_images/lutris-wine-ge.png" src="../_images/lutris-wine-ge.png" />
 <p>И затем выберите его для нужной вам игры:</p>
 <img alt="../_images/lutris-wine-ge-choose.png" src="../_images/lutris-wine-ge-choose.png" />
-</div>
-<div class="section" id="proton-ge-custom">
-<span id="index-8"></span><span id="id7"></span><h4>Proton-GE-Custom<a class="headerlink" href="#proton-ge-custom" title="Ссылка на этот заголовок">#</a></h4>
+</section>
+<section id="proton-ge-custom">
+<span id="index-8"></span><span id="id7"></span><h4>Proton-GE-Custom<a class="headerlink" href="#proton-ge-custom" title="Permalink to this heading">#</a></h4>
 <p>Proton-GE-Custom это форк проекта Proton для запуска Windows-игр с дополнительными патчами и оптимизациями не вошедшими в основную ветку Proton,
 а также улучшение совместимости с некоторыми играми (например, Warframe).
 Позволяет играть во многие проекты которые не заводятся с обычным Wine или Proton.</p>
@@ -601,10 +624,10 @@ makepkg -sric
 <p>Дабы использовать Proton-GE в качестве альтернативы обычному Proton,
 после установки Proton-GE-Custom вам нужно перезапустить Steam и зайти в Свойства нужной вам игры, прожать в:
 <em>Совместность -&gt; Принудительно использовать определенный инструмент совместности Steam Play -&gt; Proton-6.XX-GE-1</em>. Готово, теперь можно запустить игру.</p>
-</div>
-</div>
-<div class="section" id="wine-usage">
-<span id="index-9"></span><span id="id8"></span><h3>Использование Wine<a class="headerlink" href="#wine-usage" title="Ссылка на этот заголовок">#</a></h3>
+</section>
+</section>
+<section id="wine-usage">
+<span id="index-9"></span><span id="id8"></span><h3>Использование Wine<a class="headerlink" href="#wine-usage" title="Permalink to this heading">#</a></h3>
 <p>Использование Wine на деле является довольно простым.
 Чтобы запустить любое Windows-приложение достаточно использовать простую команду:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>wine программа.exe
@@ -661,9 +684,9 @@ makepkg -sric
 </pre></div>
 </div>
 <p>(Где '.wine' - путь до нужного вам префикса)</p>
-</div>
-<div class="section" id="dxvk">
-<span id="index-10"></span><span id="id9"></span><h3>DXVK<a class="headerlink" href="#dxvk" title="Ссылка на этот заголовок">#</a></h3>
+</section>
+<section id="dxvk">
+<span id="index-10"></span><span id="id9"></span><h3>DXVK<a class="headerlink" href="#dxvk" title="Permalink to this heading">#</a></h3>
 <p>В Linux отсутствует полноценная реализация DirectX по вполне понятным причинам. Но присутствуют альтернативные графические API, работающие под любые платформы.
 Прежде всего это OpenGL и Vulkan. В следствии этого в Wine есть так называемый ретранслятор кода - wined3d.
 Он переводит вызовы DirectX в известные любой Linux системе OpenGL вызовы. Однако OpenGL не одно и тоже что и DirectX,
@@ -705,9 +728,9 @@ makepkg -sric <span class="c1"># Сборка и установка</span>
 <p class="admonition-title">Опасно</p>
 <p>С осторожностью используйте <em>DXVK_ASYNC=1</em> в онлайн-играх!</p>
 </div>
-</div>
-<div class="section" id="vkd3d">
-<span id="index-11"></span><span id="id10"></span><h3>vkd3d<a class="headerlink" href="#vkd3d" title="Ссылка на этот заголовок">#</a></h3>
+</section>
+<section id="vkd3d">
+<span id="index-11"></span><span id="id10"></span><h3>vkd3d<a class="headerlink" href="#vkd3d" title="Permalink to this heading">#</a></h3>
 <p>vkd3d - это ретранслятор кода, аналогичный DXVK, но уже конкретно для версии DirectX 12.
 Стоит отметить, что существует две отдельно разрабатываемые версии vkd3d,
 одна из которых разрабатывается командой Wine, а другая - Valve.
@@ -732,9 +755,9 @@ makepkg -sric                                              <span class="c1"># С
 </pre></div>
 </div>
 <img alt="../_images/vkd3d-configure.png" src="../_images/vkd3d-configure.png" />
-</div>
-<div class="section" id="wine-dxvk">
-<span id="wine-references"></span><span id="index-12"></span><h3>Полезные ссылки по теме Wine и DXVK<a class="headerlink" href="#wine-dxvk" title="Ссылка на этот заголовок">#</a></h3>
+</section>
+<section id="wine-dxvk">
+<span id="wine-references"></span><span id="index-12"></span><h3>Полезные ссылки по теме Wine и DXVK<a class="headerlink" href="#wine-dxvk" title="Permalink to this heading">#</a></h3>
 <p><strong>Видео на настройке Бинарной версии Wine.</strong></p>
 <p><a class="reference external" href="https://www.youtube.com/watch?v=NKI3dtK7mRI">https://www.youtube.com/watch?v=NKI3dtK7mRI</a> (Устаревшее видео).</p>
 <p><strong>Скачать готовые сборки Wine и DXVK</strong></p>
@@ -745,13 +768,13 @@ makepkg -sric                                              <span class="c1"># С
 <p><strong>Почитать, что это такое</strong></p>
 <p><a class="reference external" href="https://www.newalive.net/234-sborki-dxvk-i-d9vk.html">https://www.newalive.net/234-sborki-dxvk-i-d9vk.html</a></p>
 <p><a class="reference external" href="https://www.newalive.net/231-wine-tk-glitch.html">https://www.newalive.net/231-wine-tk-glitch.html</a></p>
-</div>
-</div>
-<div class="section" id="additional-components">
-<span id="index-13"></span><span id="id11"></span><h2>Дополнительные компоненты<a class="headerlink" href="#additional-components" title="Ссылка на этот заголовок">#</a></h2>
+</section>
+</section>
+<section id="additional-components">
+<span id="index-13"></span><span id="id11"></span><h2>Дополнительные компоненты<a class="headerlink" href="#additional-components" title="Permalink to this heading">#</a></h2>
 <p>Не являются обязательными, но могут помочь повысить производительность системы или облегчить настройку.</p>
-<div class="section" id="lutris">
-<span id="lutris-and-additions"></span><span id="index-14"></span><h3>Lutris<a class="headerlink" href="#lutris" title="Ссылка на этот заголовок">#</a></h3>
+<section id="lutris">
+<span id="lutris-and-additions"></span><span id="index-14"></span><h3>Lutris<a class="headerlink" href="#lutris" title="Permalink to this heading">#</a></h3>
 <p>Lutris - это удобный графический интерфейс по обслуживанию всей вашей игровой библиотеки
 (включая все купленные игры Steam/GOG/Epic Games) в одном приложении.
 Через него вы сможете достаточно просто запускать нативные игры, игры запускаемые при помощи эмуляторов, и конечно Wine.
@@ -792,8 +815,8 @@ makepkg -sric                                              <span class="c1"># С
 <img alt="../_images/lutris-epic-library.png" src="../_images/lutris-epic-library.png" />
 <p><strong>Пример работы с Lutris</strong></p>
 <p><a class="reference external" href="https://www.youtube.com/watch?v=ybe0MzJDUvw">https://www.youtube.com/watch?v=ybe0MzJDUvw</a></p>
-<div class="section" id="proton-ge-custom-lutris">
-<span id="proton-ge-with-lutris"></span><span id="index-15"></span><h4>Использование Proton-GE-Custom в Lutris<a class="headerlink" href="#proton-ge-custom-lutris" title="Ссылка на этот заголовок">#</a></h4>
+<section id="proton-ge-custom-lutris">
+<span id="proton-ge-with-lutris"></span><span id="index-15"></span><h4>Использование Proton-GE-Custom в Lutris<a class="headerlink" href="#proton-ge-custom-lutris" title="Permalink to this heading">#</a></h4>
 <p>Немногие понимают, что Proton по сути является тем же Wine, хоть и с плюшками.
 Так вот, зная этот факт, мы можем сказать Lutris использовать Proton в качестве кастомного Wine.
 Делается это очень просто:</p>
@@ -802,10 +825,10 @@ ln -s /usr/share/steam/compatibilitytools.d/proton-ge-custom/files ~/.local/shar
 </pre></div>
 </div>
 <p>Затем просто выберите пункт в выборе версии Wine на <em>&quot;wine-proton-ge&quot;</em> в Lutris для нужной вам игры.</p>
-</div>
-</div>
-<div class="section" id="gamemode">
-<span id="index-16"></span><span id="id12"></span><h3>Gamemode<a class="headerlink" href="#gamemode" title="Ссылка на этот заголовок">#</a></h3>
+</section>
+</section>
+<section id="gamemode">
+<span id="index-16"></span><span id="id12"></span><h3>Gamemode<a class="headerlink" href="#gamemode" title="Permalink to this heading">#</a></h3>
 <p>Gamemode - утилита для максимальной выжимки системы во время игры.
 Установку gamemode можно выполнить следующей командой:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S gamemode lib32-gamemode
@@ -820,9 +843,9 @@ ln -s /usr/share/steam/compatibilitytools.d/proton-ge-custom/files ~/.local/shar
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>gamemoderun %command%
 </pre></div>
 </div>
-</div>
-<div class="section" id="amd-fidelityfx-super-resolution-wine">
-<span id="amd-fsr"></span><span id="index-17"></span><h3>AMD FidelityFX Super Resolution в Wine<a class="headerlink" href="#amd-fidelityfx-super-resolution-wine" title="Ссылка на этот заголовок">#</a></h3>
+</section>
+<section id="amd-fidelityfx-super-resolution-wine">
+<span id="amd-fsr"></span><span id="index-17"></span><h3>AMD FidelityFX Super Resolution в Wine<a class="headerlink" href="#amd-fidelityfx-super-resolution-wine" title="Permalink to this heading">#</a></h3>
 <p>Возможно, вы слышали о волшебной технологии DLSS от Nvidia, которая позволяет поднять FPS почти в два раза и при этом не потратить ни копейки на новое оборудование.
 Вот и компания AMD совсем недавно представила похожую технологию, которая получила помпезное название AMD FidelityFX Super Resolution или сокращенно FSR.
 Новая технология масштабирования картинки от AMD не требует наличия дорого́й карты или каких-то аппаратных блоков ускорения,
@@ -862,9 +885,9 @@ _protonify, _msvcrt_nativebuiltin, _proton_fs_hack, _proton_rawinput.
 По умолчанию установлено значение <em>&quot;2&quot;</em>, мы рекомендуем использовать значение <em>&quot;3&quot;</em>.</p>
 <p><strong>Видеоверсия и демонстрация работы технологии</strong></p>
 <p><a class="reference external" href="https://www.youtube.com/watch?v=YNhwAazJODU">https://www.youtube.com/watch?v=YNhwAazJODU</a></p>
-</div>
-<div class="section" id="dlss-nvidia-proton">
-<span id="nvidia-dlss-with-proton"></span><span id="index-18"></span><h3>Использование DLSS с видеокартами NVIDIA через Proton<a class="headerlink" href="#dlss-nvidia-proton" title="Ссылка на этот заголовок">#</a></h3>
+</section>
+<section id="dlss-nvidia-proton">
+<span id="nvidia-dlss-with-proton"></span><span id="index-18"></span><h3>Использование DLSS с видеокартами NVIDIA через Proton<a class="headerlink" href="#dlss-nvidia-proton" title="Permalink to this heading">#</a></h3>
 <p>Для того чтобы использовать DLSS вам потребуется:</p>
 <ul>
 <li><p>Видеокарта поддерживающая данную технологию (видеокарты серии RTX и выше).</p></li>
@@ -887,11 +910,11 @@ _protonify, _msvcrt_nativebuiltin, _proton_fs_hack, _proton_rawinput.
 <p class="admonition-title">Внимание</p>
 <p>Поскольку для DLSS необходимо специальное машинное обучение, то для запуска необходимо чтобы игра поддерживала DLSS, т.е. в настройках игры должен быть параметр включения данной функции. <strong>Иначе DLSS работать не будет!</strong></p>
 </div>
-</div>
-<div class="section" id="fps">
-<span id="fps-monitoring"></span><span id="index-19"></span><h3>Мониторинг FPS в играх.<a class="headerlink" href="#fps" title="Ссылка на этот заголовок">#</a></h3>
-<div class="section" id="mangohud">
-<span id="index-20"></span><span id="id13"></span><h4>Mangohud<a class="headerlink" href="#mangohud" title="Ссылка на этот заголовок">#</a></h4>
+</section>
+<section id="fps">
+<span id="fps-monitoring"></span><span id="index-19"></span><h3>Мониторинг FPS в играх.<a class="headerlink" href="#fps" title="Permalink to this heading">#</a></h3>
+<section id="mangohud">
+<span id="index-20"></span><span id="id13"></span><h4>Mangohud<a class="headerlink" href="#mangohud" title="Permalink to this heading">#</a></h4>
 <p>Включение мониторинга в играх как в MSI Afterburner.</p>
 <img alt="https://raw.githubusercontent.com/ventureoo/ARU/main/archive/ARU/images/image9.png" class="align-center" src="https://raw.githubusercontent.com/ventureoo/ARU/main/archive/ARU/images/image9.png" />
 <p><strong>Установка</strong></p>
@@ -915,59 +938,63 @@ makepkg -sric                                    <span class="c1"># Сборка
 <p>(Для указания нескольких команд необходимо разделять их <strong>пробелом</strong>)</p>
 <p><strong>Подробней в видео.</strong></p>
 <p><a class="reference external" href="https://www.youtube.com/watch?v=4RqerevPD4I">https://www.youtube.com/watch?v=4RqerevPD4I</a></p>
-</div>
-<div class="section" id="dxvk-hud-wine-proton">
-<span id="dxvk-hud"></span><span id="index-21"></span><h4>Альтернатива: DXVK Hud (<em>Только для игр запускаемых через Wine/Proton</em>)<a class="headerlink" href="#dxvk-hud-wine-proton" title="Ссылка на этот заголовок">#</a></h4>
+</section>
+<section id="dxvk-hud-wine-proton">
+<span id="dxvk-hud"></span><span id="index-21"></span><h4>Альтернатива: DXVK Hud (<em>Только для игр запускаемых через Wine/Proton</em>)<a class="headerlink" href="#dxvk-hud-wine-proton" title="Permalink to this heading">#</a></h4>
 <p>Вы также можете использовать встроенную в DXVK альтернативу для мониторинга - DXVK Hud.
 Он не такой гибкий как MangoHud, но также способен выводить значения FPS, график времени кадра, нагрузку на GPU.
 Использовать данный HUD можно задав переменную окружения <em>DXVK_HUD</em>.
 К примеру, <code class="docutils literal notranslate"><span class="pre">DXVK_HUD=fps,frametimes,gpuload</span></code> выводит информацию о FPS, времени кадра, и нагрузке на GPU.</p>
 <p>Полный список значений переменной вы можете узнать - <a class="reference external" href="https://github.com/doitsujin/dxvk#hud">здесь</a>.</p>
-</div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
+</section>
 
 
-              </div>
+              </article>
               
+
               
-              <!-- Previous / next buttons -->
+              <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="custom-kernels.html" title="назад страница">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">назад</p>
-            <p class="prev-next-title">Кастомные ядра</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="mini-kernel.html" title="вперёд страница">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">вперёд</p>
-        <p class="prev-next-title">Сборка мини-ядра, и с чем это едят.</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
+  <a class='left-prev' id="prev-link" href="custom-kernels.html" title="назад страница">
+      <i class="fas fa-angle-left"></i>
+      <div class="prev-next-info">
+          <p class="prev-next-subtitle">назад</p>
+          <p class="prev-next-title">Кастомные ядра</p>
+      </div>
+  </a>
+  <a class='right-next' id="next-link" href="mini-kernel.html" title="вперёд страница">
+  <div class="prev-next-info">
+      <p class="prev-next-subtitle">вперёд</p>
+      <p class="prev-next-title">Сборка мини-ядра, и с чем это едят.</p>
+  </div>
+  <i class="fas fa-angle-right"></i>
+  </a>
 </div>
+              </footer>
               
-          </main>
+          </div>
           
-
       </div>
     </div>
+
+  
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-<footer class="footer mt-5 mt-md-0">
-  <div class="container">
-    
-    <div class="footer-item">
-      <p class="copyright">
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695"></script>
+
+<footer class="bd-footer"><div class="bd-footer__inner container">
+  
+  <div class="footer-item">
+    <p class="copyright">
     &copy; Copyright ARU 2018 - 2022 Pavel Priluckiy, Vasiliy Stelmachenok and contributors.<br>
 </p>
-    </div>
-    
   </div>
+  
+</div>
 </footer>
   </body>
 </html>

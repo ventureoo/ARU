@@ -4,14 +4,19 @@
 <html lang="ru">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Базовое ускорение системы &#8212; Руководство по оптимизации Arch Linux</title>
-    
-  <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    
+    <title>Базовое ускорение системы &#8212; Руководство по оптимизации Arch Linux</title>
+<script>
+  document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+  document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
+</script>
+
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=92025949c220c2e29695" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=92025949c220c2e29695" rel="stylesheet">
+
+
   <link rel="stylesheet"
     href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
   <link rel="preload" as="font" type="font/woff2" crossorigin
@@ -20,46 +25,54 @@
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
-    
+
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/translations.js"></script>
     <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
     <link rel="search" title="Поиск" href="../search.html" />
     <link rel="next" title="Экстра оптимизации" href="extra-optimizations.html" />
     <link rel="prev" title="Первые шаги" href="first-steps.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="ru">
-    
-
-    <!-- Google Analytics -->
-    
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="docsearch:language" content="ru">
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="light">
+    <div class="bd-header-announcement container-fluid" id="banner">
+      
+
+    </div>
 
     
-    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+    <nav class="bd-header navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="bd-header__inner container-xl">
 
   <div id="navbar-start">
     
     
-<a class="navbar-brand" href="../index.html">
-<p class="title">ARU - Руководство по оптимизации Arch Linux</p>
-</a>
+  
 
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Руководство по оптимизации Arch Linux</p>
+  
+</a>
     
   </div>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+    <span class="fas fa-bars"></span>
   </button>
 
   
@@ -71,8 +84,16 @@
     <div id="navbar-end">
       
       <div class="navbar-end-item">
+        <span id="theme-switch" class="btn btn-sm btn-outline-primary navbar-btn rounded-circle">
+    <a class="theme-switch" data-mode="light"><i class="fas fa-sun"></i></a>
+    <a class="theme-switch" data-mode="dark"><i class="far fa-moon"></i></a>
+    <a class="theme-switch" data-mode="auto"><i class="fas fa-adjust"></i></a>
+</span>
+      </div>
+      
+      <div class="navbar-end-item">
         <div class="dropdown" id="version_switcher">
-    <button type="button" class="btn btn-primary btn-sm navbar-btn dropdown-toggle" id="version_switcher_button" data-toggle="dropdown">
+    <button type="button" class="btn btn-sm navbar-btn dropdown-toggle" id="version_switcher_button" data-toggle="dropdown">
         latest  <!-- this text may get changed later by javascript -->
         <span class="caret"></span>
     </button>
@@ -112,6 +133,10 @@ function checkPageExistsAndRedirect(event) {
 (function () {
     $.getJSON("https://ventureoo.github.io/ARU/_static/switcher.json", function(data, textStatus, jqXHR) {
         const currentFilePath = "source/generic-system-acceleration.html";
+        let btn = document.getElementById("version_switcher_button");
+        // Set empty strings by default so that these attributes exist and can be used in CSS selectors
+        btn.dataset["activeVersionName"] = "";
+        btn.dataset["activeVersion"] = "";
         // create links to the corresponding page in the other docs versions
         $.each(data, function(index, entry) {
             // if no custom name specified (e.g., "latest"), use version string
@@ -139,7 +164,6 @@ function checkPageExistsAndRedirect(event) {
             // version's entry
             if (entry.version == "latest") {
                 node.classList.add("active");
-                let btn = document.getElementById("version_switcher_button");
                 btn.innerText = btn.dataset["activeVersionName"] = entry.name;
                 btn.dataset["activeVersion"] = entry.version;
             }
@@ -172,13 +196,13 @@ function checkPageExistsAndRedirect(event) {
     </nav>
     
 
-    <div class="container-xl">
-      <div class="row">
+    <div class="bd-container container-xl">
+      <div class="bd-container__inner row">
           
-            
-            <!-- Only show if we have sidebars configured, else just a small margin  -->
-            <div class="col-12 col-md-3 bd-sidebar">
-              <div class="sidebar-start-items"><ul id="navbar-main-elements" class="navbar-nav">
+
+<!-- Only show if we have sidebars configured, else just a small margin  -->
+<div class="bd-sidebar-primary col-12 col-md-3 bd-sidebar">
+  <div class="sidebar-start-items"><ul id="navbar-main-elements" class="navbar-nav">
     <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="preface.html">
   Предисловие
@@ -250,19 +274,20 @@ function checkPageExistsAndRedirect(event) {
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Поиск..." aria-label="Поиск..." autocomplete="off" >
 </form>
-              </div>
-              <div class="sidebar-end-items">
-              </div>
-            </div>
-            
-          
+  </div>
+  <div class="sidebar-end-items">
+  </div>
+</div>
+
 
           
-          <div class="d-none d-xl-block col-xl-2 bd-toc">
-            
-              
-              <div class="toc-item">
-                
+
+
+<div class="bd-sidebar-secondary d-none d-xl-block col-xl-2 bd-toc">
+  
+    
+    <div class="toc-item">
+      
 <div class="tocsection onthispage mt-5 pt-1 pb-3">
     <i class="fas fa-list"></i> On this page
 </div>
@@ -367,10 +392,10 @@ function checkPageExistsAndRedirect(event) {
 </ul>
 
 </nav>
-              </div>
-              
-              <div class="toc-item">
-                
+    </div>
+    
+    <div class="toc-item">
+      
 
 <div class="tocsection editthispage">
     <a href="https://github.com/ventureoo/ARU/edit/main/source/generic-system-acceleration.rst">
@@ -378,26 +403,24 @@ function checkPageExistsAndRedirect(event) {
     </a>
 </div>
 
-              </div>
-              
-            
-          </div>
-          
+    </div>
+    
+  
+</div>
+
 
           
           
-            
-          
-          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+          <div class="bd-content col-12 col-md-9 col-xl-7">
               
-              <div>
+              <article class="bd-article" role="main">
                 
-  <div class="section" id="generic-system-acceleration">
-<span id="id1"></span><h1>Базовое ускорение системы<a class="headerlink" href="#generic-system-acceleration" title="Ссылка на этот заголовок">#</a></h1>
+  <section id="generic-system-acceleration">
+<span id="id1"></span><h1>Базовое ускорение системы<a class="headerlink" href="#generic-system-acceleration" title="Permalink to this heading">#</a></h1>
 <p>Переходя к базовой оптимизации системы мне сто́ит напомнить, что чистый Arch Linux - это фундамент, и требуется уйма надстроек для нормальной работы системы.
 Установить компоненты, которые будут отвечать за электропитание, чистку, оптимизацию и тому подобные вещи, что и описывается в данном разделе.</p>
-<div class="section" id="makepkg-conf">
-<span id="index-0"></span><span id="id2"></span><h2>Настройка makepkg.conf<a class="headerlink" href="#makepkg-conf" title="Ссылка на этот заголовок">#</a></h2>
+<section id="makepkg-conf">
+<span id="index-0"></span><span id="id2"></span><h2>Настройка makepkg.conf<a class="headerlink" href="#makepkg-conf" title="Permalink to this heading">#</a></h2>
 <p>Прежде чем приступать к сборке пакетов, мы должны изменить так называемые флаги компиляции,
 что являются указателями для компилятора, какие инструкции и оптимизации использовать при сборке программ.</p>
 <p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">/etc/makepkg.conf</span></code> # Редактируем (Где &quot;-O2&quot; - <strong>Это не нуль/ноль</strong>)</p>
@@ -413,8 +436,8 @@ function checkPageExistsAndRedirect(event) {
 </div>
 <p>Данные флаги компилятора выжимают максимум производительности при компиляции, но могут вызывать ошибки сборки в очень редких приложениях.
 Если такое случится, то отключите параметр ‘lto’ в строке options добавив перед ним символ восклицательного знака  ! (<em>&quot;!lto&quot;</em>).</p>
-<div class="section" id="clang">
-<span id="force-clang-usage"></span><span id="index-1"></span><h3>Форсирование использования Clang при сборке пакетов<a class="headerlink" href="#clang" title="Ссылка на этот заголовок">#</a></h3>
+<section id="clang">
+<span id="force-clang-usage"></span><span id="index-1"></span><h3>Форсирование использования Clang при сборке пакетов<a class="headerlink" href="#clang" title="Permalink to this heading">#</a></h3>
 <p>В системах на базе ядра Linux различают две основных группы компиляторов, это LLVM и GCC.
 И те, и другие хорошо справляются с возложенными на них задачами,
 но LLVM имеет чуть большее преимущество с точки зрения производительности при меньших потерях в качестве конечного кода.
@@ -484,8 +507,8 @@ makepkg -sric
 <p>(Вместо <em>llvm-git</em> может быть любой другой пакет, доступный в данном репозитории)</p>
 <p>Больше подробностей по теме вы можете найти в данной статье:</p>
 <p><a class="reference external" href="https://habr.com/ru/company/ruvds/blog/561286/">https://habr.com/ru/company/ruvds/blog/561286/</a></p>
-<div class="section" id="llvm-clang">
-<span id="speeding-up-clang-llvm-compilers"></span><span id="index-2"></span><h4>Ускорение работы компиляторов LLVM/Clang<a class="headerlink" href="#llvm-clang" title="Ссылка на этот заголовок">#</a></h4>
+<section id="llvm-clang">
+<span id="speeding-up-clang-llvm-compilers"></span><span id="index-2"></span><h4>Ускорение работы компиляторов LLVM/Clang<a class="headerlink" href="#llvm-clang" title="Permalink to this heading">#</a></h4>
 <p>Дополнительно можно отметить, что после установки Clang вы можете перекомпилировать его самого через себя,
 т.е. выполнить пересборку Clang с помощью бинарного Clang из репозиториев.
 Это позволит оптимизировать уже сам компилятор под ваше железо и тем самым ускорить
@@ -496,10 +519,10 @@ makepkg -sric
 makepkg --config /etc/makepkg-clang.conf -sric --skippgpcheck
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="ccache">
-<span id="enabling-ccache"></span><span id="index-3"></span><h3>Включение ccache<a class="headerlink" href="#ccache" title="Ссылка на этот заголовок">#</a></h3>
+</section>
+</section>
+<section id="ccache">
+<span id="enabling-ccache"></span><span id="index-3"></span><h3>Включение ccache<a class="headerlink" href="#ccache" title="Permalink to this heading">#</a></h3>
 <p>В Linux системах есть не так много программ, сборка которых может занять больше двух часов,
 но они все таки есть. Потому, было бы неплохо ускорить повторную компиляцию таких программ как Wine/Proton-GE и т.д.</p>
 <p>ccache - это кэш для компиляторов C/C++, в частности совместимый с компиляторами GCC/Clang,
@@ -524,10 +547,10 @@ makepkg --config /etc/makepkg-clang.conf -sric --skippgpcheck
 <p class="admonition-title">Внимание</p>
 <p>ccache может ломать сборку некоторых программ, поэтому будьте внимательны с его применением.</p>
 </div>
-</div>
-</div>
-<div class="section" id="daemons-and-services">
-<span id="index-4"></span><span id="id3"></span><h2>Установка полезных служб и демонов<a class="headerlink" href="#daemons-and-services" title="Ссылка на этот заголовок">#</a></h2>
+</section>
+</section>
+<section id="daemons-and-services">
+<span id="index-4"></span><span id="id3"></span><h2>Установка полезных служб и демонов<a class="headerlink" href="#daemons-and-services" title="Permalink to this heading">#</a></h2>
 <p><strong>1.</strong> <a class="reference external" href="https://aur.archlinux.org/packages/zramswap/">Zramswap</a> — это специальный демон,
 который сжимает оперативную память ресурсами центрального процессора и создает в ней файл подкачки.
 Очень ускоряет систему вне зависимости от количества памяти, однако добавляет нагрузку на процессор, т.к. его ресурсами и происходит сжатие памяти.
@@ -600,24 +623,24 @@ sudo systemctl --global <span class="nb">enable</span> dbus-broker.service <span
 <p>Если у вас ещё возникает вопрос: &quot;Что действительно нужно установить из вышеперечисленного?&quot;,
 то просто посмотрите на следующую схему:</p>
 <img alt="../_images/generic-system-acceleration-1.png" src="../_images/generic-system-acceleration-1.png" />
-</div>
-<div class="section" id="lowlatency-audio">
-<span id="index-5"></span><span id="id4"></span><h2>Низкие задержки звука<a class="headerlink" href="#lowlatency-audio" title="Ссылка на этот заголовок">#</a></h2>
+</section>
+<section id="lowlatency-audio">
+<span id="index-5"></span><span id="id4"></span><h2>Низкие задержки звука<a class="headerlink" href="#lowlatency-audio" title="Permalink to this heading">#</a></h2>
 <p>Установите следующие пакеты для понижения задержек звука в PulseAudio,
 а также удобную графическую панель управления звуком -  <em>pavucontrol</em>.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S jack2 pulseaudio-alsa pulseaudio-jack pavucontrol jack2-dbus realtime-privileges
 </pre></div>
 </div>
-<div class="section" id="pulseaudio">
-<span id="pipewire-installation"></span><span id="index-6"></span><h3>Новая альтернатива PulseAudio<a class="headerlink" href="#pulseaudio" title="Ссылка на этот заголовок">#</a></h3>
+<section id="pulseaudio">
+<span id="pipewire-installation"></span><span id="index-6"></span><h3>Новая альтернатива PulseAudio<a class="headerlink" href="#pulseaudio" title="Permalink to this heading">#</a></h3>
 <p><a class="reference external" href="https://wiki.archlinux.org/title/PipeWire_(Русский)">PipeWire</a> - это новая альтернатива PulseAudio,
 которая призвана избавить от проблем pulse, уменьшить задержки звука и потребление памяти.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S jack2 pipewire pipewire-alsa pavucontrol pipewire-pulse alsa-utils wireplumber
 </pre></div>
 </div>
-</div>
-<div class="section" id="alsa">
-<span id="index-7"></span><span id="id5"></span><h3>Простая ALSA<a class="headerlink" href="#alsa" title="Ссылка на этот заголовок">#</a></h3>
+</section>
+<section id="alsa">
+<span id="index-7"></span><span id="id5"></span><h3>Простая ALSA<a class="headerlink" href="#alsa" title="Permalink to this heading">#</a></h3>
 <p>ALSA - это тот самый звук (условно, на самом деле это звуковая подсистема ядра),
 который идёт напрямую из ядра и является самым быстрым,
 так как не вынужден проходить множество программных прослоек и микширование.</p>
@@ -629,10 +652,10 @@ sudo systemctl --global <span class="nb">enable</span> dbus-broker.service <span
 <p>Вообще, выбор звукового сервера не такая уж сложная задача как вам может показаться,
 достаточно взглянуть на следующую схему:</p>
 <img alt="../_images/generic-system-acceleration-2.png" src="../_images/generic-system-acceleration-2.png" />
-</div>
-</div>
-<div class="section" id="networkmanager-wait-online">
-<span id="startup-acceleration"></span><span id="index-8"></span><h2>Ускорение загрузки системы (Отключение NetworkManager-wait-online)<a class="headerlink" href="#networkmanager-wait-online" title="Ссылка на этот заголовок">#</a></h2>
+</section>
+</section>
+<section id="networkmanager-wait-online">
+<span id="startup-acceleration"></span><span id="index-8"></span><h2>Ускорение загрузки системы (Отключение NetworkManager-wait-online)<a class="headerlink" href="#networkmanager-wait-online" title="Permalink to this heading">#</a></h2>
 <p>В большинстве случаев для настройки интернет подключения вы, скорее всего, будете использовать NetworkManager,
 т.к. он является в этом деле швейцарским ножом и поставляется по умолчанию.
 Однако, если вы пропишите команду <em>systemd-analyze blame</em>, то узнаете, что он задерживает загрузку системы примерно на ~4 секунды.
@@ -640,8 +663,8 @@ sudo systemctl --global <span class="nb">enable</span> dbus-broker.service <span
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo systemctl mask NetworkManager-wait-online.service
 </pre></div>
 </div>
-<div class="section" id="hdd">
-<span id="speed-up-hdd-startup"></span><span id="index-9"></span><h3>Ускорение загрузки ядра на HDD накопителях (<em>Только для жестких дисков</em>)<a class="headerlink" href="#hdd" title="Ссылка на этот заголовок">#</a></h3>
+<section id="hdd">
+<span id="speed-up-hdd-startup"></span><span id="index-9"></span><h3>Ускорение загрузки ядра на HDD накопителях (<em>Только для жестких дисков</em>)<a class="headerlink" href="#hdd" title="Permalink to this heading">#</a></h3>
 <p>Убедитесь, что пакет <a class="reference external" href="https://archlinux.org/packages/core/x86_64/lz4/">lz4</a> установлен:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S lz4
 </pre></div>
@@ -658,10 +681,10 @@ sudo systemctl --global <span class="nb">enable</span> dbus-broker.service <span
 <li><p>Добавите <em>shutdown</em> в массив <em>HOOKS</em> (ограничен скобками)</p></li>
 </ul>
 <p>Это ускорит загрузку системы на слабых жёстких дисках благодаря более подходящему методу сжатия образов ядра.</p>
-</div>
-</div>
-<div class="section" id="parallel-downloading">
-<span id="index-10"></span><span id="id6"></span><h2>Одновременная загрузка двух и более пакетов<a class="headerlink" href="#parallel-downloading" title="Ссылка на этот заголовок">#</a></h2>
+</section>
+</section>
+<section id="parallel-downloading">
+<span id="index-10"></span><span id="id6"></span><h2>Одновременная загрузка двух и более пакетов<a class="headerlink" href="#parallel-downloading" title="Permalink to this heading">#</a></h2>
 <p>Начиная с шестой версии pacman поддерживает параллельную загрузку пакетов.
 Чтобы её включить отредактируйте <em>/etc/pacman.conf</em>:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo nano /etc/pacman.conf <span class="c1"># Раскомментируйте строчку ниже</span>
@@ -670,8 +693,8 @@ sudo systemctl --global <span class="nb">enable</span> dbus-broker.service <span
 <span class="nv">ParallelDownloads</span> <span class="o">=</span> <span class="m">4</span>
 </pre></div>
 </div>
-<div class="section" id="powerpill-zee-captain">
-<span id="powerpill"></span><span id="index-11"></span><h3>Альтернативно можно использовать powerpill (Спасибо Zee Captain)<a class="headerlink" href="#powerpill-zee-captain" title="Ссылка на этот заголовок">#</a></h3>
+<section id="powerpill-zee-captain">
+<span id="powerpill"></span><span id="index-11"></span><h3>Альтернативно можно использовать powerpill (Спасибо Zee Captain)<a class="headerlink" href="#powerpill-zee-captain" title="Permalink to this heading">#</a></h3>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://aur.archlinux.org/powerpill.git
 <span class="nb">cd</span> powerpill
 makepkg -sric
@@ -681,12 +704,12 @@ makepkg -sric
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo powerpill -Syu
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="id7">
-<h2>Твики драйверов Mesa<a class="headerlink" href="#id7" title="Ссылка на этот заголовок">#</a></h2>
-<div class="section" id="amd-sam">
-<span id="force-amd-sam"></span><span id="index-12"></span><h3>Форсирование использования AMD SAM <em>(Только для опытных пользователей)</em>.<a class="headerlink" href="#amd-sam" title="Ссылка на этот заголовок">#</a></h3>
+</section>
+</section>
+<section id="id7">
+<h2>Твики драйверов Mesa<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h2>
+<section id="amd-sam">
+<span id="force-amd-sam"></span><span id="index-12"></span><h3>Форсирование использования AMD SAM <em>(Только для опытных пользователей)</em>.<a class="headerlink" href="#amd-sam" title="Permalink to this heading">#</a></h3>
 <p>AMD Smart Acess Memory (или Resizble Bar) — это технология которая позволяет процессору получить доступ сразу ко всей видеопамяти GPU,
 а не по отдельности для каждого распаянного чипа создавая задержки. Несмотря на то,
 что данная технология заявлена только для оборудования AMD и требует новейших комплектующих для обеспечения своей работы,
@@ -726,9 +749,9 @@ makepkg -sric
 </div>
 <p><strong>Пример тестирования технологии на видеокарте старого поколения (Windows)</strong></p>
 <p><a class="reference external" href="https://youtu.be/tZmPi9tfLbc">https://youtu.be/tZmPi9tfLbc</a></p>
-</div>
-<div class="section" id="vega-11-vochatrak-az-ezm">
-<span id="bug-solution-for-vega"></span><span id="index-13"></span><h3>Решение проблем работы графики Vega 11 (Спасибо &#64;Vochatrak-az-ezm)<a class="headerlink" href="#vega-11-vochatrak-az-ezm" title="Ссылка на этот заголовок">#</a></h3>
+</section>
+<section id="vega-11-vochatrak-az-ezm">
+<span id="bug-solution-for-vega"></span><span id="index-13"></span><h3>Решение проблем работы графики Vega 11 (Спасибо &#64;Vochatrak-az-ezm)<a class="headerlink" href="#vega-11-vochatrak-az-ezm" title="Permalink to this heading">#</a></h3>
 <p>На оборудовании со встроенным видеоядром Vega 11 может встретиться баг драйвера, при котором возникают случайные зависания графики.
 Проблема наиболее актуальна для <em>Ryzen 2XXXG</em> и чуть реже встречается на Ryzen серии <em>3XXXG</em>, но потенциально имеет место быть и на более
 новых видеоядрах Vega.</p>
@@ -750,50 +773,54 @@ sudo nano /etc/enviroment
 <p>Для подробностей можете ознакомиться со следующими темами:</p>
 <p><a class="reference external" href="https://www.linux.org.ru/forum/linux-hardware/16312119">https://www.linux.org.ru/forum/linux-hardware/16312119</a></p>
 <p><a class="reference external" href="https://www.linux.org.ru/forum/desktop/16257286">https://www.linux.org.ru/forum/desktop/16257286</a></p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
-              </div>
+              </article>
               
+
               
-              <!-- Previous / next buttons -->
+              <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="first-steps.html" title="назад страница">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">назад</p>
-            <p class="prev-next-title">Первые шаги</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="extra-optimizations.html" title="вперёд страница">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">вперёд</p>
-        <p class="prev-next-title">Экстра оптимизации</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
+  <a class='left-prev' id="prev-link" href="first-steps.html" title="назад страница">
+      <i class="fas fa-angle-left"></i>
+      <div class="prev-next-info">
+          <p class="prev-next-subtitle">назад</p>
+          <p class="prev-next-title">Первые шаги</p>
+      </div>
+  </a>
+  <a class='right-next' id="next-link" href="extra-optimizations.html" title="вперёд страница">
+  <div class="prev-next-info">
+      <p class="prev-next-subtitle">вперёд</p>
+      <p class="prev-next-title">Экстра оптимизации</p>
+  </div>
+  <i class="fas fa-angle-right"></i>
+  </a>
 </div>
+              </footer>
               
-          </main>
+          </div>
           
-
       </div>
     </div>
+
+  
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-<footer class="footer mt-5 mt-md-0">
-  <div class="container">
-    
-    <div class="footer-item">
-      <p class="copyright">
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695"></script>
+
+<footer class="bd-footer"><div class="bd-footer__inner container">
+  
+  <div class="footer-item">
+    <p class="copyright">
     &copy; Copyright ARU 2018 - 2022 Pavel Priluckiy, Vasiliy Stelmachenok and contributors.<br>
 </p>
-    </div>
-    
   </div>
+  
+</div>
 </footer>
   </body>
 </html>

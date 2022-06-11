@@ -4,14 +4,19 @@
 <html lang="ru">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Сборка мини-ядра, и с чем это едят. &#8212; Руководство по оптимизации Arch Linux</title>
-    
-  <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    
+    <title>Сборка мини-ядра, и с чем это едят. &#8212; Руководство по оптимизации Arch Linux</title>
+<script>
+  document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+  document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
+</script>
+
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=92025949c220c2e29695" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=92025949c220c2e29695" rel="stylesheet">
+
+
   <link rel="stylesheet"
     href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
   <link rel="preload" as="font" type="font/woff2" crossorigin
@@ -20,46 +25,54 @@
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
-    
+
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/translations.js"></script>
     <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
     <link rel="search" title="Поиск" href="../search.html" />
     <link rel="next" title="Оптимизация рабочего окружения (DE)" href="de-optimizations.html" />
     <link rel="prev" title="Wine / Linux Gaming" href="linux-gaming.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="ru">
-    
-
-    <!-- Google Analytics -->
-    
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="docsearch:language" content="ru">
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="light">
+    <div class="bd-header-announcement container-fluid" id="banner">
+      
+
+    </div>
 
     
-    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+    <nav class="bd-header navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="bd-header__inner container-xl">
 
   <div id="navbar-start">
     
     
-<a class="navbar-brand" href="../index.html">
-<p class="title">ARU - Руководство по оптимизации Arch Linux</p>
-</a>
+  
 
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Руководство по оптимизации Arch Linux</p>
+  
+</a>
     
   </div>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+    <span class="fas fa-bars"></span>
   </button>
 
   
@@ -71,8 +84,16 @@
     <div id="navbar-end">
       
       <div class="navbar-end-item">
+        <span id="theme-switch" class="btn btn-sm btn-outline-primary navbar-btn rounded-circle">
+    <a class="theme-switch" data-mode="light"><i class="fas fa-sun"></i></a>
+    <a class="theme-switch" data-mode="dark"><i class="far fa-moon"></i></a>
+    <a class="theme-switch" data-mode="auto"><i class="fas fa-adjust"></i></a>
+</span>
+      </div>
+      
+      <div class="navbar-end-item">
         <div class="dropdown" id="version_switcher">
-    <button type="button" class="btn btn-primary btn-sm navbar-btn dropdown-toggle" id="version_switcher_button" data-toggle="dropdown">
+    <button type="button" class="btn btn-sm navbar-btn dropdown-toggle" id="version_switcher_button" data-toggle="dropdown">
         latest  <!-- this text may get changed later by javascript -->
         <span class="caret"></span>
     </button>
@@ -112,6 +133,10 @@ function checkPageExistsAndRedirect(event) {
 (function () {
     $.getJSON("https://ventureoo.github.io/ARU/_static/switcher.json", function(data, textStatus, jqXHR) {
         const currentFilePath = "source/mini-kernel.html";
+        let btn = document.getElementById("version_switcher_button");
+        // Set empty strings by default so that these attributes exist and can be used in CSS selectors
+        btn.dataset["activeVersionName"] = "";
+        btn.dataset["activeVersion"] = "";
         // create links to the corresponding page in the other docs versions
         $.each(data, function(index, entry) {
             // if no custom name specified (e.g., "latest"), use version string
@@ -139,7 +164,6 @@ function checkPageExistsAndRedirect(event) {
             // version's entry
             if (entry.version == "latest") {
                 node.classList.add("active");
-                let btn = document.getElementById("version_switcher_button");
                 btn.innerText = btn.dataset["activeVersionName"] = entry.name;
                 btn.dataset["activeVersion"] = entry.version;
             }
@@ -172,13 +196,13 @@ function checkPageExistsAndRedirect(event) {
     </nav>
     
 
-    <div class="container-xl">
-      <div class="row">
+    <div class="bd-container container-xl">
+      <div class="bd-container__inner row">
           
-            
-            <!-- Only show if we have sidebars configured, else just a small margin  -->
-            <div class="col-12 col-md-3 bd-sidebar">
-              <div class="sidebar-start-items"><ul id="navbar-main-elements" class="navbar-nav">
+
+<!-- Only show if we have sidebars configured, else just a small margin  -->
+<div class="bd-sidebar-primary col-12 col-md-3 bd-sidebar">
+  <div class="sidebar-start-items"><ul id="navbar-main-elements" class="navbar-nav">
     <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="preface.html">
   Предисловие
@@ -250,19 +274,20 @@ function checkPageExistsAndRedirect(event) {
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Поиск..." aria-label="Поиск..." autocomplete="off" >
 </form>
-              </div>
-              <div class="sidebar-end-items">
-              </div>
-            </div>
-            
-          
+  </div>
+  <div class="sidebar-end-items">
+  </div>
+</div>
+
 
           
-          <div class="d-none d-xl-block col-xl-2 bd-toc">
-            
-              
-              <div class="toc-item">
-                
+
+
+<div class="bd-sidebar-secondary d-none d-xl-block col-xl-2 bd-toc">
+  
+    
+    <div class="toc-item">
+      
 <div class="tocsection onthispage mt-5 pt-1 pb-3">
     <i class="fas fa-list"></i> On this page
 </div>
@@ -277,10 +302,10 @@ function checkPageExistsAndRedirect(event) {
 </ul>
 
 </nav>
-              </div>
-              
-              <div class="toc-item">
-                
+    </div>
+    
+    <div class="toc-item">
+      
 
 <div class="tocsection editthispage">
     <a href="https://github.com/ventureoo/ARU/edit/main/source/mini-kernel.rst">
@@ -288,22 +313,20 @@ function checkPageExistsAndRedirect(event) {
     </a>
 </div>
 
-              </div>
-              
-            
-          </div>
-          
+    </div>
+    
+  
+</div>
+
 
           
           
-            
-          
-          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+          <div class="bd-content col-12 col-md-9 col-xl-7">
               
-              <div>
+              <article class="bd-article" role="main">
                 
-  <div class="section" id="mini-kernel">
-<span id="index-0"></span><span id="id1"></span><h1>Сборка мини-ядра, и с чем это едят.<a class="headerlink" href="#mini-kernel" title="Ссылка на этот заголовок">#</a></h1>
+  <section id="mini-kernel">
+<span id="index-0"></span><span id="id1"></span><h1>Сборка мини-ядра, и с чем это едят.<a class="headerlink" href="#mini-kernel" title="Permalink to this heading">#</a></h1>
 <p>Ядра, что мы скомпилировали выше уже дают существенное повышение производительности системы, однако мы еще выжали не все соки.
 По умолчанию ядра собираются для универсального применения на разном оборудовании,
 т.е. с наличием различных модулей и драйверов для всякого рода периферии и железа, которого у вас могло никогда и не быть.</p>
@@ -337,8 +360,8 @@ sudo modprobed-db recall
 <p>И снова пересоберите ядро.</p>
 <p><strong>Видео версия</strong></p>
 <p><a class="reference external" href="https://www.youtube.com/watch?v=8GRNN94afyg">https://www.youtube.com/watch?v=8GRNN94afyg</a></p>
-<div class="section" id="related-issues">
-<span id="index-1"></span><span id="id3"></span><h2>Возможные часто встречаемые проблемы после установки мини-ядра<a class="headerlink" href="#related-issues" title="Ссылка на этот заголовок">#</a></h2>
+<section id="related-issues">
+<span id="index-1"></span><span id="id3"></span><h2>Возможные часто встречаемые проблемы после установки мини-ядра<a class="headerlink" href="#related-issues" title="Permalink to this heading">#</a></h2>
 <p><strong>П:</strong> Система не загружается дальше rootfs (частая проблема).</p>
 <p><strong>Р:</strong> Обычно это означает, что какие-то системно-важные модули не были &quot;подхвачены&quot; modprobed-db.
 Почти всегда дело заключается в модулях на поддержку SATA/SCSI, либо ATA и модулей Файловых систем.</p>
@@ -396,49 +419,53 @@ EndSection
 </pre></div>
 </div>
 <p>Затем перезагрузитесь.</p>
-</div>
-</div>
+</section>
+</section>
 
 
-              </div>
+              </article>
               
+
               
-              <!-- Previous / next buttons -->
+              <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="linux-gaming.html" title="назад страница">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">назад</p>
-            <p class="prev-next-title">Wine / Linux Gaming</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="de-optimizations.html" title="вперёд страница">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">вперёд</p>
-        <p class="prev-next-title">Оптимизация рабочего окружения (DE)</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
+  <a class='left-prev' id="prev-link" href="linux-gaming.html" title="назад страница">
+      <i class="fas fa-angle-left"></i>
+      <div class="prev-next-info">
+          <p class="prev-next-subtitle">назад</p>
+          <p class="prev-next-title">Wine / Linux Gaming</p>
+      </div>
+  </a>
+  <a class='right-next' id="next-link" href="de-optimizations.html" title="вперёд страница">
+  <div class="prev-next-info">
+      <p class="prev-next-subtitle">вперёд</p>
+      <p class="prev-next-title">Оптимизация рабочего окружения (DE)</p>
+  </div>
+  <i class="fas fa-angle-right"></i>
+  </a>
 </div>
+              </footer>
               
-          </main>
+          </div>
           
-
       </div>
     </div>
+
+  
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-<footer class="footer mt-5 mt-md-0">
-  <div class="container">
-    
-    <div class="footer-item">
-      <p class="copyright">
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695"></script>
+
+<footer class="bd-footer"><div class="bd-footer__inner container">
+  
+  <div class="footer-item">
+    <p class="copyright">
     &copy; Copyright ARU 2018 - 2022 Pavel Priluckiy, Vasiliy Stelmachenok and contributors.<br>
 </p>
-    </div>
-    
   </div>
+  
+</div>
 </footer>
   </body>
 </html>
