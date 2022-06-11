@@ -108,7 +108,7 @@ html_context = {
 }
 
 html_sidebars = {
-    "**": ["navbar-nav", "search-field.html" ]
+    "**": [ "search-field.html", "navbar-nav"]
 }
 
 # Misc
@@ -121,7 +121,9 @@ html_show_sphinx = False
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
-#html_css_files = ['css/custom.css']
+html_css_files = [
+    'css/theme.css',
+]
 
 # -- Options for manual page output ---------------------------------------
 

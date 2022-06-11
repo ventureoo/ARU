@@ -10,7 +10,7 @@
   /*****************************************************************************
   * Font size
   **/
-  --pst-font-size-base: 15px; /* base font size - applied at body / html level */
+  --pst-font-size-base: 16px; /* base font size - applied at body / html level */
 
   /* heading font sizes */
   --pst-font-size-h1: 36px;
@@ -30,12 +30,9 @@
   * Font family
   **/
   /* These are adapted from https://systemfontstack.com/ */
-  --pst-font-family-base-system: "Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif";
-  --pst-font-family-monospace-system: Consolas, Menlo, Deja Vu Sans Mono, Bitstream Vera Sans Mono, monospace;
-
-  --pst-font-family-base: var(--pst-font-family-base-system);
+  --pst-font-family-base: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
   --pst-font-family-heading: Futura, "Trebuchet MS", Arial, sans-serif;
-  --pst-font-family-monospace: var(--pst-font-family-monospace-system);
+  --pst-font-family-monospace: Consolas, Menlo, Deja Vu Sans Mono, Bitstream Vera Sans Mono, monospace;
 
   /*****************************************************************************
   * Color
