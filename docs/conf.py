@@ -71,7 +71,7 @@ html_title = 'Руководство по оптимизации Arch Linux'
 
 html_theme_options = {
     "navbar_center": [],
-    "navbar_end": [ "version-switcher", "navbar-icon-links" ],
+    "navbar_end": [ "theme-switcher", "version-switcher", "navbar-icon-links" ],
     "use_edit_page_button": True,
     "navbar_align": "content",
     "pygment_light_style": "tango",
