@@ -74,6 +74,8 @@ html_theme_options = {
     "navbar_end": [ "version-switcher", "navbar-icon-links" ],
     "use_edit_page_button": True,
     "navbar_align": "content",
+    "pygment_light_style": "tango",
+    "pygment_dark_style": "native",
     "page_sidebar_items": ["page-toc", "edit-this-page"],
     "icon_links": [
         {
@@ -101,6 +103,7 @@ html_theme_options = {
 }
 
 html_context = {
+    "default_mode": "light",
     "github_user": "ventureoo",
     "github_repo": "ARU",
     "github_version": "main",
