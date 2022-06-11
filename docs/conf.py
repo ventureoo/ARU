@@ -67,7 +67,7 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 #
 html_theme = 'pydata_sphinx_theme'
 
-html_title = 'Руководство по оптимизации Arch Linux'
+html_title = 'ARU - Руководство по оптимизации Arch Linux'
 
 html_theme_options = {
     "navbar_center": [],
