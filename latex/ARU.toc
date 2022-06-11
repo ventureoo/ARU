@@ -8,14 +8,17 @@
 \contentsline {subsection}{\numberline {2.1.2}Включение 32\sphinxhyphen {}битного репозитория}{4}{subsection.2.1.2}%
 \contentsline {subsection}{\numberline {2.1.3}Ускорение обновления системы}{5}{subsection.2.1.3}%
 \contentsline {section}{\numberline {2.2}Установка базовых пакетов и набора программ}{5}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}Установка актуальных драйверов для видеокарты}{6}{subsection.2.2.1}%
-\contentsline {subsubsection}{\numberline {2.2.1.1}NVIDIA}{6}{subsubsection.2.2.1.1}%
-\contentsline {subsubsection}{\numberline {2.2.1.2}Nouveau (\sphinxstyleemphasis {Только для старых видеокарт})}{7}{subsubsection.2.2.1.2}%
-\contentsline {subsubsection}{\numberline {2.2.1.3}AMD}{7}{subsubsection.2.2.1.3}%
-\contentsline {subsubsection}{\numberline {2.2.1.4}Intel}{7}{subsubsection.2.2.1.4}%
-\contentsline {section}{\numberline {2.3}Добавление важных модулей в образы initramfs}{7}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Установка микрокода}{8}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Настройка драйвера NVIDIA}{8}{section.2.5}%
+\contentsline {subsection}{\numberline {2.2.1}Обязательные к установке пакеты!}{6}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Пакеты для работы с архивами}{6}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Набор прикладного ПО}{6}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.4}Установка актуальных драйверов для видеокарты}{7}{subsection.2.2.4}%
+\contentsline {subsubsection}{\numberline {2.2.4.1}NVIDIA}{7}{subsubsection.2.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.2.4.2}Nouveau (\sphinxstyleemphasis {Только для старых видеокарт})}{7}{subsubsection.2.2.4.2}%
+\contentsline {subsubsection}{\numberline {2.2.4.3}AMD}{7}{subsubsection.2.2.4.3}%
+\contentsline {subsubsection}{\numberline {2.2.4.4}Intel}{7}{subsubsection.2.2.4.4}%
+\contentsline {section}{\numberline {2.3}Добавление важных модулей в образы initramfs}{8}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Установка микрокода}{9}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Настройка драйвера NVIDIA}{9}{section.2.5}%
 \contentsline {subsection}{\numberline {2.5.1}Твики драйвера NVIDIA}{12}{subsection.2.5.1}%
 \contentsline {subsection}{\numberline {2.5.2}Специфические переменные окружения для драйвера NVIDIA}{13}{subsection.2.5.2}%
 \contentsline {section}{\numberline {2.6}Гибридная графика в ноутбуках}{13}{section.2.6}%

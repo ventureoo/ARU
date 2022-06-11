@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022/Arch Linux) (preloaded format=xelatex 2022.6.10)  10 JUN 2022 14:55
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022/Arch Linux) (preloaded format=xelatex 2022.6.11)  11 JUN 2022 14:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1012,210 +1012,210 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 
 ] [2]
-Overfull \hbox (3.58688pt too wide) detected at line 85
+Overfull \hbox (3.58688pt too wide) detected at line 88
  []\TU/DejaVuSerif(1)/m/n/10 103
  []
 
 
-Overfull \hbox (3.58688pt too wide) detected at line 86
- []\TU/DejaVuSerif(1)/m/n/10 104
- []
-
-
-Overfull \hbox (3.58688pt too wide) detected at line 87
- []\TU/DejaVuSerif(1)/m/n/10 104
- []
-
-
-Overfull \hbox (3.58688pt too wide) detected at line 88
- []\TU/DejaVuSerif(1)/m/n/10 107
- []
-
-
 Overfull \hbox (3.58688pt too wide) detected at line 89
- []\TU/DejaVuSerif(1)/m/n/10 108
+ []\TU/DejaVuSerif(1)/m/n/10 104
  []
 
 
 Overfull \hbox (3.58688pt too wide) detected at line 90
- []\TU/DejaVuSerif(1)/m/n/10 108
+ []\TU/DejaVuSerif(1)/m/n/10 104
  []
 
 
 Overfull \hbox (3.58688pt too wide) detected at line 91
- []\TU/DejaVuSerif(1)/m/n/10 109
+ []\TU/DejaVuSerif(1)/m/n/10 107
+ []
+
+
+Overfull \hbox (3.58688pt too wide) detected at line 92
+ []\TU/DejaVuSerif(1)/m/n/10 108
  []
 
 
 Overfull \hbox (3.58688pt too wide) detected at line 93
- []\TU/DejaVuSerif(1)/m/n/10 111
+ []\TU/DejaVuSerif(1)/m/n/10 108
  []
 
 
-Overfull \hbox (3.58688pt too wide) detected at line 95
- []\TU/DejaVuSerif(1)/m/n/10 113
+Overfull \hbox (3.58688pt too wide) detected at line 94
+ []\TU/DejaVuSerif(1)/m/n/10 109
  []
 
 
 Overfull \hbox (3.58688pt too wide) detected at line 96
- []\TU/DejaVuSerif(1)/m/n/10 114
- []
-
-
-Overfull \hbox (3.58688pt too wide) detected at line 97
- []\TU/DejaVuSerif(1)/m/n/10 114
+ []\TU/DejaVuSerif(1)/m/n/10 111
  []
 
 
 Overfull \hbox (3.58688pt too wide) detected at line 98
- []\TU/DejaVuSerif(1)/m/n/10 114
+ []\TU/DejaVuSerif(1)/m/n/10 113
  []
 
 
 Overfull \hbox (3.58688pt too wide) detected at line 99
- []\TU/DejaVuSerif(1)/m/n/10 115
+ []\TU/DejaVuSerif(1)/m/n/10 114
  []
 
 
 Overfull \hbox (3.58688pt too wide) detected at line 100
- []\TU/DejaVuSerif(1)/m/n/10 117
+ []\TU/DejaVuSerif(1)/m/n/10 114
  []
 
 
 Overfull \hbox (3.58688pt too wide) detected at line 101
- []\TU/DejaVuSerif(1)/m/n/10 117
+ []\TU/DejaVuSerif(1)/m/n/10 114
  []
 
 
 Overfull \hbox (3.58688pt too wide) detected at line 102
- []\TU/DejaVuSerif(1)/m/n/10 117
+ []\TU/DejaVuSerif(1)/m/n/10 115
  []
 
 
 Overfull \hbox (3.58688pt too wide) detected at line 103
- []\TU/DejaVuSerif(1)/m/n/10 118
+ []\TU/DejaVuSerif(1)/m/n/10 117
  []
 
 
 Overfull \hbox (3.58688pt too wide) detected at line 104
- []\TU/DejaVuSerif(1)/m/n/10 119
+ []\TU/DejaVuSerif(1)/m/n/10 117
  []
 
 
 Overfull \hbox (3.58688pt too wide) detected at line 105
- []\TU/DejaVuSerif(1)/m/n/10 119
+ []\TU/DejaVuSerif(1)/m/n/10 117
  []
 
 
 Overfull \hbox (3.58688pt too wide) detected at line 106
- []\TU/DejaVuSerif(1)/m/n/10 120
+ []\TU/DejaVuSerif(1)/m/n/10 118
  []
 
 
 Overfull \hbox (3.58688pt too wide) detected at line 107
- []\TU/DejaVuSerif(1)/m/n/10 121
+ []\TU/DejaVuSerif(1)/m/n/10 119
  []
 
 
 Overfull \hbox (3.58688pt too wide) detected at line 108
- []\TU/DejaVuSerif(1)/m/n/10 123
+ []\TU/DejaVuSerif(1)/m/n/10 119
  []
 
 
 Overfull \hbox (3.58688pt too wide) detected at line 109
- []\TU/DejaVuSerif(1)/m/n/10 125
+ []\TU/DejaVuSerif(1)/m/n/10 120
  []
 
 
 Overfull \hbox (3.58688pt too wide) detected at line 110
- []\TU/DejaVuSerif(1)/m/n/10 126
+ []\TU/DejaVuSerif(1)/m/n/10 121
  []
 
 
 Overfull \hbox (3.58688pt too wide) detected at line 111
- []\TU/DejaVuSerif(1)/m/n/10 127
+ []\TU/DejaVuSerif(1)/m/n/10 123
  []
 
 
 Overfull \hbox (3.58688pt too wide) detected at line 112
- []\TU/DejaVuSerif(1)/m/n/10 128
+ []\TU/DejaVuSerif(1)/m/n/10 125
  []
 
 
 Overfull \hbox (3.58688pt too wide) detected at line 113
- []\TU/DejaVuSerif(1)/m/n/10 128
+ []\TU/DejaVuSerif(1)/m/n/10 126
  []
 
 
 Overfull \hbox (3.58688pt too wide) detected at line 114
- []\TU/DejaVuSerif(1)/m/n/10 129
+ []\TU/DejaVuSerif(1)/m/n/10 127
  []
 
 
 Overfull \hbox (3.58688pt too wide) detected at line 115
- []\TU/DejaVuSerif(1)/m/n/10 129
+ []\TU/DejaVuSerif(1)/m/n/10 128
  []
 
 
 Overfull \hbox (3.58688pt too wide) detected at line 116
- []\TU/DejaVuSerif(1)/m/n/10 131
+ []\TU/DejaVuSerif(1)/m/n/10 128
  []
 
 
 Overfull \hbox (3.58688pt too wide) detected at line 117
- []\TU/DejaVuSerif(1)/m/n/10 131
+ []\TU/DejaVuSerif(1)/m/n/10 129
  []
 
 
 Overfull \hbox (3.58688pt too wide) detected at line 118
- []\TU/DejaVuSerif(1)/m/n/10 131
+ []\TU/DejaVuSerif(1)/m/n/10 129
  []
 
 
 Overfull \hbox (3.58688pt too wide) detected at line 119
- []\TU/DejaVuSerif(1)/m/n/10 133
+ []\TU/DejaVuSerif(1)/m/n/10 131
  []
 
 
 Overfull \hbox (3.58688pt too wide) detected at line 120
- []\TU/DejaVuSerif(1)/m/n/10 135
+ []\TU/DejaVuSerif(1)/m/n/10 131
  []
 
 
 Overfull \hbox (3.58688pt too wide) detected at line 121
- []\TU/DejaVuSerif(1)/m/n/10 136
+ []\TU/DejaVuSerif(1)/m/n/10 131
+ []
+
+
+Overfull \hbox (3.58688pt too wide) detected at line 122
+ []\TU/DejaVuSerif(1)/m/n/10 133
  []
 
 
 Overfull \hbox (3.58688pt too wide) detected at line 123
- []\TU/DejaVuSerif(1)/m/n/10 137
+ []\TU/DejaVuSerif(1)/m/n/10 135
  []
 
 
 Overfull \hbox (3.58688pt too wide) detected at line 124
- []\TU/DejaVuSerif(1)/m/n/10 138
- []
-
-
-Overfull \hbox (3.58688pt too wide) detected at line 125
- []\TU/DejaVuSerif(1)/m/n/10 139
+ []\TU/DejaVuSerif(1)/m/n/10 136
  []
 
 
 Overfull \hbox (3.58688pt too wide) detected at line 126
- []\TU/DejaVuSerif(1)/m/n/10 140
+ []\TU/DejaVuSerif(1)/m/n/10 137
  []
 
 
 Overfull \hbox (3.58688pt too wide) detected at line 127
+ []\TU/DejaVuSerif(1)/m/n/10 138
+ []
+
+
+Overfull \hbox (3.58688pt too wide) detected at line 128
+ []\TU/DejaVuSerif(1)/m/n/10 139
+ []
+
+
+Overfull \hbox (3.58688pt too wide) detected at line 129
+ []\TU/DejaVuSerif(1)/m/n/10 140
+ []
+
+
+Overfull \hbox (3.58688pt too wide) detected at line 130
  []\TU/DejaVuSerif(1)/m/n/10 141
  []
 
-)
+[3])
 \tf@toc=\write6
 \openout6 = `ARU.toc'.
 
- [3] [1
+ [4] [1
 
 ]
 Глава 1.
@@ -1250,9 +1250,9 @@ File: first-steps-1.png Graphic file (type bmp)
 ] [5] [6] [7]
 File: image4.png Graphic file (type bmp)
 <image4.png>
+ [8]
 File: nvidia-settings-1.png Graphic file (type bmp)
 <nvidia-settings-1.png>
- [8]
 File: nvidia-settings-2.png Graphic file (type bmp)
 <nvidia-settings-2.png>
  [9]
@@ -1262,7 +1262,7 @@ File: nvidia-settings-3.png Graphic file (type bmp)
 File: nvidia-settings-4.png Graphic file (type bmp)
 <nvidia-settings-4.png>
  [11] [12]
-Underfull \hbox (badness 10000) in paragraph at lines 457--457
+Underfull \hbox (badness 10000) in paragraph at lines 496--496
 |[][]\TU/DejaVuSans(1)/b/n/12 Специфические переменные окружения для драйвера
  []
 
@@ -1286,7 +1286,7 @@ File: wxedid-4.png Graphic file (type bmp)
 [24
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1025--1027
+Underfull \hbox (badness 10000) in paragraph at lines 1064--1066
 []\TU/DejaVuSerif(1)/m/n/10 Теперь откроем выше скопированный файл и добавим ту
 да после строки
  []
@@ -1298,12 +1298,12 @@ File: generic-system-acceleration-1.png Graphic file (type bmp)
 File: generic-system-acceleration-2.png Graphic file (type bmp)
 <generic-system-acceleration-2.png>
 
-Underfull \hbox (badness 10000) in paragraph at lines 1322--1322
+Underfull \hbox (badness 10000) in paragraph at lines 1361--1361
 |[][]\TU/DejaVuSans(1)/b/n/14.4 Ускорение загрузки системы (Отключение
  []
 
 [30] [31]
-Underfull \hbox (badness 10000) in paragraph at lines 1472--1472
+Underfull \hbox (badness 10000) in paragraph at lines 1511--1511
 |[][]\TU/DejaVuSans(1)/b/n/12 Решение проблем работы графики Vega 11 (Спасибо
  []
 
@@ -1341,1472 +1341,1472 @@ File: zstd_8.png Graphic file (type bmp)
 File: zstd_19.png Graphic file (type bmp)
 <zstd_19.png>
  [46]
-Overfull \hbox (153.85368pt too wide) in alignment at lines 1952--1980
+Overfull \hbox (153.85368pt too wide) in alignment at lines 1991--2019
  [] [] [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (153.85368pt too wide) in alignment at lines 1980--2011
+Overfull \hbox (153.85368pt too wide) in alignment at lines 2019--2050
  [] [] [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (153.85368pt too wide) in alignment at lines 2011--2015
+Overfull \hbox (153.85368pt too wide) in alignment at lines 2050--2054
  [] [] [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (153.85368pt too wide) in alignment at lines 2015--2017
+Overfull \hbox (153.85368pt too wide) in alignment at lines 2054--2056
  [] [] [] [] [] [] [] [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2027--2029
+Underfull \hbox (badness 10000) in paragraph at lines 2066--2068
 \TU/DejaVuSerif(1)/m/n/10 Tale:
  []
 
 
-Overfull \hbox (6.05972pt too wide) in paragraph at lines 2027--2029
+Overfull \hbox (6.05972pt too wide) in paragraph at lines 2066--2068
 \TU/DejaVuSerif(1)/m/n/10 Innocence 
  []
 
 
-Overfull \hbox (6.05972pt too wide) detected at line 2030
+Overfull \hbox (6.05972pt too wide) detected at line 2069
 \TU/DejaVuSerif(1)/m/n/10 Innocence 
  []
 
 
-Underfull \hbox (badness 10000) detected at line 2030
+Underfull \hbox (badness 10000) detected at line 2069
 \TU/DejaVuSerif(1)/m/n/10 Tale:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2083--2085
+Underfull \hbox (badness 10000) in paragraph at lines 2122--2124
 []\TU/DejaVuSerif(1)/m/n/10 A Story
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2083--2085
+Underfull \hbox (badness 10000) in paragraph at lines 2122--2124
 \TU/DejaVuSerif(1)/m/n/10 About
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2083--2085
+Underfull \hbox (badness 10000) in paragraph at lines 2122--2124
 \TU/DejaVuSerif(1)/m/n/10 My
  []
 
 
-Underfull \hbox (badness 10000) detected at line 2086
+Underfull \hbox (badness 10000) detected at line 2125
 \TU/DejaVuSerif(1)/m/n/10 My
  []
 
 
-Underfull \hbox (badness 10000) detected at line 2086
+Underfull \hbox (badness 10000) detected at line 2125
 \TU/DejaVuSerif(1)/m/n/10 About
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2138--2140
+Underfull \hbox (badness 10000) in paragraph at lines 2177--2179
 []\TU/DejaVuSerif(1)/m/n/10 Aegis
  []
 
 
-Overfull \hbox (5.95718pt too wide) in paragraph at lines 2138--2140
+Overfull \hbox (5.95718pt too wide) in paragraph at lines 2177--2179
 \TU/DejaVuSerif(1)/m/n/10 Defenders 
  []
 
 
-Overfull \hbox (5.95718pt too wide) detected at line 2141
+Overfull \hbox (5.95718pt too wide) detected at line 2180
 \TU/DejaVuSerif(1)/m/n/10 Defenders 
  []
 
 
-Underfull \hbox (badness 10000) detected at line 2141
+Underfull \hbox (badness 10000) detected at line 2180
 []\TU/DejaVuSerif(1)/m/n/10 Aegis
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2192--2194
+Underfull \hbox (badness 10000) in paragraph at lines 2231--2233
 []\TU/DejaVuSerif(1)/m/n/10 Among
  []
 
 
-Overfull \hbox (12.42203pt too wide) in paragraph at lines 2409--2411
+Overfull \hbox (12.42203pt too wide) in paragraph at lines 2448--2450
 []\TU/DejaVuSerif(1)/m/n/10 BattleBlock
  []
 
 
-Overfull \hbox (12.42203pt too wide) detected at line 2412
+Overfull \hbox (12.42203pt too wide) detected at line 2451
 []\TU/DejaVuSerif(1)/m/n/10 BattleBlock
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2519--2521
+Underfull \hbox (badness 10000) in paragraph at lines 2558--2560
 []\TU/DejaVuSerif(1)/m/n/10 Beholder
  []
 
 
-Overfull \hbox (21.2062pt too wide) in paragraph at lines 2573--2575
+Overfull \hbox (21.2062pt too wide) in paragraph at lines 2612--2614
 []\TU/DejaVuSerif(1)/m/n/10 Blasphemous 
  []
 
 
-Overfull \hbox (21.2062pt too wide) detected at line 2576
+Overfull \hbox (21.2062pt too wide) detected at line 2615
 []\TU/DejaVuSerif(1)/m/n/10 Blasphemous 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2681--2683
+Underfull \hbox (badness 10000) in paragraph at lines 2720--2722
 []\TU/DejaVuSerif(1)/m/n/10 Brothers
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2681--2683
+Underfull \hbox (badness 10000) in paragraph at lines 2720--2722
 \TU/DejaVuSerif(1)/m/n/10 of Two
  []
 
 
-Underfull \hbox (badness 10000) detected at line 2684
+Underfull \hbox (badness 10000) detected at line 2723
 \TU/DejaVuSerif(1)/m/n/10 of Two
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2737--2739
+Underfull \hbox (badness 10000) in paragraph at lines 2776--2778
 []\TU/DejaVuSerif(1)/m/n/10 Castle
  []
 
 
-Underfull \hbox (badness 10000) detected at line 2740
+Underfull \hbox (badness 10000) detected at line 2779
 []\TU/DejaVuSerif(1)/m/n/10 Castle
  []
 
 
-Underfull \hbox (badness 6758) in paragraph at lines 2846--2848
+Underfull \hbox (badness 6758) in paragraph at lines 2885--2887
 []\TU/DejaVuSerif(1)/m/n/10 Child of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2902--2904
+Underfull \hbox (badness 10000) in paragraph at lines 2941--2943
 []\TU/DejaVuSerif(1)/m/n/10 Children
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2958--2960
+Underfull \hbox (badness 10000) in paragraph at lines 2997--2999
 []\TU/DejaVuSerif(1)/m/n/10 CODE
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3014--3016
+Underfull \hbox (badness 10000) in paragraph at lines 3053--3055
 []\TU/DejaVuSerif(1)/m/n/10 Cortex
  []
 
 
-Overfull \hbox (5.17105pt too wide) in paragraph at lines 3014--3016
+Overfull \hbox (5.17105pt too wide) in paragraph at lines 3053--3055
 \TU/DejaVuSerif(1)/m/n/10 Command 
  []
 
 
-Overfull \hbox (5.17105pt too wide) detected at line 3017
+Overfull \hbox (5.17105pt too wide) detected at line 3056
 \TU/DejaVuSerif(1)/m/n/10 Command 
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3017
+Underfull \hbox (badness 10000) detected at line 3056
 []\TU/DejaVuSerif(1)/m/n/10 Cortex
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3124--3126
+Underfull \hbox (badness 10000) in paragraph at lines 3163--3165
 []\TU/DejaVuSerif(1)/m/n/10 Curse
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3124--3126
+Underfull \hbox (badness 10000) in paragraph at lines 3163--3165
 \TU/DejaVuSerif(1)/m/n/10 of Dead
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3127
+Underfull \hbox (badness 10000) detected at line 3166
 []\TU/DejaVuSerif(1)/m/n/10 Curse
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3233--3235
+Underfull \hbox (badness 10000) in paragraph at lines 3272--3274
 []\TU/DejaVuSerif(1)/m/n/10 Dark
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3233--3235
+Underfull \hbox (badness 10000) in paragraph at lines 3272--3274
 \TU/DejaVuSerif(1)/m/n/10 Souls:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3233--3235
+Underfull \hbox (badness 10000) in paragraph at lines 3272--3274
 \TU/DejaVuSerif(1)/m/n/10 Prepare
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3233--3235
+Underfull \hbox (badness 10000) in paragraph at lines 3272--3274
 \TU/DejaVuSerif(1)/m/n/10 To Die
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3236
+Underfull \hbox (badness 10000) detected at line 3275
 \TU/DejaVuSerif(1)/m/n/10 To Die
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3236
+Underfull \hbox (badness 10000) detected at line 3275
 \TU/DejaVuSerif(1)/m/n/10 Souls:
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3236
+Underfull \hbox (badness 10000) detected at line 3275
 []\TU/DejaVuSerif(1)/m/n/10 Dark
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3289--3291
+Underfull \hbox (badness 10000) in paragraph at lines 3328--3330
 []\TU/DejaVuSerif(1)/m/n/10 Dark
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3292
+Underfull \hbox (badness 10000) detected at line 3331
 []\TU/DejaVuSerif(1)/m/n/10 Dark
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3345--3347
+Underfull \hbox (badness 10000) in paragraph at lines 3384--3386
 []\TU/DejaVuSerif(1)/m/n/10 Darkest
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3348
+Underfull \hbox (badness 10000) detected at line 3387
 []\TU/DejaVuSerif(1)/m/n/10 Darkest
  []
 
 
-Overfull \hbox (14.78043pt too wide) in paragraph at lines 3400--3402
+Overfull \hbox (14.78043pt too wide) in paragraph at lines 3439--3441
 []\TU/DejaVuSerif(1)/m/n/10 Darkestville
  []
 
 
-Overfull \hbox (14.78043pt too wide) detected at line 3403
+Overfull \hbox (14.78043pt too wide) detected at line 3442
 []\TU/DejaVuSerif(1)/m/n/10 Darkestville
  []
 
 
-Overfull \hbox (9.11148pt too wide) in paragraph at lines 3454--3456
+Overfull \hbox (9.11148pt too wide) in paragraph at lines 3493--3495
 []\TU/DejaVuSerif(1)/m/n/10 Darksiders
  []
 
 
-Overfull \hbox (9.11148pt too wide) detected at line 3457
+Overfull \hbox (9.11148pt too wide) detected at line 3496
 []\TU/DejaVuSerif(1)/m/n/10 Darksiders
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3510--3512
+Underfull \hbox (badness 10000) in paragraph at lines 3549--3551
 []\TU/DejaVuSerif(1)/m/n/10 Dead
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3565--3567
+Underfull \hbox (badness 10000) in paragraph at lines 3604--3606
 []\TU/DejaVuSerif(1)/m/n/10 Death's
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3620--3622
+Underfull \hbox (badness 10000) in paragraph at lines 3659--3661
 []\TU/DejaVuSerif(1)/m/n/10 Death's
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3620--3622
+Underfull \hbox (badness 10000) in paragraph at lines 3659--3661
 \TU/DejaVuSerif(1)/m/n/10 Gambit:
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3623
+Underfull \hbox (badness 10000) detected at line 3662
 \TU/DejaVuSerif(1)/m/n/10 Gambit:
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3623
+Underfull \hbox (badness 10000) detected at line 3662
 []\TU/DejaVuSerif(1)/m/n/10 Death's
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3674--3676
+Underfull \hbox (badness 10000) in paragraph at lines 3713--3715
 []\TU/DejaVuSerif(1)/m/n/10 Deponia:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3674--3676
+Underfull \hbox (badness 10000) in paragraph at lines 3713--3715
 \TU/DejaVuSerif(1)/m/n/10 The
  []
 
 
-Overfull \hbox (2.33902pt too wide) in paragraph at lines 3674--3676
+Overfull \hbox (2.33902pt too wide) in paragraph at lines 3713--3715
 \TU/DejaVuSerif(1)/m/n/10 Complete
  []
 
 
-Overfull \hbox (2.33902pt too wide) detected at line 3677
+Overfull \hbox (2.33902pt too wide) detected at line 3716
 \TU/DejaVuSerif(1)/m/n/10 Complete
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3677
+Underfull \hbox (badness 10000) detected at line 3716
 \TU/DejaVuSerif(1)/m/n/10 The
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3677
+Underfull \hbox (badness 10000) detected at line 3716
 []\TU/DejaVuSerif(1)/m/n/10 Deponia:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3730--3732
+Underfull \hbox (badness 10000) in paragraph at lines 3769--3771
 []\TU/DejaVuSerif(1)/m/n/10 Devil
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3733
+Underfull \hbox (badness 10000) detected at line 3772
 []\TU/DejaVuSerif(1)/m/n/10 Devil
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3786--3788
+Underfull \hbox (badness 10000) in paragraph at lines 3825--3827
 []\TU/DejaVuSerif(1)/m/n/10 Disco
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3789
+Underfull \hbox (badness 10000) detected at line 3828
 []\TU/DejaVuSerif(1)/m/n/10 Disco
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3841--3843
+Underfull \hbox (badness 10000) in paragraph at lines 3880--3882
 []\TU/DejaVuSerif(1)/m/n/10 Don't
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3841--3843
+Underfull \hbox (badness 10000) in paragraph at lines 3880--3882
 \TU/DejaVuSerif(1)/m/n/10 Starve
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3844
+Underfull \hbox (badness 10000) detected at line 3883
 \TU/DejaVuSerif(1)/m/n/10 Starve
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3844
+Underfull \hbox (badness 10000) detected at line 3883
 []\TU/DejaVuSerif(1)/m/n/10 Don't
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3896--3898
+Underfull \hbox (badness 10000) in paragraph at lines 3935--3937
 []\TU/DejaVuSerif(1)/m/n/10 Eldest
  []
 
 
-Overfull \hbox (5.96207pt too wide) in paragraph at lines 4005--4007
+Overfull \hbox (5.96207pt too wide) in paragraph at lines 4044--4046
 []\TU/DejaVuSerif(1)/m/n/10 Frostpunk 
  []
 
 
-Overfull \hbox (5.96207pt too wide) detected at line 4008
+Overfull \hbox (5.96207pt too wide) detected at line 4047
 []\TU/DejaVuSerif(1)/m/n/10 Frostpunk 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 4116--4118
+Underfull \hbox (badness 10000) in paragraph at lines 4155--4157
 []\TU/DejaVuSerif(1)/m/n/10 Gato
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4119
+Underfull \hbox (badness 10000) detected at line 4158
 []\TU/DejaVuSerif(1)/m/n/10 Gato
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 4171--4173
+Underfull \hbox (badness 10000) in paragraph at lines 4210--4212
 []\TU/DejaVuSerif(1)/m/n/10 Gears
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4174
+Underfull \hbox (badness 10000) detected at line 4213
 []\TU/DejaVuSerif(1)/m/n/10 Gears
  []
 
 
-Overfull \hbox (18.13004pt too wide) in paragraph at lines 4283--4285
+Overfull \hbox (18.13004pt too wide) in paragraph at lines 4322--4324
 []\TU/DejaVuSerif(1)/m/n/10 Ghostrunner 
  []
 
 
-Overfull \hbox (18.13004pt too wide) detected at line 4286
+Overfull \hbox (18.13004pt too wide) detected at line 4325
 []\TU/DejaVuSerif(1)/m/n/10 Ghostrunner 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 4340--4342
+Underfull \hbox (badness 10000) in paragraph at lines 4379--4381
 []\TU/DejaVuSerif(1)/m/n/10 Gibbous
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 4340--4342
+Underfull \hbox (badness 10000) in paragraph at lines 4379--4381
 \TU/DejaVuSerif(1)/m/n/10 - a
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 4340--4342
+Underfull \hbox (badness 10000) in paragraph at lines 4379--4381
 \TU/DejaVuSerif(1)/m/n/10 Cthulhu
  []
 
 
-Overfull \hbox (6.5187pt too wide) in paragraph at lines 4340--4342
+Overfull \hbox (6.5187pt too wide) in paragraph at lines 4379--4381
 \TU/DejaVuSerif(1)/m/n/10 Adventure 
  []
 
 
-Overfull \hbox (6.5187pt too wide) detected at line 4343
+Overfull \hbox (6.5187pt too wide) detected at line 4382
 \TU/DejaVuSerif(1)/m/n/10 Adventure 
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4343
+Underfull \hbox (badness 10000) detected at line 4382
 \TU/DejaVuSerif(1)/m/n/10 Cthulhu
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4343
+Underfull \hbox (badness 10000) detected at line 4382
 \TU/DejaVuSerif(1)/m/n/10 - a
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4343
+Underfull \hbox (badness 10000) detected at line 4382
 []\TU/DejaVuSerif(1)/m/n/10 Gibbous
  []
 
 
-Overfull \hbox (6.01578pt too wide) in paragraph at lines 4616--4618
+Overfull \hbox (6.01578pt too wide) in paragraph at lines 4655--4657
 []\TU/DejaVuSerif(1)/m/n/10 Hellblade:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 4616--4618
+Underfull \hbox (badness 10000) in paragraph at lines 4655--4657
 \TU/DejaVuSerif(1)/m/n/10 Sanua's
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4619
+Underfull \hbox (badness 10000) detected at line 4658
 \TU/DejaVuSerif(1)/m/n/10 Sanua's
  []
 
 
-Overfull \hbox (6.01578pt too wide) detected at line 4619
+Overfull \hbox (6.01578pt too wide) detected at line 4658
 []\TU/DejaVuSerif(1)/m/n/10 Hellblade:
  []
 
 
-Overfull \hbox (5.84488pt too wide) in paragraph at lines 4670--4672
+Overfull \hbox (5.84488pt too wide) in paragraph at lines 4709--4711
 []\TU/DejaVuSerif(1)/m/n/10 Helldivers 
  []
 
 
-Overfull \hbox (5.84488pt too wide) detected at line 4673
+Overfull \hbox (5.84488pt too wide) detected at line 4712
 []\TU/DejaVuSerif(1)/m/n/10 Helldivers 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 4780--4782
+Underfull \hbox (badness 10000) in paragraph at lines 4819--4821
 []\TU/DejaVuSerif(1)/m/n/10 Hollow
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 4998--5000
+Underfull \hbox (badness 10000) in paragraph at lines 5037--5039
 []\TU/DejaVuSerif(1)/m/n/10 Katana
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5162--5164
+Underfull \hbox (badness 10000) in paragraph at lines 5201--5203
 []\TU/DejaVuSerif(1)/m/n/10 Little
  []
 
 
-Overfull \hbox (8.6818pt too wide) in paragraph at lines 5162--5164
+Overfull \hbox (8.6818pt too wide) in paragraph at lines 5201--5203
 \TU/DejaVuSerif(1)/m/n/10 Nightmare 
  []
 
 
-Overfull \hbox (8.6818pt too wide) detected at line 5165
+Overfull \hbox (8.6818pt too wide) detected at line 5204
 \TU/DejaVuSerif(1)/m/n/10 Nightmare 
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5165
+Underfull \hbox (badness 10000) detected at line 5204
 []\TU/DejaVuSerif(1)/m/n/10 Little
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5216--5218
+Underfull \hbox (badness 10000) in paragraph at lines 5255--5257
 []\TU/DejaVuSerif(1)/m/n/10 Loop
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5219
+Underfull \hbox (badness 10000) detected at line 5258
 []\TU/DejaVuSerif(1)/m/n/10 Loop
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5325--5327
+Underfull \hbox (badness 10000) in paragraph at lines 5364--5366
 []\TU/DejaVuSerif(1)/m/n/10 Magicka
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5377--5379
+Underfull \hbox (badness 10000) in paragraph at lines 5416--5418
 []\TU/DejaVuSerif(1)/m/n/10 Mark
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5377--5379
+Underfull \hbox (badness 10000) in paragraph at lines 5416--5418
 \TU/DejaVuSerif(1)/m/n/10 of the
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5377--5379
+Underfull \hbox (badness 10000) in paragraph at lines 5416--5418
 \TU/DejaVuSerif(1)/m/n/10 Ninja:
  []
 
 
-Overfull \hbox (14.79019pt too wide) in paragraph at lines 5377--5379
+Overfull \hbox (14.79019pt too wide) in paragraph at lines 5416--5418
 \TU/DejaVuSerif(1)/m/n/10 Remastered 
  []
 
 
-Overfull \hbox (14.79019pt too wide) detected at line 5380
+Overfull \hbox (14.79019pt too wide) detected at line 5419
 \TU/DejaVuSerif(1)/m/n/10 Remastered 
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5380
+Underfull \hbox (badness 10000) detected at line 5419
 \TU/DejaVuSerif(1)/m/n/10 Ninja:
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5380
+Underfull \hbox (badness 10000) detected at line 5419
 \TU/DejaVuSerif(1)/m/n/10 of the
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5380
+Underfull \hbox (badness 10000) detected at line 5419
 []\TU/DejaVuSerif(1)/m/n/10 Mark
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5433--5435
+Underfull \hbox (badness 10000) in paragraph at lines 5472--5474
 []\TU/DejaVuSerif(1)/m/n/10 Master
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5436
+Underfull \hbox (badness 10000) detected at line 5475
 []\TU/DejaVuSerif(1)/m/n/10 Master
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5488--5490
+Underfull \hbox (badness 10000) in paragraph at lines 5527--5529
 []\TU/DejaVuSerif(1)/m/n/10 METAL
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5488--5490
+Underfull \hbox (badness 10000) in paragraph at lines 5527--5529
 \TU/DejaVuSerif(1)/m/n/10 GEAR
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5488--5490
+Underfull \hbox (badness 10000) in paragraph at lines 5527--5529
 \TU/DejaVuSerif(1)/m/n/10 RISING:
  []
 
 
-Overfull \hbox (38.04214pt too wide) in paragraph at lines 5488--5490
+Overfull \hbox (38.04214pt too wide) in paragraph at lines 5527--5529
 \TU/DejaVuSerif(1)/m/n/10 REVENGEANCE 
  []
 
 
-Overfull \hbox (38.04214pt too wide) detected at line 5491
+Overfull \hbox (38.04214pt too wide) detected at line 5530
 \TU/DejaVuSerif(1)/m/n/10 REVENGEANCE 
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5491
+Underfull \hbox (badness 10000) detected at line 5530
 \TU/DejaVuSerif(1)/m/n/10 RISING:
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5491
+Underfull \hbox (badness 10000) detected at line 5530
 \TU/DejaVuSerif(1)/m/n/10 GEAR
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5491
+Underfull \hbox (badness 10000) detected at line 5530
 []\TU/DejaVuSerif(1)/m/n/10 METAL
  []
 
 
-Overfull \hbox (16.4064pt too wide) in paragraph at lines 5544--5546
+Overfull \hbox (16.4064pt too wide) in paragraph at lines 5583--5585
 []\TU/DejaVuSerif(1)/m/n/10 Moonlighter 
  []
 
 
-Overfull \hbox (16.4064pt too wide) detected at line 5547
+Overfull \hbox (16.4064pt too wide) detected at line 5586
 []\TU/DejaVuSerif(1)/m/n/10 Moonlighter 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5654--5656
+Underfull \hbox (badness 10000) in paragraph at lines 5693--5695
 []\TU/DejaVuSerif(1)/m/n/10 My
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5654--5656
+Underfull \hbox (badness 10000) in paragraph at lines 5693--5695
 \TU/DejaVuSerif(1)/m/n/10 Friend
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5657
+Underfull \hbox (badness 10000) detected at line 5696
 []\TU/DejaVuSerif(1)/m/n/10 My
  []
 
 
-Overfull \hbox (28.87222pt too wide) in paragraph at lines 5709--5711
+Overfull \hbox (28.87222pt too wide) in paragraph at lines 5748--5750
 []\TU/DejaVuSerif(1)/m/n/10 Nier:Automata 
  []
 
 
-Overfull \hbox (28.87222pt too wide) detected at line 5712
+Overfull \hbox (28.87222pt too wide) detected at line 5751
 []\TU/DejaVuSerif(1)/m/n/10 Nier:Automata 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5765--5767
+Underfull \hbox (badness 10000) in paragraph at lines 5804--5806
 []\TU/DejaVuSerif(1)/m/n/10 Nine
  []
 
 
-Overfull \hbox (13.78433pt too wide) in paragraph at lines 5765--5767
+Overfull \hbox (13.78433pt too wide) in paragraph at lines 5804--5806
 \TU/DejaVuSerif(1)/m/n/10 Parchments 
  []
 
 
-Overfull \hbox (13.78433pt too wide) detected at line 5768
+Overfull \hbox (13.78433pt too wide) detected at line 5807
 \TU/DejaVuSerif(1)/m/n/10 Parchments 
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5768
+Underfull \hbox (badness 10000) detected at line 5807
 []\TU/DejaVuSerif(1)/m/n/10 Nine
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5821--5823
+Underfull \hbox (badness 10000) in paragraph at lines 5860--5862
 []\TU/DejaVuSerif(1)/m/n/10 Ori and
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5821--5823
+Underfull \hbox (badness 10000) in paragraph at lines 5860--5862
 \TU/DejaVuSerif(1)/m/n/10 Forest:
  []
 
 
-Overfull \hbox (2.75894pt too wide) in paragraph at lines 5821--5823
+Overfull \hbox (2.75894pt too wide) in paragraph at lines 5860--5862
 \TU/DejaVuSerif(1)/m/n/10 Definitive
  []
 
 
-Overfull \hbox (2.75894pt too wide) detected at line 5824
+Overfull \hbox (2.75894pt too wide) detected at line 5863
 \TU/DejaVuSerif(1)/m/n/10 Definitive
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5824
+Underfull \hbox (badness 10000) detected at line 5863
 \TU/DejaVuSerif(1)/m/n/10 Forest:
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5824
+Underfull \hbox (badness 10000) detected at line 5863
 []\TU/DejaVuSerif(1)/m/n/10 Ori and
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5875--5877
+Underfull \hbox (badness 10000) in paragraph at lines 5914--5916
 []\TU/DejaVuSerif(1)/m/n/10 Ori and
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5875--5877
+Underfull \hbox (badness 10000) in paragraph at lines 5914--5916
 \TU/DejaVuSerif(1)/m/n/10 the Will
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5875--5877
+Underfull \hbox (badness 10000) in paragraph at lines 5914--5916
 \TU/DejaVuSerif(1)/m/n/10 of the
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5878
+Underfull \hbox (badness 10000) detected at line 5917
 \TU/DejaVuSerif(1)/m/n/10 of the
  []
 
 
-Overfull \hbox (4.20425pt too wide) in paragraph at lines 5929--5931
+Overfull \hbox (4.20425pt too wide) in paragraph at lines 5968--5970
 []\TU/DejaVuSerif(1)/m/n/10 Othercide 
  []
 
 
-Overfull \hbox (4.20425pt too wide) detected at line 5932
+Overfull \hbox (4.20425pt too wide) detected at line 5971
 []\TU/DejaVuSerif(1)/m/n/10 Othercide 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5985--5987
+Underfull \hbox (badness 10000) in paragraph at lines 6024--6026
 []\TU/DejaVuSerif(1)/m/n/10 Out of
  []
 
 
-Overfull \hbox (18.31558pt too wide) in paragraph at lines 6094--6096
+Overfull \hbox (18.31558pt too wide) in paragraph at lines 6133--6135
 []\TU/DejaVuSerif(1)/m/n/10 Overcooked!
  []
 
 
-Overfull \hbox (18.31558pt too wide) detected at line 6097
+Overfull \hbox (18.31558pt too wide) detected at line 6136
 []\TU/DejaVuSerif(1)/m/n/10 Overcooked!
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6149--6151
+Underfull \hbox (badness 10000) in paragraph at lines 6188--6190
 []\TU/DejaVuSerif(1)/m/n/10 Papers,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6203--6205
+Underfull \hbox (badness 10000) in paragraph at lines 6242--6244
 []\TU/DejaVuSerif(1)/m/n/10 Path of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6259--6261
+Underfull \hbox (badness 10000) in paragraph at lines 6298--6300
 []\TU/DejaVuSerif(1)/m/n/10 Peace,
  []
 
 
-Underfull \hbox (badness 10000) detected at line 6262
+Underfull \hbox (badness 10000) detected at line 6301
 []\TU/DejaVuSerif(1)/m/n/10 Peace,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6315--6317
+Underfull \hbox (badness 10000) in paragraph at lines 6354--6356
 []\TU/DejaVuSerif(1)/m/n/10 Peace,
  []
 
 
-Underfull \hbox (badness 10000) detected at line 6318
+Underfull \hbox (badness 10000) detected at line 6357
 []\TU/DejaVuSerif(1)/m/n/10 Peace,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6371--6373
+Underfull \hbox (badness 10000) in paragraph at lines 6410--6412
 []\TU/DejaVuSerif(1)/m/n/10 Pummel
  []
 
 
-Overfull \hbox (9.16031pt too wide) in paragraph at lines 6426--6428
+Overfull \hbox (9.16031pt too wide) in paragraph at lines 6465--6467
 []\TU/DejaVuSerif(1)/m/n/10 Remember
  []
 
 
-Overfull \hbox (9.16031pt too wide) detected at line 6429
+Overfull \hbox (9.16031pt too wide) detected at line 6468
 []\TU/DejaVuSerif(1)/m/n/10 Remember
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6482--6484
+Underfull \hbox (badness 10000) in paragraph at lines 6521--6523
 []\TU/DejaVuSerif(1)/m/n/10 Rocket
  []
 
 
-Underfull \hbox (badness 10000) detected at line 6485
+Underfull \hbox (badness 10000) detected at line 6524
 []\TU/DejaVuSerif(1)/m/n/10 Rocket
  []
 
 
-Overfull \hbox (5.43472pt too wide) in paragraph at lines 6594--6596
+Overfull \hbox (5.43472pt too wide) in paragraph at lines 6633--6635
 \TU/DejaVuSerif(1)/m/n/10 Sanctuary 
  []
 
 
-Overfull \hbox (5.43472pt too wide) detected at line 6597
+Overfull \hbox (5.43472pt too wide) detected at line 6636
 \TU/DejaVuSerif(1)/m/n/10 Sanctuary 
  []
 
 
-Overfull \hbox (1.99722pt too wide) in paragraph at lines 6650--6652
+Overfull \hbox (1.99722pt too wide) in paragraph at lines 6689--6691
 []\TU/DejaVuSerif(1)/m/n/10 Samorost
  []
 
 
-Overfull \hbox (1.99722pt too wide) detected at line 6653
+Overfull \hbox (1.99722pt too wide) detected at line 6692
 []\TU/DejaVuSerif(1)/m/n/10 Samorost
  []
 
 
-Overfull \hbox (1.99722pt too wide) in paragraph at lines 6706--6708
+Overfull \hbox (1.99722pt too wide) in paragraph at lines 6745--6747
 []\TU/DejaVuSerif(1)/m/n/10 Samorost
  []
 
 
-Overfull \hbox (1.99722pt too wide) detected at line 6709
+Overfull \hbox (1.99722pt too wide) detected at line 6748
 []\TU/DejaVuSerif(1)/m/n/10 Samorost
  []
 
 
-Overfull \hbox (1.99722pt too wide) in paragraph at lines 6760--6762
+Overfull \hbox (1.99722pt too wide) in paragraph at lines 6799--6801
 []\TU/DejaVuSerif(1)/m/n/10 Samorost
  []
 
 
-Overfull \hbox (1.99722pt too wide) detected at line 6763
+Overfull \hbox (1.99722pt too wide) detected at line 6802
 []\TU/DejaVuSerif(1)/m/n/10 Samorost
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6815--6817
+Underfull \hbox (badness 10000) in paragraph at lines 6854--6856
 []\TU/DejaVuSerif(1)/m/n/10 Sekiro:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6815--6817
+Underfull \hbox (badness 10000) in paragraph at lines 6854--6856
 \TU/DejaVuSerif(1)/m/n/10 Shadow
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6815--6817
+Underfull \hbox (badness 10000) in paragraph at lines 6854--6856
 \TU/DejaVuSerif(1)/m/n/10 Die
  []
 
 
-Underfull \hbox (badness 10000) detected at line 6818
+Underfull \hbox (badness 10000) detected at line 6857
 \TU/DejaVuSerif(1)/m/n/10 Die
  []
 
 
-Underfull \hbox (badness 10000) detected at line 6818
+Underfull \hbox (badness 10000) detected at line 6857
 []\TU/DejaVuSerif(1)/m/n/10 Sekiro:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6871--6873
+Underfull \hbox (badness 10000) in paragraph at lines 6910--6912
 []\TU/DejaVuSerif(1)/m/n/10 Severed
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6926--6928
+Underfull \hbox (badness 10000) in paragraph at lines 6965--6967
 []\TU/DejaVuSerif(1)/m/n/10 Shadow
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6926--6928
+Underfull \hbox (badness 10000) in paragraph at lines 6965--6967
 \TU/DejaVuSerif(1)/m/n/10 Tactics:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6926--6928
+Underfull \hbox (badness 10000) in paragraph at lines 6965--6967
 \TU/DejaVuSerif(1)/m/n/10 Blades
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6926--6928
+Underfull \hbox (badness 10000) in paragraph at lines 6965--6967
 \TU/DejaVuSerif(1)/m/n/10 of the
  []
 
 
-Underfull \hbox (badness 10000) detected at line 6929
+Underfull \hbox (badness 10000) detected at line 6968
 \TU/DejaVuSerif(1)/m/n/10 of the
  []
 
 
-Underfull \hbox (badness 10000) detected at line 6929
+Underfull \hbox (badness 10000) detected at line 6968
 \TU/DejaVuSerif(1)/m/n/10 Blades
  []
 
 
-Underfull \hbox (badness 10000) detected at line 6929
+Underfull \hbox (badness 10000) detected at line 6968
 \TU/DejaVuSerif(1)/m/n/10 Tactics:
  []
 
 
-Overfull \hbox (11.62613pt too wide) in paragraph at lines 6980--6982
+Overfull \hbox (11.62613pt too wide) in paragraph at lines 7019--7021
 []\TU/DejaVuSerif(1)/m/n/10 Shadowrun
  []
 
 
-Overfull \hbox (11.62613pt too wide) detected at line 6983
+Overfull \hbox (11.62613pt too wide) detected at line 7022
 []\TU/DejaVuSerif(1)/m/n/10 Shadowrun
  []
 
 
-Overfull \hbox (4.03824pt too wide) in paragraph at lines 7034--7036
+Overfull \hbox (4.03824pt too wide) in paragraph at lines 7073--7075
 []\TU/DejaVuSerif(1)/m/n/10 Shattered
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7034--7036
+Underfull \hbox (badness 10000) in paragraph at lines 7073--7075
 \TU/DejaVuSerif(1)/m/n/10 - Tale
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7034--7036
+Underfull \hbox (badness 10000) in paragraph at lines 7073--7075
 \TU/DejaVuSerif(1)/m/n/10 of the
  []
 
 
-Overfull \hbox (3.74039pt too wide) in paragraph at lines 7034--7036
+Overfull \hbox (3.74039pt too wide) in paragraph at lines 7073--7075
 \TU/DejaVuSerif(1)/m/n/10 Forgotten
  []
 
 
-Overfull \hbox (3.74039pt too wide) detected at line 7037
+Overfull \hbox (3.74039pt too wide) detected at line 7076
 \TU/DejaVuSerif(1)/m/n/10 Forgotten
  []
 
 
-Underfull \hbox (badness 10000) detected at line 7037
+Underfull \hbox (badness 10000) detected at line 7076
 \TU/DejaVuSerif(1)/m/n/10 of the
  []
 
 
-Underfull \hbox (badness 10000) detected at line 7037
+Underfull \hbox (badness 10000) detected at line 7076
 \TU/DejaVuSerif(1)/m/n/10 - Tale
  []
 
 
-Overfull \hbox (4.03824pt too wide) detected at line 7037
+Overfull \hbox (4.03824pt too wide) detected at line 7076
 []\TU/DejaVuSerif(1)/m/n/10 Shattered
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7145--7147
+Underfull \hbox (badness 10000) in paragraph at lines 7184--7186
 []\TU/DejaVuSerif(1)/m/n/10 Skul:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7145--7147
+Underfull \hbox (badness 10000) in paragraph at lines 7184--7186
 \TU/DejaVuSerif(1)/m/n/10 The
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7145--7147
+Underfull \hbox (badness 10000) in paragraph at lines 7184--7186
 \TU/DejaVuSerif(1)/m/n/10 Hero
  []
 
 
-Underfull \hbox (badness 10000) detected at line 7148
+Underfull \hbox (badness 10000) detected at line 7187
 \TU/DejaVuSerif(1)/m/n/10 Hero
  []
 
 
-Underfull \hbox (badness 10000) detected at line 7148
+Underfull \hbox (badness 10000) detected at line 7187
 \TU/DejaVuSerif(1)/m/n/10 The
  []
 
 
-Underfull \hbox (badness 10000) detected at line 7148
+Underfull \hbox (badness 10000) detected at line 7187
 []\TU/DejaVuSerif(1)/m/n/10 Skul:
  []
 
 
-Overfull \hbox (27.90054pt too wide) in paragraph at lines 7199--7201
+Overfull \hbox (27.90054pt too wide) in paragraph at lines 7238--7240
 []\TU/DejaVuSerif(1)/m/n/10 SpeedRunners 
  []
 
 
-Overfull \hbox (27.90054pt too wide) detected at line 7202
+Overfull \hbox (27.90054pt too wide) detected at line 7241
 []\TU/DejaVuSerif(1)/m/n/10 SpeedRunners 
  []
 
 
-Overfull \hbox (10.68863pt too wide) in paragraph at lines 7254--7256
+Overfull \hbox (10.68863pt too wide) in paragraph at lines 7293--7295
 []\TU/DejaVuSerif(1)/m/n/10 Spiritfarer:
  []
 
 
-Overfull \hbox (10.68863pt too wide) detected at line 7257
+Overfull \hbox (10.68863pt too wide) detected at line 7296
 []\TU/DejaVuSerif(1)/m/n/10 Spiritfarer:
  []
 
 
-Overfull \hbox (15.06363pt too wide) in paragraph at lines 7309--7311
+Overfull \hbox (15.06363pt too wide) in paragraph at lines 7348--7350
 []\TU/DejaVuSerif(1)/m/n/10 Stoneshard:
  []
 
 
-Overfull \hbox (15.06363pt too wide) detected at line 7312
+Overfull \hbox (15.06363pt too wide) detected at line 7351
 []\TU/DejaVuSerif(1)/m/n/10 Stoneshard:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7363--7365
+Underfull \hbox (badness 10000) in paragraph at lines 7402--7404
 []\TU/DejaVuSerif(1)/m/n/10 Stories:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7363--7365
+Underfull \hbox (badness 10000) in paragraph at lines 7402--7404
 \TU/DejaVuSerif(1)/m/n/10 The
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7363--7365
+Underfull \hbox (badness 10000) in paragraph at lines 7402--7404
 \TU/DejaVuSerif(1)/m/n/10 Path of
  []
 
 
-Overfull \hbox (0.70328pt too wide) in paragraph at lines 7363--7365
+Overfull \hbox (0.70328pt too wide) in paragraph at lines 7402--7404
 \TU/DejaVuSerif(1)/m/n/10 Destinies 
  []
 
 
-Overfull \hbox (0.70328pt too wide) detected at line 7366
+Overfull \hbox (0.70328pt too wide) detected at line 7405
 \TU/DejaVuSerif(1)/m/n/10 Destinies 
  []
 
 
-Underfull \hbox (badness 10000) detected at line 7366
+Underfull \hbox (badness 10000) detected at line 7405
 \TU/DejaVuSerif(1)/m/n/10 Path of
  []
 
 
-Underfull \hbox (badness 10000) detected at line 7366
+Underfull \hbox (badness 10000) detected at line 7405
 \TU/DejaVuSerif(1)/m/n/10 The
  []
 
 
-Underfull \hbox (badness 10000) detected at line 7366
+Underfull \hbox (badness 10000) detected at line 7405
 []\TU/DejaVuSerif(1)/m/n/10 Stories:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7419--7421
+Underfull \hbox (badness 10000) in paragraph at lines 7458--7460
 []\TU/DejaVuSerif(1)/m/n/10 Styx:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7419--7421
+Underfull \hbox (badness 10000) in paragraph at lines 7458--7460
 \TU/DejaVuSerif(1)/m/n/10 Master
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7419--7421
+Underfull \hbox (badness 10000) in paragraph at lines 7458--7460
 \TU/DejaVuSerif(1)/m/n/10 of
  []
 
 
-Underfull \hbox (badness 10000) detected at line 7422
+Underfull \hbox (badness 10000) detected at line 7461
 \TU/DejaVuSerif(1)/m/n/10 of
  []
 
 
-Underfull \hbox (badness 10000) detected at line 7422
+Underfull \hbox (badness 10000) detected at line 7461
 \TU/DejaVuSerif(1)/m/n/10 Master
  []
 
 
-Underfull \hbox (badness 10000) detected at line 7422
+Underfull \hbox (badness 10000) detected at line 7461
 []\TU/DejaVuSerif(1)/m/n/10 Styx:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7475--7477
+Underfull \hbox (badness 10000) in paragraph at lines 7514--7516
 []\TU/DejaVuSerif(1)/m/n/10 Styx:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7475--7477
+Underfull \hbox (badness 10000) in paragraph at lines 7514--7516
 \TU/DejaVuSerif(1)/m/n/10 Shards
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7475--7477
+Underfull \hbox (badness 10000) in paragraph at lines 7514--7516
 \TU/DejaVuSerif(1)/m/n/10 of
  []
 
 
-Overfull \hbox (1.17203pt too wide) in paragraph at lines 7475--7477
+Overfull \hbox (1.17203pt too wide) in paragraph at lines 7514--7516
 \TU/DejaVuSerif(1)/m/n/10 Darkness 
  []
 
 
-Overfull \hbox (1.17203pt too wide) detected at line 7478
+Overfull \hbox (1.17203pt too wide) detected at line 7517
 \TU/DejaVuSerif(1)/m/n/10 Darkness 
  []
 
 
-Underfull \hbox (badness 10000) detected at line 7478
+Underfull \hbox (badness 10000) detected at line 7517
 \TU/DejaVuSerif(1)/m/n/10 of
  []
 
 
-Underfull \hbox (badness 10000) detected at line 7478
+Underfull \hbox (badness 10000) detected at line 7517
 \TU/DejaVuSerif(1)/m/n/10 Shards
  []
 
 
-Underfull \hbox (badness 10000) detected at line 7478
+Underfull \hbox (badness 10000) detected at line 7517
 []\TU/DejaVuSerif(1)/m/n/10 Styx:
  []
 
 
-Overfull \hbox (153.85368pt too wide) in alignment at lines 2017--7522
+Overfull \hbox (153.85368pt too wide) in alignment at lines 2056--7561
  [] [] [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (6.25015pt too wide) in paragraph at lines 7531--7533
+Overfull \hbox (6.25015pt too wide) in paragraph at lines 7570--7572
 []\TU/DejaVuSerif(1)/m/n/10 Sundered:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7531--7533
+Underfull \hbox (badness 10000) in paragraph at lines 7570--7572
 \TU/DejaVuSerif(1)/m/n/10 Eldritch
  []
 
 
-Underfull \hbox (badness 10000) detected at line 7534
+Underfull \hbox (badness 10000) detected at line 7573
 \TU/DejaVuSerif(1)/m/n/10 Eldritch
  []
 
 
-Overfull \hbox (6.25015pt too wide) detected at line 7534
+Overfull \hbox (6.25015pt too wide) detected at line 7573
 []\TU/DejaVuSerif(1)/m/n/10 Sundered:
  []
 
 
-Overfull \hbox (16.71402pt too wide) in paragraph at lines 7585--7587
+Overfull \hbox (16.71402pt too wide) in paragraph at lines 7624--7626
 []\TU/DejaVuSerif(1)/m/n/10 SYNTHETIK 
  []
 
 
-Overfull \hbox (16.71402pt too wide) detected at line 7588
+Overfull \hbox (16.71402pt too wide) detected at line 7627
 []\TU/DejaVuSerif(1)/m/n/10 SYNTHETIK 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7640--7642
+Underfull \hbox (badness 10000) in paragraph at lines 7679--7681
 []\TU/DejaVuSerif(1)/m/n/10 Tabletop
  []
 
 
-Overfull \hbox (3.6818pt too wide) in paragraph at lines 7640--7642
+Overfull \hbox (3.6818pt too wide) in paragraph at lines 7679--7681
 \TU/DejaVuSerif(1)/m/n/10 Simulator 
  []
 
 
-Overfull \hbox (3.6818pt too wide) detected at line 7643
+Overfull \hbox (3.6818pt too wide) detected at line 7682
 \TU/DejaVuSerif(1)/m/n/10 Simulator 
  []
 
 
-Underfull \hbox (badness 10000) detected at line 7643
+Underfull \hbox (badness 10000) detected at line 7682
 []\TU/DejaVuSerif(1)/m/n/10 Tabletop
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7695--7697
+Underfull \hbox (badness 10000) in paragraph at lines 7734--7736
 []\TU/DejaVuSerif(1)/m/n/10 The
  []
 
 
-Overfull \hbox (1.6066pt too wide) in paragraph at lines 7695--7697
+Overfull \hbox (1.6066pt too wide) in paragraph at lines 7734--7736
 \TU/DejaVuSerif(1)/m/n/10 Escapists
  []
 
 
-Overfull \hbox (1.6066pt too wide) detected at line 7698
+Overfull \hbox (1.6066pt too wide) detected at line 7737
 \TU/DejaVuSerif(1)/m/n/10 Escapists
  []
 
 
-Underfull \hbox (badness 10000) detected at line 7698
+Underfull \hbox (badness 10000) detected at line 7737
 []\TU/DejaVuSerif(1)/m/n/10 The
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7751--7753
+Underfull \hbox (badness 10000) in paragraph at lines 7790--7792
 []\TU/DejaVuSerif(1)/m/n/10 The
  []
 
 
-Overfull \hbox (0.86441pt too wide) in paragraph at lines 7751--7753
+Overfull \hbox (0.86441pt too wide) in paragraph at lines 7790--7792
 \TU/DejaVuSerif(1)/m/n/10 Suffering
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7751--7753
+Underfull \hbox (badness 10000) in paragraph at lines 7790--7792
 \TU/DejaVuSerif(1)/m/n/10 of Sir
  []
 
 
-Underfull \hbox (badness 10000) detected at line 7754
+Underfull \hbox (badness 10000) detected at line 7793
 \TU/DejaVuSerif(1)/m/n/10 of Sir
  []
 
 
-Overfull \hbox (0.86441pt too wide) detected at line 7754
+Overfull \hbox (0.86441pt too wide) detected at line 7793
 \TU/DejaVuSerif(1)/m/n/10 Suffering
  []
 
 
-Underfull \hbox (badness 10000) detected at line 7754
+Underfull \hbox (badness 10000) detected at line 7793
 []\TU/DejaVuSerif(1)/m/n/10 The
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7806--7808
+Underfull \hbox (badness 10000) in paragraph at lines 7845--7847
 []\TU/DejaVuSerif(1)/m/n/10 The
  []
 
 
-Underfull \hbox (badness 10000) detected at line 7809
+Underfull \hbox (badness 10000) detected at line 7848
 []\TU/DejaVuSerif(1)/m/n/10 The
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7917--7919
+Underfull \hbox (badness 10000) in paragraph at lines 7956--7958
 []\TU/DejaVuSerif(1)/m/n/10 They
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7917--7919
+Underfull \hbox (badness 10000) in paragraph at lines 7956--7958
 \TU/DejaVuSerif(1)/m/n/10 Always
  []
 
 
-Underfull \hbox (badness 10000) detected at line 7920
+Underfull \hbox (badness 10000) detected at line 7959
 []\TU/DejaVuSerif(1)/m/n/10 They
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 8027--8029
+Underfull \hbox (badness 10000) in paragraph at lines 8066--8068
 []\TU/DejaVuSerif(1)/m/n/10 Titan
  []
 
 
-Underfull \hbox (badness 10000) detected at line 8030
+Underfull \hbox (badness 10000) detected at line 8069
 []\TU/DejaVuSerif(1)/m/n/10 Titan
  []
 
 
-Overfull \hbox (5.86441pt too wide) in paragraph at lines 8082--8084
+Overfull \hbox (5.86441pt too wide) in paragraph at lines 8121--8123
 []\TU/DejaVuSerif(1)/m/n/10 Transistor 
  []
 
 
-Overfull \hbox (5.86441pt too wide) detected at line 8085
+Overfull \hbox (5.86441pt too wide) detected at line 8124
 []\TU/DejaVuSerif(1)/m/n/10 Transistor 
  []
 
 
-Overfull \hbox (4.79507pt too wide) in paragraph at lines 8192--8194
+Overfull \hbox (4.79507pt too wide) in paragraph at lines 8231--8233
 []\TU/DejaVuSerif(1)/m/n/10 Undertale 
  []
 
 
-Overfull \hbox (4.79507pt too wide) detected at line 8195
+Overfull \hbox (4.79507pt too wide) detected at line 8234
 []\TU/DejaVuSerif(1)/m/n/10 Undertale 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 8247--8249
+Underfull \hbox (badness 10000) in paragraph at lines 8286--8288
 []\TU/DejaVuSerif(1)/m/n/10 Valiant
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 8247--8249
+Underfull \hbox (badness 10000) in paragraph at lines 8286--8288
 \TU/DejaVuSerif(1)/m/n/10 Hearts:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 8247--8249
+Underfull \hbox (badness 10000) in paragraph at lines 8286--8288
 \TU/DejaVuSerif(1)/m/n/10 The
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 8247--8249
+Underfull \hbox (badness 10000) in paragraph at lines 8286--8288
 \TU/DejaVuSerif(1)/m/n/10 Great
  []
 
 
-Underfull \hbox (badness 10000) detected at line 8250
+Underfull \hbox (badness 10000) detected at line 8289
 \TU/DejaVuSerif(1)/m/n/10 Great
  []
 
 
-Underfull \hbox (badness 10000) detected at line 8250
+Underfull \hbox (badness 10000) detected at line 8289
 \TU/DejaVuSerif(1)/m/n/10 The
  []
 
 
-Underfull \hbox (badness 10000) detected at line 8250
+Underfull \hbox (badness 10000) detected at line 8289
 []\TU/DejaVuSerif(1)/m/n/10 Valiant
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 8413--8415
+Underfull \hbox (badness 10000) in paragraph at lines 8452--8454
 []\TU/DejaVuSerif(1)/m/n/10 Void
  []
 
 
-Underfull \hbox (badness 10000) detected at line 8416
+Underfull \hbox (badness 10000) detected at line 8455
 []\TU/DejaVuSerif(1)/m/n/10 Void
  []
 
 
-Overfull \hbox (6.17203pt too wide) in paragraph at lines 8468--8470
+Overfull \hbox (6.17203pt too wide) in paragraph at lines 8507--8509
 []\TU/DejaVuSerif(1)/m/n/10 Wasteland
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 8468--8470
+Underfull \hbox (badness 10000) in paragraph at lines 8507--8509
 \TU/DejaVuSerif(1)/m/n/10 2:
  []
 
 
-Overfull \hbox (3.94547pt too wide) in paragraph at lines 8468--8470
+Overfull \hbox (3.94547pt too wide) in paragraph at lines 8507--8509
 \TU/DejaVuSerif(1)/m/n/10 Director's
  []
 
 
-Overfull \hbox (3.94547pt too wide) detected at line 8471
+Overfull \hbox (3.94547pt too wide) detected at line 8510
 \TU/DejaVuSerif(1)/m/n/10 Director's
  []
 
 
-Underfull \hbox (badness 10000) detected at line 8471
+Underfull \hbox (badness 10000) detected at line 8510
 \TU/DejaVuSerif(1)/m/n/10 2:
  []
 
 
-Overfull \hbox (6.17203pt too wide) detected at line 8471
+Overfull \hbox (6.17203pt too wide) detected at line 8510
 []\TU/DejaVuSerif(1)/m/n/10 Wasteland
  []
 
 
-Overfull \hbox (6.17203pt too wide) in paragraph at lines 8524--8526
+Overfull \hbox (6.17203pt too wide) in paragraph at lines 8563--8565
 []\TU/DejaVuSerif(1)/m/n/10 Wasteland
  []
 
 
-Overfull \hbox (6.17203pt too wide) detected at line 8527
+Overfull \hbox (6.17203pt too wide) detected at line 8566
 []\TU/DejaVuSerif(1)/m/n/10 Wasteland
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 8633--8635
+Underfull \hbox (badness 10000) in paragraph at lines 8672--8674
 []\TU/DejaVuSerif(1)/m/n/10 Wizard
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 8633--8635
+Underfull \hbox (badness 10000) in paragraph at lines 8672--8674
 \TU/DejaVuSerif(1)/m/n/10 of
  []
 
 
-Underfull \hbox (badness 10000) detected at line 8636
+Underfull \hbox (badness 10000) detected at line 8675
 \TU/DejaVuSerif(1)/m/n/10 of
  []
 
 
-Underfull \hbox (badness 10000) detected at line 8636
+Underfull \hbox (badness 10000) detected at line 8675
 []\TU/DejaVuSerif(1)/m/n/10 Wizard
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 8740--8742
+Underfull \hbox (badness 10000) in paragraph at lines 8779--8781
 []\TU/DejaVuSerif(1)/m/n/10 Кэш
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 8740--8742
+Underfull \hbox (badness 10000) in paragraph at lines 8779--8781
 \TU/DejaVuSerif(1)/m/n/10 шей-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 8740--8742
+Underfull \hbox (badness 10000) in paragraph at lines 8779--8781
 \TU/DejaVuSerif(1)/m/n/10 деров
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 8740--8742
+Underfull \hbox (badness 10000) in paragraph at lines 8779--8781
 \TU/DejaVuSerif(1)/m/n/10 пред-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 8740--8742
+Underfull \hbox (badness 10000) in paragraph at lines 8779--8781
 \TU/DejaVuSerif(1)/m/n/10 став-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 8740--8742
+Underfull \hbox (badness 10000) in paragraph at lines 8779--8781
 \TU/DejaVuSerif(1)/m/n/10 ленных
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 8740--8742
+Underfull \hbox (badness 10000) in paragraph at lines 8779--8781
 \TU/DejaVuSerif(1)/m/n/10 здесь
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 8740--8742
+Underfull \hbox (badness 10000) in paragraph at lines 8779--8781
 \TU/DejaVuSerif(1)/m/n/10 игр в
  []
 
 
-Underfull \hbox (badness 10000) detected at line 8743
+Underfull \hbox (badness 10000) detected at line 8782
 \TU/DejaVuSerif(1)/m/n/10 игр в
  []
 
 
-Underfull \hbox (badness 10000) detected at line 8743
+Underfull \hbox (badness 10000) detected at line 8782
 \TU/DejaVuSerif(1)/m/n/10 здесь
  []
 
 
-Underfull \hbox (badness 10000) detected at line 8743
+Underfull \hbox (badness 10000) detected at line 8782
 \TU/DejaVuSerif(1)/m/n/10 став-
  []
 
 
-Underfull \hbox (badness 10000) detected at line 8743
+Underfull \hbox (badness 10000) detected at line 8782
 \TU/DejaVuSerif(1)/m/n/10 пред-
  []
 
 
-Underfull \hbox (badness 10000) detected at line 8743
+Underfull \hbox (badness 10000) detected at line 8782
 \TU/DejaVuSerif(1)/m/n/10 деров
  []
 
 
-Underfull \hbox (badness 10000) detected at line 8743
+Underfull \hbox (badness 10000) detected at line 8782
 \TU/DejaVuSerif(1)/m/n/10 шей-
  []
 
 
-Underfull \hbox (badness 10000) detected at line 8743
+Underfull \hbox (badness 10000) detected at line 8782
 []\TU/DejaVuSerif(1)/m/n/10 Кэш
  []
 
 
-Overfull \hbox (153.85368pt too wide) in alignment at lines 7522--8788
+Overfull \hbox (153.85368pt too wide) in alignment at lines 7561--8827
  [] [] [] [] [] [] [] [] 
  []
 
@@ -2936,7 +2936,7 @@ File: linux-gaming-2.png Graphic file (type bmp)
 File: linux-gaming-3.png Graphic file (type bmp)
 <linux-gaming-3.png>
  [106]
-Underfull \hbox (badness 10000) in paragraph at lines 10389--10391
+Underfull \hbox (badness 10000) in paragraph at lines 10428--10430
 []\TU/DejaVuSerif(1)/m/n/10 Указать параметры запуска игры в свойствах игры Ste
 am
  []
@@ -2945,7 +2945,7 @@ am
 File: image9.png Graphic file (type bmp)
 <image9.png>
  [108]
-Underfull \hbox (badness 10000) in paragraph at lines 10470--10470
+Underfull \hbox (badness 10000) in paragraph at lines 10509--10509
 |[][]\TU/DejaVuSans(1)/b/n/10 Альтернатива: DXVK Hud (\TU/DejaVuSans(1)/b/it/10
  Только для игр запускаемых через
  []
@@ -2994,7 +2994,7 @@ File: image13.png Graphic file (type bmp)
 File: image81.png Graphic file (type bmp)
 <image81.png>
  [131]
-Underfull \hbox (badness 10000) in paragraph at lines 11647--11650
+Underfull \hbox (badness 10000) in paragraph at lines 11686--11689
 []\TU/DejaVuSerif(1)/m/n/10 # Отключаем службу автоматического монтирования вне
 шних, подключаемых
  []
@@ -3020,7 +3020,7 @@ File: generic-system-acceleration-4.png Graphic file (type bmp)
 File: piper-resolutionpage.png Graphic file (type bmp)
 <piper-resolutionpage.png>
  [139]
-Underfull \hbox (badness 10000) in paragraph at lines 11840--11844
+Underfull \hbox (badness 10000) in paragraph at lines 11879--11883
 []\TU/DejaVuSerif(1)/b/n/10 Внимание:  \TU/DejaVuSerif(1)/m/n/10 Поддерживаются
  только некоторые из моделей мышек от
  []
@@ -3088,15 +3088,15 @@ The property list \__xpg_alias contains the pairs (without outer braces):
 >  {ru-petr1708/options}  =>  {spelling=old}.
  (./ARU.aux)
 Package rerunfilecheck Info: File `ARU.out' has not changed.
-(rerunfilecheck)             Checksum: B9174AF3A70EDD1A085001F4C9221536;34249.
+(rerunfilecheck)             Checksum: 70BA1DB2E76C6322DFC442618A2FA176;35075.
  ) 
 Here is how much of TeX's memory you used:
- 19134 strings out of 476156
- 385572 string characters out of 5814963
- 1103601 words of memory out of 5000000
- 39390 multiletter control sequences out of 15000+600000
- 477537 words of font info for 155 fonts, out of 8000000 for 9000
+ 19144 strings out of 476156
+ 385868 string characters out of 5814963
+ 1104997 words of memory out of 5000000
+ 39400 multiletter control sequences out of 15000+600000
+ 477480 words of font info for 155 fonts, out of 8000000 for 9000
  1349 hyphenation exceptions out of 8191
  72i,12n,79p,1093b,695s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on ARU.pdf (150 pages).
+Output written on ARU.pdf (151 pages).

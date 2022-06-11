@@ -11,6 +11,8 @@
   \item \spxentry{alsa}, \hyperpage{29}
   \item \spxentry{amd}, \hyperpage{6}, \hyperpage{8}, \hyperpage{17}, \hyperpage{31}, \hyperpage{32}, \hyperpage{104}
   \item \spxentry{ananicy}, \hyperpage{27}
+  \item \spxentry{applications}, \hyperpage{6}
+  \item \spxentry{archives}, \hyperpage{6}
   \item \spxentry{async}, \hyperpage{92}
   \item \spxentry{audio}, \hyperpage{29}
   \item \spxentry{aur}, \hyperpage{2}
@@ -54,7 +56,7 @@
   \item \spxentry{de\sphinxhyphen{}optimizations}, \hyperpage{113}, \hyperpage{118}, \hyperpage{127}, \hyperpage{131}
   \item \spxentry{dependencies}, \hyperpage{86}
   \item \spxentry{dlss}, \hyperpage{107}
-  \item \spxentry{driver}, \hyperpage{8}, \hyperpage{12}
+  \item \spxentry{driver}, \hyperpage{9}, \hyperpage{12}
   \item \spxentry{drivers}, \hyperpage{6}
   \item \spxentry{dumps}, \hyperpage{37}
   \item \spxentry{dxvk}, \hyperpage{92}, \hyperpage{95}, \hyperpage{108}, \hyperpage{109}
@@ -89,7 +91,7 @@
   \item \spxentry{gnome\sphinxhyphen{}shell}, \hyperpage{116}
   \item \spxentry{governor}, \hyperpage{34}\hyperpage{36}
   \item \spxentry{gpg}, \hyperpage{4}
-  \item \spxentry{grub}, \hyperpage{39}
+  \item \spxentry{grub}, \hyperpage{5}, \hyperpage{39}
   \item \spxentry{grub\sphinxhyphen{}customizer}, \hyperpage{39}
   \item \spxentry{gui}, \hyperpage{35}
 
@@ -106,7 +108,7 @@
 
   \lettergroup{I}
   \item \spxentry{image\sphinxhyphen{}scaling}, \hyperpage{104}, \hyperpage{107}
-  \item \spxentry{initramfs}, \hyperpage{7}
+  \item \spxentry{initramfs}, \hyperpage{8}
   \item \spxentry{installation}, \hyperpage{5}, \hyperpage{6}, \hyperpage{27}, \hyperpage{29}, \hyperpage{86}, \hyperpage{88}, \hyperpage{90}\hyperpage{93}, \hyperpage{96}, \hyperpage{103}, \hyperpage{108}, \hyperpage{109}, \hyperpage{116}
   \item \spxentry{intel}, \hyperpage{6}, \hyperpage{8}, \hyperpage{17}
 
@@ -147,9 +149,9 @@
   \item \spxentry{mini\sphinxhyphen{}kernel}, \hyperpage{109}, \hyperpage{111}
   \item \spxentry{mirrorlist}, \hyperpage{5}
   \item \spxentry{mitigations\sphinxhyphen{}off}, \hyperpage{39}, \hyperpage{40}
-  \item \spxentry{mkinitcpio}, \hyperpage{7}, \hyperpage{30}
+  \item \spxentry{mkinitcpio}, \hyperpage{8}, \hyperpage{30}
   \item \spxentry{modprobed\sphinxhyphen{}db}, \hyperpage{109}, \hyperpage{111}
-  \item \spxentry{modules}, \hyperpage{7}, \hyperpage{109}, \hyperpage{111}
+  \item \spxentry{modules}, \hyperpage{8}, \hyperpage{109}, \hyperpage{111}
   \item \spxentry{monitor}, \hyperpage{17}, \hyperpage{18}
   \item \spxentry{monitoring}, \hyperpage{108}, \hyperpage{109}
   \item \spxentry{mount}, \hyperpage{41}
@@ -165,7 +167,7 @@
   \item \spxentry{networkmanager}, \hyperpage{30}
   \item \spxentry{no\sphinxhyphen{}display\sphinxhyphen{}manager}, \hyperpage{113}
   \item \spxentry{nohang}, \hyperpage{27}
-  \item \spxentry{nvidia}, \hyperpage{6}, \hyperpage{8}, \hyperpage{12}, \hyperpage{13}, \hyperpage{16}, \hyperpage{18}, \hyperpage{107}
+  \item \spxentry{nvidia}, \hyperpage{6}, \hyperpage{9}, \hyperpage{12}, \hyperpage{13}, \hyperpage{16}, \hyperpage{18}, \hyperpage{107}
 
   \indexspace
 
@@ -176,7 +178,7 @@
   \indexspace
 
   \lettergroup{P}
-  \item \spxentry{packages}, \hyperpage{5}
+  \item \spxentry{packages}, \hyperpage{5}, \hyperpage{6}
   \item \spxentry{packaging}, \hyperpage{2}
   \item \spxentry{pacman}, \hyperpage{2}, \hyperpage{4}, \hyperpage{5}, \hyperpage{31}
   \item \spxentry{parallel\sphinxhyphen{}downloading}, \hyperpage{31}
@@ -258,7 +260,7 @@
   \item \spxentry{xfce}, \hyperpage{127}, \hyperpage{128}
   \item \spxentry{xfce4}, \hyperpage{127}
   \item \spxentry{xfwm}, \hyperpage{129}
-  \item \spxentry{xorg}, \hyperpage{8}
+  \item \spxentry{xorg}, \hyperpage{9}
   \item \spxentry{xorg\sphinxhyphen{}xinit}, \hyperpage{113}
 
   \indexspace
