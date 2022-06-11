@@ -60,6 +60,9 @@ language = 'ru'
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 
+# The name of the Pygments (syntax highlighting) style to use.
+pygments_style = "sphinx"
+
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
@@ -74,7 +77,7 @@ html_theme_options = {
     "navbar_end": [ "theme-switcher", "version-switcher", "navbar-icon-links" ],
     "use_edit_page_button": True,
     "navbar_align": "content",
-   "page_sidebar_items": ["page-toc", "edit-this-page"],
+    "page_sidebar_items": ["page-toc", "edit-this-page"],
     "icon_links": [
         {
             "name": "GitHub",
@@ -105,10 +108,11 @@ html_context = {
     "github_user": "ventureoo",
     "github_repo": "ARU",
     "github_version": "main",
+    "doc_path": "docs",
 }
 
 html_sidebars = {
-    "**": [ "search-field.html", "navbar-nav"]
+    "**": ["search-field", "navbar-nav.html"]
 }
 
 # Misc
