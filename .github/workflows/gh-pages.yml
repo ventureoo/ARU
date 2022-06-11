@@ -15,7 +15,7 @@ jobs:
       run: |
          pacman-key --init
          pacman -Syu --noconfirm
-         pacman -S --noconfirm git texlive-core python-sphinx python-pip ttf-dejavu
+         pacman -S --noconfirm git python-sphinx python-pip ttf-dejavu
          pip install --upgrade pip
          pip install --upgrade pydata-sphinx-theme
          cd docs
