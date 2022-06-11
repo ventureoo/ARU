@@ -1,4 +1,4 @@
-PWD /__w/ARU/ARU/docs/build/latex
+PWD /__w/ARU/ARU/docs/build/html/latex
 INPUT /usr/share/texmf-dist/web2c/texmf.cnf
 INPUT /var/lib/texmf/web2c/xetex/xelatex.fmt
 INPUT ARU.tex
