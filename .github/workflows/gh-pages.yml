@@ -43,7 +43,7 @@ jobs:
          pacman -Syu --noconfirm
          pacman -S --noconfirm texlive-latexextra texlive-fontsextra git texlive-core python-sphinx ttf-dejavu python-sphinx-copybutton
          cd docs
-         sphinx-build -b latexpdf -W . build
+         sphinx-build -b latex -W . build
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
       with:
