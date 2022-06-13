@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'ARU - Руководство по оптимизации Arch Linux'
+project = 'ARU — Руководство по оптимизации Arch Linux'
 author = 'Pavel Priluckiy, Vasiliy Stelmachenok and contributors'
 copyright = 'ARU 2018 - 2022 ' + author
 
@@ -70,7 +70,7 @@ pygments_style = "sphinx"
 #
 html_theme = 'pydata_sphinx_theme'
 
-html_title = 'ARU - Руководство по оптимизации Arch Linux'
+html_title = project
 
 html_theme_options = {
     "navbar_center": [],
@@ -112,7 +112,7 @@ html_context = {
 }
 
 html_sidebars = {
-    "**": ["search-field", "navbar-nav.html"]
+    "**": ["search-field", "navbar-nav"]
 }
 
 # Misc
