@@ -19,18 +19,18 @@ jobs:
          pip install --upgrade pip
          pip install --upgrade pydata-sphinx-theme
          cd docs
-         sphinx-build -b html -W . build
+         sphinx-build -b html . build -W
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
       with:
         name: ARU-${{ github.sha }}
-        path: docs/build/html/
+        path: docs/build/
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       if: github.ref == 'refs/heads/main'
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: docs/build/html/
+        publish_dir: docs/build/
         keep_files: true
   build-pdf:
     runs-on: ubuntu-latest
@@ -43,16 +43,16 @@ jobs:
          pacman -Syu --noconfirm
          pacman -S --noconfirm texlive-latexextra texlive-fontsextra git texlive-core python-sphinx ttf-dejavu python-sphinx-copybutton
          cd docs
-         sphinx-build -b latex -W . build
+         sphinx-build -M latexpdf . build -W
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
       with:
         name: ARU-${{ github.sha }}
-        path: docs/build/html/latex/ARU.pdf
+        path: docs/build/latex/ARU.pdf
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       if: github.ref == 'refs/heads/main'
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: docs/build/html/
+        publish_dir: docs/build/
         keep_files: true
