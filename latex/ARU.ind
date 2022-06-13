@@ -50,7 +50,7 @@
   \indexspace
 
   \lettergroup{D}
-  \item \spxentry{daemons}, \hyperpage{114}, \hyperpage{119}, \hyperpage{120}, \hyperpage{128}, \hyperpage{131}
+  \item \spxentry{daemons}, \hyperpage{114}, \hyperpage{119}, \hyperpage{120}, \hyperpage{129}, \hyperpage{131}
   \item \spxentry{dbus\sphinxhyphen{}broker}, \hyperpage{27}
   \item \spxentry{debug}, \hyperpage{119}
   \item \spxentry{de\sphinxhyphen{}optimizations}, \hyperpage{113}, \hyperpage{118}, \hyperpage{127}, \hyperpage{131}
@@ -202,7 +202,7 @@
   \lettergroup{R}
   \item \spxentry{reflector}, \hyperpage{5}
   \item \spxentry{refresh\sphinxhyphen{}rate}, \hyperpage{17}, \hyperpage{18}
-  \item \spxentry{results}, \hyperpage{53}, \hyperpage{117}, \hyperpage{126}, \hyperpage{130}, \hyperpage{135}
+  \item \spxentry{results}, \hyperpage{53}, \hyperpage{117}, \hyperpage{126}, \hyperpage{131}, \hyperpage{135}
   \item \spxentry{rng\sphinxhyphen{}tools}, \hyperpage{27}
 
   \indexspace
@@ -210,7 +210,7 @@
   \lettergroup{S}
   \item \spxentry{sam}, \hyperpage{31}
   \item \spxentry{security}, \hyperpage{140}
-  \item \spxentry{service}, \hyperpage{30}, \hyperpage{114}, \hyperpage{120}, \hyperpage{128}, \hyperpage{131}
+  \item \spxentry{service}, \hyperpage{30}, \hyperpage{114}, \hyperpage{120}, \hyperpage{129}, \hyperpage{131}
   \item \spxentry{services}, \hyperpage{114}, \hyperpage{119}
   \item \spxentry{settings}, \hyperpage{4}, \hyperpage{31}, \hyperpage{40}, \hyperpage{139}
   \item \spxentry{stacer}, \hyperpage{137}
@@ -257,7 +257,7 @@
   \item \spxentry{x11\sphinxhyphen{}unrediction}, \hyperpage{129}, \hyperpage{133}
   \item \spxentry{x11\sphinxhyphen{}unredirection}, \hyperpage{125}
   \item \spxentry{xanmod}, \hyperpage{58}
-  \item \spxentry{xfce}, \hyperpage{127}, \hyperpage{128}
+  \item \spxentry{xfce}, \hyperpage{127}\hyperpage{129}
   \item \spxentry{xfce4}, \hyperpage{127}
   \item \spxentry{xfwm}, \hyperpage{129}
   \item \spxentry{xorg}, \hyperpage{9}

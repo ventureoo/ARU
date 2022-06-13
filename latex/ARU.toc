@@ -115,10 +115,10 @@
 \contentsline {section}{\numberline {10.4}Xfce4}{128}{section.10.4}%
 \contentsline {subsection}{\numberline {10.4.1}Удаление потенциально ненужных компонентов Xfce}{128}{subsection.10.4.1}%
 \contentsline {subsection}{\numberline {10.4.2}Отключение ненужных служб и приложений автозапуска}{129}{subsection.10.4.2}%
-\contentsline {subsection}{\numberline {10.4.3}Настройка композитора Xfwm4}{129}{subsection.10.4.3}%
+\contentsline {subsection}{\numberline {10.4.3}Настройка композитора Xfwm4}{130}{subsection.10.4.3}%
 \contentsline {subsection}{\numberline {10.4.4}Результат}{131}{subsection.10.4.4}%
 \contentsline {section}{\numberline {10.5}Cinnamon}{131}{section.10.5}%
-\contentsline {subsection}{\numberline {10.5.1}Отключение ненужных CSD служб (НОВЫЙ СПОСОБ)}{131}{subsection.10.5.1}%
+\contentsline {subsection}{\numberline {10.5.1}Отключение ненужных CSD служб (НОВЫЙ СПОСОБ)}{132}{subsection.10.5.1}%
 \contentsline {subsection}{\numberline {10.5.2}Настройка композитора Muffin}{133}{subsection.10.5.2}%
 \contentsline {subsection}{\numberline {10.5.3}Отключение ненужных эффектов Muffin}{135}{subsection.10.5.3}%
 \contentsline {subsection}{\numberline {10.5.4}Результат}{136}{subsection.10.5.4}%
