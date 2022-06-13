@@ -19,7 +19,7 @@ jobs:
          pip install --upgrade pip
          pip install --upgrade pydata-sphinx-theme
          cd docs
-         make --no-keep-going html
+         sphinx-build -b html -W . build
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
       with:
@@ -43,7 +43,7 @@ jobs:
          pacman -Syu --noconfirm
          pacman -S --noconfirm texlive-latexextra texlive-fontsextra git texlive-core python-sphinx ttf-dejavu python-sphinx-copybutton
          cd docs
-         make --no-keep-going latexpdf
+         sphinx-build -b latexpdf -W . build
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
       with:
