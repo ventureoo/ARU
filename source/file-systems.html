@@ -369,86 +369,111 @@ function checkPageExistsAndRedirect(event) {
 <span id="id1"></span><h1>Файловые системы<a class="headerlink" href="#file-systems" title="Permalink to this heading">#</a></h1>
 <section id="file-system-selection">
 <span id="index-0"></span><span id="id2"></span><h2>Нюансы выбора файловой системы и флагов монтирования<a class="headerlink" href="#file-system-selection" title="Permalink to this heading">#</a></h2>
-<p>В отличие от Windows, в Linux-подобных системах выбор файловой системы не ограничивается в обязательном порядке со стороны дистрибутива,
-и может применяться исходя из личных предпочтений пользователя с оглядкой на поддержку со стороны ядра.</p>
+<p>В отличие от Windows, в Linux-подобных системах выбор файловой системы не
+ограничивается в обязательном порядке со стороны дистрибутива, и может
+применяться исходя из личных предпочтений пользователя с оглядкой на поддержку
+со стороны ядра.</p>
 <p>Вот краткое описание основных высокопроизводительных файловых систем:</p>
-<p><strong>EXT4</strong> - универсальный солдат, что подходит, как для SSD носителей, так и для HDD. Имеет самое большое распространение и документацию.
-Обеспечивает высокие показатели чтения и записи.
-Из минусов стоит отметить, что данная файловая система начинает проигрывать более новым представителям на рынке и требует ручного допиливания для SSD
-(SATA, NVMe, PCI и т.п.).
-Хорошо подходит для домашнего компьютера и файлопомойки, а также серверам которым необходима максимальная стабильность.</p>
-<p><strong>BTRFS</strong> - Т1000 из мира файловых систем.
-Является наследником идей EXT2-3, и прекрасно подходит для SSD носителей,
-ибо имеет модули автодетекта, что позволяет не сильно париться с настройкой TRIM и флагов монтирования.
-Скорость чтения сопоставима, а иногда (Особенно при высоких нагрузках) превышают показатели EXT4.
-Идеальный выбор для игровой/домашней системы на базе Linux.</p>
+<p><strong>EXT4</strong> - универсальный солдат, что подходит, как для SSD носителей, так и для
+HDD. Имеет самое большое распространение и документацию. Обеспечивает высокие
+показатели чтения и записи. Из минусов стоит отметить, что данная файловая
+система начинает проигрывать более новым представителям на рынке и требует
+ручного допиливания для SSD (SATA, NVMe, PCI и т.п.). Хорошо подходит для
+домашнего компьютера и файлопомойки, а также серверам которым необходима
+максимальная стабильность.</p>
+<p><strong>BTRFS</strong> - Т1000 из мира файловых систем. Является наследником идей EXT2-3, и
+прекрасно подходит для SSD носителей, ибо имеет модули автодетекта, что
+позволяет не сильно париться с настройкой TRIM и флагов монтирования. Скорость
+чтения сопоставима, а иногда (Особенно при высоких нагрузках) превышают
+показатели EXT4. Идеальный выбор для игровой/домашней системы на базе Linux.</p>
 <section id="mount-options">
 <span id="index-1"></span><span id="id3"></span><h3>Оптимальные флаги монтирования<a class="headerlink" href="#mount-options" title="Permalink to this heading">#</a></h3>
-<p>Вот оптимальные параметры для SSD носителей.
-Описание каждого из них вы можете найти - <a class="reference external" href="https://zen.yandex.ru/media/id/5d8ac4740a451800acb6049f/linux-uskoriaem-sistemu-4-5e91d777378f6957923055b9">здесь</a>.</p>
+<p>Вот оптимальные параметры для SSD носителей. Описание каждого из них вы можете
+найти - <a class="reference external" href="https://zen.yandex.ru/media/id/5d8ac4740a451800acb6049f/linux-uskoriaem-sistemu-4-5e91d777378f6957923055b9">здесь</a>.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rw,relatime,ssd_spread,space_cache,max_inline<span class="o">=</span><span class="m">256</span>,commit<span class="o">=</span><span class="m">600</span>,nodatacow
 </pre></div>
 </div>
-<p>Прежде всего, отметим, что вы можете изменить <em>relatime</em> на <em>noatime</em>
-или <em>lazytime</em> - все три параметра отвечают за запоминание времени доступа к файлами и прочим связанным с ним атрибутами, что только портит отклик.</p>
-<p>Параметр noatime полностью выключает данную функцию, что может привести к некоторым багам в приложениях зависимых от времени (например git),
-но автор никогда не встречал данной проблемы.
-Параметр <em>lazytime</em> успешно будет выполнять все функции времени, но выполнять их промежуточную запись в оперативной памяти,
-что позволит избежать замедления без потери функционала, но говорят <em>lazytime</em> чудит, поэтому автор советует <em>noatime</em>.</p>
+<p>Прежде всего, отметим, что вы можете изменить <em>relatime</em> на <em>noatime</em> или
+<em>lazytime</em> - все три параметра отвечают за запоминание времени доступа к
+файлами и прочим связанным с ним атрибутами, что только портит отклик.</p>
+<p>Параметр noatime полностью выключает данную функцию, что может привести к
+некоторым багам в приложениях зависимых от времени (например git), но автор
+никогда не встречал данной проблемы. Параметр <em>lazytime</em> успешно будет
+выполнять все функции времени, но выполнять их промежуточную запись в
+оперативной памяти, что позволит избежать замедления без потери функционала, но
+говорят <em>lazytime</em> чудит, поэтому автор советует <em>noatime</em>.</p>
 <p>Но если вы хотите минимум возможных проблем, то оставьте флаг <em>relatime</em>.</p>
 <div class="admonition note">
 <p class="admonition-title">Примечание</p>
-<p>На накопителях, объемом более терабайта, <em>space_cache</em> можно заменить на <em>space_cache=v2</em>, что тоже даст определенную прибавку производительности.</p>
+<p>На накопителях, объемом более терабайта, <em>space_cache</em> можно заменить
+на <em>space_cache=v2</em>, что тоже даст определенную прибавку производительности.</p>
 </div>
 <p>Прописывать их нужно в файл <code class="docutils literal notranslate"><span class="pre">/etc/fstab</span></code> для корневого и домашнего разделов.
 Некоторые из данных флагов будут применяться только для новых файлов.</p>
 <img alt="../_images/file-systems-1.png" src="../_images/file-systems-1.png" />
 <div class="admonition attention">
 <p class="admonition-title">Внимание</p>
-<p>Параметр <code class="docutils literal notranslate"><span class="pre">commit=600</span></code> может вызывать повышенное потребление оперативной памяти и портить данные на диске.</p>
+<p>Параметр <code class="docutils literal notranslate"><span class="pre">commit=600</span></code> может вызывать повышенное потребление
+оперативной памяти и портить данные на диске.</p>
 </div>
 <div class="admonition attention">
 <p class="admonition-title">Внимание</p>
-<p>При использовании Btrfs для корневого раздела, обязательно установите пакет <a class="reference external" href="https://archlinux.org/packages/core/x86_64/btrfs-progs/">btrfs-progs</a>.</p>
+<p>При использовании Btrfs для корневого раздела, обязательно
+установите пакет <a class="reference external" href="https://archlinux.org/packages/core/x86_64/btrfs-progs/">btrfs-progs</a>.</p>
 </div>
 </section>
 </section>
 <section id="btrfs">
 <span id="btrfs-comperssion"></span><span id="index-2"></span><h2>Сжатие в файловой системе Btrfs<a class="headerlink" href="#btrfs" title="Permalink to this heading">#</a></h2>
-<p>В файловой системе Btrfs есть возможность включения сжатия. Все записываемые файлы по возможности будут сжиматься и экономить пространство на носителе HDD или SSD.</p>
+<p>В файловой системе Btrfs есть возможность включения сжатия. Все записываемые
+файлы по возможности будут сжиматься и экономить пространство на носителе HDD
+или SSD.</p>
 <p>Для SSD это может быть важно в связи с их ограниченным ресурсом на запись.</p>
-<p>Согласно <a class="reference external" href="https://btrfs.wiki.kernel.org/index.php/Compression">wiki Btrfs</a>, официально имеется 3 поддерживаемых алгоритма:</p>
+<p>Согласно <a class="reference external" href="https://btrfs.wiki.kernel.org/index.php/Compression">wiki Btrfs</a>,
+официально имеется 3 поддерживаемых алгоритма:</p>
 <ul class="simple">
 <li><p>zlib - высокая степень сжатия, но низкая скорость сжатия и распаковки</p></li>
-<li><p>lzo - высокая скорость сжатия и распаковки, но наименьший уровень сжатия из представленных алгоритмов</p></li>
-<li><p>zstd - степень сжатия сравнимая с zlib и более быстрые сжатие и распаковка, однако уступающие по скорости lzo</p></li>
+<li><p>lzo - высокая скорость сжатия и распаковки, но наименьший уровень сжатия из
+представленных алгоритмов</p></li>
+<li><p>zstd - степень сжатия сравнимая с zlib и более быстрые сжатие и распаковка,
+однако уступающие по скорости lzo</p></li>
 </ul>
 <p>Для включения алгоритма сжатия в файловой системе необходимо:</p>
 <ol class="arabic simple">
-<li><p>Убедиться в наличии необходимого алгоритма в системе или установить выбранный (zlib, lzo или zstd соответственно).</p></li>
-<li><p>Отредактировать файл <code class="docutils literal notranslate"><span class="pre">etc/fstab</span></code>, добавив для необходимого раздела или носителя следующий флаг монтирования:</p></li>
+<li><p>Убедиться в наличии необходимого алгоритма в системе или установить
+выбранный (zlib, lzo или zstd соответственно).</p></li>
+<li><p>Отредактировать файл <code class="docutils literal notranslate"><span class="pre">etc/fstab</span></code>, добавив для необходимого раздела или
+носителя следующий флаг монтирования:</p></li>
 </ol>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">compress</span><span class="o">=</span><span class="s1">&#39;алгоритм&#39;</span>:N
 </pre></div>
 </div>
-<p>(Где <code class="docutils literal notranslate"><span class="pre">N</span></code> - степень сжатия: для zlib - <code class="docutils literal notranslate"><span class="pre">N</span></code> = 1,2,...9; для lzo - выбор уровня сжатия не предусмотрен,
-поэтому <code class="docutils literal notranslate"><span class="pre">:N</span></code> - не указываются; для zstd - <code class="docutils literal notranslate"><span class="pre">N</span></code> =1,2,...15. Чем выше данный параметр, тем сильнее будут сжиматься данные, конечно при условии что это возможно,
-но также будет повышена нагрузка на процессор, поскольку сжатие выполняется за счет его ресурсов.
-Cогласно <a class="reference external" href="https://btrfs.wiki.kernel.org/index.php/Compression">wiki Btrfs</a>, оптимальным значением <code class="docutils literal notranslate"><span class="pre">N</span></code> по отношению <code class="docutils literal notranslate"><span class="pre">степень</span> <span class="pre">сжатия</span></code> / <code class="docutils literal notranslate"><span class="pre">скорость</span></code> считается <code class="docutils literal notranslate"><span class="pre">3</span></code>)</p>
-<p>Например для zstd со степенью сжатия 3 запись будет выглядеть примерно следующим образом, если учесть приведенные выше флаги монтирования:</p>
+<p>(Где <code class="docutils literal notranslate"><span class="pre">N</span></code> - степень сжатия: для zlib - <code class="docutils literal notranslate"><span class="pre">N</span></code> = 1,2,...9; для lzo - выбор
+уровня сжатия не предусмотрен, поэтому <code class="docutils literal notranslate"><span class="pre">:N</span></code> - не указываются; для zstd -
+<code class="docutils literal notranslate"><span class="pre">N</span></code> =1,2,...15. Чем выше данный параметр, тем сильнее будут сжиматься данные,
+конечно при условии что это возможно, но также будет повышена нагрузка на
+процессор, поскольку сжатие выполняется за счет его ресурсов. Cогласно <a class="reference external" href="https://btrfs.wiki.kernel.org/index.php/Compression">wiki
+Btrfs</a>, оптимальным
+значением <code class="docutils literal notranslate"><span class="pre">N</span></code> по отношению <code class="docutils literal notranslate"><span class="pre">степень</span> <span class="pre">сжатия</span></code> / <code class="docutils literal notranslate"><span class="pre">скорость</span></code> считается <code class="docutils literal notranslate"><span class="pre">3</span></code>)</p>
+<p>Например для zstd со степенью сжатия 3 запись будет выглядеть примерно
+следующим образом, если учесть приведенные выше флаги монтирования:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rw,relatime,compress<span class="o">=</span>zstd:3,ssd,ssd_spread,space_cache<span class="o">=</span>v2,max_inline<span class="o">=</span><span class="m">256</span>,commit<span class="o">=</span><span class="m">600</span>
 </pre></div>
 </div>
 <div class="admonition attention">
 <p class="admonition-title">Внимание</p>
-<p>Сжатие файловой системы не работает вместе с флагом монтирования <code class="docutils literal notranslate"><span class="pre">nodatacow</span></code>.</p>
+<p>Сжатие файловой системы не работает вместе с флагом
+монтирования <code class="docutils literal notranslate"><span class="pre">nodatacow</span></code>.</p>
 </div>
-<p>После выставления данного флага монтирования новые файлы начнут сжиматься при записи на диск. Для сжатия уже имеющихся данных необходимо выполнить команду:</p>
+<p>После выставления данного флага монтирования новые файлы начнут сжиматься при
+записи на диск. Для сжатия уже имеющихся данных необходимо выполнить команду:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo btrfs filesystem defragment -calg /path
 </pre></div>
 </div>
-<p>(Где <code class="docutils literal notranslate"><span class="pre">-calg</span></code> - алгоритм (указывается как czlib, clzo или czstd в зависимости от выбранного алгоритма), <code class="docutils literal notranslate"><span class="pre">path</span></code> - путь к разделу или папке)</p>
-<p>Для сжатия уже существующих данных в папке или целого раздела необходимо указать ключ <code class="docutils literal notranslate"><span class="pre">-r</span></code> перед <code class="docutils literal notranslate"><span class="pre">-calg</span></code>:</p>
+<p>(Где <code class="docutils literal notranslate"><span class="pre">-calg</span></code> - алгоритм (указывается как czlib, clzo или czstd в зависимости
+от выбранного алгоритма), <code class="docutils literal notranslate"><span class="pre">path</span></code> - путь к разделу или папке)</p>
+<p>Для сжатия уже существующих данных в папке или целого раздела необходимо
+указать ключ <code class="docutils literal notranslate"><span class="pre">-r</span></code> перед <code class="docutils literal notranslate"><span class="pre">-calg</span></code>:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo btrfs filesystem defragment -r -calg /path
 </pre></div>
 </div>
@@ -459,8 +484,9 @@ Cогласно <a class="reference external" href="https://btrfs.wiki.kernel.or
 </div>
 <section id="efficiency-test">
 <span id="index-3"></span><span id="id6"></span><h3>Определение эффективности сжатия<a class="headerlink" href="#efficiency-test" title="Permalink to this heading">#</a></h3>
-<p>Если вы хотите определить эффективность сжатия на вашем разделе/диске, то вам необходимо воспользоваться программой <a class="reference external" href="https://github.com/kilobyte/compsize">compsize</a>.
-Установить ее можно с помощью команды:</p>
+<p>Если вы хотите определить эффективность сжатия на вашем разделе/диске, то вам
+необходимо воспользоваться программой <a class="reference external" href="https://github.com/kilobyte/compsize">compsize</a>. Установить ее можно с помощью
+команды:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo pacman -S compsize
 </pre></div>
 </div>
@@ -475,7 +501,8 @@ Cогласно <a class="reference external" href="https://btrfs.wiki.kernel.or
 <ul class="simple">
 <li><dl class="simple">
 <dt>Первый столбец:</dt><dd><ul>
-<li><p>Строка <em>TOTAL</em> - итоговые данные, которые учитывают все сжатые и не сжатые файлы и разные алгоритмы (если такие имеются).</p></li>
+<li><p>Строка <em>TOTAL</em> - итоговые данные, которые учитывают все сжатые и не сжатые
+файлы и разные алгоритмы (если такие имеются).</p></li>
 <li><p>Строка <em>none</em> - данные, которые не были сжаты.</p></li>
 <li><p>Далее отображаются все использованные алгоритмы (в данном случае - zstd).</p></li>
 </ul>
@@ -490,23 +517,32 @@ Cогласно <a class="reference external" href="https://btrfs.wiki.kernel.or
 </section>
 <section id="zstd-amd-ryzen-7-3700x">
 <span id="zstd-compression-test"></span><span id="index-4"></span><h3>Скорость обработки алгоритма zstd на примере AMD Ryzen 7 3700X<a class="headerlink" href="#zstd-amd-ryzen-7-3700x" title="Permalink to this heading">#</a></h3>
-<p>Для сравнения степеней сжатия алгоритма zstd использовалась бенчмарк платформа <a class="reference external" href="https://github.com/phoronix-test-suite/phoronix-test-suite">phoronix-test-suite</a>.
-В данной программе, для проверки скорости сжатия и распаковки данных, доступно три степени - <code class="docutils literal notranslate"><span class="pre">3</span></code>, <code class="docutils literal notranslate"><span class="pre">8</span></code>, <code class="docutils literal notranslate"><span class="pre">19</span></code>.
-Для получения информации о падении скорости выполнения сжатия нам будет достаточно и первых двух, поскольку степень сжатия 19 на данный момент не поддерживается
-(однако данные также приведены для ознакомления), и если обратить внимание на полученные данные, то это и не имеет особого смысла. Далее представлены результаты замеров:</p>
+<p>Для сравнения степеней сжатия алгоритма zstd использовалась бенчмарк платформа
+<a class="reference external" href="https://github.com/phoronix-test-suite/phoronix-test-suite">phoronix-test-suite</a>. В данной
+программе, для проверки скорости сжатия и распаковки данных, доступно три
+степени - <code class="docutils literal notranslate"><span class="pre">3</span></code>, <code class="docutils literal notranslate"><span class="pre">8</span></code>, <code class="docutils literal notranslate"><span class="pre">19</span></code>. Для получения информации о падении скорости
+выполнения сжатия нам будет достаточно и первых двух, поскольку степень сжатия
+19 на данный момент не поддерживается (однако данные также приведены для
+ознакомления), и если обратить внимание на полученные данные, то это и не имеет
+особого смысла. Далее представлены результаты замеров:</p>
 <img alt="../_images/zstd_3.png" src="../_images/zstd_3.png" />
 <img alt="../_images/zstd_8.png" src="../_images/zstd_8.png" />
 <img alt="../_images/zstd_19.png" src="../_images/zstd_19.png" />
-<p>Как можно видеть из графиков, падение скорости при перехода от степени <code class="docutils literal notranslate"><span class="pre">3</span></code> к степени <code class="docutils literal notranslate"><span class="pre">8</span></code> сопровождается падением скорости сжатия более чем в <strong>4,7</strong> раз
-(не говоря о более высоких степенях сжатия) и практически не изменяется при выполнении распаковки,
-что может негативно сказаться на скорости установки программ и возможно в некоторых других ситуациях которые требует выполнения записи на диск.</p>
-<p>Стоит отметить, что в случае выполнения установки игр с использованием степени сжатия <code class="docutils literal notranslate"><span class="pre">15</span></code>,
-было замечено повышение нагрузки на процессор вплоть до 72-75% в тех случаях, когда файлы поддавались сжатию.</p>
+<p>Как можно видеть из графиков, падение скорости при перехода от степени <code class="docutils literal notranslate"><span class="pre">3</span></code> к
+степени <code class="docutils literal notranslate"><span class="pre">8</span></code> сопровождается падением скорости сжатия более чем в <strong>4,7</strong> раз
+(не говоря о более высоких степенях сжатия) и практически не изменяется при
+выполнении распаковки, что может негативно сказаться на скорости установки
+программ и возможно в некоторых других ситуациях которые требует выполнения
+записи на диск.</p>
+<p>Стоит отметить, что в случае выполнения установки игр с использованием степени
+сжатия <code class="docutils literal notranslate"><span class="pre">15</span></code>, было замечено повышение нагрузки на процессор вплоть до 72-75% в
+тех случаях, когда файлы поддавались сжатию.</p>
 </section>
 <section id="dewdpol">
 <span id="comparison-table"></span><span id="index-5"></span><h3>Список протестированных игр на эффективность сжатия (Спасибо &#64;dewdpol!)<a class="headerlink" href="#dewdpol" title="Permalink to this heading">#</a></h3>
-<p>Далее представлен список протестированных игр на сжатие в файловой системе Btrfs.
-Данные были получены с помощью программы compsize и являются округленными, поэтому информация может нести частично ознакомительный характер.</p>
+<p>Далее представлен список протестированных игр на сжатие в файловой системе
+Btrfs. Данные были получены с помощью программы compsize и являются
+округленными, поэтому информация может нести частично ознакомительный характер.</p>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>№</p></th>
@@ -2132,10 +2168,14 @@ Cогласно <a class="reference external" href="https://btrfs.wiki.kernel.or
 </table>
 <p>Примечания:</p>
 <ul class="simple">
-<li><p>По возможности данный список будет расширяться новыми играми и другими алгоритмами сжатия.</p></li>
-<li><p>U/N - выраженное в процентах соотношение количества фактически занятого места к необходимому,
-т.е. если от 100% отнять U/N можно получить процент сэкономленного места на диске. Из чего следует, что чем меньше данный показатель, тем лучше.</p></li>
-<li><p>Экономия рассчитывалась вручную с округлением в меньшую сторону. Другими словами, если получалось 1,3087... GB, то записывалось как 1,30 GB.</p></li>
+<li><p>По возможности данный список будет расширяться новыми играми и другими
+алгоритмами сжатия.</p></li>
+<li><p>U/N - выраженное в процентах соотношение количества фактически занятого места
+к необходимому, т.е. если от 100% отнять U/N можно получить процент
+сэкономленного места на диске. Из чего следует, что чем меньше данный
+показатель, тем лучше.</p></li>
+<li><p>Экономия рассчитывалась вручную с округлением в меньшую сторону. Другими
+словами, если получалось 1,3087... GB, то записывалось как 1,30 GB.</p></li>
 </ul>
 <section id="intermediate-results">
 <span id="index-6"></span><span id="id7"></span><h4>Промежуточные результаты<a class="headerlink" href="#intermediate-results" title="Permalink to this heading">#</a></h4>
@@ -2144,9 +2184,12 @@ Cогласно <a class="reference external" href="https://btrfs.wiki.kernel.or
 <li><p><strong>33</strong> игр из представленных <strong>121</strong> - сжимаются с низкой эффективностью, экономия места составляет 11-40%.</p></li>
 <li><p><strong>22</strong> игры из представленных <strong>121</strong> - сжимаются со средней эффективностью, экономия места составляет 41-70%.</p></li>
 <li><p><strong>2</strong> игры из представленных <strong>121</strong> - сжимаются хорошо, экономия места составляет 71-90%.</p></li>
-<li><p>Кэш шейдеров, который собирается и хранится на диске в Steam (при включении данной функции) сжимается незначительно - менее 1% экономии.</p></li>
-<li><p>С учетом разницы в экономии места порядка <strong>3 GB</strong> между максимальной степенью сжатия <code class="docutils literal notranslate"><span class="pre">15</span></code> и рекомендуемой для Btrfs - <code class="docutils literal notranslate"><span class="pre">3</span></code>,
-и значительного падения скорости выполнения сжатия, можно отметить, что использование степени сжатия выше <code class="docutils literal notranslate"><span class="pre">3</span></code> выглядит крайне сомнительно.</p></li>
+<li><p>Кэш шейдеров, который собирается и хранится на диске в Steam (при включении
+данной функции) сжимается незначительно - менее 1% экономии.</p></li>
+<li><p>С учетом разницы в экономии места порядка <strong>3 GB</strong> между максимальной
+степенью сжатия <code class="docutils literal notranslate"><span class="pre">15</span></code> и рекомендуемой для Btrfs - <code class="docutils literal notranslate"><span class="pre">3</span></code>, и значительного
+падения скорости выполнения сжатия, можно отметить, что использование степени
+сжатия выше <code class="docutils literal notranslate"><span class="pre">3</span></code> выглядит крайне сомнительно.</p></li>
 </ul>
 </section>
 </section>

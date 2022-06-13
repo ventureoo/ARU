@@ -340,25 +340,34 @@ function checkPageExistsAndRedirect(event) {
 <span id="id1"></span><h1>Настройка параметров ядра<a class="headerlink" href="#kernel-parameters" title="Permalink to this heading">#</a></h1>
 <section id="update-bootloader-parameters">
 <span id="index-0"></span><span id="id2"></span><h2>Обновление загрузчика и отключение ненужных заплаток<a class="headerlink" href="#update-bootloader-parameters" title="Permalink to this heading">#</a></h2>
-<p>По умолчанию в ядре Linux включено довольно много исправлений безопасности, которые однако существенно снижают производительность процессора.
-Вы можете их отключить через редактирование параметров загрузчика. Рассмотрим на примере GRUB:</p>
+<p>По умолчанию в ядре Linux включено довольно много исправлений безопасности,
+которые однако существенно снижают производительность процессора. Вы можете их
+отключить через редактирование параметров загрузчика. Рассмотрим на примере
+GRUB:</p>
 <p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">/etc/default/grub</span></code> # Редактируем настройки вручную или через grub-customizer как на изображении:</p>
 <img alt="../_images/kernel-parameters-1.png" src="../_images/kernel-parameters-1.png" />
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">GRUB_CMDLINE_LINUX_DEFAULT</span><span class="o">=</span><span class="s2">&quot;quiet splash rootfstype=btrfs lpj=3499912 raid=noautodetect elevator=noop mitigations=off preempt=none nowatchdog audit=0&quot;</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">grub-mkconfig</span> <span class="pre">-o</span> <span class="pre">/boot/grub/grub.cfg</span></code>
-# Обновляем загрузчик, можно так же сделать через grub-customizer, добавить и прожать, затем сохранить на 2 и 1 вкладке.</p>
+<p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">grub-mkconfig</span> <span class="pre">-o</span> <span class="pre">/boot/grub/grub.cfg</span></code> # Обновляем загрузчик, можно так
+же сделать через grub-customizer, добавить и прожать, затем сохранить на 2 и 1
+вкладке.</p>
 <section id="explanations">
 <span id="index-1"></span><span id="id3"></span><h3>Разъяснения<a class="headerlink" href="#explanations" title="Permalink to this heading">#</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">lpj=</span></code> - Уникальный параметр для каждой системы. Его значение автоматически определяется во время загрузки, что довольно трудоемко, поэтому лучше задать вручную.
-Определить ваше значение для lpj можно через следующую команду: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">dmesg</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">&quot;lpj=&quot;</span></code></p>
-<p><code class="docutils literal notranslate"><span class="pre">mitigations=off</span></code> - Непосредственно отключает все заплатки безопасности ядра (включая Spectre и Meltdown).
-Подробнее об этом написано <a class="reference external" href="https://linuxreviews.org/HOWTO_make_Linux_run_blazing_fast_(again)_on_Intel_CPUs">здесь</a>.</p>
-<p><code class="docutils literal notranslate"><span class="pre">raid=noautodetect</span></code> - Отключает проверку на RAID во время загрузки. Если вы его используете - <strong>НЕ</strong> прописывайте данный параметр.</p>
-<p><code class="docutils literal notranslate"><span class="pre">rootfstype=btrfs</span></code> - Здесь указываем название файловой системы в которой у вас отформатирован корень.</p>
-<p><code class="docutils literal notranslate"><span class="pre">elevator=noop</span></code> - Указывает для всех дисков планировщик ввода NONE. <strong>Не использовать если у вас жесткий диск</strong>.</p>
-<p><code class="docutils literal notranslate"><span class="pre">nowatchdog</span></code> - Отключает сторожевые таймеры. Позволяет избавиться от заиканий в онлайн играх.</p>
+<p><code class="docutils literal notranslate"><span class="pre">lpj=</span></code> - Уникальный параметр для каждой системы. Его значение автоматически
+определяется во время загрузки, что довольно трудоемко, поэтому лучше задать
+вручную. Определить ваше значение для lpj можно через следующую команду: <code class="docutils literal notranslate"><span class="pre">sudo</span>
+<span class="pre">dmesg</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">&quot;lpj=&quot;</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">mitigations=off</span></code> - Непосредственно отключает все заплатки безопасности ядра
+(включая Spectre и Meltdown). Подробнее об этом написано <a class="reference external" href="https://linuxreviews.org/HOWTO_make_Linux_run_blazing_fast_(again)_on_Intel_CPUs">здесь</a>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">raid=noautodetect</span></code> - Отключает проверку на RAID во время загрузки. Если вы
+его используете - <strong>НЕ</strong> прописывайте данный параметр.</p>
+<p><code class="docutils literal notranslate"><span class="pre">rootfstype=btrfs</span></code> - Здесь указываем название файловой системы в которой у
+вас отформатирован корень.</p>
+<p><code class="docutils literal notranslate"><span class="pre">elevator=noop</span></code> - Указывает для всех дисков планировщик ввода NONE. <strong>Не
+использовать если у вас жесткий диск</strong>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">nowatchdog</span></code> - Отключает сторожевые таймеры. Позволяет избавиться от заиканий
+в онлайн играх.</p>
 </section>
 </section>
 </section>
