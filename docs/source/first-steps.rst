@@ -226,7 +226,7 @@ NVIDIA, поэтому если вы заметили ошибку или жел
    компании NVIDIA. Если у вас есть желание дополнить это руководство
    специфичными для открытых драйверов Mesa твиками/оптимизациями, вы можете
    отправить нам свои изменения в качестве `Pull Request'a
-   <https://github.com/ventureoo/ARU/pulls>`_ на рассмотрение.
+   <https://codeberg.org/ventureo/ARU/pulls>`_ на рассмотрение.
 
 .. index:: modules, mkinitcpio, initramfs
 .. _important-modules:
@@ -261,7 +261,7 @@ intel_agp i915*.
 
   MODULES=(crc32c libcrc32c zlib_deflate btrfs)
 
-.. image:: https://raw.githubusercontent.com/ventureoo/ARU/main/archive/ARU/images/image4.png
+.. image:: https://codeberg.org/ventureo/ARU/raw/branch/main/archive/ARU/images/image4.png
   :align: center
 
 ::
@@ -326,7 +326,7 @@ nvidia-tweaks с параметром *_powermizer_scheme=1*, как описа�
    экрана), они также создают сильные задержки ввода (input lag). Вместо этого
    рекомендуем вам выполнить настройку композитора вашего DE (WM) как это
    описано в разделе "`Оптимизация рабочего окружения (DE)
-   <https://ventureoo.github.io/ARU/source/de-optimizations.html>`_".
+   <https://ventureo.codeberg.page/source/de-optimizations.html>`_".
 
 .. image:: images/nvidia-settings-4.png
 

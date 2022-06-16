@@ -629,7 +629,7 @@ system"*), ибо на практике оказывается что перио
 ===================================
 
 В разделе `"Общее ускорение системы"
-<https://ventureoo.github.io/ARU/source/generic-system-acceleration.html#clang>`_
+<https://ventureo.codeberg.page/source/generic-system-acceleration.html#clang>`_
 мы уже говорили о преимуществах сборки пакетов при помощи компилятора
 Clang вместе с LTO оптимизациями. Но ядро требует отдельного
 рассмотрения, ибо те параметры которые мы указали ранее в makepkg.conf

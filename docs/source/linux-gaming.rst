@@ -326,7 +326,7 @@ Windows, хотя на самом деле это не так. Поэтому Wi
 - это скрытая директория *~/.wine* в папке вашего пользователя. Если вы её
 откроете то увидите следующее:
 
-.. image:: https://raw.githubusercontent.com/ventureoo/ARU/main/archive/ARU/images/image3.png
+.. image:: https://codeberg.org/ventureo/ARU/raw/branch/main/archive/ARU/images/image3.png
 
 Как мы видим, в префиксе находятся файлы с расширением .reg (файлы реестра
 Windows), директории *dosdevices* и *drive_c*. Файлы реестра используются Wine
@@ -339,7 +339,7 @@ Windows приложения опять таки не знают что они �
 в другом каталоге - *drive_c* (диск C:). Если вы его откроете то увидите
 "замечательную" структуру каталогов Windows:
 
-.. image:: https://raw.githubusercontent.com/ventureoo/ARU/main/archive/ARU/images/image8.png
+.. image:: https://codeberg.org/ventureo/ARU/raw/branch/main/archive/ARU/images/image8.png
 
 Именно сюда и будут устанавливаться все Windows программы и работать они как
 правило тоже будут именно там.
@@ -767,7 +767,7 @@ Mangohud
 
 Включение мониторинга в играх как в MSI Afterburner.
 
-.. image:: https://raw.githubusercontent.com/ventureoo/ARU/main/archive/ARU/images/image9.png
+.. image:: https://codeberg.org/ventureo/ARU/raw/branch/main/archive/ARU/images/image9.png
   :align: center
 
 **Установка** ::

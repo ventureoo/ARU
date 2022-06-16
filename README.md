@@ -8,21 +8,17 @@
 
 ## Содержание
 
-- [Предисловие](https://ventureoo.github.io/ARU/source/preface.html)
-- [Первые шаги](https://ventureoo.github.io/ARU/source/first-steps.html)
-- [Базовое ускорение системы](https://ventureoo.github.io/ARU/source/generic-system-acceleration.html)
-- [Экстра оптимизации](https://ventureoo.github.io/ARU/source/extra-optimizations.html)
-- [Обновление параметров ядра](https://ventureoo.github.io/ARU/source/kernel-parameters.html)
-- [Оптимизация файловой системы](https://ventureoo.github.io/ARU/source/file-systems.html)
-- [Кастомные ядра для увеличения плавности](https://ventureoo.github.io/ARU/source/custom-kernels.html)
-- [Linux Gaming](https://ventureoo.github.io/ARU/source/linux-gaming.html)
-- [Сборка мини-ядра](https://ventureoo.github.io/ARU/source/mini-kernel.html)
-- [Оптимизация рабочего окружения (GNOME/Plasma/Xfce/Cinnamon)](https://ventureoo.github.io/ARU/source/de-optimizations.html)
-- [Полезные программы](https://ventureoo.github.io/ARU/source/useful-programs.html)
-
-## Обратная связь
-
-Оставить отзыв о руководстве можно здесь (Нужен аккаунт на GitHub): https://github.com/ventureoo/ARU/discussions/76
+- [Предисловие](https://ventureo.codeberg.page/source/preface.html)
+- [Первые шаги](https://ventureo.codeberg.page/source/first-steps.html)
+- [Базовое ускорение системы](https://ventureo.codeberg.page/source/generic-system-acceleration.html)
+- [Экстра оптимизации](https://ventureo.codeberg.page/source/extra-optimizations.html)
+- [Обновление параметров ядра](https://ventureo.codeberg.page/source/kernel-parameters.html)
+- [Оптимизация файловой системы](https://ventureo.codeberg.page/source/file-systems.html)
+- [Кастомные ядра для увеличения плавности](https://ventureo.codeberg.page/source/custom-kernels.html)
+- [Linux Gaming](https://ventureo.codeberg.page/source/linux-gaming.html)
+- [Сборка мини-ядра](https://ventureo.codeberg.page/source/mini-kernel.html)
+- [Оптимизация рабочего окружения (GNOME/Plasma/Xfce/Cinnamon)](https://ventureo.codeberg.page/source/de-optimizations.html)
+- [Полезные программы](https://ventureo.codeberg.page/source/useful-programs.html)
 
 ## Благодарности
 
@@ -34,13 +30,13 @@
 
 Отдельное спасибо этим людям за их указания на ошибки/опечатки:
  
-- [@dewdpol](https://github.com/dewdpol) (https://github.com/ventureoo/ARU/pull/51, https://github.com/ventureoo/ARU/pull/48)
+- [@dewdpol](https://github.com/dewdpol) (https://codeberg.org/ventureo/ARU/pulls/51, https://codeberg.org/ventureo/ARU/pulls/48)
 
 - [@holydrug](https://github.com/holydrug)
 
-- [@xtrahigh](https://github.com/xtrahigh) (https://github.com/ventureoo/ARU/pull/36)
+- [@xtrahigh](https://github.com/xtrahigh) (https://codeberg.org/ventureo/ARU/pulls/36)
 
-- [@Atmosphelen](https://github.com/Atmosphelen) (https://github.com/ventureoo/ARU/pull/66, https://github.com/ventureoo/ARU/pull/67)
+- [@Atmosphelen](https://github.com/Atmosphelen) (https://codeberg.org/ventureo/ARU/pulls/66, https://codeberg.org/ventureo/ARU/pulls/67)
 
-- [@Vochatrak-az-ezm](https://github.com/Vochatrak-az-ezm) (https://github.com/ventureoo/ARU/issues/72)
+- [@Vochatrak-az-ezm](https://github.com/Vochatrak-az-ezm) (https://codeberg.org/ventureo/ARU/issues/72)
 

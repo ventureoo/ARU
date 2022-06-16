@@ -38,8 +38,8 @@ root_doc = master_doc
 source_suffix = { '.rst': 'restructuredtext' }
 
 # Fixes:
-# https://github.com/ventureoo/ARU/issues/3
-# https://github.com/ventureoo/ARU/pull/4
+# https://codeberg.org/ventureo/ARU/issues/3
+# https://codeberg.org/ventureo/ARU/pulls/4
 smartquotes = False
 
 highlight_language = 'shell'
@@ -75,14 +75,15 @@ html_title = project
 html_theme_options = {
     "navbar_center": [],
     "navbar_end": [ "theme-switcher", "version-switcher", "navbar-icon-links" ],
-    "use_edit_page_button": True,
     "navbar_align": "content",
-    "page_sidebar_items": ["page-toc", "edit-this-page"],
+    # Edit button disabled after migrating from GitHub
+    "use_edit_page_button": False,
+    "page_sidebar_items": ["page-toc"],
     "icon_links": [
         {
-            "name": "GitHub",
-            "url": "https://github.com/ventureoo/ARU",
-            "icon": "fab fa-github-square",
+            "name": "Codeberg",
+            "url": "https://codeberg.org/ventureo/ARU",
+            "icon": "fab fa-git-alt",
         },
         {
             "name": "YouTube",
@@ -105,7 +106,8 @@ html_theme_options = {
 
 html_context = {
     "default_mode": "light",
-    "github_user": "ventureoo",
+    "github_url": "https://codeberg.org",
+    "github_user": "ventureo",
     "github_repo": "ARU",
     "github_version": "main",
     "doc_path": "docs",

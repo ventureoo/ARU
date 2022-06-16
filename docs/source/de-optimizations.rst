@@ -274,7 +274,7 @@ gnome-shell-performance и mutter-performance
 
 Более подробную информацию вы можете найти в разделе `"Общее ускорение
 системы"
-<https://ventureoo.github.io/ARU/source/generic-system-acceleration.html#clang>`_.
+<https://ventureo.codeberg.page/source/generic-system-acceleration.html#clang>`_.
 
 .. index:: cosmetics, gnome
 .. _gnome_cosmetics:
@@ -310,7 +310,7 @@ gnome-shell-performance и mutter-performance
 современной XFCE, но в отличие от оной уже на современном GTK4, а
 также со всеми рабочими эффектами и анимациями.
 
-.. image:: https://raw.githubusercontent.com/ventureoo/ARU/main/archive/DE-Optimizations/images/image2.jpg
+.. image:: https://codeberg.org/ventureo/ARU/raw/branch/main/archive/DE-Optimizations/images/image2.jpg
 
 **Видеоверсия**
 
@@ -388,7 +388,7 @@ Baloo - это файловый индекстор в Plasma, аналог Track
 
 Его точно так же можно отключить в графических настройках Plasma:
 
-.. image:: https://raw.githubusercontent.com/ventureoo/ARU/main/archive/DE-Optimizations/images/image9.png
+.. image:: https://codeberg.org/ventureo/ARU/raw/branch/main/archive/DE-Optimizations/images/image9.png
 
 .. index:: debug, plasma, kdebugdialog5
 .. _disabling-kde-debug:
@@ -408,7 +408,7 @@ Baloo - это файловый индекстор в Plasma, аналог Track
 
 Сбор отладочной информации теперь отключен.
 
-.. image:: https://raw.githubusercontent.com/ventureoo/ARU/main/archive/DE-Optimizations/images/image5.png
+.. image:: https://codeberg.org/ventureo/ARU/raw/branch/main/archive/DE-Optimizations/images/image5.png
 
 .. index:: service, daemons, plasma
 .. _disabling-plasma-daemons:
@@ -427,7 +427,7 @@ Baloo - это файловый индекстор в Plasma, аналог Track
 Настройка служб происходит в графических настройках Plasma, в разделе
 "*Запуск и завершение*" -> *"Управление службами"*
 
-.. image:: https://raw.githubusercontent.com/ventureoo/ARU/main/archive/DE-Optimizations/images/image12.png
+.. image:: https://codeberg.org/ventureo/ARU/raw/branch/main/archive/DE-Optimizations/images/image12.png
 
 **Список служб к отключению:**
 
@@ -541,7 +541,7 @@ NetworkManager.
 этого мы перейдем в соответствующий раздел настроек Plasma, т. е. в
 *Экран* -> *Обеспечение Эффектов*.
 
-.. image:: https://raw.githubusercontent.com/ventureoo/ARU/main/archive/DE-Optimizations/images/image4.png
+.. image:: https://codeberg.org/ventureo/ARU/raw/branch/main/archive/DE-Optimizations/images/image4.png
 
 Что-ж, давайте по порядку.
 
@@ -699,7 +699,7 @@ Plasma предоставляет возможность использоват�
 Результат
 ----------
 
-.. image:: https://raw.githubusercontent.com/ventureoo/ARU/main/archive/DE-Optimizations/images/image1.jpg
+.. image:: https://codeberg.org/ventureo/ARU/raw/branch/main/archive/DE-Optimizations/images/image1.jpg
 
 .. index:: xfce, xfce4, de-optimizations
 .. _xfce_optimization:
@@ -790,7 +790,7 @@ Xfce, или мышонок в простонародье, является пр
 Xfce, его можете либо включить для корректной работы поиска в оболочке
 и Thunar, либо отключить в целях экономии ресурсов компьютера.
 
-.. image:: https://raw.githubusercontent.com/ventureoo/ARU/main/archive/DE-Optimizations/images/image11.png
+.. image:: https://codeberg.org/ventureo/ARU/raw/branch/main/archive/DE-Optimizations/images/image11.png
 
 .. index:: lowlatency, compositor, xfwm, x11-unrediction, vsync
 .. _lowlatency-xfwm:
@@ -828,7 +828,7 @@ Picom. Чтобы это сделать нужно отключить графи
 pacman -S picom*). И затем добавить его в автозагрузку (См.
 приложение). Вот и все.
 
-.. image:: https://raw.githubusercontent.com/ventureoo/ARU/main/archive/DE-Optimizations/images/image13.png
+.. image:: https://codeberg.org/ventureo/ARU/raw/branch/main/archive/DE-Optimizations/images/image13.png
 
 vblank_mode задает через какие средства будет осуществляться
 вертикальная синхронизация кадров. Всего есть три возможных значения:
@@ -867,7 +867,7 @@ vblank_mode задает через какие средства будет ос�
 Результат
 ---------
 
-.. image:: https://raw.githubusercontent.com/ventureoo/ARU/main/archive/DE-Optimizations/images/image8.png
+.. image:: https://codeberg.org/ventureo/ARU/raw/branch/main/archive/DE-Optimizations/images/image8.png
 
 .. index:: cinnamon, de-optimizations
 .. _cinnamon-optimization:
@@ -999,7 +999,7 @@ Muffin. Он не содержит много настроек, и его нел
 Vsync (Вертикальная Синхронизация)"* и *"Отключение композитора для
 полноэкранных окон"*.
 
-.. image:: https://raw.githubusercontent.com/ventureoo/ARU/main/archive/DE-Optimizations/images/image10.png
+.. image:: https://codeberg.org/ventureo/ARU/raw/branch/main/archive/DE-Optimizations/images/image10.png
 
 *"Отключение композитора для полноэкранных окон"* - Это уже знакомая
 вам опция, где из названия все понятно. Вкратце, нужна для уменьшения
@@ -1040,7 +1040,7 @@ Vsync (Вертикальная Синхронизация)"* и *"Отключ�
 нужно отключить их поочередно в соответствующем разделе настроек
 *"Эффекты"*.
 
-.. image:: https://raw.githubusercontent.com/ventureoo/ARU/main/archive/DE-Optimizations/images/image6.png
+.. image:: https://codeberg.org/ventureo/ARU/raw/branch/main/archive/DE-Optimizations/images/image6.png
 
 Желательно, в целях максимальной экономии аппаратных ресурсов,
 отключить все имеющийся здесь эффекты. Но вы можете сделать это также
@@ -1054,6 +1054,6 @@ Vsync (Вертикальная Синхронизация)"* и *"Отключ�
 Результат
 -----------
 
-.. image:: https://raw.githubusercontent.com/ventureoo/ARU/main/archive/DE-Optimizations/images/image3.png
+.. image:: https://codeberg.org/ventureo/ARU/raw/branch/main/archive/DE-Optimizations/images/image3.png
 
 .. vim:set textwidth=70:
