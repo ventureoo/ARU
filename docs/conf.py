@@ -70,7 +70,7 @@ pygments_style = "sphinx"
 #
 html_theme = 'pydata_sphinx_theme'
 
-html_title = project
+html_title = 'Руководство по оптимизации Arch Linux'
 
 html_theme_options = {
     "navbar_center": [],
