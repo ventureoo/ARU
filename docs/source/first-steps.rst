@@ -161,6 +161,39 @@ GRUB2::
 всегда можете найти всё что душе угодно в AUR (по адресу
 https://aur.archlinux.org/packages/).
 
+
+.. index:: installation, packages, steam
+.. _steam-installation:
+
+----------------
+Установка Steam
+----------------
+
+Если в предыдущем разделе вы активировали в настройках pacman Multilib
+репозиторий, то из него можно установить официальный клиент Steam.
+Однако, здесь стоит упомянуть о сразу нескольких доступных версиях.
+
+Существует просто steam_ - он содержит в себе клиент Steam с
+собственными копиями библиотек к нему. ::
+
+  sudo pacman -S steam ttf-liberation
+
+А есть steam-native-runtime, который использует локально установленные
+в систему библиотеки. Разница в том, что последний будет использовать
+всегда более свежие версии библиотек, из-за чего опыт работы клиента и
+нативных игр Linux может как улучшиться, так и наоборот сломать
+какой-либо функционал. Вдобавок, steam-native-runtime_ требует большее
+количество 32-битных зависимостей. ::
+
+  sudo pacman -S steam-native-runtime ttf-liberation
+
+Автор рекомендует пользоваться обычной версией, хотя и при
+использовании steam-native-runtime_ каких-либо серьёзных проблем замечено не
+было.
+
+.. _steam: https://archlinux.org/packages/multilib/x86_64/steam/
+.. _steam-native-runtime: https://archlinux.org/packages/multilib/x86_64/steam-native-runtime/
+
 .. index:: installation, drivers, nvidia, amd, intel
 .. _drivers-installation:
 
