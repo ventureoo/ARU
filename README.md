@@ -40,3 +40,5 @@
 
 - [@Vochatrak-az-ezm](https://github.com/Vochatrak-az-ezm) (https://codeberg.org/ventureo/ARU/issues/72)
 
+- [@QTaKs](https://codeberg.org/QTaKs) (https://codeberg.org/ventureo/ARU/issues/81, https://codeberg.org/ventureo/ARU/issues/82)
+
