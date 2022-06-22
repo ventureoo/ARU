@@ -246,7 +246,7 @@ WINE-GE
 
   git clone https://aur.archlinux.org/wine-ge-custom.git
   cd wine-ge-custom
-  sed -i 's/-O3 -march=nocona -mtune=core-avx2 -pipe/-O2 -march=native -mtune=native -pipe"/' PKGBUILD  # Нативные флаги
+  sed -i 's/-O3 -march=nocona -mtune=core-avx2 -pipe/-O2 -march=native -mtune=native -pipe/' PKGBUILD  # Нативные флаги
   makepkg -sric
 
 **II. Установка (Lutris, бинарник)**
