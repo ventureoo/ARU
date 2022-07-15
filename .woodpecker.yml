@@ -13,11 +13,8 @@ pipeline:
     when:
       branch: main
   build-pdf:
-    image: archlinux:base-devel
+    image: sphinxdoc/sphinx-latexpdf
     commands:
-      - pacman-key --init
-      - pacman -Syu --noconfirm
-      - pacman -S --noconfirm texlive-latexextra texlive-fontsextra git texlive-core python-sphinx ttf-dejavu python-sphinx-copybutton
       - cd ./docs
       - sphinx-build -M latexpdf . build -W
     when:
