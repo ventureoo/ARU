@@ -1,11 +1,8 @@
 # Sphinx build
 pipeline:
   build-html:
-    image: archlinux:base-devel
+    image: sphinxdoc/sphinx
     commands:
-      - pacman-key --init
-      - pacman -Syu --noconfirm
-      - pacman -S --noconfirm git python-sphinx python-pip ttf-dejavu python-sphinx-copybutton
       - pip install --upgrade pip
       - pip install --upgrade pydata-sphinx-theme
       - cd ./docs
@@ -16,8 +13,8 @@ pipeline:
     image: sphinxdoc/sphinx-latexpdf
     commands:
       - cd ./docs
+      - pip3 install --upgrade pip
       - pip3 install --upgrade sphinx-copybutton
-      - pip3 install --upgrade font-roboto
       - sphinx-build -M latexpdf . build -W
     when:
       branch: main
