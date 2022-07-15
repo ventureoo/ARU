@@ -17,6 +17,7 @@ pipeline:
     commands:
       - cd ./docs
       - pip3 install --upgrade sphinx-copybutton
+      - pip3 install --upgrade font-roboto
       - sphinx-build -M latexpdf . build -W
     when:
       branch: main

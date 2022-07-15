@@ -146,9 +146,9 @@ latex_engine = 'xelatex'
 
 latex_elements = {
     'fontpkg': r'''
-\setmainfont{DejaVu Serif}
-\setsansfont{DejaVu Sans}
-\setmonofont{DejaVu Sans Mono}
+\setmainfont{Roboto}
+\setsansfont{Roboto}
+\setmonofont{Roboto Mono}
 ''',
     'extraclassoptions': 'openany'
 }
