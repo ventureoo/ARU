@@ -145,11 +145,6 @@ man_pages = [
 latex_engine = 'xelatex'
 
 latex_elements = {
-    'fontpkg': r'''
-\setmainfont{Roboto}
-\setsansfont{Roboto}
-\setmonofont{Roboto Mono}
-''',
     'extraclassoptions': 'openany'
 }
 
