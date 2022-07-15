@@ -145,11 +145,6 @@ man_pages = [
 latex_engine = 'xelatex'
 
 latex_elements = {
-    'fontpkg': r'''
-\setmainfont{DejaVu Serif}
-\setsansfont{DejaVu Sans}
-\setmonofont{DejaVu Sans Mono}
-''',
     'extraclassoptions': 'openany'
 }
 
