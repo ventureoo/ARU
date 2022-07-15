@@ -16,6 +16,7 @@ pipeline:
     image: sphinxdoc/sphinx-latexpdf
     commands:
       - cd ./docs
+      - pip3 install --upgrade sphinx-copybutton
       - sphinx-build -M latexpdf . build -W
     when:
       branch: main
