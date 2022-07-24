@@ -324,6 +324,45 @@ intel_agp i915*.
   sudo mkinitcpio -P                          # Пересобираем образы initramfs.
   sudo grub-mkconfig -o /boot/grub/grub.cfg   # Обновляем загрузчик, можно так же через grub-customizer.
 
+.. index:: firmware, linux, installation
+.. _missing_firmwares:
+
+==================================
+Установка дополнительных прошивок
+==================================
+
+В Arch Linux и основанных на нем дистрибутивах большинство прошивок
+устройств как правило поставляются с пакетом linux-firmware и всех
+связанных с ним пакетов (linux-firmware-whence, linux-firmware-bnx2x,
+linux-firmware-liquidio, linux-firmware-marvell,
+linux-firmware-mellanox, linux-firmware-nfp, linux-firmware-qcom,
+linux-firmware-qlogic). Тем не менее вы можете столкнуться с
+предупреждением во время пересборки initramfs образов через команду
+``sudo mkinitcpio -P`` подобного формата::
+
+  ==> WARNING: Possibly missing firmware for module: XXXXXXXX
+
+Такие предупреждения не являются критическими, однако некоторые
+устройства у вас в системе могут работать не полностью или вообще не
+работать без требуемых прошивок. Поэтому в первую очередь
+рекомендуется попробовать установить все вышеуказанные пакеты
+linux-firmware (некоторые из них можно пропустить в силу отсутствия
+соответствующих устройств, например linux-firmware-marvell).
+
+Но некоторых прошивок нет в официальных репозиториях дистрибутива,
+поэтому их требуется установить отдельно из AUR_ (все пакеты
+содержащие файлы прошивок имеют окончание "-firmware"). Рассмотрим на
+примере прошивки для модуля aic94xx::
+
+  git clone https://aur.archlinux.org/aic94xx-firmware
+  cd aic94xx-firmware
+  makepkg -sric
+
+После этого повторите команду ``sudo mkinitcpio -P``. Предупреждение о
+пропуске прошивок для модуля aic94xx должно пропасть.
+
+.. _AUR: https://aur.archlinux.org/packages?O=0&SeB=nd&K=-firmware&outdated=&SB=p&SO=d&PP=50&submit=Go
+
 .. index:: nvidia, driver, xorg
 .. _nvidia-driver-setup:
 
