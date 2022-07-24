@@ -852,4 +852,24 @@ FPS, график времени кадра, нагрузку на GPU. Испо
 Полный список значений переменной вы можете узнать - `здесь
 <https://github.com/doitsujin/dxvk#hud>`_.
 
+.. index:: installation, gamepad
+.. _xpad-dkms-git:
+
+--------------------
+Установка xpad-dkms
+--------------------
+
+В ядре Linux есть драйвер для поддержки геймпадов Xbox 360 и других
+выдающих себя за него. Изменения в драйвер попадают довольно редко,
+поэтому лучше установить форк драйвера - xpad-dkms-git_, это позволит
+избежать проблем с поддержкой ряда устройств.
+
+**Установка** ::
+
+  git clone https://aur.archlinux.org/xpad-dkms-git
+  cd xpad-dkms-git
+  makepkg -sric
+
+.. _xpad-dkms-git: https://github.com/paroj/xpad
+
 .. vim:set textwidth=70:
