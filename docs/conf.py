@@ -91,6 +91,11 @@ html_theme_options = {
             "icon": "fab fa-youtube-square",
         },
         {
+            "name": "Telegram",
+            "url": "https://t.me/linux_bunker",
+            "icon": "fab fa-telegram",
+        },
+        {
             "name": "Donatealerts",
             "url": "https://www.donationalerts.com/r/xpasha_l",
             "icon": "fas fa-donate",
