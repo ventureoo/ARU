@@ -403,7 +403,7 @@ ccache. За счёт этого и достигается многократн�
 
 ::
 
-  sudo pacman -S jack2 pulseaudio-alsa pulseaudio-jack pavucontrol jack2-dbus realtime-privileges
+  sudo pacman -S pulseaudio pulseaudio-alsa pulseaudio-jack pavucontrol
 
 .. index:: installation, lowlatency, audio, pipewire
 .. _pipewire-installation:
@@ -414,9 +414,41 @@ ccache. За счёт этого и достигается многократн�
 
 `PipeWire <https://wiki.archlinux.org/title/PipeWire_(Русский)>`_ -
 это новая альтернатива PulseAudio, которая призвана избавить от
-проблем pulse, уменьшить задержки звука и потребление памяти. ::
+проблем PulseAudio, уменьшить задержки звука и потребление памяти. ::
 
-  sudo pacman -S jack2 pipewire pipewire-alsa pavucontrol pipewire-pulse alsa-utils wireplumber
+  sudo pacman -S pipewire pipewire-alsa pipewire-pulse
+  systemctl --user enable pipewire pipewire.socket pipewire-pulse
+
+Дополнительно советуем установить реализацию Jack API. См. раздел
+ниже.
+
+-----------------
+Реализации JACK
+-----------------
+
+Существует три различных реализации JACK API: просто jack из AUR,
+jack2 и pipewire-jack. Наглядное сравнение их возможностей показано
+таблицей ниже:
+
+.. image:: images/jack-implementations.png
+
+Установите один из вышеуказанных пакетов. Для поддержки 32-битных
+приложений также установите пакет lib32-jack из AUR, lib32-jack2 или
+lib32-pipewire-jack (соответственно) из репозитория multilib.
+
+Для официальных примеров клиентов и инструментов JACK установите
+`jack-example-tools
+<https://archlinux.org/packages/extra/x86_64/jack-example-tools/>`_.
+
+Для альтернативной поддержки ALSA MIDI в jack2 установите `a2jmidid.
+<https://archlinux.org/packages/community/x86_64/a2jmidid/>`_.
+
+Для поддержки dbus с jack2 установите `jack2-dbus
+<https://archlinux.org/packages/extra/x86_64/jack2-dbus/>`_
+(рекомендуется).
+
+`realtime-privileges <https://archlinux.org/packages/community/any/realtime-privileges/>`_
+- для понижения задержек звука (актуально как для JACK, так и для PipeWire)
 
 .. index:: lowlatency, audio, alsa
 .. _alsa:
