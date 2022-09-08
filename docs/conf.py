@@ -92,7 +92,7 @@ html_theme_options = {
         },
         {
             "name": "Donatealerts",
-            "url": "https://www.donationalerts.com/r/pavel_priluckiy",
+            "url": "https://www.donationalerts.com/r/xpasha_l",
             "icon": "fas fa-donate",
         },
     ],
