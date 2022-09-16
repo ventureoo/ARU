@@ -170,7 +170,7 @@ journalctl -b | grep "NetworkManager"
 
 Если в выводе будет::
 
-FAT-fs (sdx1): codepage cp437 not found
+  FAT-fs (sdx1): codepage cp437 not found
 
 То необходимо пересобрать мини-ядро, предварительно проверив наличие следующих параметров в *makenconfig*::
 
