@@ -140,9 +140,9 @@ journalctl -b | grep "NetworkManager"
 
 сообщает об ошибке *dhcp4* и *l2_packet_init*, то необходимо пересобрать мини-ядро, добавив параметр в *makenconfig*::
 
-[*] Networking support  ---> 
-      Networking options  ---> 
-        <*> Packet socket
+  [*] Networking support  ---> 
+        Networking options  ---> 
+          <*> Packet socket
 
 **П:** После перезагрузки драйвер NVIDIA загружается, но вместо него
 используется llvmpipe.
