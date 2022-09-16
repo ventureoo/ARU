@@ -141,9 +141,7 @@ journalctl -b | grep "NetworkManager"
 сообщает об ошибке *dhcp4* и *l2_packet_init*, то необходимо пересобрать мини-ядро, добавив параметр в *makenconfig*::
 
 [*] Networking support  --->
-      
       Networking options  --->
-       
         <*> Packet socket
 
 **П:** После перезагрузки драйвер NVIDIA загружается, но вместо него
@@ -162,11 +160,8 @@ journalctl -b | grep "NetworkManager"
 **П:** Не монтируется раздел /boot/, однако можно зайти в систему введя пароль root.
 
 [FALIED] Failed to mount /boot
-
 [DEPEND] Dependency failed for Local File Systems.
-
 You are in emergency mode. After logging in, type "journalctl -xb" to view system logs, "systemctl reboot" to reboot, "systemctl default" or "exit" to boot into default mode.
-
 Dlya prodolzheniya vvedite parol` root    (Если установлен русский язык, либо что-то похожее про root)
 
 **Р:** Если для раздела используется файловая система FAT/VFAT, введя пароль root, необходимо ввести:: 
@@ -180,12 +175,8 @@ FAT-fs (sdx1): codepage cp437 not found
 То необходимо пересобрать мини-ядро, предварительно проверив наличие следующих параметров в *makenconfig*::
 
 File Systems --->
-  
   Native language support --->
-   
     <*> Codepage 437 (United States, Canada)
-    
     <*> ASCII
-    
     <*> NLS UTF-8
 
