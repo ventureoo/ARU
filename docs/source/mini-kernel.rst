@@ -159,8 +159,8 @@ journalctl -b | grep "NetworkManager"
 
 **П:** Не монтируется раздел /boot/, однако можно зайти в систему введя пароль root::
 
-[FALIED] Failed to mount /boot
-[DEPEND] Dependency failed for Local File Systems.
+  [FALIED] Failed to mount /boot
+  [DEPEND] Dependency failed for Local File Systems.
   You are in emergency mode. After logging in, type "journalctl -xb" to view system logs, "systemctl reboot" to reboot, "systemctl default" or "exit" to boot into default mode
   Dlya prodolzheniya vvedite parol` root    (Если установлен русский язык, либо что-то похожее про root)
 
