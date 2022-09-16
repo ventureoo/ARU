@@ -70,7 +70,7 @@ pygments_style = "sphinx"
 #
 html_theme = 'pydata_sphinx_theme'
 
-html_title = 'Руководство по оптимизации Arch Linux'
+html_title = project
 
 html_theme_options = {
     "navbar_center": [],
@@ -91,8 +91,13 @@ html_theme_options = {
             "icon": "fab fa-youtube-square",
         },
         {
+            "name": "Telegram",
+            "url": "https://t.me/linux_bunker",
+            "icon": "fab fa-telegram",
+        },
+        {
             "name": "Donatealerts",
-            "url": "https://www.donationalerts.com/r/pavel_priluckiy",
+            "url": "https://www.donationalerts.com/r/xpasha_l",
             "icon": "fas fa-donate",
         },
     ],
@@ -145,11 +150,6 @@ man_pages = [
 latex_engine = 'xelatex'
 
 latex_elements = {
-    'fontpkg': r'''
-\setmainfont{DejaVu Serif}
-\setsansfont{DejaVu Sans}
-\setmonofont{DejaVu Sans Mono}
-''',
     'extraclassoptions': 'openany'
 }
 

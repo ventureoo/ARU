@@ -50,6 +50,10 @@ HDD. Имеет самое большое распространение и до
 Вот оптимальные параметры для SSD носителей. Описание каждого из них вы можете
 найти - `здесь
 <https://zen.yandex.ru/media/id/5d8ac4740a451800acb6049f/linux-uskoriaem-sistemu-4-5e91d777378f6957923055b9>`_.
+
+.. warning:: ВАЖНО! Следующие параметры работают только с Btrfs, кроме
+   ``relatime`` и ``commit``.
+
 ::
 
  rw,relatime,ssd_spread,space_cache,max_inline=256,commit=600,nodatacow

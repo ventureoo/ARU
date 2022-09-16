@@ -42,3 +42,5 @@
 
 - [@QTaKs](https://codeberg.org/QTaKs) (https://codeberg.org/ventureo/ARU/issues/81, https://codeberg.org/ventureo/ARU/issues/82)
 
+- [@un-couteau](https://vk.com/kukuruz2222)
+

@@ -1,24 +1,21 @@
 # Sphinx build
 pipeline:
   build-html:
-    image: archlinux:base-devel
+    image: sphinxdoc/sphinx
     commands:
-      - pacman-key --init
-      - pacman -Syu --noconfirm
-      - pacman -S --noconfirm git python-sphinx python-pip ttf-dejavu python-sphinx-copybutton
-      - pip install --upgrade pip
-      - pip install --upgrade pydata-sphinx-theme
+      - pip3 install --upgrade pip
+      - pip3 install --upgrade pydata-sphinx-theme
+      - pip3 install --upgrade sphinx-copybutton
       - cd ./docs
       - sphinx-build -b html . build -W
     when:
       branch: main
   build-pdf:
-    image: archlinux:base-devel
+    image: sphinxdoc/sphinx-latexpdf
     commands:
-      - pacman-key --init
-      - pacman -Syu --noconfirm
-      - pacman -S --noconfirm texlive-latexextra texlive-fontsextra git texlive-core python-sphinx ttf-dejavu python-sphinx-copybutton
       - cd ./docs
+      - pip3 install --upgrade pip
+      - pip3 install --upgrade sphinx-copybutton
       - sphinx-build -M latexpdf . build -W
     when:
       branch: main

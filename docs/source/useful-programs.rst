@@ -98,6 +98,7 @@ pam_usb
 
   git clone https://github.com/mcdope/pam_usb.git
   cd pam_usb/arch_linux
+  mv PKGBUILD_stable PKGBUILD
   makepkg -sric
 
 .. index:: useful-programs, wine, prefixes, gaming
