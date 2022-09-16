@@ -110,7 +110,7 @@ SATA/SCSI, либо ATA и модулей Файловых систем.
 
 **П:** После установки мини-ядра отсутствует интернет-подключение.
 
-**Р:** Обычно это вызвано отсутствием модулей драйвера для сетевой карты, либо
+**Р1:** Обычно это вызвано отсутствием модулей драйвера для сетевой карты, либо
 отсутствием важных системных модулей для корректной работы интернет
 подключения. Вот список модулей, из-за которых возможно не работает сеть:
 
@@ -134,6 +134,16 @@ SATA/SCSI, либо ATA и модулей Файловых систем.
 системе (*lspci -v*) какой именно нужен вашей сетевой карте, и прописать его.
 После этого, в очередной раз, пересоберите мини-ядро.
 
+**Р2:** Если нет подключения, а вывод команды:
+
+journalctl -b | grep "NetworkManager"
+
+сообщает об ошибке *dhcp4* и *l2_packet_init*, то необходимо пересобрать мини-ядро, добавив параметр в *makenconfig*:
+
+[*] Networking support  --->
+      Networking options  --->
+        <*> Packet socket
+
 **П:** После перезагрузки драйвер NVIDIA загружается, но вместо него
 используется llvmpipe.
 
@@ -146,3 +156,27 @@ SATA/SCSI, либо ATA и модулей Файловых систем.
   EndSection
 
 Затем перезагрузитесь.
+
+**П:** Не монтируется раздел /boot/, однако можно зайти в систему введя пароль root.
+
+[FALIED] Failed to mount /boot
+[DEPEND] Dependency failed for Local File Systems.
+You are in emergency mode. After logging in, type "journalctl -xb" to view system logs, "systemctl reboot" to reboot, "systemctl default" or "exit" to boot into default mode.
+Dlya prodolzheniya vvedite parol` root    (Если установлен русский язык, либо что-то похожее про root)
+
+**Р:** Если для раздела используется файловая система FAT/VFAT, введя пароль root, необходимо ввести: 
+  
+  dmesg | grep FAT
+
+Если в выводе будет:
+
+FAT-fs (sdx1): codepage cp437 not found
+
+То необходимо пересобрать мини-ядро, предварительно проверив наличие следующих параметров в *makenconfig*:
+
+File Systems --->
+  Native language support --->
+    <*> Codepage 437 (United States, Canada)
+    <*> ASCII
+    <*> NLS UTF-8
+
