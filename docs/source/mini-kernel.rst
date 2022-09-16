@@ -184,4 +184,4 @@ SATA/SCSI, либо ATA и модулей Файловых систем.
 
   <*>   NLS ISO 8859-1  (Latin 1; Western European Languages)
 
-Подробнее о `FAT <https://wiki.gentoo.org/wiki/FAT>`_
+Подробнее о `добавлении FAT в ядро <https://wiki.gentoo.org/wiki/FAT>`_
