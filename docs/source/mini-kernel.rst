@@ -157,7 +157,7 @@ journalctl -b | grep "NetworkManager"
 
 Затем перезагрузитесь.
 
-**П:** Не монтируется раздел /boot/, однако можно зайти в систему введя пароль root.:
+**П:** Не монтируется раздел /boot/, однако можно зайти в систему введя пароль root::
 
 [FALIED] Failed to mount /boot
 [DEPEND] Dependency failed for Local File Systems
