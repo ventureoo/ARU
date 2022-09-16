@@ -138,7 +138,7 @@ SATA/SCSI, либо ATA и модулей Файловых систем.
 
 journalctl -b | grep "NetworkManager"
 
-сообщает об ошибке *dhcp4* и *l2_packet_init*, то необходимо пересобрать мини-ядро, добавив параметр в *makenconfig*:
+сообщает об ошибке *dhcp4* и *l2_packet_init*, то необходимо пересобрать мини-ядро, добавив параметр в *makenconfig*::
 
 [*] Networking support  --->
       
@@ -169,15 +169,15 @@ You are in emergency mode. After logging in, type "journalctl -xb" to view syste
 
 Dlya prodolzheniya vvedite parol` root    (Если установлен русский язык, либо что-то похожее про root)
 
-**Р:** Если для раздела используется файловая система FAT/VFAT, введя пароль root, необходимо ввести: 
+**Р:** Если для раздела используется файловая система FAT/VFAT, введя пароль root, необходимо ввести:: 
   
   dmesg | grep FAT
 
-Если в выводе будет:
+Если в выводе будет::
 
 FAT-fs (sdx1): codepage cp437 not found
 
-То необходимо пересобрать мини-ядро, предварительно проверив наличие следующих параметров в *makenconfig*:
+То необходимо пересобрать мини-ядро, предварительно проверив наличие следующих параметров в *makenconfig*::
 
 File Systems --->
   
