@@ -180,3 +180,8 @@ SATA/SCSI, либо ATA и модулей Файловых систем.
       <*> ASCII
       <*> NLS UTF-8
 
+Возможно также нужно будет добавить в той же вкладке::
+
+  <*>   NLS ISO 8859-1  (Latin 1; Western European Languages)
+
+Подробнее о `добавлении FAT в ядро <https://wiki.gentoo.org/wiki/FAT#Kernel>`_.
