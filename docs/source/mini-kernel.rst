@@ -174,9 +174,9 @@ journalctl -b | grep "NetworkManager"
 
 То необходимо пересобрать мини-ядро, предварительно проверив наличие следующих параметров в *makenconfig*::
 
-File Systems --->
-  Native language support --->
-    <*> Codepage 437 (United States, Canada)
-    <*> ASCII
-    <*> NLS UTF-8
+  File Systems --->
+    Native language support --->
+      <*> Codepage 437 (United States, Canada)
+      <*> ASCII
+      <*> NLS UTF-8
 
