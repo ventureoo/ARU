@@ -417,7 +417,7 @@ ccache. За счёт этого и достигается многократн�
 проблем PulseAudio, уменьшить задержки звука и потребление памяти. ::
 
   sudo pacman -S pipewire pipewire-alsa pipewire-pulse
-  systemctl --user enable pipewire pipewire.socket pipewire-pulse
+  systemctl --user enable --now pipewire.service pipewire.socket pipewire-pulse.service wireplumber.service
 
 Дополнительно советуем установить реализацию Jack API. См. раздел
 ниже.
