@@ -113,13 +113,12 @@ LLVM/Clang просто добавив к уже известной команд
    /etc/makepkg-clang.conf`` из команды ``makepkg``.
 
 Дальнейшеная пересборка пакетов из официальных репозиториев
-осуществима через следующее команды::
+осуществима через утилиту ``asp``::
 
-  git clone --depth 1 --branch packages/package https://github.com/archlinux/svntogit-packages.git package
-  cd package/trunk
-  makepkg --config /etc/makepkg-clang.conf -sric --skippgpcheck
+  sudo pacman -S asp
+  asp checkout ПАКЕТ
 
-Где *package* - название нужного вам пакета.
+Где *ПАКЕТ* - название нужного вам пакета.
 
 Мы рекомендуем вам пересобрать наиболее важные пакеты. Например такие
 как драйвера (то есть `mesa
@@ -142,16 +141,7 @@ LLVM/Clang просто добавив к уже известной команд
 `arch-packages <https://github.com/h0tc0d3/arch-packages>`_ с полной
 поддержкой сборки пакетов через LLVM/Clang. В этом репозитории
 представлены не все возможные пакеты, но самые важные компоненты
-системы там есть, включая сам llvm, который вы тоже можете
-пересобрать::
-
- git clone https://github.com/h0tc0d3/arch-packages
- cd arch-packages
- cd llvm
- makepkg -sric
-
-(Вместо *llvm* может быть любой другой пакет, доступный в данном
-репозитории)
+системы там есть, которые вы тоже можете пересобрать.
 
 Больше подробностей по теме вы можете найти в данной статье:
 
@@ -170,12 +160,18 @@ Clang с помощью бинарного Clang из репозиториев. 
 его работу при сборке уже других программ. Аналогичную операцию вы
 можете проделать и с GCC.
 
-Делается это так же, как и с любыми другими пакетами из официальных
-репозиториев::
+Делается это через пакет в AUR::
 
-  git clone --depth 1 --branch packages/clang https://github.com/archlinux/svntogit-packages.git clang
-  cd clang/trunk
-  makepkg --config /etc/makepkg-clang.conf -sric --skippgpcheck
+  # Установка зависимости из AUR
+  git clone https://aur.archlinux.org/python-sphinx-automodapi
+  cd python-sphinx-automodapi
+  makepkg -sric
+  cd ..
+
+  # Сборка LLVM
+  git clone https://aur.archlinux.org/llvm-git
+  cd llvm-git
+  makepkg -sric --config /etc/makepkg-clang.conf
 
 .. index:: makepkg, ccache, native-compilation
 .. _enabling_ccache:
