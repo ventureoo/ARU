@@ -44,3 +44,4 @@
 
 - [@un-couteau](https://vk.com/kukuruz2222)
 
+- [@vellynproduction](https://codeberg.org/vellynproduction) (https://codeberg.org/ventureo/ARU/issues/92)
