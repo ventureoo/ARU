@@ -722,7 +722,7 @@ binary** для редактирования нашего EDID файла в д�
 Скопируем модифицированный файл из нашей домашней директории в
 ``/usr/lib/firmware/edid``::
 
-  sudo mkdir -p /usr/lib/firmare/edid
+  sudo mkdir -p /usr/lib/firmware/edid
   sudo cp -r ~/*.bin /usr/lib/firmware/edid/edid2.bin
 
 Теперь добавим параметр ядра ``drm.edid_firmware=edid/edid2.bin``
