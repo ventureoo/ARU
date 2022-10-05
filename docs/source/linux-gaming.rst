@@ -420,7 +420,7 @@ Linux системе OpenGL вызовы. Однако OpenGL не одно и �
   mv PKGBUILD.testing PKGBUILD
   sed -i 's/patch -p1 -i "$srcdir"\/1582\.patch//g' PKGBUILD
   sed -i 's/patch -p1 -i "$srcdir"\/1582-fix-include\.patch//g' PKGBUILD
-  sed -i 's/-O3 -march=haswell -mtune=haswell -pipe/-O2 -march=native -mtune=native -pipe/g' PKGBUILD # Нативные флаги
+  sed -i 's/-march=haswell -mtune=haswell/-march=native -mtune=native/g' PKGBUILD # Нативные флаги
   makepkg -sric # Сборка и установка
 
 Активировать асинхронную компиляцию шейдеров можно через переменную окружения
