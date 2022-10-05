@@ -668,6 +668,11 @@ driver work to a separate thread"*
 
    find /sys/devices/pci*/ -name edid
 
+.. warning:: Вывод команды может быть пуст для пользователей NVIDIA
+   если вы не включили DRM KMS. Чтобы его включить `смотрите
+   предыдущие разделы
+   <https://ventureo.codeberg.page/source/first-steps.html#nvidia-tweaking>`_
+
 Команда выведет список EDID файлов для различных типов подключения, вы
 должны выбрать нужный вам и скопировать его в домашнюю директорию.
 Например мне нужен EDID файл для моего монитора который подключен по
