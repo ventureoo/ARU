@@ -299,6 +299,25 @@ gnome-shell-performance и mutter-performance
   # Устанавливаем как тему по умолчанию
   gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3
 
+
+.. index:: cosmetics, gnome
+.. _fix_gtk4_fonts:
+
+--------------------------------------
+Исправление размытия шрифтов в GTK 4
+--------------------------------------
+
+С обновлением многих приложений и их переходом на GTK 4
+многие заметили "размытие" шрифтов в приложениях.
+
+Чтобы это исправить нужно отредактировать конфиг GTK 4::
+
+  nano ~/.config/gtk-4.0/settings.ini
+
+  # Добавьте ниже к уже имеющимся настройкам
+  [Settings]
+  gtk-hint-font-metrics=1
+
 .. index:: results
 .. _gnome-result:
 
