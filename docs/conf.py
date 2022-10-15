@@ -104,7 +104,7 @@ html_theme_options = {
     "footer_items": ["copyright"],
     "switcher": {
         "json_url": "https://ventureo.codeberg.page/_static/switcher.json",
-        "version_match": "latest",
+        "version_match": "latest (git)",
     },
 }
 
