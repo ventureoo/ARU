@@ -120,6 +120,10 @@ GCC если возникнут проблемы со сборкой пакет�
   MAKEFLAGS="-j$(nproc) -l$(nproc)"
   OPTIONS=(strip docs !libtool !staticlibs emptydirs zipman purge !debug lto)
 
+Для некоторый оптимизаций Polly нужно установить OpenMP: ::
+
+  sudo pacman -S openmp
+
 Подробнее про LLVM Polly можешь почитать `тут
 <https://polly.llvm.org/>`_.
 
