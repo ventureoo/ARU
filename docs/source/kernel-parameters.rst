@@ -30,7 +30,7 @@ GRUB:
 
 ::
 
-  GRUB_CMDLINE_LINUX_DEFAULT="quiet splash rootfstype=btrfs lpj=3499912 raid=noautodetect elevator=noop mitigations=off preempt=none nowatchdog audit=0"
+  GRUB_CMDLINE_LINUX_DEFAULT="quiet splash rootfstype=btrfs lpj=3499912 raid=noautodetect elevator=noop mitigations=off preempt=none nowatchdog audit=0 page_alloc.shuffle=1"
 
 
 ``sudo grub-mkconfig -o /boot/grub/grub.cfg`` # Обновляем загрузчик, можно так
@@ -64,5 +64,10 @@ dmesg | grep "lpj="``
 
 ``nowatchdog`` - Отключает сторожевые таймеры. Позволяет избавиться от заиканий
 в онлайн играх.
+
+``page_alloc.shuffle=1`` - Этот параметр рандомизирует свободные списки распределителя страниц.
+Улучшает производительность при работе с ОЗУ с очень быстрыми накопителями (NVMe, Optane).
+Подробнее `тут
+<https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=e900a918b0984ec8f2eb150b8477a47b75d17692.
 
 .. vim:set textwidth=70:
