@@ -106,14 +106,14 @@ GCC если возникнут проблемы со сборкой пакет�
   CFLAGS="-march=native -mtune=native -O3 -pipe -fno-plt -fexceptions \
         -Wp,-D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security \
         -fstack-clash-protection -fcf-protection -mllvm -polly \
-        -mllvm -polly-parallel -mllvm -polly-vectorizer=stripmine -lgomp"
+        -mllvm -polly-parallel -mllvm -polly-vectorizer=stripmine -mllvm -polly-omp-backend=LLVM -lgomp"
   CXXFLAGS="$CFLAGS -Wp,-D_GLIBCXX_ASSERTIONS"
   export CFLAGS_KERNEL="$CFLAGS"
   export CXXFLAGS_KERNEL="$CXXFLAGS"
   export CFLAGS_MODULE="$CFLAGS"
   export CXXFLAGS_MODULE="$CXXFLAGS"
   export KBUILD_CFLAGS="$CFLAGS"
-  export KCFLAGS="-O3 -mllvm -polly -mllvm -polly-parallel -mllvm -polly-vectorizer=stripmine -lgomp"
+  export KCFLAGS="-O3 -mllvm -polly -mllvm -polly-parallel -mllvm -polly-vectorizer=stripmine -mllvm -polly-omp-backend=LLVM -lgomp"
   export KCPPFLAGS="$KCFLAGS"
   LDFLAGS="-Wl,-O3,--sort-common,--as-needed,-z,relro,-z,now"
   RUSTFLAGS="-C opt-level=3"
@@ -123,6 +123,11 @@ GCC если возникнут проблемы со сборкой пакет�
 Для некоторый оптимизаций Polly нужно установить OpenMP: ::
 
   sudo pacman -S openmp
+
+Если используется LLVM версии ниже, чем 15.0.1, 
+то нужно убрать ``-mllvm -polly-omp-backend=LLVM``.
+Лишь с этой версии LLVM стало возможным дублировать
+некоторые флаги без последующего появления ошибки.
 
 Подробнее про LLVM Polly можешь почитать `тут
 <https://polly.llvm.org/>`_.
