@@ -58,6 +58,8 @@ https://ventureoo.github.io/ARU сохранен и переадресует в�
 
 - [@vellynproduction](https://codeberg.org/vellynproduction) (https://codeberg.org/ventureo/ARU/issues/92)
 
+- [@Cepera_Leshii](https://codeberg.org/Cepera_Leshii) (https://codeberg.org/ventureo/ARU/pulls/94)
+
 ## Как я могу внести свой вклад в проект?
 
 Проект на текущий момент не в самой активной фазе своего развития, но я все ещё
