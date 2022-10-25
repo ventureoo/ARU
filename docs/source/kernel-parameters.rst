@@ -30,7 +30,7 @@ GRUB:
 
 ::
 
-  GRUB_CMDLINE_LINUX_DEFAULT="quiet splash rootfstype=btrfs lpj=3499912 raid=noautodetect elevator=noop mitigations=off preempt=none nowatchdog audit=0 page_alloc.shuffle=1"
+  GRUB_CMDLINE_LINUX_DEFAULT="quiet splash rootfstype=btrfs lpj=3499912 raid=noautodetect elevator=noop mitigations=off preempt=none nowatchdog audit=0 page_alloc.shuffle=1 split_lock_detect=off"
 
 
 ``sudo grub-mkconfig -o /boot/grub/grub.cfg`` # Обновляем загрузчик, можно так
@@ -69,5 +69,10 @@ dmesg | grep "lpj="``
 Улучшает производительность при работе с ОЗУ с очень быстрыми накопителями (NVMe, Optane).
 Подробнее `тут
 <https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=e900a918b0984ec8f2eb150b8477a47b75d17692>`__.
+
+``split_lock_detect=off`` - Отключаем раздельные блокировки шины
+памяти. Одна инструкция с раздельной блокировкой может занимать шину
+памяти в течение примерно 1 000 тактов, что может приводить к
+кратковременным зависаниям системы.
 
 .. vim:set textwidth=70:
