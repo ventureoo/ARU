@@ -398,7 +398,7 @@ linux-tkg.
 BORE, но соответственно вы можете писать вместо bore любой другой. ::
 
  git clone https://github.com/CachyOS/linux-cachyos.git  # Скачиваем исходники
- cd linux-cachyos-bore # Если хотите использовать PDS, то соответственно пишите cd linux-cachyos-pds по аналогии
+ cd linux-cachyos/linux-cachyos-bore # Если хотите использовать PDS, то соответственно пишите cd linux-cachyos-pds по аналогии
  sed -i 's/_use_llvm_lto=/_use_llvm_lto=full/' PKGBUILD # Включаем сборку через Clang. Подробнее об этом в последующем разделе
  makepkg -sric
 
