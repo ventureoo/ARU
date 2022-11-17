@@ -78,7 +78,7 @@ html_theme_options = {
     "navbar_align": "content",
     # Edit button disabled after migrating from GitHub
     "use_edit_page_button": False,
-    "page_sidebar_items": ["page-toc"],
+    "secondary_sidebar_items": ["page-toc"],
     "icon_links": [
         {
             "name": "Codeberg",
