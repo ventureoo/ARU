@@ -1,46 +1,44 @@
 # ARU
 
-Это помощник по настройке вашей системы Arch Linux с целью получить
-максимальную производительность и настроить систему для комфортной игры. Здесь
-вы также можете найти руководства по оптимизации DE (рабочих окружений):
-GNOME/KDE/Cinnamon и немного для Xfce. Проект не претендует на замену Arch
-Wiki, он лишь является практическим руководством, написанным на основе личного
-опыта его авторов.
+This is an assistant to set up your Arch Linux system in order to get
+the best possible performance and set up your system for a comfortable gaming experience. Here
+you can also find guides to optimize your DE (Desktop Environment):
+GNOME/KDE/Cinnamon and a bit for Xfce. This project is not meant to replace the Arch
+Wiki, it's only a practical guide written based on the personal experience of the authors.
 
-Данный репозиторий является зеркалом, а ныне и основным хранилищем одноименного
-руководства из Google Docs.
+This repository mirrors and is now the main repository of the Google Docs manual of the same name.
 
-## О двух репозиториях
+## About the two repositories
 
-Изначально проект был размещен на GitHub, но в какой-то момент переехал на Codeberg и
-ныне там развивается. Тем не менее репозиторий на GitHub никуда не делся и
-является по сути просто зеркалом для Codeberg. Если вы хотите внести вклад в
-проект, то лучше всего отправлять изменения в репозиторий Codeberg. Домен
-https://ventureoo.github.io/ARU сохранен и переадресует вас на актуальный адрес.
+The project was originally hosted on GitHub, but at some point it moved to Codeberg and is
+still developing there. Nevertheless, the repository on GitHub didn't disappear and
+is essentially just a mirror for Codeberg. If you want to contribute to
+project, it's best to submit changes to the Codeberg repository. The domain
+https://ventureoo.github.io/ARU is saved and redirects you to the actual address.
 
-## Содержание
+## Contents
 
-- [Предисловие](https://ventureo.codeberg.page/source/preface.html)
-- [Первые шаги](https://ventureo.codeberg.page/source/first-steps.html)
-- [Базовое ускорение системы](https://ventureo.codeberg.page/source/generic-system-acceleration.html)
-- [Экстра оптимизации](https://ventureo.codeberg.page/source/extra-optimizations.html)
-- [Обновление параметров ядра](https://ventureo.codeberg.page/source/kernel-parameters.html)
-- [Оптимизация файловой системы](https://ventureo.codeberg.page/source/file-systems.html)
-- [Кастомные ядра для увеличения плавности](https://ventureo.codeberg.page/source/custom-kernels.html)
+- [Preface](https://ventureo.codeberg.page/source/preface.html)
+- [First steps](https://ventureo.codeberg.page/source/first-steps.html)
+- [Basic system acceleration](https://ventureo.codeberg.page/source/generic-system-acceleration.html)
+- [Extra optimization](https://ventureo.codeberg.page/source/extra-optimizations.html)
+- [Kernel parameter](https://ventureo.codeberg.page/source/kernel-parameters.html)
+- [File system optimization](https://ventureo.codeberg.page/source/file-systems.html)
+- [Custom kernels to increase smoothness](https://ventureo.codeberg.page/source/custom-kernels.html)
 - [Linux Gaming](https://ventureo.codeberg.page/source/linux-gaming.html)
-- [Сборка мини-ядра](https://ventureo.codeberg.page/source/mini-kernel.html)
-- [Оптимизация рабочего окружения (GNOME/Plasma/Xfce/Cinnamon)](https://ventureo.codeberg.page/source/de-optimizations.html)
-- [Полезные программы](https://ventureo.codeberg.page/source/useful-programs.html)
+- [Mini Core Build](https://ventureo.codeberg.page/source/mini-kernel.html)
+- [Optimizing Desktop Environment (GNOME/Plasma/Xfce/Cinnamon)](https://ventureo.codeberg.page/source/de-optimizations.html)
+- [Useful Programs](https://ventureo.codeberg.page/source/useful-programs.html)
 
-## Благодарности
+## Acknowledgements
 
-Основной вклад в проект был внесен этими людьми:
+The main contributions to the project were made by these people:
 
-- [Павел Прилуцкий](https://vk.com/ustavchiy) (@Almarus) - Автор оригинального документа
+- [Pavel Prilutsky](https://vk.com/ustavchiy) (@Almarus) - Author of the original document
 
-- [Василий Стельмачёнок](https://vk.com/ventureo) (@ventureo) - Текущий сопровождающий проекта, редактор и соавтор. 
+- [Vasily Stelmachonok](https://vk.com/ventureo) (@ventureo) - Current project maintainer and co-author. 
 
-Отдельное спасибо этим людям за их указания на ошибки/опечатки:
+Many thanks to these people for their pointing out errors:
  
 - [@dewdpol](https://github.com/dewdpol) (https://codeberg.org/ventureo/ARU/pulls/51, https://codeberg.org/ventureo/ARU/pulls/48)
 
@@ -62,28 +60,30 @@ https://ventureoo.github.io/ARU сохранен и переадресует в�
 
 - [@mazix](https://codeberg.org/mazix) (https://codeberg.org/ventureo/ARU/issues/95)
 
-## Как я могу внести свой вклад в проект?
+## How can I contribute to the project?
 
-Проект на текущий момент не в самой активной фазе своего развития, но я все ещё
-готов принять любые правки для улучшения качества написанного материала или
-добавления новых разделов. Пожалуйста, если вы хотите внести свой вклад, то
-прежде всего:
+The project is not in its most active phase at the moment, but I'm still
+willing to accept any edits to improve the written material or
+adding new sections. Please, if you would like to contribute.
 
-1) Откройте задачу в нашем репозитории Codeberg (https://codeberg.org/ventureo/ARU, требуется регистрация)
-2) Либо же Создайте Pull Request и отправьте его в наш репозторий Codeberg/GitHub.
+At the beginning
 
-Если вы выберите второй вариант, то для написания нового материала вам нужно
-уметь работать с файлами формата ReStructuredText (ReST). Именно в нем написаны
-все разделы которые вы можете найти в ``docs/source/``. Я рекомендую вам
-изучить следующие материалы прежде чем начинать вносить свои правки:
+1) Open a task in our Codeberg repository (https://codeberg.org/ventureo/ARU, registration required)
+2) Or create a Pull Request and submit it to our Codeberg/GitHub repository.
+
+If you choose the second option, you will need to
+know how to work with files in the ReStructuredText (ReST) format.
+This is whereall the sections you can find in ``docs/source/''.
+I recommend that youstudy the following materials
+before you start making your edits:
 
 https://restructuredtext.ru/
 
 https://sphinx-ru.readthedocs.io/ru/latest/sphinx.html
 
-Самым простым путем для внесения правок в ARU, так сказать для "чайников" в Git,
-будет редактирование через Web интерфейс на GitHub или Codeberg. Там же вы
-можете проверить свои изменения на корректность и правильность.
+The easiest way to get your edits in the ARU, for "dummies" in Git, so to speak,
+is to use the web interface on GitHub or Codeberg to edit it. There you can also
+you can check your changes to make sure they are correct and true.
 
-Только после рассмотрения автором правок и их слияния они станут доступны в веб
-версии ARU (https://ventureo.codeberg.page/).
+Only after the author has reviewed and merged your edits will they be available in the web
+ARU version (https://ventureo.codeberg.page/). 
