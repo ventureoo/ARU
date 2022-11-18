@@ -21,12 +21,12 @@ https://ventureoo.github.io/ARU is saved and redirects you to the actual address
 - [Preface](https://ventureo.codeberg.page/source/preface.html)
 - [First steps](https://ventureo.codeberg.page/source/first-steps.html)
 - [Basic system acceleration](https://ventureo.codeberg.page/source/generic-system-acceleration.html)
-- [Extra optimization](https://ventureo.codeberg.page/source/extra-optimizations.html)
-- [Kernel parameter](https://ventureo.codeberg.page/source/kernel-parameters.html)
+- [Extra optimizations](https://ventureo.codeberg.page/source/extra-optimizations.html)
+- [Kernel parameters](https://ventureo.codeberg.page/source/kernel-parameters.html)
 - [File system optimization](https://ventureo.codeberg.page/source/file-systems.html)
 - [Custom kernels to increase smoothness](https://ventureo.codeberg.page/source/custom-kernels.html)
 - [Linux Gaming](https://ventureo.codeberg.page/source/linux-gaming.html)
-- [Mini Core Build](https://ventureo.codeberg.page/source/mini-kernel.html)
+- [Building a mini-kernel](https://ventureo.codeberg.page/source/mini-kernel.html)
 - [Optimizing Desktop Environment (GNOME/Plasma/Xfce/Cinnamon)](https://ventureo.codeberg.page/source/de-optimizations.html)
 - [Useful Programs](https://ventureo.codeberg.page/source/useful-programs.html)
 
@@ -60,26 +60,28 @@ Many thanks to these people for their pointing out errors:
 
 - [@mazix](https://codeberg.org/mazix) (https://codeberg.org/ventureo/ARU/issues/95)
 
+- [@lucjan](https://github.com/sirlucjan) (https://github.com/ventureoo/ARU/pull/81)
+
 ## How can I contribute to the project?
 
 The project is not in its most active phase at the moment, but I'm still
 willing to accept any edits to improve the written material or
 adding new sections. Please, if you would like to contribute.
 
-At the beginning
+At the beginning:
 
-1) Open a task in our Codeberg repository (https://codeberg.org/ventureo/ARU, registration required)
+1) Open a issue in our Codeberg repository (https://codeberg.org/ventureo/ARU, registration required)
 2) Or create a Pull Request and submit it to our Codeberg/GitHub repository.
 
 If you choose the second option, you will need to
 know how to work with files in the ReStructuredText (ReST) format.
 This is whereall the sections you can find in ``docs/source/``.
-I recommend that youstudy the following materials
+I recommend that you study the following materials
 before you start making your edits:
 
-https://restructuredtext.ru/
+https://docutils.sourceforge.io/docs/user/rst/quickref.html
 
-https://sphinx-ru.readthedocs.io/ru/latest/sphinx.html
+https://www.sphinx-doc.org/en/master/usage/index.html
 
 The easiest way to get your edits in the ARU, for "dummies" in Git, so to speak,
 is to use the web interface on GitHub or Codeberg to edit it. There you can also
