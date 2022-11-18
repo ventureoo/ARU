@@ -1,5 +1,8 @@
 # ARU
 
+
+**[English][en]** - [Русский][ru]
+
 This is an assistant to set up your Arch Linux system in order to get
 the best possible performance and set up your system for a comfortable gaming experience. Here
 you can also find guides to optimize your DE (Desktop Environment):
