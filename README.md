@@ -73,7 +73,7 @@ At the beginning
 
 If you choose the second option, you will need to
 know how to work with files in the ReStructuredText (ReST) format.
-This is whereall the sections you can find in ``docs/source/''.
+This is whereall the sections you can find in ``docs/source/``.
 I recommend that youstudy the following materials
 before you start making your edits:
 
