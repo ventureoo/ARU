@@ -92,3 +92,5 @@ you can check your changes to make sure they are correct and true.
 
 Only after the author has reviewed and merged your edits will they be available in the web
 ARU version (https://ventureo.codeberg.page/). 
+
+[ru]: README.ru.md

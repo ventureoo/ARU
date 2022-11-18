@@ -89,3 +89,5 @@ https://sphinx-ru.readthedocs.io/ru/latest/sphinx.html
 
 Только после рассмотрения автором правок и их слияния они станут доступны в веб
 версии ARU (https://ventureo.codeberg.page/).
+
+[en]: README.en.md
