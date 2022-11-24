@@ -37,7 +37,7 @@ https://ventureoo.github.io/ARU is saved and redirects you to the actual address
 
 The main contributions to the project were made by these people:
 
-- [Pavel Prilutsky](https://vk.com/ustavchiy) (@Almarus) - Author of the original document
+- [Pavel Priluckiy](https://vk.com/ustavchiy) (@Almarus) - Author of the original document
 
 - [Vasily Stelmachonok](https://vk.com/ventureo) (@ventureo) - Current project maintainer and co-author. 
 
@@ -64,6 +64,8 @@ Many thanks to these people for their pointing out errors:
 - [@mazix](https://codeberg.org/mazix) (https://codeberg.org/ventureo/ARU/issues/95)
 
 - [@lucjan](https://github.com/sirlucjan) (https://github.com/ventureoo/ARU/pull/81)
+
+- [@adem4ik](https://codeberg.org/adem4ik) (https://codeberg.org/ventureo/ARU/issues/98)
 
 ## How can I contribute to the project?
 
