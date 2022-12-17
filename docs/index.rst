@@ -24,8 +24,6 @@ Wiki, он лишь является практическим руководст
    source/preface.rst
    source/first-steps.rst
    source/generic-system-acceleration.rst
-   source/laptops.rst
-   source/monitor-overlocking.rst
    source/extra-optimizations.rst
    source/kernel-parameters.rst
    source/file-systems.rst
@@ -34,4 +32,6 @@ Wiki, он лишь является практическим руководст
    source/mini-kernel.rst
    source/de-optimizations.rst
    source/useful-programs.rst
+   source/laptops.rst
+   source/monitor-overlocking.rst
 
