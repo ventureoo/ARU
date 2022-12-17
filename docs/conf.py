@@ -73,6 +73,7 @@ html_theme = 'pydata_sphinx_theme'
 html_title = project
 
 html_theme_options = {
+    "header_links_before_dropdown": 9999,
     "navbar_center": [],
     "navbar_end": [ "theme-switcher", "version-switcher", "navbar-icon-links" ],
     "navbar_align": "content",
