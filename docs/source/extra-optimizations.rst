@@ -40,9 +40,10 @@
 ``sudo systemctl enable cpupower`` # Включить как постоянную службу которая
 установит вечный perfomance mode.
 
-.. warning:: Для новых версий GNOME для правильной работы cpupower
-   нужно отключить power-profiles-daemon (``sudo systemctl disable
-   power-profiles-daemon``) и автовход в настройках системы.
+.. warning:: Для новых версий GNOME может не требоваться в виду
+   наличия встроенного аналога - power-profiles-daemon:
+   https://packages.debian.org/sid/power-profiles-daemon. Не забудьте
+   включить службу: ``sudo systemctl enable --now power-profiles-daemon``
 
 .. index:: cpupower, gui, frequencies, governor, performance
 .. _cpupower-gui:
