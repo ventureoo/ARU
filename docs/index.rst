@@ -19,6 +19,7 @@ Wiki, он лишь является практическим руководст
 
 .. toctree::
    :maxdepth: 5
+   :numbered:
    :caption: Содержание:
 
    source/preface.rst
