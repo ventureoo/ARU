@@ -53,9 +53,9 @@ gnome-session`` # Запускает gnome сессию при запуске Xo
 .. index:: gnome, de-optimizations
 .. _gnome-optimization:
 
-====================
-GNOME 3.XX/42
-====================
+==========
+GNOME 4X.X
+==========
 
 Сам по себе GNOME - наверное одна из самых тяжеловесных и
 требовательных к системным ресурсам оболочка из ныне существующих. Тем
@@ -73,12 +73,17 @@ GNOME 3.XX/42
 
 ::
 
-  sudo pacman -Rsn epiphany gnome-books gnome-boxes gnome-calculator gnome-calendar gnome-contacts gnome-maps gnome-music gnome-weather gnome-clocks gnome-photos gnome-software gnome-user-docs totem yelp gvfs-afc gvfs-goa gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-smb gvfs-google vino gnome-user-share gnome-characters simple-scan eog tracker3-miners rygel nautilus evolution-data-server gnome-font-viewer gnome-remote-desktop gnome-logs orca
+  sudo pacman -Rsn epiphany gnome-boxes gnome-calculator gnome-calendar gnome-contacts gnome-maps gnome-music gnome-weather gnome-clocks gnome-photos gnome-software gnome-user-docs totem yelp gnome-user-share gnome-characters simple-scan eog tracker3-miners rygel evolution-data-server gnome-font-viewer gnome-remote-desktop gnome-logs orca malcontent
 
 **P.S.** Удаляйте пакеты с осознанием того, что вы делайте. Несмотря
 на то, что здесь были собраны наиболее сомнительные по соотношению
 нужности/прожорливости пакеты, вы можете найти какой-либо из данных
 пакетов полезным и нужным.
+
+Можете удалить Nautilus и GVFS если хотите заменить более легковесным
+аналогом (например PCManFM)::
+
+  sudo pacman -Rsn gvfs-afc gvfs-goa gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-smb gvfs-google nautilus
 
 .. warning:: Некоторые пакеты из вышеприведенной команды могут быть не найдены в вашей системе.
    В таком случае просто выпишите их из команды.
