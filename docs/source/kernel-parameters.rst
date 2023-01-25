@@ -75,6 +75,13 @@ dmesg | grep "lpj="``
 памяти в течение примерно 1 000 тактов, что может приводить к
 кратковременным зависаниям системы.
 
-``pci=pcie_bus_perf`` - 
+``pci=pcie_bus_perf`` - Увеличивает наибольшее значение Max Payload
+(MPS) для родительской шины PCI Express. Это даёт лучшую пропускную
+способность, т. к. некоторые устройства могут использовать значение
+MPS/MRRS выше родительской шины. Больше подробностей здесь (англ.):
+
+https://unix.stackexchange.com/questions/684623/pcie-bus-perf-understanding-the-capping-of-mrrs
+https://www.programmersought.com/article/74187399630/
+
 
 .. vim:set textwidth=70:
