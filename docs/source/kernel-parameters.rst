@@ -30,7 +30,7 @@ GRUB:
 
 ::
 
-  GRUB_CMDLINE_LINUX_DEFAULT="quiet splash rootfstype=btrfs lpj=3499912 raid=noautodetect elevator=noop mitigations=off preempt=none nowatchdog audit=0 page_alloc.shuffle=1 split_lock_detect=off"
+  GRUB_CMDLINE_LINUX_DEFAULT="quiet splash rootfstype=btrfs lpj=3499912 raid=noautodetect elevator=noop mitigations=off preempt=none nowatchdog audit=0 page_alloc.shuffle=1 split_lock_detect=off pci=pcie_bus_perf"
 
 
 ``sudo grub-mkconfig -o /boot/grub/grub.cfg`` # Обновляем загрузчик, можно так
@@ -74,5 +74,7 @@ dmesg | grep "lpj="``
 памяти. Одна инструкция с раздельной блокировкой может занимать шину
 памяти в течение примерно 1 000 тактов, что может приводить к
 кратковременным зависаниям системы.
+
+``pci=pcie_bus_perf`` - 
 
 .. vim:set textwidth=70:
