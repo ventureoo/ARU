@@ -81,7 +81,7 @@ dmesg | grep "lpj="``
 MPS/MRRS выше родительской шины. Больше подробностей здесь (англ.):
 
 https://unix.stackexchange.com/questions/684623/pcie-bus-perf-understanding-the-capping-of-mrrs
-https://www.programmersought.com/article/74187399630/
 
+https://www.programmersought.com/article/74187399630/
 
 .. vim:set textwidth=70:
