@@ -82,6 +82,21 @@ Steam.
 
   sudo nano /etc/pacman.d/mirrorlist # Рекомендуем прописывать зеркала от Яндекса
 
+.. index:: pacman, settings, parallel-downloading
+.. _parallel-downloading:
+
+---------------------------------------------
+Одновременная загрузка двух и более пакетов
+---------------------------------------------
+
+Начиная с шестой версии pacman поддерживает параллельную загрузку
+пакетов. Чтобы её включить отредактируйте */etc/pacman.conf*::
+
+  sudo nano /etc/pacman.conf # Раскомментируйте строчку ниже
+
+  # Где 4 - количество пакетов для одновременной загрузки
+  ParallelDownloads = 4
+
 .. index:: installation, basic, packages
 .. _basic-software-installation:
 
