@@ -538,7 +538,7 @@ NetworkManager.
 ярлыков, однако даже при её отключении этот функционал работает.
 Отключайте на свое усмотрение.
 
-.. index:: lowlatency, compositor, kwin, vsync
+.. index:: lowlatency, compositor, kwin
 .. _lowlatency-kwin:
 
 -----------------------

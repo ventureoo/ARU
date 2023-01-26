@@ -48,8 +48,8 @@
 .. index:: cpupower, gui, frequencies, governor, performance
 .. _cpupower-gui:
 
-GUI для изменение частоты процессора (*Может не работать с Xanmod*)
----------------------------------------------------------------------
+GUI для изменение частоты процессора
+-------------------------------------
 
 .. image:: images/extra-optimizations-2.png
 
