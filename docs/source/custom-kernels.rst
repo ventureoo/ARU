@@ -185,51 +185,6 @@ Linux, по крайне мере для процессоров Intel. При н
    же ramspeed, однако результаты более наглядные. См. также:
    https://gitlab.com/alfredchen/projectc/-/issues/7
 
--------
-Xanmod
--------
-
-Альтернатива liquorix, так же нацеленная на оптимизацию под игрушки и
-повышение плавности работы системы. Новомодное ядро, которое включает
-в себе часть уже описанных выше изменений из zen/lqx. Помимо прочего
-имеет:
-
-- Улучшенный метод обработки TCP пакетов (BBRv2) 
-
-- Частично включает в себя патчи от Clear Linux (так же как и
-  linux-lqx)
-
-- WineSync, альтернатива Fsync, ещё одна реализация синхронизации NT
-  примитов для Wine, но вынесенная в качестве отдельного модуля. Для
-  остальных ядер может быть установлена через AUR пакет `winesync-dkms
-  <https://aur.archlinux.org/packages/winesync-dkms>`_.
-
-- Высокая пропускная способность устройств ввода/вывода.
-
-- Улучшения систем кэширования и управления памятью.
-
-Полный список включаемых в него патчей вы можете найти здесь:
-https://github.com/xanmod/linux-patches
-
-.. attention:: Не рекомендуется обладателям процессоров Intel, т.к.
-   возможно все ещё имеет нерешенную проблему со сбросом частот
-   процессора от данного производителя
-   (https://forum.xanmod.org/thread-3800.html)
-
-**I. Установка (компиляция)**::
-
-  git clone https://aur.archlinux.org/linux-xanmod.git                    # Скачивание исходников.
-  cd linux-xanmod                                                         # Переход в linux-xanmod
-  gpg --keyserver hkp://keyserver.ubuntu.com --recv-keys 38DBBDC86092693E # GPG ключ
-  export _makenconfig=y _use_numa=n use_tracers=n _compiler=clang         # Включаем ручную настройку
-  makepkg -sric                                                           # Сборка и установка
-
-После некоторого времени с начала сборки у вас должно появится окно с
-ручной настройкой ядра. Этот процесс мы подробнее рассмотрим в
-следующей главе.
-
-.. image:: images/xanmod-menunconfig.png
-
 .. index:: kernel, linux-tkg, native-compilation
 .. _linux-tkg:
 
