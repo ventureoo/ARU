@@ -66,6 +66,8 @@ https://ventureoo.github.io/ARU сохранен и переадресует в�
 
 - [@adem4ik](https://codeberg.org/adem4ik) (https://codeberg.org/ventureo/ARU/issues/98)
 
+- [@norz3n](https://codeberg.org/norz3n) (https://codeberg.org/ventureo/ARU/pulls/103)
+
 ## Как я могу внести свой вклад в проект?
 
 Проект на текущий момент не в самой активной фазе своего развития, но я все ещё

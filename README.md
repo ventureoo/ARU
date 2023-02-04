@@ -67,6 +67,8 @@ Many thanks to these people for their pointing out errors:
 
 - [@adem4ik](https://codeberg.org/adem4ik) (https://codeberg.org/ventureo/ARU/issues/98)
 
+- [@norz3n](https://codeberg.org/norz3n) (https://codeberg.org/ventureo/ARU/pulls/103)
+
 ## How can I contribute to the project?
 
 The project is not in its most active phase at the moment, but I'm still
