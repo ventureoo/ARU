@@ -499,7 +499,12 @@ linux-hybrid
 
   sudo pacman -U linux-hybrid*.pkg.tar.zst
 
-Она установит пакеты linux-hybrid и linux-hybrid-headers. В остальном вам остается лишь обновить GRUB и пользоваться ядром
+Она установит пакеты linux-hybrid и linux-hybrid-headers. 
+После установки, выполните команду ниже, что бы обновить загрузчик::
+
+  sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+На этом установка ядра завершена
 
 .. index:: kernel, configure
 .. _manual_kernel_configuration:
