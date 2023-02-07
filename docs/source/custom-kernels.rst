@@ -443,7 +443,7 @@ linux-hybrid
 субьективным ощущениям работает лучше linux-lqx. Вложенные в ядро
 улучшения:
 
-- Улучшен планировщик CFS с задействованием патчей Zenify и LatencyNice
+- Планировщик BORE с задействованием патчей LatencyNice
 
 - Патчи LRNG(Linux Random Number Generator) из CachyOS
 
@@ -466,6 +466,8 @@ linux-hybrid
 - Исправления связанные в работе с памятью
 
 - Часть патчей linux-zen
+
+- Исправления DRM(Direct Render Management)
 
 **Установка I. (бинарные пакеты)**
 
