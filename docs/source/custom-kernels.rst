@@ -478,7 +478,7 @@ linux-hybrid
 вручную, но перед этим нужно проверить вашу микроархитектуру, как мы
 делали это при подключении репозиториев ALHP::
 
-  /lib/ld-linux-x86-64.so.2 --help | grep -E "x86-64-v[2-4] \(supported, searched\)"
+  /lib/ld-linux-x86-64.so.2 --help | grep -E "x86-64-v[2-4] (supported, searched)"
 
 - Если в списке есть ``x86_64-v3 (supported, searched)`` - значит ваш
   процессор поддерживает x86_64-v3 микроархитектуру.
