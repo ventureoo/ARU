@@ -132,13 +132,13 @@ Ext4 при должных оптимизациях показывает себ�
 
 ::
 
- rw,relatime,ssd_spread,space_cache=v2,max_inline=256,commit=600
+ rw,relatime,ssd_spread,max_inline=256,commit=600
 
 Оптимальные параметры монтирования для HDD:
 
 ::
 
- rw,relatime,space_cache=v2,max_inline=256,commit=600,autodefrag,nodatacow
+ rw,relatime,max_inline=256,commit=600,autodefrag,nodatacow
 
 Прежде всего, отметим, что вы можете изменить *relatime* на *noatime* или
 *lazytime* - все три параметра отвечают за запоминание времени доступа к
@@ -223,7 +223,7 @@ Btrfs <https://btrfs.wiki.kernel.org/index.php/Compression>`_, оптималь�
 Например для zstd со степенью сжатия 3 запись будет выглядеть примерно
 следующим образом, если учесть приведенные выше флаги монтирования::
 
-  rw,relatime,compress=zstd:3,ssd,ssd_spread,space_cache=v2,max_inline=256,commit=600
+  rw,relatime,compress=zstd:3,ssd,ssd_spread,max_inline=256,commit=600
   
 .. attention:: Сжатие файловой системы не работает вместе с флагом
   монтирования ``nodatacow``.
