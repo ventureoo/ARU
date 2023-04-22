@@ -30,7 +30,7 @@ GRUB:
 
 ::
 
-  GRUB_CMDLINE_LINUX_DEFAULT="quiet splash rootfstype=btrfs lpj=3499912 raid=noautodetect elevator=noop mitigations=off preempt=none nowatchdog audit=0 page_alloc.shuffle=1 split_lock_detect=off pci=pcie_bus_perf"
+  GRUB_CMDLINE_LINUX_DEFAULT="quiet splash rootfstype=btrfs lpj=3499912 raid=noautodetect mitigations=off preempt=none nowatchdog audit=0 page_alloc.shuffle=1 split_lock_detect=off pci=pcie_bus_perf"
 
 
 ``sudo grub-mkconfig -o /boot/grub/grub.cfg`` # Обновляем загрузчик, можно так
@@ -58,9 +58,6 @@ dmesg | grep "lpj="``
 
 ``rootfstype=btrfs`` - Здесь указываем название файловой системы в которой у
 вас отформатирован корень.
-
-``elevator=noop`` - Указывает для всех дисков планировщик ввода NONE.
-Полезно, если у вас NVMe. **Не использовать если у вас жесткий диск**.
 
 ``nowatchdog`` - Отключает сторожевые таймеры. Позволяет избавиться от заиканий
 в онлайн играх.
