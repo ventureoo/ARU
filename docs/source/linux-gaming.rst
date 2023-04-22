@@ -488,7 +488,7 @@ vkd3d, одна из которых разрабатывается команд�
 
   git clone https://aur.archlinux.org/vkd3d-proton-mingw.git # Скачивание исходников
   cd vkd3d-proton-mingw                                      # Переход в директорию
-  sed -i 's/-O3 -march=nocona -mtune=core-avx2 -pipe/-O2 -march=native -mtune=native -pipe/g' PKGBUILD # Нативные флаги
+  sed -i 's/-march=nocona -mtune=core-avx2 -pipe/-march=native -mtune=native -pipe/g' PKGBUILD # Нативные флаги
   makepkg -sric                                              # Сборка и установка
 
 Так же как и в случае с DXVK, после установки пакета, vkd3d нужно
