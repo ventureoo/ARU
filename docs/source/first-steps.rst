@@ -254,7 +254,7 @@ Nouveau (*Только для старых видеокарт*)
 драйвера NVIDIA (340, 390) и отлично справляется с 2D ускорением. Вдобавок,
 Nouveau хорошо работает с Wayland. ::
 
-  sudo pacman -S mesa lib32-mesa xf86-video-nouveau vulkan-icd-loader lib32-vulkan-icd-loader libva-mesa-driver lib32-libva-mesa-driver mesa-vdpau lib32-mesa-vdpau
+  sudo pacman -S mesa lib32-mesa vulkan-icd-loader lib32-vulkan-icd-loader libva-mesa-driver lib32-libva-mesa-driver mesa-vdpau lib32-mesa-vdpau
 
 Пакеты ``libva-mesa-driver``, ``mesa-vdpau`` и ``lib32-mesa-vdpau``
 нужны для работы аппаратного видео ускорения.
