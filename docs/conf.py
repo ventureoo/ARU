@@ -89,6 +89,16 @@ html_theme_options = {
             "url": "https://matrix.to/#/#linux_bunker:matrix.org",
             "icon": "fas fa-comments",
         },
+        {
+            "name": "YouTube",
+            "url": "https://www.youtube.com/c/PashaLinux",
+            "icon": "fab fa-youtube-square",
+        },
+        {
+            "name": "Donatealerts",
+            "url": "https://www.donationalerts.com/r/xpasha_l",
+            "icon": "fas fa-donate",
+        },
     ],
     'search_bar_text': "Поиск...",
     "footer_start": ["copyright"],
