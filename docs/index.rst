@@ -28,6 +28,7 @@ Wiki, он лишь является практическим руководст
    source/extra-optimizations.rst
    source/kernel-parameters.rst
    source/file-systems.rst
+   source/kernel-tuning.rst
    source/custom-kernels.rst
    source/linux-gaming.rst
    source/mini-kernel.rst
