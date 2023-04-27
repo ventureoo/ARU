@@ -102,6 +102,7 @@ html_theme_options = {
     ],
     'search_bar_text': "Поиск...",
     "footer_start": ["copyright"],
+    "footer_end": [],
     "switcher": {
         "json_url": "https://ventureo.codeberg.page/_static/switcher.json",
         "version_match": "latest (git)",
