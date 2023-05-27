@@ -350,7 +350,7 @@ ALSA - это тот самый звук (условно, на самом дел
 быстрым, так как не вынужден проходить множество программных прослоек
 и микширование. ::
 
-  sudo pacman -S alsa alsa-utils alsa-firmware alsa-card-profiles alsa-plugins
+  sudo pacman -S alsa-lib alsa-utils alsa-firmware alsa-card-profiles alsa-plugins
 
 Поэтому, если у вас нет потребности в микшировании каналов, записи
 аудио через микрофон и вы не слушаете музыку через Bluetooth, то ALSA
