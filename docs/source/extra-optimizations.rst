@@ -135,7 +135,7 @@ GUI для изменение частоты процессора
   systemctl daemon-reload
 
 Для Arch Linux необходимо так же прописать лимиты в
-``/etc/security/limits.conf `` (в самый нижний столбец)::
+``/etc/security/limits.conf`` (в самый нижний столбец)::
 
   username hard nofile 524288
 
