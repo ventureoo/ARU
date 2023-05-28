@@ -270,10 +270,10 @@ LLVM/Clang просто добавив к уже известной команд
    /etc/makepkg-clang.conf`` из команды ``makepkg``.
 
 Дальнейшеная пересборка пакетов из официальных репозиториев
-осуществима через утилиту ``asp``::
+осуществима через утилиту ``pkgctl repo`` из пакета ``devtools``::
 
-  sudo pacman -S asp
-  asp checkout ПАКЕТ
+  sudo pacman -S devtools
+  pkgctl repo clone --protocol=https ПАКЕТ
 
 Где *ПАКЕТ* - название нужного вам пакета.
 
