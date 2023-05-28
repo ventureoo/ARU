@@ -420,16 +420,10 @@ x86_64_v2, так и для x86_64_v3. **Главное не перепутае�
   [extra-x86-64-v2]
   Include = /etc/pacman.d/alhp-mirrorlist
 
-  [community-x86-64-v2]
-  Include = /etc/pacman.d/alhp-mirrorlist
-
   [core]
   Include = /etc/pacman.d/mirrorlist
 
   [extra]
-  Include = /etc/pacman.d/mirrorlist
-
-  [community]
   Include = /etc/pacman.d/mirrorlist
 
 **Если же у вас процессор поддерживает x86_64_v3**, то пишем следующее::
@@ -440,16 +434,10 @@ x86_64_v2, так и для x86_64_v3. **Главное не перепутае�
   [extra-x86-64-v3]
   Include = /etc/pacman.d/alhp-mirrorlist
 
-  [community-x86-64-v3]
-  Include = /etc/pacman.d/alhp-mirrorlist
-
   [core]
   Include = /etc/pacman.d/mirrorlist
 
   [extra]
-  Include = /etc/pacman.d/mirrorlist
-
-  [community]
   Include = /etc/pacman.d/mirrorlist
 
 После этого выполняем полное обновление системы::
