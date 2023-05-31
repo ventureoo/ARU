@@ -514,4 +514,26 @@ driver work to a separate thread"*
 
 .. _adriconf: https://archlinux.org/packages/community/x86_64/adriconf/
 
+.. index:: intel, amd, mesa, tweaks
+.. _amd_lowlatency:
+
+----------------------------------
+Понижение задержек для AMD (Xorg)
+----------------------------------
+
+Для уменьшения задержек ввода на видеокартах AMD рекомендуется
+использовать следующие параметры для Xorg.
+
+.. code-block:: shell
+   :linenos:
+   :caption: sudo nano /etc/X11/xorg.conf.d/20-amdgpu.conf
+
+    Section "OutputClass"
+        Identifier "AMD"
+        MatchDriver "amdgpu"
+        Driver "amdgpu"
+        Option "EnablePageFlip" "off"
+        Option "TearFree" "false"
+    EndSection
+
 .. vim:set textwidth=70:
