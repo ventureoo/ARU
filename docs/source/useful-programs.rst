@@ -136,4 +136,22 @@ Lutris, имеет приятный и понятный интерфейс, во
   cd bottles                                      # Переход в директорию
   makepkg -sric                                   # Сборка и установка
 
+
+.. index:: firewall, gufw, ufw
+.. _gufw:
+
+=======
+gUFW
+=======
+
+gUFW - это графическая оболочка для межсетевого экрана UFW, которая
+позволит вам настроить ваш фаерволл в всего в два клика.
+
+**Установка** ::
+
+  sudo pacman -S gufw
+  sudo systemctl enable --now ufw.service
+
+.. image:: images/gufw.jpg
+
 .. vim:set textwidth=70:
