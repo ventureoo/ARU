@@ -423,7 +423,7 @@ ALSA - это тот самый звук (условно, на самом дел
 .. code-block:: shell
    :caption: sudo nano /etc/mkinitcpio.conf
 
-  HOOKS=(systemd autodetect modconf block filesystems keyboard)
+    HOOKS=(systemd autodetect modconf block filesystems keyboard)
 
 
 Это немного увеличит образ initramfs, но заметно может ускорить запуск системы.
