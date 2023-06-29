@@ -228,8 +228,8 @@ GCC если возникнут проблемы со сборкой пакет�
 
   CFLAGS="-march=native -mtune=native -O3 -pipe -fno-plt -fexceptions \
         -Wp,-D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security \
-        -fstack-clash-protection -fcf-protection -mllvm -polly \
-        -mllvm -polly-parallel -mllvm -polly-vectorizer=stripmine -mllvm -polly-omp-backend=LLVM -lgomp"
+        -fstack-clash-protection -fcf-protection -polly -polly-parallel \
+        -polly-vectorizer=stripmine -mllvm -polly-omp-backend=LLVM -lgomp"
   CXXFLAGS="$CFLAGS -Wp,-D_GLIBCXX_ASSERTIONS"
   export CFLAGS_KERNEL="$CFLAGS"
   export CXXFLAGS_KERNEL="$CXXFLAGS"
