@@ -204,6 +204,17 @@ ccache. За счёт этого и достигается многократн�
   sudo pacman -S irqbalance
   sudo systemctl enable --now irqbalance
 
+**1.8** `uksmd <https://codeberg.org/pf-kernel/uksmd>`_ - демон,
+который автоматически убирает дубликаты страниц в памяти
+с одинаковым содержимым, тем самым экономя память. Работает только
+если ваше ядро имеет специальный патч, который есть по умолчанию например в
+linux-zen ::
+
+  git clone https://aur.archlinux.org/packages/uksmd
+  cd uksmd
+  makepkg -sric
+  sudo systemctl enable uksmd
+
 .. index:: swap, swappiness, sysctl
 .. _swap:
 
