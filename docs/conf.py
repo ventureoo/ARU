@@ -85,7 +85,8 @@ html_theme_options = {
             "url": "https://codeberg.org/ventureo/ARU",
             "icon": "fab fa-git-alt",
         },
-        { "name": "Matrix",
+        {
+            "name": "Matrix",
             "url": "https://matrix.to/#/#linux_bunker:matrix.org",
             "icon": "fas fa-comments",
         },
