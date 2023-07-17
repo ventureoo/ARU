@@ -285,6 +285,27 @@ NVIDIA
 .. _xrandr: https://wiki.archlinux.org/title/Xrandr#Testing_configuration
 .. _picom: https://wiki.archlinux.org/title/Picom
 
+
+NVIDIA (470xx)
+---------------
+
+Драйвер NVIDIA для Linux имеет несколько веток с долгосрочной
+поддержкой, часть из которых, как например nvidia-470xx-dkms,
+оставлены для сохранения совместимости со старыми видеокартами, в
+данном случае с поколением GPU Kepler. Если ваша видеокарта относится
+именно к этому поколению, то вам нужно установить не последний драйвер
+выше, а данную версию из AUR. ::
+
+  git clone https://aur.archlinux.org/nvidia-470xx-utils
+  cd nvidia-470xx-utils
+  makepkg -sric
+
+  # 32-битные библиотеки
+  git clone https://aur.archlinux.org/lib32-nvidia-470xx-utils
+  cd lib32-nvidia-470xx-utils
+  makepkg -sric
+
+
 Nouveau (*Только для старых видеокарт*)
 ------------------------------------------
 
