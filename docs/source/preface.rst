@@ -32,14 +32,16 @@ Issues <https://codeberg.org/ventureo/ARU/issues>`_
 
 ::
 
-  sudo pacman -S    # Установить программу из основных репозиториев.
-  sudo pacman -Syu  # Выполнить полное обновление системы и репозиториев
-  sudo pacman -R    # Удалить пакет
-  sudo pacman -Rsn  # Удалить пакет и его зависимости
-  git clone         # Клонирует внешний git репозиторий, например AUR пакет
-  makepkg -si       # Осуществляет сборку пакета и его установку из PKGBUILD
-  cd                # Перейти в директорию, например: cd tools.
-  ls                # Показать файлы и папку внутри другой папки.
+  sudo pacman -S                    # Установить программу из основных репозиториев.
+  sudo pacman -Syu                  # Выполнить полное обновление системы и репозиториев
+  sudo pacman -R                    # Удалить пакет
+  sudo pacman -Rsn                  # Удалить пакет и его зависимости
+  sudo pacman -Scc                  # Очистка кэша pacman
+  sudo pacman -Rscn $(pacman -Qtdq) # Очистка системы от мертвых пакетов
+  git clone                         # Клонирует внешний git репозиторий, например AUR пакет
+  makepkg -si                       # Осуществляет сборку пакета и его установку из PKGBUILD
+  cd                                # Перейти в директорию, например: cd tools.
+  ls                                # Показать файлы и папку внутри другой папки.
 
 .. index:: aur, helpers, packaging
 .. _aur-helpers:
