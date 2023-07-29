@@ -323,7 +323,6 @@ Wine, который осуществляет переход нативных б
   nano wine-tkg-profiles/advanced-customization.cfg # Отредактируем строчки ниже
 
   _NOLIB32="wow64" # Задействуем новый режим
-  _large_address_aware="false" # Отключаем несовместимый с WoW64 патч
 
   makepkg -sric # Сборка и установка
 
