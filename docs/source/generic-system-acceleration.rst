@@ -294,6 +294,37 @@ linux-zen ::
    минимизировать использование подкачки, то просто установите
    значение 1 или 5. А лучше - используйте уже упомянутый zramswap.
 
+.. index:: low_memory, jemalloc
+.. _jemalloc:
+
+==============================
+Уменьшение потребления памяти
+==============================
+
+За счёт использования стороннего аллокатора ``jemalloc`` можно
+добиться небольшого уменьшения потребление памяти в некоторых задачах,
+и исправить утечки, какие часто встречаются в больших программах. ::
+
+  sudo pacman -S jemalloc
+
+Чтобы его задействовать в обход системного аллокатора нужно экспортировать переменную
+
+.. code-block:: shell
+   :caption: sudo nano /etc/environment
+
+   LD_PRELOAD=/usr/lib/libjemalloc.so
+
+Дополнительные источники для прочтения:
+
+https://habr.com/ru/companies/piter/articles/543226/
+
+https://github.com/nodejs/node/issues/21973
+
+https://github.com/lovell/sharp/issues/955
+
+.. warning:: Если переживаете за стабильность системы, то выполнять
+   данный шаг не обязательно.
+
 .. index:: lowlatency, audio, pusleaudio
 .. _lowlatency-audio:
 
