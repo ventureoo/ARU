@@ -322,8 +322,10 @@ https://github.com/nodejs/node/issues/21973
 
 https://github.com/lovell/sharp/issues/955
 
-.. warning:: Если переживаете за стабильность системы, то выполнять
-   данный шаг не обязательно.
+.. warning:: Данный аллокатор памяти работает не для всех приложений,
+   в частности с ним не работает Chromium/приложения использующие
+   Electron, поэтому рекомендуется либо использовать его выборочно,
+   либо пропустите данный шаг.
 
 .. index:: lowlatency, audio, pusleaudio
 .. _lowlatency-audio:
