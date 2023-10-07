@@ -931,10 +931,7 @@ Mangohud
 
 **Установка** ::
 
-  cd tools                                             # Переход в заранее созданную папку в домашнем каталоге.
-  git clone https://aur.archlinux.org/mangohud.git     # Скачивание исходников.
-  cd mangohud                                          # Переход в mangohud.
-  makepkg -sric                                        # Сборка и установка.
+  sudo pacman -S lib32-mangohud mangohud
 
 Графический помощник для настройки вашего MangoHud. ::
 
