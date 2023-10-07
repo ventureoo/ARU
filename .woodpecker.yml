@@ -1,5 +1,5 @@
 # Sphinx build
-pipeline:
+steps:
   build-html:
     image: sphinxdoc/sphinx
     commands:
