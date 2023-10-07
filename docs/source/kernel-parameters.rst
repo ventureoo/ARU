@@ -30,7 +30,7 @@ GRUB:
 
 ::
 
-  GRUB_CMDLINE_LINUX_DEFAULT="quiet splash rootfstype=btrfs lpj=3499912 mitigations=off nowatchdog page_alloc.shuffle=1 split_lock_detect=off pci=pcie_bus_perf"
+  GRUB_CMDLINE_LINUX_DEFAULT="quiet splash lpj=3499912 mitigations=off nowatchdog page_alloc.shuffle=1 split_lock_detect=off pci=pcie_bus_perf"
 
 
 ``sudo grub-mkconfig -o /boot/grub/grub.cfg`` # Обновляем загрузчик, можно так
@@ -52,9 +52,6 @@ dmesg | grep "lpj="``
 ``mitigations=off`` - Непосредственно отключает все заплатки безопасности ядра
 (включая Spectre и Meltdown). Подробнее об этом написано `здесь
 <https://linuxreviews.org/HOWTO_make_Linux_run_blazing_fast_(again)_on_Intel_CPUs>`_.
-
-``rootfstype=btrfs`` - Здесь указываем название файловой системы в которой у
-вас отформатирован корень.
 
 ``nowatchdog`` - Отключает сторожевые таймеры. Позволяет избавиться от заиканий
 в онлайн играх.
