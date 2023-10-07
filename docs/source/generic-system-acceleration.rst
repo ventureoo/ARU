@@ -536,11 +536,9 @@ https://youtu.be/tZmPi9tfLbc
 
 Решается через добавление следующих параметров ядра::
 
-  # Редактируем конфигурационный файл в зависимости от того, какой у вас загрузчик
-  sudo nano /etc/default/grub
+  sudo nano /etc/modprobe.d/90-amdgpu.conf
 
-  # Параметры можно дописать к уже имеющимся
-  GRUB_CMDLINE_LINUX_DEFAULT="mdgpu.gttsize=8192 amdgpu.lockup_timeout=1000 amdgpu.gpu_recovery=1 amdgpu.noretry=0 amdgpu.ppfeaturemask=0xfffd3fff amdgpu.deep_color=1 systemd.unified_cgroup_hierarchy=true"
+  options amdgpu gttsize=8192 lockup_timeout=1000 gpu_recovery=1 noretry=0 ppfeaturemask=0xfffd3fff deep_color=1
 
 На всякий случай можно дописать ещё одну переменную окружения::
 
