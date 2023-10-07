@@ -97,6 +97,25 @@ Steam.
   # Где 4 - количество пакетов для одновременной загрузки
   ParallelDownloads = 4
 
+.. index:: pacman, settings, disable-timeouts
+.. _disable_pacman_timeouts:
+
+-------------------------------------------
+Отключение таймаутов при загрузке пакетов
+-------------------------------------------
+
+Если вы имеете плохое качество соединения или слабый уровень сигнала,
+то при загрузке пакетов при помощи pacman вы могли сталкиваться с
+ошибкой превышания лимитов ожидания (таймаутов). Чтобы этого избежать
+нужно добавить параметр ``DisableDownloadTimeout`` в ``pacman.conf``
+как мы это уже делали ранее с ``ParallelDownloads``:
+
+   # Добавьте строку в секцию [options]
+   sudo nano /etc/pacman.conf
+
+   DisableDownloadTimeout
+
+
 .. index:: installation, basic, packages
 .. _basic-software-installation:
 
