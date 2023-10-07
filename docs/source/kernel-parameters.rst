@@ -30,7 +30,7 @@ GRUB:
 
 ::
 
-  GRUB_CMDLINE_LINUX_DEFAULT="quiet splash lpj=3499912 mitigations=off nowatchdog page_alloc.shuffle=1 split_lock_detect=off pci=pcie_bus_perf threadirqs"
+  GRUB_CMDLINE_LINUX_DEFAULT="quiet splash lpj=3499912 mitigations=off nowatchdog page_alloc.shuffle=1 split_lock_detect=off pci=pcie_bus_perf threadirqs intel_idle.max_cstate=1"
 
 
 ``sudo grub-mkconfig -o /boot/grub/grub.cfg`` # Обновляем загрузчик, можно так
@@ -67,6 +67,13 @@ dmesg | grep "lpj="``
 памяти. Одна инструкция с раздельной блокировкой может занимать шину
 памяти в течение примерно 1 000 тактов, что может приводить к
 кратковременным зависаниям системы.
+
+``intel_idle.max_cstate=1`` - только для процессоров Intel. Отключает
+энергосберегательные функции процессора, ограничивая его спящие
+состояния, не позволяя ему переходить в состояние глубокого сна.
+Увеличивает может значительно увеличить энергопотребление на
+ноутбуках. Помогает исправлять некоторые странные зависания и ошибки
+на многих системах.
 
 ``pci=pcie_bus_perf`` - Увеличивает значение Max Payload Size (MPS)
 для родительской шины PCI Express. Это даёт лучшую пропускную
