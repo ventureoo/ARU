@@ -30,7 +30,7 @@ GRUB:
 
 ::
 
-  GRUB_CMDLINE_LINUX_DEFAULT="quiet splash rootfstype=btrfs lpj=3499912 raid=noautodetect mitigations=off preempt=none nowatchdog audit=0 page_alloc.shuffle=1 split_lock_detect=off pci=pcie_bus_perf"
+  GRUB_CMDLINE_LINUX_DEFAULT="quiet splash rootfstype=btrfs lpj=3499912 mitigations=off preempt=none nowatchdog audit=0 page_alloc.shuffle=1 split_lock_detect=off pci=pcie_bus_perf"
 
 
 ``sudo grub-mkconfig -o /boot/grub/grub.cfg`` # Обновляем загрузчик, можно так
@@ -52,9 +52,6 @@ dmesg | grep "lpj="``
 ``mitigations=off`` - Непосредственно отключает все заплатки безопасности ядра
 (включая Spectre и Meltdown). Подробнее об этом написано `здесь
 <https://linuxreviews.org/HOWTO_make_Linux_run_blazing_fast_(again)_on_Intel_CPUs>`_.
-
-``raid=noautodetect`` - Отключает проверку на RAID во время загрузки. Если вы
-его используете - **НЕ** прописывайте данный параметр.
 
 ``rootfstype=btrfs`` - Здесь указываем название файловой системы в которой у
 вас отформатирован корень.
