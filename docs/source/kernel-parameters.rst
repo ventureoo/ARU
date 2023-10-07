@@ -30,7 +30,7 @@ GRUB:
 
 ::
 
-  GRUB_CMDLINE_LINUX_DEFAULT="quiet splash lpj=3499912 mitigations=off nowatchdog page_alloc.shuffle=1 split_lock_detect=off pci=pcie_bus_perf"
+  GRUB_CMDLINE_LINUX_DEFAULT="quiet splash lpj=3499912 mitigations=off nowatchdog page_alloc.shuffle=1 split_lock_detect=off pci=pcie_bus_perf threadirqs"
 
 
 ``sudo grub-mkconfig -o /boot/grub/grub.cfg`` # Обновляем загрузчик, можно так
@@ -60,6 +60,8 @@ dmesg | grep "lpj="``
 Улучшает производительность при работе с ОЗУ с очень быстрыми накопителями (NVMe, Optane).
 Подробнее `тут
 <https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=e900a918b0984ec8f2eb150b8477a47b75d17692>`__.
+
+``threadirqs`` - задействует многопоточную обработку IRQ прерываний.
 
 ``split_lock_detect=off`` - Отключаем раздельные блокировки шины
 памяти. Одна инструкция с раздельной блокировкой может занимать шину
