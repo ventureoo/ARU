@@ -30,7 +30,7 @@ GRUB:
 
 ::
 
-  GRUB_CMDLINE_LINUX_DEFAULT="quiet splash rootfstype=btrfs lpj=3499912 mitigations=off nowatchdog audit=0 page_alloc.shuffle=1 split_lock_detect=off pci=pcie_bus_perf"
+  GRUB_CMDLINE_LINUX_DEFAULT="quiet splash rootfstype=btrfs lpj=3499912 mitigations=off nowatchdog page_alloc.shuffle=1 split_lock_detect=off pci=pcie_bus_perf"
 
 
 ``sudo grub-mkconfig -o /boot/grub/grub.cfg`` # Обновляем загрузчик, можно так
