@@ -71,11 +71,14 @@ pygments_style = "sphinx"
 html_theme = 'pydata_sphinx_theme'
 
 html_title = project
+html_short_title = "ARU"
 
 html_theme_options = {
     "header_links_before_dropdown": 9999,
     "navbar_align": "content",
-    "navbar_center": ["version-switcher"],
+    "navbar_start": [],
+    "navbar_center": ["navbar-logo", "version-switcher"],
+    "navbar_end": ["navbar-icon-links"],
     # Edit button disabled after migrating from GitHub
     "use_edit_page_button": False,
     "secondary_sidebar_items": ["page-toc"],
@@ -120,7 +123,7 @@ html_context = {
 }
 
 html_sidebars = {
-    "**": ["search-field", "navbar-nav"]
+    "**": ["navbar-nav"]
 }
 
 # Misc
