@@ -93,7 +93,7 @@ GNOME 4X.X
 
 ::
 
-  sudo pacman -Rsn epiphany gnome-boxes gnome-calculator gnome-calendar gnome-contacts gnome-maps gnome-music gnome-weather gnome-clocks gnome-photos gnome-software gnome-user-docs totem yelp gnome-user-share gnome-characters simple-scan eog tracker3-miners rygel evolution-data-server gnome-font-viewer gnome-remote-desktop gnome-logs orca malcontent
+  sudo pacman -Rsn epiphany gnome-calculator gnome-calendar gnome-contacts gnome-maps gnome-music gnome-weather gnome-clocks gnome-photos gnome-software gnome-user-docs totem yelp gnome-user-share gnome-characters simple-scan eog tracker3-miners rygel evolution-data-server gnome-font-viewer gnome-remote-desktop gnome-logs orca malcontent
 
 **P.S.** Удаляйте пакеты с осознанием того, что вы делайте. Несмотря
 на то, что здесь были собраны наиболее сомнительные по соотношению
