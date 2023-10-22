@@ -333,33 +333,26 @@ https://github.com/lovell/sharp/issues/955
    Electron, поэтому рекомендуется либо использовать его выборочно,
    либо пропустите данный шаг.
 
-.. index:: lowlatency, audio, pusleaudio
+.. index:: installation, lowlatency, audio, pipewire
 .. _lowlatency-audio:
 
-=============================
-Низкие задержки звука
-=============================
-
-Установите следующие пакеты для понижения задержек звука в PulseAudio,
-а также удобную графическую панель управления звуком -  *pavucontrol*.
-
-::
-
-  sudo pacman -S pulseaudio pulseaudio-alsa pulseaudio-jack pavucontrol
-
-.. index:: installation, lowlatency, audio, pipewire
-.. _pipewire-installation:
-
-------------------------------
-Новая альтернатива PulseAudio
-------------------------------
+==================================
+Низкие задержки звука (PipeWire)
+==================================
 
 `PipeWire <https://wiki.archlinux.org/title/PipeWire_(Русский)>`_ -
 это новая альтернатива PulseAudio, которая призвана избавить от
 проблем PulseAudio, уменьшить задержки звука и потребление памяти. ::
 
-  sudo pacman -S pipewire pipewire-alsa pipewire-pulse pipewire-jack
-  systemctl --user enable --now pipewire.service pipewire.socket pipewire-pulse.service wireplumber.service
+  sudo pacman -S pipewire pipewire-pulse pipewire-jack lib32-pipewire
+  systemctl --user enable --now pipewire pipewire.socket pipewire-pulse wireplumber
+
+Для непосредственно уменьшения самих задержек установим дополнительный
+пакет ``realtime-privileges`` и добавим пользователя в группу
+``realtime``::
+
+  sudo pacman -S realtime-privileges
+  sudo usermod -aG realtime "$(whoami)"
 
 Дополнительно советуем установить реализацию Jack API. См. раздел
 ниже.
