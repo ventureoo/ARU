@@ -219,7 +219,7 @@ Wiki.
 если ваше ядро имеет специальный патч, который есть по умолчанию например в
 linux-zen ::
 
-  git clone https://aur.archlinux.org/packages/uksmd
+  git clone https://aur.archlinux.org/uksmd.git
   cd uksmd
   makepkg -sric
   sudo systemctl enable uksmd
