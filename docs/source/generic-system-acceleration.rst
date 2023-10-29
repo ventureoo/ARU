@@ -344,8 +344,12 @@ https://github.com/lovell/sharp/issues/955
 это новая альтернатива PulseAudio, которая призвана избавить от
 проблем PulseAudio, уменьшить задержки звука и потребление памяти. ::
 
-  sudo pacman -S pipewire pipewire-pulse pipewire-jack lib32-pipewire
+  sudo pacman -S pipewire pipewire-pulse pipewire-jack lib32-pipewire gst-plugin-pipewire
   systemctl --user enable --now pipewire pipewire.socket pipewire-pulse wireplumber
+
+.. note:: Пакет ``lib32-pipewire`` нужен для правильной работы звука в
+   32-битных играх (в том числе запускаемых через Wine) или
+   приложениях.
 
 Для непосредственно уменьшения самих задержек установим дополнительный
 пакет ``realtime-privileges`` и добавим пользователя в группу
@@ -356,6 +360,72 @@ https://github.com/lovell/sharp/issues/955
 
 Дополнительно советуем установить реализацию Jack API. См. раздел
 ниже.
+
+.. index:: pipewire, lowlatency, audio, sound
+.. _pipewire_setup:
+
+--------------------
+Настройка PipeWire
+--------------------
+
+Несмотря на то, что настройки по умолчанию могут работать достаточно
+хорошо для большинства оборудования, имеет смысл выполнить
+дополнительную настройку для улучшения качества звука (особенно если
+вы являетесь обладателем ЦАП или полноценной звуковой карты).
+
+Перед началом создадим пути для хранения конфигурационных файлов в
+домашней директории::
+
+  mkdir -p ~/.config/pipewire/pipewire.conf.d
+
+В появившейся директории создадим файл со следующим содержанием:
+
+.. code-block:: shell
+  :caption: ``nano ~/.config/pipewire/pipewire.conf.d/10-sound.conf``
+
+   context.properties = {
+     default.clock.rate = 96000
+     default.clock.allowed-rates = [ 44100, 48000, 88200, 96000 ]
+     default.clock.quantum = 8192
+     default.clock.min-quantum = 16
+     default.clock.quantum-limit = 8192
+   }
+
+Обратите внимание на параметры ``default.clock.rate`` и
+``default.clock.allowed-rates``. Они устанавливают частоту
+дискретизации по умолчанию и доступные частоты в целом соответственно.
+Вы должны указать их в соответствии с возможностями вашего устройства
+вывода звука (звуковой карты/ЦАПа). Чтобы узнать максимально доступную
+частоту дискретизации используйте команду (при условии, что установлен
+пакет ``pipewire-pulse``)::
+
+  pactl list sinks | grep "Sample Specification" -B 2
+
+Если устройств несколько, то устанавливайте частоту того, которое
+используется непосредственно для вывода звука.
+
+Для устройств с большим диапозоном доступных частот в качестве примера
+можно привести следующие значения::
+
+  default.clock.rate          = 384000
+  default.clock.allowed-rates = [ 44100, 48000, 88200, 96000, 174000, 192000, 384000, 768000 ]
+
+.. index:: pipewire, upmix, 5.1, sound
+.. _upmixing-5.1:
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Микширование стерео в 5.1
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+PipeWire так же как и PulseAuido позволяет микшировать звук в 5.1.
+Эта возможность отключена по умолчанию, но для неё существует заранее
+подготовленный конфигурационный файл, который нам нужно просто
+перенести в домашнюю директорию::
+
+  mkdir -p ~/.config/pipewire/pipewire-pulse.conf.d
+  cp /usr/share/pipewire/client-rt.conf.avail/20-upmix.conf ~/.config/pipewire/pipewire-pulse.conf.d
+  cp /usr/share/pipewire/client-rt.conf.avail/20-upmix.conf ~/.config/pipewire/client-rt.conf.d
+
 
 -----------------
 Реализации JACK
@@ -381,9 +451,6 @@ lib32-pipewire-jack (соответственно) из репозитория m
 Для поддержки dbus с jack2 установите `jack2-dbus
 <https://archlinux.org/packages/extra/x86_64/jack2-dbus/>`_
 (рекомендуется).
-
-`realtime-privileges <https://archlinux.org/packages/community/any/realtime-privileges/>`_
-- для понижения задержек звука (актуально как для JACK, так и для PipeWire)
 
 .. index:: lowlatency, audio, alsa
 .. _alsa:
