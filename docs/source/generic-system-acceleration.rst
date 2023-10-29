@@ -407,9 +407,7 @@ https://github.com/lovell/sharp/issues/955
    context.properties = {
      default.clock.rate = 96000
      default.clock.allowed-rates = [ 44100, 48000, 88200, 96000 ]
-     default.clock.quantum = 8192
      default.clock.min-quantum = 16
-     default.clock.quantum-limit = 8192
    }
 
 Обратите внимание на параметры ``default.clock.rate`` и
