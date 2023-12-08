@@ -1015,23 +1015,23 @@ lsusb (не забудьте про кавычки!).
 использования (проверить можно через наличие файла ``/dev/input/js0``).
 
 
-.. index:: installation, gamepad
-.. _xpad-dkms-git:
+.. index:: installation, gamepad, xpadneo, dkms
+.. _xpadneo-dkms-git:
 
---------------------
-Установка xpad-dkms
---------------------
+---------------------------
+Установка xpadneo-dkms-git
+---------------------------
 
 В ядре Linux есть драйвер для поддержки геймпадов Xbox 360 и других
 выдающих себя за него. Изменения в драйвер попадают довольно редко,
-поэтому лучше установить форк драйвера - `xpad-dkms-git
+поэтому лучше установить форк драйвера - `xpadneo-dkms-git
 <https://github.com/paroj/xpad>`__, это позволит избежать проблем с
 поддержкой ряда устройств.
 
 **Установка** ::
 
-  git clone https://aur.archlinux.org/xpad-dkms-git
-  cd xpad-dkms-git
+  git clone https://aur.archlinux.org/xpadneo-dkms-git
+  cd xpadneo-dkms-git
   makepkg -sric
 
 .. vim:set textwidth=78:
