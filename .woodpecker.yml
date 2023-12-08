@@ -9,7 +9,7 @@ steps:
       - cd ./docs
       - sphinx-build -b html . build -W
     when:
-      branch: main
+      - event: [ push, pull_request, tag, cron ]
   build-pdf:
     image: sphinxdoc/sphinx-latexpdf
     commands:
@@ -18,7 +18,7 @@ steps:
       - pip3 install --upgrade sphinx-copybutton
       - sphinx-build -M latexpdf . build -W
     when:
-      branch: main
+      - event: [ push, pull_request, tag, cron ]
   # Based on: https://codeberg.org/gitnex/tea4j-autodeploy/src/branch/main/.woodpecker.yml
   deploy:
     image: alpine/git
