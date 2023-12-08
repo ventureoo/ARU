@@ -192,19 +192,7 @@ list-timers`` с припиской ``.timer``.
 Больше информации про таймеры systemd вы можете прочитать на Arch
 Wiki.
 
-**1.5** `haveged
-<https://wiki.archlinux.org/title/Haveged_(Русский)>`_ - это демон,
-что следит за энтропией системы. Необходим для ускорения запуска
-системы при высоких показателях в: *systemd-analyze blame* (Больше 1
-секунды). ::
-
-  sudo pacman -S haveged        # Установка
-  sudo systemctl enable haveged # Включает и запускает службу.
-
-.. warning:: Используйте только на LTS ядрах 4.19 и 5.4. На новых
-   ядрах необходимости в использовании нет.
-
-**1.5.1** `rng-tools <https://wiki.archlinux.org/title/Rng-tools>`_ -
+**1.5** `rng-tools <https://wiki.archlinux.org/title/Rng-tools>`_ -
 демон, что также следит за энтропией системы, но в отличие от haveged
 уже через аппаратный таймер. Необходим для ускорения запуска системы
 при высоких показателях *systemd-analyze blame* (Больше 1 секунды). ::
