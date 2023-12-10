@@ -52,5 +52,5 @@ steps:
           git push origin "$${GITEA_BRANCH}"
         fi
     when:
-      branch: main
-      event: [ push, tag ]
+      - event: [ push, tag ]
+        branch: main
