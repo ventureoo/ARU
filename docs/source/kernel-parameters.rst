@@ -30,7 +30,7 @@ GRUB:
 
 ::
 
-  GRUB_CMDLINE_LINUX_DEFAULT="quiet splash lpj=3499912 mitigations=off nowatchdog page_alloc.shuffle=1 split_lock_detect=off pci=pcie_bus_perf threadirqs intel_idle.max_cstate=1 libahci.ignore_sss=1"
+  GRUB_CMDLINE_LINUX_DEFAULT="quiet splash lpj=XXXXXXX mitigations=off nowatchdog page_alloc.shuffle=1 split_lock_detect=off pci=pcie_bus_perf threadirqs intel_idle.max_cstate=1 libahci.ignore_sss=1"
 
 
 ``sudo grub-mkconfig -o /boot/grub/grub.cfg`` # Обновляем загрузчик, можно так
