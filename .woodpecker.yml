@@ -1,10 +1,10 @@
 # Sphinx build
-when:
-  branch: main
-
 steps:
   build-html:
     image: sphinxdoc/sphinx
+    when:
+      event: push
+      branch: main
     commands:
       #- pip3 install --upgrade pip
       - pip3 install --upgrade pydata-sphinx-theme
@@ -13,6 +13,9 @@ steps:
       - sphinx-build -b html . build -W
   build-pdf:
     image: sphinxdoc/sphinx-latexpdf
+    when:
+      event: push
+      branch: main
     commands:
       - cd ./docs
       #- pip3 install --upgrade pip
@@ -21,6 +24,9 @@ steps:
   # Based on: https://codeberg.org/gitnex/tea4j-autodeploy/src/branch/main/.woodpecker.yml
   deploy:
     image: alpine/git
+    when:
+      event: push
+      branch: main
     environment:
       # Information that should be used when authoring a commit
       - GIT_AUTHOR_NAME=arubot
