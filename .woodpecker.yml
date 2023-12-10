@@ -3,7 +3,7 @@ steps:
   build-html:
     image: sphinxdoc/sphinx
     when:
-      branch: main
+      event: [ push, pull_request, tag ]
     commands:
       #- pip3 install --upgrade pip
       - pip3 install --upgrade pydata-sphinx-theme
@@ -13,7 +13,7 @@ steps:
   build-pdf:
     image: sphinxdoc/sphinx-latexpdf
     when:
-      branch: main
+      event: [ push, pull_request, tag ]
     commands:
       - cd ./docs
       #- pip3 install --upgrade pip
@@ -23,6 +23,7 @@ steps:
   deploy:
     image: alpine/git
     when:
+      event: [ push, tag ]
       branch: main
     environment:
       # Information that should be used when authoring a commit
