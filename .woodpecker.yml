@@ -1,4 +1,7 @@
 # Sphinx build
+when:
+  branch: main
+
 steps:
   build-html:
     image: sphinxdoc/sphinx
@@ -8,8 +11,6 @@ steps:
       - pip3 install --upgrade sphinx-copybutton
       - cd ./docs
       - sphinx-build -b html . build -W
-    when:
-      - event: [ push, pull_request, tag, cron ]
   build-pdf:
     image: sphinxdoc/sphinx-latexpdf
     commands:
@@ -17,8 +18,6 @@ steps:
       #- pip3 install --upgrade pip
       - pip3 install --upgrade sphinx-copybutton
       - sphinx-build -M latexpdf . build -W
-    when:
-      - event: [ push, pull_request, tag, cron ]
   # Based on: https://codeberg.org/gitnex/tea4j-autodeploy/src/branch/main/.woodpecker.yml
   deploy:
     image: alpine/git
@@ -51,6 +50,3 @@ steps:
           git remote set-url origin "https://$${GITEA_USERNAME}:$${GITEA_TOKEN}@$${GITEA_HOST}/$${GITEA_REPOSITORY}"
           git push origin "$${GITEA_BRANCH}"
         fi
-    when:
-      - event: [ push, tag ]
-        branch: main
