@@ -985,10 +985,7 @@ Mangohud
 
 Графический помощник для настройки вашего MangoHud. ::
 
-  cd tools                                         # Переход в заранее созданную папку в домашнем каталоге.
-  git clone https://aur.archlinux.org/goverlay.git # Скачивание исходников.
-  cd goverlay                                      # Переход в goverlay-bin
-  makepkg -sric                                    # Сборка и установка.
+  sudo pacman -S goverlay
 
 Для использования mangohud в играх через Steam необходимо добавить команду в
 параметры запуска игры (находятся в свойствах игры Steam)::
