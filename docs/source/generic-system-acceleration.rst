@@ -632,6 +632,13 @@ Vulkan.
 
    RADV_PERFTEST=sam # Только для Vulkan
 
+.. warning:: Учтите, что в некоторых играх с vkd3d вам может
+   понадобиться также экспортировать переменную
+   ``VKD3D_CONFIG=no_upload_hvv`` для избежания регрессий
+   производительности при использовании вместе с SAM.
+
+   https://www.reddit.com/r/linux_gaming/comments/119hwmt/this_setting_may_help_vkd3d_games_that_have/
+
 .. index:: amd, tweaks
 .. _bug_solution_for_vega:
 
