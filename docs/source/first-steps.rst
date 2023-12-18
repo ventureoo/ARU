@@ -262,7 +262,6 @@ NVIDIA
 ::
 
   sudo pacman -S nvidia-dkms nvidia-utils lib32-nvidia-utils nvidia-settings vulkan-icd-loader lib32-vulkan-icd-loader lib32-opencl-nvidia opencl-nvidia libxnvctrl
-  sudo mkinitcpio -P # Обновляем образы initramfs
 
 .. attention:: Внимание, автор строго не рекомендует выполнять
    настройку ваших мониторов и сохранение конфига ``xorg.conf`` через
