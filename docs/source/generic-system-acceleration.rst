@@ -33,7 +33,7 @@ Arch Linux - это фундамент, и требуется уйма надс�
 директории, чтобы переопределить системные настройки:
 
 .. code-block:: shell
-  :caption: ``nano ~/.makepkg-conf``
+  :caption: ``nano ~/.makepkg.conf``
 
   CFLAGS="-march=native -mtune=native -O2 -pipe -fno-plt -fexceptions \
         -Wp,-D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security \
