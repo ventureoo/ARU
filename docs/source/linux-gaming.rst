@@ -678,10 +678,6 @@ Lutris - это удобный графический интерфейс по о
 
 .. image:: images/lutris-epic-library.png
 
-**Пример работы с Lutris**
-
-https://www.youtube.com/watch?v=ybe0MzJDUvw
-
 
 .. index:: proton, gaming, lutris, proton-ge-custom
 .. _proton-ge-with-lutris:
