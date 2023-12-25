@@ -357,14 +357,6 @@ gnome-shell-performance и mutter-performance
 
 .. image:: https://codeberg.org/ventureo/ARU/raw/branch/main/archive/DE-Optimizations/images/image2.jpg
 
-**Видеоверсия**
-
-https://www.youtube.com/watch?v=YlViA-nOzsg
-
-**Демонстрация плавности**
-
-https://www.youtube.com/watch?v=1TjicRvrFbo
-
 .. index:: plasma, kde, de-optimizations
 .. _plasma-optimization:
 
