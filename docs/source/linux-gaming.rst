@@ -979,10 +979,6 @@ Mangohud
 
 (Для указания нескольких команд необходимо разделять их **пробелом**)
 
-**Подробней в видео.**
-
-https://www.youtube.com/watch?v=4RqerevPD4I
-
 .. index:: installation, fps, monitoring, dxvk
 .. _dxvk-hud:
 
