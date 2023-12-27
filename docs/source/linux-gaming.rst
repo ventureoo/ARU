@@ -116,7 +116,9 @@ WINE-TKG
 если вы хотите получить не только больше производительности, но и
 совместимости с различными Windows играми.
 
-**Установка** ::
+**Установка** 
+
+::
 
   git clone https://github.com/Frogging-Family/wine-tkg-git.git
   cd wine-tkg-git/wine-tkg-git
