@@ -198,8 +198,7 @@ list-timers`` с припиской ``.timer``.
 Wiki.
 
 **1.5** `rng-tools <https://wiki.archlinux.org/title/Rng-tools>`_ -
-демон, что также следит за энтропией системы, но в отличие от haveged
-уже через аппаратный таймер. Необходим для ускорения запуска системы
+демон, что следит за энтропией системы через аппаратный таймер. Необходим для ускорения запуска системы
 при высоких показателях *systemd-analyze blame* (Больше 1 секунды). ::
 
   sudo pacman -S rng-tools         # Установка
@@ -218,13 +217,7 @@ Wiki.
   sudo systemctl enable --now dbus-broker.service    # Включает и запускает службу.
   sudo systemctl --global enable dbus-broker.service # Включает и запускает службу для всех пользователей.
 
-Если у вас ещё возникает вопрос: "Что действительно нужно установить
-из вышеперечисленного?", то просто посмотрите на следующую схему:
-
-.. image:: images/generic-system-acceleration-1.png
-
-**1.7** `irqbalance <https://github.com/Irqbalance/irqbalance>`_ - это
-это демон, что автоматически балансирует обработку прерываний
+**1.7** `irqbalance <https://github.com/Irqbalance/irqbalance>`_ - это демон, что автоматически балансирует обработку прерываний
 по ядрам процессора. ::
 
   sudo pacman -S irqbalance

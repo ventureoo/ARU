@@ -65,10 +65,6 @@
 
 И снова пересоберите ядро.
 
-**Видео версия**
-
-https://www.youtube.com/watch?v=8GRNN94afyg
-
 .. index:: mini-kernel, problems, modules, modprobed-db
 .. _related-issues:
 
