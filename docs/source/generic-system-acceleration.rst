@@ -267,7 +267,7 @@ linux-zen ::
 установить значение ``10``:
 
 .. code-block:: shell
-   :caption: ``sudo nano /etc/enviroment``
+   :caption: ``sudo nano /etc/sysctl.d/swap.conf``
 
    vm.swappiness=10
 
