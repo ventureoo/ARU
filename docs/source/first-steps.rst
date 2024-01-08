@@ -29,12 +29,15 @@
 Обновление ключей необходимо во избежание дальнейших проблем с установкой
 пакетов::
 
-  sudo pacman-key --init               # Инициализация
-  sudo pacman-key --populate archlinux # Получить ключи из репозитория
-  sudo pacman-key --refresh-keys       # Проверить текущие ключи на актуальность
-  sudo pacman -Sy                      # Обновить ключи для всей системы
+    sudo archlinux-keyring-wkd-sync
 
-Данная операция может занять продолжительное время.
+Данная операция может занять продолжительное время. Также вы можете
+включить службу-таймер для автоматизации данного процесса::
+
+    sudo systemctl enable archlinux-keyring-wkd-sync.timer
+
+Таким образом ключи будут обновляться раз в неделю.
+
 
 .. index:: pacman, multilib, wine, steam
 .. _multilib-repository:
