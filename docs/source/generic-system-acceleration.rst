@@ -354,7 +354,7 @@ https://github.com/lovell/sharp/issues/955
 это новая альтернатива PulseAudio, которая призвана избавить от
 проблем PulseAudio, уменьшить задержки звука и потребление памяти. ::
 
-  sudo pacman -S pipewire pipewire-pulse pipewire-jack lib32-pipewire gst-plugin-pipewire
+  sudo pacman -S pipewire pipewire-pulse pipewire-jack lib32-pipewire gst-plugin-pipewire wireplumber
   systemctl --user enable --now pipewire pipewire.socket pipewire-pulse wireplumber
 
 .. note:: Пакет ``lib32-pipewire`` нужен для правильной работы звука в
