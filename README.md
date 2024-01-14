@@ -71,6 +71,8 @@ Many thanks to these people for their pointing out errors:
 
 - [@kalsin](https://codeberg.org/kalsin) (https://codeberg.org/ventureo/ARU/pulls/114)
 
+- [@Terromur](https://codeberg.org/terromur) (PipeWire/sound section, makepkg.conf edits)
+
 ## How can I contribute to the project?
 
 The project is not in its most active phase at the moment, but I'm still
