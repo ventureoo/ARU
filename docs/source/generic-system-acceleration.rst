@@ -416,7 +416,7 @@ https://github.com/lovell/sharp/issues/955
 можно привести следующие значения::
 
   default.clock.rate          = 384000
-  default.clock.allowed-rates = [ 44100, 48000, 88200, 96000, 174000, 192000, 384000, 768000 ]
+  default.clock.allowed-rates = [ 44100 48000 88200 96000 176400 192000 352800 384000 768000 ]
 
 .. index:: pipewire, upmix, 5.1, sound
 .. _upmixing-5.1:
