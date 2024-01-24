@@ -469,11 +469,12 @@ x86_64_v2, так и для x86_64_v3. **Главное не перепутае�
 
 1) Нужно создать скрипт со следующим содержимым:: 
 
-   #!/bin/sh
-   if [ $(find /tmp/${LOGNAME}/.cache/ -mindepth 1 -printf '1\n' -quit) ]; then
-     rsync -av /tmp/${LOGNAME}/.cache/ /home/${LOGNAME}/.cache/
-   else
-     rsync -av /home/${LOGNAME}/.cache/ /tmp/${LOGNAME}/.cache/
-   fi
+  #!/bin/sh
+
+  if [ $(find /tmp/${LOGNAME}/.cache/ -mindepth 1 -printf '1\n' -quit) ]; then
+    rsync -av /tmp/${LOGNAME}/.cache/ /home/${LOGNAME}/.cache/
+  else
+    rsync -av /home/${LOGNAME}/.cache/ /tmp/${LOGNAME}/.cache/
+  fi
 
 2) Настроить выполнение скрипта
