@@ -470,15 +470,15 @@ x86_64_v2, так и для x86_64_v3. **Главное не перепутае�
 
 #. Нужно создать скрипт (например ``~/.local/bin/cache_move.sh``) со следующим содержимым 
   
-:: 
+  :: 
 
-  #!/bin/sh
+    #!/bin/sh
 
-  if [ $(find /tmp/${LOGNAME}/.cache/ -mindepth 1 -printf '1\n' -quit) ]; then
-    rsync -av /tmp/${LOGNAME}/.cache/ /home/${LOGNAME}/.cache/
-  else
-    rsync -av /home/${LOGNAME}/.cache/ /tmp/${LOGNAME}/.cache/
-  fi
+    if [ $(find /tmp/${LOGNAME}/.cache/ -mindepth 1 -printf '1\n' -quit) ]; then
+      rsync -av /tmp/${LOGNAME}/.cache/ /home/${LOGNAME}/.cache/
+    else
+      rsync -av /home/${LOGNAME}/.cache/ /tmp/${LOGNAME}/.cache/
+    fi
 
 #. Разрешить выполнение скрипта
   
