@@ -484,6 +484,26 @@ x86_64_v2, так и для x86_64_v3. **Главное не перепутае�
   chmod +x ~/.local/bin/cache_move.sh 
 
 #. Настроить выполнение скрипта:
-  *. Через systemd 
+  *. Через systemd:
 
-  *. Через cron 
+  - создать сервис для systemd ``~/.config/systemd/user/cache_move@service`` с содержимым:: 
+
+    [Unit]
+    Description=Move .cache to /tmp 
+
+    [Install]
+    WantedBy=default.target
+
+    [Service]
+    Type=oneshot
+    RemainAfterExit=yes
+    ExecStart=%h/.local/bin/cache_move.sh %i
+    ExecStop=%h/.local/bin/cache_move.sh %i
+
+
+  *. Через cron задать переодичность выполнения::
+
+    crontab -e
+
+    0 */2 * * * ~/.local/bin/cache_move.sh    - запустить скрипт каждые два часа
+
