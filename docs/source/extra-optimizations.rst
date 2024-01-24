@@ -497,9 +497,6 @@ x86_64_v2, так и для x86_64_v3. **Главное не перепутае�
       [Unit]
       Description=Use .cache over /tmp 
 
-      [Install]
-      WantedBy=default.target
-
       [Service]
       Type=oneshot
       RemainAfterExit=yes
