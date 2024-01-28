@@ -179,7 +179,7 @@ Btrfs и не задействовать файл подкачки (вместо
 компиляторов, это LLVM и GCC. И те, и другие хорошо справляются с
 возложенными на них задачами, но LLVM имеет чуть большее преимущество
 с точки зрения производительности при меньших потерях в качестве
-конечного кода. Поэтому, в целом, применение компиляторов LLVM для
+конечного кода. Поэтому в целом применение компиляторов LLVM для
 сборки различных пакетов при задании флага -O3 (максимальная
 производительность) является совершенно оправданным, и может дать
 реальный прирост при работе программ.
@@ -190,7 +190,7 @@ Btrfs и не задействовать файл подкачки (вместо
 
 Для начала выполним их установку::
 
-  sudo pacman -Syu llvm clang lld
+  sudo pacman -Syu llvm clang lld mold openmp
 
 Теперь клонируем уже готовый конфигурационный файл ``/etc/makepkg.conf``
 под новыми именем в домашнюю директорию ``~/.makepkg-clang.conf``::
@@ -206,8 +206,8 @@ GCC если возникнут проблемы со сборкой пакет�
   export CC=clang
   export CXX=clang++
   export LD=ld.lld
-  export CC_LD=lld
-  export CXX_LD=lld
+  export CC_LD=mold
+  export CXX_LD=mold
   export AR=llvm-ar
   export NM=llvm-nm
   export STRIP=llvm-strip
@@ -219,46 +219,50 @@ GCC если возникнут проблемы со сборкой пакет�
   export HOSTCXX=clang++
   export HOSTAR=llvm-ar
   export HOSTLD=ld.lld
+  export CXXFLAGS="${CFLAGS}"
   export LLVM=1
   export LLVM_IAS=1
+  export CCLDFLAGS="$LDFLAGS"
+  export CXXLDFLAGS="$LDFLAGS"
 
 При использовании Clang из пакета `llvm-git` (установка описана ниже)
-стоит включить использование LLVM Polly при сборке пакетов: ::
+стоит включить использование LLVM OpenMP и компоновщика mold, а также
+другие флаги при сборке пакетов: ::
 
-  CFLAGS="-march=native -mtune=native -O3 -pipe -fno-plt -fexceptions \
-        -Wp,-D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security \
-        -fstack-clash-protection -fcf-protection -polly -polly-parallel \
-        -polly-vectorizer=stripmine -mllvm -polly-omp-backend=LLVM -lgomp"
+  CFLAGS="-march=native -mtune=native -O3 -fexceptions -fopenmp \
+          -falign-functions=32 -fno-math-errno -fno-trapping-math \
+          -fcf-protection=none -mharden-sls=none -Wp,-D_FORTIFY_SOURCE=2 \
+          -Wformat -Werror=format-security -fstack-clash-protection"
   CXXFLAGS="$CFLAGS -Wp,-D_GLIBCXX_ASSERTIONS"
   export CFLAGS_KERNEL="$CFLAGS"
   export CXXFLAGS_KERNEL="$CXXFLAGS"
   export CFLAGS_MODULE="$CFLAGS"
   export CXXFLAGS_MODULE="$CXXFLAGS"
   export KBUILD_CFLAGS="$CFLAGS"
-  export KCFLAGS="-O3 -mllvm -polly -mllvm -polly-parallel -mllvm -polly-vectorizer=stripmine -mllvm -polly-omp-backend=LLVM -lgomp"
+  export KCFLAGS="-O3"
   export KCPPFLAGS="$KCFLAGS"
-  LDFLAGS="-Wl,-O3,--sort-common,--as-needed,-z,relro,-z,now"
-  RUSTFLAGS="-C opt-level=3"
-  MAKEFLAGS="-j$(nproc) -l$(nproc)"
+  LDFLAGS="-Wl,-O3,--sort-common,--as-needed,-lgomp,-z,pack-relative-relocs,-z,relro,-z,now"
+  LTOFLAGS="-flto=auto"
+  RUSTFLAGS="-C opt-level=3 -C target-cpu=native -C link-arg=-z -C link-arg=pack-relative-relocs"
+  #-- Make Flags: change this for DistCC/SMP systems
+  MAKEFLAGS="-j$(nproc)"
+  NINJAFLAGS="-j$(nproc)"
   OPTIONS=(strip docs !libtool !staticlibs emptydirs zipman purge !debug lto)
 
-Для некоторый оптимизаций Polly нужно установить OpenMP: ::
-
-  sudo pacman -S openmp
-
-Если используется LLVM версии ниже, чем 15.0.1, 
-то нужно убрать ``-mllvm -polly-omp-backend=LLVM``.
-Лишь с этой версии LLVM стало возможным дублировать
-некоторые флаги без последующего появления ошибки.
-
-Подробнее про LLVM Polly можешь почитать `тут
-<https://polly.llvm.org/>`__.
+.. warning:: Здесь мы используем некоторые флаги которые не
+   рекомендуется использовать с точки зрения безопасности конечного
+   кода для того чтобы увеличить производительность, как например
+   ``-fcf-protection=none`` и ``-mharden-sls=none``, но если для вас
+   безопасность такой же важный аспект как и производительность, то
+   замените их на соответствующие флаги  на
+   ``-fstack-clash-protection`` и ``-fcf-protection`` (флаг
+   -mharden-sls можно просто опустить).
 
 Отлично, теперь вы можете собрать нужные вам пакеты (программы) через
 LLVM/Clang просто добавив к уже известной команде makepkg следующие
 параметры::
 
-  makepkg --config ~/.makepkg-clang.conf -sric
+  makepkg --config ~/.makepkg-clang.conf -sric -skippgpcheck --skipchecksums
 
 .. attention:: Далеко не все пакеты так уж гладко собираются через
    Clang, в частности не пытайтесь собирать им Wine/DXVK, т.к. это
