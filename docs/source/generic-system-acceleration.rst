@@ -577,7 +577,7 @@ https://github.com/lovell/sharp/issues/955
   :caption: ``nano ~/.config/pipewire/pipewire.conf.d/10-sound.conf``
 
    context.properties = {
-     default.clock.rate = 96000
+     default.clock.rate = 48000
      default.clock.allowed-rates = [ 44100 48000 88200 96000 ]
      default.clock.min-quantum = 16
    }
@@ -598,7 +598,7 @@ https://github.com/lovell/sharp/issues/955
 Для устройств с большим диапозоном доступных частот в качестве примера
 можно привести следующие значения::
 
-  default.clock.rate          = 384000
+  default.clock.rate          = 192000
   default.clock.allowed-rates = [ 44100 48000 88200 96000 176400 192000 352800 384000 768000 ]
 
 .. index:: pipewire, upmix, 5.1, sound
