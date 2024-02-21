@@ -653,11 +653,6 @@ ALSA - это тот самый звук (условно, на самом дел
 может вам подойти.Пакет *alsa-utils* также содержит консольный Микшер
 (настройка громкости), который вызывается командой alsamixer.
 
-Вообще, выбор звукового сервера не такая уж сложная задача как вам
-может показаться, достаточно взглянуть на следующую схему:
-
-.. image:: images/generic-system-acceleration-2.png
-
 .. index:: startup-acceleration, networkmanager, service, 
 .. _startup-acceleration:
 
