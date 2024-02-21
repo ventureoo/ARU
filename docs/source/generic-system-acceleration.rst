@@ -265,12 +265,12 @@ Wiki.
 **1.5** `dbus-broker <https://github.com/bus1/dbus-broker>`_ - Это
 реализация шины сообщений в соответствии со спецификацией D-Bus. Её
 цель - обеспечить высокую производительность и надежность при
-сохранении совместимости с эталонной реализацией D-Bus. Обеспечивает
-чуть более быстрое общение с видеокартой через PCIe. ::
+сохранении совместимости с эталонной реализацией D-Bus. ::
 
-  sudo pacman -S dbus-broker                         # Уставновка
-  sudo systemctl enable --now dbus-broker.service    # Включает и запускает службу.
-  sudo systemctl --global enable dbus-broker.service # Включает и запускает службу для всех пользователей.
+  sudo pacman -S dbus-broker
+
+.. info:: Для новых установок в Arch Linux dbus-broker используется по
+   умолчанию.
 
 **1.6** `irqbalance <https://github.com/Irqbalance/irqbalance>`_ - это демон, что автоматически балансирует обработку прерываний
 по ядрам процессора. ::
