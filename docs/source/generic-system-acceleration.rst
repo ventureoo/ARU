@@ -36,7 +36,7 @@ Arch Linux - это фундамент, и требуется уйма надс�
   :caption: ``nano ~/.makepkg.conf``
 
   CFLAGS="-march=native -mtune=native -O2 -pipe -fno-plt -fexceptions \
-        -Wp,-D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security \
+        -Wp,-D_FORTIFY_SOURCE=3 -Wformat -Werror=format-security \
         -fstack-clash-protection -fcf-protection"
   CXXFLAGS="$CFLAGS -Wp,-D_GLIBCXX_ASSERTIONS"
   RUSTFLAGS="-C opt-level=3 -C target-cpu=native -C link-arg=-z -C link-arg=pack-relative-relocs"
@@ -269,7 +269,7 @@ Wiki.
 
   sudo pacman -S dbus-broker
 
-.. info:: Для новых установок в Arch Linux dbus-broker используется по
+.. note:: Для новых установок в Arch Linux dbus-broker используется по
    умолчанию.
 
 **1.6** `irqbalance <https://github.com/Irqbalance/irqbalance>`_ - это демон, что автоматически балансирует обработку прерываний
