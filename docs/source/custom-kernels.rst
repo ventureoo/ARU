@@ -262,7 +262,7 @@ pacman -U`` (в конце пишете путь до скаченного фа�
 
   sudo pacman-key --recv-keys F3B607488DB35A47 --keyserver keyserver.ubuntu.com
   sudo pacman-key --lsign-key F3B607488DB35A47
-  sudo pacman -U 'https://mirror.cachyos.org/repo/x86_64/cachyos/cachyos-keyring-3-1-any.pkg.tar.zst' 'https://mirror.cachyos.org/repo/x86_64/cachyos/cachyos-mirrorlist-18-1-any.pkg.tar.zst' 'https://mirror.cachyos.org/repo/x86_64/cachyos/cachyos-v3-mirrorlist-18-1-any.pkg.tar.zst' 'https://mirror.cachyos.org/repo/x86_64/cachyos/cachyos-v4-mirrorlist-6-1-any.pkg.tar.zst' 'https://mirror.cachyos.org/repo/x86_64/cachyos/pacman-6.0.2-14-x86_64.pkg.tar.zst'
+  sudo pacman -U 'https://mirror.cachyos.org/repo/x86_64/cachyos/cachyos-keyring-3-1-any.pkg.tar.zst' 'https://mirror.cachyos.org/repo/x86_64/cachyos/cachyos-mirrorlist-18-1-any.pkg.tar.zst' 'https://mirror.cachyos.org/repo/x86_64/cachyos/cachyos-v3-mirrorlist-18-1-any.pkg.tar.zst' 'https://mirror.cachyos.org/repo/x86_64/cachyos/cachyos-v4-mirrorlist-6-1-any.pkg.tar.zst' 'https://mirror.cachyos.org/repo/x86_64/cachyos/pacman-6.0.2-16-x86_64.pkg.tar.zst'
 
 Стоит учитывать, что у данного репозитория есть развилка по
 архитектурам. То есть он одновременно поддерживает и x86_64, и
@@ -284,9 +284,6 @@ x86_64v3::
 .. TODO: Move the cachyos repo installation to a separate section
 
 Теперь, если у вас ЕСТЬ поддержка x86_64v3, то пишем следующее::
-
-  # Находим данную строку и редактируем:
-  Architecture = x86_64 x86_64_v3
 
   # Спускаемся в самый низ файла и пишем:
   [cachyos-v3]
