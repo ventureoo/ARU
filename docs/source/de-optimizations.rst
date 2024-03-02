@@ -138,7 +138,7 @@ Tracker - это встроенный поисковик для GNOME, кото�
 
 **Инструкция по отключению** ::
 
-  systemctl --user mask tracker-miner-apps tracker-miner-fs tracker-store
+  systemctl --user mask tracker-extract-3 tracker-miner-fs-3 tracker-miner-fs-control-3 tracker-miner-rss-3 tracker-writeback-3 tracker-xdg-portal-3
 
 После перезагрузки системы выполните::
 
@@ -380,7 +380,7 @@ KDE Plasma 5
 
 ::
 
-  sudo pacman -Rsn kwayland-integration kwallet-pam plasma-thunderbolt plasma-vault powerdevil plasma-sdk kgamma5 drkonqi discover oxygen bluedevil plasma-browser-integration plasma-firewall
+  sudo pacman -Rsn kwayland-integration kwallet-pam plasma-thunderbolt plasma-vault plasma-sdk kgamma drkonqi discover oxygen oxygen-sounds plasma-browser-integration plasma-firewall
   # Не удаляйте powerdevil если у вас  ноутбук, а bluedevil если используете bluetooth соответственно.
 
   sudo pacman -Rsn plasma-pa     # Удаляем виджет управления звуком.
