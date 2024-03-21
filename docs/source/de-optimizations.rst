@@ -38,8 +38,8 @@
 сессий) через tty вам понадобиться прописать в ваш *.bash_profile* или
 *.zsh_profile* следующее::
 
-  if [[ -z $DISPLAY && $(tty) == /dev/tty1 ]]; then
-    XDG_SESSION_TYPE=x11 GDK_BACKEND=x11 exec startx
+  if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
+    startx
   fi
 
 Это запустит X-сервер сразу при входе в tty1 (терминал по умолчанию).
