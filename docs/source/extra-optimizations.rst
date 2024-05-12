@@ -311,7 +311,7 @@ Clang с помощью бинарного Clang из репозиториев. 
   # Сборка LLVM
   git clone https://aur.archlinux.org/llvm-git
   cd llvm-git
-  makepkg -sric --config /etc/makepkg-clang.conf
+  makepkg -sric --config ~/.makepkg-clang.conf
 
 .. index:: installation, x86_64_v2, x86_64_v3, alhp, repository, packages
 .. _alhp_repository:
