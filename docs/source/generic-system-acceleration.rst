@@ -41,7 +41,6 @@ Arch Linux - это фундамент, и требуется уйма надс�
   CXXFLAGS="$CFLAGS -Wp,-D_GLIBCXX_ASSERTIONS"
   RUSTFLAGS="-C opt-level=3 -C target-cpu=native -C link-arg=-z -C link-arg=pack-relative-relocs"
   MAKEFLAGS="-j$(nproc) -l$(nproc)"
-  OPTIONS=(strip docs !libtool !staticlibs emptydirs zipman purge !debug lto)
 
 .. note:: Где "-O2" - **Это не нуль/ноль**
 
@@ -144,7 +143,7 @@ ccache. За счёт этого и достигается многократн�
 Для этого отредактируем конфигурационный файл
 
 .. code-block:: shell
-   :caption: ``nano ~/.makepkg-conf``
+   :caption: ``nano ~/.makepkg.conf``
 
    BUILDENV=(!distcc color ccache check !sign)
 
