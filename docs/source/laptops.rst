@@ -146,7 +146,7 @@ AMD:
   Section "Device"
       Identifier  "nvidia"
       Driver      "nvidia"
-      BusID       "PCI:x:x:x" # Например: "PCI:1:0:0"
+      BusID       "PCI:1:0:0" # Например: "PCI:1:0:0"
   EndSection
   
   Section "Screen"
