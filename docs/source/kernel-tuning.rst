@@ -407,7 +407,6 @@ Zswap заполнится (по умолчанию он равен 20%), то �
 sysctl:
 
 .. code-block:: shell
-   :linenos:
    :caption: ``sudo nano /etc/sysctl.d/90-sysctl.conf``
 
    vm.swappiness = 100
@@ -479,11 +478,10 @@ ZRAM также ведет свою статистику о том, какие �
 перманентное отключение через создание файла в директории
 ``/etc/tmpfiles.d`` со следующим содержимым:
 
-    .. code-block:: shell
-       :linenos:
-       :caption: ``sudo nano /etc/tmpfiles.d/90-disable-zswap.conf``
+.. code-block:: shell
+   :caption: ``sudo nano /etc/tmpfiles.d/90-disable-zswap.conf``
 
-       w! /sys/module/zswap/parameters/enabled - - - - 0
+   w! /sys/module/zswap/parameters/enabled - - - - 0
 
 .. note:: Важно отметить, что для использования ZRAM вам вовсе не
    обязательно отключать обычную подкачку, если она у вас до этого
@@ -510,21 +508,19 @@ ZRAM также ведет свою статистику о том, какие �
 ``/etc/modules-load.d/30-zram.conf`` и прописать в него всего одну
 строчку:
 
-    .. code-block:: shell
-       :linenos:
-       :caption: ``sudo nano /etc/modules-load.d/zram.conf``
+.. code-block:: shell
+   :caption: ``sudo nano /etc/modules-load.d/zram.conf``
 
-       zram
+   zram
 
 Теперь используя правила udev, мы будем создавать наше блочное
 устройство ``/dev/zram0`` и делать из него раздел подкачки. Для этого
 создадим файл в директории ``/etc/udev/rules.d/30-zram.rules``:
 
-    .. code-block:: shell
-       :linenos:
-       :caption: ``sudo nano /etc/udev/rules.d/30-zram.rules``
+.. code-block:: shell
+   :caption: ``sudo nano /etc/udev/rules.d/30-zram.rules``
 
-        ACTION=="add", KERNEL=="zram0", ATTR{comp_algorithm}="zstd", ATTR{disksize}="8G", RUN="/usr/bin/mkswap -U clear /dev/%k", TAG+="systemd"
+   ACTION=="add", KERNEL=="zram0", ATTR{comp_algorithm}="zstd", ATTR{disksize}="8G", RUN="/usr/bin/mkswap -U clear /dev/%k", TAG+="systemd"
 
 Теперь подробно о том, что из себя представляет само udev правило. В
 начале мы указываем при каком действии мы хотим, чтобы оно
@@ -586,11 +582,10 @@ udev правило действие, которое мы хотим сдела�
 что ``/dev/zram0`` это вообще-то наша подкачка и установить ей
 приоритет ``100``.
 
-    .. code-block:: shell
-       :linenos:
-       :caption: ``sudo nano /etc/fstab``
+.. code-block:: shell
+   :caption: ``sudo nano /etc/fstab``
 
-        /dev/zram0 none swap defaults,pri=100 0 0
+    /dev/zram0 none swap defaults,pri=100 0 0
 
 На этом все, теперь можно перезагружаться и проверять работу через
 ``zramctl``. Если такой способ для вас показался слишком сложным, то
@@ -665,11 +660,10 @@ udev правило действие, которое мы хотим сдела�
 в своих системах по умолчанию [#]_ [#]_, что советую сделать и вам. Для этого
 как обычно достаточно просто прописать значение в конфиге sysctl:
 
-    .. code-block:: shell
-       :linenos:
-       :caption: ``sudo nano /etc/sysctl.d/99-sysctl.conf``
+.. code-block:: shell
+   :caption: ``sudo nano /etc/sysctl.d/99-sysctl.conf``
 
-        vm.page-cluster = 0
+    vm.page-cluster = 0
 
 .. _mglru:
 
@@ -782,11 +776,10 @@ MGLRU предотвращает вытеснение "рабочего набо
 для автоматизации процесса воспользуемся файлом конфигурации
 ``systemd-tmpfiles``:
 
-    .. code-block:: shell
-       :linenos:
-       :caption: ``sudo nano /etc/tmpfiles.d/90-page-trashing.conf``
+.. code-block:: shell
+   :caption: ``sudo nano /etc/tmpfiles.d/90-page-trashing.conf``
 
-        w! /sys/kernel/mm/lru_gen/min_ttl_ms - - - - 2000
+   w! /sys/kernel/mm/lru_gen/min_ttl_ms - - - - 2000
 
 .. _vfs_cache_pressure:
 
@@ -840,10 +833,9 @@ MGLRU предотвращает вытеснение "рабочего набо
 sysctl:
 
 .. code-block:: shell
-   :linenos:
    :caption: ``sudo nano /etc/sysctl.d/90-vfs-cache.conf``
 
-    vm.vfs_cache_pressure = 50
+   vm.vfs_cache_pressure = 50
 
 Конечно, лучший способ увеличения быстродействия ввод/вывода это
 кэшировать как можно больше данных в памяти, так как это самое быстрое
@@ -944,17 +936,17 @@ SSD/NVMe/microSD/SD накопителям). Если вам казалось, �
 .. code-block:: shell
    :caption: ``sudo nano /etc/udev/rules.d/90-io-schedulers.rules``
 
-    # HDD
-    ACTION=="add|change", KERNEL=="sd[a-z]*", ATTR{queue/rotational}=="1", ATTR{queue/scheduler}="bfq"
+   # HDD
+   ACTION=="add|change", KERNEL=="sd[a-z]*", ATTR{queue/rotational}=="1", ATTR{queue/scheduler}="bfq"
 
-    # eMMC/SD/microSD cards
-    ACTION=="add|change", KERNEL=="mmcblk[0-9]*", ATTR{queue/rotational}=="0", ATTR{queue/scheduler}="mq-deadline"
+   # eMMC/SD/microSD cards
+   ACTION=="add|change", KERNEL=="mmcblk[0-9]*", ATTR{queue/rotational}=="0", ATTR{queue/scheduler}="mq-deadline"
 
-    # SSD
-    ACTION=="add|change", KERNEL=="sd[a-z]*", ATTR{queue/rotational}=="0", ATTR{queue/scheduler}="none"
+   # SSD
+   ACTION=="add|change", KERNEL=="sd[a-z]*", ATTR{queue/rotational}=="0", ATTR{queue/scheduler}="none"
 
-    # NVMe SSD
-    ACTION=="add|change", KERNEL=="nvme[0-9]*", ATTR{queue/rotational}=="0", ATTR{queue/scheduler}="none"
+   # NVMe SSD
+   ACTION=="add|change", KERNEL=="nvme[0-9]*", ATTR{queue/rotational}=="0", ATTR{queue/scheduler}="none"
 
 (Чтобы использовать планировщик ``mq-deadline`` для SATA SSD просто
 поменяйте значение внутри кавычек в третьей строке с ``none`` на
@@ -1009,7 +1001,6 @@ KDiskMark), чтобы понять какой из планировщиков �
 хватит точно всем :)
 
 .. code-block:: shell
-   :linenos:
    :caption: ``sudo nano /etc/sysctl.d/99-sysctl.conf``
 
     vm.max_map_count = 1048576
