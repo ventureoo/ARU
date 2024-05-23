@@ -270,7 +270,7 @@ SSD - ``mq-deadline``, для HDD - ``bfq``. Правила udev позволя�
   страничный кэш. Обратите внимание, что исполняемые файлы (программы)
   тоже загружаются в память как файловые страницы.
 
-.. image:: images/page-cache.png
+.. image:: https://biriukov.dev/docs/page-cache/images/page-cache.png
    :align: right
 
 (Licensed under the CC BY-NC 4.0. © Vladislav Biriukov, All rights reserved)
