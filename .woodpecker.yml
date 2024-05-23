@@ -1,6 +1,6 @@
 # Sphinx build
 steps:
-  build-html:
+  - name: build-html
     image: sphinxdoc/sphinx
     when:
       event: [ push, pull_request, tag ]
@@ -10,7 +10,7 @@ steps:
       - pip3 install --upgrade sphinx-copybutton
       - cd ./docs
       - sphinx-build -b html . build -W
-  build-pdf:
+  - name: build-pdf
     image: sphinxdoc/sphinx-latexpdf
     when:
       event: [ push, pull_request, tag ]
@@ -20,7 +20,7 @@ steps:
       - pip3 install --upgrade sphinx-copybutton
       - sphinx-build -M latexpdf . build -W
   # Based on: https://codeberg.org/gitnex/tea4j-autodeploy/src/branch/main/.woodpecker.yml
-  deploy:
+  - name: deploy
     image: alpine/git
     when:
       event: [ push, tag ]
