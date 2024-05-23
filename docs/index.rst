@@ -35,4 +35,5 @@ Wiki, он лишь является практическим руководст
    source/useful-programs.rst
    source/laptops.rst
    source/monitor-overlocking.rst
+   source/kernel-tuning.rst
 
