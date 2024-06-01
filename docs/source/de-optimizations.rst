@@ -380,7 +380,7 @@ KDE Plasma 6
 
 ::
 
-  sudo pacman -Rsn kwallet-pam plasma-thunderbolt plasma-vault plasma-sdk kgamma drkonqi discover oxygen oxygen-sounds plasma-browser-integration milou flatpak-kcm plymouth-kcm kde-cli-tools kinfocenter wacomtablet qqc2-breeze-style plasma-welcome kwrited
+  sudo pacman -Rsn kwallet-pam plasma-thunderbolt plasma-vault plasma-sdk kgamma drkonqi discover oxygen oxygen-sounds plasma-browser-integration flatpak-kcm plymouth-kcm kinfocenter wacomtablet plasma-welcome kwrited
 
   sudo pacman -Rsn plasma-pa     # Удаляем виджет управления звуком.
   sudo pacman -S kmix            # Замена виджету plasma-pa, совместим с ALSA.
@@ -661,14 +661,5 @@ Cinnamon, или дословно корица, это форк GNOME 3, кот�
 отключить все имеющийся здесь эффекты. Но вы можете сделать это также
 и выборочно. И как обычно: Чем меньше эффектов включено -> Тем меньше
 потребление ресурсов ОЗУ и VRAM.
-
-.. index:: results
-.. _cinnamon-result:
-
------------
-Результат
------------
-
-.. image:: https://codeberg.org/ventureo/ARU/raw/branch/main/archive/DE-Optimizations/images/image3.png
 
 .. vim:set textwidth=70:
