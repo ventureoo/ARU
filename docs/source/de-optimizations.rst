@@ -344,19 +344,6 @@ gnome-shell-performance и mutter-performance
   [Settings]
   gtk-hint-font-metrics=1
 
-.. index:: results
-.. _gnome-result:
-
-----------
-Результат
-----------
-
-По окончании всех оптимизаций мы получаем потребление на уровне
-современной XFCE, но в отличие от оной уже на современном GTK4, а
-также со всеми рабочими эффектами и анимациями.
-
-.. image:: https://codeberg.org/ventureo/ARU/raw/branch/main/archive/DE-Optimizations/images/image2.jpg
-
 .. index:: plasma, kde, de-optimizations
 .. _plasma-optimization:
 
@@ -517,15 +504,6 @@ NetworkManager.
 она осуществляет обновление Меню Приложений при появлении новых
 ярлыков, однако даже при её отключении этот функционал работает.
 Отключайте на свое усмотрение.
-
-.. index:: results
-.. _plasma-result:
-
-----------
-Результат
-----------
-
-.. image:: https://codeberg.org/ventureo/ARU/raw/branch/main/archive/DE-Optimizations/images/image1.jpg
 
 .. index:: cinnamon, de-optimizations
 .. _cinnamon-optimization:
