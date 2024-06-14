@@ -268,7 +268,7 @@ NVIDIA
 
 ::
 
-  sudo pacman -S nvidia-dkms nvidia-utils lib32-nvidia-utils nvidia-settings vulkan-icd-loader lib32-vulkan-icd-loader lib32-opencl-nvidia opencl-nvidia libxnvctrl
+  sudo pacman -S nvidia-dkms nvidia-utils lib32-nvidia-utils nvidia-settings lib32-opencl-nvidia opencl-nvidia libxnvctrl
 
 NVIDIA (470xx)
 ---------------
@@ -300,27 +300,25 @@ Nouveau (*Только для старых видеокарт*)
 драйвера NVIDIA (340, 390) и отлично справляется с 2D ускорением. Вдобавок,
 Nouveau хорошо работает с Wayland. ::
 
-  sudo pacman -S mesa lib32-mesa vulkan-icd-loader lib32-vulkan-icd-loader libva-mesa-driver lib32-libva-mesa-driver mesa-vdpau lib32-mesa-vdpau
+  sudo pacman -S mesa lib32-mesa libva-mesa-driver lib32-libva-mesa-driver vulkan-nouveau lib32-vulkan-nouveau opencl-rusticl-mesa lib32-opencl-rusticl-mesa
 
-Пакеты ``libva-mesa-driver``, ``mesa-vdpau`` и ``lib32-mesa-vdpau``
-нужны для работы аппаратного видео ускорения.
+Пакет ``libva-mesa-driver`` нужен для работы аппаратного ускорения
+видео в браузерах и видеоплеерах.
 
 AMD
 ----
 ::
 
-  sudo pacman -S mesa lib32-mesa vulkan-radeon lib32-vulkan-radeon vulkan-icd-loader lib32-vulkan-icd-loader mesa-vdpau lib32-mesa-vdpau libva-mesa-driver lib32-libva-mesa-driver vulkan-mesa-layers
+  sudo pacman -S mesa lib32-mesa vulkan-radeon lib32-vulkan-radeon libva-mesa-driver lib32-libva-mesa-driver vulkan-mesa-layers opencl-rusticl-mesa lib32-opencl-rusticl-mesa
 
-Пакеты ``libva-mesa-driver``, ``mesa-vdpau`` и ``lib32-mesa-vdpau``, а
-также ``lib32-libva-mesa-driver`` нужны для работы аппаратного видео
-ускорения. ``vulkan-mesa-layers`` -  это дополнительные уровни
-своместимости с вулканом
+Пакет ``libva-mesa-driver``, также нужны для работы аппаратного
+ускорения видео 
 
 Intel
 -----
 ::
 
-  sudo pacman -S mesa lib32-mesa vulkan-intel lib32-vulkan-intel vulkan-icd-loader lib32-vulkan-icd-loader
+  sudo pacman -S mesa lib32-mesa vulkan-intel lib32-vulkan-intel opencl-rusticl-mesa lib32-opencl-rusticl-mesa
 
 .. warning:: Автор не рекомендует выполнять установку морально
    устаревших DDX драйверов, как например ``xf86-video-intel``, так
@@ -331,18 +329,6 @@ Intel
    внимание, что последние исправления и новые возможности (Как,
    например, опция ``"Tearfree"``) доступны только в Git версии,
    поэтому имеет смысл установить ``xorg-server-git`` из AUR.
-
-Данные команды выполнят установку полного набора драйверов для вашей видеокарты
-и всех зависимостей, но внимание: автор использует проприетарный драйвер
-NVIDIA, поэтому если вы заметили ошибку или желаете более проверенный источник:
-`GitHub <https://github.com/lutris/docs/blob/master/InstallingDrivers.md>`_.
-
-.. attention:: У авторов отсутствует оборудование AMD, поэтому в данном
-   руководстве основной акцент будет сделан именно на настройке оборудования от
-   компании NVIDIA. Если у вас есть желание дополнить это руководство
-   специфичными для открытых драйверов Mesa твиками/оптимизациями, вы можете
-   отправить нам свои изменения в качестве `Pull Request'a
-   <https://codeberg.org/ventureo/ARU/pulls>`_ на рассмотрение.
 
 .. index:: nvidia, tweaks, driver, settings, performance
 .. _nvidia-settings:
@@ -370,7 +356,7 @@ NVIDIA, поэтому если вы заметили ошибку или жел
 Во-первых, автор категорически не рекомендует выполнять настройку
 ваших мониторов и генерацию конфига ``xorg.conf`` в целом через
 nvidia-settings или nvidia-xconfig как советовалось делать ранее. В
-первую очередь потому, что это просто не нужно. Во-вторых, современные
+первую очередь потому, что это просто не нужно, так как современные
 версии графического сервера Xorg сами выполняют автонастройку и
 определение рабочих мониторов, кроме того большинство рабочих
 окружений (DE) в своих настройках уже позволяют вам выставить
@@ -379,7 +365,7 @@ nvidia-settings или nvidia-xconfig как советовалось делат
 который статичен и не может подстраиваться под изменения вашей
 конфигурации. Например, подключение второго монитора на лету вызовет
 проблемы, так как он не указан в ``xorg.conf``, а автоопределение при
-наличии конфигурационного файла перестает работать. В-третьих,
+наличии конфигурационного файла перестает работать. Вдобавок,
 программа nvidia-settings также является крайне ограниченной в
 конфигурациях с гибридной графикой (PRIME) или при использовании
 сессий на базе протокола Wayland.
