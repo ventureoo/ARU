@@ -268,7 +268,7 @@ NVIDIA
 
 ::
 
-  sudo pacman -S nvidia-dkms nvidia-utils lib32-nvidia-utils nvidia-settings lib32-opencl-nvidia opencl-nvidia libxnvctrl
+  sudo pacman -S nvidia-dkms nvidia-utils lib32-nvidia-utils nvidia-settings lib32-opencl-nvidia opencl-nvidia libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader
 
 NVIDIA (470xx)
 ---------------
@@ -279,6 +279,8 @@ NVIDIA (470xx)
 данном случае с поколением GPU Kepler. Если ваша видеокарта относится
 именно к этому поколению, то вам нужно установить не последний драйвер
 выше, а данную версию из AUR. ::
+
+  sudo pacman -S vulkan-icd-loader lib32-vulkan-icd-loader
 
   git clone https://aur.archlinux.org/nvidia-470xx-utils
   cd nvidia-470xx-utils
