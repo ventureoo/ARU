@@ -427,7 +427,7 @@ picom_.
 .. code-block:: shell
    :caption: sudo nano /etc/modprobe.d/nvidia-kms.conf
 
-    options nvidia_drm modeset=1
+   options nvidia_drm modeset=1
 
 Либо через параметр ядра ``nvidia-drm.modeset=1`` в конфигурации
 вашего загрузчика, однако первый способ универсален.
@@ -471,7 +471,7 @@ picom_.
 .. code-block:: shell
    :caption: sudo nano /etc/modprobe.d/nvidia-sleep.conf
 
-    options nvidia NVreg_PreserveVideoMemoryAllocations=1
+   options nvidia NVreg_PreserveVideoMemoryAllocations=1
 
 Затем необходимо включить ряд специальных служб, которые помогут
 восстановить работоспособность вашего ПК при выходе из сна::
@@ -504,7 +504,7 @@ picom_.
 .. code-block:: shell
    :caption: sudo nano /etc/modprobe.d/nvidia-pat.conf
 
-    options nvidia_drm NVreg_UsePageAttributeTable=1
+   options nvidia_drm NVreg_UsePageAttributeTable=1
 
 См. также: https://bbs.archlinux.org/viewtopic.php?id=242007
 
@@ -622,13 +622,13 @@ Btrfs (``btrfs zlib_deflate crc32c libcrc32c``), чтобы быть
 ======================
 
 Микрокод - программа реализующая набор инструкций процессора. Она уже встроена
-в материнскую плату вашего компьютера, но скорее всего вы его либо не обновляли
+в материнскую плату вашего компьютера, но скорее всего вы её либо не обновляли
 вовсе, либо делаете это не часто вместе с обновлением BIOS (UEFI).
 
-Однако у ядра Linux есть возможность применять его обновления прямо во время
-загрузки. Обновления микрокода содержат множественные исправления ошибок и
-улучшения стабильности, поэтому настоятельно рекомендуется их периодически
-устанавливать.
+Однако у ядра Linux есть возможность применять обновления микрокода
+прямо во время загрузки системы. Они содержат множественные
+исправления ошибок и улучшения стабильности, поэтому настоятельно
+рекомендуется их периодически устанавливать.
 
 Осуществляется это следующими командами::
 
