@@ -303,7 +303,7 @@ Wiki.
 пакет ``realtime-privileges`` и добавим пользователя в группу
 ``realtime``::
 
-  sudo pacman -S realtime-privileges
+  sudo pacman -S realtime-privileges rtkit
   sudo usermod -aG realtime "$(whoami)"
 
 Дополнительно советуем установить реализацию Jack API. См. раздел
