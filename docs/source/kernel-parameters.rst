@@ -36,7 +36,7 @@ GRUB:
 
 ::
 
-  GRUB_CMDLINE_LINUX_DEFAULT="quiet lpj=XXXXXXX mitigations=off nowatchdog page_alloc.shuffle=1 split_lock_detect=off pci=pcie_bus_perf intel_idle.max_cstate=1 libahci.ignore_sss=1"
+  GRUB_CMDLINE_LINUX_DEFAULT="quiet lpj=XXXXXXX mitigations=off nowatchdog page_alloc.shuffle=1 pci=pcie_bus_perf intel_idle.max_cstate=1 libahci.ignore_sss=1"
 
 
 ``sudo grub-mkconfig -o /boot/grub/grub.cfg`` # Обновляем загрузчик, можно так
@@ -66,11 +66,6 @@ GRUB:
 Улучшает производительность при работе с ОЗУ с очень быстрыми накопителями (NVMe, Optane).
 Подробнее `тут
 <https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=e900a918b0984ec8f2eb150b8477a47b75d17692>`__.
-
-``split_lock_detect=off`` - Отключаем раздельные блокировки шины
-памяти. Одна инструкция с раздельной блокировкой может занимать шину
-памяти в течение примерно 1 000 тактов, что может приводить к
-кратковременным зависаниям системы.
 
 ``intel_idle.max_cstate=1`` - только для процессоров Intel. Отключает
 энергосберегательные функции процессора, ограничивая его спящие
