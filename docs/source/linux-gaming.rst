@@ -638,23 +638,6 @@ Lutris - это удобный графический интерфейс по о
 .. image:: images/lutris-epic-library.png
 
 
-.. index:: proton, gaming, lutris, proton-ge-custom
-.. _proton-ge-with-lutris:
-
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Использование Proton-GE-Custom в Lutris
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Немногие понимают, что Proton по сути является тем же Wine, хоть и с плюшками.
-Так вот, зная этот факт, мы можем сказать Lutris использовать Proton в качестве
-кастомного Wine. Делается это очень просто::
-
-  mkdir -p ~/.local/share/lutris/runners/wine
-  ln -s /usr/share/steam/compatibilitytools.d/proton-ge-custom/files ~/.local/share/lutris/runners/wine/wine-proton-ge
-
-Затем просто выберите пункт в выборе версии Wine на *"wine-proton-ge"* в Lutris
-для нужной вам игры.
-
 .. index:: installation, gamemode, gaming, lutris
 .. _gamemode:
 
