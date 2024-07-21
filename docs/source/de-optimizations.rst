@@ -64,30 +64,6 @@ GNOME 4X.X
 их числе, поэтому в этом разделе вы узнаете о том, как заставить
 похудеть ваш толстенький gnome-shell.
 
-.. index:: garbage-removal, gnome-control-center, gnome
-.. _gnome-garbage-removal:
-
-----------------------
-Удаление мусора GNOME
-----------------------
-
-::
-
-  sudo pacman -Rsn epiphany gnome-calculator gnome-calendar gnome-contacts gnome-maps gnome-music gnome-weather gnome-clocks gnome-photos gnome-software gnome-user-docs totem yelp gnome-user-share gnome-characters simple-scan eog tracker3-miners rygel evolution-data-server gnome-font-viewer gnome-remote-desktop gnome-logs orca malcontent
-
-**P.S.** Удаляйте пакеты с осознанием того, что вы делайте. Несмотря
-на то, что здесь были собраны наиболее сомнительные по соотношению
-нужности/прожорливости пакеты, вы можете найти какой-либо из данных
-пакетов полезным и нужным.
-
-Можете удалить Nautilus и GVFS если хотите заменить более легковесным
-аналогом (например PCManFM)::
-
-  sudo pacman -Rsn gvfs-afc gvfs-goa gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-smb gvfs-google nautilus
-
-.. warning:: Некоторые пакеты из вышеприведенной команды могут быть не найдены в вашей системе.
-   В таком случае просто выпишите их из команды.
-
 .. index:: services, daemons, file-indexing, tracker3
 .. _disabling-tracker-3:
 
@@ -326,31 +302,6 @@ KDE Plasma 6
 Однако, "бесконечность - не предел", поэтому в этом разделе мы сделаем
 так, чтобы ваша plasma-shell кушала еще меньше ресурсов, и применим на
 ней другие твики.
-
-.. index:: garbage-removal, plasma-pa
-.. _plasma-garbage-removal:
-
------------------------------
-Удаление мусора из Plasma 6
------------------------------
-
-::
-
-  sudo pacman -Rsn kwallet-pam plasma-thunderbolt plasma-vault plasma-sdk kgamma drkonqi discover oxygen oxygen-sounds plasma-browser-integration flatpak-kcm plymouth-kcm kinfocenter wacomtablet plasma-welcome kwrited
-
-  sudo pacman -Rsn plasma-pa     # Удаляем виджет управления звуком.
-  sudo pacman -S kmix            # Замена виджету plasma-pa, совместим с ALSA.
-
-**P.S.** Удаляйте пакеты с осознанием того, что вы делайте. Несмотря
-на то, что здесь были собраны наиболее сомнительные по соотношению
-нужности/прожорливости пакеты, вы можете найти какой-либо из данных
-пакетов полезным и нужным.
-
-.. warning:: Некоторые пакеты из вышеприведенной команды могут быть не найдены в вашей системе.
-   В таком случае просто выпишите их из команды.
-
-.. index:: services, daemons, file-indexing, baloo
-.. _disabling-baloo:
 
 ---------------------------
 Отключение Baloo в Plasma
