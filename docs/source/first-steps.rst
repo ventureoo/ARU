@@ -97,12 +97,13 @@ Steam.
 ---------------------------------------------
 
 Начиная с шестой версии pacman поддерживает параллельную загрузку
-пакетов. Чтобы её включить отредактируйте */etc/pacman.conf*::
+пакетов. Чтобы её включить отредактируйте */etc/pacman.conf*:
 
-  sudo nano /etc/pacman.conf # Раскомментируйте строчку ниже
+.. code-block:: shell
+   :caption: ``sudo nano /etc/pacman.conf`` # Раскомментируйте строчку внутри файла
 
-  # Где 4 - количество пакетов для одновременной загрузки
-  ParallelDownloads = 4
+   # Где 4 - количество пакетов для одновременной загрузки
+   ParallelDownloads = 4
 
 .. index:: pacman, settings, disable-timeouts
 .. _disable_pacman_timeouts:
@@ -115,13 +116,12 @@ Steam.
 то при загрузке пакетов при помощи pacman вы могли сталкиваться с
 ошибкой превышания лимитов ожидания (таймаутов). Чтобы этого избежать
 нужно добавить параметр ``DisableDownloadTimeout`` в ``pacman.conf``
-как мы это уже делали ранее с ``ParallelDownloads``::
+как мы это уже делали ранее с ``ParallelDownloads``:
 
-   # Добавьте строку в секцию [options]
-   sudo nano /etc/pacman.conf
+.. code-block:: shell
+   :caption: ``sudo nano /etc/pacman.conf`` # Добавьте строку в секцию [options]
 
    DisableDownloadTimeout
-
 
 .. index:: installation, basic, packages
 .. _basic-software-installation:
