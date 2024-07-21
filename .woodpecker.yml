@@ -19,6 +19,7 @@ steps:
       - cd ./docs
       #- pip3 install --upgrade pip
       - pip3 install --upgrade sphinx-copybutton
+      - pip3 install --upgrade sphinx-design
       - sphinx-build -M latexpdf . build -W
   # Based on: https://codeberg.org/gitnex/tea4j-autodeploy/src/branch/main/.woodpecker.yml
   - name: deploy
