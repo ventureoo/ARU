@@ -19,10 +19,10 @@
 
 project = 'ARU — Руководство по оптимизации Arch Linux'
 author = 'Pavel Priluckiy, Vasiliy Stelmachenok and contributors'
-copyright = 'ARU 2018 - 2023 ' + author
+copyright = 'ARU 2018 - 2024 ' + author
 
 # The full version, including alpha/beta/rc tags
-release = '2022.07.01'
+release = '2024.07.21'
 
 
 # -- General configuration ---------------------------------------------------

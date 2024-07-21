@@ -4,7 +4,11 @@
     "version": "9999",
     "url": "https://ventureo.codeberg.page/latex/ARU.pdf"
   },
-
+  {
+    "name": "v2024.07.21 (stable)",
+    "version": "2024.07.21",
+    "url": "https://ventureo.codeberg.page/v2024.07.21/"
+  },
   {
     "name": "v2022.07.01 (stable)",
     "version": "2022.07.01",
