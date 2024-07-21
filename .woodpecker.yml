@@ -52,5 +52,5 @@ steps:
       - >
         if git commit --message "$${GIT_COMMIT_MESSAGE}"; then
           git remote set-url origin "https://$${GITEA_USERNAME}:$${GITEA_TOKEN}@$${GITEA_HOST}/$${GITEA_REPOSITORY}"
-          git push origin "$${GITEA_BRANCH}"
+          git push origin "$${GITEA_BRANCH}" -f
         fi
