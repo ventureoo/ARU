@@ -197,7 +197,7 @@ Windows 10 в Wine. Не рекомендуется к включению в в�
   wine reg.exe add HKCU\\Software\\Wine\\Drivers /v Graphics /d x11,wayland
 
 .. attention:: По умолчанию wine-tkg не использует нативные флаги которые мы
-   указывали ранее в */etc/makepkg.conf*. Их нужно указать вручную
+   указывали ранее в ``/etc/makepkg.conf``. Их нужно указать вручную
    отредактировав *wine-tkg-profiles/advanced-customization.cfg*::
 
     nano wine-tkg-profiles/advanced-customization.cfg # Отредактируйте строчки ниже
@@ -516,10 +516,6 @@ vkd3d, одна из которых разрабатывается команд�
 ------------------------------------
 
 **Скачать готовые сборки Wine и DXVK**
-
-https://mega.nz/folder/pNsTiQyA#2vur9shHbXvLnhdQTpd3AQ
-
-https://mega.nz/folder/IJdEgIrT#wXcbgymIDP2mesJ8kE99Qg
 
 https://github.com/Kron4ek/Wine-Builds
 
