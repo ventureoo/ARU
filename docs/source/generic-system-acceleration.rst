@@ -345,7 +345,7 @@ irqbalance
   sudo systemctl enable --now irqbalance
 
 .. index:: systemd, disabling, services, gsd, cinnamon
-.. _disabling-unnesassery-services:
+.. _disabling-unnecessary-services:
 
 =========================
 Отключение лишних служб
@@ -1130,4 +1130,3 @@ driver work to a separate thread"*
 
 .. _adriconf: https://archlinux.org/packages/community/x86_64/adriconf/
 
-.. vim:set textwidth=70:
