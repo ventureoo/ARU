@@ -333,7 +333,7 @@ Intel
    поэтому имеет смысл установить ``xorg-server-git`` из AUR.
 
 .. index:: cleanup, gnome, kde
-.. _remove_garbage_packages:
+.. _remove-garbage-packages:
 
 ==========================
 Удаление лишних пакетов
