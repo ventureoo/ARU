@@ -481,6 +481,7 @@ https://habr.com/ru/company/ruvds/blog/561286/
 .. index:: clang, native-compilation, llvm-bolt-builds, lto, pgo
 .. _speeding-up-clang-llvm-compilers:
 
+-----------------------------------------
 Ускорение работы компиляторов LLVM/Clang
 -----------------------------------------
 
