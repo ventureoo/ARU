@@ -188,13 +188,21 @@ intel-pstate, так и для amd-pstate есть ``active`` и ``passive``
 при помощи соответствующих параметров ядра ``amd_pstate`` (например,
 ``amd_pstate=guided``) или ``intel_pstate`` в зависимости от
 используемого драйвера масштабирования, так и прямо во время работы
-системы при помощи файла ``status`` на псевдофайловой системе sysfs::
+системы при помощи файла ``status`` на псевдофайловой системе sysfs:
 
-   # Для процессоров AMD под управлением amd-pstate драйвера
-   echo "passive" | sudo tee /sys/devices/system/cpu/amd_pstate/status
+.. tab-set::
 
-   # Для процессоров Intel под управлением intel-pstate драйвера
-   echo "passive" | sudo tee /sys/devices/system/cpu/intel_pstate/status
+   .. tab-item:: AMD
+
+     ::
+
+       echo "passive" | sudo tee /sys/devices/system/cpu/amd_pstate/status
+
+   .. tab-item:: Intel
+
+     ::
+
+       echo "passive" | sudo tee /sys/devices/system/cpu/intel_pstate/status
 
 .. index:: cpupower, cpufreq
 .. _cpufreq_tuning:
