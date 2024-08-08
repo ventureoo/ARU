@@ -85,7 +85,7 @@ Steam.
 
 Можно также вручную отредактировать список зеркал, добавив туда зеркала из
 постоянно обновляющегося перечня на сайте Arch Linux
-(https://archlinux.org/mirrorlist/) ::
+(https://archlinux.org/mirrorlist/)::
 
   sudo nano /etc/pacman.d/mirrorlist # Рекомендуем прописывать зеркала от Яндекса
 
@@ -478,7 +478,7 @@ picom_.
 ``/etc/modprobe.d/nvidia-kms.conf`` со следующим содержанием:
 
 .. code-block:: shell
-   :caption: sudo nano /etc/modprobe.d/nvidia-kms.conf
+   :caption: ``sudo nano /etc/modprobe.d/nvidia-kms.conf``
 
    options nvidia_drm modeset=1 fbdev=1
 
@@ -530,7 +530,7 @@ picom_.
 следующее:
 
 .. code-block:: shell
-   :caption: sudo nano /etc/modprobe.d/nvidia-sleep.conf
+   :caption: ``sudo nano /etc/modprobe.d/nvidia-sleep.conf``
 
    options nvidia NVreg_PreserveVideoMemoryAllocations=1
 
@@ -563,9 +563,9 @@ picom_.
 файл, что мы создавали ранее:
 
 .. code-block:: shell
-   :caption: sudo nano /etc/modprobe.d/nvidia-pat.conf
+   :caption: ``sudo nano /etc/modprobe.d/nvidia-pat.conf``
 
-   options nvidia_drm NVreg_UsePageAttributeTable=1
+   options nvidia NVreg_UsePageAttributeTable=1
 
 См. также: https://bbs.archlinux.org/viewtopic.php?id=242007
 
@@ -624,7 +624,7 @@ VSync. Мы рекомендуем задавать вовсе *"1"* (т.е. н�
 в файле ``/etc/environment``.
 
 .. code-block:: shell
-   :caption: sudo nano /etc/environment
+   :caption: ``sudo nano /etc/environment``
 
     __GL_SYNC_DISPLAY_DEVICE=HDMI-0 # Это пример, указывайте свое имя выхода
 
