@@ -842,7 +842,7 @@ Cinnamon). Если у вас такого нет - смело отключай�
    context.properties = {
      default.clock.rate = 48000
      default.clock.allowed-rates = [ 44100 48000 88200 96000 ]
-     default.clock.min-quantum = 16
+     default.clock.min-quantum = 2048
    }
 
 Обратите внимание на параметры ``default.clock.rate`` и
@@ -903,7 +903,7 @@ PipeWire так же как и PulseAuido позволяет микширова�
    context.properties = {
      default.clock.rate = 96000
      default.clock.allowed-rates = [ 44100 48000 88200 96000 ]
-     default.clock.min-quantum = 16
+     default.clock.min-quantum = 2048
      default.clock.quantum = 4096
      default.clock.max-quantum = 8192
    }
