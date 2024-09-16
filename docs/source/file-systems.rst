@@ -88,13 +88,13 @@ Ext4 при должных оптимизациях показывает себ�
 
 ::
 
-    relatime,commit=300,nombcache,journal_async_commit,nodelalloc,data=journal
+    relatime,commit=300,journal_async_commit,nodelalloc,data=journal
 
 Если нет, то относительно безопасным вариантом будет:
 
 ::
 
-    relatime,commit=300,nombcache,data=ordered
+    relatime,commit=300,data=ordered
 
 В последнем параметр ``data=ordered`` можно заменить на ``data=writeback``,
 что отключит использование журнала вовсе, но может вызывать потери данных или
