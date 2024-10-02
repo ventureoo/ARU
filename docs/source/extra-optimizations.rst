@@ -579,7 +579,7 @@ x86_64_v2, так и для x86_64_v3. **Главное не перепутае�
   # Ключи для пакетов
   git clone https://aur.archlinux.org/alhp-keyring.git
   cd alhp-keyring
-  makepkg -sric
+  makepkg -sric --skippgpcheck
 
 А также список зеркал::
 
