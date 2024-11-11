@@ -306,35 +306,6 @@ intel-pstate, так и для amd-pstate есть ``active`` и ``passive``
     }
   });
 
-.. index:: sysctl, esync, wine
-.. _limit-increase:
-
-==================
-Повышение лимитов
-==================
-
-Отредактируйте файлы::
-
-  sudo nano /etc/systemd/system.conf
-  sudo nano /etc/systemd/user.conf
-
-Изменените значения ``DefaultLimitNOFILE=`` на 523288 (можно удвоить). ::
-
-  systemctl daemon-reload
-
-Для Arch Linux необходимо так же прописать лимиты в
-``/etc/security/limits.conf`` (в самый нижний столбец)::
-
-  username hard nofile 524288
-
-Вместо *username* нужно вписать ваше имя пользователя.
-
-.. image:: images/limits.jpg
-
-Эти изменения необходимы для правильной работы технологи Esync и
-увеличения плавности системы, так как параметры по умолчанию могут
-быть слишком малы. Подробнее `здесь
-<https://www.ixbt.com/live/games/testirovanie-esync-vs-fsync-v-linux.html>`_.
 
 .. index:: swap, swapfile
 .. _disabling-swap:
