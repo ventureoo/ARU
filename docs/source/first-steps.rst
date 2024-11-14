@@ -263,7 +263,7 @@ NVIDIA
 которые при помощи системы динамических модулей DKMS автоматически
 собируться под нужное ядро::
 
-  sudo pacman -S nvidia-dkms nvidia-utils lib32-nvidia-utils nvidia-settings lib32-opencl-nvidia opencl-nvidia libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader
+  sudo pacman -S nvidia-dkms nvidia-utils lib32-nvidia-utils nvidia-settings lib32-opencl-nvidia opencl-nvidia libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader libva-nvidia-driver
 
 .. warning:: Для правильной работы DKMS требуется также установить
    заголовки текущей версии ядра. Например, для стандартного ядра
@@ -276,7 +276,7 @@ NVIDIA
 установка практически ничем не отличается от закрытого варианта кроме
 как заменой пакета ``nvidia-dkms`` на ``nvidia-open-dkms``::
 
-  sudo pacman -S nvidia-open-dkms nvidia-utils lib32-nvidia-utils nvidia-settings lib32-opencl-nvidia opencl-nvidia libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader
+  sudo pacman -S nvidia-open-dkms nvidia-utils lib32-nvidia-utils nvidia-settings lib32-opencl-nvidia opencl-nvidia libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader libva-nvidia-driver
 
 Перед установкой драйвера рекомендуется отключить *"Secure Boot"* в
 UEFI, ибо из-за этого модули драйвера могут не загрузиться.
@@ -314,19 +314,13 @@ Nouveau (*Только для старых видеокарт*)
 драйвера NVIDIA (340, 390) и отлично справляется с 2D ускорением. Вдобавок,
 Nouveau хорошо работает с Wayland. ::
 
-  sudo pacman -S mesa lib32-mesa libva-mesa-driver lib32-libva-mesa-driver vulkan-nouveau lib32-vulkan-nouveau opencl-rusticl-mesa lib32-opencl-rusticl-mesa
-
-Пакет ``libva-mesa-driver`` нужен для работы аппаратного ускорения
-видео в браузерах и видеоплеерах.
+  sudo pacman -S mesa lib32-mesa vulkan-nouveau lib32-vulkan-nouveau opencl-rusticl-mesa lib32-opencl-rusticl-mesa
 
 AMD
 ----
 ::
 
-  sudo pacman -S mesa lib32-mesa vulkan-radeon lib32-vulkan-radeon libva-mesa-driver lib32-libva-mesa-driver vulkan-mesa-layers opencl-rusticl-mesa lib32-opencl-rusticl-mesa
-
-Пакет ``libva-mesa-driver``, также нужны для работы аппаратного
-ускорения видео 
+  sudo pacman -S mesa lib32-mesa vulkan-radeon lib32-vulkan-radeon vulkan-mesa-layers opencl-rusticl-mesa lib32-opencl-rusticl-mesa
 
 Intel
 -----
