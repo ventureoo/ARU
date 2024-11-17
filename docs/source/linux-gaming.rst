@@ -853,14 +853,21 @@ FPS, график времени кадра, нагрузку на GPU. Испо
 выводит информацию о FPS, времени кадра, и нагрузке на GPU.
 
 Полный список значений переменной вы можете узнать - `здесь
-<https://github.com/doitsujin/dxvk#hud>`_.
+<https://github.com/doitsujin/dxvk#hud>`__.
 
-.. index:: installation, xpad, gamepad, usb
+.. index:: installation, xpad, xpadneo, xone, gamepad, usb, bluetooth
 .. _gamepad_setup:
 
---------------------------
-Настройка геймпадов (USB)
---------------------------
+-------------------------
+Настройка геймпадов Xbox
+-------------------------
+
+.. index:: xpad, usb, gamepad
+.. _xpad_setup:
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Настройка стандартного xpad
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 К сожалению далеко не все Xbox-совместимые геймпады распознаются встроенным
 драйвером Xpad при подключении посредством USB, поэтому приходится явно
@@ -885,7 +892,9 @@ FPS, график времени кадра, нагрузку на GPU. Испо
   :caption: ``sudo nano /etc/udev/rules.d/10-xbox-gamepad.rules``
 
     # Generic xbox controller
-    ACTION=="add", ATTRS{idVendor}=="11c1", ATTRS{idProduct}=="2001", RUN+="/sbin/modprobe xpad" RUN+="/bin/sh -c 'echo %s{idVendor} %s{idProduct} > /sys/bus/usb/drivers/xpad/new_id'"
+    ACTION=="add", ATTRS{idVendor}=="11c1", ATTRS{idProduct}=="2001", \
+        RUN+="/sbin/modprobe xpad", \
+        RUN+="/bin/sh -c 'echo %s{idVendor} %s{idProduct} > /sys/bus/usb/drivers/xpad/new_id'"
 
 В аттрибуты ``idVendor`` и ``idProduct`` мы указываем полученные значения из команды
 lsusb (не забудьте про кавычки!).
@@ -897,24 +906,54 @@ lsusb (не забудьте про кавычки!).
 Переподключите ваш геймпад к компьютеру и он должен стать доступным для
 использования (проверить можно через наличие файла ``/dev/input/js0``).
 
+.. index:: installation, gamepad, xone, usb
+.. _xone-dkms:
 
-.. index:: installation, gamepad, xpadneo, dkms
-.. _xpadneo-dkms-git:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Альтернативный драйвер - Xone
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
----------------------------
-Установка xpadneo-dkms-git
----------------------------
-
-В ядре Linux есть драйвер для поддержки геймпадов Xbox 360 и других
-выдающих себя за него. Изменения в драйвер попадают довольно редко,
-поэтому лучше установить форк драйвера - `xpadneo-dkms-git
-<https://github.com/paroj/xpad>`__, это позволит избежать проблем с
-поддержкой ряда устройств.
+Драйвер xpad внутри ядра имеет весьма ограниченную поддержку геймпадов
+подключаемых через USB, но имеется также сторонний драйвер - Xone, не входящий
+в основную линию разработки. Xone нацелен в основном на поддержку контроллеров
+Xbox One/Xbox One Series S/Xbox One Series X и позволяет по сравнению с
+обычным драйвером xpad в ядре управлять подсветкой геймпада, обрабатывать
+аудио вывод подключенной к геймпаду гарнитуры, а также имеет полноценное
+управление питанием.
 
 **Установка** ::
 
-  git clone https://aur.archlinux.org/xpadneo-dkms-git
-  cd xpadneo-dkms-git
+  git clone https://aur.archlinux.org/xone-dkms
+  cd xone-dkms
+  makepkg -sric
+
+.. index:: installation, gamepad, xpadneo, dkms, bluetooth
+.. _xpadneo-dkms-git:
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Драйвер xpadneo с поддержкой Bluetooth
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+И драйвер xpad, и драйвер xone не поддерживают работу с геймпадами,
+работающими через Bluetooth. Xpadneo - это новый драйвер для поддержки работы
+всех последних контроллеров от Microsoft, например таких как контроллер
+Microsoft Xbox One S, и их клонов, подключаемых через Bluetooth.
+
+Среди преимуществ драйвера следует отметить следующее:
+
+- Поддержка Trigger Force Feedback (чего даже нет в Microsoft Windows)
+
+- Поддержка подключения более одного контроллера
+
+- Поддержка индекации уровня заряда
+
+Полный список возможностей драйвера можно увидеть `здесь
+<https://github.com/atar-axis/xpadneo#advantages-of-this-driver>`__.
+
+**Установка** ::
+
+  git clone https://aur.archlinux.org/xpadneo-dkms
+  cd xpadneo-dkms
   makepkg -sric
 
 .. vim:set textwidth=78:
