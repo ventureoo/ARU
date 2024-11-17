@@ -94,8 +94,8 @@ html_theme_options = {
             "icon": "fas fa-comments",
         },
         {
-            "name": "Donatealerts",
-            "url": "https://www.donationalerts.com/r/xpasha_l",
+            "name": "Yoomoney",
+            "url": "https://yoomoney.ru/to/4100118894224342",
             "icon": "fas fa-donate",
         },
     ],
