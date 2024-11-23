@@ -32,7 +32,7 @@
   sudo pacman-key --init               # Инициализация
   sudo pacman-key --populate archlinux # Получить ключи из репозитория
   sudo pacman-key --refresh-keys       # Проверить текущие ключи на актуальность
-  sudo pacman -Sy                      # Обновить ключи для всей системы
+  sudo pacman -Sy archlinux-keyring    # Обновить пакет archlinux-keyring
 
 Данная операция может занять продолжительное время. Для дальнейшего их
 автоматического обновления нужно включить службу-таймер, которая
@@ -63,6 +63,11 @@ Steam.
 ::
 
   sudo pacman -Suy                     # Обновление репозиториев и всех программ (пакетов)
+
+.. note:: Если вы не используете Steam или Wine, то можете пропустить
+   данный шаг. Также стоит отметить возможность работы Wine без
+   установки 32-битных зависимостей, подробнее см.
+   :ref:`wine-tkg-build`.
 
 .. index:: pacman, mirrorlist, reflector
 .. _speed-up-system-updates:
