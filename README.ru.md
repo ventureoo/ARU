@@ -70,6 +70,8 @@
 
 - [@Terromur](https://codeberg.org/terromur) (https://codeberg.org/ventureo/ARU/issues/116 https://codeberg.org/ventureo/ARU/commit/c1f9b2b6c3d0241064eb75c913a2eee40b512529 )
 
+- [@AircGroup](https://codeberg.org/AircGroup) (https://codeberg.org/ventureo/ARU/issues/129)
+
 ## Как я могу внести свой вклад в проект?
 
 Проект на текущий момент не в самой активной фазе своего развития, но я все ещё
