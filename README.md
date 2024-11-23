@@ -93,7 +93,7 @@ https://docutils.sourceforge.io/docs/user/rst/quickref.html
 https://www.sphinx-doc.org/en/master/usage/index.html
 
 The easiest way to get your edits in the ARU, for "dummies" in Git, so to speak,
-is to use the web interface on C odeberg to edit it. There you can also
+is to use the web interface on Codeberg to edit it. There you can also
 you can check your changes to make sure they are correct and true.
 
 Only after the author has reviewed and merged your edits will they be available in the web
