@@ -365,9 +365,6 @@ GCC если возникнут проблемы со сборкой пакет�
 
   export CC=clang
   export CXX=clang++
-  export LD=ld.lld
-  export CC_LD=mold
-  export CXX_LD=mold
   export AR=llvm-ar
   export NM=llvm-nm
   export STRIP=llvm-strip
@@ -378,45 +375,24 @@ GCC если возникнут проблемы со сборкой пакет�
   export HOSTCC=clang
   export HOSTCXX=clang++
   export HOSTAR=llvm-ar
-  export HOSTLD=ld.lld
-  export CXXFLAGS="${CFLAGS}"
-  export LLVM=1
-  export LLVM_IAS=1
-  export CCLDFLAGS="$LDFLAGS"
-  export CXXLDFLAGS="$LDFLAGS"
 
 При использовании Clang из пакета `llvm-git` (установка описана ниже)
-стоит включить использование LLVM OpenMP и компоновщика mold, а также
-другие флаги при сборке пакетов: ::
+стоит установить компоновщик mold, а также другие флаги при сборке
+пакетов::
 
-  CFLAGS="-march=native -mtune=native -O3 -fexceptions -fopenmp \
-          -falign-functions=32 -fno-math-errno -fno-trapping-math \
-          -fcf-protection=none -mharden-sls=none -Wp,-D_FORTIFY_SOURCE=2 \
-          -Wformat -Werror=format-security -fstack-clash-protection"
+  CFLAGS="-march=native -mtune=native -O3 -falign-functions=32 -fno-math-errno \
+          -fno-trapping-math -Wp,-D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security \
+          -fstack-clash-protection"
   CXXFLAGS="$CFLAGS -Wp,-D_GLIBCXX_ASSERTIONS"
-  export CFLAGS_KERNEL="$CFLAGS"
-  export CXXFLAGS_KERNEL="$CXXFLAGS"
-  export CFLAGS_MODULE="$CFLAGS"
-  export CXXFLAGS_MODULE="$CXXFLAGS"
-  export KBUILD_CFLAGS="$CFLAGS"
-  export KCFLAGS="-O3"
-  export KCPPFLAGS="$KCFLAGS"
-  LDFLAGS="-Wl,-O3,--sort-common,--as-needed,-lgomp,-z,pack-relative-relocs,-z,relro,-z,now"
+  LDFLAGS="-fuse-ld=mold -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now \
+           -Wl,-z,pack-relative-relocs"
   LTOFLAGS="-flto=auto"
-  RUSTFLAGS="-C opt-level=3 -C target-cpu=native -C link-arg=-z -C link-arg=pack-relative-relocs"
+  RUSTFLAGS="-C opt-level=3 -C target-cpu=native -C link-arg=-z -C link-arg=pack-relative-relocs \
+             -C link-arg=-fuse-ld=mold"
   #-- Make Flags: change this for DistCC/SMP systems
   MAKEFLAGS="-j$(nproc)"
   NINJAFLAGS="-j$(nproc)"
   OPTIONS=(strip docs !libtool !staticlibs emptydirs zipman purge !debug lto)
-
-.. warning:: Здесь мы используем некоторые флаги которые не
-   рекомендуется использовать с точки зрения безопасности конечного
-   кода для того чтобы увеличить производительность, как например
-   ``-fcf-protection=none`` и ``-mharden-sls=none``, но если для вас
-   безопасность такой же важный аспект как и производительность, то
-   замените их на соответствующие флаги  на
-   ``-fstack-clash-protection`` и ``-fcf-protection`` (флаг
-   -mharden-sls можно просто опустить).
 
 Отлично, теперь вы можете собрать нужные вам пакеты (программы) через
 LLVM/Clang просто добавив к уже известной команде makepkg следующие
