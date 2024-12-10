@@ -365,9 +365,6 @@ GCC если возникнут проблемы со сборкой пакет�
 
   export CC=clang
   export CXX=clang++
-  export LD=ld.lld
-  export CC_LD=mold
-  export CXX_LD=mold
   export AR=llvm-ar
   export NM=llvm-nm
   export STRIP=llvm-strip
@@ -378,12 +375,6 @@ GCC если возникнут проблемы со сборкой пакет�
   export HOSTCC=clang
   export HOSTCXX=clang++
   export HOSTAR=llvm-ar
-  export HOSTLD=ld.lld
-  export CXXFLAGS="${CFLAGS}"
-  export LLVM=1
-  export LLVM_IAS=1
-  export CCLDFLAGS="$LDFLAGS"
-  export CXXLDFLAGS="$LDFLAGS"
 
 При использовании Clang из пакета `llvm-git` (установка описана ниже)
 стоит установить компоновщик mold, а также другие флаги при сборке
@@ -393,9 +384,11 @@ GCC если возникнут проблемы со сборкой пакет�
           -fno-trapping-math -Wp,-D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security \
           -fstack-clash-protection"
   CXXFLAGS="$CFLAGS -Wp,-D_GLIBCXX_ASSERTIONS"
-  LDFLAGS="-Wl,-O1,--sort-common,--as-needed,-z,pack-relative-relocs,-z,relro,-z,now"
+  LDFLAGS="-fuse-ld=mold -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now \
+           -Wl,-z,pack-relative-relocs"
   LTOFLAGS="-flto=auto"
-  RUSTFLAGS="-C opt-level=3 -C target-cpu=native -C link-arg=-z -C link-arg=pack-relative-relocs"
+  RUSTFLAGS="-C opt-level=3 -C target-cpu=native -C link-arg=-z -C link-arg=pack-relative-relocs \
+             -C link-arg=-fuse-ld=mold"
   #-- Make Flags: change this for DistCC/SMP systems
   MAKEFLAGS="-j$(nproc)"
   NINJAFLAGS="-j$(nproc)"
