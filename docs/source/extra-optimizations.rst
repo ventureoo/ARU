@@ -393,7 +393,7 @@ GCC если возникнут проблемы со сборкой пакет�
           -fno-trapping-math -Wp,-D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security \
           -fstack-clash-protection"
   CXXFLAGS="$CFLAGS -Wp,-D_GLIBCXX_ASSERTIONS"
-  LDFLAGS="-Wl,-O3,--sort-common,--as-needed,-z,pack-relative-relocs,-z,relro,-z,now"
+  LDFLAGS="-Wl,-O1,--sort-common,--as-needed,-z,pack-relative-relocs,-z,relro,-z,now"
   LTOFLAGS="-flto=auto"
   RUSTFLAGS="-C opt-level=3 -C target-cpu=native -C link-arg=-z -C link-arg=pack-relative-relocs"
   #-- Make Flags: change this for DistCC/SMP systems
