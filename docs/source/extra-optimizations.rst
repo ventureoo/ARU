@@ -389,9 +389,9 @@ GCC если возникнут проблемы со сборкой пакет�
 стоит включить использование LLVM OpenMP и компоновщика mold, а также
 другие флаги при сборке пакетов: ::
 
-  CFLAGS="-march=native -mtune=native -O3 -fexceptions -falign-functions=32 \
-          -fno-math-errno -fno-trapping-math -Wp,-D_FORTIFY_SOURCE=2 -Wformat \
-          -Werror=format-security -fstack-clash-protection"
+  CFLAGS="-march=native -mtune=native -O3 -falign-functions=32 -fno-math-errno \
+          -fno-trapping-math -Wp,-D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security \
+          -fstack-clash-protection"
   CXXFLAGS="$CFLAGS -Wp,-D_GLIBCXX_ASSERTIONS"
   LDFLAGS="-Wl,-O3,--sort-common,--as-needed,-lgomp,-z,pack-relative-relocs,-z,relro,-z,now"
   LTOFLAGS="-flto=auto"
