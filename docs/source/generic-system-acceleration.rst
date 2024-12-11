@@ -938,25 +938,6 @@ lib32-pipewire-jack (соответственно) из репозитория m
 <https://archlinux.org/packages/extra/x86_64/jack2-dbus/>`_
 (рекомендуется).
 
-.. index:: lowlatency, audio, alsa
-.. _alsa:
-
--------------
-Простая ALSA
--------------
-
-ALSA - это тот самый звук (условно, на самом деле это звуковая
-подсистема ядра), который идёт напрямую из ядра и является самым
-быстрым, так как не вынужден проходить множество программных прослоек
-и микширование. ::
-
-  sudo pacman -S alsa-lib alsa-utils alsa-firmware alsa-card-profiles alsa-plugins
-
-Поэтому, если у вас нет потребности в микшировании каналов, записи
-аудио через микрофон, и вы не слушаете музыку через Bluetooth, то ALSA
-может вам подойти. Пакет *alsa-utils* также содержит консольный Микшер
-(настройка громкости), который вызывается командой alsamixer.
-
 .. index:: startup-acceleration, networkmanager, service, 
 .. _startup-acceleration:
 
