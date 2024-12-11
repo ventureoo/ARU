@@ -901,9 +901,9 @@ PipeWire так же как и PulseAuido позволяет микширова�
   :caption: ``nano ~/.config/pipewire/pipewire.conf.d/10-sound.conf``
 
    context.properties = {
-     default.clock.rate = 96000
+     default.clock.rate = 48000
      default.clock.allowed-rates = [ 44100 48000 88200 96000 ]
-     default.clock.min-quantum = 2048
+     default.clock.min-quantum = 512
      default.clock.quantum = 4096
      default.clock.max-quantum = 8192
    }
