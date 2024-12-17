@@ -240,19 +240,19 @@ Ananicy CPP
 форк одноименного демона, распределяющий приоритет задач. Его
 установка очень сильно повышает отклик системы. В отличии от
 оригинального Ananicy, данный форк переписан полностью на C++, из-за
-чего достигается прирост в скорости работы. ::
+чего достигается прирост в скорости работы::
 
-  git clone https://aur.archlinux.org/ananicy-cpp.git # Скачивание исходников.
-  cd ananicy-cpp                                      # Переход в ananicy-cpp.
-  makepkg -sric                                       # Сборка и установка.
-  sudo systemctl enable --now ananicy-cpp             # Включаем службу.
+  sudo pacman -S ananicy-cpp
+  sudo systemctl enable --now ananicy-cpp
+
+Кроме того рекомендуется установить уже готовую, большую базу правил для
+ananicy-cpp::
   
   # Далее описывается установка дополнительных правил по перераспределению приоритетов процессов
   git clone https://aur.archlinux.org/cachyos-ananicy-rules-git.git
   cd cachyos-ananicy-rules-git
   makepkg -sric
   sudo systemctl restart ananicy-cpp
-
 
 .. index:: ssd, trim, systemd
 .. _trim:
