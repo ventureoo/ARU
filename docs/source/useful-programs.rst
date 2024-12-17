@@ -14,23 +14,6 @@
 
 Программы разного назначения, однако могут быть полезными.
 
-.. index:: useful-programs, stacer, garbage-removal
-.. _stacer:
-
-===========
-Stacer
-===========
-
-Помощник в обслуживании и чистке системы.
-
-.. image:: images/generic-system-acceleration-3.png
-
-**Установка**::
-
-  git clone https://aur.archlinux.org/stacer.git # Скачивание исходников. 
-  cd stacer                                      # Переход в stacer. 
-  makepkg -sric                                  # Сборка и установка.
-
 .. index:: useful-programs, bleachbit, garbage-removal
 .. _bleachbit:
 
@@ -100,58 +83,5 @@ pam_usb
   cd pam_usb/arch_linux
   mv PKGBUILD_stable PKGBUILD
   makepkg -sric
-
-.. index:: useful-programs, wine, prefixes, gaming
-.. _bottles:
-
-========
-Bottles
-========
-
-Удобный менеджер по управлению бутылками (префиксами) в Wine. Альтернатива
-Lutris, имеет приятный и понятный интерфейс, возможность графической установки
-зависимостей (DLL библиотек) и поддерживает изоляцию из коробки.
-
-**Демонстрация**
-
-1. Окно выбора бутылки
-
-.. image:: images/generic-system-acceleration-5.png
-
-2. Создание новой бутылки
-
-.. image:: images/generic-system-acceleration-6.png
-
-3. Управление бутылкой
-
-.. image:: images/generic-system-acceleration-7.png
-
-4. Установка зависимостей (DLL библиотек)
-
-.. image:: images/generic-system-acceleration-8.png
-
-**Установка** ::
-
-  git clone https://aur.archlinux.org/bottles.git # Скачиваем исходники
-  cd bottles                                      # Переход в директорию
-  makepkg -sric                                   # Сборка и установка
-
-
-.. index:: firewall, gufw, ufw
-.. _gufw:
-
-=======
-gUFW
-=======
-
-gUFW - это графическая оболочка для межсетевого экрана UFW, которая
-позволит вам настроить ваш фаерволл в всего в два клика.
-
-**Установка** ::
-
-  sudo pacman -S gufw
-  sudo systemctl enable --now ufw.service
-
-.. image:: images/gufw.jpg
 
 .. vim:set textwidth=70:
