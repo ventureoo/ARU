@@ -170,10 +170,9 @@ zram-generator
 ``zram-generator`` выполняется всего парой команд::
 
   sudo pacman -S zram-generator
-  sudo systemctl start systemd-zram-setup@zram0.service
 
-Имеет смысл выполнить также небольшую дополнительную настройку
-параметров ZRAM:
+После установки необходимо создать конфиг с указанием всех желаемых параметров,
+таких как алгоритм сжатия и размер блочного устройства:
 
 .. code-block:: shell
    :caption: ``sudo nano /etc/systemd/zram-generator.conf``
@@ -189,6 +188,11 @@ zram-generator
 как по заверениям разработчиков, эффективность сжатия в среднем равна
 1:3, что позволяет хранить внутри ZRAM объем данных больший, чем вы в
 принципе можете уместить в ОЗУ.
+
+После создания файла конфигурации можно запускать саму службу::
+
+  sudo systemctl daemon-reload
+  sudo systemctl start systemd-zram-setup@zram0.service
 
 .. warning:: Во избежание конфликтов, после установки zram обязательно
    отключите zswap через добавление параметра ядра ``zswap.enabled=0``.
