@@ -1190,46 +1190,40 @@ driver work to a separate thread"*
 Ускорение с помощью OpenCL
 --------------------------
 
-В 2021 году разработчики Mesa представили релизацию драйвера OpenCL,
-основанную на языке Rust, под не замысловатым названием -"**Rusticl**
-Данная реализация призвана заменить старый драйвер **Clover**, и ныне
-совместима с OpenCL 3.0
+В 2021 году разработчики Mesa представили релизацию драйвера OpenCL, основанную
+на языке Rust, под не замысловатым названием - *Rusticl* Данная реализация
+призвана заменить старый драйвер *Clover*, и ныне совместима с OpenCL 3.0.
 
 Приложениям, таким как Handbrake_, Darktable_ и `DaVinci Resolve`_ может
 понадобиться ускорение с помощью данного API на вашей видеокарте.
 
-Чтобы установить данную реализацию драйвера, выполните данную команду
-в терминале::
+Чтобы установить данную реализацию драйвера, выполните данную команду в
+терминале::
 
   sudo pacman -S opencl-rusticl-mesa
 
-Теперь что бы включить поддержку OpenCL на вашей видеокарте, укажите
-данные значения в переменную ``RUSTICL_ENABLE``
+Теперь что бы включить поддержку OpenCL на вашей видеокарте, укажите данные
+значения в переменную ``RUSTICL_ENABLE`` в зависимости от вашего вендора:
 
 .. tab-set::
 
    .. tab-item:: AMD
 
-      ::
-
-         .. code-block:: shell
-         :caption: ``nano /etc/enviroment``
+      .. code-block:: shell
+         :caption: ``sudo nano /etc/environment``
 
          RUSTICL_ENABLE=radeonsi
 
-         .. note:: Данная переменная будет работать на видеокартах
-         с драйвером *AMDGPU*.
-   .. tab-item:: Intel HD/UHD/Arc Graphics
+      .. note:: Данная переменная будет работать на видеокартах с драйвером AMDGPU.
 
-      ::
+   .. tab-item:: Intel
 
-         .. code-block:: shell
-         :caption: ``nano /etc/enviroment``
+       .. code-block:: shell
+          :caption: ``sudo nano /etc/environment``
 
-         RUSTICL_ENABLE=iris
+          RUSTICL_ENABLE=iris
 
-         .. note:: Данный драйвер будет поддерживается на видеокартах,
-         начиная с поколения Broadwell(Gen8) и новее.
+       .. note:: Данный драйвер будет поддерживается на видеокартах, начиная с поколения Broadwell (Gen8) и новее.
 
 .. _Handbrake: https://archlinux.org/packages/extra/x86_64/handbrake/
 .. _Darktable: https://archlinux.org/packages/extra/x86_64/darktable/
