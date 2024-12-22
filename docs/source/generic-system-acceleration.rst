@@ -395,7 +395,14 @@ Plasma. В KDE Plasma встроенным файловым индексатор
 
 .. tab-set::
 
-   .. tab-item:: GNOME
+   .. tab-item:: GNOME > 47
+
+      ::
+
+         systemctl --user mask localsearch-3.service localsearch-control-3.service \
+            localsearch-writeback-3.service
+
+   .. tab-item:: GNOME <= 46
 
       ::
 
