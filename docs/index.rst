@@ -33,5 +33,4 @@ ARU
    source/useful-programs.rst
    source/laptops.rst
    source/monitor-overlocking.rst
-   source/kernel-tuning.rst
 
