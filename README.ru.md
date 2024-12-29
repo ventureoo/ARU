@@ -30,7 +30,6 @@
 - [Полезные программы](https://ventureo.codeberg.page/source/useful-programs.html)
 - [Гибридная графика в ноутбуках](https://ventureo.codeberg.page/source/laptops.html)
 - [Разгон монитора](https://ventureo.codeberg.page/source/monitor-overlocking.html)
-- [Тюнинг ядра](https://ventureo.codeberg.page/source/kernel-tuning.html)
 
 ## Благодарности
 
