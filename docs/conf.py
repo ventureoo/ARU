@@ -78,7 +78,7 @@ html_theme_options = {
     "navbar_align": "content",
     "navbar_start": [],
     "navbar_center": ["navbar-logo", "version-switcher"],
-    "navbar_end": ["navbar-icon-links"],
+    "navbar_end": ["theme-switcher", "navbar-icon-links"],
     # Edit button disabled after migrating from GitHub
     "use_edit_page_button": False,
     "secondary_sidebar_items": ["page-toc"],
