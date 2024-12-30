@@ -128,13 +128,13 @@ linux-tkg
 ваше внимание только на некоторых из них: "bore", "cfs"
 (планировщик по умолчанию до 6.6), "eevdf"(по умолчанию с 6.6).
 
-.. warning:: Автор рекомендует использовать только EEVDF-based
-   планировщики, то есть BORE или sched-ext. PDS и BMQ могут вызывать
-   множественные регрессии, например приводить к полному зависанию
-   системы на определенных конфигурациях. Последние версии PDS также
-   не имеют полноценной поддержки NUMA и PSI.
+.. warning:: Автор рекомендует использовать только планировщик EEVDF
+   или BORE. PDS и BMQ могут вызывать множественные регрессии
+   производительности и приводить к случайным зависаниям системы.
+   Последние версии PDS также не имеют полноценной поддержки NUMA и
+   PSI, последний нужен для правильной работы OOM киллеров и Waydroid.
 
-   См.:
+   Подробнее:
    https://github.com/Frogging-Family/linux-tkg/issues/722
    https://github.com/Frogging-Family/linux-tkg/issues/701
    https://github.com/Frogging-Family/linux-tkg/issues/695
@@ -142,7 +142,10 @@ linux-tkg
    https://gitlab.com/alfredchen/linux-prjc/-/issues/71
    https://gitlab.com/alfredchen/linux-prjc/-/issues/80
    https://gitlab.com/alfredchen/linux-prjc/-/issues/62
+   https://gitlab.com/alfredchen/linux-prjc/-/issues/104
+   https://gitlab.com/alfredchen/linux-prjc/-/issues/105
    https://codeberg.org/ventureo/ARU/pulls/91
+   https://github.com/Frogging-Family/linux-tkg/commit/61b9e541ad2c295ca23fb601f381f4d603020d47
    
 
 ``_ntsync="true"`` - Включает сборку специального модуля NTSync,
