@@ -189,8 +189,8 @@ VC++ в Wine предпочтительной к использованию. Ч�
 .. code-block:: shell
    :caption: ``nano wine-tkg-profiles/advanced-customization.cfg`` # Отредактируйте строчки ниже
 
-   _GCC_FLAGS="-O2 -ftree-vectorize -march=native"
-   _CROSS_FLAGS="-O2 -ftree-vectorize -march=native"
+   _GCC_FLAGS="-O2 -ftree-vectorize -Wno-error=implicit-function-declaration -Wno-error=incompatible-pointer-types -march=native"
+   _CROSS_FLAGS="-O2 -ftree-vectorize  -Wno-error=implicit-function-declaration -Wno-error=incompatible-pointer-types -march=native"
 
 Установка любой обычной версии Wine сопряжена с подтягиванием множества
 32-битных зависимостей, которые нужны чтобы Wine имел возможность запускать
