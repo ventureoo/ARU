@@ -26,10 +26,7 @@ ARU
    source/extra-optimizations.rst
    source/kernel-parameters.rst
    source/file-systems.rst
-   source/custom-kernels.rst
    source/linux-gaming.rst
-   source/mini-kernel.rst
-   source/de-optimizations.rst
    source/useful-programs.rst
    source/laptops.rst
    source/monitor-overlocking.rst

@@ -25,10 +25,7 @@ https://ventureoo.github.io/ARU is saved and redirects you to the actual address
 - [Extra optimizations](https://ventureo.codeberg.page/source/extra-optimizations.html)
 - [Kernel parameters](https://ventureo.codeberg.page/source/kernel-parameters.html)
 - [File system optimization](https://ventureo.codeberg.page/source/file-systems.html)
-- [Custom kernels to increase smoothness](https://ventureo.codeberg.page/source/custom-kernels.html)
 - [Linux Gaming](https://ventureo.codeberg.page/source/linux-gaming.html)
-- [Building a mini-kernel](https://ventureo.codeberg.page/source/mini-kernel.html)
-- [Optimizing Desktop Environment (GNOME/Plasma/Xfce/Cinnamon)](https://ventureo.codeberg.page/source/de-optimizations.html)
 - [Useful Programs](https://ventureo.codeberg.page/source/useful-programs.html)
 
 ## Acknowledgements
