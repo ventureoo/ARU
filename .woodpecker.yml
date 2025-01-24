@@ -23,26 +23,21 @@ steps:
       event: [ push, tag ]
       branch: main
     environment:
-      # Information that should be used when authoring a commit
       GIT_AUTHOR_NAME: arubot
       GIT_AUTHOR_EMAIL: arubot@noreply.codeberg.org
       GIT_COMMIT_MESSAGE: Synchronization with changes to the ARU
-      # Basic information concerning the repo that
       GITEA_HOST: codeberg.org
       GITEA_REPOSITORY: ventureo/pages
       GITEA_BRANCH: main
     secrets: [ gitea_username, gitea_token ]
     commands:
-      # Setup git credentials and checkout target branch
       - git clone https://codeberg.org/ventureo/pages
       - cp -r ./docs/build/* pages/
       - cd pages
       - git config user.name  "$${GIT_AUTHOR_NAME}"
       - git config user.email "$${GIT_AUTHOR_EMAIL}"
       - git checkout "$${GITEA_BRANCH}"
-      # Stage all important files for commit
       - git add -A
-      # If files have changed, create a new commit and push it to the branch this pipeline was started on
       - >
         if git commit --message "$${GIT_COMMIT_MESSAGE}"; then
           git remote set-url origin "https://$${GITEA_USERNAME}:$${GITEA_TOKEN}@$${GITEA_HOST}/$${GITEA_REPOSITORY}"
