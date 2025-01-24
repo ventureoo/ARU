@@ -918,7 +918,7 @@ PipeWire так же как и PulseAuido позволяет микширова�
 подготовленный конфигурационный файл, который нам нужно просто
 перенести в домашнюю директорию::
 
-  mkdir -p ~/.config/pipewire/pipewire-pulse.conf.d
+  mkdir -p ~/.config/pipewire/pipewire-pulse.conf.d ~/.config/pipewire/client-rt.conf.d
   cp /usr/share/pipewire/client-rt.conf.avail/20-upmix.conf ~/.config/pipewire/pipewire-pulse.conf.d
   cp /usr/share/pipewire/client-rt.conf.avail/20-upmix.conf ~/.config/pipewire/client-rt.conf.d
 
