@@ -30,7 +30,7 @@ steps:
       GITEA_REPOSITORY: ventureo/pages
       GITEA_BRANCH: main
       GITEA_USERNAME:
-        from_secret: gitea_name
+        from_secret: gitea_username
       GITEA_TOKEN:
         from_secret: gitea_token
     commands:
