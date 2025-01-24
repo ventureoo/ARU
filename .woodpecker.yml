@@ -29,7 +29,10 @@ steps:
       GITEA_HOST: codeberg.org
       GITEA_REPOSITORY: ventureo/pages
       GITEA_BRANCH: main
-    secrets: [ gitea_username, gitea_token ]
+      GITEA_USERNAME:
+        from_secret: gitea_name
+      GITEA_TOKEN:
+        from_secret: gitea_token
     commands:
       - git clone https://codeberg.org/ventureo/pages
       - cp -r ./docs/build/* pages/
