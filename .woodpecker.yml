@@ -24,16 +24,13 @@ steps:
       branch: main
     environment:
       # Information that should be used when authoring a commit
-      - GIT_AUTHOR_NAME=arubot
-      - GIT_AUTHOR_EMAIL=arubot@noreply.codeberg.org
-      - GIT_COMMIT_MESSAGE=Synchronization with changes to the ARU
+      GIT_AUTHOR_NAME: arubot
+      GIT_AUTHOR_EMAIL: arubot@noreply.codeberg.org
+      GIT_COMMIT_MESSAGE: Synchronization with changes to the ARU
       # Basic information concerning the repo that
-      - GITEA_HOST=codeberg.org
-      - GITEA_REPOSITORY=ventureo/pages
-      - GITEA_BRANCH=main
-      # Username and token that should be used to authenticate against the gitea instance
-      # - GITEA_USERNAME=secret
-      # - GITEA_TOKEN=secret
+      GITEA_HOST: codeberg.org
+      GITEA_REPOSITORY: ventureo/pages
+      GITEA_BRANCH: main
     secrets: [ gitea_username, gitea_token ]
     commands:
       # Setup git credentials and checkout target branch
