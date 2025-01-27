@@ -67,7 +67,7 @@ Steam.
 .. note:: Если вы не используете Steam или Wine, то можете пропустить
    данный шаг. Также стоит отметить возможность работы Wine без
    установки 32-битных зависимостей, подробнее см.
-   :ref:`wine-tkg-build`.
+   :ref:`wine-pure-build`.
 
 .. index:: pacman, mirrorlist, reflector
 .. _speed-up-system-updates:
