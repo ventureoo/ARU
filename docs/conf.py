@@ -94,6 +94,11 @@ html_theme_options = {
             "icon": "fas fa-comments",
         },
         {
+            "name": "GitHub (mirror)",
+            "url": "https://github.com/ventureoo/ARU",
+            "icon": "fa-brands fa-github",
+        },
+        {
             "name": "Yoomoney",
             "url": "https://yoomoney.ru/to/4100118894224342",
             "icon": "fas fa-donate",
