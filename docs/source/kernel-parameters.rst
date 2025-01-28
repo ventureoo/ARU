@@ -1487,6 +1487,11 @@ initramfs, чтобы данная конфигурация для ``modprobe`` 
 при указании параметра загрузки ядра ``mitigations=off``, который
 следует прописать в конфигурации вашего загрузчика:
 
+.. warning:: Отключение защиты с целью повышения производительности
+   имеет смысл только на старых поколениях процессоров Intel и AMD. На
+   самых последних линейках это может иметь даже негативные
+   последствия [#]_.
+
 .. tab-set::
 
    .. tab-item:: GRUB 2
@@ -1557,5 +1562,6 @@ initramfs, чтобы данная конфигурация для ``modprobe`` 
 .. [#] https://lkml.org/lkml/2018/11/19/37
 .. [#] https://lkml.org/lkml/2018/11/19/69
 .. [#] https://hg.mozilla.org/mozilla-central/rev/ebdd80f675b6
+.. [#] https://www.tomshardware.com/news/ryzen-7000-security-mitigations-faster-on-linux
 
 .. vim:set textwidth=70:
