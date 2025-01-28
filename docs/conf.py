@@ -124,7 +124,7 @@ html_context = {
 }
 
 html_sidebars = {
-    "**": ["custom-header", "sidebar-nav-bs"]
+    "**": ["sidebar-nav-bs", "custom-header"]
 }
 
 # Misc
@@ -139,6 +139,9 @@ html_static_path = ['_static']
 
 html_css_files = [
     'css/theme.css',
+]
+html_js_files = [
+    'js/custom.js'
 ]
 
 # -- Options for manual page output ---------------------------------------
