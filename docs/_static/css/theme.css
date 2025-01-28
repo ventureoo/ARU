@@ -127,3 +127,7 @@
   --pst-icon-versionmodified-deprecated: var(--pst-icon-exclamation-circle);
 
 }
+
+a:visited {
+  color: var(--pst-color-primary);
+}
