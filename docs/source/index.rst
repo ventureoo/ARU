@@ -17,8 +17,8 @@
    :caption: Настройка системы
    :maxdepth: 2
 
-   generic-system-acceleration.rst
-   extra-optimizations.rst
+   optimization/index.rst
+   binary-and-build.rst
    laptops.rst
    useful-programs.rst
    monitor-overlocking.rst
