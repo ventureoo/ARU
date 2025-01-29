@@ -8,14 +8,14 @@
 
 .. toctree::
    :caption: Начало
-   :hidden:
+   :maxdepth: 2
 
    preface.rst
    first-steps.rst
 
 .. toctree::
    :caption: Настройка системы
-   :hidden:
+   :maxdepth: 2
 
    generic-system-acceleration.rst
    extra-optimizations.rst
@@ -25,13 +25,13 @@
 
 .. toctree::
    :caption: Ядро
-   :hidden:
+   :maxdepth: 2
 
    kernel-parameters.rst
    file-systems.rst
 
 .. toctree::
    :caption: Игры
-   :hidden:
+   :maxdepth: 2
 
    linux-gaming.rst
