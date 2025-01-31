@@ -6,11 +6,11 @@
    You should have received a copy of the license along with this
    work. If not, see <https://creativecommons.org/licenses/by-sa/4.0/>.
 
-.. _binary-and-build:
+.. _package_optimization:
 
-************************
-Оптимизированные пакеты
-************************
+*******************
+Оптимизация пакетов
+*******************
 
 .. index:: makepkg-conf, native-compilation, flags, lto
 .. _makepkg-conf:
@@ -378,3 +378,5 @@ x86_64_v2, так и для x86_64_v3. **Главное не перепутае�
 
 Перезагружаемся и наслаждаемся результатом (если вы все сделали
 правильно).
+
+.. vim:set textwidth=70:
