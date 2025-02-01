@@ -1687,8 +1687,8 @@ sysctl:
 .. code-block:: shell
    :caption: ``sudo nano /etc/modprobe.d/30-blacklist-watchdog-timers.conf``
 
-   blacklsit sp5100-tco
-   blacklsit iTCO_wdt
+   blacklist sp5100-tco
+   blacklist iTCO_wdt
 
 На системах под управлением дистрибутива Arch Linux или другого,
 основанного на нем требуется, также выполнить обновление образов
