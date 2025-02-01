@@ -124,7 +124,7 @@ html_context = {
 }
 
 html_sidebars = {
-    "source/index": ["sidebar-nav-bs", "custom-header"]
+    "source/*": ["sidebar-nav-bs", "custom-header"]
 }
 
 # Misc
