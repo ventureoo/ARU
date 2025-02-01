@@ -330,7 +330,7 @@ https://www.linux.org.ru/forum/desktop/16257286
 включив параметр во вкладке *"Performance"* -> *"Enable offloading GL
 driver work to a separate thread"*
 
-.. _adriconf: https://archlinux.org/packages/community/x86_64/adriconf/
+.. _adriconf: https://archlinux.org/packages/extra/x86_64/adriconf/
 
 .. index:: intel, amd, mesa, tweaks, opencl, rusticl, davinci resolve
 .. _mesa_rusticl_opencl:

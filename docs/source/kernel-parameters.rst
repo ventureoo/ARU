@@ -228,7 +228,7 @@ SSD - ``mq-deadline``, для HDD - ``bfq``. Правила udev позволя�
 ввода/вывода будут рассмотрены далее вместе с синтаксисом самих
 правил.
 
-.. [#] https://medium.com/@justaboutcloud/a-dive-deep-into-kernel-parameters-part-1-kernel-boot-parameters-139905e3432
+.. [#] https://medium.rip/@justaboutcloud/a-dive-deep-into-kernel-parameters-part-1-kernel-boot-parameters-139905e3432
 .. [#] https://www.kernel.org/doc/html/latest/admin-guide/kernel-parameters.html
 .. [#] https://www.kernel.org/doc/html/latest/admin-guide/sysctl/index.html
 .. [#] https://www.kernel.org/doc/html/latest/admin-guide/sysctl/vm.html
