@@ -19,14 +19,7 @@ https://ventureoo.github.io/ARU is saved and redirects you to the actual address
 
 ## Contents
 
-- [Preface](https://ventureo.codeberg.page/source/preface.html)
-- [First steps](https://ventureo.codeberg.page/source/first-steps.html)
-- [Basic system acceleration](https://ventureo.codeberg.page/source/generic-system-acceleration.html)
-- [Extra optimizations](https://ventureo.codeberg.page/source/extra-optimizations.html)
-- [Kernel parameters](https://ventureo.codeberg.page/source/kernel-parameters.html)
-- [File system optimization](https://ventureo.codeberg.page/source/file-systems.html)
-- [Linux Gaming](https://ventureo.codeberg.page/source/linux-gaming.html)
-- [Useful Programs](https://ventureo.codeberg.page/source/useful-programs.html)
+See at: https://ventureo.codeberg.page/source/
 
 ## Acknowledgements
 

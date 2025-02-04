@@ -17,16 +17,7 @@
 
 ## Содержание
 
-- [Предисловие](https://ventureo.codeberg.page/source/preface.html)
-- [Первые шаги](https://ventureo.codeberg.page/source/first-steps.html)
-- [Базовое ускорение системы](https://ventureo.codeberg.page/source/generic-system-acceleration.html)
-- [Экстра оптимизации](https://ventureo.codeberg.page/source/extra-optimizations.html)
-- [Настройка параметров ядра](https://ventureo.codeberg.page/source/kernel-parameters.html)
-- [Файловые системы](https://ventureo.codeberg.page/source/file-systems.html)
-- [Wine / Linux Gaming](https://ventureo.codeberg.page/source/linux-gaming.html)
-- [Полезные программы](https://ventureo.codeberg.page/source/useful-programs.html)
-- [Гибридная графика в ноутбуках](https://ventureo.codeberg.page/source/laptops.html)
-- [Разгон монитора](https://ventureo.codeberg.page/source/monitor-overlocking.html)
+Смотрите по адресу: https://ventureo.codeberg.page/source/
 
 ## Благодарности
 
