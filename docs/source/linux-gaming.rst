@@ -169,12 +169,6 @@ Proton.
   cd proton-ge-custom-bin
   makepkg -sric
 
-**II. Установка (компиляция, имеет много зависимостей):**::
-
-  git clone https://aur.archlinux.org/proton-ge-custom
-  cd proton-ge-custom
-  makepkg -sric
-
 Дабы использовать Proton-GE в качестве альтернативы обычному Proton, после
 установки Proton-GE-Custom вам нужно перезапустить Steam и зайти в *Свойства*
 нужной вам игры, прожать в: *Совместность -> Принудительно использовать
