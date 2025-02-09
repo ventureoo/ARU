@@ -301,7 +301,7 @@ Vulkan.
 На всякий случай можно дописать ещё одну переменную окружения:
 
 .. code-block:: shell
-   :caption: ``sudo nano /etc/enviroment``
+   :caption: ``sudo nano /etc/environment``
 
    AMD_DEBUG=nodcc
 
