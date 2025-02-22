@@ -556,10 +556,10 @@ down, left* или имена выводов - *HDMI-1, DP-1 и т.п.*
 софт, на `wiki river <https://codeberg.org/river/wiki/src/branch/master/pages/Recommended-Software.md>`__
 рекомендуются следующие:
 
- - `wlopm <https://git.sr.ht/~leon_plickat/wlopm>`__
- - `wlr-randr <https://sr.ht/~emersion/wlr-randr/>`__
- - `kanshi <https://sr.ht/~emersion/kanshi/>`__
- - `way-displays <https://github.com/alex-courtis/way-displays>`__
+- `wlopm <https://git.sr.ht/~leon_plickat/wlopm>`__
+- `wlr-randr <https://sr.ht/~emersion/wlr-randr/>`__
+- `kanshi <https://sr.ht/~emersion/kanshi/>`__
+- `way-displays <https://github.com/alex-courtis/way-displays>`__
 
 На данный момент будет описано использование **wlr-randr**.
 Для начала необходимо знать какие выводы у вас используются. Для этого
@@ -922,9 +922,9 @@ down, left* или имена выводов - *HDMI-1, DP-1 и т.п.*
 
 Допустимые значения _параметр_:
 
-  - *disabled* - не менять активное окно при перемещении курсора,
-  - *normal* - перемещение приводит к переключению активного окна, но не переключается на данное окно, если курсор перемещается внутри окна непокидая его,
-  - *always* - всегда переключать активное окно вслед за курсором мыши.
+- *disabled* - не менять активное окно при перемещении курсора,
+- *normal* - перемещение приводит к переключению активного окна, но не переключается на данное окно, если курсор перемещается внутри окна непокидая его,
+- *always* - всегда переключать активное окно вслед за курсором мыши.
 
 Способы скрыть курсор мыши:
 
