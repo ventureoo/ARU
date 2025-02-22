@@ -50,3 +50,9 @@
    :maxdepth: 2
 
    linux-gaming.rst
+
+.. toctree::
+   :caption: Настройка ПО
+   :maxdepth: 2 
+   
+   river-setup.rst
