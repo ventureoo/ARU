@@ -743,6 +743,16 @@ down, left* или имена выводов - *HDMI-1, DP-1 и т.п.*
    в **app-id** требует указание версии, например **blender-4.3**,
    иначе на него правило работать не будут!
 
+Для того, чтобы определить **title** и **app-id** запущенной
+программы, можно использовать `lswt <https://git.sr.ht/~leon_plickat/lswt>`__. Пример результата::
+
+  state:   app-id:                   title:
+  ----     libreoffice-startcenter   LibreOffice
+  --a-     foot                      foot
+  ----     foot                      foot
+  ----     firefox                   "river/wiki: The river Wayland compositor wiki - Codeberg.org — Mozilla Firefox"
+  ----     foot                      foot
+
 .. index:: output, river, rule-add, HDMI, DP
 .. _river_output_progs:
 
