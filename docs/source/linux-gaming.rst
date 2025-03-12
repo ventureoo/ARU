@@ -402,7 +402,7 @@ Battle.net, Lesta Game Center, Ubisoft Connect, лаунчер Genshin Impact и
 
 Исправить проблемы с такими лаунчерами можно только указав для них
 дополнительные аргументы запуска, а именно: ``--single-process --disable-gpu
---disable-gpu-compositing``.
+--disable-gpu-compositing --in-process-gpu``.
 
 Например, в случае с Battle.net:
 
@@ -412,7 +412,7 @@ Battle.net, Lesta Game Center, Ubisoft Connect, лаунчер Genshin Impact и
 
       ::
 
-         wine "Battle.net Launcher.exe" --single-process --disable-gpu --disable-gpu-compositing
+         wine "Battle.net Launcher.exe" --single-process --disable-gpu --disable-gpu-compositing --in-process-gpu
 
    .. tab-item:: Запуск через Lutris
 
