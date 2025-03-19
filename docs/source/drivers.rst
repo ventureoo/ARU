@@ -406,6 +406,7 @@ Broadwell (8-е поколение графики Intel), из-за чего п�
 
   git clone https://aur.archlinux.org/libva-intel-driver-irql
   cd libva-intel-driver-irql
+  sed -i 's/tag=.*/branch=ilk-fix' PKGBUILD
   makepkg -sricCf
 
 Обратите внимание, что на поколениях Ironlake и Sandybridge (Gen 5/Gen
