@@ -1559,6 +1559,12 @@ intel-pstate, так и для amd-pstate есть ``active`` и ``passive``
 
        echo "passive" | sudo tee /sys/devices/system/cpu/amd_pstate/status
 
+   .. tab-item:: AMD (cpupower 6.14+)
+
+     ::
+
+      sudo cpupower set --amd-pstate-mode passive
+
    .. tab-item:: Intel
 
      ::
@@ -1593,12 +1599,12 @@ intel-pstate, так и для amd-pstate есть ``active`` и ``passive``
 
 .. note:: Если команда ``cpupower frequency-info`` указывает на то,
    что используется P-State драйвер в автономном режиме, то не следует
-   пытаться применять классические политики масштабирования при помощи
-   ``cpupower``, вместо этого нужно указывать значение параметра
-   ``energy_performance_preference`` (EPP) при помощи sysfs,
-   например::
+   пытаться применять классические политики масштабирования, вместо
+   этого нужно указывать значение параметра
+   ``energy_performance_preference`` (EPP) при помощи команды
+   ``cpupower set --epp``, например::
 
-      echo "balance_performance" | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/energy_performance_preference
+      sudo cpupower set --epp balance_performance
 
    Узнать доступные значения параметра EPP можно через::
 
