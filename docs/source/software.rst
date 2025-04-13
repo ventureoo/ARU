@@ -493,12 +493,24 @@ Xfce, MATE и LXQt, в соответствующей им группе паке
 исправления ошибок и улучшения стабильности, поэтому настоятельно
 рекомендуется их периодически устанавливать.
 
-Осуществляется это следующими командами::
+Осуществляется это следующими командами в зависимости от используемого
+процессора:
 
-  sudo pacman -S intel-ucode                  # Установить микрокод Intel
-  sudo pacman -S amd-ucode                    # Установить микрокод AMD
-  sudo mkinitcpio -P                          # Пересобираем образы initramfs.
-  sudo grub-mkconfig -o /boot/grub/grub.cfg   # Обновляем загрузчик, можно так же через grub-customizer.
+.. tab-set::
+
+   .. tab-item:: Intel
+
+      ::
+
+         sudo pacman -S intel-ucode
+         sudo mkinitcpio -P
+
+   .. tab-item:: AMD
+
+      ::
+
+         sudo pacman -S amd-ucode
+         sudo mkinitcpio -P
 
 .. index:: firmware, linux, installation
 .. _missing_firmwares:
