@@ -639,25 +639,6 @@ vkd3d, одна из которых разрабатывается команд�
 
       .. image:: images/lutris-vkd3d-1.png
 
-.. index:: wine, dxvk, gaming, about
-.. _wine-references:
-
-------------------------------------
-Полезные ссылки по теме Wine и DXVK
-------------------------------------
-
-**Скачать готовые сборки Wine и DXVK**
-
-https://github.com/Kron4ek/Wine-Builds
-
-https://mirror.cachyos.org/?search=wine
-
-**Почитать, что это такое**
-
-https://www.newalive.net/234-sborki-dxvk-i-d9vk.html
-
-https://www.newalive.net/231-wine-tk-glitch.html
-
 .. index:: gamemode, lutris, gaming
 .. _additional-components:
 
