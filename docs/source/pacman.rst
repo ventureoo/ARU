@@ -127,10 +127,10 @@
 
 Для этого раскомментируем так называемый *multilib* репозиторий внутри
 конфигурации ``/etc/pacman.conf``. Сделать это можно используя любой
-текстовый редактор или при помощи команды ``sed``::
+текстовый редактор или при помощи командной строки::
 
-  sudo sed -i 's/#\(\[multilib\]\)/\1/g' /etc/pacman.conf
-  sudo sed -i 's/#\(Include = \/etc\/pacman.d\/mirrorlist\)/\1/g' /etc/pacman.conf
+  echo -e "[multilib]\nInclude = /etc/pacman.d/mirrorlist" \
+      | sudo tee -a /etc/pacman.conf
 
 После чего необходимо загрузить базу данных для только что
 добавленного репозитория::
