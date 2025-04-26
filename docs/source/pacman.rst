@@ -116,24 +116,26 @@
 Включение 32-битного репозитория
 ==================================
 
-Убедимся, что конфигурация пакетного менеджера Pacman настроена для получения
-доступа к 32-битным зависимостям, нужным в частности для установки Wine и
-Steam.
-
-Для этого раскомментируем так называемый *multilib* репозиторий::
-
-  sudo nano /etc/pacman.conf           # Раскоментируйте последние две строчки как на скриншоте
-
-.. image:: images/first-steps-1.png
-
-::
-
-  sudo pacman -Suy                     # Обновление репозиториев и всех программ (пакетов)
+Убедимся, что конфигурация пакетного менеджера pacman настроена для
+получения доступа к загрузке 32-битных зависимостям, нужным в
+частности для установки Wine и Steam.
 
 .. note:: Если вы не используете Steam или Wine, то можете пропустить
    данный шаг. Также стоит отметить возможность работы Wine без
    установки 32-битных зависимостей, подробнее см.
    :ref:`wine-pure-build`.
+
+Для этого раскомментируем так называемый *multilib* репозиторий внутри
+конфигурации ``/etc/pacman.conf``. Сделать это можно используя любой
+текстовый редактор или при помощи команды ``sed``::
+
+  sudo sed -i 's/#\(\[multilib\]\)/\1/g' /etc/pacman.conf
+  sudo sed -i 's/#\(Include = \/etc\/pacman.d\/mirrorlist\)/\1/g' /etc/pacman.conf
+
+После чего необходимо загрузить базу данных для только что
+добавленного репозитория::
+
+  sudo pacman -Suy
 
 .. index:: pacman, mirrorlist, reflector
 .. _speed-up-system-updates:
@@ -158,7 +160,7 @@ Steam.
 постоянно обновляющегося перечня на сайте Arch Linux
 (https://archlinux.org/mirrorlist/)::
 
-  sudo nano /etc/pacman.d/mirrorlist # Рекомендуем прописывать зеркала от Яндекса
+  /etc/pacman.d/mirrorlist # Рекомендуем прописывать зеркала от Яндекса
 
 .. index:: pacman, settings, parallel-downloading
 .. _parallel-downloading:
@@ -168,13 +170,14 @@ Steam.
 ==============================
 
 Начиная с шестой версии pacman поддерживает параллельную загрузку
-пакетов. Чтобы её включить отредактируйте ``/etc/pacman.conf``:
+пакетов. Чтобы её включить раскоментируйте строку с
+``ParallelDownloads`` в файле ``/etc/pacman.conf`` при помощи
+текстового редактора или через команду ``sed``::
 
-.. code-block:: shell
-   :caption: ``sudo nano /etc/pacman.conf`` # Раскомментируйте строчку внутри файла
+   sudo sed -i 's/#ParallelDownloads = 4/ParallelDownloads = 4/g' /etc/pacman.conf
 
-   # Где 4 - количество пакетов для одновременной загрузки
-   ParallelDownloads = 4
+.. note:: Для новых установок Arch Linux параллельная загрузка пакетов
+   должна быть включена по умолчанию.
 
 .. index:: pacman, settings, disable-timeouts
 .. _disable_pacman_timeouts:
@@ -187,11 +190,9 @@ Steam.
 то при загрузке пакетов при помощи pacman вы могли сталкиваться с
 ошибкой превышания лимитов ожидания (таймаутов). Чтобы этого избежать
 нужно добавить параметр ``DisableDownloadTimeout`` в ``pacman.conf``
-как мы это уже делали ранее с ``ParallelDownloads``:
+внутри секции ``[options]`` при помощи любого текстового редактора,
+либо через команду ``sed``::
 
-.. code-block:: shell
-   :caption: ``sudo nano /etc/pacman.conf`` # Добавьте строку в секцию [options]
-
-   DisableDownloadTimeout
+   sudo sed -i 's/\[options\]/\[options\]\nDisableDownloadTimeout/g' /etc/pacman.conf
 
 .. vim:set textwidth=70:

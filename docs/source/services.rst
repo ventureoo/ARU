@@ -40,7 +40,7 @@ zram-generator
 таких как алгоритм сжатия и размер блочного устройства:
 
 .. code-block:: shell
-   :caption: ``sudo nano /etc/systemd/zram-generator.conf``
+   :caption: ``/etc/systemd/zram-generator.conf``
 
    [zram0]
    zram-size = ram

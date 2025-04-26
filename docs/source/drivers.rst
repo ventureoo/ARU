@@ -97,7 +97,7 @@ picom_.
 файл, что мы создавали ранее:
 
 .. code-block:: shell
-   :caption: ``sudo nano /etc/modprobe.d/nvidia-pat.conf``
+   :caption: ``/etc/modprobe.d/nvidia-pat.conf``
 
    options nvidia NVreg_UsePageAttributeTable=1
 
@@ -184,7 +184,7 @@ VSync. Мы рекомендуем задавать вовсе *"1"* (т.е. н�
 в файле ``/etc/environment``.
 
 .. code-block:: shell
-   :caption: ``sudo nano /etc/environment``
+   :caption: ``/etc/environment``
 
     __GL_SYNC_DISPLAY_DEVICE=HDMI-0 # Это пример, указывайте свое имя выхода
 
@@ -213,7 +213,7 @@ VSync. Мы рекомендуем задавать вовсе *"1"* (т.е. н�
 следующим содержанием:
 
 .. code-block:: shell
-   :caption: ``sudo nano /etc/mkinitcpio.conf.d/10-modules.conf``
+   :caption: ``/etc/mkinitcpio.conf.d/10-modules.conf``
 
    MODULES+=(nvidia nvidia_modeset nvidia_uvm nvidia_drm)
 
@@ -267,7 +267,7 @@ Vulkan.
 Чтобы активировать SAM в Linux, нужно добавить переменные окружения:
 
 .. code-block:: shell
-   :caption: ``sudo nano /etc/environment``
+   :caption: ``/etc/environment``
 
    RADV_PERFTEST=sam # Только для Vulkan
 
@@ -294,14 +294,14 @@ Vulkan.
 Решается через добавление следующих параметров ядра:
 
 .. code-block:: shell
-   :caption: ``sudo nano /etc/modprobe.d/90-amdgpu.conf``
+   :caption: ``/etc/modprobe.d/90-amdgpu.conf``
 
    options amdgpu gttsize=8192 lockup_timeout=1000 gpu_recovery=1 noretry=0 ppfeaturemask=0xfffd3fff deep_color=1
 
 На всякий случай можно дописать ещё одну переменную окружения:
 
 .. code-block:: shell
-   :caption: ``sudo nano /etc/environment``
+   :caption: ``/etc/environment``
 
    AMD_DEBUG=nodcc
 
@@ -361,7 +361,7 @@ driver work to a separate thread"*
    .. tab-item:: AMD
 
       .. code-block:: shell
-         :caption: ``sudo nano /etc/environment``
+         :caption: ``/etc/environment``
 
          RUSTICL_ENABLE=radeonsi
 
@@ -370,7 +370,7 @@ driver work to a separate thread"*
    .. tab-item:: Intel
 
        .. code-block:: shell
-          :caption: ``sudo nano /etc/environment``
+          :caption: ``/etc/environment``
 
           RUSTICL_ENABLE=iris
 
@@ -415,7 +415,7 @@ Broadwell (8-е поколение графики Intel), из-за чего п�
 Wayland:
 
 .. code-block:: shell
- :caption: ``nano ~/.config/chromium-flags.conf``
+ :caption: ``~/.config/chromium-flags.conf``
 
  --enable-features=AcceleratedVideoDecodeLinuxZeroCopyGL,AcceleratedVideoDecodeLinuxGL
  --ozone-platform-hint=wayland

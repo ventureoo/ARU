@@ -769,7 +769,7 @@ Lutris, как правило использует gamemode по умолчан�
 символом ``;`` в начале)::
 
   mkdir -p ~/.config/gamemode
-  nano ~/.config/gamemode/gamemode.ini # Пропишите следующее строчки
+  ~/.config/gamemode/gamemode.ini # Пропишите следующее строчки
 
   [general]
   ; Повышает приоритет игры до максимума
@@ -1002,7 +1002,7 @@ FPS, график времени кадра, нагрузку на GPU. Испо
 После этого создадим правило udev с произвольным именем файла:
 
 .. code-block:: shell
-  :caption: ``sudo nano /etc/udev/rules.d/10-xbox-gamepad.rules``
+  :caption: ``/etc/udev/rules.d/10-xbox-gamepad.rules``
 
     # Generic xbox controller
     ACTION=="add", ATTRS{idVendor}=="11c1", ATTRS{idProduct}=="2001", \

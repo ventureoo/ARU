@@ -63,7 +63,7 @@ initramfs, нам следует отредактировать конфигур
 выглядел примерно так:
 
 .. code-block:: shell
-   :caption: sudo nano /etc/mkinitcpio.conf
+   :caption: ``/etc/mkinitcpio.conf``
 
     HOOKS=(systemd autodetect microcode modconf kms keyboard sd-vconsole block filesystems fsck)
 

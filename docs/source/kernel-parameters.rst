@@ -427,7 +427,7 @@ Zswap заполнится (по умолчанию он равен 20%), то �
 sysctl:
 
 .. code-block:: shell
-   :caption: ``sudo nano /etc/sysctl.d/90-sysctl.conf``
+   :caption: ``/etc/sysctl.d/90-sysctl.conf``
 
    vm.swappiness = 100
 
@@ -501,7 +501,7 @@ ZRAM также ведет свою статистику о том, какие �
 ``/etc/tmpfiles.d`` со следующим содержимым:
 
 .. code-block:: shell
-   :caption: ``sudo nano /etc/tmpfiles.d/90-disable-zswap.conf``
+   :caption: ``/etc/tmpfiles.d/90-disable-zswap.conf``
 
    w! /sys/module/zswap/parameters/enabled - - - - 0
 
@@ -531,7 +531,7 @@ ZRAM также ведет свою статистику о том, какие �
 строчку:
 
 .. code-block:: shell
-   :caption: ``sudo nano /etc/modules-load.d/zram.conf``
+   :caption: ``/etc/modules-load.d/zram.conf``
 
    zram
 
@@ -540,7 +540,7 @@ ZRAM также ведет свою статистику о том, какие �
 создадим файл в директории ``/etc/udev/rules.d/30-zram.rules``:
 
 .. code-block:: shell
-   :caption: ``sudo nano /etc/udev/rules.d/30-zram.rules``
+   :caption: ``/etc/udev/rules.d/30-zram.rules``
 
    ACTION=="add", KERNEL=="zram0", ATTR{comp_algorithm}="zstd", \
        ATTR{disksize}="8G", \
@@ -607,7 +607,7 @@ udev правило действие, которое мы хотим сдела�
 приоритет ``100``.
 
 .. code-block:: shell
-   :caption: ``sudo nano /etc/fstab``
+   :caption: ``/etc/fstab``
 
     /dev/zram0 none swap defaults,pri=100 0 0
 
@@ -687,7 +687,7 @@ udev правило действие, которое мы хотим сдела�
 как обычно достаточно просто прописать значение в конфиге sysctl:
 
 .. code-block:: shell
-   :caption: ``sudo nano /etc/sysctl.d/99-sysctl.conf``
+   :caption: ``/etc/sysctl.d/99-sysctl.conf``
 
     vm.page-cluster = 0
 
@@ -808,7 +808,7 @@ MGLRU предотвращает вытеснение "рабочего набо
 ``systemd-tmpfiles``:
 
 .. code-block:: shell
-   :caption: ``sudo nano /etc/tmpfiles.d/90-page-trashing.conf``
+   :caption: ``/etc/tmpfiles.d/90-page-trashing.conf``
 
    w! /sys/kernel/mm/lru_gen/min_ttl_ms - - - - 2000
 
@@ -1016,7 +1016,7 @@ tmpfs, и в этом случае объем грязных уже будет �
 ``dirty_bytes``:
 
 .. code-block:: shell
-   :caption: ``sudo nano /etc/sysctl.d/30-dirty-pages.conf``
+   :caption: ``/etc/sysctl.d/30-dirty-pages.conf``
 
    vm.dirty_background_bytes=67108864
    vm.dirty_bytes=268435456
@@ -1041,7 +1041,7 @@ tmpfs, и в этом случае объем грязных уже будет �
 сантисекунды:
 
 .. code-block:: shell
-   :caption: ``sudo nano /etc/sysctl.d/30-dirty-pages-expire.conf``
+   :caption: ``/etc/sysctl.d/30-dirty-pages-expire.conf``
 
    vm.dirty_expire_centisecs=1500
 
@@ -1053,7 +1053,7 @@ tmpfs, и в этом случае объем грязных уже будет �
 на столкновение с эффектом троттлинга при записи:
 
 .. code-block:: shell
-   :caption: ``sudo nano /etc/sysctl.d/30-dirty-pages-writeback.conf``
+   :caption: ``/etc/sysctl.d/30-dirty-pages-writeback.conf``
 
    vm.dirty_writeback_centisecs=100
 
@@ -1114,7 +1114,7 @@ tmpfs, и в этом случае объем грязных уже будет �
 sysctl:
 
 .. code-block:: shell
-   :caption: ``sudo nano /etc/sysctl.d/90-vfs-cache.conf``
+   :caption: ``/etc/sysctl.d/90-vfs-cache.conf``
 
    vm.vfs_cache_pressure = 50
 
@@ -1226,7 +1226,7 @@ SSD/NVMe/microSD/SD накопителям). Если вам казалось, �
 новый файл в ``/etc/udev/rules.d/90-io-schedulers.rules``:
 
 .. code-block:: shell
-   :caption: ``sudo nano /etc/udev/rules.d/90-io-schedulers.rules``
+   :caption: ``/etc/udev/rules.d/90-io-schedulers.rules``
 
    # HDD
    ACTION=="add|change", KERNEL=="sd[a-z]*", ATTR{queue/rotational}=="1", ATTR{queue/scheduler}="bfq"
@@ -1295,7 +1295,7 @@ KDiskMark), чтобы понять какой из планировщиков �
 хватит точно всем :)
 
 .. code-block:: shell
-   :caption: ``sudo nano /etc/sysctl.d/99-sysctl.conf``
+   :caption: ``/etc/sysctl.d/99-sysctl.conf``
 
    vm.max_map_count = 1048576
 
@@ -1339,7 +1339,7 @@ KDiskMark), чтобы понять какой из планировщиков �
 этого следует создать новый файл в директории ``/etc/modprobe.d``:
 
 .. code-block:: shell
-   :caption: ``sudo nano /etc/modprobe.d/30-ahci-disable-sss.conf``
+   :caption: ``/etc/modprobe.d/30-ahci-disable-sss.conf``
 
    options libahci ignore_sss=1
 
@@ -1633,7 +1633,7 @@ intel-pstate, так и для amd-pstate есть ``active`` и ``passive``
 ``/etc/default/cpupower``:
 
 .. code-block:: shell
-  :caption: ``sudo nano /etc/default/cpupower``
+  :caption: ``/etc/default/cpupower``
 
   governor='conservative'
 
@@ -1677,7 +1677,7 @@ intel-pstate, так и для amd-pstate есть ``active`` и ``passive``
 sysctl:
 
 .. code-block:: shell
-   :caption: ``sudo nano /etc/sysctl.d/30-no-watchdog-timers.conf``
+   :caption: ``/etc/sysctl.d/30-no-watchdog-timers.conf``
 
    kernel.watchdog = 0
 
@@ -1691,7 +1691,7 @@ sysctl:
 модули в чёрный список:
 
 .. code-block:: shell
-   :caption: ``sudo nano /etc/modprobe.d/30-blacklist-watchdog-timers.conf``
+   :caption: ``/etc/modprobe.d/30-blacklist-watchdog-timers.conf``
 
    blacklist sp5100-tco
    blacklist iTCO_wdt
@@ -1774,7 +1774,7 @@ initramfs, чтобы данная конфигурация для ``modprobe`` 
       Пример такой строки конфигурации:
 
       .. code-block:: shell
-         :caption: ``sudo nano /etc/default/grub``
+         :caption: ``/etc/default/grub``
 
          ...
          GRUB_CMDLINE_LINUX_DEFAULT="quiet loglevel=3 mitigations=off"
@@ -1795,7 +1795,7 @@ initramfs, чтобы данная конфигурация для ``modprobe`` 
       такого файла конфигурации (не копировать полностью!):
 
       .. code-block:: shell
-         :caption: ``sudo nano /boot/refind_linux.conf``
+         :caption: ``/boot/refind_linux.conf``
 
          "Boot to default params"    "root=PARTUUID=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX rw mitigations=off"
          "Boot to single-user mode"    "root=PARTUUID=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX rw single"
@@ -1813,7 +1813,7 @@ initramfs, чтобы данная конфигурация для ``modprobe`` 
       параметр в строке с ``options``. Пример конфигурации:
 
       .. code-block:: shell
-         :caption: ``sudo nano /boot/efi/loader/entries/arch.conf``
+         :caption: ``/boot/efi/loader/entries/arch.conf``
 
          title   Arch Linux
          linux   /vmlinuz-linux

@@ -69,7 +69,7 @@ PipeWire
 В появившейся директории создадим файл со следующим содержанием:
 
 .. code-block:: shell
-  :caption: ``nano ~/.config/pipewire/pipewire.conf.d/20-no-resampling.conf``
+  :caption: ``~/.config/pipewire/pipewire.conf.d/20-no-resampling.conf``
 
    context.properties = {
      default.clock.rate = 48000
@@ -155,7 +155,7 @@ PipeWire так же как и PulseAuido позволяет микширова�
 следующие значения для размера буфера по умолчанию:
 
 .. code-block:: shell
-  :caption: ``nano ~/.config/pipewire/pipewire.conf.d/10-sound.conf``
+  :caption: ``~/.config/pipewire/pipewire.conf.d/10-sound.conf``
 
    context.properties = {
      default.clock.min-quantum = 512

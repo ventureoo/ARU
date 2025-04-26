@@ -104,7 +104,7 @@ binary** для редактирования нашего EDID файла в д�
 стандартного, нам нужно указать специальный параметр ядра для модуля ``drm``:
 
 .. code-block:: shell
-   :caption: ``sudo nano /etc/modprobe.d/drm.conf``
+   :caption: ``/etc/modprobe.d/drm.conf``
 
    options drm edid_firmware=edid/edid2.bin
 

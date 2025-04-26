@@ -100,7 +100,7 @@ nvidia"``, вы уже можете полноценно использоват�
 содержанием:
 
 .. code-block:: shell
-   :caption: ``sudo nano /etc/udev/rules.d/71-nvidia.rules``
+   :caption: ``/etc/udev/rules.d/71-nvidia.rules``
 
    ACTION=="add|bind", SUBSYSTEM=="pci", DRIVERS=="nvidia", ATTR{vendor}=="0x10de", ATTR{class}=="0x03[0-9]*", TEST=="power/control", ATTR{power/control}="auto"
    ACTION=="remove|unbind", SUBSYSTEM=="pci", DRIVERS=="nvidia", ATTR{vendor}=="0x10de", ATTR{class}=="0x03[0-9]*", TEST=="power/control", ATTR{power/control}="on"
@@ -113,7 +113,7 @@ nvidia"``, вы уже можете полноценно использоват�
 который и активирует работу динамического управления питанием:
 
 .. code-block:: shell
-   :caption: ``sudo nano /etc/modprobe.d/nvidia-dynamic-powermanagment.conf``
+   :caption: ``/etc/modprobe.d/nvidia-dynamic-powermanagment.conf``
 
    options nvidia NVreg_DynamicPowerManagement=0x02
 
@@ -292,7 +292,7 @@ NVIDIA главным GPU, что позволяет избавиться от �
 нужно создать следующий конфиг:
 
 .. code-block:: shell
-   :caption: ``sudo nano /etc/X11/xorg.conf.d/10-gpu.conf``
+   :caption: ``/etc/X11/xorg.conf.d/10-gpu.conf``
 
    Section "ServerLayout"
      Identifier "layout"
