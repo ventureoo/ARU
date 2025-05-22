@@ -405,19 +405,19 @@ Nouveau (*Только для старых видеокарт*)
 драйвера NVIDIA (340, 390) и отлично справляется с 2D ускорением. Вдобавок,
 Nouveau хорошо работает с Wayland::
 
-  sudo pacman -S mesa lib32-mesa vulkan-nouveau lib32-vulkan-nouveau opencl-mesa lib32-opencl-mesa
+  sudo pacman -S {lib32-,}mesa {lib32-,}vulkan-nouveau {lib32-,}opencl-mesa
 
 AMD
 ----
 ::
 
-  sudo pacman -S mesa lib32-mesa vulkan-radeon lib32-vulkan-radeon vulkan-mesa-layers opencl-mesa lib32-opencl-mesa
+  sudo pacman -S {lib32-,}mesa {lib32-,}vulkan-radeon vulkan-mesa-layers {lib32-,}opencl-mesa
 
 Intel
 -----
 ::
 
-  sudo pacman -S mesa lib32-mesa vulkan-intel lib32-vulkan-intel opencl-mesa lib32-opencl-mesa
+  sudo pacman -S {lib32-,}mesa {lib32-,}vulkan-intel {lib32-,}opencl-mesa
 
 .. warning:: Автор не рекомендует выполнять установку морально
    устаревших DDX драйверов, как например ``xf86-video-intel``, так
