@@ -360,19 +360,12 @@ driver work to a separate thread"*
 
          RUSTICL_ENABLE=radeonsi
 
-      .. note:: Данная переменная будет работать на видеокартах с
-      драйвером amdgpu.
-
    .. tab-item:: Intel
 
        .. code-block:: shell
           :caption: ``/etc/environment``
 
           RUSTICL_ENABLE=iris
-
-       .. note:: Данный драйвер будет поддерживается на видеочипах,
-       начиная с поколения Broadwell (Gen8) и новее.
-
 
 .. index:: intel, mesa, vaapi, chromium
 .. _intel_vaapi_driver:
