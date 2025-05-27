@@ -335,6 +335,37 @@ Zink не привязан к конкретной реализации Vulkan, 
 
           RUSTICL_ENABLE=iris
 
+.. index:: amd, mesa, vaapi, chromium
+.. _amd_vaapi_driver:
+
+----------------------------------------
+Аппаратное ускорение видео на GPU от AMD
+----------------------------------------
+
+Начиная с версии Mesa 25.1 у поставляемого по умолчанию драйвера
+VA-API появилась возможность декодировать видео, проигрываемые внутри
+браузера Chromium, как на X11, так и на Wayland. Несмотря на это
+аппаратное ускорение видео для видеокарт AMD в Chromium по умолчанию
+отключено, и чтобы его активировать нужно прописать несколько
+дополнительных флагов запуска:
+
+.. code-block:: shell
+ :caption: ``~/.config/chromium-flags.conf``
+
+ --enable-features=AcceleratedVideoDecodeLinuxZeroCopyGL,AcceleratedVideoDecodeLinuxGL
+
+Если вы используете окружение на базе Wayland, то для правильной
+работы требуется также добавить флаг
+``--ozone-platform-hint=wayland``, который активирует нативную работу
+браузера без использования XWayland.
+
+Проверить корректность работы аппаратного видео ускорения можно
+перейдя на страницу ``chrome://gpu`` и затем в графу *"Video
+Acceleration Information"*, в которой должна появится информация о
+поддерживаемых кодеках для декодирования.
+
+.. image:: images/chromium-vaapi.png
+
 .. index:: intel, mesa, vaapi, chromium
 .. _intel_vaapi_driver:
 
