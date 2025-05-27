@@ -53,49 +53,12 @@
 Кэш пакетов pacman имеет плохое свойство забиваться и со временем
 занимает много места на диске. Чтобы этого не происходило, создадим
 небольшой демон, который будет автоматически его очищать, например,
-каждую неделю. В этом нам могут встроенные средства systemd для
-создания таймеров - специальных служб, которые устанавливают
-периодичность выполнения того или иного события, например, запуска
-другой службы (в нашем случае службы очистки кэша). Напишем таймер,
-выполняющий команду ``pacman -Scc`` регулярно раз в неделю с периодом
-проверки времени один раз в час. Для этого сначала создадим службу,
-которая будет регулярно выполняться, назовем её
-``pacman-cleaner.service``:
+каждую неделю. В этом нам поможет службу из состава пакета
+``pacman-contrib``, которая автоматически будет выполнять очистку кэша
+пакетов раз в неделю::
 
-.. code-block:: shell
-  :caption: ``/etc/systemd/system/pacman-cleaner.service``
-
-  [Unit]
-  Description=Cleans pacman cache
-
-  [Service]
-  Type=oneshot
-  ExecStart=/usr/bin/pacman -Scc --noconfirm
-
-  [Install]
-  WantedBy=multi-user.target
-
-И для этой службы создадим соответствующий таймер, который будет активировать её
-выполенение каждую неделю:
-
-.. code-block:: shell
-  :caption: ``/etc/systemd/system/pacman-cleaner.timer``
-
-  [Unit]
-  Description=Run clean of pacman cache every week
-
-  [Timer]
-  OnCalendar=weekly
-  AccuracySec=1h
-  Persistent=true
-
-  [Install]
-  WantedBy=timers.target
-
-Не забываем включить этот самый таймер::
-
-  sudo systemctl enable --now pacman-cleaner.timer
-
+  sudo pacman -S pacman-contrib
+  sudo systemctl enable paccache.timer
 
 .. index:: sqlite3, cache, vacuum
 .. _sqlite_cache_optimizing:
