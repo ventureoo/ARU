@@ -271,27 +271,6 @@ https://www.linux.org.ru/forum/linux-hardware/16312119
 
 https://www.linux.org.ru/forum/desktop/16257286
 
-.. index:: intel, amd, mesa, tweaks
-.. _multithreaded_opengl:
-
---------------------------------
-Многопоточная OpenGL обработка
---------------------------------
-
-У Mesa есть свой аналог переменной окружения
-``__GL_THREADED_OPTIMIZATIONS=1``, так же предназначенный для
-активирования многопоточной обработки OpenGL - ``mesa_glthread=true``.
-В ряде игр и приложений это даёт сильное увеличение
-производительности, но в некоторых либо нет прироста, либо вовсе не
-может быть применено.
-
-Чтобы включить его для всей системы нужно либо прописать переменную
-окружения в файл ``/etc/environment``, либо используя adriconf_,
-включив параметр во вкладке *"Performance"* -> *"Enable offloading GL
-driver work to a separate thread"*
-
-.. _adriconf: https://archlinux.org/packages/extra/x86_64/adriconf/
-
 .. index:: intel, amd, mesa, tweaks, opencl, rusticl, davinci resolve
 .. _mesa_rusticl_opencl:
 
