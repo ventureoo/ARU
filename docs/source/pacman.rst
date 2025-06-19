@@ -1,4 +1,4 @@
-.. ARU (c) 2018 - 2024, Pavel Priluckiy, Vasiliy Stelmachenok and contributors
+.. ARU (c) 2018 - 2025, Pavel Priluckiy, Vasiliy Stelmachenok and contributors
 
    ARU is licensed under a
    Creative Commons Attribution-ShareAlike 4.0 International License.
@@ -109,7 +109,7 @@
 Таким образом ключи будут обновляться раз в неделю.
 
 
-.. index:: pacman, multilib, wine, steam
+.. index:: pacman, multilib, steam
 .. _multilib-repository:
 
 ==================================
@@ -118,12 +118,10 @@
 
 Убедимся, что конфигурация пакетного менеджера pacman настроена для
 получения доступа к загрузке 32-битных зависимостям, нужным в
-частности для установки Wine и Steam.
+частности для установки Steam.
 
-.. note:: Если вы не используете Steam или Wine, то можете пропустить
-   данный шаг. Также стоит отметить возможность работы Wine без
-   установки 32-битных зависимостей, подробнее см.
-   :ref:`wine-pure-build`.
+.. note:: Если вы не используете Steam, то можете пропустить данный
+   шаг.
 
 Для этого раскомментируем так называемый *multilib* репозиторий внутри
 конфигурации ``/etc/pacman.conf``. Сделать это можно используя любой
