@@ -163,16 +163,21 @@ Proton-GE-Custom это форк проекта Proton для запуска Win
 Позволяет играть во многие проекты которые не заводятся с обычным Wine или
 Proton.
 
-**I. Установка (бинарная версия):**::
+Установить последнюю версию Proton-GE можно при помощи следующей
+команды::
 
-  git clone https://aur.archlinux.org/proton-ge-custom-bin
-  cd proton-ge-custom-bin
-  makepkg -sric
+  curl -sSL https://api.github.com/repos/GloriousEggroll/proton-ge-custom/releases/latest  |
+    grep -oP '"browser_download_url": "\K.*.tar.zst(?=")' |
+    curl -s -o /dev/stdout -L @- |
+    tar --zstd -x -v -C ~/.steam/root/compatibilitytools.d/ -f -
+
+Она автоматически найдёт и загрузит последнюю версию бинарного архива, а также
+распакует её в директорию хранения используемых версий Proton.
 
 Дабы использовать Proton-GE в качестве альтернативы обычному Proton, после
 установки Proton-GE-Custom вам нужно перезапустить Steam и зайти в *Свойства*
 нужной вам игры, прожать в: *Совместность -> Принудительно использовать
-определенный инструмент совместности Steam Play -> Proton-9.XX-GE-1*. Готово,
+определенный инструмент совместности Steam Play -> Proton-10.XX-GE*. Готово,
 теперь можно запустить игру.
 
 .. index:: installation, wine, about, prefixes
