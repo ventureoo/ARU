@@ -29,19 +29,13 @@
 Аналог CCleaner для Linux, помогает выполнить очистку системы от накопившегося
 в ней мусора.
 
-Советуем выполнять чистку системы уже после проведения всех оптимизаций.
+Рекомендуется выполнять чистку системы уже после проведения всех оптимизаций.
 
 .. image:: images/generic-system-acceleration-4.png
 
-**Установка + дополнительные фильтры**::
+Установить программу можно из официального репозитория Arch Linux::
 
   sudo pacman -S bleachbit
-
-  # Дополнительные фильтры
-
-  git clone https://aur.archlinux.org/cleanerml-git.git # Загрузка исходников.
-  cd cleanerml-git                                      # Переход в cleanerm.
-  makepkg -sric                                         # Сборка и установка.
 
 .. index:: pacman, cache, cleaner
 .. _pacman_cleaner:
