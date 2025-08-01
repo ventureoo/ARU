@@ -1834,6 +1834,6 @@ initramfs, чтобы данная конфигурация для ``modprobe`` 
 .. [#] https://lkml.org/lkml/2018/11/19/37
 .. [#] https://lkml.org/lkml/2018/11/19/69
 .. [#] https://hg.mozilla.org/mozilla-central/rev/ebdd80f675b6
-.. [#] https://www.tomshardware.com/news/ryzen-7000-security-mitigations-faster-on-linux
+.. [#] https://www.phoronix.com/news/AMD-Zen-4-Mitigations-Off
 
 .. vim:set textwidth=70:
