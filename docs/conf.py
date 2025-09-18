@@ -90,7 +90,7 @@ html_theme_options = {
         },
         {
             "name": "Matrix",
-            "url": "https://matrix.to/#/#linux_bunker:matrix.org",
+            "url": "https://matrix.to/#/#linux_bunker_re:matrix.askhalion.org",
             "icon": "fas fa-comments",
         },
         {
