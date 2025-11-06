@@ -143,8 +143,6 @@ wineserver, которая отличается низкой производи�
 
 Если вывод команды не пустой, то всё в порядке.
 
-.. [#] https://lore.kernel.org/lkml/20240131021356.10322-3-zfigura@codeweavers.com/T/
-
 .. index:: installation, proton, gaming, native-compilation
 .. _proton-ge-custom:
 
