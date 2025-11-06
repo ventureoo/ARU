@@ -26,7 +26,6 @@
    software.rst
    drivers.rst
    laptops.rst
-   boot.rst
 
 .. toctree::
    :caption: Общее ускорение системы
@@ -44,6 +43,7 @@
 
    kernel-parameters.rst
    file-systems.rst
+   mini-kernel.rst
 
 .. toctree::
    :caption: Игры
