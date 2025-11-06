@@ -160,23 +160,6 @@
 
   /etc/pacman.d/mirrorlist # Рекомендуем прописывать зеркала от Яндекса
 
-.. index:: pacman, settings, parallel-downloading
-.. _parallel-downloading:
-
-==============================
-Параллельная загрузка пакетов
-==============================
-
-Начиная с шестой версии pacman поддерживает параллельную загрузку
-пакетов. Чтобы её включить раскоментируйте строку с
-``ParallelDownloads`` в файле ``/etc/pacman.conf`` при помощи
-текстового редактора или через команду ``sed``::
-
-   sudo sed -i 's/#ParallelDownloads = 4/ParallelDownloads = 4/g' /etc/pacman.conf
-
-.. note:: Для новых установок Arch Linux параллельная загрузка пакетов
-   должна быть включена по умолчанию.
-
 .. index:: pacman, settings, disable-timeouts
 .. _disable_pacman_timeouts:
 
