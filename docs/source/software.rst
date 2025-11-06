@@ -285,9 +285,7 @@ https://www.archlinux.org/packages/. Если вы не смогли найти 
 
 Если в предыдущем разделе вы включили в конфигурации pacman
 использование multilib репозитория, то из него можно установить
-официальный клиент Steam. Существует две версии пакета, но автор
-рекомендует использовать обычный пакет `steam`_ для лучшей
-совместимости::
+официальный клиент Steam::
 
   sudo pacman -S steam ttf-liberation
 
@@ -296,8 +294,6 @@ https://www.archlinux.org/packages/. Если вы не смогли найти 
 этом случае пользователям Nvidia следует выбрать пакет
 ``lib32-nvidia-utils``, а пользователям AMD и Intel - пакеты
 ``lib32-vulkan-radeon`` и ``lib32-vulkan-intel`` соответственно.
-
-.. _steam: https://archlinux.org/packages/multilib/x86_64/steam/
 
 .. index:: useful-programs, mouse, settings
 .. _paper:
