@@ -289,11 +289,21 @@ https://www.archlinux.org/packages/. Если вы не смогли найти 
 
   sudo pacman -S steam ttf-liberation
 
-Обратите внимание, что во время установки пакета pacman скорее всего
-предложит вам выбрать желаемую 32-битную реализацию Vulkan драйвера. В
-этом случае пользователям Nvidia следует выбрать пакет
-``lib32-nvidia-utils``, а пользователям AMD и Intel - пакеты
-``lib32-vulkan-radeon`` и ``lib32-vulkan-intel`` соответственно.
+Обратите внимание, что во время установки пакета pacman предложит вам
+выбрать желаемую 32-битную реализацию Vulkan драйвера::
+
+ :: Repository multilib
+   17) lib32-nvidia-utils  18) lib32-vulkan-asahi  19) lib32-vulkan-dzn  20) lib32-vulkan-freedreno
+   21) lib32-vulkan-gfxstream  22) lib32-vulkan-intel  23) lib32-vulkan-nouveau
+   24) lib32-vulkan-radeon  25) lib32-vulkan-swrast  26) lib32-vulkan-virtio
+
+  Enter a number (default=1):
+
+В этом случае пользователям закрытого драйвера NVIDIA следует выбрать
+пакет ``lib32-nvidia-utils``, а пользователям AMD и Intel - пакеты
+``lib32-vulkan-radeon`` и ``lib32-vulkan-intel`` соответственно. Это
+необходимо для запуска игр через Proton, а также некоторых нативных
+портов.
 
 .. index:: useful-programs, mouse, settings
 .. _paper:
@@ -339,9 +349,9 @@ NVIDIA
 
 Рекомендуется использовать модули драйвера из пакета ``nvidia-dkms``,
 которые при помощи системы динамических модулей DKMS автоматически
-собируться под нужное ядро::
+соберутся под нужное ядро::
 
-  sudo pacman -S nvidia-dkms nvidia-utils lib32-nvidia-utils nvidia-settings lib32-opencl-nvidia opencl-nvidia libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader libva-nvidia-driver
+  sudo pacman -S nvidia-dkms nvidia-utils nvidia-settings opencl-nvidia libxnvctrl vulkan-icd-loader libva-nvidia-driver
 
 .. warning:: Для правильной работы DKMS требуется также установить
    заголовки текущей версии ядра. Например, для стандартного ядра
@@ -356,7 +366,7 @@ Turing (16xx/20xx). Их установка практически ничем н
 закрытого варианта кроме как заменой пакета ``nvidia-dkms`` на
 ``nvidia-open-dkms``::
 
-  sudo pacman -S nvidia-open-dkms nvidia-utils lib32-nvidia-utils nvidia-settings lib32-opencl-nvidia opencl-nvidia libxnvctrl lib32-vulkan-icd-loader libva-nvidia-driver
+  sudo pacman -S nvidia-open-dkms nvidia-utils nvidia-settings opencl-nvidia libxnvctrl libva-nvidia-driver
 
 Перед установкой драйвера рекомендуется отключить *"Secure Boot"* в
 UEFI, ибо из-за этого модули драйвера могут не загрузиться.
@@ -393,19 +403,19 @@ Nouveau (*Только для старых видеокарт*)
 драйвера NVIDIA (340, 390) и отлично справляется с 2D ускорением. Вдобавок,
 Nouveau хорошо работает с Wayland::
 
-  sudo pacman -S {lib32-,}mesa {lib32-,}vulkan-nouveau {lib32-,}opencl-mesa
+  sudo pacman -S mesa vulkan-nouveau opencl-mesa
 
 AMD
 ----
 ::
 
-  sudo pacman -S {lib32-,}mesa {lib32-,}vulkan-radeon vulkan-mesa-layers {lib32-,}opencl-mesa
+  sudo pacman -S mesa vulkan-radeon vulkan-mesa-layers opencl-mesa
 
 Intel
 -----
 ::
 
-  sudo pacman -S {lib32-,}mesa {lib32-,}vulkan-intel {lib32-,}opencl-mesa
+  sudo pacman -S mesa vulkan-intel opencl-mesa
 
 .. warning:: Автор не рекомендует выполнять установку морально
    устаревших DDX драйверов, как например ``xf86-video-intel``, так
