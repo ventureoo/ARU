@@ -284,12 +284,12 @@ Zink не привязан к конкретной реализации Vulkan, 
 
 .. [1] https://www.phoronix.com/review/radeon-zink-summer23
 
-.. index:: intel, amd, mesa, tweaks, opencl, rusticl, davinci resolve
+.. index:: intel, mesa, tweaks, opencl, rusticl, davinci resolve
 .. _mesa_rusticl_opencl:
 
---------------------------
-Ускорение с помощью OpenCL
---------------------------
+------------------------------------
+Ускорение с помощью OpenCL для Intel
+------------------------------------
 
 В 2021 году разработчики Mesa представили реализацию драйвера OpenCL,
 написанную на языке Rust, под не замысловатым названием - *Rusticl*.
@@ -297,27 +297,15 @@ Zink не привязан к конкретной реализации Vulkan, 
 ныне удаленный из кодовой базы, - Clover.
 
 Установка Rusticl уже описывалась в разделе
-:ref:`drivers-installation`, однако данный драйвер в силу своей
-новизны все ещё не используется по умолчанию, поэтому его работу нужно
+:ref:`drivers-installation`, но данный драйвер не используется по
+умолчанию для графических процессоров Intel, поэтому его работу нужно
 активировать через переменную окружения ``RUSTICL_ENABLE`` с указанием
-в качестве значения используемого Gallium драйвера: Для AMD это
-``radeonsi``, а для Intel - ``iris``:
+в качестве значения используемого Gallium драйвера ``iris``:
 
-.. tab-set::
+.. code-block:: shell
+  :caption: ``/etc/environment``
 
-   .. tab-item:: AMD
-
-      .. code-block:: shell
-         :caption: ``/etc/environment``
-
-         RUSTICL_ENABLE=radeonsi
-
-   .. tab-item:: Intel
-
-       .. code-block:: shell
-          :caption: ``/etc/environment``
-
-          RUSTICL_ENABLE=iris
+  RUSTICL_ENABLE=iris
 
 .. index:: amd, mesa, vaapi, chromium
 .. _amd_vaapi_driver:
