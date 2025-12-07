@@ -109,7 +109,7 @@ html_theme_options = {
     "footer_end": [],
     "switcher": {
         "json_url": "https://ventureo.codeberg.page/_static/switcher.json",
-        "version_match": "latest (git)",
+        "version_match": "latest",
     },
     "show_version_warning_banner": True,
     "navigation_with_keys": False,
