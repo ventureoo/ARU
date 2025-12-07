@@ -111,6 +111,7 @@ html_theme_options = {
         "json_url": "https://ventureo.codeberg.page/_static/switcher.json",
         "version_match": "latest (git)",
     },
+    "show_version_warning_banner": True,
     "navigation_with_keys": False,
 }
 
