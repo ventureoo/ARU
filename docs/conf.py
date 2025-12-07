@@ -22,7 +22,7 @@ author = 'Pavel Priluckiy, Vasiliy Stelmachenok and contributors'
 copyright = 'ARU 2018 - 2025 ' + author
 
 # The full version, including alpha/beta/rc tags
-release = '2024.07.21'
+release = 'latest'
 
 
 # -- General configuration ---------------------------------------------------
