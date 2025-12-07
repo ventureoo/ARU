@@ -1,13 +1,13 @@
 [
   {
     "name": "latest",
-    "version": "9999",
+    "version": "latest",
     "preferred": true,
     "url": "https://ventureo.codeberg.page"
   },
   {
     "name": "latest (PDF)",
-    "version": "9998",
+    "version": "latest-pdf",
     "url": "https://ventureo.codeberg.page/latex/ARU.pdf"
   },
   {
