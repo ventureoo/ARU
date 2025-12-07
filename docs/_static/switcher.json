@@ -19,20 +19,5 @@
     "name": "v2022.07.01 (stable)",
     "version": "2022.07.01",
     "url": "https://ventureo.codeberg.page/v2022.07.01/"
-  },
-  {
-    "name": "v2022.02.28",
-    "version": "2022.02.28",
-    "url": "https://ventureo.codeberg.page/v2022.02.28/"
-  },
-  {
-    "name": "v2022.01.30",
-    "version": "2022.01.30",
-    "url": "https://ventureo.codeberg.page/v2022.01.30/"
-  },
-  {
-    "name": "v2021.12.22",
-    "version": "2021.12.22",
-    "url": "https://ventureo.codeberg.page/v2021.12.22/"
   }
 ]
