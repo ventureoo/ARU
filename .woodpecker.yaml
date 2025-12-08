@@ -35,6 +35,8 @@ steps:
         from_secret: gitea_token
     commands:
       - git clone https://codeberg.org/ventureo/pages
+      - rm -rf ./pages/*
+      - git restore "v*.*.*" "*.pdf"
       - cp -r ./docs/build/* pages/
       - cd pages
       - git config user.name  "$${GIT_AUTHOR_NAME}"
