@@ -36,7 +36,9 @@ steps:
     commands:
       - git clone https://codeberg.org/ventureo/pages
       - rm -rf ./pages/*
+      - cd pages
       - git restore "v*.*.*" "*.pdf"
+      - cd ..
       - cp -r ./docs/build/* pages/
       - cd pages
       - git config user.name  "$${GIT_AUTHOR_NAME}"
