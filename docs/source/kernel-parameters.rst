@@ -533,7 +533,7 @@ ZRAM также ведет свою статистику о том, какие �
 строчку:
 
 .. code-block:: shell
-   :caption: ``/etc/modules-load.d/zram.conf``
+   :caption: ``/etc/modules-load.d/30-zram.conf``
 
    zram
 
