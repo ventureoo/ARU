@@ -638,14 +638,12 @@ Xfce, MATE и LXQt, в соответствующей им группе паке
       ::
 
          sudo pacman -S intel-ucode
-         sudo mkinitcpio -P
 
    .. tab-item:: AMD
 
       ::
 
          sudo pacman -S amd-ucode
-         sudo mkinitcpio -P
 
 .. index:: firmware, linux, installation
 .. _missing_firmwares:
