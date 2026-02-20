@@ -142,23 +142,35 @@
 Ускорение обновления системы
 =============================
 
-Утилита Reflector отсортирует доступные репозитории по скорости::
+Pacman - весьма быстрый пакетный менеджер, но узким горлышком всегда
+остается сеть, поэтому для более быстрого обновления системы
+рекомендуется всегда использовать наиболее свежие и близкие к вам
+географически зеркала. Для этого следует установить утилиту reflector,
+которая отсортирует доступные репозитории по скорости::
 
   sudo pacman -S reflector rsync
 
-Если вы из Европейской части России, то советуем всегда использовать зеркала
-Германии, так как их больше всего и они имеют оптимальную свежесть/скорость::
+Запустить reflector можно вручную со следующим набором параметров::
 
-  sudo reflector --verbose --country 'Germany' -l 25 --sort rate --save /etc/pacman.d/mirrorlist
+  sudo reflector --verbose \
+    --country "$(curl -sSL 'https://ifconfig.co/country-iso')" \
+    --latest 25 \
+    --sort age \
+    --save /etc/pacman.d/mirrorlist
 
-Если вы проживаете не на территории Европейской части РФ или в иной стране, то
-просто измените *Germany* на *Russia* или ваше государство.
+Либо в автоматическом режиме активировав службу, которая может
+срабатывать по таймеру для постоянной актуализации списка зеркал::
 
-Можно также вручную отредактировать список зеркал, добавив туда зеркала из
-постоянно обновляющегося перечня на сайте Arch Linux
-(https://archlinux.org/mirrorlist/)::
+  echo "--country "$(curl -sSL https://ifconfig.co/country-iso)"
+        --save /etc/pacman.d/mirrorlist
+        --protocol https
+        --latest 25
+        --sort age" | sudo tee /etc/xdg/reflector/reflector.conf
+  sudo systemctl enable reflector.service reflector.timer
 
-  /etc/pacman.d/mirrorlist # Рекомендуем прописывать зеркала от Яндекса
+Вместо использования reflector можно также вручную отредактировать
+список зеркал, добавив туда зеркала из постоянно обновляющегося
+перечня на сайте Arch Linux: https://archlinux.org/mirrorlist/.
 
 .. index:: pacman, settings, disable-timeouts
 .. _disable_pacman_timeouts:
