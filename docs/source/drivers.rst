@@ -336,27 +336,6 @@ Broadwell (8-е поколение графики Intel), из-за чего п�
 
   git clone https://aur.archlinux.org/libva-intel-driver-irql
   cd libva-intel-driver-irql
-  sed -i 's/tag=.*/branch=master/g' PKGBUILD
   makepkg -sricCf
-
-Обратите внимание, что на поколениях Ironlake и Sandybridge (Gen 5/Gen
-6), для правильной работы аппаратного ускорения в Chromium требуется
-использовать со следующие флаги для запуска и окружение на базе
-Wayland:
-
-.. code-block:: shell
- :caption: ``~/.config/chromium-flags.conf``
-
- --enable-features=AcceleratedVideoDecodeLinuxZeroCopyGL,AcceleratedVideoDecodeLinuxGL
- --ozone-platform-hint=wayland
-
-Без использования Wayland сессии вместе с указанными флагами для
-Chromium будет наблюдатся чёрный (прозрачный) квадрат вместо видео.
-Хотя на остальных поколениях графики Intel использование данных
-параметров не обязательно, параметр
-``AcceleratedVideoDecodeLinuxZeroCopyGL`` в окружениях на базе Wayland
-активирует использование подсистемы dma-buf для прямого доступа
-графического процессора к буферу для отрисовки видео, что может
-заметно улучшить производительность.
 
 .. vim:set textwidth=70:
