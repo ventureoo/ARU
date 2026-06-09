@@ -1,8 +1,5 @@
 # ARU
 
-> [!IMPORTANT]
-> The project is closed and will no longer maintained. If you want to continue this
-> guide - create a fork. Otherwise, just use CachyOS.
 
 **English** - [Русский][ru]
 
