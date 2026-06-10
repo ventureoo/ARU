@@ -105,10 +105,6 @@ nvidia"``, вы уже можете полноценно использоват�
    ACTION=="add|bind", SUBSYSTEM=="pci", DRIVERS=="nvidia", ATTR{vendor}=="0x10de", ATTR{class}=="0x03[0-9]*", TEST=="power/control", ATTR{power/control}="auto"
    ACTION=="remove|unbind", SUBSYSTEM=="pci", DRIVERS=="nvidia", ATTR{vendor}=="0x10de", ATTR{class}=="0x03[0-9]*", TEST=="power/control", ATTR{power/control}="on"
 
-.. warning:: Динамическое управление питание на текущий момент не работает для
-   видеокарт поколения Turing при использовании открытых модулей драйвера
-   NVIDIA (``nvidia-open-dkms``) [#]_.
-
 Вам также потребуется изменить значение параметра для модуля драйвера NVIDIA,
 который и активирует работу динамического управления питанием:
 
@@ -328,5 +324,3 @@ NVIDIA главным GPU, что позволяет избавиться от �
 можете узнать при помощи следующей команды: ``lspci -Dd "10de:*:030x" | cut -f
 2 -d ":" | awk '{x=$0+0;print x}'``. После сохранения файла и перезагрузки
 вашим GPU по умолчанию должна стать NVIDIA графика.
-
-.. [#] https://forums.developer.nvidia.com/t/clarifying-560-series-drivers-open-sourcedness-vs-kernel-module-type-proprietary/292698/2
